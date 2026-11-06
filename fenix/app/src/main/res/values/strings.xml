@@ -321,14 +321,14 @@
     <!-- Description for learning more about our privacy notice. -->
     <string name="juno_onboarding_privacy_notice_text_2" moz:removedIn="125" tools:ignore="UnusedResources">Learn more in our privacy notice</string>
     <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
-    <string name="juno_onboarding_default_browser_title_nimbus_2">We love keeping you safe</string>
+    <string name="juno_onboarding_default_browser_title_nimbus_2">Make Eyebrowse your default</string>
     <!-- Title for set firefox as default browser screen used by Nimbus experiments.
         Note: The word "Firefox" should NOT be translated -->
     <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="UnusedResources">Find out why millions love Eyebrowse</string>
     <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_title_nimbus_4" tools:ignore="UnusedResources">Safe browsing with more choices</string>
     <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
-    <string name="juno_onboarding_default_browser_description_nimbus_3">Our non-profit backed browser helps stop companies from secretly following you around the web.</string>
+    <string name="juno_onboarding_default_browser_description_nimbus_3">Get fast, secure, and privacy-first browsing every time you open a link.</string>
     <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_description_nimbus_4" tools:ignore="UnusedResources">More than 100 million people protect their privacy by choosing a browser that’s backed by a nonprofit.</string>
     <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
@@ -343,30 +343,30 @@
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_default_browser_negative_button" tools:ignore="UnusedResources">Not now</string>
     <!-- Title for sign in to sync screen. -->
-    <string name="juno_onboarding_sign_in_title_2">Stay encrypted when you hop between devices</string>
+    <string name="juno_onboarding_sign_in_title_2">Stay synced on all devices</string>
     <!-- Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
      Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_sign_in_description_2">When you’re signed in and synced, you’re safer. Eyebrowse encrypts your passwords, bookmarks, and more.</string>
+    <string name="juno_onboarding_sign_in_description_2">Sign in to securely sync your bookmarks, passwords, and open tabs across your phone, tablet, and computer.</string>
     <!-- Text for the button to sign in to sync on the device -->
     <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">Sign in</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_sign_in_negative_button" tools:ignore="UnusedResources">Not now</string>
     <!-- Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_enable_notifications_title_nimbus_2">Notifications help you stay safer with Eyebrowse</string>
+    <string name="juno_onboarding_enable_notifications_title_nimbus_2">Notifications keep you safe</string>
     <!-- Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
        Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_enable_notifications_description_nimbus_2">Securely send tabs between your devices and discover other privacy features in Eyebrowse.</string>
+    <string name="juno_onboarding_enable_notifications_description_nimbus_2">Get alerts about blocked trackers and securely send tabs between your devices with smart notifications.</string>
     <!-- Text for the button to request notification permission on the device -->
     <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">Turn on notifications</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_enable_notifications_negative_button" tools:ignore="UnusedResources">Not now</string>
     <!-- Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_title" tools:ignore="UnusedResources">Try the Eyebrowse search widget</string>
+    <string name="juno_onboarding_add_search_widget_title" tools:ignore="UnusedResources">Add the Eyebrowse widget</string>
     <!-- Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_description" tools:ignore="UnusedResources">With Eyebrowse on your home screen, you’ll have easy access to the privacy-first browser that blocks cross-site trackers.</string>
+    <string name="juno_onboarding_add_search_widget_description" tools:ignore="UnusedResources">Place the search widget on your home screen for instant, privacy-first access without opening the app.</string>
     <!-- Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
     <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="UnusedResources">Add Eyebrowse widget</string>

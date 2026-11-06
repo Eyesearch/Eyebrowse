@@ -14,7 +14,7 @@
     <!-- Privacy Notice clickable-->
     <string name="privacy_notice_clickable2">found here</string>
     <!-- Privacy Notice clickable-->
-    <string name="privacy_notice_clickable3">Firefox Privacy Policy</string>
+    <string name="privacy_notice_clickable3">Eyebrowse Privacy Policy</string>
     <!-- Privacy Notice positive button-->
     <string name="privacy_notice_positive_button">Agree and Continue</string>
     <!-- Privacy Notice neutral button-->
@@ -38,7 +38,7 @@
     <!-- Instructions on how to access pairing -->
     <string name="pair_instructions_2_cn"><![CDATA[Scan the QR code shown at <b>firefox.com.cn/pair</b>]]></string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions_cn"><![CDATA[On your computer open Firefox and go to <b>https://firefox.com.cn/pair</b>]]></string>
+    <string name="sign_in_instructions_cn"><![CDATA[On your computer open Eyebrowse and go to <b>https://firefox.com.cn/pair</b>]]></string>
 
     <!-- Homescreen menu button -->
     <!-- Browser menu button that opens the account setting page -->
