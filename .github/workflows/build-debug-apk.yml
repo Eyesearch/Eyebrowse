@@ -154,14 +154,26 @@ jobs:
           fi
 
           unzip -o -q "$tmp/nimbus-fml.zip" -d "$tmp/extracted"
-          binary="$(find "$tmp/extracted" -type f -name 'nimbus-fml' -path '*unknown-linux*' | head -n 1)"
+          echo "Archive contents:"
+          find "$tmp/extracted" -type f -exec ls -l {} \; | head -n 40
+
+          # Pick the real ELF executable: the archive may contain wrapper
+          # scripts or notes alongside the per-platform binaries.
+          elf_files="$(find "$tmp/extracted" -type f -exec sh -c '
+            if [ "$(head -c 4 "$1" | od -An -tx1 | tr -d " \n")" = "7f454c46" ]; then
+              echo "$1"
+            fi' _ {} \; | sort)"
+          binary="$(printf '%s\n' "$elf_files" | grep 'unknown-linux' | head -n 1 || true)"
           if [ -z "$binary" ]; then
-            echo "::error::The nimbus-fml archive has no linux binary"
+            binary="$(printf '%s\n' "$elf_files" | head -n 1 || true)"
+          fi
+          if [ -z "$binary" ]; then
+            echo "::error::The nimbus-fml archive has no linux executable"
             exit 1
           fi
           cp "$binary" "$target/nimbus-fml"
           chmod +x "$target/nimbus-fml"
-          echo "Seeded nimbus-fml from application-services $found"
+          echo "Seeded nimbus-fml from application-services $found ($binary)"
 
       - name: Assemble the debug APK
         run: |
