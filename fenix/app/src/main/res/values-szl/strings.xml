@@ -304,7 +304,7 @@
     <string name="juno_onboarding_default_browser_title" moz:RemovedIn="117" tools:ignore="UnusedResources">Dej rokić aplikacyji %s za twoja nojlepszo przeglōndarka</string>
     <!-- Title for set firefox as default browser screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_default_browser_title_nimbus" tools:ignore="UnusedResources">Dej robić aplikacyji Firefox za twoja nojlepszo przeglōndarka</string>
+    <string name="juno_onboarding_default_browser_title_nimbus" tools:ignore="UnusedResources">Dej robić aplikacyji Eyebrowse za twoja nojlepszo przeglōndarka</string>
     <!-- Text for the link to the privacy notice webpage for set as firefox default browser screen.
     This is part of the string with the key "juno_onboarding_default_browser_description". -->
     <string name="juno_onboarding_default_browser_description_link_text" tools:ignore="UnusedResources">ô prywatności</string>
@@ -326,13 +326,13 @@
 
     <!-- Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_enable_notifications_title_nimbus" tools:ignore="UnusedResources">Powiadōmiynia pōmogajōm ci lepij używać aplikacyjo Firefox</string>
+    <string name="juno_onboarding_enable_notifications_title_nimbus" tools:ignore="UnusedResources">Powiadōmiynia pōmogajōm ci lepij używać aplikacyjo Eyebrowse</string>
     <!-- Description for enable notification permission screen.
         The first parameter is the name of the app defined in app_name (for example: Fenix) -->
     <string name="juno_onboarding_enable_notifications_description" moz:RemovedIn="117" tools:ignore="UnusedResources">Posyłej karty miyndzy maszinami, regyruj pobraniami i zbiyrej dorady, jak nojlepij używać aplikacyjo %s.</string>
     <!-- Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
        Note: The word "Firefox" should NOT be translated   -->
-    <string name="juno_onboarding_enable_notifications_description_nimbus" tools:ignore="UnusedResources">Posyłej karty miyndzy maszinami, regyruj pobraniami i zbiyrej dorady, jak nojlepij używać aplikacyjo Firefox.</string>
+    <string name="juno_onboarding_enable_notifications_description_nimbus" tools:ignore="UnusedResources">Posyłej karty miyndzy maszinami, regyruj pobraniami i zbiyrej dorady, jak nojlepij używać aplikacyjo Eyebrowse.</string>
     <!-- Text for the button to request notification permission on the device -->
     <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">Załōncz powiadōmiynia</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -459,13 +459,13 @@
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">Dostympność</string>
     <!-- Preference to override the Firefox Account server -->
-    <string name="preferences_override_fxa_server">Włosny serwer kōnta Firefox</string>
+    <string name="preferences_override_fxa_server">Włosny serwer kōnta Eyebrowse</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">Włosny serwer do synchrōnizacyje</string>
 
 
     <!-- Toast shown after updating the FxA/Sync server override preferences -->
-    <string name="toast_override_fxa_sync_server_done">Serwer kōnta Firefox/synchrōnizacyje je zmiyniōny. Zawiyranie aplikacyje, coby przidać zmiany…</string>
+    <string name="toast_override_fxa_sync_server_done">Serwer kōnta Eyebrowse/synchrōnizacyje je zmiyniōny. Zawiyranie aplikacyje, coby przidać zmiany…</string>
     <!-- Preference category for account information -->
     <string name="preferences_category_account">Kōnto</string>
     <!-- Preference for changing where the toolbar is positioned -->
@@ -481,7 +481,7 @@
     <!-- Preference description for banner about signing in -->
     <string name="preferences_sign_in_description_2">Wluguj sie, coby synchrōnizować karty, zokłodki, hasła i inksze.</string>
     <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-    <string name="preferences_account_default_name">Kōnto Firefox</string>
+    <string name="preferences_account_default_name">Kōnto Eyebrowse</string>
     <!-- Preference text for account title when there was an error syncing FxA -->
     <string name="preferences_account_sync_error">Połōncz sie zaś, coby durch synchrōnizować</string>
     <!-- Preference for language -->
@@ -661,7 +661,7 @@
     <!-- Name of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
     <string name="fxa_received_tab_channel_name">Przijynte karty</string>
     <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-    <string name="fxa_received_tab_channel_description">Powiadōmiynia ô kartach przijyntych z inkszych maszin z aplikacyjōm Firefox.</string>
+    <string name="fxa_received_tab_channel_description">Powiadōmiynia ô kartach przijyntych z inkszych maszin z aplikacyjōm Eyebrowse.</string>
     <!--  The body for these is the URL of the tab received  -->
     <string name="fxa_tab_received_notification_name">Karta je przijynto</string>
     <!-- %s is the device name -->
@@ -1214,7 +1214,7 @@
     <!-- An option to connect additional devices -->
     <string name="sync_connect_device">Połōncz inkszo maszina</string>
     <!-- The dialog text shown when additional devices are not available -->
-    <string name="sync_connect_device_dialog">Coby posłać karta, zaloguj sie do Firefoxa aby na jednyj inkszyj maszinie.</string>
+    <string name="sync_connect_device_dialog">Coby posłać karta, zaloguj sie do Eyebrowsea aby na jednyj inkszyj maszinie.</string>
     <!-- Confirmation dialog button -->
     <string name="sync_confirmation_button">Rozumia</string>
 
@@ -1237,11 +1237,11 @@
 
     <!-- Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_notification_default_browser_title" tools:ignore="UnusedResources">Firefox je gibki i prywatny</string>
+    <string name="nimbus_notification_default_browser_title" tools:ignore="UnusedResources">Eyebrowse je gibki i prywatny</string>
 
     <!-- Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_notification_default_browser_text" tools:ignore="UnusedResources">Nastow Firefox za bazowo przeglōndarka</string>
+    <string name="nimbus_notification_default_browser_text" tools:ignore="UnusedResources">Nastow Eyebrowse za bazowo przeglōndarka</string>
     <!-- Title shown in the notification that pops up to re-engage the user -->
     <string name="notification_re_engagement_title">Sprōbuj prywatnego przeglōndanio</string>
 
@@ -1403,7 +1403,7 @@
     <!-- Text for the privacy notice onboarding card header -->
     <string name="onboarding_privacy_notice_header_1">Mosz kōntrola nad swojimi danymi</string>
     <!-- Text for the privacy notice onboarding card description. -->
-    <string name="onboarding_privacy_notice_description">Firefox dowo ci kōntrola nad tym, co udostympniosz online i co udostympniosz nōm.</string>
+    <string name="onboarding_privacy_notice_description">Eyebrowse dowo ci kōntrola nad tym, co udostympniosz online i co udostympniosz nōm.</string>
     <!-- Text for the button to read the privacy notice -->
     <string name="onboarding_privacy_notice_read_button">Poczytej ô naszych prawidłach prywatności</string>
 
@@ -1437,7 +1437,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">Skanuj kod</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[Ôdewrzij Firefoxa na kōmputrze i idź na strōna <b>https://firefox.com/pair</b>]]></string>
+    <string name="sign_in_instructions"><![CDATA[Ôdewrzij Eyebrowsea na kōmputrze i idź na strōna <b>https://firefox.com/pair</b>]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Fertich, coby skanować</string>
     <!-- Text shown for settings option for sign with pairing -->
@@ -1445,7 +1445,7 @@
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">Użyj lepij emaila</string>
     <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
-    <string name="sign_in_create_account_text"><![CDATA[Niy mosz kōnta? <u>Zrychtuj je</u>, coby synchrōnizować Firefoxa miyndzy maszinami.]]></string>
+    <string name="sign_in_create_account_text"><![CDATA[Niy mosz kōnta? <u>Zrychtuj je</u>, coby synchrōnizować Eyebrowsea miyndzy maszinami.]]></string>
 
     <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
     <string name="sign_out_confirmation_message_2">%s skōńczy sie synchrōnizować ze twojim kōntym, ale niy skasuje żodnych danych przeglōndanio na tyj maszinie.</string>
