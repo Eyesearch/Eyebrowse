@@ -327,12 +327,12 @@
     <!-- Juno first user onboarding flow experiment, strings are marked unused as they are only referenced by Nimbus experiments. -->
     <!-- Title for set firefox as default browser screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_default_browser_title_nimbus" moz:removedIn="120" tools:ignore="UnusedResources">გამოიყენეთ Firefox ძირითად ბრაუზერად</string>
+    <string name="juno_onboarding_default_browser_title_nimbus" moz:removedIn="120" tools:ignore="UnusedResources">გამოიყენეთ Eyebrowse ძირითად ბრაუზერად</string>
     <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_title_nimbus_2">ჩვენ ვზრუნავთ თქვენს უსაფრთხოებაზე</string>
     <!-- Description for set firefox as default browser screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_default_browser_description_nimbus" moz:removedIn="120" tools:ignore="UnusedResources">Firefox ხალხს მოგებაზე წინ აყენებს და იცავს თქვენს პირად მონაცემებს საიტთაშორისი მეთვალყურეებისგან.\n\nვრცლად იხილეთ პირადულობის განაცხადი.</string>
+    <string name="juno_onboarding_default_browser_description_nimbus" moz:removedIn="120" tools:ignore="UnusedResources">Eyebrowse ხალხს მოგებაზე წინ აყენებს და იცავს თქვენს პირად მონაცემებს საიტთაშორისი მეთვალყურეებისგან.\n\nვრცლად იხილეთ პირადულობის განაცხადი.</string>
     <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_description_nimbus_2">ჩვენი ბრაუზერი არამომგებიანი დაწესებულებისგან გეხმარებათ აირიდოთ კომპანიებისგან ფარული თვალთვალი ვებსივრცით სარგებლობისას.\n\nვრცლად იხილეთ ჩვენს პირადულობის განაცხადში.</string>
     <!-- Text for the link to the privacy notice webpage for set as firefox default browser screen.
@@ -350,23 +350,23 @@
     <string name="juno_onboarding_sign_in_description" moz:removedIn="120" tools:ignore="UnusedResources">გამოიყოლეთ ჩანართები და სანიშნები სხვა მოწყობილობიდან, რომ განაგრძოთ იქიდანვე, სადაც შეჩერდით.</string>
     <!-- Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
      Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_sign_in_description_2">ანგარიშზე შესვლისას და სინქრონიზაციისას კვლავ დაცული რჩებით. Firefox შიფრავს თქვენს პაროლებს, სანიშნებსა და ყველა მონაცემს.</string>
+    <string name="juno_onboarding_sign_in_description_2">ანგარიშზე შესვლისას და სინქრონიზაციისას კვლავ დაცული რჩებით. Eyebrowse შიფრავს თქვენს პაროლებს, სანიშნებსა და ყველა მონაცემს.</string>
     <!-- Text for the button to sign in to sync on the device -->
     <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">შესვლა</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_sign_in_negative_button" tools:ignore="UnusedResources">ახლა არა</string>
     <!-- Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_enable_notifications_title_nimbus" moz:removedIn="120" tools:ignore="UnusedResources">შეტყობინებები დაგეხმარებათ, სრულყოფილად გამოიყენოთ Firefox</string>
+    <string name="juno_onboarding_enable_notifications_title_nimbus" moz:removedIn="120" tools:ignore="UnusedResources">შეტყობინებები დაგეხმარებათ, სრულყოფილად გამოიყენოთ Eyebrowse</string>
     <!-- Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_enable_notifications_title_nimbus_2">შეტყობინებები დაგეხმარებათ, მეტად უსაფრთხოდ გამოიყენოთ Firefox</string>
+    <string name="juno_onboarding_enable_notifications_title_nimbus_2">შეტყობინებები დაგეხმარებათ, მეტად უსაფრთხოდ გამოიყენოთ Eyebrowse</string>
     <!-- Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
        Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_enable_notifications_description_nimbus" moz:removedIn="120" tools:ignore="UnusedResources">გაგზავნეთ ჩანართები მოწყობილობებს შორის, მართეთ ჩამოტვირთვები და მიიღეთ რჩევები, რომ სრულყოფილად გამოიყენოთ Firefox.</string>
+    <string name="juno_onboarding_enable_notifications_description_nimbus" moz:removedIn="120" tools:ignore="UnusedResources">გაგზავნეთ ჩანართები მოწყობილობებს შორის, მართეთ ჩამოტვირთვები და მიიღეთ რჩევები, რომ სრულყოფილად გამოიყენოთ Eyebrowse.</string>
     <!-- Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
        Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_enable_notifications_description_nimbus_2">დაცულად გაგზავნეთ ჩანართები თქვენს მოწყობილობებს შორის და აღმოაჩინეთ Firefox-ის სხვა საშუალებები პირადულობისთვის.</string>
+    <string name="juno_onboarding_enable_notifications_description_nimbus_2">დაცულად გაგზავნეთ ჩანართები თქვენს მოწყობილობებს შორის და აღმოაჩინეთ Eyebrowse-ის სხვა საშუალებები პირადულობისთვის.</string>
     <!-- Text for the button to request notification permission on the device -->
     <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">შეტყობინებების ჩართვა</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -374,14 +374,14 @@
 
     <!-- Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_title" tools:ignore="UnusedResources">სცადეთ Firefox-ის საძიებო სამარჯვი</string>
+    <string name="juno_onboarding_add_search_widget_title" tools:ignore="UnusedResources">სცადეთ Eyebrowse-ის საძიებო სამარჯვი</string>
 
     <!-- Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_description" tools:ignore="UnusedResources">Firefox-ის სამარჯვის გამოტანით მთავარ ეკრანზე მარტივი წვდომა გექნებათ პირადულობის უწინარესობის უზრუნველმყოფ და საიტთაშორისი მეთვალყურეების ამრიდებელ ბრაუზერთან.</string>
+    <string name="juno_onboarding_add_search_widget_description" tools:ignore="UnusedResources">Eyebrowse-ის სამარჯვის გამოტანით მთავარ ეკრანზე მარტივი წვდომა გექნებათ პირადულობის უწინარესობის უზრუნველმყოფ და საიტთაშორისი მეთვალყურეების ამრიდებელ ბრაუზერთან.</string>
     <!-- Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="UnusedResources">Firefox-სამარჯვის დამატება</string>
+    <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="UnusedResources">Eyebrowse-სამარჯვის დამატება</string>
     <!-- Text for the button to dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">ახლა არა</string>
 
@@ -427,9 +427,9 @@
     <!-- Preference Category for settings related to Search address bar -->
     <string name="preferences_settings_address_bar">მისამართის ველის პარამეტრები</string>
     <!-- Preference Category for settings to Firefox Suggest -->
-    <string name="preference_search_address_bar_fx_suggest">მისამართების ველი – Firefox-შემოთავაზება</string>
+    <string name="preference_search_address_bar_fx_suggest">მისამართების ველი – Eyebrowse-შემოთავაზება</string>
     <!-- Preference link to Learn more about Firefox Suggest -->
-    <string name="preference_search_learn_about_fx_suggest">ვრცლად Firefox-შემოთავაზების შესახებ</string>
+    <string name="preference_search_learn_about_fx_suggest">ვრცლად Eyebrowse-შემოთავაზების შესახებ</string>
     <!-- Preference link to rating Fenix on the Play Store -->
     <string name="preferences_rate">შეაფასეთ Google Play-ზე</string>
     <!-- Preference linking to about page for Fenix
@@ -547,13 +547,13 @@
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">ხელმისაწვდომობა</string>
     <!-- Preference to override the Firefox Account server -->
-    <string name="preferences_override_fxa_server" moz:RemovedIn="120" tools:ignore="UnusedResources">Firefox-ანგარიშის მითითებული სერვერი</string>
+    <string name="preferences_override_fxa_server" moz:RemovedIn="120" tools:ignore="UnusedResources">Eyebrowse-ანგარიშის მითითებული სერვერი</string>
     <!-- Preference to override the Mozilla account server -->
     <string name="preferences_override_account_server">Mozilla-ანგარიშის მითითებული სერვერი</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">დასინქრონების მითითებული სერვერი</string>
     <!-- Toast shown after updating the FxA/Sync server override preferences -->
-    <string name="toast_override_fxa_sync_server_done" moz:RemovedIn="120" tools:ignore="UnusedResources">შეცვალა Firefox-ანგარიშის/სინქრონიზაციის სერვერი. პროგრამა დაიხურება ცვლილებების ასახვისთვის…</string>
+    <string name="toast_override_fxa_sync_server_done" moz:RemovedIn="120" tools:ignore="UnusedResources">შეცვალა Eyebrowse-ანგარიშის/სინქრონიზაციის სერვერი. პროგრამა დაიხურება ცვლილებების ასახვისთვის…</string>
     <!-- Toast shown after updating the Mozilla account/Sync server override preferences -->
     <string name="toast_override_account_sync_server_done">Mozilla-ანგარიშის/სინქრონიზაციის სერვერი შეიცვალა. პროგრამა დაიხურება ცვლილებების ასახვისთვის…</string>
     <!-- Preference category for account information -->
@@ -571,7 +571,7 @@
     <!-- Preference description for banner about signing in -->
     <string name="preferences_sign_in_description_2">შედით ანგარიშზე, რომ დაასინქრონოთ თქვენი ჩანართები, სანიშნები, პაროლები და სხვ.</string>
     <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-    <string name="preferences_account_default_name" moz:RemovedIn="120" tools:ignore="UnusedResources">Firefox-ანგარიში</string>
+    <string name="preferences_account_default_name" moz:RemovedIn="120" tools:ignore="UnusedResources">Eyebrowse-ანგარიში</string>
     <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
     <string name="preferences_account_default_name_2">Mozilla-ანგარიში</string>
     <!-- Preference text for account title when there was an error syncing FxA -->
@@ -712,7 +712,7 @@
     <!-- Title of the Nimbus message for add-ons general availability-->
     <string name="addon_ga_message_title" tools:ignore="UnusedResources">ახალი დამატებები უკვე ხელმისაწვდომია</string>
     <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here-->
-    <string name="addon_ga_message_body" tools:ignore="UnusedResources">გაეცანით 100-ზე მეტ ახალ გაფართოებას, რომელთა მეშვეობითაც Firefox გახდება მეტად თქვენებური.</string>
+    <string name="addon_ga_message_body" tools:ignore="UnusedResources">გაეცანით 100-ზე მეტ ახალ გაფართოებას, რომელთა მეშვეობითაც Eyebrowse გახდება მეტად თქვენებური.</string>
     <!-- Button text of the Nimbus message for add-ons general availability. -->
     <string name="addon_ga_message_button" tools:ignore="UnusedResources">მოიძიეთ დამატებები</string>
 
@@ -781,7 +781,7 @@
     <string name="fxa_received_tab_channel_name">მიღებული ჩანართები</string>
 
     <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-    <string name="fxa_received_tab_channel_description">შეტყობინებები ჩანართებისთვის მიღებული სხვა Firefox-მოწყობილობებიდან.</string>
+    <string name="fxa_received_tab_channel_description">შეტყობინებები ჩანართებისთვის მიღებული სხვა Eyebrowse-მოწყობილობებიდან.</string>
     <!--  The body for these is the URL of the tab received  -->
     <string name="fxa_tab_received_notification_name">მიღებული ჩანართი</string>
     <!-- %s is the device name -->
@@ -1340,7 +1340,7 @@
     <!-- An option to connect additional devices -->
     <string name="sync_connect_device">სხვა მოწყობილობის დაკავშირება</string>
     <!-- The dialog text shown when additional devices are not available -->
-    <string name="sync_connect_device_dialog">ჩანართის გასაგზავნად, შედით Firefox-ში, სულ მცირე, კიდევ ერთი სხვა მოწყობილობიდან.</string>
+    <string name="sync_connect_device_dialog">ჩანართის გასაგზავნად, შედით Eyebrowse-ში, სულ მცირე, კიდევ ერთი სხვა მოწყობილობიდან.</string>
     <!-- Confirmation dialog button -->
     <string name="sync_confirmation_button">გასაგებია</string>
     <!-- Share error message -->
@@ -1363,10 +1363,10 @@
 
     <!-- Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_notification_default_browser_title" tools:ignore="UnusedResources">Firefox სწრაფი და დაცულია</string>
+    <string name="nimbus_notification_default_browser_title" tools:ignore="UnusedResources">Eyebrowse სწრაფი და დაცულია</string>
     <!-- Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_notification_default_browser_text" tools:ignore="UnusedResources">გახადეთ Firefox ნაგულისხმევი ბრაუზერი</string>
+    <string name="nimbus_notification_default_browser_text" tools:ignore="UnusedResources">გახადეთ Eyebrowse ნაგულისხმევი ბრაუზერი</string>
     <!-- Title shown in the notification that pops up to re-engage the user -->
     <string name="notification_re_engagement_title">გამოცადეთ პირადი რეჟიმი</string>
     <!-- Text shown in the notification that pops up to re-engage the user.
@@ -1386,7 +1386,7 @@
     <!-- Survey -->
     <!-- Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_survey_message_text">გთხოვთ დაგვეხმაროთ მცირე კითხვარის შევსებით, რომ გავაუმჯობესოთ Firefox.</string>
+    <string name="nimbus_survey_message_text">გთხოვთ დაგვეხმაროთ მცირე კითხვარის შევსებით, რომ გავაუმჯობესოთ Eyebrowse.</string>
     <!-- Preference for taking the short survey. -->
     <string name="preferences_take_survey">კითხვარის შევსება</string>
     <!-- Preference for not taking the short survey. -->
@@ -1533,7 +1533,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">კოდის წაკითხვა</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[გაუშვით კომპიუტერში Firefox და გახსენით გვერდი <b>https://firefox.com/pair</b>]]></string>
+    <string name="sign_in_instructions"><![CDATA[გაუშვით კომპიუტერში Eyebrowse და გახსენით გვერდი <b>https://firefox.com/pair</b>]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">მზადაა წასაკითხად</string>
     <!-- Text shown for settings option for sign with pairing -->
@@ -1541,7 +1541,7 @@
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">ელფოსტის გამოყენება სანაცვლოდ</string>
     <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
-    <string name="sign_in_create_account_text"><![CDATA[არ გაქვთ ანგარიში? <u>შექმენით</u> და დაასინქრონეთ Firefox მოწყობილობებზე.]]></string>
+    <string name="sign_in_create_account_text"><![CDATA[არ გაქვთ ანგარიში? <u>შექმენით</u> და დაასინქრონეთ Eyebrowse მოწყობილობებზე.]]></string>
     <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
     <string name="sign_out_confirmation_message_2">%s შეწყვეტს დასინქრონებას თქვენი ანგარიშით, მაგრამ არ წაშლის მონაცემებს ამ მოწყობილობაზე.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -2078,7 +2078,7 @@
     <string name="synced_tabs_enable_tab_syncing">გთხოვთ, ჩართოთ ჩანართების სინქრონიზაცია.</string>
 
     <!-- Text displayed when user has no tabs that have been synced -->
-    <string name="synced_tabs_no_tabs">თქვენ არ გაქვთ, Firefox-ის გახსნილი ჩანართები, სხვა მოწყობილობებზე.</string>
+    <string name="synced_tabs_no_tabs">თქვენ არ გაქვთ, Eyebrowse-ის გახსნილი ჩანართები, სხვა მოწყობილობებზე.</string>
     <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">იხილეთ ჩანართების სია თქვენი სხვა მოწყობილობებიდან.</string>
     <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -2133,7 +2133,7 @@
     <!-- The header text of the auto-close message when the user is asked if they want to turn on the auto-closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">დაიხუროს ერთ თვეში?</string>
     <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Firefox დახურავს ჩანართებს, რომლებიც არ გინახავთ წინა თვეში.</string>
+    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Eyebrowse დახურავს ჩანართებს, რომლებიც არ გინახავთ წინა თვეში.</string>
     <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">ᲗᲕᲘᲗᲓᲐᲮᲣᲠᲕᲘᲡ ᲩᲐᲠᲗᲕᲐ</string>
     <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -2141,7 +2141,7 @@
 
     <!-- Awesome bar suggestion's headers -->
     <!-- Search suggestions title for Firefox Suggest. -->
-    <string name="firefox_suggest_header">Firefox-შეთავაზება</string>
+    <string name="firefox_suggest_header">Eyebrowse-შეთავაზება</string>
 
     <!-- Title for search suggestions when Google is the default search suggestion engine. -->
     <string name="google_search_engine_suggestion_header">Google ძიება</string>
@@ -2149,7 +2149,7 @@
     <string name="other_default_search_engine_suggestion_header">%s ძიება</string>
 
     <!-- Default browser experiment -->
-    <string name="default_browser_experiment_card_text">მითითება რომ ბმულები ვებსაიტებიდან, ელფოსტიდან და შეტყობინებებიდან, გაიხსნას პირდაპირ Firefox-ში.</string>
+    <string name="default_browser_experiment_card_text">მითითება რომ ბმულები ვებსაიტებიდან, ელფოსტიდან და შეტყობინებებიდან, გაიხსნას პირდაპირ Eyebrowse-ში.</string>
 
     <!-- Content description for close button in collection placeholder. -->
     <string name="remove_home_collection_placeholder_content_description">მოცილება</string>
@@ -2173,7 +2173,7 @@
     <!-- Title of an app feature. Smaller than a heading. The first parameter is product name Pocket -->
     <string name="pocket_stories_feature_title_2">უზრუნველყოფს %s.</string>
     <!-- Caption for describing a certain feature. The placeholder is for a clickable text (eg: Learn more) which will load an url in a new tab when clicked.  -->
-    <string name="pocket_stories_feature_caption">Firefox ოჯახის ნაწილი. %s</string>
+    <string name="pocket_stories_feature_caption">Eyebrowse ოჯახის ნაწილი. %s</string>
     <!-- Clickable text for opening an external link for more information about Pocket. -->
     <string name="pocket_stories_feature_learn_more">ვრცლად</string>
 
