@@ -793,7 +793,7 @@ zure pasahitzak, laster-markak eta gehiago zifratzen du.</string>
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[Eskaneatu <b>firefox.com/pair</b> helbideko QR kodea]]></string>
+    <string name="pair_instructions_2"><![CDATA[Eskaneatu <b>eyebrowse.in/pair</b> helbideko QR kodea]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -1513,7 +1513,7 @@ zure pasahitzak, laster-markak eta gehiago zifratzen du.</string>
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">Eskaneatu kodea</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[Ireki Eyebrowse zure ordenagailuan eta zoaz <b>https://firefox.com/pair</b> helbidera]]></string>
+    <string name="sign_in_instructions"><![CDATA[Ireki Eyebrowse zure ordenagailuan eta zoaz <b>https://eyebrowse.in/pair</b> helbidera]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Eskaneatzeko prest</string>
     <!-- Text shown for settings option for sign with pairing -->
