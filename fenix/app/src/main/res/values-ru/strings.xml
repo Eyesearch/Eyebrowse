@@ -344,14 +344,14 @@
 
     <!-- Juno first user onboarding flow experiment, strings are marked unused as they are only referenced by Nimbus experiments. -->
     <!-- Description for learning more about our privacy notice. -->
-    <string name="juno_onboarding_privacy_notice_text">Уведомление о конфиденциальности Firefox</string>
+    <string name="juno_onboarding_privacy_notice_text">Уведомление о конфиденциальности Eyebrowse</string>
     <!-- Description for learning more about our privacy notice. -->
     <string name="juno_onboarding_privacy_notice_text_2" moz:removedIn="125" tools:ignore="UnusedResources">Узнайте больше в нашем уведомлении о конфиденциальности</string>
     <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_title_nimbus_2">Нам нравится обеспечивать вашу безопасность</string>
     <!-- Title for set firefox as default browser screen used by Nimbus experiments.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="UnusedResources">Узнайте, почему миллионы людей любят Firefox</string>
+    <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="UnusedResources">Узнайте, почему миллионы людей любят Eyebrowse</string>
     <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_title_nimbus_4" tools:ignore="UnusedResources">Безопасный веб-сёрфинг с большим выбором</string>
     <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
@@ -373,17 +373,17 @@
     <string name="juno_onboarding_sign_in_title_2">Оставайтесь зашифрованными при переходе между устройствами</string>
     <!-- Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
      Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_sign_in_description_2">Когда вы вошли в систему и провели синхронизацию, вы в большей безопасности. Firefox шифрует ваши пароли, закладки и многое другое.</string>
+    <string name="juno_onboarding_sign_in_description_2">Когда вы вошли в систему и провели синхронизацию, вы в большей безопасности. Eyebrowse шифрует ваши пароли, закладки и многое другое.</string>
     <!-- Text for the button to sign in to sync on the device -->
     <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">Войти</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_sign_in_negative_button" tools:ignore="UnusedResources">Не сейчас</string>
     <!-- Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_enable_notifications_title_nimbus_2">Уведомления помогают вам оставаться в безопасности с Firefox</string>
+    <string name="juno_onboarding_enable_notifications_title_nimbus_2">Уведомления помогают вам оставаться в безопасности с Eyebrowse</string>
     <!-- Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
        Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_enable_notifications_description_nimbus_2">Безопасно пересылайте вкладки между своими устройствами и откройте для себя другие функции конфиденциальности в Firefox.</string>
+    <string name="juno_onboarding_enable_notifications_description_nimbus_2">Безопасно пересылайте вкладки между своими устройствами и откройте для себя другие функции конфиденциальности в Eyebrowse.</string>
     <!-- Text for the button to request notification permission on the device -->
     <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">Включить уведомления</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -391,13 +391,13 @@
 
     <!-- Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_title" tools:ignore="UnusedResources">Попробуйте виджет поиска Firefox</string>
+    <string name="juno_onboarding_add_search_widget_title" tools:ignore="UnusedResources">Попробуйте виджет поиска Eyebrowse</string>
     <!-- Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_description" tools:ignore="UnusedResources">Разместив Firefox на главном экране, вы получите легкий доступ к браузеру, ориентированному на конфиденциальность, который блокирует межсайтовое отслеживание.</string>
+    <string name="juno_onboarding_add_search_widget_description" tools:ignore="UnusedResources">Разместив Eyebrowse на главном экране, вы получите легкий доступ к браузеру, ориентированному на конфиденциальность, который блокирует межсайтовое отслеживание.</string>
     <!-- Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="UnusedResources">Добавить виджет Firefox</string>
+    <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="UnusedResources">Добавить виджет Eyebrowse</string>
     <!-- Text for the button to dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">Не сейчас</string>
 
@@ -439,9 +439,9 @@
     <!-- Preference Category for settings related to Search address bar -->
     <string name="preferences_settings_address_bar">Настройки адресной строки</string>
     <!-- Preference Category for settings to Firefox Suggest -->
-    <string name="preference_search_address_bar_fx_suggest">Адресная строка - Firefox Suggest</string>
+    <string name="preference_search_address_bar_fx_suggest">Адресная строка - Eyebrowse Suggest</string>
     <!-- Preference link to Learn more about Firefox Suggest -->
-    <string name="preference_search_learn_about_fx_suggest">Узнайте больше о Firefox Suggest</string>
+    <string name="preference_search_learn_about_fx_suggest">Узнайте больше о Eyebrowse Suggest</string>
     <!-- Preference link to rating Fenix on the Play Store -->
     <string name="preferences_rate">Оценить в Google Play</string>
     <!-- Preference linking to about page for Fenix
@@ -688,7 +688,7 @@
     <string name="addon_ga_message_title" tools:ignore="UnusedResources">Доступны новые дополнения</string>
 
     <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here-->
-    <string name="addon_ga_message_body" tools:ignore="UnusedResources">Ознакомьтесь с более чем 100 новыми расширениями, которые позволят вам сделать Firefox своим собственным.</string>
+    <string name="addon_ga_message_body" tools:ignore="UnusedResources">Ознакомьтесь с более чем 100 новыми расширениями, которые позволят вам сделать Eyebrowse своим собственным.</string>
     <!-- Button text of the Nimbus message for add-ons general availability. -->
     <string name="addon_ga_message_button" tools:ignore="UnusedResources">Исследуйте дополнения</string>
 
@@ -754,7 +754,7 @@
     <!-- Name of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
     <string name="fxa_received_tab_channel_name">Вкладки с других устройств</string>
     <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-    <string name="fxa_received_tab_channel_description">Уведомления о вкладках, полученных с других устройств Firefox.</string>
+    <string name="fxa_received_tab_channel_description">Уведомления о вкладках, полученных с других устройств Eyebrowse.</string>
     <!--  The body for these is the URL of the tab received  -->
     <string name="fxa_tab_received_notification_name">Полученная вкладка</string>
     <!-- %s is the device name -->
@@ -1326,7 +1326,7 @@
     <!-- An option to connect additional devices -->
     <string name="sync_connect_device">Подключить другое устройство</string>
     <!-- The dialog text shown when additional devices are not available -->
-    <string name="sync_connect_device_dialog">Чтобы отправить вкладку, войдите в Firefox хотя бы на ещё одном устройстве.</string>
+    <string name="sync_connect_device_dialog">Чтобы отправить вкладку, войдите в Eyebrowse хотя бы на ещё одном устройстве.</string>
     <!-- Confirmation dialog button -->
     <string name="sync_confirmation_button">Понятно</string>
 
@@ -1355,10 +1355,10 @@
 
     <!-- Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_notification_default_browser_title" tools:ignore="UnusedResources">Firefox быстрый и приватный</string>
+    <string name="nimbus_notification_default_browser_title" tools:ignore="UnusedResources">Eyebrowse быстрый и приватный</string>
     <!-- Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_notification_default_browser_text" tools:ignore="UnusedResources">Сделайте Firefox вашим браузером по умолчанию</string>
+    <string name="nimbus_notification_default_browser_text" tools:ignore="UnusedResources">Сделайте Eyebrowse вашим браузером по умолчанию</string>
     <!-- Title shown in the notification that pops up to re-engage the user -->
     <string name="notification_re_engagement_title">Попробуйте приватный просмотр</string>
     <!-- Text shown in the notification that pops up to re-engage the user.
@@ -1378,7 +1378,7 @@
     <!-- Survey -->
     <!-- Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_survey_message_text">Пожалуйста, помогите сделать Firefox лучше, приняв участие в небольшом опросе.</string>
+    <string name="nimbus_survey_message_text">Пожалуйста, помогите сделать Eyebrowse лучше, приняв участие в небольшом опросе.</string>
     <!-- Preference for taking the short survey. -->
     <string name="preferences_take_survey">Пройти опрос</string>
     <!-- Preference for not taking the short survey. -->
@@ -1532,7 +1532,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">Считывание штрих-кода</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[Откройте Firefox на вашем компьютере и перейдите на <b>https://firefox.com/pair</b>]]></string>
+    <string name="sign_in_instructions"><![CDATA[Откройте Eyebrowse на вашем компьютере и перейдите на <b>https://firefox.com/pair</b>]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Считать штрих-код</string>
     <!-- Text shown for settings option for sign with pairing -->
@@ -1540,7 +1540,7 @@
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">Использовать электронную почту</string>
     <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
-    <string name="sign_in_create_account_text"><![CDATA[Ещё нет аккаунта? <u>Создайте его</u>, чтобы синхронизировать Firefox между устройствами.]]></string>
+    <string name="sign_in_create_account_text"><![CDATA[Ещё нет аккаунта? <u>Создайте его</u>, чтобы синхронизировать Eyebrowse между устройствами.]]></string>
     <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
     <string name="sign_out_confirmation_message_2">%s прекратит синхронизацию с вашим аккаунтом, но не будет удалять ничего из ваших данных веб-сёрфинга на этом устройстве.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -2144,7 +2144,7 @@
     <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">Пожалуйста, включите синхронизацию вкладок.</string>
     <!-- Text displayed when user has no tabs that have been synced -->
-    <string name="synced_tabs_no_tabs">На ваших других устройствах в Firefox не открыто ни одной вкладки.</string>
+    <string name="synced_tabs_no_tabs">На ваших других устройствах в Eyebrowse не открыто ни одной вкладки.</string>
     <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">Просмотрите список вкладок с других устройств.</string>
     <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -2200,7 +2200,7 @@
     <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Автоматически закрывать через месяц?</string>
 
     <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Firefox может закрывать вкладки, к которым вы не обращались за последний месяц.</string>
+    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Eyebrowse может закрывать вкладки, к которым вы не обращались за последний месяц.</string>
     <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">ВКЛЮЧИТЬ АВТОЗАКРЫТИЕ</string>
 
@@ -2209,7 +2209,7 @@
 
     <!-- Awesome bar suggestion's headers -->
     <!-- Search suggestions title for Firefox Suggest. -->
-    <string name="firefox_suggest_header">Firefox Suggest</string>
+    <string name="firefox_suggest_header">Eyebrowse Suggest</string>
 
     <!-- Title for search suggestions when Google is the default search suggestion engine. -->
     <string name="google_search_engine_suggestion_header">Поиск в Google</string>
@@ -2220,7 +2220,7 @@
     <!-- Default browser card title -->
     <string name="default_browser_experiment_card_title">Смените браузер по умолчанию</string>
     <!-- Default browser card text -->
-    <string name="default_browser_experiment_card_text">Настройте автоматическое открытие ссылок с сайтов, из электронных писем и сообщений в Firefox.</string>
+    <string name="default_browser_experiment_card_text">Настройте автоматическое открытие ссылок с сайтов, из электронных писем и сообщений в Eyebrowse.</string>
 
     <!-- Content description for close button in collection placeholder. -->
     <string name="remove_home_collection_placeholder_content_description">Убрать</string>
@@ -2244,7 +2244,7 @@
     <!-- Title of an app feature. Smaller than a heading. The first parameter is product name Pocket -->
     <string name="pocket_stories_feature_title_2">При поддержке %s.</string>
     <!-- Caption for describing a certain feature. The placeholder is for a clickable text (eg: Learn more) which will load an url in a new tab when clicked.  -->
-    <string name="pocket_stories_feature_caption">Является частью семейства Firefox. %s</string>
+    <string name="pocket_stories_feature_caption">Является частью семейства Eyebrowse. %s</string>
     <!-- Clickable text for opening an external link for more information about Pocket. -->
     <string name="pocket_stories_feature_learn_more">Узнать больше</string>
 
