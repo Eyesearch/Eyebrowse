@@ -549,7 +549,7 @@
     <string name="fxa_received_tab_channel_name">Vastuvõetud kaardid</string>
 
     <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-    <string name="fxa_received_tab_channel_description">Teavitused teistest Firefoxi seadmetest vastu võetud kaartide kohta.</string>
+    <string name="fxa_received_tab_channel_description">Teavitused teistest Eyebrowsei seadmetest vastu võetud kaartide kohta.</string>
 
     <!--  The body for these is the URL of the tab received  -->
     <string name="fxa_tab_received_notification_name">Kaart on vastu võetud</string>
@@ -1073,7 +1073,7 @@
     <string name="sync_connect_device">Ühenda teine seade</string>
 
     <!-- The dialog text shown when additional devices are not available -->
-    <string name="sync_connect_device_dialog">Kaardi edastamiseks logi Firefoxi sisse vähemalt ühel seadmel veel.</string>
+    <string name="sync_connect_device_dialog">Kaardi edastamiseks logi Eyebrowsei sisse vähemalt ühel seadmel veel.</string>
     <!-- Confirmation dialog button -->
     <string name="sync_confirmation_button">Sain aru</string>
     <!-- Share error message -->
@@ -1215,7 +1215,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">Koodi skannimine</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[Ava Firefox oma arvutis ja mine aadressile <b>https://firefox.com/pair</b>]]></string>
+    <string name="sign_in_instructions"><![CDATA[Ava Eyebrowse oma arvutis ja mine aadressile <b>https://firefox.com/pair</b>]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Skannimiseks valmis</string>
     <!-- Text shown for settings option for sign with pairing -->
@@ -1223,7 +1223,7 @@
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">Kasuta selle asemel e-posti aadressi</string>
     <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
-    <string name="sign_in_create_account_text"><![CDATA[Pole kontot? <u>Loo üks</u>, et sünkroniseerida Firefoxi seadmete vahel.]]></string>
+    <string name="sign_in_create_account_text"><![CDATA[Pole kontot? <u>Loo üks</u>, et sünkroniseerida Eyebrowsei seadmete vahel.]]></string>
     <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
     <string name="sign_out_confirmation_message_2">%s lõpetab sinu kontoga sünkroniseerimise, aga ei kustuta lehitsemise andmeid sellest seadmest.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -1722,7 +1722,7 @@
     <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">Palun luba kaartide sünkroniseerimine.</string>
     <!-- Text displayed when user has no tabs that have been synced -->
-    <string name="synced_tabs_no_tabs">Sul pole teistes seadmetes olevates Firefoxides kaarte avatud.</string>
+    <string name="synced_tabs_no_tabs">Sul pole teistes seadmetes olevates Eyebrowseides kaarte avatud.</string>
     <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">Vaata teistes seadmetes avatud kaartide nimekirja.</string>
     <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -1774,14 +1774,14 @@
     <!-- The header text of the auto-close message when the user is asked if they want to turn on the auto-closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Kas sulgeda automaatselt kuu aja pärast?</string>
     <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Firefox saab sulgeda kaardid, mida sa pole viimase kuu jooksul vaadanud.</string>
+    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Eyebrowse saab sulgeda kaardid, mida sa pole viimase kuu jooksul vaadanud.</string>
     <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">LÜLITA SISSE AUTOMAATNE SULGEMINE</string>
     <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
     <string name="inactive_tabs_auto_close_message_snackbar">Automaatne sulgemine on lubatud</string>
 
     <!-- Default browser card text -->
-    <string name="default_browser_experiment_card_text">Määra Firefox automaatselt avama linke, e-posti ja sõnumeid.</string>
+    <string name="default_browser_experiment_card_text">Määra Eyebrowse automaatselt avama linke, e-posti ja sõnumeid.</string>
 
     <!-- Content description for close button in collection placeholder. -->
     <string name="remove_home_collection_placeholder_content_description">Eemalda</string>
@@ -1803,7 +1803,7 @@
     <!-- Text of a button allowing users to access an external url for more Pocket recommendations. -->
     <string name="pocket_stories_placeholder_text">Avasta veel</string>
     <!-- Caption for describing a certain feature. The placeholder is for a clickable text (eg: Learn more) which will load an url in a new tab when clicked.  -->
-    <string name="pocket_stories_feature_caption">Osa Firefoxi perekonnast. %s</string>
+    <string name="pocket_stories_feature_caption">Osa Eyebrowsei perekonnast. %s</string>
     <!-- Clickable text for opening an external link for more information about Pocket. -->
     <string name="pocket_stories_feature_learn_more">Rohkem teavet</string>
 
