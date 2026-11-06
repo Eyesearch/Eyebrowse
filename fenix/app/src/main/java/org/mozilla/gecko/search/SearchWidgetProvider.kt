@@ -11,7 +11,6 @@ import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.view.View
@@ -19,8 +18,6 @@ import android.widget.RemoteViews
 import androidx.annotation.Dimension
 import androidx.annotation.Dimension.Companion.DP
 import androidx.annotation.VisibleForTesting
-import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.graphics.drawable.toBitmap
 import org.mozilla.fenix.GleanMetrics.Metrics
 import org.mozilla.fenix.HomeActivity
 import org.mozilla.fenix.IntentReceiverActivity
@@ -167,21 +164,14 @@ class SearchWidgetProvider : AppWidgetProvider() {
     }
 
     private fun RemoteViews.setIcon(context: Context) {
-        // gradient color available for android:fillColor only on SDK 24+
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            setImageViewResource(
-                R.id.button_search_widget_new_tab_icon,
-                R.drawable.ic_launcher_foreground,
-            )
-        } else {
-            setImageViewBitmap(
-                R.id.button_search_widget_new_tab_icon,
-                AppCompatResources.getDrawable(
-                    context,
-                    R.drawable.ic_launcher_foreground,
-                )?.toBitmap(),
-            )
-        }
+        // Eyebrowse: the launcher foreground is an adaptive-icon canvas, so the
+        // mark only fills ~60% of it and sits off-centre in the widget slot. Use a
+        // dedicated, tightly cropped bitmap instead - a PNG works on every API
+        // level, so the pre-N bitmap branch is no longer needed.
+        setImageViewResource(
+            R.id.button_search_widget_new_tab_icon,
+            R.drawable.ic_search_widget_logo,
+        )
 
         val appName = context.getString(R.string.app_name)
         setContentDescription(
