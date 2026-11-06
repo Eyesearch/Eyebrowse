@@ -336,14 +336,14 @@
 
     <!-- Juno first user onboarding flow experiment, strings are marked unused as they are only referenced by Nimbus experiments. -->
     <!-- Description for learning more about our privacy notice. -->
-    <string name="juno_onboarding_privacy_notice_text">Firefox personvernerklæring</string>
+    <string name="juno_onboarding_privacy_notice_text">Eyebrowse personvernerklæring</string>
     <!-- Description for learning more about our privacy notice. -->
     <string name="juno_onboarding_privacy_notice_text_2" moz:removedIn="125" tools:ignore="UnusedResources">Les mer i vår personvernerklæring</string>
     <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_title_nimbus_2">Vi beskytter deg gjerne</string>
     <!-- Title for set firefox as default browser screen used by Nimbus experiments.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="UnusedResources">Finn ut hvorfor millioner elsker Firefox</string>
+    <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="UnusedResources">Finn ut hvorfor millioner elsker Eyebrowse</string>
     <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_title_nimbus_4" tools:ignore="UnusedResources">Sikker surfing med flere valg</string>
     <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
@@ -365,17 +365,17 @@
     <string name="juno_onboarding_sign_in_title_2">Krypter dataene dine når du arbeider på tvers av enheter</string>
     <!-- Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
      Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_sign_in_description_2">Når du er inlogget og synkronisert, er du tryggere. Firefox krypterer passordene, bokmerkene og mer.</string>
+    <string name="juno_onboarding_sign_in_description_2">Når du er inlogget og synkronisert, er du tryggere. Eyebrowse krypterer passordene, bokmerkene og mer.</string>
     <!-- Text for the button to sign in to sync on the device -->
     <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">Logg inn</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_sign_in_negative_button" tools:ignore="UnusedResources">Ikke nå</string>
     <!-- Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_enable_notifications_title_nimbus_2">Varsler hjelper deg å holde deg tryggere med Firefox</string>
+    <string name="juno_onboarding_enable_notifications_title_nimbus_2">Varsler hjelper deg å holde deg tryggere med Eyebrowse</string>
     <!-- Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
        Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_enable_notifications_description_nimbus_2">Send faner sikkert mellom enhetene dine og oppdag andre personvernfunksjoner i Firefox.</string>
+    <string name="juno_onboarding_enable_notifications_description_nimbus_2">Send faner sikkert mellom enhetene dine og oppdag andre personvernfunksjoner i Eyebrowse.</string>
     <!-- Text for the button to request notification permission on the device -->
     <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">Slå på varsler</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -383,13 +383,13 @@
 
     <!-- Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_title" tools:ignore="UnusedResources">Prøv Firefox-søkewidgeten</string>
+    <string name="juno_onboarding_add_search_widget_title" tools:ignore="UnusedResources">Prøv Eyebrowse-søkewidgeten</string>
     <!-- Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_description" tools:ignore="UnusedResources">Med Firefox på startskjermen din har du enkel tilgang til den personvernfokuserte  nettleseren som blokkerer sporing på tvers av nettsteder.</string>
+    <string name="juno_onboarding_add_search_widget_description" tools:ignore="UnusedResources">Med Eyebrowse på startskjermen din har du enkel tilgang til den personvernfokuserte  nettleseren som blokkerer sporing på tvers av nettsteder.</string>
     <!-- Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="UnusedResources">Legg til Firefox-widget</string>
+    <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="UnusedResources">Legg til Eyebrowse-widget</string>
     <!-- Text for the button to dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">Ikke nå</string>
 
@@ -430,9 +430,9 @@
     <!-- Preference Category for settings related to Search address bar -->
     <string name="preferences_settings_address_bar">Innstillinger for adresselinjen</string>
     <!-- Preference Category for settings to Firefox Suggest -->
-    <string name="preference_search_address_bar_fx_suggest">Adresselinje - Firefox forslag</string>
+    <string name="preference_search_address_bar_fx_suggest">Adresselinje - Eyebrowse forslag</string>
     <!-- Preference link to Learn more about Firefox Suggest -->
-    <string name="preference_search_learn_about_fx_suggest">Les mer om Firefox forslag</string>
+    <string name="preference_search_learn_about_fx_suggest">Les mer om Eyebrowse forslag</string>
     <!-- Preference link to rating Fenix on the Play Store -->
     <string name="preferences_rate">Vurder på Google Play</string>
     <!-- Preference linking to about page for Fenix
@@ -678,7 +678,7 @@
     <!-- Title of the Nimbus message for add-ons general availability-->
     <string name="addon_ga_message_title" tools:ignore="UnusedResources">Nye utvidelser nå tilgjengelig</string>
     <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here-->
-    <string name="addon_ga_message_body" tools:ignore="UnusedResources">Sjekk ut 100+ nye utvidelser som lar deg gjøre Firefox til din egen.</string>
+    <string name="addon_ga_message_body" tools:ignore="UnusedResources">Sjekk ut 100+ nye utvidelser som lar deg gjøre Eyebrowse til din egen.</string>
     <!-- Button text of the Nimbus message for add-ons general availability. -->
     <string name="addon_ga_message_button" tools:ignore="UnusedResources">Utforsk utvidelser</string>
 
@@ -745,7 +745,7 @@
     <string name="fxa_received_tab_channel_name">Mottatte faner</string>
 
     <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-    <string name="fxa_received_tab_channel_description">Varsler for faner mottatt fra andre Firefox-enheter.</string>
+    <string name="fxa_received_tab_channel_description">Varsler for faner mottatt fra andre Eyebrowse-enheter.</string>
     <!--  The body for these is the URL of the tab received  -->
     <string name="fxa_tab_received_notification_name">Fane mottatt</string>
     <!-- %s is the device name -->
@@ -1305,7 +1305,7 @@
     <!-- An option to connect additional devices -->
     <string name="sync_connect_device">Koble til en annen enhet</string>
     <!-- The dialog text shown when additional devices are not available -->
-    <string name="sync_connect_device_dialog">For å sende en fane, logg deg på Firefox på minst en annen enhet.</string>
+    <string name="sync_connect_device_dialog">For å sende en fane, logg deg på Eyebrowse på minst en annen enhet.</string>
     <!-- Confirmation dialog button -->
     <string name="sync_confirmation_button">Skjønner</string>
     <!-- Share error message -->
@@ -1332,10 +1332,10 @@
 
     <!-- Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_notification_default_browser_title" tools:ignore="UnusedResources">Firefox er rask og privat</string>
+    <string name="nimbus_notification_default_browser_title" tools:ignore="UnusedResources">Eyebrowse er rask og privat</string>
     <!-- Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_notification_default_browser_text" tools:ignore="UnusedResources">Gjør Firefox til din standardnettleser</string>
+    <string name="nimbus_notification_default_browser_text" tools:ignore="UnusedResources">Gjør Eyebrowse til din standardnettleser</string>
     <!-- Title shown in the notification that pops up to re-engage the user -->
     <string name="notification_re_engagement_title">Prøv privat nettlesing</string>
     <!-- Text shown in the notification that pops up to re-engage the user.
@@ -1355,7 +1355,7 @@
     <!-- Survey -->
     <!-- Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_survey_message_text">Bidra til å gjøre Firefox bedre ved å ta en kort undersøkelse.</string>
+    <string name="nimbus_survey_message_text">Bidra til å gjøre Eyebrowse bedre ved å ta en kort undersøkelse.</string>
     <!-- Preference for taking the short survey. -->
     <string name="preferences_take_survey">Delta i undersøkelsen</string>
     <!-- Preference for not taking the short survey. -->
@@ -1503,7 +1503,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">Skann koden</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[Åpne Firefox på datamaskinen din og gå til <b>https://firefox.com/pair</b>]]></string>
+    <string name="sign_in_instructions"><![CDATA[Åpne Eyebrowse på datamaskinen din og gå til <b>https://firefox.com/pair</b>]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Klar til å skanne</string>
     <!-- Text shown for settings option for sign with pairing -->
@@ -1511,7 +1511,7 @@
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">Bruk e-post i stedet</string>
     <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
-    <string name="sign_in_create_account_text"><![CDATA[Ingen konto? <u>Opprett en</u> for å synkronisere Firefox mellom enheter.]]></string>
+    <string name="sign_in_create_account_text"><![CDATA[Ingen konto? <u>Opprett en</u> for å synkronisere Eyebrowse mellom enheter.]]></string>
     <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
     <string name="sign_out_confirmation_message_2">%s vil stoppe synkroniseringen med kontoen din, men vil ikke slette noen av dine nettleserdata på denne enheten.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -2128,7 +2128,7 @@
     <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">Slå på fanssynkronisering.</string>
     <!-- Text displayed when user has no tabs that have been synced -->
-    <string name="synced_tabs_no_tabs">Du har ingen faner åpne i Firefox på andre enheter.</string>
+    <string name="synced_tabs_no_tabs">Du har ingen faner åpne i Eyebrowse på andre enheter.</string>
     <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">Vis en liste over faner fra andre enheter.</string>
     <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -2183,7 +2183,7 @@
     <!-- The header text of the auto-close message when the user is asked if they want to turn on the auto-closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Lukk automatisk etter en måned?</string>
     <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Firefox kan lukke faner du ikke har sett den siste måneden.</string>
+    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Eyebrowse kan lukke faner du ikke har sett den siste måneden.</string>
     <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">SLÅ PÅ AUTOLUKKING</string>
 
@@ -2192,7 +2192,7 @@
 
     <!-- Awesome bar suggestion's headers -->
     <!-- Search suggestions title for Firefox Suggest. -->
-    <string name="firefox_suggest_header">Firefox-forslag</string>
+    <string name="firefox_suggest_header">Eyebrowse-forslag</string>
 
     <!-- Title for search suggestions when Google is the default search suggestion engine. -->
     <string name="google_search_engine_suggestion_header">Google-søk</string>
@@ -2203,7 +2203,7 @@
     <!-- Default browser card title -->
     <string name="default_browser_experiment_card_title">Endre standard nettleser</string>
     <!-- Default browser card text -->
-    <string name="default_browser_experiment_card_text">Angi at lenker fra nettsteder, e-postmeldinger og meldinger skal åpnes automatisk i Firefox.</string>
+    <string name="default_browser_experiment_card_text">Angi at lenker fra nettsteder, e-postmeldinger og meldinger skal åpnes automatisk i Eyebrowse.</string>
 
     <!-- Content description for close button in collection placeholder. -->
     <string name="remove_home_collection_placeholder_content_description">Fjern</string>
@@ -2227,7 +2227,7 @@
     <!-- Title of an app feature. Smaller than a heading. The first parameter is product name Pocket -->
     <string name="pocket_stories_feature_title_2">Drevet av %1$s.</string>
     <!-- Caption for describing a certain feature. The placeholder is for a clickable text (eg: Learn more) which will load an url in a new tab when clicked.  -->
-    <string name="pocket_stories_feature_caption">Del av Firefox-familien. %s</string>
+    <string name="pocket_stories_feature_caption">Del av Eyebrowse-familien. %s</string>
     <!-- Clickable text for opening an external link for more information about Pocket. -->
     <string name="pocket_stories_feature_learn_more">Les mer</string>
 

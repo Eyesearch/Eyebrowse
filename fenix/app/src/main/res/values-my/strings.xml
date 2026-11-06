@@ -245,11 +245,11 @@
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">အသုံးပြုခွင့်</string>
     <!-- Preference to override the Firefox Account server -->
-    <string name="preferences_override_fxa_server">စိတ်ကြိုက် Firefox အကောင့် ဆာဗာ</string>
+    <string name="preferences_override_fxa_server">စိတ်ကြိုက် Eyebrowse အကောင့် ဆာဗာ</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">သုံးသူစိတ်ကြိုက် ချိန်သားကိုက် ဆာဗာ</string>
     <!-- Toast shown after updating the FxA/Sync server override preferences -->
-    <string name="toast_override_fxa_sync_server_done">Firefox Account/Sync server ကို ပြုပြင်ပြီး ဖြစ်သည်။ အပြောင်းအလဲများ လျှောက်ထားရန်လျှောက်လွှာ မှ ထွက်ပါ</string>
+    <string name="toast_override_fxa_sync_server_done">Eyebrowse Account/Sync server ကို ပြုပြင်ပြီး ဖြစ်သည်။ အပြောင်းအလဲများ လျှောက်ထားရန်လျှောက်လွှာ မှ ထွက်ပါ</string>
     <!-- Preference category for account information -->
     <string name="preferences_category_account">အကောင့်</string>
     <!-- Preference for changing where the toolbar is positioned -->
@@ -261,7 +261,7 @@
     <!-- Preference for settings related to visual options -->
     <string name="preferences_customize">စိတ်ကြိုက်လုပ်ပါ</string>
     <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-    <string name="preferences_account_default_name">Firefox အကောင့်</string>
+    <string name="preferences_account_default_name">Eyebrowse အကောင့်</string>
     <!-- Preference text for account title when there was an error syncing FxA -->
     <string name="preferences_account_sync_error">စည်းညှိခြင်းကိုပြန်လည်စတင်ရန်ပြန်လည်ချိတ်ဆက်ပါ</string>
     <!-- Preference for language -->
@@ -370,7 +370,7 @@
     <!-- Name of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
     <string name="fxa_received_tab_channel_name">လက်ခံရရှိ တက်ဗ်များ</string>
     <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-    <string name="fxa_received_tab_channel_description">အခြားစက်များရှိ Firefox များမှ ရရှိသော တပ်ဗ်အသစ်များ အတွက် သတိပေးချက်များ</string>
+    <string name="fxa_received_tab_channel_description">အခြားစက်များရှိ Eyebrowse များမှ ရရှိသော တပ်ဗ်အသစ်များ အတွက် သတိပေးချက်များ</string>
     <!--  The body for these is the URL of the tab received  -->
     <string name="fxa_tab_received_notification_name">တပ်ဗ်ကို လက်ခံရရှိသည်</string>
     <!-- %s is the device name -->
@@ -831,7 +831,7 @@
     <!-- An option to connect additional devices -->
     <string name="sync_connect_device">အခြားကိရိယာကို ချိတ်ဆက်ရန်</string>
     <!-- The dialog text shown when additional devices are not available -->
-    <string name="sync_connect_device_dialog">သင်တက်ဘ်တစ်ခုကိုပို့ရန်အနည်းဆုံးအခြားကိရိယာတစ်ခုပေါ်တွင် Firefox သို့ဆိုင်းအင်လုပ်ပါ။</string>
+    <string name="sync_connect_device_dialog">သင်တက်ဘ်တစ်ခုကိုပို့ရန်အနည်းဆုံးအခြားကိရိယာတစ်ခုပေါ်တွင် Eyebrowse သို့ဆိုင်းအင်လုပ်ပါ။</string>
     <!-- Confirmation dialog button -->
     <string name="sync_confirmation_button">ရပြီ</string>
     <!-- Share error message -->
@@ -993,7 +993,7 @@
     <string name="sync_scan_code">ကုဒ်ကိုစစ်ဆေးပါ</string>
 
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[<b>https://firefox.com/pair</b>ကိုသွားပြီး သင့်ကွန်ပျူတာတွင် Firefox ဖွင့်ပါ။]]></string>
+    <string name="sign_in_instructions"><![CDATA[<b>https://firefox.com/pair</b>ကိုသွားပြီး သင့်ကွန်ပျူတာတွင် Eyebrowse ဖွင့်ပါ။]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">စကင်ဖတ်ရန်အဆင်သင့်ဖြစ်သည်</string>
     <!-- Text shown for settings option for sign with pairing -->
@@ -1001,7 +1001,7 @@
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">အီးမေးလ်အစား</string>
     <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
-    <string name="sign_in_create_account_text"><![CDATA[အကောင့် မရှိဘူးလား? <u> သုံးစွဲသည့် ကိရိယာများ အကြား Firefox ကို တစ်ပြေးညီတည်း ချိန်ညှိရန် </u> တစ်ခု ဖန်တီးပါ။ ]]></string>
+    <string name="sign_in_create_account_text"><![CDATA[အကောင့် မရှိဘူးလား? <u> သုံးစွဲသည့် ကိရိယာများ အကြား Eyebrowse ကို တစ်ပြေးညီတည်း ချိန်ညှိရန် </u> တစ်ခု ဖန်တီးပါ။ ]]></string>
     <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
     <string name="sign_out_confirmation_message_2">%s သည် အကောင့်နှင့် အချက်အလက်များ ထပ်တူပြုခြင်းကို ရပ်တန့်ပါမည်။ သို့သော် ယခု ကိရိယာရှိ သင်၏ မည်သည့် အချက်အလက် ကိုမျှ ဖျက်ပစ်မည် မဟုတ်ပါ။</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -1412,7 +1412,7 @@
     <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">ကျေးဇူးပြ၍ တပ်ဗ် ထပ်တူတစ်ပြေးတည်း ဖြစ်စေရန် ဖွင့်ပါ </string>
     <!-- Text displayed when user has no tabs that have been synced -->
-    <string name="synced_tabs_no_tabs">သင့် အခြား စက်ပစ္စည်းများတွင် Firefox ၌ ဖွင့်ထားသော တပ်ဗ်များ မရှိပါ</string>
+    <string name="synced_tabs_no_tabs">သင့် အခြား စက်ပစ္စည်းများတွင် Eyebrowse ၌ ဖွင့်ထားသော တပ်ဗ်များ မရှိပါ</string>
     <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">သင်၏ အခြားစက်ပစ္စည်းများမှ တပ်ဗ် များ စာရင်းကို ကြည့်ပါ။</string>
     <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -1435,7 +1435,7 @@
     <string name="inactive_tabs_title">လှုပ်ရှားမှုမရှိသော တပ်ဗ်များ </string>
 
     <!-- Default browser experiment -->
-    <string name="default_browser_experiment_card_text">Firefox တွင် ဝက်ဘ်ဆိုက်များ၊ အီးမေးလ်များ နှင့် မက်ဆေ့ခ်ျများမှ လင့်ခ်များ အလိုအလျောက် ပွင့်ရန်  သတ်မှတ်ပါ။</string>
+    <string name="default_browser_experiment_card_text">Eyebrowse တွင် ဝက်ဘ်ဆိုက်များ၊ အီးမေးလ်များ နှင့် မက်ဆေ့ခ်ျများမှ လင့်ခ်များ အလိုအလျောက် ပွင့်ရန်  သတ်မှတ်ပါ။</string>
 
     <!-- Content description for close button in collection placeholder. -->
     <string name="remove_home_collection_placeholder_content_description">ဖယ်ရှားပါ</string>
