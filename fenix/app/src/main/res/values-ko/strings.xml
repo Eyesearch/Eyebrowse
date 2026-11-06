@@ -798,7 +798,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[<b>firefox.com/pair</b>에 표시된 QR 코드를 스캔하세요]]></string>
+    <string name="pair_instructions_2"><![CDATA[<b>eyebrowse.in/pair</b>에 표시된 QR 코드를 스캔하세요]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -1546,7 +1546,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">코드 스캔</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[컴퓨터에서 Eyebrowse를 열고 <b>https://firefox.com/pair</b>로 이동하세요]]></string>
+    <string name="sign_in_instructions"><![CDATA[컴퓨터에서 Eyebrowse를 열고 <b>https://eyebrowse.in/pair</b>로 이동하세요]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">스캔 준비 완료</string>
     <!-- Text shown for settings option for sign with pairing -->
