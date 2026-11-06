@@ -43,10 +43,15 @@ jobs:
 
       - name: Set up the Android SDK
         uses: android-actions/setup-android@v3
+        with:
+          # The action's default package list asks for the legacy "tools"
+          # package, which no longer exists in the SDK repository and makes the
+          # setup step fail. Install what we need explicitly below instead.
+          packages: 'platform-tools'
 
       - name: Install the Android SDK packages this project needs
         run: |
-          sdkmanager --install "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+          sdkmanager --install "platforms;android-34" "build-tools;34.0.0"
           yes | sdkmanager --licenses > /dev/null
 
       - name: Set up Gradle with caching
