@@ -349,7 +349,7 @@
     <string name="juno_onboarding_default_browser_title_nimbus_2">Rádi vás udržujeme v bezpečí</string>
     <!-- Title for set firefox as default browser screen used by Nimbus experiments.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="UnusedResources">Zjistěte, proč miliony lidí milují Firefox</string>
+    <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="UnusedResources">Zjistěte, proč miliony lidí milují Eyebrowse</string>
     <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_title_nimbus_4" tools:ignore="UnusedResources">Bezpečné prohlížení s více možnostmi</string>
     <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
@@ -371,17 +371,17 @@
     <string name="juno_onboarding_sign_in_title_2">Při přecházení mezi zařízeními buďte šifrovaní</string>
     <!-- Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
      Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_sign_in_description_2">Když jste přihlášeni a synchronizujete, jste ve větším bezpečí. Firefox šifruje vaše hesla, záložky a další data.</string>
+    <string name="juno_onboarding_sign_in_description_2">Když jste přihlášeni a synchronizujete, jste ve větším bezpečí. Eyebrowse šifruje vaše hesla, záložky a další data.</string>
     <!-- Text for the button to sign in to sync on the device -->
     <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">Přihlásit se</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_sign_in_negative_button" tools:ignore="UnusedResources">Teď ne</string>
     <!-- Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_enable_notifications_title_nimbus_2">Oznámení vám pomáhají zůstat s Firefoxem ve větším bezpečí</string>
+    <string name="juno_onboarding_enable_notifications_title_nimbus_2">Oznámení vám pomáhají zůstat s Eyebrowseem ve větším bezpečí</string>
     <!-- Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
        Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_enable_notifications_description_nimbus_2">Posílejte si panely mezi svými zařízeními bezpečně a objevte další funkce Firefoxu pro ochranu soukromí.</string>
+    <string name="juno_onboarding_enable_notifications_description_nimbus_2">Posílejte si panely mezi svými zařízeními bezpečně a objevte další funkce Eyebrowseu pro ochranu soukromí.</string>
     <!-- Text for the button to request notification permission on the device -->
     <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">Zapnout oznámení</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -389,13 +389,13 @@
 
     <!-- Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_title" tools:ignore="UnusedResources">Vyzkoušejte vyhledávací miniaplikaci Firefoxu</string>
+    <string name="juno_onboarding_add_search_widget_title" tools:ignore="UnusedResources">Vyzkoušejte vyhledávací miniaplikaci Eyebrowseu</string>
     <!-- Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_description" tools:ignore="UnusedResources">S prohlížečem Firefox na domovské obrazovce budete mít snadný přístup k prohlížeči, který chrání soukromí a blokuje sledování prvky stránek.</string>
+    <string name="juno_onboarding_add_search_widget_description" tools:ignore="UnusedResources">S prohlížečem Eyebrowse na domovské obrazovce budete mít snadný přístup k prohlížeči, který chrání soukromí a blokuje sledování prvky stránek.</string>
     <!-- Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="UnusedResources">Přidat miniaplikaci Firefox</string>
+    <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="UnusedResources">Přidat miniaplikaci Eyebrowse</string>
     <!-- Text for the button to dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">Teď ne</string>
 
@@ -436,9 +436,9 @@
     <!-- Preference Category for settings related to Search address bar -->
     <string name="preferences_settings_address_bar">Předvolby adresního řádku</string>
     <!-- Preference Category for settings to Firefox Suggest -->
-    <string name="preference_search_address_bar_fx_suggest">Adresní řádek – Návrhy Firefoxu</string>
+    <string name="preference_search_address_bar_fx_suggest">Adresní řádek – Návrhy Eyebrowseu</string>
     <!-- Preference link to Learn more about Firefox Suggest -->
-    <string name="preference_search_learn_about_fx_suggest">Dozvědět se více o návrzích Firefoxu</string>
+    <string name="preference_search_learn_about_fx_suggest">Dozvědět se více o návrzích Eyebrowseu</string>
     <!-- Preference link to rating Fenix on the Play Store -->
     <string name="preferences_rate">Ohodnotit na Google Play</string>
     <!-- Preference linking to about page for Fenix
@@ -682,7 +682,7 @@
     <!-- Title of the Nimbus message for add-ons general availability-->
     <string name="addon_ga_message_title" tools:ignore="UnusedResources">Nové doplňky jsou nyní k dispozici</string>
     <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here-->
-    <string name="addon_ga_message_body" tools:ignore="UnusedResources">Podívejte se na více než 100 nových rozšíření, která vám umožní přizpůsobit Firefox svým představám.</string>
+    <string name="addon_ga_message_body" tools:ignore="UnusedResources">Podívejte se na více než 100 nových rozšíření, která vám umožní přizpůsobit Eyebrowse svým představám.</string>
     <!-- Button text of the Nimbus message for add-ons general availability. -->
     <string name="addon_ga_message_button" tools:ignore="UnusedResources">Prozkoumejte doplňky</string>
 
@@ -749,7 +749,7 @@
     <!-- Name of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
     <string name="fxa_received_tab_channel_name">Přijaté panely</string>
     <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-    <string name="fxa_received_tab_channel_description">Oznámení o panelech přijatých z jiných zařízení s Firefoxem.</string>
+    <string name="fxa_received_tab_channel_description">Oznámení o panelech přijatých z jiných zařízení s Eyebrowseem.</string>
     <!--  The body for these is the URL of the tab received  -->
     <string name="fxa_tab_received_notification_name">Přijatý panel</string>
     <!-- %s is the device name -->
@@ -1317,7 +1317,7 @@
     <!-- An option to connect additional devices -->
     <string name="sync_connect_device">Připojit další zařízení</string>
     <!-- The dialog text shown when additional devices are not available -->
-    <string name="sync_connect_device_dialog">Pro poslání panelu se prosím přihlaste účtem Firefox na dalším zařízení.</string>
+    <string name="sync_connect_device_dialog">Pro poslání panelu se prosím přihlaste účtem Eyebrowse na dalším zařízení.</string>
     <!-- Confirmation dialog button -->
     <string name="sync_confirmation_button">Rozumím</string>
 
@@ -1346,10 +1346,10 @@
 
     <!-- Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_notification_default_browser_title" tools:ignore="UnusedResources">Firefox je rychlý a soukromý</string>
+    <string name="nimbus_notification_default_browser_title" tools:ignore="UnusedResources">Eyebrowse je rychlý a soukromý</string>
     <!-- Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_notification_default_browser_text" tools:ignore="UnusedResources">Nastavit Firefox jako můj výchozí prohlížeč</string>
+    <string name="nimbus_notification_default_browser_text" tools:ignore="UnusedResources">Nastavit Eyebrowse jako můj výchozí prohlížeč</string>
     <!-- Title shown in the notification that pops up to re-engage the user -->
     <string name="notification_re_engagement_title">Vyzkoušejte anonymní prohlížení</string>
     <!-- Text shown in the notification that pops up to re-engage the user.
@@ -1370,7 +1370,7 @@
     <!-- Survey -->
     <!-- Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_survey_message_text">Pomozte ním prosím zlepšit Firefox vyplněním krátkého dotazníku.</string>
+    <string name="nimbus_survey_message_text">Pomozte ním prosím zlepšit Eyebrowse vyplněním krátkého dotazníku.</string>
     <!-- Preference for taking the short survey. -->
     <string name="preferences_take_survey">Vyplnit průzkum</string>
     <!-- Preference for not taking the short survey. -->
@@ -1520,7 +1520,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">Naskenovat kód</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[Otevřete Firefox na svém počítači a navštivte stránku <b>https://firefox.com/pair</b>]]></string>
+    <string name="sign_in_instructions"><![CDATA[Otevřete Eyebrowse na svém počítači a navštivte stránku <b>https://firefox.com/pair</b>]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Připraveno na skenování</string>
     <!-- Text shown for settings option for sign with pairing -->
@@ -1528,7 +1528,7 @@
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">Použít raději e-mail</string>
     <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
-    <string name="sign_in_create_account_text"><![CDATA[Ještě nemáte účet? <u>Vytvořte si ho</u> a synchronizujte svůj Firefox mezi zařízeními.]]></string>
+    <string name="sign_in_create_account_text"><![CDATA[Ještě nemáte účet? <u>Vytvořte si ho</u> a synchronizujte svůj Eyebrowse mezi zařízeními.]]></string>
     <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
     <string name="sign_out_confirmation_message_2">%s ukončí synchronizaci s vaším účtem, ale nesmaže z tohoto zařízení žádná vaše data.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -2194,7 +2194,7 @@
     <!-- The header text of the auto-close message when the user is asked if they want to turn on the auto-closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Chcete automaticky zavírat měsíc staré neaktivní panely?</string>
     <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Firefox může zavřít panely, které jste během posledního měsíce nepoužili.</string>
+    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Eyebrowse může zavřít panely, které jste během posledního měsíce nepoužili.</string>
     <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">ZAPNOUT AUTOMATICKÉ ZAVÍRÁNÍ</string>
 
@@ -2203,7 +2203,7 @@
 
     <!-- Awesome bar suggestion's headers -->
     <!-- Search suggestions title for Firefox Suggest. -->
-    <string name="firefox_suggest_header">Návrhy od Firefoxu</string>
+    <string name="firefox_suggest_header">Návrhy od Eyebrowseu</string>
 
     <!-- Title for search suggestions when Google is the default search suggestion engine. -->
     <string name="google_search_engine_suggestion_header">Vyhledání na Googlu</string>
@@ -2215,7 +2215,7 @@
     <!-- Default browser card title -->
     <string name="default_browser_experiment_card_title">Změňte svůj výchozí prohlížeč</string>
     <!-- Default browser card text -->
-    <string name="default_browser_experiment_card_text">Nastavte si automatické otevírání odkazů, e-mailů a zpráv ve Firefoxu.</string>
+    <string name="default_browser_experiment_card_text">Nastavte si automatické otevírání odkazů, e-mailů a zpráv ve Eyebrowseu.</string>
 
     <!-- Content description for close button in collection placeholder. -->
     <string name="remove_home_collection_placeholder_content_description">Odstranit</string>
@@ -2239,7 +2239,7 @@
     <!-- Title of an app feature. Smaller than a heading. The first parameter is product name Pocket -->
     <string name="pocket_stories_feature_title_2">Službu poskytuje %s.</string>
     <!-- Caption for describing a certain feature. The placeholder is for a clickable text (eg: Learn more) which will load an url in a new tab when clicked.  -->
-    <string name="pocket_stories_feature_caption">Součást rodiny Firefoxu. %s</string>
+    <string name="pocket_stories_feature_caption">Součást rodiny Eyebrowseu. %s</string>
     <!-- Clickable text for opening an external link for more information about Pocket. -->
     <string name="pocket_stories_feature_learn_more">Zjistit více</string>
 
