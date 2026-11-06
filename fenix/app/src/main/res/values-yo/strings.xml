@@ -278,7 +278,7 @@
 
 
     <!-- Onboarding home screen popup dialog, shown on top of the Jump back in section. Firefox is intentionally hardcoded. -->
-    <string moz:RemovedIn="106" name="onboarding_home_screen_jump_back_contextual_hint" tools:ignore="UnusedResources">Ojú-ìwé akọ́ọ́kàn Firefox rẹ ti jẹ́ kí ó rọrùn láti bẹ̀rẹ̀ ní ibití ó parí rẹ̀ sí. Wá àwọn táàbù àìpẹ́ rẹ, àwọn búkúmaakì, àti àwọn èsì ìwádìí.</string>
+    <string moz:RemovedIn="106" name="onboarding_home_screen_jump_back_contextual_hint" tools:ignore="UnusedResources">Ojú-ìwé akọ́ọ́kàn Eyebrowse rẹ ti jẹ́ kí ó rọrùn láti bẹ̀rẹ̀ ní ibití ó parí rẹ̀ sí. Wá àwọn táàbù àìpẹ́ rẹ, àwọn búkúmaakì, àti àwọn èsì ìwádìí.</string>
 
     <!-- Onboarding home screen popup dialog, shown on top of the Jump back in section. -->
     <string name="onboarding_home_screen_jump_back_contextual_hint_2">Ṣe alábapàdé ojú-ìwé àkọ́kọ́ rẹ tí ó jẹ́ tara ẹni. Àwọn táàbù àìpẹ́, búkúmaàkì, at́í pé àwọn èsì wíwá yóò hàn níbí.</string>
@@ -375,11 +375,11 @@
 
 
     <!-- Preference to override the Firefox Account server -->
-    <string name="preferences_override_fxa_server">Sáfà taraẹni akáǹtì Firefox</string>
+    <string name="preferences_override_fxa_server">Sáfà taraẹni akáǹtì Eyebrowse</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">Sáfà taraẹni onísopọ̀</string>
     <!-- Toast shown after updating the FxA/Sync server override preferences -->
-    <string name="toast_override_fxa_sync_server_done">Àkáǹtì Firefox/Ṣíṣàtúnṣe ìṣiṣẹ́pọ̀ sáfà. Jíjáwọ́ kúrò nínu áàpù láti ṣàmúlò àwọn àyípadà…</string>
+    <string name="toast_override_fxa_sync_server_done">Àkáǹtì Eyebrowse/Ṣíṣàtúnṣe ìṣiṣẹ́pọ̀ sáfà. Jíjáwọ́ kúrò nínu áàpù láti ṣàmúlò àwọn àyípadà…</string>
     <!-- Preference category for account information -->
     <string name="preferences_category_account">Àkáǹtì</string>
     <!-- Preference for changing where the toolbar is positioned -->
@@ -393,11 +393,11 @@
     <!-- Preference for settings related to visual options -->
     <string name="preferences_customize">Ìsọditaraẹni</string>
     <!-- Preference description for banner about signing in -->
-    <string moz:RemovedIn="104" name="preferences_sign_in_description" tools:ignore="UnusedResources">So àwọn búkúmaakì pọ̀, ìtàn, àti díẹ̀ si pẹ̀lú àkáńtì Firefox rẹ</string>
+    <string moz:RemovedIn="104" name="preferences_sign_in_description" tools:ignore="UnusedResources">So àwọn búkúmaakì pọ̀, ìtàn, àti díẹ̀ si pẹ̀lú àkáńtì Eyebrowse rẹ</string>
     <!-- Preference description for banner about signing in -->
     <string name="preferences_sign_in_description_2">Wọlé láti so táàbù pọ̀, àwọn búkúmaakì, àwọn ọ̀rọ̀ ìpamọ́, àti díẹ̀ si. </string>
     <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-    <string name="preferences_account_default_name">Àkáǹtì Firefox</string>
+    <string name="preferences_account_default_name">Àkáǹtì Eyebrowse</string>
     <!-- Preference text for account title when there was an error syncing FxA -->
     <string name="preferences_account_sync_error">Tún darapọ̀ láti tún bẹ̀rẹ̀ ìṣiṣẹ́pọ̀ padà</string>
     <!-- Preference for language -->
@@ -476,10 +476,10 @@
     <!-- Snackbar label for action to view selected wallpaper -->
     <string name="wallpaper_updated_snackbar_action">Wòó</string>
     <!-- Label for switch which toggles the "tap-to-switch" behavior on home screen logo -->
-    <string moz:removedIn="105" name="wallpaper_tap_to_change_switch_label_1" tools:ignore="UnusedResources">Ṣe àyípadà ìṣẹ́ṣọ ògiri nípa títẹ ààmì ojú-ìwé Firefox</string>
+    <string moz:removedIn="105" name="wallpaper_tap_to_change_switch_label_1" tools:ignore="UnusedResources">Ṣe àyípadà ìṣẹ́ṣọ ògiri nípa títẹ ààmì ojú-ìwé Eyebrowse</string>
     <!-- This is the accessibility content description for the wallpapers functionality. Users are
     able to tap on the app logo in the home screen and can switch to different wallpapers by tapping. -->
-    <string moz:removedIn="105" name="wallpaper_logo_content_description" tools:ignore="UnusedResources">Lógò Firefox - ṣàyípada sí ìṣẹ̀ṣọ́ ògiri, bọ́tìnì</string>
+    <string moz:removedIn="105" name="wallpaper_logo_content_description" tools:ignore="UnusedResources">Lógò Eyebrowse - ṣàyípada sí ìṣẹ̀ṣọ́ ògiri, bọ́tìnì</string>
 
     <!-- Add-on Installation from AMO-->
     <!-- Error displayed when user attempts to install an add-on from AMO (addons.mozilla.org) that is not supported -->
@@ -531,7 +531,7 @@
     <!-- Name of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
     <string name="fxa_received_tab_channel_name">Àwọn táàbù tí a gbà</string>
     <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-    <string name="fxa_received_tab_channel_description">Àwọn ìfitónilétí fún àwọn táàbù tí a gbà láti àwọn Firefox mìíràn.</string>
+    <string name="fxa_received_tab_channel_description">Àwọn ìfitónilétí fún àwọn táàbù tí a gbà láti àwọn Eyebrowse mìíràn.</string>
     <!--  The body for these is the URL of the tab received  -->
     <string name="fxa_tab_received_notification_name">T́áàbù tí a gbà</string>
     <!-- %s is the device name -->
@@ -827,7 +827,7 @@
     <!-- The synced history sign in dialog button text -->
     <string moz:removedIn="105" name="history_sign_in_button" tools:ignore="UnusedResources">Ìforúkọsílẹ̀-wọlé</string>
     <!-- The synced history sign in dialog create a new account link -->
-    <string moz:removedIn="105" name="history_sign_in_create_account" tools:ignore="UnusedResources"><![CDATA[<u>Tàbí ṣẹ̀dá àkáńtì Firefox láti bẹ̀rẹ̀ sí ní ṣiṣẹ́pọ̀</u>]]></string>
+    <string moz:removedIn="105" name="history_sign_in_create_account" tools:ignore="UnusedResources"><![CDATA[<u>Tàbí ṣẹ̀dá àkáńtì Eyebrowse láti bẹ̀rẹ̀ sí ní ṣiṣẹ́pọ̀</u>]]></string>
 
 
     <!-- Downloads -->
@@ -1074,7 +1074,7 @@
     <!-- An option to connect additional devices -->
     <string name="sync_connect_device">Ṣe ìsopọ̀ àwọn ẹ̀rọ mìíràn</string>
     <!-- The dialog text shown when additional devices are not available -->
-    <string name="sync_connect_device_dialog">Láti fi táàbù kan ráńṣẹ́, wọlé sí Firefox lóri ó kéré jù, ẹ̀rọ míràn kan.</string>
+    <string name="sync_connect_device_dialog">Láti fi táàbù kan ráńṣẹ́, wọlé sí Eyebrowse lóri ó kéré jù, ẹ̀rọ míràn kan.</string>
     <!-- Confirmation dialog button -->
     <string name="sync_confirmation_button">Gbà á</string>
     <!-- Share error message -->
@@ -1229,7 +1229,7 @@
     The first parameter is the name of the app (e.g. Firefox Preview) -->
     <string name="onboarding_header">Káàbọ̀ sí %s!</string>
     <!-- text for the Firefox account onboarding sign in card header. The word "Firefox" should not be translated -->
-    <string name="onboarding_account_sign_in_header_1">Jẹ́kí Firefox ṣiṣẹ́ pọ̀ láàárìn àwọn ẹ̀rọ</string>
+    <string name="onboarding_account_sign_in_header_1">Jẹ́kí Eyebrowse ṣiṣẹ́ pọ̀ láàárìn àwọn ẹ̀rọ</string>
     <!-- Text for the button to learn more about signing in to your Firefox account. The first parameter is the name of the application.-->
     <string name="onboarding_manual_sign_in_description_2">Mú àwọn búkúmaakì, ìtàn, àti àwọn ọ̀rọ̀ ìgbaniwọlé láti %1$s tan ẹ̀rọ yìí.</string>
     <!-- text for the button to manually sign into Firefox account. -->
@@ -1288,7 +1288,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">Síkáànì kóòdù náà</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[Lóri kọ̀m̀pútà rẹ ṣí Firefox ko sì lọ sí <b>https://firefox.com/pair</b>]]></string>
+    <string name="sign_in_instructions"><![CDATA[Lóri kọ̀m̀pútà rẹ ṣí Eyebrowse ko sì lọ sí <b>https://firefox.com/pair</b>]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Gbaradì láti síkáànì</string>
     <!-- Text shown for settings option for sign with pairing -->
@@ -1296,7 +1296,7 @@
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">Lo ímeelì dípò</string>
     <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
-    <string name="sign_in_create_account_text"><![CDATA[Kò sí àkáǹtì? <u> Ṣẹ̀dá ọ̀kan</u>láti jẹ́ kí Firefox ṣiṣẹ́pọ̀ láàárín àwọn ẹ̀rọ.]]></string>
+    <string name="sign_in_create_account_text"><![CDATA[Kò sí àkáǹtì? <u> Ṣẹ̀dá ọ̀kan</u>láti jẹ́ kí Eyebrowse ṣiṣẹ́pọ̀ láàárín àwọn ẹ̀rọ.]]></string>
     <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
     <string name="sign_out_confirmation_message_2">%s yóò dá ìṣiṣẹ́pọ̀ dúrọ́ pẹ̀lú àkáńtì rẹ, àmọ́ ò ní pa dátà bíráwúsìnnì kankan rẹ́ lóri ẹ̀rọ yìí.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -1797,7 +1797,7 @@
     <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">Jọ̀wọ́ gba ìṣepọ̀ táàbù láyè.</string>
     <!-- Text displayed when user has no tabs that have been synced -->
-    <string name="synced_tabs_no_tabs">O ò ní àwọn táàbù tí ó wà ní ṣíṣí ní Firefox lórí àwọn ẹ̀rọ rẹ tó kù.</string>
+    <string name="synced_tabs_no_tabs">O ò ní àwọn táàbù tí ó wà ní ṣíṣí ní Eyebrowse lórí àwọn ẹ̀rọ rẹ tó kù.</string>
     <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">Ṣe àfihàn àtòjọ àwọn táàbù láti àwọn ẹ̀rọ̀ rẹ̀ tó kù.</string>
     <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -1847,7 +1847,7 @@
     <!-- The header text of the auto-close message when the user is asked if they want to turn on the auto-closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Tì-fúnra-ẹ̀ lẹ́yìn oṣù kan?</string>
     <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Firefox lè ti àwọn táàbù tí oò tíì yẹ̀wò ní oṣù tó kọjá.</string>
+    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Eyebrowse lè ti àwọn táàbù tí oò tíì yẹ̀wò ní oṣù tó kọjá.</string>
 
     <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">TAN TÌ-FÚNRA-Ẹ̀</string>
@@ -1855,7 +1855,7 @@
     <string name="inactive_tabs_auto_close_message_snackbar">Tí-fúnra-ẹ̀ ti di ṣíṣe</string>
 
     <!-- Default browser experiment -->
-    <string name="default_browser_experiment_card_text">Ṣètò àwọn líǹkì láti àwọn wẹ́íbúsaìtì, íméèlì àti àwọn ìfiráńṣẹ láti ṣí fún ra wọn ní Firefox.</string>
+    <string name="default_browser_experiment_card_text">Ṣètò àwọn líǹkì láti àwọn wẹ́íbúsaìtì, íméèlì àti àwọn ìfiráńṣẹ láti ṣí fún ra wọn ní Eyebrowse.</string>
 
     <!-- Content description for close button in collection placeholder. -->
     <string name="remove_home_collection_placeholder_content_description">Yọ kúrò</string>
@@ -1879,7 +1879,7 @@
     <!-- Title of an app feature. Smaller than a heading.-->
     <string name="pocket_stories_feature_title">Pocket ni onígbọ̀wọ́.</string>
     <!-- Caption for describing a certain feature. The placeholder is for a clickable text (eg: Learn more) which will load an url in a new tab when clicked.  -->
-    <string name="pocket_stories_feature_caption">Ara ìdílé Firefox. %s</string>
+    <string name="pocket_stories_feature_caption">Ara ìdílé Eyebrowse. %s</string>
     <!-- Clickable text for opening an external link for more information about Pocket. -->
     <string name="pocket_stories_feature_learn_more">Kọ́ ẹ̀kọ́ si</string>
     <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->
@@ -1889,5 +1889,5 @@
     <string name="experiments_snackbar">Jẹ́ kí tẹlẹmẹ́tìrì fi dátà ráńṣẹ́.</string>
     <!-- Snackbar button text to navigate to telemetry settings.-->
     <string name="experiments_snackbar_button">Lọ sí àwọn ààtò</string>
-    <string name="firefox_suggest_header">Firefox Dábàá</string>
+    <string name="firefox_suggest_header">Eyebrowse Dábàá</string>
 </resources>
