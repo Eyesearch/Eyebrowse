@@ -183,12 +183,14 @@ jobs:
       - name: Assemble the debug APK
         run: |
           chmod +x ./gradlew
-          ./gradlew :app:assembleFenixDebug --stacktrace
+          # Only the arm64-v8a split is built: modern 64-bit devices are the
+          # target, and it keeps the artifact around 80 MB instead of 450 MB.
+          ./gradlew :app:assembleFenixDebug -Pabis=arm64-v8a --stacktrace
 
       - name: Upload the debug APK
         uses: actions/upload-artifact@v4
         with:
           name: Eyebrowse-Debug-APK
-          path: fenix/app/build/outputs/apk/fenix/debug/*.apk
+          path: fenix/app/build/outputs/apk/fenix/debug/*arm64*.apk
           if-no-files-found: error
           retention-days: 14

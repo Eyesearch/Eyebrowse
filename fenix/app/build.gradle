@@ -214,10 +214,15 @@ android {
 
             reset()
 
+            // Eyebrowse: allow restricting the build to specific ABIs, e.g.
+            // `-Pabis=arm64-v8a`, so CI artifacts stay small. A comma separated
+            // list works too.
             // As gradle is unable to pick the right apk to install when multiple apks are generated
             // while running benchmark tests or generating baseline profiles. To circumvent this,
             // this flag is passed to make sure only one apk is generated so gradle can pick that one.
-            if (project.hasProperty("benchmarkTest")) {
+            if (project.hasProperty("abis")) {
+                include project.property("abis").split(",")
+            } else if (project.hasProperty("benchmarkTest")) {
                 include "arm64-v8a"
             } else {
                 include "x86", "armeabi-v7a", "arm64-v8a", "x86_64"

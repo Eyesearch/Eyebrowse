@@ -54,7 +54,7 @@
     <string name="recently_saved_menu_item_remove">Remove</string>
 
     <!-- About content. The first parameter is the name of the application. (For example: Fenix) -->
-    <string name="about_content">%1$s is produced by Mozilla.</string>
+    <string name="about_content">%1$s is produced by Eyebrowse.</string>
 
     <!-- Private Browsing -->
     <!-- Explanation for private browsing displayed to users on home view when they first enable private mode
@@ -317,14 +317,14 @@
 
     <!-- Juno first user onboarding flow experiment, strings are marked unused as they are only referenced by Nimbus experiments. -->
     <!-- Description for learning more about our privacy notice. -->
-    <string name="juno_onboarding_privacy_notice_text">Firefox privacy notice</string>
+    <string name="juno_onboarding_privacy_notice_text">Eyebrowse privacy notice</string>
     <!-- Description for learning more about our privacy notice. -->
     <string name="juno_onboarding_privacy_notice_text_2" moz:removedIn="125" tools:ignore="UnusedResources">Learn more in our privacy notice</string>
     <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_title_nimbus_2">We love keeping you safe</string>
     <!-- Title for set firefox as default browser screen used by Nimbus experiments.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="UnusedResources">Find out why millions love Firefox</string>
+    <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="UnusedResources">Find out why millions love Eyebrowse</string>
     <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_title_nimbus_4" tools:ignore="UnusedResources">Safe browsing with more choices</string>
     <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
@@ -346,30 +346,30 @@
     <string name="juno_onboarding_sign_in_title_2">Stay encrypted when you hop between devices</string>
     <!-- Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
      Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_sign_in_description_2">When you’re signed in and synced, you’re safer. Firefox encrypts your passwords, bookmarks, and more.</string>
+    <string name="juno_onboarding_sign_in_description_2">When you’re signed in and synced, you’re safer. Eyebrowse encrypts your passwords, bookmarks, and more.</string>
     <!-- Text for the button to sign in to sync on the device -->
     <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">Sign in</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_sign_in_negative_button" tools:ignore="UnusedResources">Not now</string>
     <!-- Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_enable_notifications_title_nimbus_2">Notifications help you stay safer with Firefox</string>
+    <string name="juno_onboarding_enable_notifications_title_nimbus_2">Notifications help you stay safer with Eyebrowse</string>
     <!-- Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
        Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_enable_notifications_description_nimbus_2">Securely send tabs between your devices and discover other privacy features in Firefox.</string>
+    <string name="juno_onboarding_enable_notifications_description_nimbus_2">Securely send tabs between your devices and discover other privacy features in Eyebrowse.</string>
     <!-- Text for the button to request notification permission on the device -->
     <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">Turn on notifications</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_enable_notifications_negative_button" tools:ignore="UnusedResources">Not now</string>
     <!-- Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_title" tools:ignore="UnusedResources">Try the Firefox search widget</string>
+    <string name="juno_onboarding_add_search_widget_title" tools:ignore="UnusedResources">Try the Eyebrowse search widget</string>
     <!-- Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_description" tools:ignore="UnusedResources">With Firefox on your home screen, you’ll have easy access to the privacy-first browser that blocks cross-site trackers.</string>
+    <string name="juno_onboarding_add_search_widget_description" tools:ignore="UnusedResources">With Eyebrowse on your home screen, you’ll have easy access to the privacy-first browser that blocks cross-site trackers.</string>
     <!-- Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="UnusedResources">Add Firefox widget</string>
+    <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="UnusedResources">Add Eyebrowse widget</string>
     <!-- Text for the button to dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">Not now</string>
 
@@ -409,9 +409,9 @@
     <!-- Preference Category for settings related to Search address bar -->
     <string name="preferences_settings_address_bar">Address bar preferences</string>
     <!-- Preference Category for settings to Firefox Suggest -->
-    <string name="preference_search_address_bar_fx_suggest">Address bar - Firefox Suggest</string>
+    <string name="preference_search_address_bar_fx_suggest">Address bar - Eyebrowse Suggest</string>
     <!-- Preference link to Learn more about Firefox Suggest -->
-    <string name="preference_search_learn_about_fx_suggest">Learn more about Firefox Suggest</string>
+    <string name="preference_search_learn_about_fx_suggest">Learn more about Eyebrowse Suggest</string>
     <!-- Preference link to rating Fenix on the Play Store -->
     <string name="preferences_rate">Rate on Google Play</string>
     <!-- Preference linking to about page for Fenix
@@ -496,11 +496,11 @@
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">Accessibility</string>
     <!-- Preference to override the Mozilla account server -->
-    <string name="preferences_override_account_server">Custom Mozilla account server</string>
+    <string name="preferences_override_account_server">Custom Eyebrowse account server</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">Custom Sync server</string>
     <!-- Toast shown after updating the Mozilla account/Sync server override preferences -->
-    <string name="toast_override_account_sync_server_done">Mozilla account/Sync server modified. Quitting the application to apply changes…</string>
+    <string name="toast_override_account_sync_server_done">Eyebrowse account/Sync server modified. Quitting the application to apply changes…</string>
     <!-- Preference category for account information -->
     <string name="preferences_category_account">Account</string>
     <!-- Preference for changing where the toolbar is positioned -->
@@ -516,7 +516,7 @@
     <!-- Preference description for banner about signing in -->
     <string name="preferences_sign_in_description_2">Sign in to sync tabs, bookmarks, passwords, and more.</string>
     <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-    <string name="preferences_account_default_name_2">Mozilla account</string>
+    <string name="preferences_account_default_name_2">Eyebrowse account</string>
     <!-- Preference text for account title when there was an error syncing FxA -->
     <string name="preferences_account_sync_error">Reconnect to resume syncing</string>
     <!-- Preference for language -->
@@ -648,7 +648,7 @@
     <!-- Title of the Nimbus message for add-ons general availability-->
     <string name="addon_ga_message_title" tools:ignore="UnusedResources">New add-ons now available</string>
     <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here-->
-    <string name="addon_ga_message_body" tools:ignore="UnusedResources">Check out 100+ new extensions that let you make Firefox your own.</string>
+    <string name="addon_ga_message_body" tools:ignore="UnusedResources">Check out 100+ new extensions that let you make Eyebrowse your own.</string>
     <!-- Button text of the Nimbus message for add-ons general availability. -->
     <string name="addon_ga_message_button" tools:ignore="UnusedResources">Explore add-ons</string>
 
@@ -712,7 +712,7 @@
     <!-- Name of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
     <string name="fxa_received_tab_channel_name">Received tabs</string>
     <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-    <string name="fxa_received_tab_channel_description">Notifications for tabs received from other Firefox devices.</string>
+    <string name="fxa_received_tab_channel_description">Notifications for tabs received from other Eyebrowse devices.</string>
     <!--  The body for these is the URL of the tab received  -->
     <string name="fxa_tab_received_notification_name">Tab Received</string>
     <!-- %s is the device name -->
@@ -731,7 +731,7 @@
     <!-- Preference switch for usage and technical data collection -->
     <string name="preference_usage_data">Usage and technical data</string>
     <!-- Preference description for usage and technical data collection -->
-    <string name="preferences_usage_data_description">Shares performance, usage, hardware and customization data about your browser with Mozilla to help us make %1$s better</string>
+    <string name="preferences_usage_data_description">Shares performance, usage, hardware and customization data about your browser with Eyebrowse to help us make %1$s better</string>
     <!-- Preference switch for marketing data collection -->
     <string name="preferences_marketing_data">Marketing data</string>
     <!-- Preference description for marketing data collection -->
@@ -739,7 +739,7 @@
     <!-- Title for studies preferences -->
     <string name="preference_experiments_2">Studies</string>
     <!-- Summary for studies preferences -->
-    <string name="preference_experiments_summary_2">Allows Mozilla to install and run studies</string>
+    <string name="preference_experiments_summary_2">Allows Eyebrowse to install and run studies</string>
 
     <!-- Turn On Sync Preferences -->
     <!-- Header of the Sync and save your data preference view -->
@@ -1011,7 +1011,7 @@
     <!-- Title text displayed on the tab crash page. This first parameter is the name of the application (For example: Fenix) -->
     <string name="tab_crash_title_2">Sorry. %1$s can’t load that page.</string>
     <!-- Send crash report checkbox text on the tab crash page -->
-    <string name="tab_crash_send_report">Send crash report to Mozilla</string>
+    <string name="tab_crash_send_report">Send crash report to Eyebrowse</string>
     <!-- Close tab button text on the tab crash page -->
     <string name="tab_crash_close">Close tab</string>
     <!-- Restore tab button text on the tab crash page -->
@@ -1253,7 +1253,7 @@
     <!-- An option to connect additional devices -->
     <string name="sync_connect_device">Connect another device</string>
     <!-- The dialog text shown when additional devices are not available -->
-    <string name="sync_connect_device_dialog">To send a tab, sign in to Firefox on at least one other device.</string>
+    <string name="sync_connect_device_dialog">To send a tab, sign in to Eyebrowse on at least one other device.</string>
     <!-- Confirmation dialog button -->
     <string name="sync_confirmation_button">Got it</string>
     <!-- Share error message -->
@@ -1279,10 +1279,10 @@
     <string name="notification_marketing_channel_name">Marketing</string>
     <!-- Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_notification_default_browser_title" tools:ignore="UnusedResources">Firefox is fast and private</string>
+    <string name="nimbus_notification_default_browser_title" tools:ignore="UnusedResources">Eyebrowse is fast and private</string>
     <!-- Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_notification_default_browser_text" tools:ignore="UnusedResources">Make Firefox your default browser</string>
+    <string name="nimbus_notification_default_browser_text" tools:ignore="UnusedResources">Make Eyebrowse your default browser</string>
     <!-- Title shown in the notification that pops up to re-engage the user -->
     <string name="notification_re_engagement_title">Try private browsing</string>
     <!-- Text shown in the notification that pops up to re-engage the user.
@@ -1301,7 +1301,7 @@
     <!-- Survey -->
     <!-- Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_survey_message_text">Please help make Firefox better by taking a short survey.</string>
+    <string name="nimbus_survey_message_text">Please help make Eyebrowse better by taking a short survey.</string>
     <!-- Preference for taking the short survey. -->
     <string name="preferences_take_survey">Take Survey</string>
     <!-- Preference for not taking the short survey. -->
@@ -1447,7 +1447,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">Scan the code</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[On your computer open Firefox and go to <b>https://firefox.com/pair</b>]]></string>
+    <string name="sign_in_instructions"><![CDATA[On your computer open Eyebrowse and go to <b>https://firefox.com/pair</b>]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Ready to scan</string>
     <!-- Text shown for settings option for sign with pairing -->
@@ -1455,7 +1455,7 @@
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">Use email instead</string>
     <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
-    <string name="sign_in_create_account_text"><![CDATA[No account? <u>Create one</u> to sync Firefox between devices.]]></string>
+    <string name="sign_in_create_account_text"><![CDATA[No account? <u>Create one</u> to sync Eyebrowse between devices.]]></string>
     <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
     <string name="sign_out_confirmation_message_2">%s will stop syncing with your account, but won’t delete any of your browsing data on this device.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -2039,7 +2039,7 @@
     <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">Please enable tab syncing.</string>
     <!-- Text displayed when user has no tabs that have been synced -->
-    <string name="synced_tabs_no_tabs">You don’t have any tabs open in Firefox on your other devices.</string>
+    <string name="synced_tabs_no_tabs">You don’t have any tabs open in Eyebrowse on your other devices.</string>
     <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">View a list of tabs from your other devices.</string>
     <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -2089,7 +2089,7 @@
     <!-- The header text of the auto-close message when the user is asked if they want to turn on the auto-closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Auto-close after one month?</string>
     <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Firefox can close tabs you haven’t viewed over the past month.</string>
+    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Eyebrowse can close tabs you haven’t viewed over the past month.</string>
     <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">TURN ON AUTO CLOSE</string>
     <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -2097,7 +2097,7 @@
 
     <!-- Awesome bar suggestion's headers -->
     <!-- Search suggestions title for Firefox Suggest. -->
-    <string name="firefox_suggest_header">Firefox Suggest</string>
+    <string name="firefox_suggest_header">Eyebrowse Suggest</string>
     <!-- Title for search suggestions when Google is the default search suggestion engine. -->
     <string name="google_search_engine_suggestion_header">Google Search</string>
     <!-- Title for search suggestions when the default search suggestion engine is anything other than Google. The first parameter is default search engine name. -->
@@ -2107,7 +2107,7 @@
     <!-- Default browser card title -->
     <string name="default_browser_experiment_card_title">Switch your default browser</string>
     <!-- Default browser card text -->
-    <string name="default_browser_experiment_card_text">Set links from websites, emails, and messages to open automatically in Firefox.</string>
+    <string name="default_browser_experiment_card_text">Set links from websites, emails, and messages to open automatically in Eyebrowse.</string>
 
     <!-- Content description for close button in collection placeholder. -->
     <string name="remove_home_collection_placeholder_content_description">Remove</string>
@@ -2131,7 +2131,7 @@
     <!-- Title of an app feature. Smaller than a heading. The first parameter is product name Pocket -->
     <string name="pocket_stories_feature_title_2">Powered by %s.</string>
     <!-- Caption for describing a certain feature. The placeholder is for a clickable text (eg: Learn more) which will load an url in a new tab when clicked.  -->
-    <string name="pocket_stories_feature_caption">Part of the Firefox family. %s</string>
+    <string name="pocket_stories_feature_caption">Part of the Eyebrowse family. %s</string>
     <!-- Clickable text for opening an external link for more information about Pocket. -->
     <string name="pocket_stories_feature_learn_more">Learn more</string>
     <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->
@@ -2162,7 +2162,7 @@
     <!-- Title for section explaining how we analyze the reliability of a product's reviews. -->
     <string name="review_quality_check_explanation_title">How we determine review quality</string>
     <!-- Paragraph explaining how we analyze the reliability of a product's reviews. First parameter is the Fakespot product name. In the phrase "Fakespot by Mozilla", "by" can be localized. Does not need to stay by. -->
-    <string name="review_quality_check_explanation_body_reliability">We use AI technology from %s by Mozilla to check the reliability of product reviews. This will only help you assess review quality, not product quality. </string>
+    <string name="review_quality_check_explanation_body_reliability">We use AI technology from %s by Eyebrowse to check the reliability of product reviews. This will only help you assess review quality, not product quality. </string>
     <!-- Paragraph explaining the grading system we use to classify the reliability of a product's reviews. -->
     <string name="review_quality_check_info_review_grade_header"><![CDATA[We assign each product’s reviews a <b>letter grade</b> from A to F.]]></string>
     <!-- Description explaining grades A and B for review quality check adjusted grading. -->
@@ -2196,7 +2196,7 @@
     <!-- Caption for review quality check panel. First parameter is for clickable text defined in review_quality_check_powered_by_link. -->
     <string name="review_quality_check_powered_by_2">Review checker is powered by %s</string>
     <!-- Clickable text that links to Fakespot.com. First parameter is the Fakespot product name. In the phrase "Fakespot by Mozilla", "by" can be localized. Does not need to stay by. -->
-    <string name="review_quality_check_powered_by_link" tools:ignore="UnusedResources">%s by Mozilla</string>
+    <string name="review_quality_check_powered_by_link" tools:ignore="UnusedResources">%s by Eyebrowse</string>
     <!-- Text for title of warning card informing the user that the current analysis is outdated. -->
     <string name="review_quality_check_outdated_analysis_warning_title" tools:ignore="UnusedResources">New info to check</string>
     <!-- Text for button from warning card informing the user that the current analysis is outdated. Clicking this should trigger the product's re-analysis. -->
@@ -2252,11 +2252,11 @@
     <!-- Description for review quality check contextual onboarding card. The first parameters is for retailer name (e.g. Amazon). The second parameter is for the name of the application (e.g. Firefox). -->
     <string name="review_quality_check_contextual_onboarding_description_one_vendor">See how reliable product reviews are on %1$s before you buy. Review Checker, an experimental feature from %2$s, is built right into the browser.</string>
     <!-- Paragraph presenting review quality check feature. First parameter is the Fakespot product name. Second parameter is for clickable text defined in review_quality_check_contextual_onboarding_learn_more_link. In the phrase "Fakespot by Mozilla", "by" can be localized. Does not need to stay by. -->
-    <string name="review_quality_check_contextual_onboarding_learn_more">Using the power of %1$s by Mozilla, we help you avoid biased and inauthentic reviews. Our AI model is always improving to protect you as you shop. %2$s</string>
+    <string name="review_quality_check_contextual_onboarding_learn_more">Using the power of %1$s by Eyebrowse, we help you avoid biased and inauthentic reviews. Our AI model is always improving to protect you as you shop. %2$s</string>
     <!-- Clickable text from the contextual onboarding card that links to review quality check support article. -->
     <string name="review_quality_check_contextual_onboarding_learn_more_link">Learn more</string>
     <!-- Caption text to be displayed in review quality check contextual onboarding card above the opt-in button. First parameter is the Fakespot product name. Following parameters are for clickable texts defined in review_quality_check_contextual_onboarding_privacy_policy and review_quality_check_contextual_onboarding_terms_use. In the phrase "Fakespot by Mozilla", "by" can be localized. Does not need to stay by. -->
-    <string name="review_quality_check_contextual_onboarding_caption" moz:RemovedIn="123" tools:ignore="UnusedResources">By selecting “Yes, try it” you agree to %1$s by Mozilla’s %2$s and %3$s.</string>
+    <string name="review_quality_check_contextual_onboarding_caption" moz:RemovedIn="123" tools:ignore="UnusedResources">By selecting “Yes, try it” you agree to %1$s by Eyebrowse’s %2$s and %3$s.</string>
     <!-- Caption text to be displayed in review quality check contextual onboarding card above the opt-in button. Parameter is the Fakespot product name. After the colon, what appears are two links, each on their own line. The first link is to a Privacy policy (review_quality_check_contextual_onboarding_privacy_policy_2). The second link is to Terms of use (review_quality_check_contextual_onboarding_terms_use_2). -->
     <string name="review_quality_check_contextual_onboarding_caption_2" moz:RemovedIn="123" tools:ignore="UnusedResources">By selecting “Yes, try it” you agree to the following from %1$s:</string>
     <!-- Caption text to be displayed in review quality check contextual onboarding card above the opt-in button. First parameter is Firefox app name, third parameter is the Fakespot product name. Second & fourth are for clickable texts defined in review_quality_check_contextual_onboarding_privacy_policy_3 and review_quality_check_contextual_onboarding_terms_use. -->

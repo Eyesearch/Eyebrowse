@@ -61,15 +61,15 @@
     <!-- Preference to override the Push server -->
     <string name="preferences_override_push_server">Custom Push server</string>
     <!-- Quit app button title for the Sync Debug preferences -->
-    <string name="preferences_sync_debug_quit_button_title">Stop Firefox</string>
+    <string name="preferences_sync_debug_quit_button_title">Stop Eyebrowse</string>
     <!-- Quit app button summary for the Sync Debug preferences -->
-    <string name="preferences_sync_debug_quit_button_summary">Custom server changes will take effect on the next Firefox run.</string>
+    <string name="preferences_sync_debug_quit_button_summary">Custom server changes will take effect on the next Eyebrowse run.</string>
     <!-- Label for enabling the Tabs Tray to Compose changes -->
     <string name="preferences_debug_settings_tabs_tray_to_compose" translatable="false">Enable Tabs Tray to Compose rewrite</string>
     <!-- Label for enabling the Compose Top Sites -->
     <string name="preferences_debug_settings_compose_top_sites" translatable="false">Enable Compose Top Sites</string>
     <!-- Label for enabling Firefox Suggest -->
-    <string name="preferences_debug_settings_fxsuggest" translatable="false">Enable Firefox Suggest</string>
+    <string name="preferences_debug_settings_fxsuggest" translatable="false">Enable Eyebrowse Suggest</string>
     <!-- Label for enabling Toolbar Redesign incomplete portions -->
     <string name="preferences_debug_settings_toolbar_redesign" translatable="false">Enable Toolbar Redesign incomplete portions</string>
     <!-- Label for enabling Felt Privacy -->
@@ -94,15 +94,15 @@
     <string name="profiler_stop">Stop Profiler</string>
 
     <string name="profiler_settings_title">Profiler Settings</string>
-    <string name="profiler_filter_firefox">Firefox</string>
+    <string name="profiler_filter_firefox">Eyebrowse</string>
     <string name="profiler_running">Profiler is currently running</string>
-    <string name="profiler_filter_firefox_explain">Recommended preset for profiling Firefox</string>
+    <string name="profiler_filter_firefox_explain">Recommended preset for profiling Eyebrowse</string>
     <string name="profiler_filter_graphics">Graphics</string>
-    <string name="profiler_filter_graphics_explain">Preset for investigating graphics bugs in Firefox</string>
+    <string name="profiler_filter_graphics_explain">Preset for investigating graphics bugs in Eyebrowse</string>
     <string name="profiler_filter_media">Media</string>
-    <string name="profiler_filter_media_explain">Preset for investigating audio and video bugs in Firefox</string>
+    <string name="profiler_filter_media_explain">Preset for investigating audio and video bugs in Eyebrowse</string>
     <string name="profiler_filter_networking">Networking</string>
-    <string name="profiler_filter_networking_explain">Preset for investigating networking bugs in Firefox</string>
+    <string name="profiler_filter_networking_explain">Preset for investigating networking bugs in Eyebrowse</string>
 
     <string name="profiler_start_dialog_started">Profiler started</string>
 
