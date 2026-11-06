@@ -245,7 +245,7 @@
     <!-- Preference description for banner about signing in -->
     <string name="preferences_sign_in_description">نیشانەکراوەکان، مێژووی کار، وزیاتر لەگەڵ هەژماری فایەرفۆکس</string>
     <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-    <string name="preferences_account_default_name">هەژماری Firefox</string>
+    <string name="preferences_account_default_name">هەژماری Eyebrowse</string>
     <!-- Preference text for account title when there was an error syncing FxA -->
     <string name="preferences_account_sync_error">دووبارە پەیوەندی بکەرەوە بۆ هێنانەوەی هاوکاتگەری</string>
     <!-- Preference for language -->
@@ -908,7 +908,7 @@
 
     <!-- Tips -->
     <!-- text for firefox preview moving tip header "Firefox Preview" and "Firefox Nightly" are intentionally hardcoded -->
-    <string moz:RemovedIn="100" name="tip_firefox_preview_moved_header" tools:ignore="UnusedResources">Firefox Preview ئێستا بووە بە Firefox Nightly</string>
+    <string moz:RemovedIn="100" name="tip_firefox_preview_moved_header" tools:ignore="UnusedResources">Eyebrowse Preview ئێستا بووە بە Eyebrowse Nightly</string>
     <!-- text for firefox preview moving tip button. "Firefox for Android Beta" is intentionally hardcoded -->
     <string moz:RemovedIn="100" name="tip_firefox_preview_moved_button_2" tools:ignore="UnusedResources">فایەرفۆکسی بێتا بەدەست بێنە بۆ ئەندرۆید</string>
 
