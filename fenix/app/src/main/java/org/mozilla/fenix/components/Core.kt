@@ -12,6 +12,9 @@ import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.datastore.preferences.preferencesDataStore
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import mozilla.components.browser.domains.autocomplete.BaseDomainAutocompleteProvider
 import mozilla.components.browser.domains.autocomplete.ShippedDomainsProvider
 import mozilla.components.browser.engine.gecko.GeckoEngine
@@ -319,9 +322,11 @@ class Core(
 
             // Eyebrowse: the SERP provider list is no longer fetched from Mozilla's remote
             // settings. The ads and cookies WebExtensions are still installed so search keeps
-            // working, but with an empty provider list.
-            adsTelemetry.install(engine, this@apply, emptyList())
-            searchTelemetry.install(engine, this@apply, emptyList())
+            // working, but with an empty provider list, so nothing is fetched.
+            CoroutineScope(Dispatchers.Main).launch {
+                adsTelemetry.install(engine, this@apply, emptyList())
+                searchTelemetry.install(engine, this@apply, emptyList())
+            }
 
             WebNotificationFeature(
                 context,
