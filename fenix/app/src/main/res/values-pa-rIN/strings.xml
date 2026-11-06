@@ -798,7 +798,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[<b>firefox.com/pair</b> ਉੱਤੇ ਵਿਖਾਏ QR ਕੋਡ ਨੂੰ ਸਕੈਨ ਕਰੋ]]></string>
+    <string name="pair_instructions_2"><![CDATA[<b>eyebrowse.in/pair</b> ਉੱਤੇ ਵਿਖਾਏ QR ਕੋਡ ਨੂੰ ਸਕੈਨ ਕਰੋ]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -1523,7 +1523,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">ਕੋਡ ਸਕੈਨ ਕਰੋ</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[ਆਪਣੇ ਕੰਪਿਊਟਰ ‘ਤੇ Eyebrowse ਖੋਲ੍ਹੋ ਅਤੇ <b>https://firefox.com/pair</b> ‘ਤੇ ਜਾਓ]]></string>
+    <string name="sign_in_instructions"><![CDATA[ਆਪਣੇ ਕੰਪਿਊਟਰ ‘ਤੇ Eyebrowse ਖੋਲ੍ਹੋ ਅਤੇ <b>https://eyebrowse.in/pair</b> ‘ਤੇ ਜਾਓ]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">ਸਕੈਨ ਕਰਨ ਲਈ ਤਿਆਰ</string>
     <!-- Text shown for settings option for sign with pairing -->
