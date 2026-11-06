@@ -973,7 +973,7 @@
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">ಬದಲಿಗೆ ಇಮೇಲ್ ಬಳಸಿ</string>
     <!-- Text shown in confirmation dialog to sign out of account -->
-    <string name="sign_out_confirmation_message">Firefox ನಿಮ್ಮ ಖಾತೆಯೊಂದಿಗೆ ಸಿಂಕ್ ಮಾಡುವುದನ್ನು ನಿಲ್ಲಿಸುವುದು, ಆದರೆ ಈ ಸಾಧನದಿಂದ ನಿಮ್ಮ ಯಾವುದೇ ಜಾಲಾಟದ ಡೇಟಾವನ್ನು ಅಳಿಸುವುದಿಲ್ಲ.</string>
+    <string name="sign_out_confirmation_message">Eyebrowse ನಿಮ್ಮ ಖಾತೆಯೊಂದಿಗೆ ಸಿಂಕ್ ಮಾಡುವುದನ್ನು ನಿಲ್ಲಿಸುವುದು, ಆದರೆ ಈ ಸಾಧನದಿಂದ ನಿಮ್ಮ ಯಾವುದೇ ಜಾಲಾಟದ ಡೇಟಾವನ್ನು ಅಳಿಸುವುದಿಲ್ಲ.</string>
     <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
     <string name="sign_out_confirmation_message_2">%s ನಿಮ್ಮ ಖಾತೆಯೊಂದಿಗೆ ಸಿಂಕ್ ಮಾಡುವುದನ್ನು ನಿಲ್ಲಿಸುವುದು, ಆದರೆ ಈ ಸಾಧನದಿಂದ ನಿಮ್ಮ ಯಾವುದೇ ಜಾಲಾಟದ ಡೇಟಾವನ್ನು ಅಳಿಸುವುದಿಲ್ಲ.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
