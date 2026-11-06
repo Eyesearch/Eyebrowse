@@ -119,6 +119,50 @@ jobs:
             echo "No GOOGLE_SERVICES_JSON secret found; wrote a placeholder file."
           fi
 
+      - name: Provide the Nimbus FML tooling
+        working-directory: .
+        run: |
+          set -euo pipefail
+          # The Nimbus Gradle plugin downloads a nimbus-fml binary for the pinned
+          # application-services version. That version is a nightly, whose CI
+          # artifacts have since expired, so the download fails on a fork.
+          # Seed the binary from a published release of the same cycle instead:
+          # the plugin skips its own download when the file already exists.
+          version="$(sed -n 's/^val VERSION = "\(.*\)"/\1/p' \
+            android-components/plugins/dependencies/src/main/java/ApplicationServices.kt)"
+          echo "application-services version: $version"
+          target="fenix/build/bin/nimbus/$version"
+          mkdir -p "$target"
+          if [ -x "$target/nimbus-fml" ]; then
+            echo "nimbus-fml already present"
+            exit 0
+          fi
+
+          tmp="$(mktemp -d)"
+          found=""
+          for candidate in "$version" "125.0"; do
+            url="https://archive.mozilla.org/pub/app-services/releases/$candidate/nimbus-fml.zip"
+            echo "Trying $url"
+            if curl -fsSL --retry 3 -o "$tmp/nimbus-fml.zip" "$url"; then
+              found="$candidate"
+              break
+            fi
+          done
+          if [ -z "$found" ]; then
+            echo "::error::Could not download a nimbus-fml binary"
+            exit 1
+          fi
+
+          unzip -o -q "$tmp/nimbus-fml.zip" -d "$tmp/extracted"
+          binary="$(find "$tmp/extracted" -type f -name 'nimbus-fml' -path '*unknown-linux*' | head -n 1)"
+          if [ -z "$binary" ]; then
+            echo "::error::The nimbus-fml archive has no linux binary"
+            exit 1
+          fi
+          cp "$binary" "$target/nimbus-fml"
+          chmod +x "$target/nimbus-fml"
+          echo "Seeded nimbus-fml from application-services $found"
+
       - name: Assemble the debug APK
         run: |
           chmod +x ./gradlew
