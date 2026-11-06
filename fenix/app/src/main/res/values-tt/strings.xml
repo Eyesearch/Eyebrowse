@@ -276,7 +276,7 @@
     <string name="juno_onboarding_default_browser_title">%s-ны көн саен куллана торган браузерыгыз итегез</string>
     <!-- Title for set firefox as default browser screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_default_browser_title_nimbus" tools:ignore="UnusedResources">Firefox-ны көн саен куллана торган браузерыгыз итегез</string>
+    <string name="juno_onboarding_default_browser_title_nimbus" tools:ignore="UnusedResources">Eyebrowse-ны көн саен куллана торган браузерыгыз итегез</string>
     <!-- Text for the link to the privacy notice webpage for set as firefox default browser screen.
     This is part of the string with the key "juno_onboarding_default_browser_description". -->
     <string name="juno_onboarding_default_browser_description_link_text">хосусыйлык аңлатмасы</string>
@@ -384,11 +384,11 @@
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">Кулайлык</string>
     <!-- Preference to override the Firefox Account server -->
-    <string name="preferences_override_fxa_server">Үзгә Firefox Хисап серверы</string>
+    <string name="preferences_override_fxa_server">Үзгә Eyebrowse Хисап серверы</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">Үзгә Синхронлау серверы</string>
     <!-- Toast shown after updating the FxA/Sync server override preferences -->
-    <string name="toast_override_fxa_sync_server_done">Firefox Хисап/Синхронлау серверы үзгәртелгән. Үзгәртүләрне гамәлгә ашыру өчен кушымтадан чыгу…</string>
+    <string name="toast_override_fxa_sync_server_done">Eyebrowse Хисап/Синхронлау серверы үзгәртелгән. Үзгәртүләрне гамәлгә ашыру өчен кушымтадан чыгу…</string>
     <!-- Preference category for account information -->
     <string name="preferences_category_account">Хисап язмасы</string>
     <!-- Preference for changing where the toolbar is positioned -->
@@ -402,7 +402,7 @@
     <!-- Preference for settings related to visual options -->
     <string name="preferences_customize">Яраклаштыру</string>
     <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-    <string name="preferences_account_default_name">Firefox хисап язмасы</string>
+    <string name="preferences_account_default_name">Eyebrowse хисап язмасы</string>
     <!-- Preference text for account title when there was an error syncing FxA -->
     <string name="preferences_account_sync_error">Синхронлауны дәвам итү өчен яңадан тоташыгыз</string>
     <!-- Preference for language -->
@@ -531,7 +531,7 @@
     <!-- Name of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
     <string name="fxa_received_tab_channel_name">Башка җиһаздагы таблар</string>
     <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-    <string name="fxa_received_tab_channel_description">Башка Firefox җиһазларыннан алынган таблар өчен искәртүләр.</string>
+    <string name="fxa_received_tab_channel_description">Башка Eyebrowse җиһазларыннан алынган таблар өчен искәртүләр.</string>
     <!--  The body for these is the URL of the tab received  -->
     <string name="fxa_tab_received_notification_name">Таб кабул ителде</string>
 
@@ -562,7 +562,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[<b>Firefox.com/pair</b> адресында күрсәтелгән QR кодны сканерлагыз]]></string>
+    <string name="pair_instructions_2"><![CDATA[<b>Eyebrowse.com/pair</b> адресында күрсәтелгән QR кодны сканерлагыз]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -1003,7 +1003,7 @@
     <!-- An option to connect additional devices -->
     <string name="sync_connect_device">Башка җиһазны тоташтыру</string>
     <!-- The dialog text shown when additional devices are not available -->
-    <string name="sync_connect_device_dialog">Табны җибәрү өчен, кимендә тагын бер башка җиһаздан Firefox-ка керегез.</string>
+    <string name="sync_connect_device_dialog">Табны җибәрү өчен, кимендә тагын бер башка җиһаздан Eyebrowse-ка керегез.</string>
     <!-- Confirmation dialog button -->
     <string name="sync_confirmation_button">Аңладым</string>
 
@@ -1165,7 +1165,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">Кодны сканерлау</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[Компьютерыгызда Firefox-ны ачыгыз һәм <b>https://firefox.com/pair</b> адресына үтегез]]></string>
+    <string name="sign_in_instructions"><![CDATA[Компьютерыгызда Eyebrowse-ны ачыгыз һәм <b>https://firefox.com/pair</b> адресына үтегез]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Сканерлауга әзер</string>
     <!-- Text shown for settings option for sign with pairing -->
@@ -1173,7 +1173,7 @@
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">Моның урынына эл. почта кулланыгыз</string>
     <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
-    <string name="sign_in_create_account_text"><![CDATA[Аккаунтыгыз юкмы? Firefox-ны җиһазлар арасында синхронлау өчен, бер <u>хисап булдырыгыз</u>.]]></string>
+    <string name="sign_in_create_account_text"><![CDATA[Аккаунтыгыз юкмы? Eyebrowse-ны җиһазлар арасында синхронлау өчен, бер <u>хисап булдырыгыз</u>.]]></string>
     <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
     <string name="sign_out_confirmation_message_2">%s хисабыгыз белән синхронлауны туктатачак, ләкин бу җиһаздагы гизү мәгълүматларының берсен дә бетермәячәк.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -1581,7 +1581,7 @@
     <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">Зинһар, таблар синхронлауны кабызыгыз.</string>
     <!-- Text displayed when user has no tabs that have been synced -->
-    <string name="synced_tabs_no_tabs">Башка җиһазларыгыздагы Firefox-ларда ачык таблар юк.</string>
+    <string name="synced_tabs_no_tabs">Башка җиһазларыгыздагы Eyebrowse-ларда ачык таблар юк.</string>
     <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">Башка җиһазларыгызда ачылган таблар исемлеген карау.</string>
     <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -1618,14 +1618,14 @@
     <!-- The header text of the auto-close message when the user is asked if they want to turn on the auto-closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Бер айдан соң үзлегеннән ябылсынмы?</string>
     <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Firefox соңгы айда каралмаган табларны яба ала.</string>
+    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Eyebrowse соңгы айда каралмаган табларны яба ала.</string>
     <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">АВТОЯБУНЫ КАБЫЗУ</string>
     <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
     <string name="inactive_tabs_auto_close_message_snackbar">Автоябу кабызылды</string>
 
     <!-- Default browser experiment -->
-    <string name="default_browser_experiment_card_text">Вебсайтлардан, эл. хатлардан һәм хәбәрләрдән сылтамаларны автоматик рәвештә Firefox-та ачылсын.</string>
+    <string name="default_browser_experiment_card_text">Вебсайтлардан, эл. хатлардан һәм хәбәрләрдән сылтамаларны автоматик рәвештә Eyebrowse-та ачылсын.</string>
 
     <!-- Content description for close button in collection placeholder. -->
     <string name="remove_home_collection_placeholder_content_description">Бетерү</string>
@@ -1647,7 +1647,7 @@
     <!-- Text of a button allowing users to access an external url for more Pocket recommendations. -->
     <string name="pocket_stories_placeholder_text">Күбрәген күрү</string>
     <!-- Caption for describing a certain feature. The placeholder is for a clickable text (eg: Learn more) which will load an url in a new tab when clicked.  -->
-    <string name="pocket_stories_feature_caption">Firefox гаиләсеннән. %s</string>
+    <string name="pocket_stories_feature_caption">Eyebrowse гаиләсеннән. %s</string>
     <!-- Clickable text for opening an external link for more information about Pocket. -->
     <string name="pocket_stories_feature_learn_more">Күбрәк белү</string>
 

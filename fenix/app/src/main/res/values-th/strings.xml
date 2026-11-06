@@ -335,14 +335,14 @@
 
     <!-- Juno first user onboarding flow experiment, strings are marked unused as they are only referenced by Nimbus experiments. -->
     <!-- Description for learning more about our privacy notice. -->
-    <string name="juno_onboarding_privacy_notice_text">ประกาศความเป็นส่วนตัวของ Firefox</string>
+    <string name="juno_onboarding_privacy_notice_text">ประกาศความเป็นส่วนตัวของ Eyebrowse</string>
     <!-- Description for learning more about our privacy notice. -->
     <string name="juno_onboarding_privacy_notice_text_2" moz:removedIn="125" tools:ignore="UnusedResources">เรียนรู้เพิ่มเติมในประกาศความเป็นส่วนตัวของเรา</string>
     <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_title_nimbus_2">เรารักที่จะดูแลคุณให้ปลอดภัย</string>
     <!-- Title for set firefox as default browser screen used by Nimbus experiments.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="UnusedResources">ค้นพบว่าทำไมผู้คนนับล้านถึงรัก Firefox</string>
+    <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="UnusedResources">ค้นพบว่าทำไมผู้คนนับล้านถึงรัก Eyebrowse</string>
     <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_title_nimbus_4" tools:ignore="UnusedResources">ท่องเว็บอย่างปลอดภัยพร้อมตัวเลือกที่มากขึ้น</string>
     <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
@@ -364,17 +364,17 @@
     <string name="juno_onboarding_sign_in_title_2">คงการเข้ารหัสเมื่อคุณเปลี่ยนจากอุปกรณ์เครื่องหนึ่งไปยังอีกเครื่องหนึ่ง</string>
     <!-- Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
      Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_sign_in_description_2">เมื่อคุณลงชื่อเข้าและซิงค์แล้ว คุณจะปลอดภัยยิ่งขึ้น Firefox จะเข้ารหัสลับรหัสผ่าน ที่คั่นหน้า และอื่น ๆ ของคุณ</string>
+    <string name="juno_onboarding_sign_in_description_2">เมื่อคุณลงชื่อเข้าและซิงค์แล้ว คุณจะปลอดภัยยิ่งขึ้น Eyebrowse จะเข้ารหัสลับรหัสผ่าน ที่คั่นหน้า และอื่น ๆ ของคุณ</string>
     <!-- Text for the button to sign in to sync on the device -->
     <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">ลงชื่อเข้า</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_sign_in_negative_button" tools:ignore="UnusedResources">ไม่ใช่ตอนนี้</string>
     <!-- Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_enable_notifications_title_nimbus_2">การแจ้งเตือนช่วยให้คุณปลอดภัยยิ่งขึ้นด้วย Firefox</string>
+    <string name="juno_onboarding_enable_notifications_title_nimbus_2">การแจ้งเตือนช่วยให้คุณปลอดภัยยิ่งขึ้นด้วย Eyebrowse</string>
     <!-- Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
        Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_enable_notifications_description_nimbus_2">ส่งแท็บระหว่างอุปกรณ์ของคุณอย่างปลอดภัยและค้นพบคุณสมบัติความเป็นส่วนตัวอื่นๆ ใน Firefox</string>
+    <string name="juno_onboarding_enable_notifications_description_nimbus_2">ส่งแท็บระหว่างอุปกรณ์ของคุณอย่างปลอดภัยและค้นพบคุณสมบัติความเป็นส่วนตัวอื่นๆ ใน Eyebrowse</string>
     <!-- Text for the button to request notification permission on the device -->
     <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">เปิดการแจ้งเตือน</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -382,13 +382,13 @@
 
     <!-- Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_title" tools:ignore="UnusedResources">ลองใช้วิดเจ็ตค้นหาของ Firefox</string>
+    <string name="juno_onboarding_add_search_widget_title" tools:ignore="UnusedResources">ลองใช้วิดเจ็ตค้นหาของ Eyebrowse</string>
     <!-- Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_description" tools:ignore="UnusedResources">ด้วย Firefox บนหน้าจอแรกของคุณ คุณจะสามารถเข้าถึงเบราว์เซอร์ที่เน้นเรื่องความเป็นส่วนตัวเป็นหลักซึ่งช่วยปิดกั้นตัวติดตามแบบข้ามไซต์ได้อย่างง่ายดาย</string>
+    <string name="juno_onboarding_add_search_widget_description" tools:ignore="UnusedResources">ด้วย Eyebrowse บนหน้าจอแรกของคุณ คุณจะสามารถเข้าถึงเบราว์เซอร์ที่เน้นเรื่องความเป็นส่วนตัวเป็นหลักซึ่งช่วยปิดกั้นตัวติดตามแบบข้ามไซต์ได้อย่างง่ายดาย</string>
     <!-- Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="UnusedResources">เพิ่มวิดเจ็ต Firefox</string>
+    <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="UnusedResources">เพิ่มวิดเจ็ต Eyebrowse</string>
     <!-- Text for the button to dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">ไม่ใช่ตอนนี้</string>
 
@@ -429,9 +429,9 @@
     <!-- Preference Category for settings related to Search address bar -->
     <string name="preferences_settings_address_bar">การกำหนดลักษณะแถบที่อยู่</string>
     <!-- Preference Category for settings to Firefox Suggest -->
-    <string name="preference_search_address_bar_fx_suggest">แถบที่อยู่ - Firefox Suggest</string>
+    <string name="preference_search_address_bar_fx_suggest">แถบที่อยู่ - Eyebrowse Suggest</string>
     <!-- Preference link to Learn more about Firefox Suggest -->
-    <string name="preference_search_learn_about_fx_suggest">เรียนรู้เพิ่มเติมเกี่ยวกับ Firefox Suggest</string>
+    <string name="preference_search_learn_about_fx_suggest">เรียนรู้เพิ่มเติมเกี่ยวกับ Eyebrowse Suggest</string>
     <!-- Preference link to rating Fenix on the Play Store -->
     <string name="preferences_rate">ให้คะแนนบน Google Play</string>
     <!-- Preference linking to about page for Fenix
@@ -682,7 +682,7 @@
     <string name="addon_ga_message_title" tools:ignore="UnusedResources">ส่วนเสริมใหม่ที่ใช้งานได้ในขณะนี้</string>
 
     <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here-->
-    <string name="addon_ga_message_body" tools:ignore="UnusedResources">ลองดูส่วนขยายใหม่กว่า 100 รายการที่ให้คุณสร้าง Firefox ในแบบของคุณเอง</string>
+    <string name="addon_ga_message_body" tools:ignore="UnusedResources">ลองดูส่วนขยายใหม่กว่า 100 รายการที่ให้คุณสร้าง Eyebrowse ในแบบของคุณเอง</string>
     <!-- Button text of the Nimbus message for add-ons general availability. -->
     <string name="addon_ga_message_button" tools:ignore="UnusedResources">สำรวจส่วนเสริม</string>
 
@@ -748,7 +748,7 @@
     <!-- Name of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
     <string name="fxa_received_tab_channel_name">แท็บที่ได้รับ</string>
     <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-    <string name="fxa_received_tab_channel_description">การแจ้งเตือนสำหรับแท็บที่ได้รับจากอุปกรณ์ Firefox อื่น ๆ</string>
+    <string name="fxa_received_tab_channel_description">การแจ้งเตือนสำหรับแท็บที่ได้รับจากอุปกรณ์ Eyebrowse อื่น ๆ</string>
     <!--  The body for these is the URL of the tab received  -->
     <string name="fxa_tab_received_notification_name">แท็บที่ได้รับ</string>
     <!-- %s is the device name -->
@@ -1303,7 +1303,7 @@
     <!-- An option to connect additional devices -->
     <string name="sync_connect_device">เชื่อมต่ออุปกรณ์อื่น</string>
     <!-- The dialog text shown when additional devices are not available -->
-    <string name="sync_connect_device_dialog">เมื่อต้องการส่งแท็บ ให้ลงชื่อเข้าไปยัง Firefox บนอุปกรณ์อื่นอย่างน้อยหนึ่งเครื่อง</string>
+    <string name="sync_connect_device_dialog">เมื่อต้องการส่งแท็บ ให้ลงชื่อเข้าไปยัง Eyebrowse บนอุปกรณ์อื่นอย่างน้อยหนึ่งเครื่อง</string>
     <!-- Confirmation dialog button -->
     <string name="sync_confirmation_button">เข้าใจแล้ว</string>
     <!-- Share error message -->
@@ -1331,10 +1331,10 @@
 
     <!-- Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_notification_default_browser_title" tools:ignore="UnusedResources">Firefox นั้นรวดเร็วและเป็นส่วนตัว</string>
+    <string name="nimbus_notification_default_browser_title" tools:ignore="UnusedResources">Eyebrowse นั้นรวดเร็วและเป็นส่วนตัว</string>
     <!-- Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_notification_default_browser_text" tools:ignore="UnusedResources">ทำให้ Firefox เป็นเบราว์เซอร์เริ่มต้นของคุณ</string>
+    <string name="nimbus_notification_default_browser_text" tools:ignore="UnusedResources">ทำให้ Eyebrowse เป็นเบราว์เซอร์เริ่มต้นของคุณ</string>
     <!-- Title shown in the notification that pops up to re-engage the user -->
     <string name="notification_re_engagement_title">ลองการท่องเว็บแบบส่วนตัว</string>
     <!-- Text shown in the notification that pops up to re-engage the user.
@@ -1354,7 +1354,7 @@
     <!-- Survey -->
     <!-- Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_survey_message_text">โปรดช่วยทำให้ Firefox ดีขึ้นโดยการทำแบบสำรวจสั้นๆ</string>
+    <string name="nimbus_survey_message_text">โปรดช่วยทำให้ Eyebrowse ดีขึ้นโดยการทำแบบสำรวจสั้นๆ</string>
     <!-- Preference for taking the short survey. -->
     <string name="preferences_take_survey">ทำแบบสำรวจ</string>
     <!-- Preference for not taking the short survey. -->
@@ -1504,7 +1504,7 @@
     <string name="sync_scan_code">สแกนรหัส</string>
 
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[บนคอมพิวเตอร์ของคุณ ให้เปิด Firefox แล้วไปที่ <b>https://firefox.com/pair</b>]]></string>
+    <string name="sign_in_instructions"><![CDATA[บนคอมพิวเตอร์ของคุณ ให้เปิด Eyebrowse แล้วไปที่ <b>https://firefox.com/pair</b>]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">พร้อมที่จะสแกน</string>
     <!-- Text shown for settings option for sign with pairing -->
@@ -1512,7 +1512,7 @@
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">ใช้อีเมลแทน</string>
     <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
-    <string name="sign_in_create_account_text"><![CDATA[ไม่มีบัญชีใช่หรือไม่? <u>สร้างบัญชี</u>เพื่อซิงค์ Firefox ระหว่างอุปกรณ์]]></string>
+    <string name="sign_in_create_account_text"><![CDATA[ไม่มีบัญชีใช่หรือไม่? <u>สร้างบัญชี</u>เพื่อซิงค์ Eyebrowse ระหว่างอุปกรณ์]]></string>
     <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
     <string name="sign_out_confirmation_message_2">%s จะหยุดซิงค์กับบัญชีของคุณ แต่จะไม่ลบข้อมูลการท่องเว็บใด ๆ ของคุณบนอุปกรณ์นี้</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -2121,7 +2121,7 @@
     <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">โปรดเปิดใช้งานซิงค์แท็บ</string>
     <!-- Text displayed when user has no tabs that have been synced -->
-    <string name="synced_tabs_no_tabs">คุณไม่มีแท็บใด ๆ ที่เปิดอยู่ใน Firefox บนอุปกรณ์อื่น ๆ ของคุณ</string>
+    <string name="synced_tabs_no_tabs">คุณไม่มีแท็บใด ๆ ที่เปิดอยู่ใน Eyebrowse บนอุปกรณ์อื่น ๆ ของคุณ</string>
     <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">ดูรายการแท็บจากอุปกรณ์อื่น ๆ ของคุณ</string>
     <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -2177,7 +2177,7 @@
     <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">ปิดอัตโนมัติหลังจากหนึ่งเดือน?</string>
 
     <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Firefox สามารถปิดแท็บที่คุณไม่ได้ดูในช่วงเดือนที่ผ่านมาได้</string>
+    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Eyebrowse สามารถปิดแท็บที่คุณไม่ได้ดูในช่วงเดือนที่ผ่านมาได้</string>
     <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">เปิดการปิดอัตโนมัติ</string>
     <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -2185,7 +2185,7 @@
 
     <!-- Awesome bar suggestion's headers -->
     <!-- Search suggestions title for Firefox Suggest. -->
-    <string name="firefox_suggest_header">Firefox Suggest</string>
+    <string name="firefox_suggest_header">Eyebrowse Suggest</string>
 
     <!-- Title for search suggestions when Google is the default search suggestion engine. -->
     <string name="google_search_engine_suggestion_header">ค้นหาด้วย Google</string>
@@ -2196,7 +2196,7 @@
     <!-- Default browser card title -->
     <string name="default_browser_experiment_card_title">เปลี่ยนเบราว์เซอร์เริ่มต้นของคุณ</string>
     <!-- Default browser card text -->
-    <string name="default_browser_experiment_card_text">ตั้งลิงก์จากเว็บไซต์ อีเมล และข้อความให้เปิดโดยอัตโนมัติใน Firefox</string>
+    <string name="default_browser_experiment_card_text">ตั้งลิงก์จากเว็บไซต์ อีเมล และข้อความให้เปิดโดยอัตโนมัติใน Eyebrowse</string>
 
     <!-- Content description for close button in collection placeholder. -->
     <string name="remove_home_collection_placeholder_content_description">ลบ</string>
@@ -2220,7 +2220,7 @@
     <!-- Title of an app feature. Smaller than a heading. The first parameter is product name Pocket -->
     <string name="pocket_stories_feature_title_2">ขับเคลื่อนโดย %s</string>
     <!-- Caption for describing a certain feature. The placeholder is for a clickable text (eg: Learn more) which will load an url in a new tab when clicked.  -->
-    <string name="pocket_stories_feature_caption">ส่วนหนึ่งของตระกูล Firefox %s</string>
+    <string name="pocket_stories_feature_caption">ส่วนหนึ่งของตระกูล Eyebrowse %s</string>
     <!-- Clickable text for opening an external link for more information about Pocket. -->
     <string name="pocket_stories_feature_learn_more">เรียนรู้เพิ่มเติม</string>
 
