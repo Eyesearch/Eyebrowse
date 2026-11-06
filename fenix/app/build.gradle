@@ -20,6 +20,13 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 import static org.gradle.api.tasks.testing.TestResult.ResultType
 
+// Eyebrowse: Firebase Remote Config. The Google Services plugin needs a
+// google-services.json in this module; skip it (and fall back to the bundled
+// defaults in RemoteConfigManager) until that file is added.
+if (file("google-services.json").exists()) {
+    apply plugin: 'com.google.gms.google-services'
+}
+
 apply from: 'benchmark.gradle'
 
 android {
@@ -31,7 +38,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "org.mozilla"
+        applicationId "org.eyesearch.eyebrowse"
         minSdkVersion config.minSdkVersion
         compileSdk config.compileSdkVersion
         targetSdkVersion config.targetSdkVersion
@@ -111,12 +118,12 @@ android {
         debug {
             shrinkResources false
             minifyEnabled false
-            applicationIdSuffix ".fenix.debug"
+            applicationIdSuffix ".debug"
             resValue "bool", "IS_DEBUG", "true"
             pseudoLocalesEnabled true
         }
         nightly releaseTemplate >> {
-            applicationIdSuffix ".fenix"
+            applicationIdSuffix ".nightly"
             buildConfigField "boolean", "USE_RELEASE_VERSIONING", "true"
             def deepLinkSchemeValue = "fenix-nightly"
             buildConfigField "String", "DEEP_LINK_SCHEME", "\"$deepLinkSchemeValue\""
@@ -126,7 +133,7 @@ android {
         }
         beta releaseTemplate >> {
             buildConfigField "boolean", "USE_RELEASE_VERSIONING", "true"
-            applicationIdSuffix ".firefox_beta"
+            applicationIdSuffix ".beta"
             def deepLinkSchemeValue = "fenix-beta"
             buildConfigField "String", "DEEP_LINK_SCHEME", "\"$deepLinkSchemeValue\""
             manifestPlaceholders.putAll([
@@ -137,13 +144,12 @@ android {
                     // fatal consequences. For example see:
                     //  - https://issuetracker.google.com/issues/36924841
                     //  - https://issuetracker.google.com/issues/36905922
-                    "sharedUserId": "org.mozilla.firefox.sharedID",
+                    "sharedUserId": "org.eyesearch.eyebrowse.sharedID",
                     "deepLinkScheme": deepLinkSchemeValue,
             ])
         }
         release releaseTemplate >> {
             buildConfigField "boolean", "USE_RELEASE_VERSIONING", "true"
-            applicationIdSuffix ".firefox"
             def deepLinkSchemeValue = "fenix"
             buildConfigField "String", "DEEP_LINK_SCHEME", "\"$deepLinkSchemeValue\""
             manifestPlaceholders.putAll([
@@ -154,13 +160,13 @@ android {
                     // fatal consequences. For example see:
                     //  - https://issuetracker.google.com/issues/36924841
                     //  - https://issuetracker.google.com/issues/36905922
-                    "sharedUserId": "org.mozilla.firefox.sharedID",
+                    "sharedUserId": "org.eyesearch.eyebrowse.sharedID",
                     "deepLinkScheme": deepLinkSchemeValue,
             ])
         }
         benchmark releaseTemplate >> {
             initWith buildTypes.nightly
-            applicationIdSuffix ".fenix"
+            applicationIdSuffix ".benchmark"
             debuggable false
         }
     }
@@ -518,6 +524,10 @@ tasks.withType(KotlinCompile).configureEach {
 }
 
 dependencies {
+    // Eyebrowse: Firebase Remote Config for remote kill-switches and affiliate links.
+    implementation platform('com.google.firebase:firebase-bom:33.7.0')
+    implementation 'com.google.firebase:firebase-config-ktx'
+
     implementation platform(ComponentsDependencies.androidx_compose_bom)
     androidTestImplementation platform(ComponentsDependencies.androidx_compose_bom)
 

@@ -9,6 +9,7 @@ import androidx.annotation.VisibleForTesting
 import mozilla.components.concept.engine.EngineSession.TrackingProtectionPolicy
 import mozilla.components.concept.engine.EngineSession.TrackingProtectionPolicy.CookiePolicy
 import mozilla.components.concept.engine.EngineSession.TrackingProtectionPolicyForSessionTypes
+import org.eyesearch.eyebrowse.core.RemoteConfigManager
 import org.mozilla.fenix.R
 import org.mozilla.fenix.utils.Settings
 
@@ -34,6 +35,11 @@ class TrackingProtectionPolicyFactory(
         normalMode: Boolean = settings.shouldUseTrackingProtection,
         privateMode: Boolean = settings.shouldUseTrackingProtection,
     ): TrackingProtectionPolicy {
+        // Eyebrowse: remote kill-switch for content blocking / adblocking.
+        if (!RemoteConfigManager.isFeatureEnabled(RemoteConfigManager.KEY_ENABLE_ADBLOCKER)) {
+            return TrackingProtectionPolicy.none()
+        }
+
         val trackingProtectionPolicy =
             when {
                 settings.useStrictTrackingProtection -> TrackingProtectionPolicy.strict()

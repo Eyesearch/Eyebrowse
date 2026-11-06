@@ -154,7 +154,7 @@ class SearchMiddlewareTest {
         assertEquals("eBay", store.state.search.regionSearchEngines[3].name)
         assertEquals("Wikipedia", store.state.search.regionSearchEngines[4].name)
 
-        assertEquals("Google", store.state.search.selectedOrDefaultSearchEngine!!.name)
+        assertEquals("DuckDuckGo", store.state.search.selectedOrDefaultSearchEngine!!.name)
     }
 
     @Test
@@ -192,7 +192,7 @@ class SearchMiddlewareTest {
         assertEquals("eBay", store.state.search.regionSearchEngines[3].name)
         assertEquals("Viquipèdia (ca)", store.state.search.regionSearchEngines[4].name)
 
-        assertEquals("Google", store.state.search.selectedOrDefaultSearchEngine!!.name)
+        assertEquals("DuckDuckGo", store.state.search.selectedOrDefaultSearchEngine!!.name)
     }
 
     @Test
@@ -231,7 +231,7 @@ class SearchMiddlewareTest {
         assertEquals("eBay", store.state.search.regionSearchEngines[4].name)
         assertEquals("Wicipedia (cy)", store.state.search.regionSearchEngines[5].name)
 
-        assertEquals("Google", store.state.search.selectedOrDefaultSearchEngine!!.name)
+        assertEquals("DuckDuckGo", store.state.search.selectedOrDefaultSearchEngine!!.name)
     }
 
     @Test
@@ -269,7 +269,7 @@ class SearchMiddlewareTest {
         assertEquals("eBay", store.state.search.regionSearchEngines[3].name)
         assertEquals("Wikipedia (fy)", store.state.search.regionSearchEngines[4].name)
 
-        assertEquals("Google", store.state.search.selectedOrDefaultSearchEngine!!.name)
+        assertEquals("DuckDuckGo", store.state.search.selectedOrDefaultSearchEngine!!.name)
     }
 
     @Test
@@ -308,7 +308,7 @@ class SearchMiddlewareTest {
         assertEquals("Wikipedia", store.state.search.regionSearchEngines[4].name)
         assertEquals("eBay", store.state.search.regionSearchEngines[5].name)
 
-        assertEquals("Google", store.state.search.selectedOrDefaultSearchEngine!!.name)
+        assertEquals("DuckDuckGo", store.state.search.selectedOrDefaultSearchEngine!!.name)
     }
 
     @Test
@@ -348,7 +348,7 @@ class SearchMiddlewareTest {
         assertEquals("Wikipedia", store.state.search.regionSearchEngines[5].name)
         assertEquals("eBay", store.state.search.regionSearchEngines[6].name)
 
-        assertEquals("Google", store.state.search.selectedOrDefaultSearchEngine!!.name)
+        assertEquals("DuckDuckGo", store.state.search.selectedOrDefaultSearchEngine!!.name)
     }
 
     @Test
@@ -388,7 +388,7 @@ class SearchMiddlewareTest {
         assertEquals("Wikipedia", store.state.search.regionSearchEngines[5].name)
         assertEquals("eBay", store.state.search.regionSearchEngines[6].name)
 
-        assertEquals("Google", store.state.search.selectedOrDefaultSearchEngine!!.name)
+        assertEquals("DuckDuckGo", store.state.search.selectedOrDefaultSearchEngine!!.name)
     }
 
     @Test
@@ -427,7 +427,7 @@ class SearchMiddlewareTest {
         assertEquals("Wikipédia (fr)", store.state.search.regionSearchEngines[4].name)
         assertEquals("eBay", store.state.search.regionSearchEngines[5].name)
 
-        assertEquals("Google", store.state.search.selectedOrDefaultSearchEngine!!.name)
+        assertEquals("DuckDuckGo", store.state.search.selectedOrDefaultSearchEngine!!.name)
     }
 
     @Test
@@ -466,7 +466,7 @@ class SearchMiddlewareTest {
         assertEquals("Wikipédia (fr)", store.state.search.regionSearchEngines[4].name)
         assertEquals("eBay", store.state.search.regionSearchEngines[5].name)
 
-        assertEquals("Google", store.state.search.selectedOrDefaultSearchEngine!!.name)
+        assertEquals("DuckDuckGo", store.state.search.selectedOrDefaultSearchEngine!!.name)
     }
 
     @Test
@@ -506,7 +506,7 @@ class SearchMiddlewareTest {
         assertEquals("Amazon.fr", store.state.search.regionSearchEngines[5].name)
         assertEquals("eBay", store.state.search.regionSearchEngines[6].name)
 
-        assertEquals("Google", store.state.search.selectedOrDefaultSearchEngine!!.name)
+        assertEquals("DuckDuckGo", store.state.search.selectedOrDefaultSearchEngine!!.name)
     }
 
     @Test
@@ -546,7 +546,7 @@ class SearchMiddlewareTest {
         assertEquals("Wikipedia (de)", store.state.search.regionSearchEngines[6].name)
         assertEquals("eBay", store.state.search.regionSearchEngines[7].name)
 
-        assertEquals("Google", store.state.search.selectedOrDefaultSearchEngine!!.name)
+        assertEquals("DuckDuckGo", store.state.search.selectedOrDefaultSearchEngine!!.name)
     }
 
     @Test
@@ -586,7 +586,7 @@ class SearchMiddlewareTest {
         assertEquals("Wikipedia (de)", store.state.search.regionSearchEngines[6].name)
         assertEquals("eBay", store.state.search.regionSearchEngines[7].name)
 
-        assertEquals("Google", store.state.search.selectedOrDefaultSearchEngine!!.name)
+        assertEquals("DuckDuckGo", store.state.search.selectedOrDefaultSearchEngine!!.name)
     }
 
     @Test
@@ -623,7 +623,7 @@ class SearchMiddlewareTest {
         assertEquals("Wikipedija (dsb)", store.state.search.regionSearchEngines[4].name)
         assertEquals("eBay", store.state.search.regionSearchEngines[5].name)
 
-        assertEquals("Google", store.state.search.selectedOrDefaultSearchEngine!!.name)
+        assertEquals("DuckDuckGo", store.state.search.selectedOrDefaultSearchEngine!!.name)
     }
 
     @Test
@@ -660,7 +660,7 @@ class SearchMiddlewareTest {
         assertEquals("Wikipedija (hsb)", store.state.search.regionSearchEngines[4].name)
         assertEquals("eBay", store.state.search.regionSearchEngines[5].name)
 
-        assertEquals("Google", store.state.search.selectedOrDefaultSearchEngine!!.name)
+        assertEquals("DuckDuckGo", store.state.search.selectedOrDefaultSearchEngine!!.name)
     }
 
     @Test
@@ -699,7 +699,7 @@ class SearchMiddlewareTest {
         assertEquals("Amazon.es", store.state.search.regionSearchEngines[4].name)
         assertEquals("eBay", store.state.search.regionSearchEngines[5].name)
 
-        assertEquals("Google", store.state.search.selectedOrDefaultSearchEngine!!.name)
+        assertEquals("DuckDuckGo", store.state.search.selectedOrDefaultSearchEngine!!.name)
     }
 
     @Test
@@ -738,7 +738,7 @@ class SearchMiddlewareTest {
         assertEquals("Amazon.it", store.state.search.regionSearchEngines[4].name)
         assertEquals("eBay", store.state.search.regionSearchEngines[5].name)
 
-        assertEquals("Google", store.state.search.selectedOrDefaultSearchEngine!!.name)
+        assertEquals("DuckDuckGo", store.state.search.selectedOrDefaultSearchEngine!!.name)
     }
 
     @Test
@@ -777,7 +777,7 @@ class SearchMiddlewareTest {
         assertEquals("Wikipedia (lij)", store.state.search.regionSearchEngines[4].name)
         assertEquals("eBay", store.state.search.regionSearchEngines[5].name)
 
-        assertEquals("Google", store.state.search.selectedOrDefaultSearchEngine!!.name)
+        assertEquals("DuckDuckGo", store.state.search.selectedOrDefaultSearchEngine!!.name)
     }
 
     @Test
@@ -817,7 +817,7 @@ class SearchMiddlewareTest {
         assertEquals("Amazon.se", store.state.search.regionSearchEngines[5].name)
         assertEquals("eBay", store.state.search.regionSearchEngines[6].name)
 
-        assertEquals("Google", store.state.search.selectedOrDefaultSearchEngine!!.name)
+        assertEquals("DuckDuckGo", store.state.search.selectedOrDefaultSearchEngine!!.name)
     }
 
     @Test
@@ -855,7 +855,7 @@ class SearchMiddlewareTest {
         assertEquals("Wikipedia (pl)", store.state.search.regionSearchEngines[3].name)
         assertEquals("eBay", store.state.search.regionSearchEngines[4].name)
 
-        assertEquals("Google", store.state.search.selectedOrDefaultSearchEngine!!.name)
+        assertEquals("DuckDuckGo", store.state.search.selectedOrDefaultSearchEngine!!.name)
     }
 
     @Test
@@ -1814,7 +1814,7 @@ class SearchMiddlewareTest {
         assertEquals("eBay", store.state.search.regionSearchEngines[4].name)
         assertEquals("Wikipedia", store.state.search.regionSearchEngines[5].name)
 
-        assertEquals("Google", store.state.search.selectedOrDefaultSearchEngine!!.name)
+        assertEquals("DuckDuckGo", store.state.search.selectedOrDefaultSearchEngine!!.name)
 
         store.dispatch(
             SearchAction.HideSearchEngineAction(
@@ -1864,7 +1864,7 @@ class SearchMiddlewareTest {
         assertEquals("eBay", store.state.search.regionSearchEngines[4].name)
         assertEquals("Wikipedia", store.state.search.regionSearchEngines[5].name)
 
-        assertEquals("Google", store.state.search.selectedOrDefaultSearchEngine!!.name)
+        assertEquals("DuckDuckGo", store.state.search.selectedOrDefaultSearchEngine!!.name)
     }
 
     @Test
@@ -1905,7 +1905,7 @@ class SearchMiddlewareTest {
         assertEquals("Yahoo! JAPAN", store.state.search.regionSearchEngines[6].name)
         assertEquals("Yahoo!オークション", store.state.search.regionSearchEngines[7].name)
 
-        assertEquals("Google", store.state.search.selectedOrDefaultSearchEngine!!.name)
+        assertEquals("DuckDuckGo", store.state.search.selectedOrDefaultSearchEngine!!.name)
     }
 }
 

@@ -122,10 +122,10 @@ class BundledSearchEnginesStorageTest {
             searchEngines.map { it.id },
         )
 
-        // searchDefault: "Google"
+        // searchDefault: "DuckDuckGo"
         val default = searchEngines.find { it.id == engines.defaultSearchEngineId }
         assertNotNull(default)
-        assertEquals("google-com-nocodes", default!!.id)
+        assertEquals("ddg", default!!.id)
     }
 
     @Test
@@ -142,10 +142,10 @@ class BundledSearchEnginesStorageTest {
             searchEngines.map { it.id },
         )
 
-        // searchDefault (default): "Google"
+        // searchDefault (default): "DuckDuckGo"
         val default = searchEngines.find { it.id == engines.defaultSearchEngineId }
         assertNotNull(default)
-        assertEquals("google-b-m", default!!.id)
+        assertEquals("ddg", default!!.id)
     }
 
     @Test

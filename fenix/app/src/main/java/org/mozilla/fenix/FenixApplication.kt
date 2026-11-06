@@ -70,6 +70,7 @@ import mozilla.components.support.rustlog.RustLog
 import mozilla.components.support.utils.BrowsersCache
 import mozilla.components.support.utils.logElapsedTime
 import mozilla.components.support.webextensions.WebExtensionSupport
+import org.eyesearch.eyebrowse.core.RemoteConfigManager
 import org.mozilla.fenix.GleanMetrics.Addons
 import org.mozilla.fenix.GleanMetrics.Addresses
 import org.mozilla.fenix.GleanMetrics.AndroidAutofill
@@ -241,6 +242,9 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
         // We can initialize Nimbus before Glean because Glean will queue messages
         // before it's initialized.
         initializeNimbus()
+
+        // Eyebrowse: remote config (kill-switches, affiliate links).
+        RemoteConfigManager.init(this)
 
         ProfilerMarkerFactProcessor.create { components.core.engine.profiler }.register()
 

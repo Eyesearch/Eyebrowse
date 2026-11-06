@@ -13,6 +13,7 @@ import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreference
 import mozilla.components.browser.state.state.selectedOrDefaultSearchEngine
 import mozilla.components.support.ktx.android.view.hideKeyboard
+import org.eyesearch.eyebrowse.core.RemoteConfigManager
 import org.mozilla.fenix.BrowserDirection
 import org.mozilla.fenix.HomeActivity
 import org.mozilla.fenix.R
@@ -42,6 +43,13 @@ class SearchEngineFragment : PreferenceFragmentCompat() {
         }
         requirePreference<Preference>(R.string.pref_key_learn_about_fx_suggest).apply {
             isVisible = context.settings().enableFxSuggest
+        }
+
+        // Eyebrowse: remote kill-switch for changing the default search engine.
+        requirePreference<Preference>(R.string.pref_key_default_search_engine).apply {
+            isVisible = RemoteConfigManager.isFeatureEnabled(
+                RemoteConfigManager.KEY_SETTINGS_SEARCH_ENGINE_ENABLED,
+            )
         }
 
         view?.hideKeyboard()

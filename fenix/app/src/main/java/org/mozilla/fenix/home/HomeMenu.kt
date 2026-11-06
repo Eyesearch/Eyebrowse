@@ -28,6 +28,7 @@ import mozilla.telemetry.glean.private.NoExtras
 import org.mozilla.fenix.Config
 import org.mozilla.fenix.GleanMetrics.AppMenu
 import org.mozilla.fenix.R
+import org.eyesearch.eyebrowse.core.RemoteConfigManager
 import org.mozilla.fenix.components.accounts.AccountState
 import org.mozilla.fenix.components.accounts.FenixAccountManager
 import org.mozilla.fenix.components.toolbar.BrowserMenuSignIn
@@ -188,12 +189,19 @@ class HomeMenu(
 
         // Use nimbus to set the icon and title.
         val nimbusValidation = FxNimbus.features.nimbusValidation.value()
-        val settingsItem = BrowserMenuImageText(
-            nimbusValidation.settingsTitle,
-            R.drawable.mozac_ic_settings_24,
-            primaryTextColor,
+        // Eyebrowse: remote kill-switch for the settings entry point.
+        val settingsItem = if (
+            RemoteConfigManager.isFeatureEnabled(RemoteConfigManager.KEY_MENU_SETTINGS_ENABLED)
         ) {
-            onItemTapped.invoke(Item.Settings)
+            BrowserMenuImageText(
+                nimbusValidation.settingsTitle,
+                R.drawable.mozac_ic_settings_24,
+                primaryTextColor,
+            ) {
+                onItemTapped.invoke(Item.Settings)
+            }
+        } else {
+            null
         }
 
         // Only query account manager if it has been initialized.
