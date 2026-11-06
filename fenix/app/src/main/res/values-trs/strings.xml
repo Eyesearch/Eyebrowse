@@ -748,7 +748,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[Nārī ñadu\'ua da\'nga\' QR rugui\' riña <b>firefox.com/pair</b>]]></string>
+    <string name="pair_instructions_2"><![CDATA[Nārī ñadu\'ua da\'nga\' QR rugui\' riña <b>eyebrowse.in/pair</b>]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -1529,7 +1529,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">Gānārī ñadu\'ua da\'nga\' kôdigo</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[Gānā\'nïn Eyebrowse riña si āgâ\'t nī gātū riña <b>https://firefox.com/pair</b>]]></string>
+    <string name="sign_in_instructions"><![CDATA[Gānā\'nïn Eyebrowse riña si āgâ\'t nī gātū riña <b>https://eyebrowse.in/pair</b>]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Ngà huā chrunj da\' gānārij ñadu\'ua</string>
     <!-- Text shown for settings option for sign with pairing -->
