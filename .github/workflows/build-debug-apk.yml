@@ -1,0 +1,128 @@
+name: Build Debug APK
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: build-debug-apk-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build-debug-apk:
+    name: Assemble Eyebrowse debug APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    defaults:
+      run:
+        working-directory: fenix
+    env:
+      # Optional: add the real file from the Firebase console as a repository
+      # secret named GOOGLE_SERVICES_JSON. Without it a placeholder is written,
+      # which is enough for the debug build to compile and link.
+      GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+        with:
+          # The build reads the git hash for versioning, so history is useful.
+          fetch-depth: 0
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up the Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install the Android SDK packages this project needs
+        run: |
+          sdkmanager --install "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+          yes | sdkmanager --licenses > /dev/null
+
+      - name: Set up Gradle with caching
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Provide google-services.json
+        working-directory: .
+        run: |
+          set -euo pipefail
+          target="fenix/app/google-services.json"
+          if [ -n "${GOOGLE_SERVICES_JSON:-}" ]; then
+            printf '%s' "$GOOGLE_SERVICES_JSON" > "$target"
+            echo "Wrote google-services.json from the GOOGLE_SERVICES_JSON secret."
+          else
+            cat > "$target" <<'JSON'
+          {
+            "project_info": {
+              "project_number": "000000000000",
+              "project_id": "eyebrowse-ci-placeholder",
+              "storage_bucket": "eyebrowse-ci-placeholder.appspot.com"
+            },
+            "client": [
+              {
+                "client_info": {
+                  "mobilesdk_app_id": "1:000000000000:android:0000000000000000000000",
+                  "android_client_info": {
+                    "package_name": "org.eyesearch.eyebrowse"
+                  }
+                },
+                "oauth_client": [],
+                "api_key": [
+                  {
+                    "current_key": "AIzaSyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ],
+                "services": {
+                  "appinvite_service": {
+                    "other_platform_oauth_client": []
+                  }
+                }
+              },
+              {
+                "client_info": {
+                  "mobilesdk_app_id": "1:000000000000:android:0000000000000000000001",
+                  "android_client_info": {
+                    "package_name": "org.eyesearch.eyebrowse.debug"
+                  }
+                },
+                "oauth_client": [],
+                "api_key": [
+                  {
+                    "current_key": "AIzaSyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ],
+                "services": {
+                  "appinvite_service": {
+                    "other_platform_oauth_client": []
+                  }
+                }
+              }
+            ],
+            "configuration_version": "1"
+          }
+          JSON
+            echo "No GOOGLE_SERVICES_JSON secret found; wrote a placeholder file."
+          fi
+
+      - name: Assemble the debug APK
+        run: |
+          chmod +x ./gradlew
+          ./gradlew :app:assembleFenixDebug --stacktrace
+
+      - name: Upload the debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Eyebrowse-Debug-APK
+          path: fenix/app/build/outputs/apk/fenix/debug/*.apk
+          if-no-files-found: error
+          retention-days: 14
