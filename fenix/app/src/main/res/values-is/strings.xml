@@ -783,7 +783,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[Skannaðu QR kóðann sem sýndur er á <b>firefox.com/pair</b>]]></string>
+    <string name="pair_instructions_2"><![CDATA[Skannaðu QR kóðann sem sýndur er á <b>eyebrowse.in/pair</b>]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -1495,7 +1495,7 @@
     <string name="sync_scan_code">Skanna QR kóða</string>
 
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[Opnaðu Eyebrowse á tölvunni þinni og farðu inná <b>https://firefox.com/pair</b>]]></string>
+    <string name="sign_in_instructions"><![CDATA[Opnaðu Eyebrowse á tölvunni þinni og farðu inná <b>https://eyebrowse.in/pair</b>]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Tilbúið til skönnunar</string>
     <!-- Text shown for settings option for sign with pairing -->
