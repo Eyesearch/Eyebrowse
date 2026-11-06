@@ -214,7 +214,9 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
         Glean.initialize(
             applicationContext = this,
             configuration = configuration.setCustomEndpointIfAvailable(customEndpoint),
-            uploadEnabled = telemetryEnabled,
+            // Eyebrowse: telemetry is never uploaded to Mozilla. Metrics stay local-only so the
+            // Glean-generated code keeps working, but nothing leaves the device.
+            uploadEnabled = false,
             buildInfo = GleanBuildInfo.buildInfo,
         )
 
