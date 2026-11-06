@@ -329,14 +329,14 @@
 
     <!-- Juno first user onboarding flow experiment, strings are marked unused as they are only referenced by Nimbus experiments. -->
     <!-- Description for learning more about our privacy notice. -->
-    <string name="juno_onboarding_privacy_notice_text">Firefox شەخسىيەت ئۇقتۇرۇشى</string>
+    <string name="juno_onboarding_privacy_notice_text">Eyebrowse شەخسىيەت ئۇقتۇرۇشى</string>
     <!-- Description for learning more about our privacy notice. -->
     <string name="juno_onboarding_privacy_notice_text_2" moz:removedIn="125" tools:ignore="UnusedResources">شەخسىيەت ئۇقتۇرۇشىنىڭ تەپسىلاتىنى ئوقۇڭ</string>
     <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_title_nimbus_2">بىخەتەرلىكىڭىزنى ساقلاشنى ياخشى كۆرىمىز</string>
     <!-- Title for set firefox as default browser screen used by Nimbus experiments.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="UnusedResources">مىليونلىغان كىشىنىڭ نېمىشقا Firefox نى ياقتۇرىدىغانلىقىنى تېپىڭ</string>
+    <string name="juno_onboarding_default_browser_title_nimbus_3" tools:ignore="UnusedResources">مىليونلىغان كىشىنىڭ نېمىشقا Eyebrowse نى ياقتۇرىدىغانلىقىنى تېپىڭ</string>
     <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_title_nimbus_4" tools:ignore="UnusedResources">بىخەتەر تور زىيارىتىنىڭ تېخىمۇ كۆپ تاللىشى</string>
     <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
@@ -358,30 +358,30 @@
     <string name="juno_onboarding_sign_in_title_2">ئۈسكۈنىلەر ئارا ئالماشتۇرغاندا شىفىرلىنىدۇ</string>
     <!-- Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
      Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_sign_in_description_2">تىزىمغا كىرىپ قەدەمداشلىسىڭىز، تېخىمۇ بىخەتەر بولىسىز. Firefox ئىم، خەتكۈچ ۋە باشقىلارنى مەخپىيلەشتۈرىدۇ.</string>
+    <string name="juno_onboarding_sign_in_description_2">تىزىمغا كىرىپ قەدەمداشلىسىڭىز، تېخىمۇ بىخەتەر بولىسىز. Eyebrowse ئىم، خەتكۈچ ۋە باشقىلارنى مەخپىيلەشتۈرىدۇ.</string>
     <!-- Text for the button to sign in to sync on the device -->
     <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">تىزىمغا كىرىڭ</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_sign_in_negative_button" tools:ignore="UnusedResources">ھازىر ئەمەس</string>
     <!-- Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_enable_notifications_title_nimbus_2">ئۇقتۇرۇشلار Firefox ئارقىلىق تېخىمۇ بىخەتەر بولۇشىڭىزغا ياردەم بېرىدۇ</string>
+    <string name="juno_onboarding_enable_notifications_title_nimbus_2">ئۇقتۇرۇشلار Eyebrowse ئارقىلىق تېخىمۇ بىخەتەر بولۇشىڭىزغا ياردەم بېرىدۇ</string>
     <!-- Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
        Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_enable_notifications_description_nimbus_2">ئۈسكۈنىڭىز ئارىسىدا بەتكۈچلەرنى بىخەتەر ئەۋەتىپ، Firefox دىكى باشقا شەخسىيەت ئىقتىدارلىرىنى بايقايدۇ.</string>
+    <string name="juno_onboarding_enable_notifications_description_nimbus_2">ئۈسكۈنىڭىز ئارىسىدا بەتكۈچلەرنى بىخەتەر ئەۋەتىپ، Eyebrowse دىكى باشقا شەخسىيەت ئىقتىدارلىرىنى بايقايدۇ.</string>
     <!-- Text for the button to request notification permission on the device -->
     <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">ئۇقتۇرۇشنى ئاچ</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_enable_notifications_negative_button" tools:ignore="UnusedResources">ھازىر ئەمەس</string>
     <!-- Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_title" tools:ignore="UnusedResources">Firefox ئىزدەش ئەپچەنى سىناڭ</string>
+    <string name="juno_onboarding_add_search_widget_title" tools:ignore="UnusedResources">Eyebrowse ئىزدەش ئەپچەنى سىناڭ</string>
     <!-- Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_description" tools:ignore="UnusedResources">باش ئېكرانىڭىزغا Firefox نى جايلاشتۇرسىڭىز، شەخسىيەتنى ئەڭ ئالدىنقى ئورۇنغا قويىدىغان تور كۆرگۈنى خالىغان ۋاقىتتا زىيارەت قىلالايسىز، ئۇ بېكەت ھالقىغان ئىز قوغلاشنى توسىدىغان تور كۆرگۈ.</string>
+    <string name="juno_onboarding_add_search_widget_description" tools:ignore="UnusedResources">باش ئېكرانىڭىزغا Eyebrowse نى جايلاشتۇرسىڭىز، شەخسىيەتنى ئەڭ ئالدىنقى ئورۇنغا قويىدىغان تور كۆرگۈنى خالىغان ۋاقىتتا زىيارەت قىلالايسىز، ئۇ بېكەت ھالقىغان ئىز قوغلاشنى توسىدىغان تور كۆرگۈ.</string>
     <!-- Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="UnusedResources">Firefox ئەپچە قوش</string>
+    <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="UnusedResources">Eyebrowse ئەپچە قوش</string>
     <!-- Text for the button to dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">ھازىر ئەمەس</string>
 
@@ -421,9 +421,9 @@
     <!-- Preference Category for settings related to Search address bar -->
     <string name="preferences_settings_address_bar">ئادرېس بالداق مايىللىقى</string>
     <!-- Preference Category for settings to Firefox Suggest -->
-    <string name="preference_search_address_bar_fx_suggest">ئادرېس بالدىقى - Firefox تەكلىپى</string>
+    <string name="preference_search_address_bar_fx_suggest">ئادرېس بالدىقى - Eyebrowse تەكلىپى</string>
     <!-- Preference link to Learn more about Firefox Suggest -->
-    <string name="preference_search_learn_about_fx_suggest">Firefox تەكلىپى ھەققىدىكى تەپسىلاتلار</string>
+    <string name="preference_search_learn_about_fx_suggest">Eyebrowse تەكلىپى ھەققىدىكى تەپسىلاتلار</string>
     <!-- Preference link to rating Fenix on the Play Store -->
     <string name="preferences_rate">Google Play دىكى باھا</string>
     <!-- Preference linking to about page for Fenix
@@ -672,7 +672,7 @@
     <string name="addon_ga_message_title" tools:ignore="UnusedResources">ھازىر يېڭى قوشۇلما بار</string>
 
     <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here-->
-    <string name="addon_ga_message_body" tools:ignore="UnusedResources">ئۆزىڭىزنىڭ Firefox غا ئايلاندۇرىدىغان 100+ يېڭى كېڭەيتىلمىلەرنى تاپالايسىز.</string>
+    <string name="addon_ga_message_body" tools:ignore="UnusedResources">ئۆزىڭىزنىڭ Eyebrowse غا ئايلاندۇرىدىغان 100+ يېڭى كېڭەيتىلمىلەرنى تاپالايسىز.</string>
     <!-- Button text of the Nimbus message for add-ons general availability. -->
     <string name="addon_ga_message_button" tools:ignore="UnusedResources">قوشۇلما ئىزدەش</string>
 
@@ -736,7 +736,7 @@
     <!-- Name of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
     <string name="fxa_received_tab_channel_name">تاپشۇرۇۋالغان بەتكۈچ</string>
     <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-    <string name="fxa_received_tab_channel_description">باشقا Firefox ئۈسكۈنىلىرىدىن تاپشۇرۇۋالغان بەتكۈچ ئۇقتۇرۇشى.</string>
+    <string name="fxa_received_tab_channel_description">باشقا Eyebrowse ئۈسكۈنىلىرىدىن تاپشۇرۇۋالغان بەتكۈچ ئۇقتۇرۇشى.</string>
     <!--  The body for these is the URL of the tab received  -->
     <string name="fxa_tab_received_notification_name">بەتكۈچ تاپشۇرۇۋالدى</string>
     <!-- %s is the device name -->
@@ -1295,7 +1295,7 @@
     <!-- An option to connect additional devices -->
     <string name="sync_connect_device">باشقا ئۈسكۈنىگە باغلىنىدۇ</string>
     <!-- The dialog text shown when additional devices are not available -->
-    <string name="sync_connect_device_dialog">ئاز دېگەندە بىر ئۈسكۈنىدە Firefox تىزىمغا كىرگەندە ئاندىن بەتكۈچ يوللىيالايدۇ.</string>
+    <string name="sync_connect_device_dialog">ئاز دېگەندە بىر ئۈسكۈنىدە Eyebrowse تىزىمغا كىرگەندە ئاندىن بەتكۈچ يوللىيالايدۇ.</string>
     <!-- Confirmation dialog button -->
     <string name="sync_confirmation_button">بىلدىم</string>
     <!-- Share error message -->
@@ -1321,11 +1321,11 @@
     <string name="notification_marketing_channel_name">بازارچىلىق</string>
     <!-- Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_notification_default_browser_title" tools:ignore="UnusedResources">Firefox تېز ھەم شەخسىي</string>
+    <string name="nimbus_notification_default_browser_title" tools:ignore="UnusedResources">Eyebrowse تېز ھەم شەخسىي</string>
 
     <!-- Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_notification_default_browser_text" tools:ignore="UnusedResources">Firefox نى كۆڭۈلدىكى توركۆرگۈ قىلىڭ</string>
+    <string name="nimbus_notification_default_browser_text" tools:ignore="UnusedResources">Eyebrowse نى كۆڭۈلدىكى توركۆرگۈ قىلىڭ</string>
     <!-- Title shown in the notification that pops up to re-engage the user -->
     <string name="notification_re_engagement_title">شەخسىي زىيارەتنى سىناڭ</string>
     <!-- Text shown in the notification that pops up to re-engage the user.
@@ -1344,7 +1344,7 @@
     <!-- Survey -->
     <!-- Text shown in the fullscreen message that pops up to ask user to take a short survey.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_survey_message_text">قىسقا تەكشۈرۈشكە قاتنىشىپ Firefox نى تېخىمۇ ياخشىلاشقا ياردەملىشىڭ.</string>
+    <string name="nimbus_survey_message_text">قىسقا تەكشۈرۈشكە قاتنىشىپ Eyebrowse نى تېخىمۇ ياخشىلاشقا ياردەملىشىڭ.</string>
     <!-- Preference for taking the short survey. -->
     <string name="preferences_take_survey">تەكشۈرۈشكە قاتنىشىڭ</string>
     <!-- Preference for not taking the short survey. -->
@@ -1492,7 +1492,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">كودنى تارا</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[كومپيۇتېرىڭىزدىكى Firefox دا <b>https://firefox.com/pair</b> ئاچىدۇ]]></string>
+    <string name="sign_in_instructions"><![CDATA[كومپيۇتېرىڭىزدىكى Eyebrowse دا <b>https://firefox.com/pair</b> ئاچىدۇ]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">تاراشقا تەييار</string>
     <!-- Text shown for settings option for sign with pairing -->
@@ -1500,7 +1500,7 @@
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">ئورنىغا ئېلخەت ئىشلىتىڭ</string>
     <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
-    <string name="sign_in_create_account_text"><![CDATA[ھېساباتىڭىز يوق؟ <u> Firefox نى ئۈسكۈنىلەر ئارا قەدەمداشلاش ئۈچۈن بىرنى قۇرۇڭ </u>.]]></string>
+    <string name="sign_in_create_account_text"><![CDATA[ھېساباتىڭىز يوق؟ <u> Eyebrowse نى ئۈسكۈنىلەر ئارا قەدەمداشلاش ئۈچۈن بىرنى قۇرۇڭ </u>.]]></string>
     <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
     <string name="sign_out_confirmation_message_2">%s ھېساباتىڭىز بىلەن قەدەمداشلاشنى توختىتىدۇ، ئەمما بۇ ئۈسكۈنىدىكى توركۆرگۈ سانلىق مەلۇماتلىرىڭىزنى ئۆچۈرمەيدۇ.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -2100,7 +2100,7 @@
     <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">بەتكۈچ قەدەمداشنى قوزغىتىڭ.</string>
     <!-- Text displayed when user has no tabs that have been synced -->
-    <string name="synced_tabs_no_tabs">كونا ئۈسكۈنىڭىزدە Firefox دا ھېچقانداق بەتكۈچ ئاچمىغان.</string>
+    <string name="synced_tabs_no_tabs">كونا ئۈسكۈنىڭىزدە Eyebrowse دا ھېچقانداق بەتكۈچ ئاچمىغان.</string>
     <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">باشقا ئۈسكۈنىڭىزدىن بەتكۈچ تىزىمىنى كۆرسىتىدۇ.</string>
     <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -2152,7 +2152,7 @@
     <!-- The header text of the auto-close message when the user is asked if they want to turn on the auto-closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">بىر ئايدىن كېيىن ئاپتوماتىك ياپامدۇ؟</string>
     <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Firefox ئۆتكەن بىر ئايدا كۆرمىگەن بەتكۈچلەرنى تاقىۋېتەلەيدۇ.</string>
+    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Eyebrowse ئۆتكەن بىر ئايدا كۆرمىگەن بەتكۈچلەرنى تاقىۋېتەلەيدۇ.</string>
     <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">ئاپتوماتىك تاقاشنى ئاچىدۇ</string>
     <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -2160,7 +2160,7 @@
 
     <!-- Awesome bar suggestion's headers -->
     <!-- Search suggestions title for Firefox Suggest. -->
-    <string name="firefox_suggest_header">Firefox تەكلىپى</string>
+    <string name="firefox_suggest_header">Eyebrowse تەكلىپى</string>
     <!-- Title for search suggestions when Google is the default search suggestion engine. -->
     <string name="google_search_engine_suggestion_header">Google ئىزدەش</string>
     <!-- Title for search suggestions when the default search suggestion engine is anything other than Google. The first parameter is default search engine name. -->
@@ -2170,7 +2170,7 @@
     <!-- Default browser card title -->
     <string name="default_browser_experiment_card_title">كۆڭۈلدىكى توركۆرگۈڭىزنى ئالماشتۇرۇڭ</string>
     <!-- Default browser card text -->
-    <string name="default_browser_experiment_card_text">تور بېكەت، ئېلخەت ۋە ئۇچۇر ئۇلانمىلىرىنى Firefox تا ئاپتوماتىك ئېچىشقا تەڭشەيدۇ.</string>
+    <string name="default_browser_experiment_card_text">تور بېكەت، ئېلخەت ۋە ئۇچۇر ئۇلانمىلىرىنى Eyebrowse تا ئاپتوماتىك ئېچىشقا تەڭشەيدۇ.</string>
 
     <!-- Content description for close button in collection placeholder. -->
     <string name="remove_home_collection_placeholder_content_description">چىقىرىۋەت</string>
@@ -2194,7 +2194,7 @@
     <!-- Title of an app feature. Smaller than a heading. The first parameter is product name Pocket -->
     <string name="pocket_stories_feature_title_2">تەمىنلىگۈچى %1$s.</string>
     <!-- Caption for describing a certain feature. The placeholder is for a clickable text (eg: Learn more) which will load an url in a new tab when clicked.  -->
-    <string name="pocket_stories_feature_caption">Firefox جەمەتىنىڭ بىر قىسمى. %s</string>
+    <string name="pocket_stories_feature_caption">Eyebrowse جەمەتىنىڭ بىر قىسمى. %s</string>
     <!-- Clickable text for opening an external link for more information about Pocket. -->
     <string name="pocket_stories_feature_learn_more">تەپسىلاتى</string>
 

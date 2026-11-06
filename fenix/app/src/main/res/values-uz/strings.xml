@@ -347,7 +347,7 @@
     <!-- Preference for rejecting or removing as many cookie/consent banners as possible on sites. See reduce_cookie_banner_summary for additional context. -->
     <string name="reduce_cookie_banner_option">Cookie bannerlarini kamaytirish</string>
     <!-- Summary for the preference for rejecting all cookies whenever possible. -->
-    <string name="reduce_cookie_banner_summary" moz:RemovedIn="110" tools:ignore="UnusedResources">Firefox avtomatik ravishda cookie bannerlarida cookie soʻrovlarini rad etishga harakat qiladi. Agar rad etish tanlovi mavjud boʻlmasa, Firefox bannerni oʻchirish uchun barcha cookie fayllarni qabul qilishi mumkin.</string>
+    <string name="reduce_cookie_banner_summary" moz:RemovedIn="110" tools:ignore="UnusedResources">Eyebrowse avtomatik ravishda cookie bannerlarida cookie soʻrovlarini rad etishga harakat qiladi. Agar rad etish tanlovi mavjud boʻlmasa, Eyebrowse bannerni oʻchirish uchun barcha cookie fayllarni qabul qilishi mumkin.</string>
 
     <!-- Text for indicating cookie banner handling is off this site, this is shown as part of the protections panel with the tracking protection toggle -->
     <string name="reduce_cookie_banner_off_for_site">Bu sayt uchun oʻchirilgan</string>
@@ -375,12 +375,12 @@
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">Qulaylik</string>
     <!-- Preference to override the Firefox Account server -->
-    <string name="preferences_override_fxa_server">Boshqa Firefox hisobi serveri</string>
+    <string name="preferences_override_fxa_server">Boshqa Eyebrowse hisobi serveri</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">Boshqa Sync serveri</string>
 
     <!-- Toast shown after updating the FxA/Sync server override preferences -->
-    <string name="toast_override_fxa_sync_server_done">Firefox hisobi/Sync serveri oʻzgargan. Oʻzgarishlar amalga oshirshi uchun ilovadan chiqilmoqda…</string>
+    <string name="toast_override_fxa_sync_server_done">Eyebrowse hisobi/Sync serveri oʻzgargan. Oʻzgarishlar amalga oshirshi uchun ilovadan chiqilmoqda…</string>
     <!-- Preference category for account information -->
     <string name="preferences_category_account">Hisob</string>
     <!-- Preference for changing where the toolbar is positioned -->
@@ -396,7 +396,7 @@
     <!-- Preference description for banner about signing in -->
     <string name="preferences_sign_in_description_2">Varaq va xatchoʻplarni sinxronlash uchun hisobingizga kiring.</string>
     <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-    <string name="preferences_account_default_name">Firefox hisobi</string>
+    <string name="preferences_account_default_name">Eyebrowse hisobi</string>
     <!-- Preference text for account title when there was an error syncing FxA -->
     <string name="preferences_account_sync_error">Sinxronlashni davom ettirish uchun qayta ulaning</string>
     <!-- Preference for language -->
@@ -555,7 +555,7 @@
     <string name="fxa_received_tab_channel_name">Qabul qilingan varaqlar</string>
 
     <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-    <string name="fxa_received_tab_channel_description">Boshqa Firefox qurilmalaridan olingan varaqlar uchun bildirishnomalar.</string>
+    <string name="fxa_received_tab_channel_description">Boshqa Eyebrowse qurilmalaridan olingan varaqlar uchun bildirishnomalar.</string>
     <!--  The body for these is the URL of the tab received  -->
     <string name="fxa_tab_received_notification_name">Olingan varaq</string>
 
@@ -1099,7 +1099,7 @@
     <!-- An option to connect additional devices -->
     <string name="sync_connect_device">Boshqa qurilmani ulash</string>
     <!-- The dialog text shown when additional devices are not available -->
-    <string name="sync_connect_device_dialog">Varaqni yuborish uchun kamida bitta boshqa qurilmada Firefox hisobiga kirishingiz kerak.</string>
+    <string name="sync_connect_device_dialog">Varaqni yuborish uchun kamida bitta boshqa qurilmada Eyebrowse hisobiga kirishingiz kerak.</string>
     <!-- Confirmation dialog button -->
     <string name="sync_confirmation_button">Tushundim!</string>
     <!-- Share error message -->
@@ -1281,7 +1281,7 @@
     <!-- Text for the privacy notice onboarding card header -->
     <string name="onboarding_privacy_notice_header_1">Maʼlumotlaringizni oʻzingiz boshqaring</string>
     <!-- Text for the privacy notice onboarding card description. -->
-    <string name="onboarding_privacy_notice_description">Firefox sizga nimalarni onlayn va nimalarni bizga ulashishingiz uchun nazoratni sizga taqdim etadi.</string>
+    <string name="onboarding_privacy_notice_description">Eyebrowse sizga nimalarni onlayn va nimalarni bizga ulashishingiz uchun nazoratni sizga taqdim etadi.</string>
     <!-- Text for the button to read the privacy notice -->
     <string name="onboarding_privacy_notice_read_button">Maxfiylik toʻgʻrisidagi bildirishnomamizni oʻqing</string>
     <!-- Text for the conclusion onboarding message -->
@@ -1315,7 +1315,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">Kodni skanerlang</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[KompYuteringizda Firefoxni oching va <b>https://firefox.com/pair</b>ga oʻting]]></string>
+    <string name="sign_in_instructions"><![CDATA[KompYuteringizda Eyebrowseni oching va <b>https://firefox.com/pair</b>ga oʻting]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Skanerlashga tayyor</string>
     <!-- Text shown for settings option for sign with pairing -->
@@ -1324,7 +1324,7 @@
     <string name="sign_in_with_email">Buning oʻrniga e-pochtadan foydalaning</string>
 
     <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
-    <string name="sign_in_create_account_text"><![CDATA[Hisobingiz yoʻqmi? <u>Unda yangisini yarating</u> va Firefoxni qurilmalararo sinxronlang.]]></string>
+    <string name="sign_in_create_account_text"><![CDATA[Hisobingiz yoʻqmi? <u>Unda yangisini yarating</u> va Eyebrowseni qurilmalararo sinxronlang.]]></string>
     <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
     <string name="sign_out_confirmation_message_2">%s hisobingiz bilan sinxronlashni toʻxtatadi, ammo qurilmangizdagi brauzer tarixini oʻchirmaydi.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -1830,7 +1830,7 @@
     <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">Varaq sinxronizatsiyasini yoqing</string>
     <!-- Text displayed when user has no tabs that have been synced -->
-    <string name="synced_tabs_no_tabs">Boshqa qurilmlaringizdagi Firefoxda hech qanday varaq ochiq emas.</string>
+    <string name="synced_tabs_no_tabs">Boshqa qurilmlaringizdagi Eyebrowseda hech qanday varaq ochiq emas.</string>
     <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">Boshqa qurilmalaringizdagi varaqlar roʻyxatini koʻrish.</string>
     <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -1884,7 +1884,7 @@
     <!-- The header text of the auto-close message when the user is asked if they want to turn on the auto-closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Bir oydan keyin avtomatik yopilsinmi?</string>
     <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Oʻtgan oy ochilmagan varaqlarni Firefox yopishi mumkin.</string>
+    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Oʻtgan oy ochilmagan varaqlarni Eyebrowse yopishi mumkin.</string>
     <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">AVTOMATIK YOPISHNI YOQISH</string>
     <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
@@ -1892,10 +1892,10 @@
 
     <!-- Awesome bar suggestion's headers -->
     <!-- Search suggestions title for Firefox Suggest. -->
-    <string name="firefox_suggest_header">Firefox Suggest</string>
+    <string name="firefox_suggest_header">Eyebrowse Suggest</string>
 
     <!-- Default browser experiment -->
-    <string name="default_browser_experiment_card_text">Saytlar, elektron pochta va xabarlar havolalarini Firefoxda avtomatik ravishda ochiladigan qilib sozlang.</string>
+    <string name="default_browser_experiment_card_text">Saytlar, elektron pochta va xabarlar havolalarini Eyebrowseda avtomatik ravishda ochiladigan qilib sozlang.</string>
 
     <!-- Content description for close button in collection placeholder. -->
     <string name="remove_home_collection_placeholder_content_description">Olib tashlash</string>
@@ -1919,7 +1919,7 @@
     <!-- Title of an app feature. Smaller than a heading. The first parameter is product name Pocket -->
     <string name="pocket_stories_feature_title_2">%s tomonidan quvvatlanadi.</string>
     <!-- Caption for describing a certain feature. The placeholder is for a clickable text (eg: Learn more) which will load an url in a new tab when clicked.  -->
-    <string name="pocket_stories_feature_caption">Firefox oilasining bir qismi hisoblanadi. %s</string>
+    <string name="pocket_stories_feature_caption">Eyebrowse oilasining bir qismi hisoblanadi. %s</string>
     <!-- Clickable text for opening an external link for more information about Pocket. -->
     <string name="pocket_stories_feature_learn_more">Batafsil ma’lumot</string>
     <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->
