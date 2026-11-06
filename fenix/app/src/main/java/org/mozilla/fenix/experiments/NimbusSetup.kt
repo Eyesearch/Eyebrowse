@@ -29,6 +29,13 @@ import org.mozilla.fenix.utils.Settings
  */
 private const val TIME_OUT_LOADING_EXPERIMENT_FROM_DISK_MS = 200L
 
+/**
+ * Eyebrowse does not take part in Mozilla's experiment platform, so nothing is ever fetched from
+ * Mozilla's remote settings (firefox.settings.services.mozilla.com). Flip this to `true` only if
+ * experiments are moved to an Eyebrowse-controlled endpoint.
+ */
+private const val EXPERIMENTS_ENABLED = false
+
 private val logger = Logger("service/Nimbus")
 
 /**
@@ -113,6 +120,10 @@ fun NimbusInterface.maybeFetchExperiments(
     feature: NimbusSystem = FxNimbusMessaging.features.nimbusSystem.value(),
     currentTimeMillis: Long = System.currentTimeMillis(),
 ) {
+    if (!EXPERIMENTS_ENABLED) {
+        return
+    }
+
     if (context.settings().nimbusUsePreview) {
         context.settings().nimbusLastFetchTime = 0L
         fetchExperiments()
