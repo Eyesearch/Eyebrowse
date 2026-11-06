@@ -23,9 +23,7 @@
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"
             tools:ignore="ProtectedPermissions" />
 
-    <application
-            tools:replace="android:name"
-            android:name="org.mozilla.fenix.DebugFenixApplication">
+    <application>
 
         <activity android:name="androidx.activity.ComponentActivity" />
     </application>

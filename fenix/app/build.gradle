@@ -480,22 +480,6 @@ android.applicationVariants.configureEach { variant ->
         buildConfigField 'String', 'POCKET_CONSUMER_KEY', '""'
         println("--")
     }
-
-// -------------------------------------------------------------------------------------------------
-// BuildConfig: Set flag to disable LeakCanary in debug (on CI builds)
-// -------------------------------------------------------------------------------------------------
-
-    if (isDebug) {
-        if (project.hasProperty("disableLeakCanary") || gradle.hasProperty("localProperties.disableLeakCanary")) {
-            buildConfigField "boolean", "LEAKCANARY", "false"
-            println("LeakCanary enabled in debug: false")
-        } else {
-            buildConfigField "boolean", "LEAKCANARY", "true"
-            println("LeakCanary enabled in debug: true")
-        }
-    } else {
-        buildConfigField "boolean", "LEAKCANARY", "false"
-    }
 }
 
 // Generate Kotlin code for the Fenix Glean metrics.
@@ -638,7 +622,6 @@ dependencies {
     implementation project(':lib-dataprotect')
     testImplementation project(':support-test-fakes')
 
-    debugImplementation ComponentsDependencies.leakcanary
     debugImplementation ComponentsDependencies.androidx_compose_ui_tooling
 
     implementation ComponentsDependencies.androidx_activity_compose

@@ -259,7 +259,7 @@ private fun OnboardingScreenPreview() {
 private fun defaultPreviewPages() = listOf(
     OnboardingPageUiData(
         type = OnboardingPageUiData.Type.DEFAULT_BROWSER,
-        imageRes = R.drawable.ic_onboarding_welcome,
+        imageRes = R.drawable.ic_onboarding_privacy,
         title = stringResource(R.string.juno_onboarding_default_browser_title_nimbus_2),
         description = stringResource(R.string.juno_onboarding_default_browser_description_nimbus_3),
         primaryButtonLabel = stringResource(R.string.juno_onboarding_default_browser_positive_button),

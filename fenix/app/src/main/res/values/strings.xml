@@ -317,7 +317,7 @@
 
     <!-- Juno first user onboarding flow experiment, strings are marked unused as they are only referenced by Nimbus experiments. -->
     <!-- Description for learning more about our privacy notice. -->
-    <string name="juno_onboarding_privacy_notice_text">Eyebrowse privacy notice</string>
+    <string name="juno_onboarding_privacy_notice_text">Eyebrowse Privacy Notice</string>
     <!-- Description for learning more about our privacy notice. -->
     <string name="juno_onboarding_privacy_notice_text_2" moz:removedIn="125" tools:ignore="UnusedResources">Learn more in our privacy notice</string>
     <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
