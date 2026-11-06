@@ -365,7 +365,7 @@
     <string name="juno_onboarding_sign_in_title_2">Nie trać szyfrowania podczas przełączania się między urządzeniami</string>
     <!-- Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
      Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_sign_in_description_2">Zalogowanie i zsynchronizowanie zwiększa Twoje bezpieczeństwo. Firefox szyfruje hasła, zakładki i nie tylko.</string>
+    <string name="juno_onboarding_sign_in_description_2">Zalogowanie i zsynchronizowanie zwiększa Twoje bezpieczeństwo. Eyebrowse szyfruje hasła, zakładki i nie tylko.</string>
     <!-- Text for the button to sign in to sync on the device -->
     <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">Zaloguj się</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -1336,7 +1336,7 @@
 
     <!-- Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_notification_default_browser_title" tools:ignore="UnusedResources">Firefox jest szybki i prywatny</string>
+    <string name="nimbus_notification_default_browser_title" tools:ignore="UnusedResources">Eyebrowse jest szybki i prywatny</string>
     <!-- Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
     <string name="nimbus_notification_default_browser_text" tools:ignore="UnusedResources">Ustaw Firefoksa jako domyślną przeglądarkę</string>
@@ -2181,7 +2181,7 @@
     <!-- The header text of the auto-close message when the user is asked if they want to turn on the auto-closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Zamykać automatycznie po miesiącu?</string>
     <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Firefox może zamykać karty, których nie odwiedzono w ciągu ostatniego miesiąca.</string>
+    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Eyebrowse może zamykać karty, których nie odwiedzono w ciągu ostatniego miesiąca.</string>
     <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">Włącz automatyczne zamykanie</string>
     <!-- Text for the snackbar to confirm auto-close is enabled for inactive tabs -->
