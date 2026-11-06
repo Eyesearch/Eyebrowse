@@ -37,9 +37,9 @@
     <!-- Switch Preference for domestic China/global fxa server -->
     <string name="preferences_allow_domestic_china_fxa_server">使用本地服务</string>
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2_cn"><![CDATA[打开 <b>firefox.com.cn/pair</b> 并扫描网站上的二维码]]></string>
+    <string name="pair_instructions_2_cn"><![CDATA[打开 <b>eyebrowse.in/pair</b> 并扫描网站上的二维码]]></string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions_cn"><![CDATA[在计算机上使用 Firefox 打开 <b>https://firefox.com.cn/pair</b>]]></string>
+    <string name="sign_in_instructions_cn"><![CDATA[在计算机上使用 Eyebrowse 打开 <b>https://eyebrowse.in/pair</b>]]></string>
 
     <!-- Homescreen menu button -->
     <!-- Browser menu button that opens the account setting page -->

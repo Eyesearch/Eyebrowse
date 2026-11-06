@@ -781,7 +781,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[Skan OR-koden vist på <b>firefox.com/pair</b>]]></string>
+    <string name="pair_instructions_2"><![CDATA[Skan OR-koden vist på <b>eyebrowse.in/pair</b>]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -1493,7 +1493,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">Skan koden</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[Åbn Eyebrowse på din computer og besøg <b>https://firefox.com/pair</b>]]></string>
+    <string name="sign_in_instructions"><![CDATA[Åbn Eyebrowse på din computer og besøg <b>https://eyebrowse.in/pair</b>]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Klar til at skanne</string>
     <!-- Text shown for settings option for sign with pairing -->

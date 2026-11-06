@@ -638,7 +638,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[QR ᱠᱳᱰ ᱥᱠᱟᱱ ᱢᱮ ᱡᱟ <b>firefox.com/pair</b> ᱨᱮ ᱩᱫᱩᱠ ᱠᱟᱫᱟ ᱠᱚ]]></string>
+    <string name="pair_instructions_2"><![CDATA[QR ᱠᱳᱰ ᱥᱠᱟᱱ ᱢᱮ ᱡᱟ <b>eyebrowse.in/pair</b> ᱨᱮ ᱩᱫᱩᱠ ᱠᱟᱫᱟ ᱠᱚ]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -1355,7 +1355,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">ᱠᱳᱰ ᱥᱠᱟᱱ ᱢᱮ</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[ᱟᱢᱟᱜ ᱠᱚᱢᱯᱤᱭᱩᱴᱟᱨ ᱨᱮ Eyebrowse ᱡᱷᱤᱡᱽ ᱢᱮ ᱟᱨ <b>https://firefox.com/pair</b> ᱨᱮ ᱪᱟᱞᱟᱜ ᱢᱮ]]></string>
+    <string name="sign_in_instructions"><![CDATA[ᱟᱢᱟᱜ ᱠᱚᱢᱯᱤᱭᱩᱴᱟᱨ ᱨᱮ Eyebrowse ᱡᱷᱤᱡᱽ ᱢᱮ ᱟᱨ <b>https://eyebrowse.in/pair</b> ᱨᱮ ᱪᱟᱞᱟᱜ ᱢᱮ]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">ᱥᱠᱟᱱ ᱞᱚᱜᱤᱫᱛᱮ ᱛᱮᱭᱟᱨ ᱢᱮᱱᱟᱢᱼᱟ</string>
     <!-- Text shown for settings option for sign with pairing -->

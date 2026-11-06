@@ -781,7 +781,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[Рамзи QR-ро, ки дар <b>firefox.com/pair</b> нишон дода шудааст, скан кунед]]></string>
+    <string name="pair_instructions_2"><![CDATA[Рамзи QR-ро, ки дар <b>eyebrowse.in/pair</b> нишон дода шудааст, скан кунед]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -1508,7 +1508,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">Рамзро скан кунед</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[Дар компютери худ Eyebrowse-ро кушоед ва ба <b>https://firefox.com/pair</b> гузаред]]></string>
+    <string name="sign_in_instructions"><![CDATA[Дар компютери худ Eyebrowse-ро кушоед ва ба <b>https://eyebrowse.in/pair</b> гузаред]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Барои аксбардорӣ омода аст</string>
     <!-- Text shown for settings option for sign with pairing -->

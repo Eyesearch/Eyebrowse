@@ -762,7 +762,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[በ<b>firefox.com/pair</b> ላይ የሚታየውን የQR ኮድ ይቃኙ]]></string>
+    <string name="pair_instructions_2"><![CDATA[በ<b>eyebrowse.in/pair</b> ላይ የሚታየውን የQR ኮድ ይቃኙ]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -1472,7 +1472,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">ኮዱን ይቃኙ</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[በኮምፒተርዎ ላይ Eyebrowse ን ይክፈቱ እና ወደ <b>https://firefox.com/pair</b> ይሂዱ]]></string>
+    <string name="sign_in_instructions"><![CDATA[በኮምፒተርዎ ላይ Eyebrowse ን ይክፈቱ እና ወደ <b>https://eyebrowse.in/pair</b> ይሂዱ]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">ለመቃኘት ዝግጁ</string>
     <!-- Text shown for settings option for sign with pairing -->

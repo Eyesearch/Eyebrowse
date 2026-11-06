@@ -777,7 +777,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[<b>firefox.com/pair</b> دا كۆرسىتىلگەن QR كودىنى تاراڭ]]></string>
+    <string name="pair_instructions_2"><![CDATA[<b>eyebrowse.in/pair</b> دا كۆرسىتىلگەن QR كودىنى تاراڭ]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -1492,7 +1492,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">كودنى تارا</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[كومپيۇتېرىڭىزدىكى Eyebrowse دا <b>https://firefox.com/pair</b> ئاچىدۇ]]></string>
+    <string name="sign_in_instructions"><![CDATA[كومپيۇتېرىڭىزدىكى Eyebrowse دا <b>https://eyebrowse.in/pair</b> ئاچىدۇ]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">تاراشقا تەييار</string>
     <!-- Text shown for settings option for sign with pairing -->

@@ -814,7 +814,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[<b>firefox.com/pair</b> آدرسینه گؤرونن QR کوْدونو اسکن ائله‌یین]]></string>
+    <string name="pair_instructions_2"><![CDATA[<b>eyebrowse.in/pair</b> آدرسینه گؤرونن QR کوْدونو اسکن ائله‌یین]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->

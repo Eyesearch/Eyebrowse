@@ -480,7 +480,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[Nuskaitykite QR kodą iš <b>firefox.com/pair</b>]]></string>
+    <string name="pair_instructions_2"><![CDATA[Nuskaitykite QR kodą iš <b>eyebrowse.in/pair</b>]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -1095,7 +1095,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">Nuskaityti kodą</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[Atverkite „Eyebrowse“ savo kompiuteryje, ir eikite į <b>https://firefox.com/pair</b>]]></string>
+    <string name="sign_in_instructions"><![CDATA[Atverkite „Eyebrowse“ savo kompiuteryje, ir eikite į <b>https://eyebrowse.in/pair</b>]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Pasiruošti nuskaitymui</string>
     <!-- Text shown for settings option for sign with pairing -->

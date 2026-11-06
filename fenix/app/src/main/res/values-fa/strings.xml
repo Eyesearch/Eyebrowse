@@ -726,7 +726,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[کد QR نمایش داده شده در <b>firefox.com/pair</b> را اسکن کنید]]></string>
+    <string name="pair_instructions_2"><![CDATA[کد QR نمایش داده شده در <b>eyebrowse.in/pair</b> را اسکن کنید]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -1432,7 +1432,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">اسکن کد</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[در رایانه خود Eyebrowse را باز کرده و به <b> https://firefox.com/pair </b> بروید]]></string>
+    <string name="sign_in_instructions"><![CDATA[در رایانه خود Eyebrowse را باز کرده و به <b> https://eyebrowse.in/pair </b> بروید]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">آمادهٔ اسکن</string>
     <!-- Text shown for settings option for sign with pairing -->

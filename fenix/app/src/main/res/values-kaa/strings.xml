@@ -667,7 +667,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[<b>firefox.com/pair</b>da kórsetilgen QR kodtı oqıń]]></string>
+    <string name="pair_instructions_2"><![CDATA[<b>eyebrowse.in/pair</b>da kórsetilgen QR kodtı oqıń]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -1409,7 +1409,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">QR kodtı oqıw</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[Kompyuterińizde Eyebrowsetı ashıń hám <b>https://firefox.com/pair</b> ǵa kiriń]]></string>
+    <string name="sign_in_instructions"><![CDATA[Kompyuterińizde Eyebrowsetı ashıń hám <b>https://eyebrowse.in/pair</b> ǵa kiriń]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Kodtı oqıw</string>
     <!-- Text shown for settings option for sign with pairing -->

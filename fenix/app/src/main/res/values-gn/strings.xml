@@ -790,7 +790,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[l,2046Emoha’ãnga QR ayvu ehecháva <b>firefox.com/pair</b>-pe]]></string>
+    <string name="pair_instructions_2"><![CDATA[l,2046Emoha’ãnga QR ayvu ehecháva <b>eyebrowse.in/pair</b>-pe]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -1525,7 +1525,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">Emoha’ãnga ayvu</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[Ne mohendahápe, eike Eyebrowse-pe ha eho <b>https://firefox.com/pair</b>-pe]]></string>
+    <string name="sign_in_instructions"><![CDATA[Ne mohendahápe, eike Eyebrowse-pe ha eho <b>https://eyebrowse.in/pair</b>-pe]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Ikatúma emoha’ãnga</string>
     <!-- Text shown for settings option for sign with pairing -->

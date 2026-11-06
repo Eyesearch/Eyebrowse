@@ -793,7 +793,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[Σαρώστε τον κωδικό QR που εμφανίζεται στο <b>firefox.com/pair</b>]]></string>
+    <string name="pair_instructions_2"><![CDATA[Σαρώστε τον κωδικό QR που εμφανίζεται στο <b>eyebrowse.in/pair</b>]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -1514,7 +1514,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">Σάρωση κωδικού</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[Στον υπολογιστή σας, ανοίξτε το Eyebrowse και μεταβείτε στο <b>https://firefox.com/pair</b>]]></string>
+    <string name="sign_in_instructions"><![CDATA[Στον υπολογιστή σας, ανοίξτε το Eyebrowse και μεταβείτε στο <b>https://eyebrowse.in/pair</b>]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Σάρωση</string>
     <!-- Text shown for settings option for sign with pairing -->

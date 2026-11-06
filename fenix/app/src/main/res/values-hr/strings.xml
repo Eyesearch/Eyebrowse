@@ -752,7 +752,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[Skenirajte QR kôd prikazan na <b>firefox.com/pair</b>]]></string>
+    <string name="pair_instructions_2"><![CDATA[Skenirajte QR kôd prikazan na <b>eyebrowse.in/pair</b>]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -1467,7 +1467,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">Skeniraj kȏd</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[Na računalu otvori Eyebrowse i idi na <b>https://firefox.com/pair</b>]]></string>
+    <string name="sign_in_instructions"><![CDATA[Na računalu otvori Eyebrowse i idi na <b>https://eyebrowse.in/pair</b>]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Spremno za skeniranje</string>
     <!-- Text shown for settings option for sign with pairing -->

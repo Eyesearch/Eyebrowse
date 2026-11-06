@@ -755,7 +755,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[<b>firefox.com/pair</b> හි පෙන්වන QR කේතය සුපිරික්සන්න]]></string>
+    <string name="pair_instructions_2"><![CDATA[<b>eyebrowse.in/pair</b> හි පෙන්වන QR කේතය සුපිරික්සන්න]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -1471,7 +1471,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">කේතය සුපිරික්සන්න</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[පරිගණකයෙහි ෆයර්ෆොක්ස් විවෘත කර <b>https://firefox.com/pair</b> වෙත යන්න]]></string>
+    <string name="sign_in_instructions"><![CDATA[පරිගණකයෙහි ෆයර්ෆොක්ස් විවෘත කර <b>https://eyebrowse.in/pair</b> වෙත යන්න]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">පරිලෝකනයට ඔබන්න</string>
     <!-- Text shown for settings option for sign with pairing -->

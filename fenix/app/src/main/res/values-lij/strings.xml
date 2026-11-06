@@ -271,7 +271,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[Scançionn-a o còdice QR mostrou in sce <b>firefox.com/pair</b>]]></string>
+    <string name="pair_instructions_2"><![CDATA[Scançionn-a o còdice QR mostrou in sce <b>eyebrowse.in/pair</b>]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -693,7 +693,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">Scançionn-a o còdice</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[Arvi Eyebrowse in sciô computer e vanni chi <b>https://firefox.com/pair</b>]]></string>
+    <string name="sign_in_instructions"><![CDATA[Arvi Eyebrowse in sciô computer e vanni chi <b>https://eyebrowse.in/pair</b>]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Pronto pe-a scançion</string>
     <!-- Text shown for settings option for sign with pairing -->

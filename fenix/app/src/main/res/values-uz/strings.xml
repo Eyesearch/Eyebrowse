@@ -598,7 +598,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[<b>firefox.com/pair</b> manzilida koʻrsatilgan QR kodni skanerlang]]></string>
+    <string name="pair_instructions_2"><![CDATA[<b>eyebrowse.in/pair</b> manzilida koʻrsatilgan QR kodni skanerlang]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -1315,7 +1315,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">Kodni skanerlang</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[KompYuteringizda Eyebrowseni oching va <b>https://firefox.com/pair</b>ga oʻting]]></string>
+    <string name="sign_in_instructions"><![CDATA[KompYuteringizda Eyebrowseni oching va <b>https://eyebrowse.in/pair</b>ga oʻting]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Skanerlashga tayyor</string>
     <!-- Text shown for settings option for sign with pairing -->

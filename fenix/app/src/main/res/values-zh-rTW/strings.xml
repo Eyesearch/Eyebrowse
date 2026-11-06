@@ -794,7 +794,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[掃描 <b>firefox.com/pair</b> 網站上的 QR Code]]></string>
+    <string name="pair_instructions_2"><![CDATA[掃描 <b>eyebrowse.in/pair</b> 網站上的 QR Code]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -1535,7 +1535,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">掃描 QR Code</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[在電腦上使用 Eyebrowse 開啟 <b>https://firefox.com/pair</b>]]></string>
+    <string name="sign_in_instructions"><![CDATA[在電腦上使用 Eyebrowse 開啟 <b>https://eyebrowse.in/pair</b>]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">準備好了，開始掃描！</string>
     <!-- Text shown for settings option for sign with pairing -->

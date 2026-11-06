@@ -788,7 +788,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[Digitalize o código QR exibido em <b>firefox.com/pair</b>]]></string>
+    <string name="pair_instructions_2"><![CDATA[Digitalize o código QR exibido em <b>eyebrowse.in/pair</b>]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -1506,7 +1506,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">Digitalize o código</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[Em seu computador, abra o Eyebrowse e acesse <b>https://firefox.com/pair</b>]]></string>
+    <string name="sign_in_instructions"><![CDATA[Em seu computador, abra o Eyebrowse e acesse <b>https://eyebrowse.in/pair</b>]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Pronto para digitalizar</string>
     <!-- Text shown for settings option for sign with pairing -->
