@@ -787,7 +787,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[Olvassa le a <b>firefox.com/pair</b> webhelyen látható QR-kódot]]></string>
+    <string name="pair_instructions_2"><![CDATA[Olvassa le a <b>eyebrowse.in/pair</b> webhelyen látható QR-kódot]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -1511,7 +1511,7 @@
     <string name="sync_scan_code">Olvassa le a kódot</string>
 
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[A számítógépen nyissa meg a Eyebrowseot, és ugorjon a <b>https://firefox.com/pair</b> oldalra]]></string>
+    <string name="sign_in_instructions"><![CDATA[A számítógépen nyissa meg a Eyebrowseot, és ugorjon a <b>https://eyebrowse.in/pair</b> oldalra]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Leolvasásra kész</string>
     <!-- Text shown for settings option for sign with pairing -->
