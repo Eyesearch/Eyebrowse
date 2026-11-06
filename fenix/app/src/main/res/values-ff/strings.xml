@@ -237,11 +237,11 @@
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">Keɓogol</string>
     <!-- Preference to override the Firefox Account server -->
-    <string name="preferences_override_fxa_server">Heertin sarworde konte Firefox</string>
+    <string name="preferences_override_fxa_server">Heertin sarworde konte Eyebrowse</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">Heertin sarworde Sync</string>
     <!-- Toast shown after updating the FxA/Sync server override preferences -->
-    <string name="toast_override_fxa_sync_server_done">Konte Firefox/ sarworde Sync waylaama. Uddugol jaaɓnirgal ngal ngam jamminde bayle…</string>
+    <string name="toast_override_fxa_sync_server_done">Konte Eyebrowse/ sarworde Sync waylaama. Uddugol jaaɓnirgal ngal ngam jamminde bayle…</string>
     <!-- Preference category for account information -->
     <string name="preferences_category_account">Konte</string>
     <!-- Preference for changing where the toolbar is positioned -->
@@ -255,7 +255,7 @@
     <!-- Preference for settings related to visual options -->
     <string name="preferences_customize">Heertin</string>
     <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-    <string name="preferences_account_default_name">Konte Firefox</string>
+    <string name="preferences_account_default_name">Konte Eyebrowse</string>
     <!-- Preference text for account title when there was an error syncing FxA -->
     <string name="preferences_account_sync_error">Seŋo kadi ngam fuɗɗitaade jahdingol</string>
     <!-- Preference for language -->
@@ -375,7 +375,7 @@
     <!-- Name of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
     <string name="fxa_received_tab_channel_name">Heɓii tabbe</string>
     <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-    <string name="fxa_received_tab_channel_description">Tintine ngam tabbe keɓaaɗe e kaɓirɗe Firefox goɗɗe.</string>
+    <string name="fxa_received_tab_channel_description">Tintine ngam tabbe keɓaaɗe e kaɓirɗe Eyebrowse goɗɗe.</string>
     <!--  The body for these is the URL of the tab received  -->
     <string name="fxa_tab_received_notification_name">Tabbere heɓaama</string>
     <!-- %s is the device name -->
@@ -798,7 +798,7 @@
     <!-- An option to connect additional devices -->
     <string name="sync_connect_device">Seŋ kaɓirgol goɗngol</string>
     <!-- The dialog text shown when additional devices are not available -->
-    <string name="sync_connect_device_dialog">Ngam neldude tabbere, seŋo e Firefox ko famɗi fof e kaɓirgal gootal goɗngal.</string>
+    <string name="sync_connect_device_dialog">Ngam neldude tabbere, seŋo e Eyebrowse ko famɗi fof e kaɓirgal gootal goɗngal.</string>
     <!-- Confirmation dialog button -->
     <string name="sync_confirmation_button">Mi faamii</string>
     <!-- Share error message -->
@@ -905,7 +905,7 @@
     <string name="deleting_browsing_data_in_progress">Momtugol keɓe banngogol…</string>
 
     <!-- Text for the button to manually sign into Firefox account. -->
-    <string name="onboarding_firefox_account_sign_in">Seŋo e Firefox</string>
+    <string name="onboarding_firefox_account_sign_in">Seŋo e Eyebrowse</string>
     <!-- Text for the tracking protection onboarding card header -->
     <string name="onboarding_tracking_protection_header">Reen hoore maa</string>
 
@@ -939,7 +939,7 @@
     <string name="sync_scan_code">Niiwto kod oo</string>
 
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[E ordinateer maa, uddit Firefox e yah to <b>https://firefox.com/pair</b>]]></string>
+    <string name="sign_in_instructions"><![CDATA[E ordinateer maa, uddit Eyebrowse e yah to <b>https://firefox.com/pair</b>]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Hebiima niiwtaade</string>
     <!-- Text shown for settings option for sign with pairing -->
@@ -947,7 +947,7 @@
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">Huutoro ɗoo iimeel</string>
     <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
-    <string name="sign_in_create_account_text"><![CDATA[A alaa konte? <u>Sos konte</u> ngam sanngoɗinde Firefox hakkunde kaɓirɗi.]]></string>
+    <string name="sign_in_create_account_text"><![CDATA[A alaa konte? <u>Sos konte</u> ngam sanngoɗinde Eyebrowse hakkunde kaɓirɗi.]]></string>
     <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
     <string name="sign_out_confirmation_message_2">Maa %s dartin jahdingol e konte maa, kono momtataa hay wootere e keɓe banngogol maa e ngal kaɓirgal gal.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -1237,7 +1237,7 @@
     <!-- The header text of the auto-close message when the user is asked if they want to turn on the auto-closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">Uddu e jaajol caggal lewru?</string>
     <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Firefox ena waawi uddude tabbe ɗe a yillaaki e lewru ɓennundu nduu.</string>
+    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Eyebrowse ena waawi uddude tabbe ɗe a yillaaki e lewru ɓennundu nduu.</string>
 
     <!-- Text indicating that the Pocket story that also displays this text is a sponsored story by other 3rd party entity. -->
     <string name="pocket_stories_sponsor_indication">Barjinaaɗi</string>
