@@ -340,6 +340,8 @@
 
     <!-- Launcher Icon colors -->
     <color name="ic_launcher_background">#FFFFFF</color>
+    <!-- Eyebrowse: splash screen background. -->
+    <color name="eyebrowse_splash_background">#FFFFFF</color>
 
     <!-- Private Browsing Mode Persistent Notification -->
     <color name="pbm_notification_color">@color/photonViolet70</color>

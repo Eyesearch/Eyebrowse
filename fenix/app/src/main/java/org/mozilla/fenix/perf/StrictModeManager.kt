@@ -177,7 +177,10 @@ open class StrictModeManager(
  * exact name of the manufacturer.
  */
 private fun isInStrictModeExceptionList() =
-    ManufacturerCodes.isHuawei || ManufacturerCodes.isOnePlus || ManufacturerCodes.isOppo
+    ManufacturerCodes.isHuawei ||
+        ManufacturerCodes.isOnePlus ||
+        ManufacturerCodes.isOppo ||
+        ManufacturerCodes.isRealme
 
 private fun StrictMode.ThreadPolicy.Builder.penaltyDeathWithIgnores(): StrictMode.ThreadPolicy.Builder {
     // This workaround was added before we realized we can ignored based on violation contents

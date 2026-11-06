@@ -42,10 +42,27 @@ class ThreadPenaltyDeathWithIgnoresListenerTest {
         unmockkAll()
     }
 
-    @Test(expected = RuntimeException::class)
-    fun `WHEN provided an arbitrary violation that does not conflict with ignores THEN we throw an exception`() {
+    @Test
+    fun `WHEN provided an arbitrary violation that does not conflict with ignores THEN it is logged and not fatal`() {
         stackTrace = Exception().stackTrace
         listener.onThreadViolation(violation)
+
+        verify { logger.error("StrictMode ThreadPolicy violation (not fatal)", violation) }
+    }
+
+    @Test
+    fun `WHEN provided an OEM theme engine violation THEN it is ignored and logged`() {
+        stackTrace = arrayOf(
+            StackTraceElement(
+                "android.content.res.OplusThemeZipFile",
+                "open",
+                "OplusThemeZipFile.java",
+                1,
+            ),
+        )
+        listener.onThreadViolation(violation)
+
+        verify { logger.debug("Ignoring StrictMode ThreadPolicy violation", violation) }
     }
 
     @Test
@@ -59,13 +76,15 @@ class ThreadPenaltyDeathWithIgnoresListenerTest {
         verify { logger.debug("Ignoring StrictMode ThreadPolicy violation", violation) }
     }
 
-    @Test(expected = RuntimeException::class)
-    fun `GIVEN we're not on a Samsung WHEN provided an IdsController violation THEN we throw an exception`() {
+    @Test
+    fun `GIVEN we're not on a Samsung WHEN provided an IdsController violation THEN it is logged and not fatal`() {
         mockkObject(ManufacturerCodes)
         every { ManufacturerCodes.isSamsung } returns false
 
         every { violation.stackTrace } returns getIdsControllerStackTrace()
         listener.onThreadViolation(violation)
+
+        verify { logger.error("StrictMode ThreadPolicy violation (not fatal)", violation) }
     }
 
     @Test
@@ -79,14 +98,16 @@ class ThreadPenaltyDeathWithIgnoresListenerTest {
         verify { logger.debug("Ignoring StrictMode ThreadPolicy violation", violation) }
     }
 
-    @Test(expected = RuntimeException::class)
-    fun `GIVEN we're not on a Samsung or LG WHEN provided the EdmStorageProvider violation THEN we throw an exception`() {
+    @Test
+    fun `GIVEN we're not on a Samsung or LG WHEN provided the EdmStorageProvider violation THEN it is logged and not fatal`() {
         mockkObject(ManufacturerCodes)
         every { ManufacturerCodes.isSamsung } returns false
         every { ManufacturerCodes.isLG } returns false
 
         every { violation.stackTrace } returns getEdmStorageProviderStackTrace()
         listener.onThreadViolation(violation)
+
+        verify { logger.error("StrictMode ThreadPolicy violation (not fatal)", violation) }
     }
 
     @Test

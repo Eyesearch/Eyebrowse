@@ -15,6 +15,23 @@ private const val FCQN_EDM_STORAGE_PROVIDER_BASE = "com.android.server.enterpris
 private const val IDS_CONTROLLER_CLASS = "android.app.IdsController"
 private const val INSTRUMENTED_HOOKS_CLASS = "com.android.tools.deploy.instrument.InstrumentationHooks"
 
+// Eyebrowse: OEM theme engines read from disk on the main thread while the app is
+// still starting up (OplusThemeZipFile and friends on OnePlus/Oppo/Realme devices).
+// We cannot fix that code, so violations coming from those frames are ignored.
+private val OEM_THEME_ENGINE_MARKERS = listOf(
+    "OplusTheme",
+    "OplusResources",
+    "ThemeZipFile",
+    "ResourcesImplExt",
+)
+private val OEM_FRAMEWORK_PREFIXES = listOf(
+    "com.oplus.",
+    "com.oneplus.",
+    "com.coloros.",
+    "com.oppo.",
+    "com.realme.",
+)
+
 /**
  * A [StrictMode.OnThreadViolationListener] that recreates
  * [StrictMode.ThreadPolicy.Builder.penaltyDeath] but will ignore some violations. For example,
@@ -23,6 +40,9 @@ private const val INSTRUMENTED_HOOKS_CLASS = "com.android.tools.deploy.instrumen
  *
  * This class can only be used with Android P+ so we'd have to implement workarounds if the
  * violations we want to ignore affect older devices.
+ *
+ * Eyebrowse: despite the name, the remaining violations are no longer fatal - they are logged as
+ * errors. A performance signal should not kill the app on a device we cannot debug.
  */
 @RequiresApi(Build.VERSION_CODES.P)
 class ThreadPenaltyDeathWithIgnoresListener(
@@ -33,23 +53,26 @@ class ThreadPenaltyDeathWithIgnoresListener(
         if (violation == null) return
 
         // Unfortunately, this method gets called many (~5+) times with the same violation so we end
-        // up logging/throwing redundantly.
+        // up logging redundantly.
         if (shouldViolationBeIgnored(violation)) {
             logger.debug("Ignoring StrictMode ThreadPolicy violation", violation)
         } else {
-            penaltyDeath(violation)
+            logger.error("StrictMode ThreadPolicy violation (not fatal)", violation)
         }
-    }
-
-    @Suppress("TooGenericExceptionThrown") // we throw what StrictMode's penaltyDeath throws.
-    private fun penaltyDeath(violation: Violation) {
-        throw RuntimeException("StrictMode ThreadPolicy violation", violation)
     }
 
     private fun shouldViolationBeIgnored(violation: Violation): Boolean =
         isSamsungLgEdmStorageProviderStartupViolation(violation) ||
             containsInstrumentedHooksClass(violation) ||
-            isSamsungIdsController(violation)
+            isSamsungIdsController(violation) ||
+            isOemThemeEngineViolation(violation)
+
+    private fun isOemThemeEngineViolation(violation: Violation): Boolean =
+        violation.stackTrace.any { frame ->
+            val className = frame.className ?: return@any false
+            OEM_THEME_ENGINE_MARKERS.any { marker -> className.contains(marker) } ||
+                OEM_FRAMEWORK_PREFIXES.any { prefix -> className.startsWith(prefix) }
+        }
 
     private fun isSamsungIdsController(violation: Violation): Boolean {
         // See https://bugzilla.mozilla.org/show_bug.cgi?id=1806469
