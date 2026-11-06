@@ -271,11 +271,11 @@
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">الإتاحة</string>
     <!-- Preference to override the Firefox Account server -->
-    <string name="preferences_override_fxa_server">خادوم حسابات Firefox مخصص</string>
+    <string name="preferences_override_fxa_server">خادوم حسابات Eyebrowse مخصص</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">خادوم مزامنة مخصص</string>
     <!-- Toast shown after updating the FxA/Sync server override preferences -->
-    <string name="toast_override_fxa_sync_server_done">تعدّل خادوم حسابات Firefox/Sync. يُنهي التطبيق لإجراء التغييرات…</string>
+    <string name="toast_override_fxa_sync_server_done">تعدّل خادوم حسابات Eyebrowse/Sync. يُنهي التطبيق لإجراء التغييرات…</string>
     <!-- Preference category for account information -->
     <string name="preferences_category_account">الحساب</string>
     <!-- Preference for changing where the toolbar is positioned -->
@@ -289,7 +289,7 @@
     <!-- Preference for settings related to visual options -->
     <string name="preferences_customize">خصّص</string>
     <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-    <string name="preferences_account_default_name">حساب Firefox</string>
+    <string name="preferences_account_default_name">حساب Eyebrowse</string>
     <!-- Preference text for account title when there was an error syncing FxA -->
     <string name="preferences_account_sync_error">أعِد الاتصال لمواصلة المزامنة</string>
     <!-- Preference for language -->
@@ -417,7 +417,7 @@
     <!-- Name of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
     <string name="fxa_received_tab_channel_name">الألسنة المستلمة</string>
     <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-    <string name="fxa_received_tab_channel_description">تنبيهات الألسنة المستلمة من أجهزة Firefox الأخرى.</string>
+    <string name="fxa_received_tab_channel_description">تنبيهات الألسنة المستلمة من أجهزة Eyebrowse الأخرى.</string>
     <!--  The body for these is the URL of the tab received  -->
     <string name="fxa_tab_received_notification_name">وصل لسان</string>
     <!-- %s is the device name -->
@@ -896,7 +896,7 @@
     <!-- An option to connect additional devices -->
     <string name="sync_connect_device">صِلْ جهازًا آخر</string>
     <!-- The dialog text shown when additional devices are not available -->
-    <string name="sync_connect_device_dialog">لِج إلى Firefox على جهاز واحد آخر على الأقل لإرسال لسان إليه.</string>
+    <string name="sync_connect_device_dialog">لِج إلى Eyebrowse على جهاز واحد آخر على الأقل لإرسال لسان إليه.</string>
     <!-- Confirmation dialog button -->
     <string name="sync_confirmation_button">فهمت</string>
     <!-- Share error message -->
@@ -1019,7 +1019,7 @@
     <string name="deleting_browsing_data_in_progress">يحذف بيانات التصفح…</string>
 
     <!-- Text for the button to learn more about signing in to your Firefox account. -->
-    <string name="onboarding_manual_sign_in_description" moz:RemovedIn="118" tools:ignore="UnusedResources">اسحب العلامات والتأريخ وكلمات السر إلى Firefox على هذا الجهاز.</string>
+    <string name="onboarding_manual_sign_in_description" moz:RemovedIn="118" tools:ignore="UnusedResources">اسحب العلامات والتأريخ وكلمات السر إلى Eyebrowse على هذا الجهاز.</string>
     <!-- text to display in the snackbar once account is signed-in -->
     <string name="onboarding_firefox_account_sync_is_on">التزامن يعمل</string>
     <!-- text for tracking protection radio button option for standard level of blocking -->
@@ -1064,7 +1064,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">امسح الرز ضوئيًا</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[افتح Firefox على حاسوبك وانتقل إلى <b>https://firefox.com/pair</b>]]></string>
+    <string name="sign_in_instructions"><![CDATA[افتح Eyebrowse على حاسوبك وانتقل إلى <b>https://firefox.com/pair</b>]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">جاهز للمسح</string>
     <!-- Text shown for settings option for sign with pairing -->
@@ -1072,7 +1072,7 @@
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">استعمل البريد بدل المسح</string>
     <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
-    <string name="sign_in_create_account_text"><![CDATA[ليس لديك حساب؟ <u>أنشِئ واحدًا</u> لمزامنة Firefox بين الأجهزة.]]></string>
+    <string name="sign_in_create_account_text"><![CDATA[ليس لديك حساب؟ <u>أنشِئ واحدًا</u> لمزامنة Eyebrowse بين الأجهزة.]]></string>
     <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
     <string name="sign_out_confirmation_message_2">سيتوقف %s عن مزامنة حسابك، لكن لن يحذف أيًا من بيانات تصفحك على هذا الجهاز.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
@@ -1496,7 +1496,7 @@
     <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">من فضلك فعّل مزامنة الألسنة.</string>
     <!-- Text displayed when user has no tabs that have been synced -->
-    <string name="synced_tabs_no_tabs">لا ألسنة مفتوحة في Firefox على أجهزتك الأخرى.</string>
+    <string name="synced_tabs_no_tabs">لا ألسنة مفتوحة في Eyebrowse على أجهزتك الأخرى.</string>
     <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">اعرض قائمة بالألسنة من أجهزتك الأخرى.</string>
     <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
@@ -1534,7 +1534,7 @@
     <!-- The header text of the auto-close message when the user is asked if they want to turn on the auto-closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">أتريد إغلاقها تلقائيًا بعد شهر؟</string>
     <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">سيُغلق Firefox الألسنة التي لم تعرضها منذ شهر تلقائيًا.</string>
+    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">سيُغلق Eyebrowse الألسنة التي لم تعرضها منذ شهر تلقائيًا.</string>
     <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">شغّل الإغلاق التلقائي</string>
 
@@ -1542,7 +1542,7 @@
     <string name="inactive_tabs_auto_close_message_snackbar">الإغلاق التلقائي مفعّل</string>
 
     <!-- Default browser experiment -->
-    <string name="default_browser_experiment_card_text">اضبط روابط المواقع والبريد الإلكتروني والرسائل لتفتح تلقائيًا في Firefox.</string>
+    <string name="default_browser_experiment_card_text">اضبط روابط المواقع والبريد الإلكتروني والرسائل لتفتح تلقائيًا في Eyebrowse.</string>
 
     <!-- Content description for close button in collection placeholder. -->
     <string name="remove_home_collection_placeholder_content_description">أزِل</string>
@@ -1564,7 +1564,7 @@
     <!-- Text of a button allowing users to access an external url for more Pocket recommendations. -->
     <string name="pocket_stories_placeholder_text">اكتشف المزيد</string>
     <!-- Caption for describing a certain feature. The placeholder is for a clickable text (eg: Learn more) which will load an url in a new tab when clicked.  -->
-    <string name="pocket_stories_feature_caption">جزء من عائلة Firefox. ‏%s</string>
+    <string name="pocket_stories_feature_caption">جزء من عائلة Eyebrowse. ‏%s</string>
     <!-- Clickable text for opening an external link for more information about Pocket. -->
     <string name="pocket_stories_feature_learn_more">اطّلع على المزيد</string>
 

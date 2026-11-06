@@ -323,7 +323,7 @@
 
     <!-- Juno first user onboarding flow experiment, strings are marked unused as they are only referenced by Nimbus experiments. -->
     <!-- Description for learning more about our privacy notice. -->
-    <string name="juno_onboarding_privacy_notice_text">የFirefox ግላዊነት ማስታወቂያ</string>
+    <string name="juno_onboarding_privacy_notice_text">የEyebrowse ግላዊነት ማስታወቂያ</string>
     <!-- Text for the button to set firefox as default browser on the device -->
     <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_title_nimbus_2">ደህንነትዎን መጠበቅ እንወዳለን</string>
@@ -343,17 +343,17 @@
     <string name="juno_onboarding_sign_in_title_2">በመሳሪያዎች መካከል ሲዘጉ እንደተመሰጠሩ ይቆዩ</string>
     <!-- Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
      Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_sign_in_description_2">በመለያ ሲገቡ እና ስያመሳስሉ የበለጠ ደህንነት ይኖርዎታል። Firefox የእርስዎን የይለፍ ቃላት፣ ዕልባቶች እና ሌሎችንም ያመሰጥራል።</string>
+    <string name="juno_onboarding_sign_in_description_2">በመለያ ሲገቡ እና ስያመሳስሉ የበለጠ ደህንነት ይኖርዎታል። Eyebrowse የእርስዎን የይለፍ ቃላት፣ ዕልባቶች እና ሌሎችንም ያመሰጥራል።</string>
     <!-- Text for the button to sign in to sync on the device -->
     <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">ይግቡ</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_sign_in_negative_button" tools:ignore="UnusedResources">አሁን አይሆንም</string>
     <!-- Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_enable_notifications_title_nimbus_2">ማሳወቂያዎች በFirefox ደህንነትዎ እንደተጠበቀ እንዲቆዩ ያግዝዎታል</string>
+    <string name="juno_onboarding_enable_notifications_title_nimbus_2">ማሳወቂያዎች በEyebrowse ደህንነትዎ እንደተጠበቀ እንዲቆዩ ያግዝዎታል</string>
     <!-- Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
        Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_enable_notifications_description_nimbus_2">በመሳሪያዎችዎ መካከል ደህንነቱ በተጠበቀ ሁኔታ ትሮችን ይላኩ እና በFirefox ውስጥ ሌሎች የግላዊነት ባህሪያትን ያግኙ።</string>
+    <string name="juno_onboarding_enable_notifications_description_nimbus_2">በመሳሪያዎችዎ መካከል ደህንነቱ በተጠበቀ ሁኔታ ትሮችን ይላኩ እና በEyebrowse ውስጥ ሌሎች የግላዊነት ባህሪያትን ያግኙ።</string>
     <!-- Text for the button to request notification permission on the device -->
     <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">ማሳወቂያዎችን ያብሩ</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -361,13 +361,13 @@
 
     <!-- Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_title" tools:ignore="UnusedResources">የFirefox መፈለጊያ መግብርን ይሞክሩ</string>
+    <string name="juno_onboarding_add_search_widget_title" tools:ignore="UnusedResources">የEyebrowse መፈለጊያ መግብርን ይሞክሩ</string>
     <!-- Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_description" tools:ignore="UnusedResources">Firefox በመነሻ ማያ ገፅ ሲኖር፣ ድረ-ገፅ ተሻጋሪ መከታተያወችን የሚያግድ ፣ ግላዊነትን የሚያስቀድም አሳሽ በቀላሉ ማግኘት ይችላሉ።</string>
+    <string name="juno_onboarding_add_search_widget_description" tools:ignore="UnusedResources">Eyebrowse በመነሻ ማያ ገፅ ሲኖር፣ ድረ-ገፅ ተሻጋሪ መከታተያወችን የሚያግድ ፣ ግላዊነትን የሚያስቀድም አሳሽ በቀላሉ ማግኘት ይችላሉ።</string>
     <!-- Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Firefox" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="UnusedResources">የFirefox መግብርን ያክሉ</string>
+    <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="UnusedResources">የEyebrowse መግብርን ያክሉ</string>
     <!-- Text for the button to dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">አሁን አይሆንም</string>
 
@@ -407,9 +407,9 @@
     <!-- Preference Category for settings related to Search address bar -->
     <string name="preferences_settings_address_bar">የአድራሻ አሞሌ ምርጫዎች</string>
     <!-- Preference Category for settings to Firefox Suggest -->
-    <string name="preference_search_address_bar_fx_suggest">የአድራሻ አሞሌ - Firefox Suggest</string>
+    <string name="preference_search_address_bar_fx_suggest">የአድራሻ አሞሌ - Eyebrowse Suggest</string>
     <!-- Preference link to Learn more about Firefox Suggest -->
-    <string name="preference_search_learn_about_fx_suggest">ስለFirefox Suggest የበለጠ ይወቁ</string>
+    <string name="preference_search_learn_about_fx_suggest">ስለEyebrowse Suggest የበለጠ ይወቁ</string>
     <!-- Preference link to rating Fenix on the Play Store -->
     <string name="preferences_rate">Google Play ላይ ደረጃ ይስጡ</string>
     <!-- Preference linking to about page for Fenix
@@ -657,7 +657,7 @@
     <!-- Title of the Nimbus message for add-ons general availability-->
     <string name="addon_ga_message_title" tools:ignore="UnusedResources">አዲስ ተጨማሪዎች አሁን ይገኛሉ</string>
     <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here-->
-    <string name="addon_ga_message_body" tools:ignore="UnusedResources">Firefoxን የራስዎ ለማድረግ የሚያስችሉዎትን 100+ አዲስ ቅጥያዎችን ይመልከቱ።</string>
+    <string name="addon_ga_message_body" tools:ignore="UnusedResources">Eyebrowseን የራስዎ ለማድረግ የሚያስችሉዎትን 100+ አዲስ ቅጥያዎችን ይመልከቱ።</string>
     <!-- Button text of the Nimbus message for add-ons general availability. -->
     <string name="addon_ga_message_button" tools:ignore="UnusedResources">ተጨማሪዎችን ያስሱ</string>
 
@@ -1274,7 +1274,7 @@
     <string name="sync_connect_device">ሌላ መሳሪያ ያገናኙ</string>
 
     <!-- The dialog text shown when additional devices are not available -->
-    <string name="sync_connect_device_dialog">ትር ለመላክ ቢያንስ በአንድ ሌላ መሳሪያ ወደ Firefox ይግቡ።</string>
+    <string name="sync_connect_device_dialog">ትር ለመላክ ቢያንስ በአንድ ሌላ መሳሪያ ወደ Eyebrowse ይግቡ።</string>
     <!-- Confirmation dialog button -->
     <string name="sync_confirmation_button">ገባኝ</string>
     <!-- Share error message -->
@@ -1300,10 +1300,10 @@
     <string name="notification_marketing_channel_name">ግብይት</string>
     <!-- Title shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_notification_default_browser_title" tools:ignore="UnusedResources">Firefox ፈጣን እና ግላዊ ነው</string>
+    <string name="nimbus_notification_default_browser_title" tools:ignore="UnusedResources">Eyebrowse ፈጣን እና ግላዊ ነው</string>
     <!-- Text shown in the notification that pops up to remind the user to set fenix as default browser.
     The app name is in the text, due to limitations with localizing Nimbus experiments -->
-    <string name="nimbus_notification_default_browser_text" tools:ignore="UnusedResources">Firefoxን ነባሪ አሳሽዎ ያድርጉ</string>
+    <string name="nimbus_notification_default_browser_text" tools:ignore="UnusedResources">Eyebrowseን ነባሪ አሳሽዎ ያድርጉ</string>
     <!-- Title shown in the notification that pops up to re-engage the user -->
     <string name="notification_re_engagement_title">የግል አሰሳ ይሞክሩ</string>
 
@@ -1472,7 +1472,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">ኮዱን ይቃኙ</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[በኮምፒተርዎ ላይ Firefox ን ይክፈቱ እና ወደ <b>https://firefox.com/pair</b> ይሂዱ]]></string>
+    <string name="sign_in_instructions"><![CDATA[በኮምፒተርዎ ላይ Eyebrowse ን ይክፈቱ እና ወደ <b>https://firefox.com/pair</b> ይሂዱ]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">ለመቃኘት ዝግጁ</string>
     <!-- Text shown for settings option for sign with pairing -->
@@ -2103,7 +2103,7 @@
     <!-- The header text of the auto-close message when the user is asked if they want to turn on the auto-closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_header" tools:ignore="UnusedResources">ከአንድ ወር በኋላ በራስ-ሰር ይዘጋ?</string>
     <!-- A description below the header to notify the user what the inactive tabs auto-close feature is. -->
-    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Firefox ባለፈው ወር ውስጥ ያላዩዋቸውን ትሮች ሊዘጋ ይችላል።</string>
+    <string name="inactive_tabs_auto_close_message_description" tools:ignore="UnusedResources">Eyebrowse ባለፈው ወር ውስጥ ያላዩዋቸውን ትሮች ሊዘጋ ይችላል።</string>
 
     <!-- A call to action below the description to allow the user to turn on the auto closing of inactive tabs. -->
     <string name="inactive_tabs_auto_close_message_action" tools:ignore="UnusedResources">ራስ-ሰር ዝጋን ያብሩ</string>
