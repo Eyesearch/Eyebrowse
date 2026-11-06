@@ -163,7 +163,12 @@ jobs:
             if [ "$(head -c 4 "$1" | od -An -tx1 | tr -d " \n")" = "7f454c46" ]; then
               echo "$1"
             fi' _ {} \; | sort)"
-          binary="$(printf '%s\n' "$elf_files" | grep 'unknown-linux' | head -n 1 || true)"
+          # The runners are x86_64, so prefer that build: the archive also
+          # carries an aarch64 binary, which cannot run here.
+          binary="$(printf '%s\n' "$elf_files" | grep 'x86_64-unknown-linux' | head -n 1 || true)"
+          if [ -z "$binary" ]; then
+            binary="$(printf '%s\n' "$elf_files" | grep 'unknown-linux' | head -n 1 || true)"
+          fi
           if [ -z "$binary" ]; then
             binary="$(printf '%s\n' "$elf_files" | head -n 1 || true)"
           fi
