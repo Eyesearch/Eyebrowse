@@ -448,7 +448,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[<b>firefox.com/pair</b> पर दिखाए गए QR कोड को स्कैन करें]]></string>
+    <string name="pair_instructions_2"><![CDATA[<b>eyebrowse.in/pair</b> पर दिखाए गए QR कोड को स्कैन करें]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -1093,7 +1093,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">कोड को स्कैन करें</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[अपने कंप्यूटर पर Eyebrowse खोलें और <b> https://firefox.com/pair </ b> पर जाएं]]></string>
+    <string name="sign_in_instructions"><![CDATA[अपने कंप्यूटर पर Eyebrowse खोलें और <b> https://eyebrowse.in/pair </ b> पर जाएं]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">स्कैन करने के लिए तैयार है</string>
     <!-- Text shown for settings option for sign with pairing -->

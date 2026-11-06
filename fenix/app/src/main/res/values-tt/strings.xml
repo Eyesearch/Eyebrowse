@@ -1165,7 +1165,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">Кодны сканерлау</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[Компьютерыгызда Eyebrowse-ны ачыгыз һәм <b>https://firefox.com/pair</b> адресына үтегез]]></string>
+    <string name="sign_in_instructions"><![CDATA[Компьютерыгызда Eyebrowse-ны ачыгыз һәм <b>https://eyebrowse.in/pair</b> адресына үтегез]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">Сканерлауга әзер</string>
     <!-- Text shown for settings option for sign with pairing -->
