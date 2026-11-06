@@ -384,7 +384,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[<b>firefox.com/pair</b> ൽ കാണിച്ചിരിക്കുന്ന QR കോഡ് സ്കാൻ ചെയ്യുക]]></string>
+    <string name="pair_instructions_2"><![CDATA[<b>eyebrowse.in/pair</b> ൽ കാണിച്ചിരിക്കുന്ന QR കോഡ് സ്കാൻ ചെയ്യുക]]></string>
     <!-- Button to open camera for pairing -->
     <string name="pair_open_camera">ക്യാമറ തുറക്കുക</string>
     <!-- Button to cancel pairing -->
@@ -1031,7 +1031,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">കോഡ് സ്കാൻ ചെയ്യുക</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[താങ്കളുടെ കമ്പ്യൂട്ടറിൽ ഫയർഫോക്സ് തുറന്ന് <b>https://firefox.com/pair</b> എന്നതിലേക്ക് പോകുക]]></string>
+    <string name="sign_in_instructions"><![CDATA[താങ്കളുടെ കമ്പ്യൂട്ടറിൽ ഫയർഫോക്സ് തുറന്ന് <b>https://eyebrowse.in/pair</b> എന്നതിലേക്ക് പോകുക]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">സ്കാൻ ചെയ്യാൻ തയ്യാറാണ്</string>
     <!-- Text shown for settings option for sign with pairing -->

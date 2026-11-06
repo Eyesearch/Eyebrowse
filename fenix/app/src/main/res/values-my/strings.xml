@@ -406,7 +406,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[<b>firefox.com/pair</b> တွင်ပြနေသော QR  ကုဒ်ကို ဖတ်ပါ]]></string>
+    <string name="pair_instructions_2"><![CDATA[<b>eyebrowse.in/pair</b> တွင်ပြနေသော QR  ကုဒ်ကို ဖတ်ပါ]]></string>
 
     <!-- Toolbar Preferences -->
     <!-- Preference for using top toolbar -->
@@ -993,7 +993,7 @@
     <string name="sync_scan_code">ကုဒ်ကိုစစ်ဆေးပါ</string>
 
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[<b>https://firefox.com/pair</b>ကိုသွားပြီး သင့်ကွန်ပျူတာတွင် Eyebrowse ဖွင့်ပါ။]]></string>
+    <string name="sign_in_instructions"><![CDATA[<b>https://eyebrowse.in/pair</b>ကိုသွားပြီး သင့်ကွန်ပျူတာတွင် Eyebrowse ဖွင့်ပါ။]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">စကင်ဖတ်ရန်အဆင်သင့်ဖြစ်သည်</string>
     <!-- Text shown for settings option for sign with pairing -->

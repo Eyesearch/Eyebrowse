@@ -358,7 +358,7 @@
 
     <!-- Pairing Feature strings -->
     <!-- Instructions on how to access pairing -->
-    <string name="pair_instructions_2"><![CDATA[<b>firefox.com/pair</b> ನಲ್ಲಿ ತೋರಿಸಿರುವ QR ಕೋಡ್ ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ]]></string>
+    <string name="pair_instructions_2"><![CDATA[<b>eyebrowse.in/pair</b> ನಲ್ಲಿ ತೋರಿಸಿರುವ QR ಕೋಡ್ ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ]]></string>
     <!-- Button to open camera for pairing -->
     <string name="pair_open_camera">ಕ್ಯಾಮೆರಾ ತೆರೆಯಿರಿ</string>
     <!-- Button to cancel pairing -->
@@ -965,7 +965,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">ಕೋಡ್ ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿ ಫೈರ್‌ಫಾಕ್ಸ್ ತೆರೆಯಿರಿ ಮತ್ತು <b>https://firefox.com/pair</b> ಗೆ ಹೋಗಿ]]></string>
+    <string name="sign_in_instructions"><![CDATA[ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿ ಫೈರ್‌ಫಾಕ್ಸ್ ತೆರೆಯಿರಿ ಮತ್ತು <b>https://eyebrowse.in/pair</b> ಗೆ ಹೋಗಿ]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">ಸ್ಕ್ಯಾನ್ ಮಾಡಲು ಸಿದ್ಧವಾಗಿದೆ</string>
     <!-- Text shown for settings option for sign with pairing -->
