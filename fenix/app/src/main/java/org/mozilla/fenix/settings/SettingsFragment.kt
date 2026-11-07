@@ -36,7 +36,6 @@ import mozilla.components.concept.sync.AccountObserver
 import mozilla.components.concept.sync.AuthType
 import mozilla.components.concept.sync.OAuthAccount
 import mozilla.components.concept.sync.Profile
-import mozilla.components.feature.addons.ui.AddonFilePicker
 import mozilla.components.service.glean.private.NoExtras
 import mozilla.components.support.ktx.android.view.showKeyboard
 import mozilla.components.ui.widgets.withCenterAlignedButtons
@@ -50,7 +49,6 @@ import org.mozilla.fenix.GleanMetrics.TrackingProtection
 import org.mozilla.fenix.HomeActivity
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.accounts.FenixFxAEntryPoint
-import org.mozilla.fenix.databinding.AmoCollectionOverrideDialogBinding
 import org.mozilla.fenix.ext.application
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.getPreferenceKey
@@ -71,7 +69,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
     private val args by navArgs<SettingsFragmentArgs>()
     private lateinit var accountUiView: AccountUiView
-    private lateinit var addonFilePicker: AddonFilePicker
     private val profilerViewModel: ProfilerViewModel by activityViewModels()
 
     @VisibleForTesting
@@ -109,8 +106,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
             updateFxAAllowDomesticChinaServerMenu = ::updateFxAAllowDomesticChinaServerMenu,
         )
 
-        addonFilePicker = AddonFilePicker(requireContext(), requireComponents.addonManager)
-        addonFilePicker.registerForResults(this)
 
         // It's important to update the account UI state in onCreate since that ensures we'll never
         // display an incorrect state in the UI. We take care to not also call it as part of onResume
@@ -351,55 +346,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
             }
 
             /* Advanced preferences */
-            // Only displayed when secret settings are enabled
-            resources.getString(R.string.pref_key_install_local_addon) -> {
-                addonFilePicker.launch()
-                null
-            }
-
-            // Only displayed when secret settings are enabled
-            resources.getString(R.string.pref_key_override_amo_collection) -> {
-                val context = requireContext()
-                val dialogView = LayoutInflater.from(context)
-                    .inflate(R.layout.amo_collection_override_dialog, null)
-
-                val binding = AmoCollectionOverrideDialogBinding.bind(dialogView)
-                AlertDialog.Builder(context).apply {
-                    setTitle(context.getString(R.string.preferences_customize_amo_collection))
-                    setView(dialogView)
-                    setNegativeButton(R.string.customize_addon_collection_cancel) { dialog: DialogInterface, _ ->
-                        dialog.cancel()
-                    }
-
-                    setPositiveButton(R.string.customize_addon_collection_ok) { _, _ ->
-                        context.settings().overrideAmoUser = binding.customAmoUser.text.toString()
-                        context.settings().overrideAmoCollection =
-                            binding.customAmoCollection.text.toString()
-
-                        Toast.makeText(
-                            context,
-                            getString(R.string.toast_customize_addon_collection_done),
-                            Toast.LENGTH_LONG,
-                        ).show()
-
-                        Handler(Looper.getMainLooper()).postDelayed(
-                            {
-                                exitProcess(0)
-                            },
-                            AMO_COLLECTION_OVERRIDE_EXIT_DELAY,
-                        )
-                    }
-
-                    binding.customAmoCollection.setText(context.settings().overrideAmoCollection)
-                    binding.customAmoUser.setText(context.settings().overrideAmoUser)
-                    binding.customAmoUser.requestFocus()
-                    binding.customAmoUser.showKeyboard()
-                    create().withCenterAlignedButtons()
-                }.show()
-
-                null
-            }
-
             resources.getString(R.string.pref_key_open_links_in_apps) -> {
                 SettingsFragmentDirections.actionSettingsFragmentToOpenLinksInAppsFragment()
             }
@@ -508,8 +454,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
                 (requireContext().components.core.engine.profiler?.isProfilerActive() != null)
         }
         setupCookieBannerPreference()
-        setupInstallAddonFromFilePreference(requireContext().settings())
-        setupAmoCollectionOverridePreference(requireContext().settings())
         setupGeckoLogsPreference(requireContext().settings())
         setupAllowDomesticChinaFxaServerPreference()
         setupHttpsOnlyPreferences()
@@ -567,167 +511,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
-    @VisibleForTesting
-    internal fun setupAmoCollectionOverridePreference(settings: Settings) {
-        val preferenceAmoCollectionOverride =
-            findPreference<Preference>(getPreferenceKey(R.string.pref_key_override_amo_collection))
-
-        val show = (
-            FeatureFlags.customExtensionCollectionFeature && (
-                settings.amoCollectionOverrideConfigured() || settings.showSecretDebugMenuThisSession
-                )
-            )
-        preferenceAmoCollectionOverride?.apply {
-            isVisible = show
-            summary = settings.overrideAmoCollection.ifEmpty { null }
-        }
-    }
-
-    @VisibleForTesting
-    internal fun setupGeckoLogsPreference(settings: Settings) {
-        val preferenceEnabledGeckoLogs =
-            findPreference<Preference>(getPreferenceKey(R.string.pref_key_enable_gecko_logs))
-
-        val show = settings.showSecretDebugMenuThisSession
-        preferenceEnabledGeckoLogs?.isVisible = show
-
-        preferenceEnabledGeckoLogs?.onPreferenceChangeListener =
-            Preference.OnPreferenceChangeListener { _, newValue ->
-                context?.settings()?.enableGeckoLogs = newValue as Boolean
-                Toast.makeText(
-                    context,
-                    getString(R.string.quit_application),
-                    Toast.LENGTH_LONG,
-                ).show()
-                Handler(Looper.getMainLooper()).postDelayed(
-                    {
-                        exitProcess(0)
-                    },
-                    FXA_SYNC_OVERRIDE_EXIT_DELAY,
-                )
-                true
-            }
-    }
-
-    private fun setupAllowDomesticChinaFxaServerPreference() {
-        val allowDomesticChinaFxAServer = getPreferenceKey(R.string.pref_key_allow_domestic_china_fxa_server)
-        val preferenceAllowDomesticChinaFxAServer = findPreference<SwitchPreference>(allowDomesticChinaFxAServer)
-        val visible = Config.channel.isMozillaOnline
-
-        preferenceAllowDomesticChinaFxAServer?.apply {
-            isVisible = visible
-        }
-
-        if (visible) {
-            preferenceAllowDomesticChinaFxAServer?.onPreferenceChangeListener =
-                Preference.OnPreferenceChangeListener { preference, newValue ->
-                    preference.context.settings().preferences.edit()
-                        .putBoolean(preference.key, newValue as Boolean).apply()
-                    updateFxAAllowDomesticChinaServerMenu()
-                    Toast.makeText(
-                        context,
-                        getString(R.string.toast_override_account_sync_server_done),
-                        Toast.LENGTH_LONG,
-                    ).show()
-                    Handler(Looper.getMainLooper()).postDelayed(
-                        {
-                            exitProcess(0)
-                        },
-                        FXA_SYNC_OVERRIDE_EXIT_DELAY,
-                    )
-                }
-        }
-    }
-
-    @VisibleForTesting
-    internal fun setupNotificationPreference() {
-        with(requirePreference<Preference>(R.string.pref_key_notifications)) {
-            summary = if (NotificationManagerCompat.from(requireContext()).areNotificationsEnabled()) {
-                getString(R.string.notifications_allowed_summary)
-            } else {
-                getString(R.string.notifications_not_allowed_summary)
-            }
-        }
-    }
-
-    @VisibleForTesting
-    internal fun setupHomepagePreference() {
-        with(requirePreference<Preference>(R.string.pref_key_home)) {
-            summary = when {
-                context.settings().alwaysOpenTheHomepageWhenOpeningTheApp ->
-                    getString(R.string.opening_screen_homepage_summary)
-
-                context.settings().openHomepageAfterFourHoursOfInactivity ->
-                    getString(R.string.opening_screen_after_four_hours_of_inactivity_summary)
-
-                context.settings().alwaysOpenTheLastTabWhenOpeningTheApp ->
-                    getString(R.string.opening_screen_last_tab_summary)
-
-                else -> null
-            }
-        }
-    }
-
-    @VisibleForTesting
-    internal fun setupSearchPreference() {
-        with(requirePreference<Preference>(R.string.pref_key_search_settings)) {
-            summary =
-                requireContext().components.core.store.state.search.selectedOrDefaultSearchEngine?.name
-        }
-    }
-
-    @VisibleForTesting
-    internal fun setupTrackingProtectionPreference() {
-        with(requirePreference<Preference>(R.string.pref_key_tracking_protection_settings)) {
-            summary = when {
-                !context.settings().shouldUseTrackingProtection -> getString(R.string.tracking_protection_off)
-                context.settings().useStandardTrackingProtection -> getString(R.string.tracking_protection_standard)
-                context.settings().useStrictTrackingProtection -> getString(R.string.tracking_protection_strict)
-                context.settings().useCustomTrackingProtection -> getString(R.string.tracking_protection_custom)
-                else -> null
-            }
-        }
-    }
-
-    @VisibleForTesting
-    internal fun setupCookieBannerPreference() {
-        FxNimbus.features.cookieBanners.recordExposure()
-        if (context?.settings()?.shouldShowCookieBannerUI == false) return
-        with(requirePreference<SwitchPreference>(R.string.pref_key_cookie_banner_private_mode)) {
-            isVisible = context.settings().shouldShowCookieBannerUI
-
-            onPreferenceChangeListener = object : SharedPreferenceUpdater() {
-                override fun onPreferenceChange(
-                    preference: Preference,
-                    newValue: Any?,
-                ): Boolean {
-                    val metricTag = if (newValue == true) {
-                        "reject_all"
-                    } else {
-                        "disabled"
-                    }
-                    val engineSettings = requireContext().components.core.engine.settings
-                    val settings = requireContext().settings()
-                    settings.shouldUseCookieBannerPrivateMode = newValue as Boolean
-                    val mode = settings.getCookieBannerHandlingPrivateMode()
-                    engineSettings.cookieBannerHandlingModePrivateBrowsing = mode
-                    CookieBanners.settingChangedPmb.record(CookieBanners.SettingChangedPmbExtra(metricTag))
-                    requireContext().components.useCases.sessionUseCases.reload()
-                    return super.onPreferenceChange(preference, newValue)
-                }
-            }
-        }
-    }
-
-    @VisibleForTesting
-    internal fun setupInstallAddonFromFilePreference(settings: Settings) {
-        with(requirePreference<Preference>(R.string.pref_key_install_local_addon)) {
-            // Below Android 10, the OS doesn't seem to recognize
-            // the "application/x-xpinstall" mime type (for XPI files).
-            isVisible =
-                settings.showSecretDebugMenuThisSession && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
-        }
-    }
 
     @VisibleForTesting
     internal fun setupHttpsOnlyPreferences() {
