@@ -132,6 +132,12 @@ class QrFragment : Fragment() {
      * Null until [enableTextRecognition] is called, which keeps the pairing flow unchanged.
      */
     private var textRecognizer: TextRecognizer? = null
+
+    /**
+     * Invoked when the user asks to search the selected text. The app supplies this so the query
+     * goes to the user's current default engine; this component must not know an engine name.
+     */
+    var searchRequestListener: ((String) -> Unit)? = null
     private var textOverlay: ScanOverlayView? = null
     private var textRecognitionEnabled = false
     private var lastRecognitionAt = 0L
@@ -352,25 +358,29 @@ class QrFragment : Fragment() {
         val line = word.text
         val url = LinkDetector.toUrl(line)
         val options = mutableListOf<String>()
+
+        // A link and a piece of text do different things, so they never share an action:
+        // a link can be opened, plain text can only be searched or copied.
         if (url != null) {
-            options += getString(R.string.mozac_feature_qr_scan_open_website)
+            options += getString(R.string.mozac_feature_qr_scan_open_link)
             options += getString(R.string.mozac_feature_qr_scan_copy_link)
+            options += getString(R.string.mozac_feature_qr_scan_copy_text)
+        } else {
+            options += getString(R.string.mozac_feature_qr_scan_search)
+            options += getString(R.string.mozac_feature_qr_scan_copy_text)
         }
-        options += getString(R.string.mozac_feature_qr_scan_copy_text)
-        options += getString(R.string.mozac_feature_qr_scan_search)
 
         AlertDialog.Builder(requireContext())
             .setTitle(line)
             .setItems(options.toTypedArray()) { _, which ->
                 when (options[which]) {
-                    getString(R.string.mozac_feature_qr_scan_open_website) -> url?.let {
+                    getString(R.string.mozac_feature_qr_scan_open_link) -> url?.let {
                         scanCompleteListener?.onScanComplete(it)
                     }
                     getString(R.string.mozac_feature_qr_scan_copy_link) -> copyToClipboard(url ?: line)
-                    getString(R.string.mozac_feature_qr_scan_copy_text) -> copyToClipboard(line)
-                    else -> scanCompleteListener?.onScanComplete(
-                        "https://duckduckgo.com/?q=" + java.net.URLEncoder.encode(line, "UTF-8"),
-                    )
+                    getString(R.string.mozac_feature_qr_scan_search) ->
+                        searchRequestListener?.invoke(line) ?: copyToClipboard(line)
+                    else -> copyToClipboard(line)
                 }
             }
             .show()

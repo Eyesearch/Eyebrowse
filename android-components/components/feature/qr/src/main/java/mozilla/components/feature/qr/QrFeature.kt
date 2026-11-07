@@ -51,6 +51,12 @@ class QrFeature(
         get() = qrFragment != null
 
     @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    /**
+     * Invoked when the user asks to search the selected text. Set by the app so the query goes to
+     * the user's default search engine.
+     */
+    var searchRequestListener: ((String) -> Unit)? = null
+
     internal val scanCompleteListener: QrFragment.OnScanCompleteListener = object : QrFragment.OnScanCompleteListener {
         @MainThread
         override fun onScanComplete(result: String) {
@@ -88,10 +94,19 @@ class QrFeature(
 
         return if (context.isPermissionGranted(CAMERA)) {
             when (isScanInProgress) {
-                true -> qrFragment?.startScanning()
-                false -> fragmentManager.beginTransaction()
-                    .add(containerViewId, QrFragment.newInstance(scanCompleteListener, scanMessage), QR_FRAGMENT_TAG)
-                    .commit()
+                true -> {
+                    qrFragment?.searchRequestListener = searchRequestListener
+                    qrFragment?.startScanning()
+                }
+                false -> {
+                    fragmentManager.beginTransaction()
+                        .add(containerViewId, QrFragment.newInstance(scanCompleteListener, scanMessage), QR_FRAGMENT_TAG)
+                        .commit()
+                    // The fragment is added synchronously so the listener is in place before the
+                    // first frame is recognised.
+                    fragmentManager.executePendingTransactions()
+                    qrFragment?.searchRequestListener = searchRequestListener
+                }
             }
             true
         } else {
