@@ -47,6 +47,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.annotation.VisibleForTesting
 import androidx.core.content.ContextCompat.getColor
@@ -57,7 +58,7 @@ import androidx.appcompat.app.AlertDialog
 import com.google.zxing.BinaryBitmap
 import mozilla.components.feature.qr.text.LinkDetector
 import mozilla.components.feature.qr.text.ScanOverlayView
-import mozilla.components.feature.qr.text.ScanWord
+import mozilla.components.feature.qr.text.ScanSelection
 import mozilla.components.feature.qr.text.TextRecognizer
 import com.google.zxing.LuminanceSource
 import com.google.zxing.MultiFormatReader
@@ -263,8 +264,6 @@ class QrFragment : Fragment() {
      *
      * Models are copied out of the APK assets on first use, so the first scan is slower than the
      * rest. When a model is missing, recognition simply does nothing and QR scanning keeps working.
-     *
-     * @param languages Tesseract language codes, for example `listOf("eng", "kan")`.
      */
     fun enableTextRecognition() {
         if (textRecognitionEnabled) return
@@ -279,8 +278,7 @@ class QrFragment : Fragment() {
         if (textOverlay != null) return
         val overlay = ScanOverlayView(
             context = requireContext(),
-            onWordSelected = { word -> showWordMenu(word) },
-            onWordTapped = { word -> showWordMenu(word) },
+            onSelectionConfirmed = { selection -> showSelectionMenu(selection) },
         )
         root.addView(
             overlay,
@@ -297,6 +295,8 @@ class QrFragment : Fragment() {
     private fun maybeRecognizeText(image: Image) {
         val recognizer = textRecognizer ?: return
         if (recognizing) return
+        // The user is working with the words on screen; a new frame would move the boxes.
+        if (textOverlay?.hasSelection() == true) return
         val now = System.currentTimeMillis()
         if (now - lastRecognitionAt < RECOGNITION_INTERVAL_MS) return
         lastRecognitionAt = now
@@ -314,7 +314,7 @@ class QrFragment : Fragment() {
     }
 
     /**
-     * The camera hands us YUV frames. Tesseract only needs luminance, so we build a grayscale
+     * The camera hands us YUV frames. Recognition only needs luminance, so we build a grayscale
      * bitmap from the Y plane and skip the colour conversion entirely.
      */
     private fun toGrayscaleBitmap(image: Image): Bitmap {
@@ -335,38 +335,39 @@ class QrFragment : Fragment() {
     }
 
     /**
-     * The menu depends on what was selected: a link can be opened, plain text can only be copied
-     * or searched. No search engine name appears here, so it always follows the user's default.
+     * Every selection gets the same four actions, in the same order, and the app decides nothing
+     * about what the text is. A scanner that guesses "link" or "text" guesses wrong on the frame
+     * where it matters, so the user picks instead. No search engine name appears here, so Search
+     * always follows the user's default.
      */
-    private fun showWordMenu(word: ScanWord) {
-        val line = word.text
-        val url = LinkDetector.toUrl(line)
-        val options = mutableListOf<String>()
+    private fun showSelectionMenu(selection: ScanSelection) {
+        val text = selection.text
+        val url = LinkDetector.toUrl(text)
+        val dialogContext = context ?: return
+        val options = arrayOf(
+            getString(R.string.mozac_feature_qr_scan_open_link),
+            getString(R.string.mozac_feature_qr_scan_copy_link),
+            getString(R.string.mozac_feature_qr_scan_copy_text),
+            getString(R.string.mozac_feature_qr_scan_search),
+        )
 
-        // A link and a piece of text do different things, so they never share an action:
-        // a link can be opened, plain text can only be searched or copied.
-        if (url != null) {
-            options += getString(R.string.mozac_feature_qr_scan_open_link)
-            options += getString(R.string.mozac_feature_qr_scan_copy_link)
-            options += getString(R.string.mozac_feature_qr_scan_copy_text)
-        } else {
-            options += getString(R.string.mozac_feature_qr_scan_search)
-            options += getString(R.string.mozac_feature_qr_scan_copy_text)
-        }
-
-        AlertDialog.Builder(requireContext())
-            .setTitle(line)
-            .setItems(options.toTypedArray()) { _, which ->
-                when (options[which]) {
-                    getString(R.string.mozac_feature_qr_scan_open_link) -> url?.let {
-                        scanCompleteListener?.onScanComplete(it)
+        AlertDialog.Builder(dialogContext)
+            .setTitle(text)
+            .setItems(options) { _, which ->
+                when (which) {
+                    ACTION_OPEN_LINK -> if (url != null) {
+                        scanCompleteListener?.onScanComplete(url)
+                    } else {
+                        Toast.makeText(dialogContext, R.string.mozac_feature_qr_scan_not_a_link, Toast.LENGTH_SHORT)
+                            .show()
                     }
-                    getString(R.string.mozac_feature_qr_scan_copy_link) -> copyToClipboard(url ?: line)
-                    getString(R.string.mozac_feature_qr_scan_search) ->
-                        searchRequestListener?.invoke(line) ?: copyToClipboard(line)
-                    else -> copyToClipboard(line)
+                    ACTION_COPY_LINK -> copyToClipboard(url ?: text)
+                    ACTION_COPY_TEXT -> copyToClipboard(text)
+                    else -> searchRequestListener?.invoke(text) ?: copyToClipboard(text)
                 }
             }
+            // Let new frames in again as soon as the user is done with this selection.
+            .setOnDismissListener { textOverlay?.clearSelection() }
             .show()
     }
 
@@ -406,6 +407,8 @@ class QrFragment : Fragment() {
         closeCamera()
         stopBackgroundThread()
         stopExecutorService()
+        // Drop the boxes: the words belong to a frame the closed camera will never repeat.
+        textOverlay?.clear()
         super.onPause()
     }
 
@@ -839,6 +842,11 @@ class QrFragment : Fragment() {
         }
 
         private const val RECOGNITION_INTERVAL_MS = 600L
+
+        // Positions in the action menu, which is built in the same order for every selection.
+        private const val ACTION_OPEN_LINK = 0
+        private const val ACTION_COPY_LINK = 1
+        private const val ACTION_COPY_TEXT = 2
 
         internal fun readImageSource(image: Image): PlanarYUVLuminanceSource {
             val plane = image.planes[0]

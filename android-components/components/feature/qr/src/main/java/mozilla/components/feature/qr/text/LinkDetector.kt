@@ -23,7 +23,7 @@ object LinkDetector {
      * @return true when [text] looks like something that can be opened in the browser.
      */
     fun isOpenable(text: String): Boolean {
-        val candidate = text.trim().trim('.', ',', ';', ':', ')', ']', '}', '"', '\'')
+        val candidate = trimEdges(text)
         if (candidate.isEmpty()) return false
         if (email.matches(candidate)) return true
         if (scheme.containsMatchIn(candidate)) return isHttp(candidate) || candidate.startsWith("mailto:")
@@ -34,16 +34,28 @@ object LinkDetector {
     /**
      * @return the URL to open for [text], adding a scheme when the text omits it, or null when
      * [text] is not openable.
+     *
+     * A recogniser splits one address into several words as easily as it reads it whole, so
+     * `www .eyebrowse. in` is joined back together before this gives up.
      */
     fun toUrl(text: String): String? {
-        val candidate = text.trim().trim('.', ',', ';', ':', ')', ']', '}', '"', '\'')
-        if (!isOpenable(candidate)) return null
-        return when {
-            candidate.startsWith("mailto:") -> candidate
-            scheme.containsMatchIn(candidate) -> candidate
-            email.matches(candidate) -> "mailto:$candidate"
-            else -> "https://$candidate"
-        }
+        val candidate = trimEdges(text)
+        if (candidate.isEmpty()) return null
+        if (isOpenable(candidate)) return withScheme(candidate)
+
+        val joined = candidate.filterNot { it.isWhitespace() }
+        if (joined != candidate && isOpenable(joined)) return withScheme(joined)
+        return null
+    }
+
+    private fun trimEdges(text: String): String =
+        text.trim().trim('.', ',', ';', ':', ')', ']', '}', '"', '\'')
+
+    private fun withScheme(candidate: String): String = when {
+        candidate.startsWith("mailto:") -> candidate
+        scheme.containsMatchIn(candidate) -> candidate
+        email.matches(candidate) -> "mailto:$candidate"
+        else -> "https://$candidate"
     }
 
     private fun isHttp(candidate: String): Boolean =
