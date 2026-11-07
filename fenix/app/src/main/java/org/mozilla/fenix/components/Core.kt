@@ -15,7 +15,6 @@ import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import mozilla.components.browser.domains.autocomplete.BaseDomainAutocompleteProvider
 import mozilla.components.browser.domains.autocomplete.ShippedDomainsProvider
 import mozilla.components.browser.engine.gecko.GeckoEngine
@@ -62,7 +61,6 @@ import mozilla.components.feature.search.middleware.AdsTelemetryMiddleware
 import mozilla.components.feature.search.middleware.SearchExtraParams
 import mozilla.components.feature.search.middleware.SearchMiddleware
 import mozilla.components.feature.search.region.RegionMiddleware
-import mozilla.components.feature.search.telemetry.SerpTelemetryRepository
 import mozilla.components.feature.search.telemetry.ads.AdsTelemetry
 import mozilla.components.feature.search.telemetry.incontent.InContentTelemetry
 import mozilla.components.feature.session.HistoryDelegate
@@ -89,7 +87,6 @@ import mozilla.components.service.pocket.Profile
 import mozilla.components.service.sync.autofill.AutofillCreditCardsAddressesStorage
 import mozilla.components.service.sync.logins.SyncableLoginsStorage
 import mozilla.components.support.base.worker.Frequency
-import mozilla.components.support.ktx.android.content.res.readJSONObject
 import mozilla.components.support.locale.LocaleManager
 import org.mozilla.fenix.AppRequestInterceptor
 import org.mozilla.fenix.BuildConfig
@@ -286,7 +283,8 @@ class Core(
                 RegionMiddleware(context, locationService),
                 SearchMiddleware(
                     context = context,
-                    additionalBundledSearchEngineIds = listOf("reddit", "youtube"),
+                    // Eyebrowse ships DuckDuckGo only, so no additional bundled engines are loaded.
+                    additionalBundledSearchEngineIds = emptyList(),
                     migration = SearchMigration(context),
                     searchExtraParams = searchExtraParams,
                 ),
@@ -322,24 +320,12 @@ class Core(
             // Install the "icons" WebExtension to automatically load icons for every visited website.
             icons.install(engine, this)
 
+            // Eyebrowse: the SERP provider list is no longer fetched from Mozilla's remote
+            // settings. The ads and cookies WebExtensions are still installed so search keeps
+            // working, but with an empty provider list, so nothing is fetched.
             CoroutineScope(Dispatchers.Main).launch {
-                val readJson = { context.assets.readJSONObject("search/search_telemetry_v2.json") }
-                val providerList = withContext(Dispatchers.IO) {
-                    SerpTelemetryRepository(
-                        rootStorageDirectory = context.filesDir,
-                        readJson = readJson,
-                        collectionName = COLLECTION_NAME,
-                        serverUrl = if (context.settings().useProductionRemoteSettingsServer) {
-                            REMOTE_PROD_ENDPOINT_URL
-                        } else {
-                            REMOTE_STAGE_ENDPOINT_URL
-                        },
-                    ).updateProviderList()
-                }
-                // Install the "ads" WebExtension to get the links in an partner page.
-                adsTelemetry.install(engine, this@apply, providerList)
-                // Install the "cookies" WebExtension and tracks user interaction with SERPs.
-                searchTelemetry.install(engine, this@apply, providerList)
+                adsTelemetry.install(engine, this@apply, emptyList())
+                searchTelemetry.install(engine, this@apply, emptyList())
             }
 
             WebNotificationFeature(
@@ -625,10 +611,5 @@ class Core(
 
         // Maximum number of suggestions returned from shortcut search engine.
         const val METADATA_SHORTCUT_SUGGESTION_LIMIT = 20
-
-        // collection name to fetch from server for SERP telemetry
-        const val COLLECTION_NAME = "search-telemetry-v2"
-        internal const val REMOTE_PROD_ENDPOINT_URL = "https://firefox.settings.services.mozilla.com"
-        internal const val REMOTE_STAGE_ENDPOINT_URL = "https://firefox.settings.services.allizom.org"
     }
 }
