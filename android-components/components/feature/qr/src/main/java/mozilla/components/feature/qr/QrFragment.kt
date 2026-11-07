@@ -58,7 +58,6 @@ import com.google.zxing.BinaryBitmap
 import mozilla.components.feature.qr.text.LinkDetector
 import mozilla.components.feature.qr.text.ScanOverlayView
 import mozilla.components.feature.qr.text.ScanWord
-import mozilla.components.feature.qr.text.TessdataInstaller
 import mozilla.components.feature.qr.text.TextRecognizer
 import com.google.zxing.LuminanceSource
 import com.google.zxing.MultiFormatReader
@@ -267,27 +266,11 @@ class QrFragment : Fragment() {
      *
      * @param languages Tesseract language codes, for example `listOf("eng", "kan")`.
      */
-    fun enableTextRecognition(languages: List<String> = listOf("eng", "kan")) {
+    fun enableTextRecognition() {
         if (textRecognitionEnabled) return
         textRecognitionEnabled = true
-        coroutineScope.launch {
-            val install = TessdataInstaller(requireContext()).install(languages)
-            if (install.languages.isEmpty()) {
-                withContext(Dispatchers.Main) { logger.warn("No text models available, QR only") }
-                return@launch
-            }
-            val recognizer = TextRecognizer(install.dataPath)
-            val ready = recognizer.load(install.languages.joinToString("+"))
-            withContext(Dispatchers.Main) {
-                if (ready) {
-                    textRecognizer = recognizer
-                    attachOverlay()
-                } else {
-                    logger.warn("Text recognition disabled, no model for $languages")
-                    recognizer.close()
-                }
-            }
-        }
+        textRecognizer = TextRecognizer()
+        attachOverlay()
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -323,11 +306,8 @@ class QrFragment : Fragment() {
             recognizing = false
             return
         }
-        coroutineScope.launch {
-            val words = recognizer.recognize(bitmap)
-            withContext(Dispatchers.Main) {
-                textOverlay?.setWords(words, bitmap.width, bitmap.height)
-            }
+        recognizer.recognize(bitmap) { words ->
+            textOverlay?.setWords(words, bitmap.width, bitmap.height)
             bitmap.recycle()
             recognizing = false
         }
