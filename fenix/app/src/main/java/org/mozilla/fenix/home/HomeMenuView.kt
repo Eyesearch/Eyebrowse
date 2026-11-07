@@ -202,12 +202,6 @@ class HomeMenuView(
                     ),
                 )
             }
-            HomeMenu.Item.Extensions -> {
-                navController.nav(
-                    R.id.homeFragment,
-                    HomeFragmentDirections.actionGlobalAddonsManagementFragment(),
-                )
-            }
             is HomeMenu.Item.DesktopMode -> {
                 context.settings().openNextTabInDesktopMode = item.checked
             }
