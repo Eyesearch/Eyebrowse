@@ -157,8 +157,8 @@ private fun TabInCollectionPreview() {
 
 private val tabPreview = object : Tab {
     override val id = 2L
-    override val title = "Mozilla-Firefox"
-    override val url = "https://www.mozilla.org/en-US/firefox/whats-new-in-last-version"
+    override val title = "Eyebrowse"
+    override val url = "https://eyebrowse.in/whats-new-in-last-version"
 
     override fun restore(
         filesDir: File,
