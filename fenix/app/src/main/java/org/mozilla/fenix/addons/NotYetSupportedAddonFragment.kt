@@ -20,7 +20,7 @@ import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.showToolbar
 
 private const val LEARN_MORE_URL =
-    "https://support.mozilla.org/kb/add-compatibility-firefox-preview"
+    "https://support.eyebrowse.in/kb/add-compatibility"
 
 /**
  * Fragment for displaying and managing add-ons that are not yet supported by the browser.
