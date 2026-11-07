@@ -262,13 +262,17 @@ class QrFragment : Fragment() {
     /**
      * Turns on text recognition for the same camera this fragment already runs.
      *
-     * Models are copied out of the APK assets on first use, so the first scan is slower than the
-     * rest. When a model is missing, recognition simply does nothing and QR scanning keeps working.
+     * Both engines are build dependencies that ship inside the APK, so the first scan is as fast as
+     * the last and nothing is downloaded. Calling this again after [onPause] released the engines
+     * builds a fresh one, which is why it is not guarded on the first call only.
      */
     fun enableTextRecognition() {
+        if (textRecognizer == null) {
+            val appContext = context?.applicationContext ?: return
+            textRecognizer = TextRecognizer(appContext)
+        }
         if (textRecognitionEnabled) return
         textRecognitionEnabled = true
-        textRecognizer = TextRecognizer()
         attachOverlay()
     }
 
@@ -396,6 +400,9 @@ class QrFragment : Fragment() {
     override fun onResume() {
         super.onResume()
 
+        // onPause released the engines, so build them again before the camera sends frames.
+        enableTextRecognition()
+
         // It's possible that the Fragment is resumed to a scanning state
         // while in the meantime the camera permission was removed. Avoid any issues.
         if (requireContext().isPermissionGranted(permission.CAMERA)) {
@@ -407,7 +414,9 @@ class QrFragment : Fragment() {
         closeCamera()
         stopBackgroundThread()
         stopExecutorService()
-        // Drop the boxes: the words belong to a frame the closed camera will never repeat.
+        // Release the recognisers and the words they produced; nothing is kept between visits.
+        textRecognizer?.close()
+        textRecognizer = null
         textOverlay?.clear()
         super.onPause()
     }

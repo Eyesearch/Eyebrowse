@@ -39,6 +39,7 @@ object Versions {
     const val sentry = "7.5.0"
 
     const val zxing = "3.5.3"
+    const val tess_two = "9.1.0"
     const val mlkit_text_recognition = "16.0.1"
 
     const val disklrucache = "2.0.2"
@@ -211,6 +212,7 @@ object ComponentsDependencies {
     const val thirdparty_okio = "com.squareup.okio:okio:${Versions.okio}"
     const val thirdparty_sentry = "io.sentry:sentry-android:${Versions.sentry}"
     const val thirdparty_zxing = "com.google.zxing:core:${Versions.zxing}"
+    const val thirdparty_tess_two = "com.rmtheis:tess-two:${Versions.tess_two}"
     const val thirdparty_mlkit_text_recognition = "com.google.mlkit:text-recognition:${Versions.mlkit_text_recognition}"
     const val thirdparty_disklrucache = "com.jakewharton:disklrucache:${Versions.disklrucache}"
     const val thirdparty_androidsvg = "com.caverock:androidsvg-aar:${Versions.androidsvg}"

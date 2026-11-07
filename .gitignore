@@ -101,3 +101,6 @@ DerivedData
 *.xcscmblueprint
 .build
 
+
+# Tesseract Kannada model, fetched at build time by :feature-qr:prepareTessdata
+android-components/components/feature/qr/src/main/assets/tessdata/
