@@ -76,7 +76,6 @@ import mozilla.components.support.utils.ManufacturerCodes
 import mozilla.components.support.utils.SafeIntent
 import mozilla.components.support.utils.toSafeIntent
 import mozilla.telemetry.glean.private.NoExtras
-import org.mozilla.experiments.nimbus.initializeTooling
 import org.mozilla.fenix.GleanMetrics.AppIcon
 import org.mozilla.fenix.GleanMetrics.Events
 import org.mozilla.fenix.GleanMetrics.Metrics
@@ -195,8 +194,6 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
         // DO NOT MOVE ANYTHING ABOVE THIS getProfilerTime CALL.
         val startTimeProfiler = components.core.engine.profiler?.getProfilerTime()
 
-        // Setup nimbus-cli tooling. This is a NOOP when launching normally.
-        components.nimbus.sdk.initializeTooling(applicationContext, intent)
         components.strictMode.attachListenerToDisablePenaltyDeath(supportFragmentManager)
         MarkersFragmentLifecycleCallbacks.register(supportFragmentManager, components.core.engine)
 
@@ -324,8 +321,6 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
                 ?.let(::getIntentSource)
                 ?.also {
                     Events.appOpened.record(Events.AppOpenedExtra(it))
-                    // This will record an event in Nimbus' internal event store. Used for behavioral targeting
-                    components.nimbus.events.recordEvent("app_opened")
 
                     if (safeIntent.action.equals(ACTION_OPEN_PRIVATE_TAB) && it == APP_ICON) {
                         AppIcon.newPrivateTabTapped.record(NoExtras())
