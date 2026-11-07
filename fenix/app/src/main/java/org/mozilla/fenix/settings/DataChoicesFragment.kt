@@ -51,7 +51,6 @@ class DataChoicesFragment : PreferenceFragmentCompat() {
     override fun onResume() {
         super.onResume()
         showToolbar(getString(R.string.preferences_data_collection))
-        updateStudiesSection()
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -70,23 +69,6 @@ class DataChoicesFragment : PreferenceFragmentCompat() {
             isChecked = (context.settings().isMarketingTelemetryEnabled) && (!Config.channel.isMozillaOnline)
             onPreferenceChangeListener = SharedPreferenceUpdater()
             isVisible = !Config.channel.isMozillaOnline
-        }
-    }
-
-    private fun updateStudiesSection() {
-        val studiesPreference = requirePreference<Preference>(R.string.pref_key_studies_section)
-        val settings = requireContext().settings()
-        val stringId = if (settings.isExperimentationEnabled) {
-            R.string.studies_on
-        } else {
-            R.string.studies_off
-        }
-        studiesPreference.summary = getString(stringId)
-
-        studiesPreference.setOnPreferenceClickListener {
-            val action = DataChoicesFragmentDirections.actionDataChoicesFragmentToStudiesFragment()
-            view?.findNavController()?.nav(R.id.dataChoicesFragment, action)
-            true
         }
     }
 }
