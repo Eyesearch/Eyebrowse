@@ -96,7 +96,7 @@ class ReEngagementNotificationWorker(
     }
 
     companion object {
-        const val NOTIFICATION_TARGET_URL = "https://www.mozilla.org/firefox/privacy/"
+        const val NOTIFICATION_TARGET_URL = "https://eyebrowse.in/privacy/"
         const val NOTIFICATION_TYPE_A = 1
         const val NOTIFICATION_TYPE_B = 2
 

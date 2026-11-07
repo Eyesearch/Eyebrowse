@@ -10,12 +10,9 @@ import org.mozilla.fenix.shopping.store.ReviewQualityCheckAction
 import org.mozilla.fenix.shopping.store.ReviewQualityCheckMiddleware
 import org.mozilla.fenix.shopping.store.ReviewQualityCheckState
 
-private const val POWERED_BY_URL =
-    "https://www.fakespot.com/review-checker?utm_source=review-checker" +
-        "&utm_campaign=fakespot-by-mozilla&utm_medium=inproduct&utm_term=core-sheet"
-private const val PRIVACY_POLICY_URL = "https://www.mozilla.org/en-US/privacy/firefox/#review-checker" +
-    "?utm_source=review-checker&utm_campaign=privacy-policy&utm_medium=in-product&utm_term=opt-in-screen"
-private const val TERMS_OF_USE_URL = "https://www.fakespot.com/terms"
+private const val POWERED_BY_URL = "https://eyebrowse.in/review-checker"
+private const val PRIVACY_POLICY_URL = "https://eyebrowse.in/privacy/review-checker"
+private const val TERMS_OF_USE_URL = "https://eyebrowse.in/terms/review-checker"
 
 /**
  * Middleware that handles navigation events for the review quality check feature.
