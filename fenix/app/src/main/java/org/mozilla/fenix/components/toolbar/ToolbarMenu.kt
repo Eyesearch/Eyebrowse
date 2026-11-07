@@ -40,7 +40,6 @@ interface ToolbarMenu {
         object InstallPwaToHomeScreen : Item()
         object AddToHomeScreen : Item()
         data class SyncAccount(val accountState: AccountState) : Item()
-        object AddonsManager : Item()
         object Quit : Item()
         object OpenInApp : Item()
         object SetDefaultBrowser : Item()
