@@ -27,9 +27,6 @@ import org.mozilla.fenix.BrowserDirection
 import org.mozilla.fenix.HomeActivity
 import org.mozilla.fenix.NavGraphDirections
 import org.mozilla.fenix.R
-import org.mozilla.fenix.addons.AddonDetailsFragmentDirections
-import org.mozilla.fenix.addons.AddonPermissionsDetailsFragmentDirections
-import org.mozilla.fenix.addons.AddonsManagementFragmentDirections
 import org.mozilla.fenix.customtabs.EXTRA_IS_SANDBOX_CUSTOM_TAB
 import org.mozilla.fenix.customtabs.ExternalAppBrowserActivity
 import org.mozilla.fenix.exceptions.trackingprotection.TrackingProtectionExceptionsFragmentDirections
@@ -288,11 +285,6 @@ private fun getHomeNavDirections(
 
     BrowserDirection.FromSaveSearchEngineFragment -> SaveSearchEngineFragmentDirections.actionGlobalBrowser()
 
-    BrowserDirection.FromAddonDetailsFragment -> AddonDetailsFragmentDirections.actionGlobalBrowser()
-
-    BrowserDirection.FromAddonPermissionsDetailsFragment ->
-        AddonPermissionsDetailsFragmentDirections.actionGlobalBrowser()
-
     BrowserDirection.FromLoginDetailFragment -> LoginDetailFragmentDirections.actionGlobalBrowser()
 
     BrowserDirection.FromTabsTray -> TabsTrayFragmentDirections.actionGlobalBrowser()
@@ -302,8 +294,6 @@ private fun getHomeNavDirections(
     BrowserDirection.FromStudiesFragment -> StudiesFragmentDirections.actionGlobalBrowser()
 
     BrowserDirection.FromReviewQualityCheck -> ReviewQualityCheckFragmentDirections.actionGlobalBrowser()
-
-    BrowserDirection.FromAddonsManagementFragment -> AddonsManagementFragmentDirections.actionGlobalBrowser()
 
     BrowserDirection.FromTranslationsDialogFragment -> TranslationsDialogFragmentDirections.actionGlobalBrowser()
 }
