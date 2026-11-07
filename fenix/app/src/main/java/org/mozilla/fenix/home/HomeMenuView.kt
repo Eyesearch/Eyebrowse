@@ -12,8 +12,6 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
-import mozilla.appservices.fxaclient.FxaServer
-import mozilla.appservices.fxaclient.contentUrl
 import mozilla.appservices.places.BookmarkRoot
 import mozilla.components.browser.menu.view.MenuButton
 import mozilla.components.concept.sync.FxAEntryPoint
@@ -137,13 +135,9 @@ class HomeMenuView(
                 )
             }
             HomeMenu.Item.ManageAccountAndDevices -> {
+                // Eyebrowse: our own account settings page, not Mozilla's.
                 homeActivity.openToBrowserAndLoad(
-                    searchTermOrURL =
-                    if (context.settings().allowDomesticChinaFxaServer) {
-                        FxaServer.China.contentUrl() + "/settings"
-                    } else {
-                        FxaServer.Release.contentUrl() + "/settings"
-                    },
+                    searchTermOrURL = org.mozilla.fenix.components.FxaServer.ACCOUNT_SETTINGS_URL,
                     newTab = true,
                     from = BrowserDirection.FromHome,
                 )
