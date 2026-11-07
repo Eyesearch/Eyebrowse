@@ -69,11 +69,6 @@ interface BrowserToolbarController {
     fun handleShoppingCfrDisplayed()
 
     /**
-     * @see [BrowserToolbarInteractor.onTranslationsButtonClicked]
-     */
-    fun handleTranslationsButtonClick()
-
-    /**
      * @see [BrowserToolbarInteractor.onShareActionClicked]
      */
     fun onShareActionClicked()
@@ -227,15 +222,6 @@ class DefaultBrowserToolbarController(
 
     override fun handleShoppingCfrDisplayed() {
         updateShoppingCfrSettings()
-    }
-
-    override fun handleTranslationsButtonClick() {
-        Events.translationsAction.record(Events.TranslationsActionExtra("main_flow_toolbar"))
-        val directions =
-            BrowserFragmentDirections.actionBrowserFragmentToTranslationsDialogFragment(
-                sessionId = currentSession?.id,
-            )
-        navController.navigateSafe(R.id.browserFragment, directions)
     }
 
     override fun onShareActionClicked() {
