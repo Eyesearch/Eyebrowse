@@ -25,7 +25,7 @@ import mozilla.components.service.glean.private.NoExtras
 import org.mozilla.fenix.GleanMetrics.CookieBanners
 import org.mozilla.fenix.GleanMetrics.Pings
 import org.mozilla.fenix.R
-import org.mozilla.fenix.addons.showSnackBar
+import org.mozilla.fenix.ext.showSnackBar
 import org.mozilla.fenix.browser.BrowserFragmentDirections
 import org.mozilla.fenix.components.FenixSnackbar
 import org.mozilla.fenix.ext.components
