@@ -37,7 +37,7 @@ object SupportUtils {
     const val MEITUAN_URL = "https://tb.j5k6.com/6ZSOp"
     const val GOOGLE_US_URL = "https://www.google.com/webhp?client=firefox-b-1-m&channel=ts"
     const val GOOGLE_XX_URL = "https://www.google.com/webhp?client=firefox-b-m&channel=ts"
-    const val WHATS_NEW_URL = "https://www.mozilla.org/firefox/android/notes"
+    const val WHATS_NEW_URL = "https://eyebrowse.in/whats-new"
 
     enum class SumoTopic(internal val topicStr: String) {
         HELP("faq-android"),
@@ -79,7 +79,7 @@ object SupportUtils {
         val appVersion = context.appVersionName.replace(" ", "")
         val osTarget = "Android"
         val langTag = getLanguageTag(locale)
-        return "https://support.mozilla.org/1/mobile/$appVersion/$osTarget/$langTag/$escapedTopic"
+        return "https://support.eyebrowse.in/1/mobile/$appVersion/$osTarget/$langTag/$escapedTopic"
     }
 
     /**
@@ -89,17 +89,17 @@ object SupportUtils {
     fun getGenericSumoURLForTopic(topic: SumoTopic, locale: Locale = Locale.getDefault()): String {
         val escapedTopic = getEncodedTopicUTF8(topic.topicStr)
         val langTag = getLanguageTag(locale)
-        return "https://support.mozilla.org/$langTag/kb/$escapedTopic"
+        return "https://support.eyebrowse.in/$langTag/kb/$escapedTopic"
     }
 
     fun getFirefoxAccountSumoUrl(): String {
-        return "https://support.mozilla.org/kb/access-mozilla-services-firefox-account"
+        return "https://support.eyebrowse.in/kb/access-account"
     }
 
     fun getMozillaPageUrl(page: MozillaPage, locale: Locale = Locale.getDefault()): String {
         val path = page.path
         val langTag = getLanguageTag(locale)
-        return "https://www.mozilla.org/$langTag/$path"
+        return "https://eyebrowse.in/$langTag/$path"
     }
 
     fun createCustomTabIntent(context: Context, url: String): Intent = CustomTabsIntent.Builder()
