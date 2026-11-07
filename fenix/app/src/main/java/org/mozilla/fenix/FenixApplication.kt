@@ -36,12 +36,8 @@ import mozilla.components.browser.state.state.selectedOrDefaultSearchEngine
 import mozilla.components.browser.state.store.BrowserStore
 import mozilla.components.browser.storage.sync.GlobalPlacesDependencyProvider
 import mozilla.components.concept.base.crash.Breadcrumb
-import mozilla.components.concept.engine.webextension.WebExtension
-import mozilla.components.concept.engine.webextension.isUnsupported
 import mozilla.components.concept.push.PushProcessor
 import mozilla.components.concept.storage.FrecencyThresholdOption
-import mozilla.components.feature.addons.migration.DefaultSupportedAddonsChecker
-import mozilla.components.feature.addons.update.GlobalAddonDependencyProvider
 import mozilla.components.feature.autofill.AutofillUseCases
 import mozilla.components.feature.fxsuggest.GlobalFxSuggestDependencyProvider
 import mozilla.components.feature.search.ext.buildSearchUrl
@@ -69,7 +65,6 @@ import mozilla.components.support.rusthttp.RustHttpConfig
 import mozilla.components.support.rustlog.RustLog
 import mozilla.components.support.utils.BrowsersCache
 import mozilla.components.support.utils.logElapsedTime
-import mozilla.components.support.webextensions.WebExtensionSupport
 import org.eyesearch.eyebrowse.core.RemoteConfigManager
 import org.mozilla.fenix.GleanMetrics.Addons
 import org.mozilla.fenix.GleanMetrics.Addresses
@@ -265,8 +260,6 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
             setDayNightTheme()
             components.strictMode.enableStrictMode(true)
             warmBrowsersCache()
-
-            initializeWebExtensionSupport()
 
             // Make sure to call this function before registering a storage worker
             // (e.g. components.core.historyStorage.registerStorageMaintenanceWorker())
@@ -646,62 +639,6 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
         // background thread.
         GlobalScope.launch(Dispatchers.Default) {
             BrowsersCache.all(this@FenixApplication)
-        }
-    }
-
-    private fun initializeWebExtensionSupport() {
-        try {
-            GlobalAddonDependencyProvider.initialize(
-                components.addonManager,
-                components.addonUpdater,
-                onCrash = { exception ->
-                    components.analytics.crashReporter.submitCaughtException(exception)
-                },
-            )
-            WebExtensionSupport.initialize(
-                components.core.engine,
-                components.core.store,
-                onNewTabOverride = { _, engineSession, url ->
-                    val shouldCreatePrivateSession =
-                        components.core.store.state.selectedTab?.content?.private
-                            ?: components.settings.openLinksInAPrivateTab
-
-                    components.useCases.tabsUseCases.addTab(
-                        url = url,
-                        selectTab = true,
-                        engineSession = engineSession,
-                        private = shouldCreatePrivateSession,
-                    )
-                },
-                onCloseTabOverride = { _, sessionId ->
-                    components.useCases.tabsUseCases.removeTab(sessionId)
-                },
-                onSelectTabOverride = { _, sessionId ->
-                    components.useCases.tabsUseCases.selectTab(sessionId)
-                },
-                onExtensionsLoaded = { extensions ->
-                    components.addonUpdater.registerForFutureUpdates(extensions)
-                    subscribeForNewAddonsIfNeeded(components.supportedAddonsChecker, extensions)
-                },
-                onUpdatePermissionRequest = components.addonUpdater::onUpdatePermissionRequest,
-            )
-        } catch (e: UnsupportedOperationException) {
-            logger.error("Failed to initialize web extension support", e)
-        }
-    }
-
-    @VisibleForTesting
-    internal fun subscribeForNewAddonsIfNeeded(
-        checker: DefaultSupportedAddonsChecker,
-        installedExtensions: List<WebExtension>,
-    ) {
-        val hasUnsupportedAddons = installedExtensions.any { it.isUnsupported() }
-        if (hasUnsupportedAddons) {
-            checker.registerForChecks()
-        } else {
-            // As checks are a persistent subscriptions, we have to make sure
-            // we remove any previous subscriptions.
-            checker.unregisterForChecks()
         }
     }
 
