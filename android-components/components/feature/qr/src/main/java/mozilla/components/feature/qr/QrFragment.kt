@@ -53,7 +53,6 @@ import androidx.core.content.ContextCompat.getColor
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import android.graphics.Bitmap
-import android.graphics.Rect
 import androidx.appcompat.app.AlertDialog
 import com.google.zxing.BinaryBitmap
 import mozilla.components.feature.qr.text.LinkDetector
