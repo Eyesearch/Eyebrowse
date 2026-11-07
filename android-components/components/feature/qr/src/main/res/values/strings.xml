@@ -11,7 +11,7 @@
     <string name="mozac_feature_qr_scanner_no_camera">No camera available on device</string>
 
     <!-- Text recognition actions, shown when a recognised word is tapped. -->
-    <string name="mozac_feature_qr_scan_open_website">Website</string>
+    <string name="mozac_feature_qr_scan_open_link">Open link</string>
     <string name="mozac_feature_qr_scan_copy_link">Copy link</string>
     <string name="mozac_feature_qr_scan_copy_text">Copy</string>
     <string name="mozac_feature_qr_scan_search">Search</string>
