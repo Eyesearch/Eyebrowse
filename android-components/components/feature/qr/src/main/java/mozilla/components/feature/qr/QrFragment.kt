@@ -52,7 +52,14 @@ import androidx.annotation.VisibleForTesting
 import androidx.core.content.ContextCompat.getColor
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import android.graphics.Bitmap
+import androidx.appcompat.app.AlertDialog
 import com.google.zxing.BinaryBitmap
+import mozilla.components.feature.qr.text.LinkDetector
+import mozilla.components.feature.qr.text.ScanOverlayView
+import mozilla.components.feature.qr.text.ScanWord
+import mozilla.components.feature.qr.text.TessdataInstaller
+import mozilla.components.feature.qr.text.TextRecognizer
 import com.google.zxing.LuminanceSource
 import com.google.zxing.MultiFormatReader
 import com.google.zxing.PlanarYUVLuminanceSource
@@ -60,6 +67,7 @@ import com.google.zxing.common.HybridBinarizer
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import mozilla.components.feature.qr.views.AutoFitTextureView
 import mozilla.components.feature.qr.views.CustomViewFinder
 import mozilla.components.support.base.log.logger.Logger
@@ -118,6 +126,16 @@ class QrFragment : Fragment() {
     internal lateinit var textureView: AutoFitTextureView
     internal lateinit var customViewFinder: CustomViewFinder
     internal lateinit var cameraErrorView: TextView
+
+    /**
+     * Recognises text in the same frames the QR decoder reads, so one screen can do both.
+     * Null until [enableTextRecognition] is called, which keeps the pairing flow unchanged.
+     */
+    private var textRecognizer: TextRecognizer? = null
+    private var textOverlay: ScanOverlayView? = null
+    private var textRecognitionEnabled = false
+    private var lastRecognitionAt = 0L
+    private var recognizing = false
 
     @StringRes
     internal var scanMessage: Int? = null
@@ -225,11 +243,142 @@ class QrFragment : Fragment() {
                             tryScanningSource(source)
                         }
                     }
+                    // Text recognition runs on the same frames. It is throttled and single-flight so
+                    // the preview stays smooth on slow devices.
+                    maybeRecognizeText(availableImage)
                 }
             } finally {
                 image?.close()
             }
         }
+    }
+
+    /**
+     * Turns on text recognition for the same camera this fragment already runs.
+     *
+     * Models are copied out of the APK assets on first use, so the first scan is slower than the
+     * rest. When a model is missing, recognition simply does nothing and QR scanning keeps working.
+     *
+     * @param languages Tesseract language codes, for example `listOf("eng", "kan")`.
+     */
+    fun enableTextRecognition(languages: List<String> = listOf("eng", "kan")) {
+        if (textRecognitionEnabled) return
+        textRecognitionEnabled = true
+        coroutineScope.launch {
+            val dataPath = TessdataInstaller(requireContext()).install(languages)
+            val recognizer = TextRecognizer(dataPath)
+            val ready = recognizer.load(languages.joinToString("+"))
+            withContext(Dispatchers.Main) {
+                if (ready) {
+                    textRecognizer = recognizer
+                    attachOverlay()
+                } else {
+                    logger.warn("Text recognition disabled, no model for $languages")
+                    recognizer.close()
+                }
+            }
+        }
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun attachOverlay() {
+        val root = view as? ViewGroup ?: return
+        if (textOverlay != null) return
+        val overlay = ScanOverlayView(
+            context = requireContext(),
+            onWordSelected = { word -> showWordMenu(word) },
+            onWordTapped = { word -> showWordMenu(word) },
+        )
+        root.addView(
+            overlay,
+            ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT,
+            ),
+        )
+        textOverlay = overlay
+        // The viewfinder is only meaningful for QR codes.
+        customViewFinder.visibility = View.GONE
+    }
+
+    private fun maybeRecognizeText(image: Image) {
+        val recognizer = textRecognizer ?: return
+        if (recognizing) return
+        val now = System.currentTimeMillis()
+        if (now - lastRecognitionAt < RECOGNITION_INTERVAL_MS) return
+        lastRecognitionAt = now
+        recognizing = true
+        val bitmap = runCatching { toGrayscaleBitmap(image) }.getOrNull()
+        if (bitmap == null) {
+            recognizing = false
+            return
+        }
+        coroutineScope.launch {
+            val words = recognizer.recognize(bitmap)
+            withContext(Dispatchers.Main) {
+                textOverlay?.setWords(words, bitmap.width, bitmap.height)
+            }
+            bitmap.recycle()
+            recognizing = false
+        }
+    }
+
+    /**
+     * The camera hands us YUV frames. Tesseract only needs luminance, so we build a grayscale
+     * bitmap from the Y plane and skip the colour conversion entirely.
+     */
+    private fun toGrayscaleBitmap(image: Image): Bitmap {
+        val plane = image.planes[0]
+        val buffer = plane.buffer
+        val data = ByteArray(buffer.remaining()).also { buffer.get(it) }
+        val width = image.width
+        val height = image.height
+        val pixels = IntArray(width * height)
+        for (y in 0 until height) {
+            val rowStart = y * plane.rowStride
+            for (x in 0 until width) {
+                val luminance = data[rowStart + x * plane.pixelStride].toInt() and 0xFF
+                pixels[y * width + x] = (0xFF shl 24) or (luminance shl 16) or (luminance shl 8) or luminance
+            }
+        }
+        return Bitmap.createBitmap(pixels, width, height, Bitmap.Config.ARGB_8888)
+    }
+
+    /**
+     * The menu depends on what was selected: a link can be opened, plain text can only be copied
+     * or searched. No search engine name appears here, so it always follows the user's default.
+     */
+    private fun showWordMenu(word: ScanWord) {
+        val line = word.text
+        val url = LinkDetector.toUrl(line)
+        val options = mutableListOf<String>()
+        if (url != null) {
+            options += getString(R.string.mozac_feature_qr_scan_open_website)
+            options += getString(R.string.mozac_feature_qr_scan_copy_link)
+        }
+        options += getString(R.string.mozac_feature_qr_scan_copy_text)
+        options += getString(R.string.mozac_feature_qr_scan_search)
+
+        AlertDialog.Builder(requireContext())
+            .setTitle(line)
+            .setItems(options.toTypedArray()) { _, which ->
+                when (options[which]) {
+                    getString(R.string.mozac_feature_qr_scan_open_website) -> url?.let {
+                        scanCompleteListener?.onScanComplete(it)
+                    }
+                    getString(R.string.mozac_feature_qr_scan_copy_link) -> copyToClipboard(url ?: line)
+                    getString(R.string.mozac_feature_qr_scan_copy_text) -> copyToClipboard(line)
+                    else -> scanCompleteListener?.onScanComplete(
+                        "https://duckduckgo.com/?q=" + java.net.URLEncoder.encode(line, "UTF-8"),
+                    )
+                }
+            }
+            .show()
+    }
+
+    private fun copyToClipboard(text: String) {
+        val clipboard = requireContext().getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
+        clipboard.setPrimaryClip(android.content.ClipData.newPlainText("Eyebrowse", text))
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -243,6 +392,10 @@ class QrFragment : Fragment() {
 
         CustomViewFinder.setMessage(scanMessage)
         qrState = STATE_FIND_QRCODE
+
+        // One camera, three outcomes: a QR with a link, a QR from the desktop for pairing, or a
+        // frame with text the user can select. Nothing here changes the QR behaviour.
+        enableTextRecognition()
     }
 
     override fun onResume() {
@@ -690,6 +843,8 @@ class QrFragment : Fragment() {
                 else -> choices[0]
             }
         }
+
+        private const val RECOGNITION_INTERVAL_MS = 600L
 
         internal fun readImageSource(image: Image): PlanarYUVLuminanceSource {
             val plane = image.planes[0]
