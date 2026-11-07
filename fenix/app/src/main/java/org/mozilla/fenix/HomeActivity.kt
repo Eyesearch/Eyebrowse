@@ -52,7 +52,6 @@ import mozilla.components.browser.state.search.SearchEngine
 import mozilla.components.browser.state.selector.getNormalOrPrivateTabs
 import mozilla.components.browser.state.selector.selectedTab
 import mozilla.components.browser.state.state.SessionState
-import mozilla.components.browser.state.state.WebExtensionState
 import mozilla.components.concept.engine.EngineSession
 import mozilla.components.concept.engine.EngineView
 import mozilla.components.concept.storage.HistoryMetadataKey
@@ -76,7 +75,6 @@ import mozilla.components.support.utils.BrowsersCache
 import mozilla.components.support.utils.ManufacturerCodes
 import mozilla.components.support.utils.SafeIntent
 import mozilla.components.support.utils.toSafeIntent
-import mozilla.components.support.webextensions.WebExtensionPopupObserver
 import mozilla.telemetry.glean.private.NoExtras
 import org.mozilla.experiments.nimbus.initializeTooling
 import org.mozilla.fenix.GleanMetrics.AppIcon
@@ -84,8 +82,6 @@ import org.mozilla.fenix.GleanMetrics.Events
 import org.mozilla.fenix.GleanMetrics.Metrics
 import org.mozilla.fenix.GleanMetrics.SplashScreen
 import org.mozilla.fenix.GleanMetrics.StartOnHome
-import org.mozilla.fenix.addons.ExtensionsProcessDisabledBackgroundController
-import org.mozilla.fenix.addons.ExtensionsProcessDisabledForegroundController
 import org.mozilla.fenix.browser.browsingmode.BrowsingMode
 import org.mozilla.fenix.browser.browsingmode.BrowsingModeManager
 import org.mozilla.fenix.browser.browsingmode.DefaultBrowsingModeManager
@@ -109,7 +105,6 @@ import org.mozilla.fenix.ext.hasTopDestination
 import org.mozilla.fenix.ext.nav
 import org.mozilla.fenix.ext.setNavigationIcon
 import org.mozilla.fenix.ext.settings
-import org.mozilla.fenix.extension.WebExtensionPromptFeature
 import org.mozilla.fenix.home.intent.AssistIntentProcessor
 import org.mozilla.fenix.home.intent.CrashReporterIntentProcessor
 import org.mozilla.fenix.home.intent.HomeDeepLinkIntentProcessor
@@ -160,29 +155,6 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
         null
 
     private var isToolbarInflated = false
-
-    private val webExtensionPopupObserver by lazy {
-        WebExtensionPopupObserver(components.core.store, ::openPopup)
-    }
-
-    val webExtensionPromptFeature by lazy {
-        WebExtensionPromptFeature(
-            store = components.core.store,
-            context = this@HomeActivity,
-            fragmentManager = supportFragmentManager,
-        )
-    }
-
-    private val extensionsProcessDisabledForegroundController by lazy {
-        ExtensionsProcessDisabledForegroundController(this@HomeActivity)
-    }
-
-    private val extensionsProcessDisabledBackgroundController by lazy {
-        ExtensionsProcessDisabledBackgroundController(
-            browserStore = components.core.store,
-            appStore = components.appStore,
-        )
-    }
 
     private val serviceWorkerSupport by lazy {
         ServiceWorkerSupportFeature(this)
@@ -363,11 +335,7 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
         supportActionBar?.hide()
 
         lifecycle.addObservers(
-            webExtensionPopupObserver,
-            extensionsProcessDisabledForegroundController,
-            extensionsProcessDisabledBackgroundController,
             serviceWorkerSupport,
-            webExtensionPromptFeature,
         )
 
         if (shouldAddToRecentsScreen(intent)) {
@@ -1143,14 +1111,6 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
 
     private fun createThemeManager(): ThemeManager {
         return DefaultThemeManager(browsingModeManager.mode, this)
-    }
-
-    private fun openPopup(webExtensionState: WebExtensionState) {
-        val action = NavGraphDirections.actionGlobalWebExtensionActionPopupFragment(
-            webExtensionId = webExtensionState.id,
-            webExtensionTitle = webExtensionState.name,
-        )
-        navHost.navController.navigate(action)
     }
 
     /**

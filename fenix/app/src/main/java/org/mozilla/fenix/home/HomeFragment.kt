@@ -91,7 +91,7 @@ import org.mozilla.fenix.GleanMetrics.StartOnHome
 import org.mozilla.fenix.HomeActivity
 import org.mozilla.fenix.NavGraphDirections
 import org.mozilla.fenix.R
-import org.mozilla.fenix.addons.showSnackBar
+import org.mozilla.fenix.ext.showSnackBar
 import org.mozilla.fenix.browser.BrowserAnimator
 import org.mozilla.fenix.browser.browsingmode.BrowsingMode
 import org.mozilla.fenix.browser.tabstrip.TabStrip

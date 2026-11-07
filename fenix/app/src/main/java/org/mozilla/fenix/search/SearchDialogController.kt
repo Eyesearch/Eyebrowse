@@ -87,12 +87,6 @@ class SearchDialogController(
                 activity.startActivity(Intent(activity, CrashListActivity::class.java))
                 store.dispatch(AwesomeBarAction.EngagementFinished(abandoned = false))
             }
-            "about:addons" -> {
-                val directions =
-                    SearchDialogFragmentDirections.actionGlobalAddonsManagementFragment()
-                navController.navigateSafe(R.id.searchDialogFragment, directions)
-                store.dispatch(AwesomeBarAction.EngagementFinished(abandoned = false))
-            }
             "moz://a" -> openSearchOrUrl(
                 SupportUtils.getMozillaPageUrl(SupportUtils.MozillaPage.MANIFESTO),
                 fromHomeScreen,

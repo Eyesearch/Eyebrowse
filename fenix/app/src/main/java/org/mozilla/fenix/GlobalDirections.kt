@@ -44,10 +44,6 @@ enum class GlobalDirections(val navDirections: NavDirections, val destinationId:
         NavGraphDirections.actionGlobalDeleteBrowsingDataFragment(),
         R.id.deleteBrowsingDataFragment,
     ),
-    SettingsAddonManager(
-        NavGraphDirections.actionGlobalAddonsManagementFragment(),
-        R.id.addonsManagementFragment,
-    ),
     SettingsLogins(
         NavGraphDirections.actionGlobalSavedLoginsAuthFragment(),
         R.id.saveLoginSettingFragment,

@@ -315,12 +315,6 @@ class DefaultBrowserToolbarMenuController(
             is ToolbarMenu.Item.FindInPage -> {
                 findInPageLauncher()
             }
-            is ToolbarMenu.Item.AddonsManager -> browserAnimator.captureEngineViewAndDrawStatically {
-                navController.nav(
-                    R.id.browserFragment,
-                    BrowserFragmentDirections.actionGlobalAddonsManagementFragment(),
-                )
-            }
             is ToolbarMenu.Item.SaveToCollection -> {
                 Collections.saveButton.record(
                     Collections.SaveButtonExtra(
@@ -487,8 +481,6 @@ class DefaultBrowserToolbarMenuController(
             }
             is ToolbarMenu.Item.Bookmark ->
                 Events.browserMenuAction.record(Events.BrowserMenuActionExtra("bookmark"))
-            is ToolbarMenu.Item.AddonsManager ->
-                Events.browserMenuAction.record(Events.BrowserMenuActionExtra("addons_manager"))
             is ToolbarMenu.Item.Bookmarks ->
                 Events.browserMenuAction.record(Events.BrowserMenuActionExtra("bookmarks"))
             is ToolbarMenu.Item.History ->
