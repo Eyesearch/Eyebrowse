@@ -87,9 +87,8 @@ open class DefaultToolbarMenu(
                 webExtIconTintColorResource = primaryTextColor(),
                 addonsManagerMenuItemDrawableRes = R.drawable.ic_addons_extensions,
             ),
-            onAddonsManagerTapped = {
-                onItemTapped.invoke(ToolbarMenu.Item.AddonsManager)
-            },
+            // Eyebrowse has no add-on manager, so the extensions item is never added.
+            onAddonsManagerTapped = {},
             appendExtensionSubMenuAtStart = shouldUseBottomToolbar,
         )
     }
