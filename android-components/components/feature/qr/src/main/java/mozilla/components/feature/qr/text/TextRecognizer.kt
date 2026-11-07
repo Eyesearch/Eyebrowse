@@ -39,17 +39,17 @@ class TextRecognizer {
             .addOnSuccessListener { text ->
                 val words = mutableListOf<ScanWord>()
                 var lineIndex = -1
-                text.textBlocks.forEach { block ->
-                    block.lines.forEach { line ->
+                for (block in text.textBlocks) {
+                    for (line in block.lines) {
                         lineIndex++
-                        line.elements.forEach { element ->
-                            val box = element.boundingBox ?: return@forEach
+                        for (element in line.elements) {
+                            val box = element.boundingBox
                             val content = element.text.trim()
-                            if (content.isEmpty() || box.isEmpty) return@forEach
+                            if (box == null || box.isEmpty || content.isEmpty()) continue
                             words += ScanWord(
                                 text = content,
                                 bounds = Rect(box),
-                                confidence = (element.confidence ?: 0f).toInt(),
+                                confidence = element.confidence.toInt(),
                                 lineIndex = lineIndex,
                             )
                         }
