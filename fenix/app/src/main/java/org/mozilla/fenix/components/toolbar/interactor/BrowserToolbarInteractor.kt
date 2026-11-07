@@ -47,8 +47,6 @@ interface BrowserToolbarInteractor {
      * Opens the translation bottom sheet. Called when the user interacts with the translation
      * action.
      */
-    fun onTranslationsButtonClicked()
-
     /**
      * Opens the share fragment.  Called when the user clicks the "Share" action in the toolbar.
      */
@@ -114,10 +112,6 @@ class DefaultBrowserToolbarInteractor(
 
     override fun onShoppingCfrDisplayed() {
         browserToolbarController.handleShoppingCfrDisplayed()
-    }
-
-    override fun onTranslationsButtonClicked() {
-        browserToolbarController.handleTranslationsButtonClick()
     }
 
     override fun onShareActionClicked() {

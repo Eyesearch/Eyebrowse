@@ -288,9 +288,6 @@
         <action
             android:id="@+id/action_browserFragment_to_reviewQualityCheckDialogFragment"
             app:destination="@id/reviewQualityCheckFragment" />
-        <action
-            android:id="@+id/action_browserFragment_to_translationsDialogFragment"
-            app:destination="@id/translations_graph" />
     </fragment>
 
     <fragment
@@ -1317,97 +1314,4 @@
         </fragment>
     </navigation>
 
-    <navigation
-        android:id="@+id/translations_graph"
-        app:startDestination="@id/translationsDialogFragment">
-        <argument
-            android:name="sessionId"
-            app:argType="string"
-            app:nullable="true" />
-        <dialog
-            android:id="@+id/translationsDialogFragment"
-            android:name="org.mozilla.fenix.translations.TranslationsDialogFragment">
-            <argument
-                android:name="sessionId"
-                app:argType="string" />
-            <argument
-                android:name="translationsDialogAccessPoint"
-                android:defaultValue="Translations"
-                app:argType="org.mozilla.fenix.translations.TranslationsDialogAccessPoint" />
-            <action
-                android:id="@+id/action_translationsDialogFragment_to_translationSettingsFragment"
-                app:destination="@id/translationSettingsFragment" />
-        </dialog>
-        <fragment
-            android:id="@+id/translationSettingsFragment"
-            android:name="org.mozilla.fenix.translations.TranslationSettingsFragment">
-            <argument
-                android:name="sessionId"
-                app:argType="string" />
-            <action
-                android:id="@+id/action_translationSettingsFragment_to_translationsDialogFragment"
-                app:destination="@id/translationsDialogFragment"
-                app:popUpTo="@id/translationSettingsFragment"
-                app:popUpToInclusive="true" />
-            <action
-                android:id="@+id/action_translationSettingsFragment_to_downloadLanguagesPreferenceFragment"
-                app:destination="@id/downloadLanguagesPreferenceFragment" />
-            <action
-                android:id="@+id/action_translationSettingsFragment_to_automaticTranslationPreferenceFragment"
-                app:destination="@id/automaticTranslationPreferenceFragment" />
-            <action
-                android:id="@+id/action_translationSettingsFragment_to_neverTranslateSitePreferenceFragment"
-                app:destination="@id/neverTranslateSitePreferenceFragment" />
-        </fragment>
-        <fragment
-            android:id="@+id/automaticTranslationPreferenceFragment"
-            android:name="org.mozilla.fenix.translations.preferences.automatic.AutomaticTranslationPreferenceFragment">
-            <action
-                android:id="@+id/action_automaticTranslationPreference_to_automaticTranslationOptionsPreference"
-                app:destination="@id/automaticTranslationOptionsPreferenceFragment" />
-        </fragment>
-        <fragment
-            android:id="@+id/automaticTranslationOptionsPreferenceFragment"
-            android:name="org.mozilla.fenix.translations.preferences.automatic.AutomaticTranslationOptionsPreferenceFragment">
-            <argument
-                android:name="selectedTranslationOptionPreference"
-                app:argType="org.mozilla.fenix.translations.preferences.automatic.AutomaticTranslationItemPreference" />
-        </fragment>
-        <fragment
-            android:id="@+id/neverTranslateSitePreferenceFragment"
-            android:name="org.mozilla.fenix.translations.preferences.nevertranslatesite.NeverTranslateSitePreferenceFragment">
-            <action
-                android:id="@+id/action_neverTranslateSitePreferenceFragment_to_neverTranslateSiteDialogPreferenceFragment"
-                app:destination="@id/neverTranslateSiteDialogPreferenceFragment" />
-        </fragment>
-        <dialog
-            android:id="@+id/neverTranslateSiteDialogPreferenceFragment"
-            android:name="org.mozilla.fenix.translations.preferences.nevertranslatesite.NeverTranslateSiteDialogPreferenceFragment">
-            <argument
-                android:name="websiteUrl"
-                app:argType="string" />
-        </dialog>
-        <fragment
-            android:id="@+id/downloadLanguagesPreferenceFragment"
-            android:name="org.mozilla.fenix.translations.preferences.downloadlanguages.DownloadLanguagesPreferenceFragment">
-            <action
-                android:id="@+id/action_downloadLanguagesPreference_to_downloadLanguagesDialogPreference"
-                app:destination="@id/downloadLanguagesDialogPreferenceFragment" />
-        </fragment>
-        <dialog
-            android:id="@+id/downloadLanguagesDialogPreferenceFragment"
-            android:name="org.mozilla.fenix.translations.preferences.downloadlanguages.LanguageDialogPreferenceFragment">
-            <argument
-                android:name="downloadLanguageItemStatePreference"
-                app:argType="org.mozilla.fenix.translations.preferences.downloadlanguages.DownloadLanguageItemStatePreference" />
-            <argument
-                android:name="languageNamePreference"
-                app:argType="string"
-                app:nullable="false" />
-            <argument
-                android:name="itemFileSizePreference"
-                app:argType="long"
-                app:nullable="false" />
-        </dialog>
-    </navigation>
 </navigation>
