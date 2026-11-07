@@ -55,6 +55,6 @@ class AddonPermissionDetailsBindingDelegate(
 
     private companion object {
         const val LEARN_MORE_URL =
-            "https://support.mozilla.org/kb/permission-request-messages-firefox-extensions"
+            "https://support.eyebrowse.in/kb/permission-request-messages"
     }
 }
