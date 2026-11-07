@@ -62,8 +62,6 @@ import org.mozilla.fenix.shopping.ReviewQualityCheckFeature
 import org.mozilla.fenix.shortcut.PwaOnboardingObserver
 import org.mozilla.fenix.theme.FirefoxTheme
 import org.mozilla.fenix.theme.ThemeManager
-import org.mozilla.fenix.translations.TranslationsDialogFragment.Companion.SESSION_ID
-import org.mozilla.fenix.translations.TranslationsDialogFragment.Companion.TRANSLATION_IN_PROGRESS
 
 /**
  * Fragment used for browsing the web within the main app.
@@ -76,11 +74,9 @@ class BrowserFragment : BaseBrowserFragment(), UserInteractionHandler {
     private val standardSnackbarErrorBinding =
         ViewBoundFeatureWrapper<StandardSnackbarErrorBinding>()
     private val reviewQualityCheckFeature = ViewBoundFeatureWrapper<ReviewQualityCheckFeature>()
-    private val translationsBinding = ViewBoundFeatureWrapper<TranslationsBinding>()
 
     private var readerModeAvailable = false
     private var reviewQualityCheckAvailable = false
-    private var translationsAvailable = false
 
     private var pwaOnboardingObserver: PwaOnboardingObserver? = null
 
@@ -170,7 +166,6 @@ class BrowserFragment : BaseBrowserFragment(), UserInteractionHandler {
 
         browserToolbarView.view.addPageAction(readerModeAction)
 
-        initTranslationsAction(context, view)
         initSharePageAction(context)
         initReviewQualityCheck(context, view)
         initReloadAction(context)
@@ -237,25 +232,6 @@ class BrowserFragment : BaseBrowserFragment(), UserInteractionHandler {
             view = binding.root,
         )
 
-        setTranslationFragmentResultListener()
-    }
-
-    private fun setTranslationFragmentResultListener() {
-        setFragmentResultListener(
-            TRANSLATION_IN_PROGRESS,
-        ) { _, result ->
-            result.getString(SESSION_ID)?.let {
-                if (it == getCurrentTab()?.id) {
-                    FenixSnackbar.make(
-                        view = binding.dynamicSnackbarContainer,
-                        duration = Snackbar.LENGTH_LONG,
-                        isDisplayedWithBrowserToolbar = true,
-                    )
-                        .setText(requireContext().getString(R.string.translation_in_progress_snackbar))
-                        .show()
-                }
-            }
-        }
     }
 
     private fun initTabStrip() {
@@ -307,67 +283,6 @@ class BrowserFragment : BaseBrowserFragment(), UserInteractionHandler {
             )
 
         browserToolbarView.view.addPageAction(sharePageAction)
-    }
-
-    private fun initTranslationsAction(context: Context, view: View) {
-        val isEngineSupported =
-            context.components.core.store.state.translationEngine.isEngineSupported
-
-        if (isEngineSupported != true ||
-            !FxNimbus.features.translations.value().mainFlowToolbarEnabled
-        ) {
-            return
-        }
-
-        val translationsAction = Toolbar.ActionButton(
-            AppCompatResources.getDrawable(
-                context,
-                R.drawable.mozac_ic_translate_24,
-            ),
-            contentDescription = context.getString(R.string.browser_toolbar_translate),
-            iconTintColorResource = ThemeManager.resolveAttribute(R.attr.textPrimary, context),
-            visible = { translationsAvailable },
-            listener = {
-                browserToolbarInteractor.onTranslationsButtonClicked()
-            },
-        )
-        browserToolbarView.view.addPageAction(translationsAction)
-
-        getCurrentTab()?.let {
-            translationsBinding.set(
-                feature = TranslationsBinding(
-                    browserStore = context.components.core.store,
-                    sessionId = it.id,
-                    onStateUpdated = { isVisible, isTranslated, fromSelectedLanguage, toSelectedLanguage ->
-                        translationsAvailable = isVisible
-
-                        translationsAction.updateView(
-                            tintColorResource = if (isTranslated) {
-                                R.color.fx_mobile_icon_color_accent_violet
-                            } else {
-                                ThemeManager.resolveAttribute(R.attr.textPrimary, context)
-                            },
-                            contentDescription = if (isTranslated) {
-                                context.getString(
-                                    R.string.browser_toolbar_translated_successfully,
-                                    fromSelectedLanguage?.localizedDisplayName,
-                                    toSelectedLanguage?.localizedDisplayName,
-                                )
-                            } else {
-                                context.getString(R.string.browser_toolbar_translate)
-                            },
-                        )
-
-                        safeInvalidateBrowserToolbarView()
-                    },
-                    onShowTranslationsDialog = {
-                        browserToolbarInteractor.onTranslationsButtonClicked()
-                    },
-                ),
-                owner = this,
-                view = view,
-            )
-        }
     }
 
     private fun initReloadAction(context: Context) {
