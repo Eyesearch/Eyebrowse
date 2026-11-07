@@ -85,7 +85,6 @@ import org.mozilla.fenix.components.Core
 import org.mozilla.fenix.components.appstate.AppAction
 import org.mozilla.fenix.components.metrics.MetricServiceType
 import org.mozilla.fenix.components.metrics.MozillaProductDetector
-import org.mozilla.fenix.experiments.maybeFetchExperiments
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.containsQueryParameters
 import org.mozilla.fenix.ext.getCustomGleanServerUrlIfAvailable
@@ -428,17 +427,6 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
             }
         }
 
-        @OptIn(DelicateCoroutinesApi::class) // GlobalScope usage
-        fun queueNimbusFetchInForeground() {
-            queue.runIfReadyOrQueue {
-                GlobalScope.launch(Dispatchers.IO) {
-                    components.nimbus.sdk.maybeFetchExperiments(
-                        context = this@FenixApplication,
-                    )
-                }
-            }
-        }
-
         initQueue()
 
         // We init these items in the visual completeness queue to avoid them initing in the critical
@@ -448,7 +436,6 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
         queueReviewPrompt()
         queueRestoreLocale()
         queueStorageMaintenance()
-        queueNimbusFetchInForeground()
     }
 
     private fun startMetricsIfEnabled() {
