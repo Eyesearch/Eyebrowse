@@ -32,6 +32,8 @@ typealias OnScanResult = (result: String) -> Unit
  * will request [android.Manifest.permission.CAMERA].
  * @property scanMessage (Optional) String resource for an optional message
  * to be laid out below the QR scan viewfinder
+ * @property textCapture whether this scan also reads the text in the frame, drawing boxes over it
+ * and offering a capture button. Off by default, because a pairing scan wants one QR code only.
  */
 class QrFeature(
     private val context: Context,
@@ -40,6 +42,7 @@ class QrFeature(
     override val onNeedToRequestPermissions: OnNeedToRequestPermissions = { },
     @StringRes
     private var scanMessage: Int? = null,
+    private val textCapture: Boolean = false,
 ) : LifecycleAwareFeature, UserInteractionHandler, PermissionsFeature {
     private var containerViewId: Int = 0
 
@@ -100,7 +103,11 @@ class QrFeature(
                 }
                 false -> {
                     fragmentManager.beginTransaction()
-                        .add(containerViewId, QrFragment.newInstance(scanCompleteListener, scanMessage), QR_FRAGMENT_TAG)
+                        .add(
+                            containerViewId,
+                            QrFragment.newInstance(scanCompleteListener, scanMessage, textCapture),
+                            QR_FRAGMENT_TAG,
+                        )
                         .commit()
                     // The fragment is added synchronously so the listener is in place before the
                     // first frame is recognised.

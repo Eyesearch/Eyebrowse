@@ -18,4 +18,10 @@
 
     <!-- Shown when Open link is chosen for a selection that holds no address at all. -->
     <string name="mozac_feature_qr_scan_not_a_link">No address in the selection</string>
+
+    <!-- Content description of the button that captures the frame and reads its text. -->
+    <string name="mozac_feature_qr_scan_capture">Capture text</string>
+
+    <!-- Content description of the same button once the frame is captured and held still. -->
+    <string name="mozac_feature_qr_scan_retake">Scan again</string>
 </resources>

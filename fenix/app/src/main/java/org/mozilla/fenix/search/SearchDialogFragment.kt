@@ -653,6 +653,8 @@ class SearchDialogFragment : AppCompatDialogFragment(), UserInteractionHandler {
             onNeedToRequestPermissions = { permissions ->
                 requestPermissions(permissions, REQUEST_CODE_CAMERA_PERMISSIONS)
             },
+            // The address bar scanner reads text as well as QR codes; pairing does not.
+            textCapture = true,
             onScanResult = { result ->
                 val normalizedUrl = result.toNormalizedUrl()
                 if (!normalizedUrl.toUri().isHttpOrHttps) {
