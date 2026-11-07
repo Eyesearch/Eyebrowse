@@ -4,115 +4,69 @@
 
 package mozilla.components.feature.qr.text
 
-import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Rect
-import com.googlecode.tesseract.android.TessBaseAPI
+import com.google.mlkit.vision.common.InputImage
+import com.google.mlkit.vision.text.TextRecognition
+import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 import mozilla.components.support.base.log.logger.Logger
 
 /**
  * Recognises text in a captured frame and reports each word with its box.
  *
- * The engine is Tesseract, running fully on the device. Language models are not bundled in the
- * APK: [dataPath] is the directory that holds `tessdata/<language>.traineddata`, which the app
- * downloads per language. This keeps the APK small while still covering every language we ship.
+ * The engine is ML Kit's on-device recogniser. It is a build dependency, so it ships inside the APK
+ * and works offline from the first scan: nothing is downloaded, nothing is stored, and no model
+ * files live in this repository.
  *
- * @param dataPath Directory containing the `tessdata` folder.
+ * The bundled Latin model covers English and the other Latin-script languages; ML Kit also ships
+ * separate Chinese, Japanese, Korean and Devanagari recognisers which can be added the same way.
  */
-class TextRecognizer(
-    private val dataPath: String,
-) {
+class TextRecognizer {
+
     private val logger = Logger("TextRecognizer")
-    private var engine: TessBaseAPI? = null
-    private var language: String? = null
+    private val client = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
 
     /**
-     * True when a language model was loaded and the engine is ready.
+     * Recognises [bitmap] and reports its words in reading order.
+     *
+     * @param bitmap The captured frame, already scaled down to a sensible size.
+     * @param onResult Called on the main thread with the words, empty when nothing was found or
+     * the engine failed. Never called after [close].
      */
-    val isReady: Boolean
-        get() = engine != null
-
-    /**
-     * Loads [language] (for example "eng" or "kan") from [dataPath]. Returns false when the model
-     * is missing, in which case nothing is recognised rather than the app crashing.
-     */
-    @Synchronized
-    fun load(language: String): Boolean {
-        if (this.language == language && engine != null) return true
-        close()
-        return try {
-            val api = TessBaseAPI()
-            val initialised = api.init(dataPath, language)
-            if (!initialised) {
-                logger.warn("No Tesseract model for $language in $dataPath")
-                api.end()
-                false
-            } else {
-                engine = api
-                this.language = language
-                true
-            }
-        } catch (e: RuntimeException) {
-            logger.error("Failed to load Tesseract model for $language", e)
-            false
-        }
-    }
-
-    /**
-     * Recognises [bitmap] and returns its words in reading order. Returns an empty list when no
-     * model is loaded or nothing was found.
-     */
-    @Synchronized
-    fun recognize(bitmap: Bitmap): List<ScanWord> {
-        val api = engine ?: return emptyList()
-        return try {
-            api.setImage(bitmap)
-            val words = mutableListOf<ScanWord>()
-            var lineIndex = -1
-            var previousTop = -1
-            var iterator = api.resultIterator
-            while (iterator.next(TessBaseAPI.PageIteratorLevel.RIL_WORD)) {
-                val text = iterator.getUTF8Text(TessBaseAPI.PageIteratorLevel.RIL_WORD)
-                    ?.trim()
-                    .orEmpty()
-                val box = iterator.getBoundingRect(TessBaseAPI.PageIteratorLevel.RIL_WORD)
-                val confidence = iterator.confidence(TessBaseAPI.PageIteratorLevel.RIL_WORD).toInt()
-                if (text.isEmpty() || box == null || box.isEmpty) continue
-                // A new line starts when the word sits clearly below the previous one.
-                if (previousTop < 0 || box.top > previousTop + box.height() / 2) {
-                    lineIndex++
-                    previousTop = box.top
+    fun recognize(bitmap: Bitmap, onResult: (List<ScanWord>) -> Unit) {
+        val image = InputImage.fromBitmap(bitmap, 0)
+        client.process(image)
+            .addOnSuccessListener { text ->
+                val words = mutableListOf<ScanWord>()
+                var lineIndex = -1
+                text.textBlocks.forEach { block ->
+                    block.lines.forEach { line ->
+                        lineIndex++
+                        line.elements.forEach { element ->
+                            val box = element.boundingBox ?: return@forEach
+                            val content = element.text.trim()
+                            if (content.isEmpty() || box.isEmpty) return@forEach
+                            words += ScanWord(
+                                text = content,
+                                bounds = Rect(box),
+                                confidence = (element.confidence ?: 0f).toInt(),
+                                lineIndex = lineIndex,
+                            )
+                        }
+                    }
                 }
-                words += ScanWord(
-                    text = text,
-                    bounds = Rect(box),
-                    confidence = confidence,
-                    lineIndex = lineIndex,
-                )
+                onResult(words)
             }
-            words
-        } catch (e: RuntimeException) {
-            logger.error("Recognition failed", e)
-            emptyList()
-        } finally {
-            api.clear()
-        }
+            .addOnFailureListener { error ->
+                logger.warn("Text recognition failed: ${error.message}")
+                onResult(emptyList())
+            }
     }
 
     /**
-     * Releases the native engine. Call this from the owner's teardown.
+     * Releases the engine.
      */
-    @Synchronized
     fun close() {
-        engine?.end()
-        engine = null
-        language = null
-    }
-
-    companion object {
-        /**
-         * @return the directory that must contain `tessdata` for [TextRecognizer].
-         */
-        fun dataPath(context: Context): String = context.filesDir.absolutePath
+        client.close()
     }
 }
