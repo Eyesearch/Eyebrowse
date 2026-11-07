@@ -50,7 +50,6 @@ class HomeMenu(
         object Bookmarks : Item()
         object History : Item()
         object Downloads : Item()
-        object Extensions : Item()
         data class SyncAccount(val accountState: AccountState) : Item()
 
         /**
@@ -143,14 +142,6 @@ class HomeMenu(
             onItemTapped.invoke(Item.Downloads)
         }
 
-        val extensionsItem = BrowserMenuImageText(
-            context.getString(R.string.browser_menu_add_ons),
-            R.drawable.ic_addons_extensions,
-            primaryTextColor,
-        ) {
-            onItemTapped.invoke(Item.Extensions)
-        }
-
         val manageAccountAndDevicesItem = SimpleBrowserMenuItem(
             context.getString(R.string.browser_menu_manage_account_and_devices),
             textColorResource = primaryTextColor,
@@ -225,7 +216,6 @@ class HomeMenu(
             bookmarksItem,
             historyItem,
             downloadsItem,
-            extensionsItem,
             syncSignInMenuItem,
             accountAuthItem,
             if (Config.channel.isMozillaOnline) manageAccountAndDevicesItem else null,
