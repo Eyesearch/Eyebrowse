@@ -11,10 +11,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 import androidx.core.app.NotificationManagerCompat
 import com.google.android.play.core.review.ReviewManagerFactory
-import mozilla.components.feature.addons.AddonManager
-import mozilla.components.feature.addons.amo.AMOAddonsProvider
-import mozilla.components.feature.addons.migration.DefaultSupportedAddonsChecker
-import mozilla.components.feature.addons.update.DefaultAddonUpdater
 import mozilla.components.feature.autofill.AutofillConfiguration
 import mozilla.components.lib.publicsuffixlist.PublicSuffixList
 import mozilla.components.support.base.android.NotificationsDelegate
@@ -110,52 +106,6 @@ class Components(private val context: Context) {
             core.webAppManifestStorage,
             core.engine,
         )
-    }
-
-    val addonsProvider by lazyMonitored {
-        // Check if we have a customized (overridden) AMO collection (supported in Nightly & Beta)
-        if (FeatureFlags.customExtensionCollectionFeature && context.settings().amoCollectionOverrideConfigured()) {
-            AMOAddonsProvider(
-                context,
-                core.client,
-                collectionUser = context.settings().overrideAmoUser,
-                collectionName = context.settings().overrideAmoCollection,
-            )
-        }
-        // Use build config otherwise
-        else if (!BuildConfig.AMO_COLLECTION_USER.isNullOrEmpty() &&
-            !BuildConfig.AMO_COLLECTION_NAME.isNullOrEmpty()
-        ) {
-            AMOAddonsProvider(
-                context,
-                core.client,
-                serverURL = BuildConfig.AMO_SERVER_URL,
-                collectionUser = BuildConfig.AMO_COLLECTION_USER,
-                collectionName = BuildConfig.AMO_COLLECTION_NAME,
-                maxCacheAgeInMinutes = AMO_COLLECTION_MAX_CACHE_AGE,
-            )
-        }
-        // Fall back to defaults
-        else {
-            AMOAddonsProvider(context, core.client, maxCacheAgeInMinutes = AMO_COLLECTION_MAX_CACHE_AGE)
-        }
-    }
-
-    @Suppress("MagicNumber")
-    val addonUpdater by lazyMonitored {
-        DefaultAddonUpdater(context, Frequency(12, TimeUnit.HOURS), notificationsDelegate)
-    }
-
-    @Suppress("MagicNumber")
-    val supportedAddonsChecker by lazyMonitored {
-        DefaultSupportedAddonsChecker(
-            context,
-            Frequency(12, TimeUnit.HOURS),
-        )
-    }
-
-    val addonManager by lazyMonitored {
-        AddonManager(core.store, core.engine, addonsProvider, addonUpdater)
     }
 
     val analytics by lazyMonitored { Analytics(context, performance.visualCompletenessQueue.queue) }
