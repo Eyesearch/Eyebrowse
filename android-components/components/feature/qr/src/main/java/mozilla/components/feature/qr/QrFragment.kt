@@ -271,9 +271,13 @@ class QrFragment : Fragment() {
         if (textRecognitionEnabled) return
         textRecognitionEnabled = true
         coroutineScope.launch {
-            val dataPath = TessdataInstaller(requireContext()).install(languages)
-            val recognizer = TextRecognizer(dataPath)
-            val ready = recognizer.load(languages.joinToString("+"))
+            val install = TessdataInstaller(requireContext()).install(languages)
+            if (install.languages.isEmpty()) {
+                withContext(Dispatchers.Main) { logger.warn("No text models available, QR only") }
+                return@launch
+            }
+            val recognizer = TextRecognizer(install.dataPath)
+            val ready = recognizer.load(install.languages.joinToString("+"))
             withContext(Dispatchers.Main) {
                 if (ready) {
                     textRecognizer = recognizer
