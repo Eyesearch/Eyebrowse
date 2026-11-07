@@ -46,6 +46,8 @@ import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.StringRes
@@ -140,8 +142,26 @@ class QrFragment : Fragment() {
     var searchRequestListener: ((String) -> Unit)? = null
     private var textOverlay: ScanOverlayView? = null
     private var textRecognitionEnabled = false
-    private var lastRecognitionAt = 0L
-    private var recognizing = false
+
+    /**
+     * Holds the captured frame still on screen while its words are on top of it. Null until the
+     * user captures, and back to null when they go live again.
+     */
+    private var captureView: ImageView? = null
+
+    /** The captured frame the boxes were read from, kept only until the user moves on. */
+    private var capturedFrame: Bitmap? = null
+
+    /** True while the frame is captured and the preview is not allowed to move under the boxes. */
+    private var frozen = false
+
+    internal lateinit var captureButton: ImageButton
+
+    /**
+     * True when this screen is the text scanner. A pairing scan reads one QR code and nothing
+     * else, so it gets neither boxes nor a capture button.
+     */
+    internal var textCapture = false
 
     @StringRes
     internal var scanMessage: Int? = null
@@ -240,7 +260,9 @@ class QrFragment : Fragment() {
             try {
                 image = reader.acquireNextImage()
                 val availableImage = image
-                if (availableImage != null && scanCompleteListener != null) {
+                // QR decoding keeps running on live frames, but not while the user is reading a
+                // captured one: a QR behind the frozen picture is not what they are looking at.
+                if (availableImage != null && scanCompleteListener != null && !frozen) {
                     val source = readImageSource(availableImage)
                     if (qrState == STATE_FIND_QRCODE) {
                         qrState = STATE_DECODE_PROGRESS
@@ -249,9 +271,6 @@ class QrFragment : Fragment() {
                             tryScanningSource(source)
                         }
                     }
-                    // Text recognition runs on the same frames. It is throttled and single-flight so
-                    // the preview stays smooth on slow devices.
-                    maybeRecognizeText(availableImage)
                 }
             } finally {
                 image?.close()
@@ -280,6 +299,13 @@ class QrFragment : Fragment() {
     private fun attachOverlay() {
         val root = view as? ViewGroup ?: return
         if (textOverlay != null) return
+
+        // The captured frame is drawn here, under the boxes, so the picture stops moving at the
+        // moment the button is pressed and the words stay exactly where the user saw them.
+        val capture = ImageView(requireContext()).apply { visibility = View.GONE }
+        root.addView(capture, ViewGroup.LayoutParams(0, 0))
+        captureView = capture
+
         val overlay = ScanOverlayView(
             context = requireContext(),
             onSelectionConfirmed = { selection -> showSelectionMenu(selection) },
@@ -292,50 +318,78 @@ class QrFragment : Fragment() {
             ),
         )
         textOverlay = overlay
+        // The button is added last so it sits above the overlay and keeps its taps.
+        captureButton.bringToFront()
         // The viewfinder is only meaningful for QR codes.
         customViewFinder.visibility = View.GONE
     }
 
-    private fun maybeRecognizeText(image: Image) {
-        val recognizer = textRecognizer ?: return
-        if (recognizing) return
-        // The user is working with the words on screen; a new frame would move the boxes.
-        if (textOverlay?.hasSelection() == true) return
-        val now = System.currentTimeMillis()
-        if (now - lastRecognitionAt < RECOGNITION_INTERVAL_MS) return
-        lastRecognitionAt = now
-        recognizing = true
-        val bitmap = runCatching { toGrayscaleBitmap(image) }.getOrNull()
-        if (bitmap == null) {
-            recognizing = false
-            return
-        }
-        recognizer.recognize(bitmap) { words ->
-            textOverlay?.setWords(words, bitmap.width, bitmap.height)
-            bitmap.recycle()
-            recognizing = false
+    /**
+     * The button does one of two things: capture the frame the user is pointing at, or go back to
+     * the live preview once they are done with the words on it.
+     */
+    private fun onCaptureButtonClicked() {
+        if (frozen) {
+            resumePreview()
+        } else {
+            captureFrame()
         }
     }
 
     /**
-     * The camera hands us YUV frames. Recognition only needs luminance, so we build a grayscale
-     * bitmap from the Y plane and skip the colour conversion entirely.
+     * Captures the frame exactly as it is on screen, holds it still and reads its text once.
+     *
+     * The bitmap comes from the preview itself rather than from the camera's YUV buffer, so the
+     * words are read in the same pixels the user is looking at: there is no rotation to undo, and
+     * the overlay places the boxes where the words already are.
      */
-    private fun toGrayscaleBitmap(image: Image): Bitmap {
-        val plane = image.planes[0]
-        val buffer = plane.buffer
-        val data = ByteArray(buffer.remaining()).also { buffer.get(it) }
-        val width = image.width
-        val height = image.height
-        val pixels = IntArray(width * height)
-        for (y in 0 until height) {
-            val rowStart = y * plane.rowStride
-            for (x in 0 until width) {
-                val luminance = data[rowStart + x * plane.pixelStride].toInt() and 0xFF
-                pixels[y * width + x] = (0xFF shl 24) or (luminance shl 16) or (luminance shl 8) or luminance
-            }
+    private fun captureFrame() {
+        val recognizer = textRecognizer ?: return
+        val view = captureView ?: return
+        val bitmap = runCatching { textureView.bitmap }.getOrNull() ?: return
+        if (bitmap.width == 0 || bitmap.height == 0) {
+            bitmap.recycle()
+            return
         }
-        return Bitmap.createBitmap(pixels, width, height, Bitmap.Config.ARGB_8888)
+
+        frozen = true
+        val previous = capturedFrame
+        capturedFrame = bitmap
+
+        view.setImageBitmap(bitmap)
+        // Safe to release only once the view no longer draws it.
+        previous?.recycle()
+        view.x = textureView.x
+        view.y = textureView.y
+        view.layoutParams = ViewGroup.LayoutParams(bitmap.width, bitmap.height)
+        view.visibility = View.VISIBLE
+
+        captureButton.isEnabled = false
+        captureButton.setImageResource(R.drawable.mozac_feature_qr_retake)
+        captureButton.contentDescription = getString(R.string.mozac_feature_qr_scan_retake)
+
+        recognizer.recognize(bitmap) { words ->
+            captureButton.isEnabled = true
+            textOverlay?.setWords(words, bitmap.width, bitmap.height)
+        }
+    }
+
+    /**
+     * Drops the captured frame and the boxes and lets the preview move again.
+     */
+    private fun resumePreview() {
+        frozen = false
+        textOverlay?.clear()
+        captureView?.apply {
+            setImageDrawable(null)
+            visibility = View.GONE
+        }
+        capturedFrame?.recycle()
+        capturedFrame = null
+        captureButton.isEnabled = true
+        captureButton.setImageResource(R.drawable.mozac_feature_qr_capture)
+        captureButton.contentDescription = getString(R.string.mozac_feature_qr_scan_capture)
+        qrState = STATE_FIND_QRCODE
     }
 
     /**
@@ -388,20 +442,27 @@ class QrFragment : Fragment() {
         textureView = view.findViewById<View>(R.id.texture) as AutoFitTextureView
         customViewFinder = view.findViewById<View>(R.id.view_finder) as CustomViewFinder
         cameraErrorView = view.findViewById<View>(R.id.camera_error) as TextView
+        captureButton = view.findViewById(R.id.capture_button)
+        captureButton.setOnClickListener { onCaptureButtonClicked() }
 
         CustomViewFinder.setMessage(scanMessage)
         qrState = STATE_FIND_QRCODE
 
-        // One camera, three outcomes: a QR with a link, a QR from the desktop for pairing, or a
-        // frame with text the user can select. Nothing here changes the QR behaviour.
-        enableTextRecognition()
+        if (textCapture) {
+            // One camera, three outcomes: a QR with a link, a QR from the desktop for pairing, or a
+            // captured frame with text the user can select. Nothing here changes the QR behaviour.
+            enableTextRecognition()
+        } else {
+            // Pairing reads a QR code and nothing else.
+            captureButton.visibility = View.GONE
+        }
     }
 
     override fun onResume() {
         super.onResume()
 
         // onPause released the engines, so build them again before the camera sends frames.
-        enableTextRecognition()
+        if (textCapture) enableTextRecognition()
 
         // It's possible that the Fragment is resumed to a scanning state
         // while in the meantime the camera permission was removed. Avoid any issues.
@@ -417,6 +478,8 @@ class QrFragment : Fragment() {
         // Release the recognisers and the words they produced; nothing is kept between visits.
         textRecognizer?.close()
         textRecognizer = null
+        // A full screen captured bitmap must not outlive the screen it was shown on.
+        if (frozen) resumePreview()
         textOverlay?.clear()
         super.onPause()
     }
@@ -792,10 +855,15 @@ class QrFragment : Fragment() {
          * @param listener Listener invoked when the QR scan completed successfully.
          * @param scanMessage (Optional) Scan message to be displayed.
          */
-        fun newInstance(listener: OnScanCompleteListener, scanMessage: Int? = null): QrFragment {
+        fun newInstance(
+            listener: OnScanCompleteListener,
+            scanMessage: Int? = null,
+            textCapture: Boolean = false,
+        ): QrFragment {
             return QrFragment().apply {
                 scanCompleteListener = listener
                 this.scanMessage = scanMessage
+                this.textCapture = textCapture
             }
         }
 
@@ -849,8 +917,6 @@ class QrFragment : Fragment() {
                 else -> choices[0]
             }
         }
-
-        private const val RECOGNITION_INTERVAL_MS = 600L
 
         // Positions in the action menu, which is built in the same order for every selection.
         private const val ACTION_OPEN_LINK = 0
