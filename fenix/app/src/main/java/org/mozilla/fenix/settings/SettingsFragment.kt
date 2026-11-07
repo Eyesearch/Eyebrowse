@@ -351,11 +351,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
             }
 
             /* Advanced preferences */
-            resources.getString(R.string.pref_key_addons) -> {
-                Addons.openAddonsInSettings.record(mozilla.components.service.glean.private.NoExtras())
-                SettingsFragmentDirections.actionSettingsFragmentToAddonsFragment()
-            }
-
             // Only displayed when secret settings are enabled
             resources.getString(R.string.pref_key_install_local_addon) -> {
                 addonFilePicker.launch()

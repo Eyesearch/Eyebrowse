@@ -145,11 +145,6 @@
         android:key="@string/pref_key_advanced"
         android:layout="@layout/preference_category_no_icon_style">
         <androidx.preference.Preference
-            android:key="@string/pref_key_addons"
-            app:iconSpaceReserved="false"
-            android:title="@string/preferences_addons" />
-
-        <androidx.preference.Preference
             android:key="@string/pref_key_install_local_addon"
             app:iconSpaceReserved="false"
             app:isPreferenceVisible="false"

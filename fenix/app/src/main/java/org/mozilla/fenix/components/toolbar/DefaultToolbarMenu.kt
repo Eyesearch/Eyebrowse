@@ -24,7 +24,6 @@ import mozilla.components.browser.menu.item.BrowserMenuImageText
 import mozilla.components.browser.menu.item.BrowserMenuImageTextCheckboxButton
 import mozilla.components.browser.menu.item.BrowserMenuItemToolbar
 import mozilla.components.browser.menu.item.TwoStateBrowserMenuImageText
-import mozilla.components.browser.menu.item.WebExtensionPlaceholderMenuItem
 import mozilla.components.browser.state.selector.findTab
 import mozilla.components.browser.state.selector.selectedTab
 import mozilla.components.browser.state.state.TabSessionState
@@ -244,10 +243,6 @@ open class DefaultToolbarMenu(
         onItemTapped.invoke(ToolbarMenu.Item.Downloads)
     }
 
-    private val extensionsItem = WebExtensionPlaceholderMenuItem(
-        id = WebExtensionPlaceholderMenuItem.MAIN_EXTENSIONS_MENU_ID,
-    )
-
     private val findInPageItem = BrowserMenuImageText(
         label = context.getString(R.string.browser_menu_find_in_page),
         imageResource = R.drawable.mozac_ic_search_24,
@@ -412,7 +407,6 @@ open class DefaultToolbarMenu(
                 bookmarksItem,
                 historyItem,
                 downloadsItem,
-                extensionsItem,
                 syncMenuItem(),
                 BrowserMenuDivider(),
                 findInPageItem,
