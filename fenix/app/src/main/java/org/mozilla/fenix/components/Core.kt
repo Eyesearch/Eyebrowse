@@ -493,34 +493,6 @@ class Core(
                             SupportUtils.BAIDU_URL,
                         ),
                     )
-
-                    defaultTopSites.add(
-                        Pair(
-                            context.getString(R.string.default_top_site_jd),
-                            SupportUtils.JD_URL,
-                        ),
-                    )
-
-                    defaultTopSites.add(
-                        Pair(
-                            context.getString(R.string.default_top_site_pdd),
-                            SupportUtils.PDD_URL,
-                        ),
-                    )
-
-                    defaultTopSites.add(
-                        Pair(
-                            context.getString(R.string.default_top_site_tc),
-                            SupportUtils.TC_URL,
-                        ),
-                    )
-
-                    defaultTopSites.add(
-                        Pair(
-                            context.getString(R.string.default_top_site_meituan),
-                            SupportUtils.MEITUAN_URL,
-                        ),
-                    )
                 } else {
                     defaultTopSites.add(
                         Pair(
