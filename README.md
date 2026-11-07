@@ -1,70 +1,44 @@
-# ⚠️ Update, June 2024: Migration to Mozilla Central Complete 
+# Eyebrowse
 
-As of Firefox 128, all future releases will be fully managed in Mozilla Central. We are archiving this Github repository as of June 17th. Please refer to our [Wiki announcement](https://github.com/mozilla-mobile/firefox-android/wiki#upcoming-migration-to-mozilla-central) for more context.
+Eyebrowse is a privacy-focused mobile browser for Android, built by Eyesearch. It is a
+rebranded, trimmed fork of Firefox for Android, with the Mozilla services removed: no
+telemetry, no Mozilla account servers, no sponsored content, no Mozilla help links.
 
-The latest documentation for contributing to Firefox for Android will be maintained in the main Firefox Source Docs, [here](https://firefox-source-docs.mozilla.org/mobile/android/geckoview/contributor/mc-quick-start.html).
+## What is in here
 
-As always, you can find our development team on [Matrix](https://wiki.mozilla.org/Matrix#Connect_to_Matrix), in the following channels:
- * [#fenix:mozilla.org](https://chat.mozilla.org/#/room/#fenix:mozilla.org)
- * [#focus-android:mozilla.org](https://chat.mozilla.org/#/room/#focus-android:mozilla.org)
- * [#android-components:mozilla.org](https://chat.mozilla.org/#/room/#android-components:mozilla.org)
- * [#geckoview:mozilla.org](https://chat.mozilla.org/#/room/#geckoview:mozilla.org)
+| Path | What it is |
+| --- | --- |
+| `fenix/` | The Android app (UI, settings, screens). This is the product. |
+| `android-components/` | The browser component library the app is built on. |
+| `focus-android/` | The upstream lightweight browser variant, kept for the shared components. |
+| `version.txt` | The upstream version this tree is based on. |
 
----
+## Build
 
-This repository hosts the Firefox for Android (Fenix), Focus on Android, and Mozilla Android Components projects.
+The debug APK is built by CI on every push to `main` and every pull request, in the
+`Assemble Eyebrowse debug APK` workflow. The artifact is downloadable from the run page.
 
-## ⚠️ Repository Migration (March 2024)
+To build locally you need JDK 17, the Android SDK, and network access to
+`maven.mozilla.org`, which is where the GeckoView and application-services binaries come
+from:
 
-~This repository will soon be migrated to Mozilla Central. See the [announcement here](https://github.com/mozilla-mobile/firefox-android/wiki#upcoming-migration-to-mozilla-central).~
+```
+cd fenix
+./gradlew assembleFenixDebug
+```
 
-**Update: As of Monday, March 18, this repository has been migrated to Mozilla Central. See the [announcement here](https://github.com/mozilla-mobile/firefox-android/wiki#upcoming-migration-to-mozilla-central).**
+## What was changed from upstream
 
-# Firefox for Android
+- Rebranded to Eyebrowse: app name, icon, sign-in artwork, all user-visible strings.
+- Telemetry upload and Mozilla experiment fetches are off.
+- DuckDuckGo is the only search engine, bundled locally, no remote settings fetch.
+- Account and sync servers point at our own backend, not Mozilla's.
+- Help, legal and in-product links point at `eyebrowse.in`.
+- Removed: add-ons, translations, report-site-issue, studies, Mozilla Online China
+  monetisation links.
 
-[![Task Status](https://firefox-ci-tc.services.mozilla.com/api/github/v1/repository/mozilla-mobile/firefox-android/main/badge.svg)](https://firefox-ci-tc.services.mozilla.com/api/github/v1/repository/mozilla-mobile/firefox-android/main/latest)
-[![chat.mozilla.org](https://img.shields.io/badge/chat-on%20matrix-51bb9c)](https://chat.mozilla.org/#/room/#fenix:mozilla.org)
+## Licence
 
-_Get the people-first browser that’s backed by a non-profit._
-
-_It’s a new era in tech. Don’t settle for a browser produced by giant, profit-driven, data-hoarding tech companies. Firefox is the obvious choice for independent, ethical tech that respects your privacy and gives you more ways than ever before to tailor your internet experience exactly the way you want it._
-
-Fenix (internal codename) is the all-new Firefox for Android browser, based on [GeckoView](https://mozilla.github.io/geckoview/) and [Mozilla Android Components](https://mozac.org/).
-
-<a href="https://play.google.com/store/apps/details?id=org.mozilla.firefox" target="_blank"><img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height="90"/></a>
-
-Please file issues for Fenix (Firefox for Android) in [Bugzilla](https://bugzilla.mozilla.org/enter_bug.cgi?product=Fenix), selecting the corresponding component. 
-
-[Learn more about Firefox for Android](fenix/README.md)
-
-# Firefox Focus for Android
-
-[![Task Status](https://firefox-ci-tc.services.mozilla.com/api/github/v1/repository/mozilla-mobile/firefox-android/main/badge.svg)](https://firefox-ci-tc.services.mozilla.com/api/github/v1/repository/mozilla-mobile/firefox-android/main/latest)
-[![chat.mozilla.org](https://img.shields.io/badge/chat-on%20matrix-51bb9c)](https://chat.mozilla.org/#/room/#focus-android:mozilla.org)
-
-_Browse like no one’s watching. The new Firefox Focus automatically blocks a wide range of online trackers — from the moment you launch it to the second you leave it. Easily erase your history, passwords and cookies, so you won’t get followed by things like unwanted ads._ 
-
-Firefox Focus provides automatic ad blocking and tracking protection on an easy-to-use private browser.
-
-<a href="https://play.google.com/store/apps/details?id=org.mozilla.focus" target="_blank"><img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height="90"/></a>
-
-* [Google Play: Firefox Focus (Global)](https://play.google.com/store/apps/details?id=org.mozilla.focus)
-* [Google Play: Firefox Klar (Germany, Austria & Switzerland)](https://play.google.com/store/apps/details?id=org.mozilla.klar)
-* [Download APKs](https://github.com/mozilla-mobile/firefox-android/releases)
-
-Firefox Focus (Android) issues should now also be filed in [Bugzilla](https://bugzilla.mozilla.org/enter_bug.cgi?product=Focus) under the Focus product.
-
-[Learn more about Focus for Android](focus-android/README.md)
-
-# Android components
-
-[![Task Status](https://firefox-ci-tc.services.mozilla.com/api/github/v1/repository/mozilla-mobile/firefox-android/main/badge.svg)](https://firefox-ci-tc.services.mozilla.com/api/github/v1/repository/mozilla-mobile/firefox-android/main/latest)
-[![chat.mozilla.org](https://img.shields.io/badge/chat-on%20matrix-51bb9c)](https://chat.mozilla.org/#/room/#android-components:mozilla.org)
-
-_A collection of Android libraries to build browsers or browser-like applications._
-
-A fully-featured reference browser implementation based on the components can be found in the [reference-browser repository](https://github.com/mozilla-mobile/reference-browser).
-
-Please file issues for Android Components in the Fenix [Bugzilla](https://bugzilla.mozilla.org/enter_bug.cgi?product=Fenix), selecting the corresponding component. 
-
-[Learn more about Android Components](android-components/README.md)
+MPL 2.0, see `LICENSE`. Files modified by Eyesearch keep their MPL headers, and the
+source of those modifications is this repository. Mozilla trademarks and the Firefox name
+are not used.
