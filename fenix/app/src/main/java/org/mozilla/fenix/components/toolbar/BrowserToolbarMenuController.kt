@@ -401,14 +401,6 @@ class DefaultBrowserToolbarMenuController(
                 }
             }
 
-            ToolbarMenu.Item.Translate -> {
-                Events.translationsAction.record(Events.TranslationsActionExtra("main_flow_browser"))
-                val directions =
-                    BrowserFragmentDirections.actionBrowserFragmentToTranslationsDialogFragment(
-                        sessionId = currentSession?.id,
-                    )
-                navController.navigateSafe(R.id.browserFragment, directions)
-            }
         }
     }
 
@@ -493,12 +485,6 @@ class DefaultBrowserToolbarMenuController(
                 Events.browserMenuAction.record(Events.BrowserMenuActionExtra("set_default_browser"))
             is ToolbarMenu.Item.RemoveFromTopSites ->
                 Events.browserMenuAction.record(Events.BrowserMenuActionExtra("remove_from_top_sites"))
-
-            ToolbarMenu.Item.Translate -> Events.browserMenuAction.record(
-                Events.BrowserMenuActionExtra(
-                    "translate",
-                ),
-            )
         }
     }
 
