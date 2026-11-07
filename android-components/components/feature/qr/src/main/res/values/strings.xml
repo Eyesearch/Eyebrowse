@@ -15,4 +15,7 @@
     <string name="mozac_feature_qr_scan_copy_link">Copy link</string>
     <string name="mozac_feature_qr_scan_copy_text">Copy</string>
     <string name="mozac_feature_qr_scan_search">Search</string>
+
+    <!-- Shown when Open link is chosen for a selection that holds no address at all. -->
+    <string name="mozac_feature_qr_scan_not_a_link">No address in the selection</string>
 </resources>

@@ -34,6 +34,7 @@ dependencies {
 
     implementation ComponentsDependencies.thirdparty_zxing
     implementation ComponentsDependencies.thirdparty_mlkit_text_recognition
+    implementation ComponentsDependencies.thirdparty_tess_two
     testImplementation ComponentsDependencies.thirdparty_zxing
 
     testImplementation project(':support-test')
@@ -41,6 +42,53 @@ dependencies {
     testImplementation ComponentsDependencies.androidx_test_junit
     testImplementation ComponentsDependencies.testing_robolectric
 }
+
+// Kannada text needs a Tesseract model, and that model is a 3.6 MB binary we do not keep in the
+// repository. It is fetched once into the assets folder and packaged inside the APK, so nothing is
+// downloaded on the device and the scanner reads Kannada offline from the first scan. A build with
+// no network access fails here rather than shipping an APK that silently cannot read Kannada.
+// Delete src/main/assets/tessdata/kan.traineddata to fetch it again.
+def tessdataFile = file("$projectDir/src/main/assets/tessdata/kan.traineddata")
+
+tasks.register("prepareTessdata") {
+    description = 'Fetches the Kannada Tesseract model that ships inside the APK.'
+    outputs.file(tessdataFile)
+    doLast {
+        if (tessdataFile.exists()) {
+            return
+        }
+        def url = 'https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/' +
+            '87416418657359cb625c412a48b6e1d6d41c29bd/kan.traineddata'
+        def expected = 'bd31e6b6ae93271e3bcf5383d306d8eefbb91542937cd6d735a5930c970e61d8'
+        tessdataFile.parentFile.mkdirs()
+        def partial = new File(tessdataFile.parentFile, 'kan.traineddata.part')
+        partial.delete()
+        try {
+            partial.withOutputStream { output ->
+                new URL(url).openStream().withCloseable { input -> output << input }
+            }
+            def actual = java.security.MessageDigest.getInstance('SHA-256')
+                .digest(partial.bytes)
+                .encodeHex()
+                .toString()
+            if (actual != expected) {
+                throw new GradleException("Kannada model checksum mismatch: expected $expected, got $actual")
+            }
+            if (!partial.renameTo(tessdataFile)) {
+                throw new GradleException("Could not move $partial to $tessdataFile")
+            }
+        } catch (Exception error) {
+            partial.delete()
+            throw new GradleException("Could not fetch the Kannada model from $url", error)
+        }
+    }
+}
+
+tasks.matching { it.name.startsWith('merge') && it.name.endsWith('Assets') }.configureEach {
+    dependsOn 'prepareTessdata'
+}
+
+tasks.named('preBuild').configure { dependsOn 'prepareTessdata' }
 
 apply from: '../../../android-lint.gradle'
 apply from: '../../../publish.gradle'
