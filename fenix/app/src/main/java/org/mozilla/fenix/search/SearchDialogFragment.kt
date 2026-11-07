@@ -692,7 +692,17 @@ class SearchDialogFragment : AppCompatDialogFragment(), UserInteractionHandler {
                 }
                 Events.browserToolbarQrScanCompleted.record()
             },
-        )
+        ).apply {
+            // Search goes through the app, so it uses whatever engine the user has as default.
+            searchRequestListener = { query ->
+                (activity as? HomeActivity)?.openToBrowserAndLoad(
+                    searchTermOrURL = query,
+                    newTab = store.state.tabId == null,
+                    from = BrowserDirection.FromSearchDialog,
+                )
+                dismissAllowingStateLoss()
+            }
+        }
     }
 
     @Suppress("DEPRECATION")
