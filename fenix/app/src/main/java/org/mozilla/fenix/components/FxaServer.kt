@@ -23,6 +23,9 @@ object FxaServer {
      */
     private const val EYEBROWSE_SERVER = "https://accounts.eyebrowse.in"
 
+    /** Where "Manage account and devices" sends the user. Ours, not Mozilla's. */
+    const val ACCOUNT_SETTINGS_URL = "$EYEBROWSE_SERVER/settings"
+
     // OAuth client id for the Eyebrowse backend. A placeholder until the backend issues one.
     private const val CLIENT_ID = "eyebrowse"
 
