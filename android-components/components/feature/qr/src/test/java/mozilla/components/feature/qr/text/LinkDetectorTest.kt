@@ -26,8 +26,10 @@ class LinkDetectorTest {
     }
 
     @Test
-    fun `turns a bare email address into mailto`() {
-        assertEquals("mailto:hello@eyebrowse.in", LinkDetector.toUrl("hello@eyebrowse.in"))
+    fun `does not hand the app a link it cannot open`() {
+        // The result screen only accepts web links, so an email is copied rather than opened.
+        assertNull(LinkDetector.toUrl("hello@eyebrowse.in"))
+        assertNull(LinkDetector.toUrl("mailto:hello@eyebrowse.in"))
     }
 
     @Test

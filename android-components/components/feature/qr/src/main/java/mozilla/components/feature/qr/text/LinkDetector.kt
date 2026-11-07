@@ -32,28 +32,36 @@ object LinkDetector {
     }
 
     /**
-     * @return the URL to open for [text], adding a scheme when the text omits it, or null when
-     * [text] is not openable.
+     * @return the web URL to open for [text], adding a scheme when the text omits it, or null when
+     * there is nothing here the browser can open.
      *
      * A recogniser splits one address into several words as easily as it reads it whole, so
      * `www .eyebrowse. in` is joined back together before this gives up.
+     *
+     * Only http and https come back. An email address is a link in the everyday sense, but the
+     * screen that shows the result only accepts web links and answers anything else with its own
+     * "invalid" dialog, so an email is left to Copy instead of opening a dead end.
      */
     fun toUrl(text: String): String? {
         val candidate = trimEdges(text)
         if (candidate.isEmpty()) return null
-        if (isOpenable(candidate)) return withScheme(candidate)
 
-        val joined = candidate.filterNot { it.isWhitespace() }
-        if (joined != candidate && isOpenable(joined)) return withScheme(joined)
-        return null
+        val url = when {
+            isOpenable(candidate) -> withScheme(candidate)
+            else -> {
+                val joined = candidate.filterNot { it.isWhitespace() }
+                if (joined != candidate && isOpenable(joined)) withScheme(joined) else null
+            }
+        }
+        return url?.takeIf { isHttp(it) }
     }
 
     private fun trimEdges(text: String): String =
         text.trim().trim('.', ',', ';', ':', ')', ']', '}', '"', '\'')
 
     private fun withScheme(candidate: String): String = when {
-        candidate.startsWith("mailto:") -> candidate
         scheme.containsMatchIn(candidate) -> candidate
+        // An email address has no web form, so this never produces a URL for one.
         email.matches(candidate) -> "mailto:$candidate"
         else -> "https://$candidate"
     }
