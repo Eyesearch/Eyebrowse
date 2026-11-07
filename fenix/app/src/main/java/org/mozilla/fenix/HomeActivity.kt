@@ -84,8 +84,6 @@ import org.mozilla.fenix.GleanMetrics.Events
 import org.mozilla.fenix.GleanMetrics.Metrics
 import org.mozilla.fenix.GleanMetrics.SplashScreen
 import org.mozilla.fenix.GleanMetrics.StartOnHome
-import org.mozilla.fenix.addons.ExtensionsProcessDisabledBackgroundController
-import org.mozilla.fenix.addons.ExtensionsProcessDisabledForegroundController
 import org.mozilla.fenix.browser.browsingmode.BrowsingMode
 import org.mozilla.fenix.browser.browsingmode.BrowsingModeManager
 import org.mozilla.fenix.browser.browsingmode.DefaultBrowsingModeManager
@@ -109,7 +107,6 @@ import org.mozilla.fenix.ext.hasTopDestination
 import org.mozilla.fenix.ext.nav
 import org.mozilla.fenix.ext.setNavigationIcon
 import org.mozilla.fenix.ext.settings
-import org.mozilla.fenix.extension.WebExtensionPromptFeature
 import org.mozilla.fenix.home.intent.AssistIntentProcessor
 import org.mozilla.fenix.home.intent.CrashReporterIntentProcessor
 import org.mozilla.fenix.home.intent.HomeDeepLinkIntentProcessor
@@ -163,25 +160,6 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
 
     private val webExtensionPopupObserver by lazy {
         WebExtensionPopupObserver(components.core.store, ::openPopup)
-    }
-
-    val webExtensionPromptFeature by lazy {
-        WebExtensionPromptFeature(
-            store = components.core.store,
-            context = this@HomeActivity,
-            fragmentManager = supportFragmentManager,
-        )
-    }
-
-    private val extensionsProcessDisabledForegroundController by lazy {
-        ExtensionsProcessDisabledForegroundController(this@HomeActivity)
-    }
-
-    private val extensionsProcessDisabledBackgroundController by lazy {
-        ExtensionsProcessDisabledBackgroundController(
-            browserStore = components.core.store,
-            appStore = components.appStore,
-        )
     }
 
     private val serviceWorkerSupport by lazy {
@@ -364,10 +342,7 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
 
         lifecycle.addObservers(
             webExtensionPopupObserver,
-            extensionsProcessDisabledForegroundController,
-            extensionsProcessDisabledBackgroundController,
             serviceWorkerSupport,
-            webExtensionPromptFeature,
         )
 
         if (shouldAddToRecentsScreen(intent)) {
