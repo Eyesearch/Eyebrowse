@@ -45,7 +45,7 @@ class TextRecognizer(
             val initialised = api.init(dataPath, language)
             if (!initialised) {
                 logger.warn("No Tesseract model for $language in $dataPath")
-                api.recycle()
+                api.end()
                 false
             } else {
                 engine = api
@@ -76,7 +76,7 @@ class TextRecognizer(
                     ?.trim()
                     .orEmpty()
                 val box = iterator.getBoundingRect(TessBaseAPI.PageIteratorLevel.RIL_WORD)
-                val confidence = iterator.confidence(TessBaseAPI.PageIteratorLevel.RIL_WORD)
+                val confidence = iterator.confidence(TessBaseAPI.PageIteratorLevel.RIL_WORD).toInt()
                 if (text.isEmpty() || box == null || box.isEmpty) continue
                 // A new line starts when the word sits clearly below the previous one.
                 if (previousTop < 0 || box.top > previousTop + box.height() / 2) {
@@ -104,7 +104,7 @@ class TextRecognizer(
      */
     @Synchronized
     fun close() {
-        engine?.recycle()
+        engine?.end()
         engine = null
         language = null
     }
