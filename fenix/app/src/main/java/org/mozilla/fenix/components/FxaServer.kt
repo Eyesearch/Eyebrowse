@@ -7,7 +7,6 @@ package org.mozilla.fenix.components
 import android.content.Context
 import mozilla.appservices.fxaclient.FxaServer
 import mozilla.components.service.fxa.ServerConfig
-import org.mozilla.fenix.Config
 import org.mozilla.fenix.ext.settings
 
 /**
@@ -15,24 +14,24 @@ import org.mozilla.fenix.ext.settings
  */
 
 object FxaServer {
-    private const val CLIENT_ID = "a2270f727f45f648"
+    /**
+     * Eyebrowse accounts server.
+     *
+     * Mozilla's account servers (Release and China) are no longer used: nothing in the app talks to
+     * accounts.firefox.com. Replace this with the real Eyebrowse backend once it is live, or set
+     * the server override in the secret settings for testing.
+     */
+    private const val EYEBROWSE_SERVER = "https://accounts.eyebrowse.in"
+
+    // OAuth client id for the Eyebrowse backend. A placeholder until the backend issues one.
+    private const val CLIENT_ID = "eyebrowse"
+
     const val REDIRECT_URL = "urn:ietf:wg:oauth:2.0:oob:oauth-redirect-webchannel"
 
     fun config(context: Context): ServerConfig {
-        // If a server override is configured, use that. Otherwise:
-        // - for all channels other than Mozilla Online, use FxaServer.Release.
-        // - for Mozilla Online channel, if domestic server is allowed, use FxaServer.China; otherwise,
-        //   use FxaServer.Release
         val serverOverride = context.settings().overrideFxAServer
         val tokenServerOverride = context.settings().overrideSyncTokenServer.ifEmpty { null }
-        if (serverOverride.isEmpty()) {
-            val releaseServer = if (Config.channel.isMozillaOnline && context.settings().allowDomesticChinaFxaServer) {
-                FxaServer.China
-            } else {
-                FxaServer.Release
-            }
-            return ServerConfig(releaseServer, CLIENT_ID, REDIRECT_URL, tokenServerOverride)
-        }
-        return ServerConfig(FxaServer.Custom(serverOverride), CLIENT_ID, REDIRECT_URL, tokenServerOverride)
+        val server = serverOverride.ifEmpty { EYEBROWSE_SERVER }
+        return ServerConfig(FxaServer.Custom(server), CLIENT_ID, REDIRECT_URL, tokenServerOverride)
     }
 }
