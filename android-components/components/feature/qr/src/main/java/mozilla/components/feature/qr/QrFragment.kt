@@ -62,6 +62,7 @@ import com.google.zxing.BinaryBitmap
 import mozilla.components.feature.qr.text.LinkDetector
 import mozilla.components.feature.qr.text.ScanOverlayView
 import mozilla.components.feature.qr.text.ScanSelection
+import mozilla.components.feature.qr.text.ScanWord
 import mozilla.components.feature.qr.text.TextRecognizer
 import com.google.zxing.LuminanceSource
 import com.google.zxing.MultiFormatReader
@@ -246,6 +247,24 @@ class QrFragment : Fragment() {
     private var sensorOrientation: Int = 0
 
     /**
+     * An [ImageReader] that takes the high resolution still the user captures.
+     *
+     * The preview reader is deliberately tiny so the camera can keep up with QR decoding. Copying
+     * the preview for a capture is what made zoomed text unreadable, so a capture goes through
+     * this reader instead, at several times the resolution.
+     */
+    @VisibleForTesting
+    internal var stillReader: ImageReader? = null
+
+    /** True while a still has been requested and not yet delivered. */
+    private var stillRequested = false
+
+    /** Set when the device refused a third output stream, so captures fall back to the preview. */
+    private var stillSurfaceRejected = false
+
+    private val mainHandler = Handler(Looper.getMainLooper())
+
+    /**
      * An [ImageReader] that handles still image capture.
      * This is the output file for our picture.
      */
@@ -274,6 +293,28 @@ class QrFragment : Fragment() {
                 image?.close()
             }
         }
+    }
+
+    /**
+     * Turns the still frame the camera delivered into a bitmap and hands it to the screen.
+     */
+    private val stillImageListener = ImageReader.OnImageAvailableListener { reader ->
+        val image = runCatching { reader.acquireNextImage() }.getOrNull() ?: return@OnImageAvailableListener
+        if (!stillRequested) {
+            image.close()
+            return@OnImageAvailableListener
+        }
+        val bitmap = try {
+            toBitmap(image)
+        } catch (error: Exception) {
+            logger.warn("Could not read the captured frame: ${error.message}")
+            null
+        } finally {
+            image.close()
+        }
+        if (bitmap == null) return@OnImageAvailableListener
+        val upright = rotateToDisplay(bitmap)
+        mainHandler.post { onStillCaptured(upright) }
     }
 
     /**
@@ -330,45 +371,175 @@ class QrFragment : Fragment() {
     }
 
     /**
-     * Captures the frame exactly as it is on screen, holds it still and reads its text once.
+     * Asks the camera for a full still frame, which is several times sharper than the preview.
      *
-     * The bitmap comes from the preview itself rather than from the camera's YUV buffer, so the
-     * words are read in the same pixels the user is looking at: there is no rotation to undo, and
-     * the overlay places the boxes where the words already are.
+     * Everything about the capture is a photo, not a screen copy: the still comes from its own
+     * output stream, is turned upright for the display, and is then the picture the user zooms.
+     * When the device has no still stream to give, the preview copy is used instead, so the
+     * scanner still works.
      */
     private fun captureFrame() {
-        val recognizer = textRecognizer ?: return
-        val bitmap = runCatching { textureView.bitmap }.getOrNull() ?: return
-        if (bitmap.width == 0 || bitmap.height == 0) {
-            bitmap.recycle()
-            return
-        }
+        if (textRecognizer == null || stillRequested) return
 
         frozen = true
-        val previous = capturedFrame
-        capturedFrame = bitmap
-
-        // The overlay draws the frame itself, with the same transform it uses for the markers, so
-        // the picture and the text can never drift apart and the capture can be zoomed as a whole.
-        textOverlay?.setFrame(bitmap)
-        // Safe to release only once the overlay no longer draws it.
-        previous?.recycle()
-
-        captureButton.isEnabled = false
         captureButton.setImageResource(R.drawable.mozac_feature_qr_retake)
         captureButton.contentDescription = getString(R.string.mozac_feature_qr_scan_retake)
 
+        val session = captureSession
+        val device = cameraDevice
+        val surface = stillReader?.surface
+        if (session != null && device != null && surface != null) {
+            stillRequested = true
+            val requested = runCatching {
+                val request = device.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE).apply {
+                    addTarget(surface)
+                    set(CaptureRequest.CONTROL_AF_MODE, CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE)
+                }
+                session.capture(request.build(), null, backgroundHandler)
+            }
+            if (requested.isSuccess) return
+            logger.warn("Still capture failed: ${requested.exceptionOrNull()?.message}")
+            stillRequested = false
+        }
+
+        // No still stream on this device: fall back to the preview copy rather than do nothing.
+        val bitmap = runCatching { textureView.bitmap }.getOrNull()
+        if (bitmap == null) {
+            resumePreview()
+            return
+        }
+        onStillCaptured(bitmap)
+    }
+
+    /**
+     * Shows the captured photo, holds it still and reads its text once.
+     */
+    private fun onStillCaptured(frame: Bitmap) {
+        stillRequested = false
+        if (!isAdded) {
+            frame.recycle()
+            return
+        }
+
+        val previous = capturedFrame
+        capturedFrame = frame
+        // The overlay draws the frame itself, with the same transform it uses for the markers, so
+        // the picture and the text can never drift apart and the capture can be zoomed as a whole.
+        textOverlay?.setFrame(frame)
+        // Safe to release only once the overlay no longer draws it.
+        previous?.recycle()
+        captureButton.isEnabled = true
+
+        val recognizer = textRecognizer ?: return
+        val working = recognitionCopy(frame)
         try {
-            recognizer.recognize(bitmap) { words ->
-                captureButton.isEnabled = true
-                textOverlay?.setWords(words)
+            recognizer.recognize(working) { words ->
+                textOverlay?.setWords(scaleWords(words, frame.width.toFloat() / working.width))
+                if (working !== frame) working.recycle()
             }
         } catch (error: Exception) {
-            // A camera screen must never take the app down with it: show the frame, no boxes.
+            // A camera screen must never take the app down with it: show the photo, no markers.
             logger.warn("Text capture failed: ${error.message}")
+            if (working !== frame) working.recycle()
             captureButton.isEnabled = true
-            resumePreview()
         }
+    }
+
+    /**
+     * @return the bitmap to recognise, shrunk when the photo is larger than recognition needs.
+     */
+    private fun recognitionCopy(frame: Bitmap): Bitmap {
+        val longest = maxOf(frame.width, frame.height)
+        if (longest <= RECOGNITION_MAX_SIDE) return frame
+        val scale = RECOGNITION_MAX_SIDE.toFloat() / longest
+        return Bitmap.createScaledBitmap(
+            frame,
+            (frame.width * scale).toInt().coerceAtLeast(1),
+            (frame.height * scale).toInt().coerceAtLeast(1),
+            true,
+        )
+    }
+
+    /**
+     * Maps the words found in the shrunken copy back onto the full photo.
+     */
+    private fun scaleWords(words: List<ScanWord>, factor: Float): List<ScanWord> {
+        if (factor == 1f) return words
+        return words.map { word ->
+            word.copy(
+                bounds = Rect(
+                    (word.bounds.left * factor).toInt(),
+                    (word.bounds.top * factor).toInt(),
+                    (word.bounds.right * factor).toInt(),
+                    (word.bounds.bottom * factor).toInt(),
+                ),
+            )
+        }
+    }
+
+    /**
+     * Turns a YUV frame from the camera into a bitmap, colour and all.
+     */
+    @Suppress("MagicNumber")
+    private fun toBitmap(image: Image): Bitmap {
+        val width = image.width
+        val height = image.height
+        val yPlane = image.planes[0]
+        val uPlane = image.planes[1]
+        val vPlane = image.planes[2]
+        val yBuffer = yPlane.buffer
+        val uBuffer = uPlane.buffer
+        val vBuffer = vPlane.buffer
+        val yRowStride = yPlane.rowStride
+        val uvRowStride = uPlane.rowStride
+        val uvPixelStride = uPlane.pixelStride
+        val pixels = IntArray(width * height)
+
+        for (y in 0 until height) {
+            val yRow = y * yRowStride
+            val uvRow = (y / 2) * uvRowStride
+            for (x in 0 until width) {
+                val luma = yBuffer.get(yRow + x).toInt() and 0xFF
+                val uvColumn = (x / 2) * uvPixelStride
+                val u = (uBuffer.get(uvRow + uvColumn).toInt() and 0xFF) - 128
+                val v = (vBuffer.get(uvRow + uvColumn).toInt() and 0xFF) - 128
+                val r = (luma + ((1436 * v) shr 10)).coerceIn(0, 255)
+                val g = (luma - ((352 * u + 731 * v) shr 10)).coerceIn(0, 255)
+                val b = (luma + ((1814 * u) shr 10)).coerceIn(0, 255)
+                pixels[y * width + x] = (0xFF shl 24) or (r shl 16) or (g shl 8) or b
+            }
+        }
+        return Bitmap.createBitmap(pixels, width, height, Bitmap.Config.ARGB_8888)
+    }
+
+    /**
+     * Rotates a sensor frame so it stands the same way the preview did.
+     */
+    private fun rotateToDisplay(bitmap: Bitmap): Bitmap {
+        val displayDegrees = when (getScreenRotation()) {
+            Surface.ROTATION_90 -> 90
+            Surface.ROTATION_180 -> 180
+            Surface.ROTATION_270 -> 270
+            else -> 0
+        }
+        val rotation = (sensorOrientation - displayDegrees + 360) % 360
+        if (rotation == 0) return bitmap
+
+        val matrix = Matrix().apply { postRotate(rotation.toFloat()) }
+        val rotated = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
+        if (rotated !== bitmap) bitmap.recycle()
+        return rotated
+    }
+
+    /**
+     * @return the largest still size the device offers that stays within [MAX_STILL_PIXELS], so a
+     * capture is sharp without a bitmap big enough to hurt a small phone.
+     */
+    private fun chooseStillSize(sizes: Array<Size>): Size {
+        val usable = sizes.filter { it.width.toLong() * it.height <= MAX_STILL_PIXELS }
+        return usable.maxByOrNull { it.width.toLong() * it.height }
+            ?: sizes.minByOrNull { it.width.toLong() * it.height }
+            ?: Size(MAX_PREVIEW_WIDTH, MAX_PREVIEW_HEIGHT)
     }
 
     /**
@@ -376,6 +547,8 @@ class QrFragment : Fragment() {
      */
     private fun resumePreview() {
         frozen = false
+        // A still that is still on its way must not pop up after the user has gone back.
+        stillRequested = false
         hideActionBar()
         textOverlay?.clearFrame()
         capturedFrame?.recycle()
@@ -642,6 +815,14 @@ class QrFragment : Fragment() {
             imageReader = ImageReader.newInstance(MAX_PREVIEW_WIDTH, MAX_PREVIEW_HEIGHT, ImageFormat.YUV_420_888, 2)
                 .apply { setOnImageAvailableListener(imageAvailableListener, backgroundHandler) }
 
+            // A capture is read from a much larger stream than the preview, so zooming into it
+            // shows real detail instead of magnified screen pixels.
+            stillReader?.close()
+            val stillSize = chooseStillSize(map.getOutputSizes(ImageFormat.YUV_420_888))
+            stillReader = ImageReader.newInstance(stillSize.width, stillSize.height, ImageFormat.YUV_420_888, 2)
+                .apply { setOnImageAvailableListener(stillImageListener, backgroundHandler) }
+            stillSurfaceRejected = false
+
             // Find out if we need to swap dimension to get the preview size relative to sensor coordinate.
 
             sensorOrientation = characteristics.get(CameraCharacteristics.SENSOR_ORIENTATION) as Int
@@ -760,6 +941,8 @@ class QrFragment : Fragment() {
             cameraDevice = null
             imageReader?.close()
             imageReader = null
+            stillReader?.close()
+            stillReader = null
 
             // captureSession should be closed as a last step in case background executor terminated
             captureSession?.close()
@@ -818,6 +1001,7 @@ class QrFragment : Fragment() {
 
         val surface = Surface(texture)
         val mImageSurface = imageReader?.surface
+        val mStillSurface = if (stillSurfaceRejected) null else stillReader?.surface
 
         handleCaptureException("Failed to create camera preview session") {
             cameraDevice?.let {
@@ -850,9 +1034,17 @@ class QrFragment : Fragment() {
 
                     override fun onConfigureFailed(cameraCaptureSession: CameraCaptureSession) {
                         logger.error("Failed to configure CameraCaptureSession")
+                        // Some devices refuse three output streams. Give the still stream up and
+                        // keep the scanner working from the preview copy rather than not at all.
+                        if (!stillSurfaceRejected && stillReader != null) {
+                            stillSurfaceRejected = true
+                            stillReader?.close()
+                            stillReader = null
+                            createCameraPreviewSession()
+                        }
                     }
                 }
-                createCaptureSessionCompat(it, mImageSurface as Surface, surface, stateCallback)
+                createCaptureSessionCompat(it, mImageSurface as Surface, surface, stateCallback, mStillSurface)
             }
         }
     }
@@ -863,21 +1055,25 @@ class QrFragment : Fragment() {
         imageSurface: Surface,
         surface: Surface,
         stateCallback: CameraCaptureSession.StateCallback,
+        stillSurface: Surface? = null,
     ) {
+        val surfaces = mutableListOf(imageSurface, surface)
+        if (stillSurface != null) surfaces += stillSurface
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             if (shouldStartExecutorService()) {
                 maybeStartExecutorService()
             }
             val sessionConfig = SessionConfiguration(
                 SessionConfiguration.SESSION_REGULAR,
-                listOf(OutputConfiguration(imageSurface), OutputConfiguration(surface)),
+                surfaces.map { OutputConfiguration(it) },
                 backgroundExecutor as Executor,
                 stateCallback,
             )
             camera.createCaptureSession(sessionConfig)
         } else {
             @Suppress("DEPRECATION")
-            camera.createCaptureSession(listOf(imageSurface, surface), stateCallback, null)
+            camera.createCaptureSession(surfaces, stateCallback, null)
         }
     }
 
@@ -984,6 +1180,12 @@ class QrFragment : Fragment() {
                 else -> choices[0]
             }
         }
+
+        /** Captures are read from a stream no larger than this, about three megapixels. */
+        private const val MAX_STILL_PIXELS = 3_000_000L
+
+        /** Recognition does not need the whole photo; this keeps it fast and still accurate. */
+        private const val RECOGNITION_MAX_SIDE = 2000
 
         // The floating action bar next to a selection.
         private const val ACTION_BAR_CORNER_RADIUS_DP = 24f
