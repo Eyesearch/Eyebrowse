@@ -50,10 +50,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.annotation.VisibleForTesting
 import androidx.core.content.ContextCompat.getColor
@@ -146,13 +144,7 @@ class QrFragment : Fragment() {
     private var textOverlay: ScanOverlayView? = null
     private var textRecognitionEnabled = false
 
-    /**
-     * Shows the captured frame still on screen while its words are on top of it. It lives in the
-     * layout, above the preview and below the boxes, so its scaling is the same as theirs.
-     */
-    internal lateinit var captureView: ImageView
-
-    /** The captured frame the boxes were read from, kept only until the user moves on. */
+    /** The captured frame, held here so it can be released the moment the user moves on. */
     private var capturedFrame: Bitmap? = null
 
     /** True while the frame is captured and the preview is not allowed to move under the boxes. */
@@ -356,13 +348,11 @@ class QrFragment : Fragment() {
         val previous = capturedFrame
         capturedFrame = bitmap
 
-        // The view is match_parent with fitCenter, so it draws the bitmap in exactly the rectangle
-        // the overlay maps the boxes into. Nothing here may touch layout parameters: replacing a
-        // RelativeLayout child's params with a plain LayoutParams throws on the next layout pass.
-        captureView.setImageBitmap(bitmap)
-        // Safe to release only once the view no longer draws it.
+        // The overlay draws the frame itself, with the same transform it uses for the markers, so
+        // the picture and the text can never drift apart and the capture can be zoomed as a whole.
+        textOverlay?.setFrame(bitmap)
+        // Safe to release only once the overlay no longer draws it.
         previous?.recycle()
-        captureView.visibility = View.VISIBLE
 
         captureButton.isEnabled = false
         captureButton.setImageResource(R.drawable.mozac_feature_qr_retake)
@@ -371,7 +361,7 @@ class QrFragment : Fragment() {
         try {
             recognizer.recognize(bitmap) { words ->
                 captureButton.isEnabled = true
-                textOverlay?.setWords(words, bitmap.width, bitmap.height)
+                textOverlay?.setWords(words)
             }
         } catch (error: Exception) {
             // A camera screen must never take the app down with it: show the frame, no boxes.
@@ -387,9 +377,7 @@ class QrFragment : Fragment() {
     private fun resumePreview() {
         frozen = false
         hideActionBar()
-        textOverlay?.clear()
-        captureView.setImageDrawable(null)
-        captureView.visibility = View.GONE
+        textOverlay?.clearFrame()
         capturedFrame?.recycle()
         capturedFrame = null
         captureButton.isEnabled = true
@@ -422,16 +410,8 @@ class QrFragment : Fragment() {
             elevation = ACTION_BAR_ELEVATION_DP * density
         }
 
-        bar.addView(
-            actionButton(getString(R.string.mozac_feature_qr_scan_open_link)) {
-                if (url != null) {
-                    scanCompleteListener?.onScanComplete(url)
-                } else {
-                    Toast.makeText(barContext, R.string.mozac_feature_qr_scan_not_a_link, Toast.LENGTH_SHORT).show()
-                }
-                dismissSelection()
-            },
-        )
+        // Opening the site is deliberately not offered yet: the flow it belongs to, a sheet that
+        // comes up from the bottom with the page, is the next piece of work.
         bar.addView(
             actionButton(getString(R.string.mozac_feature_qr_scan_copy_link)) {
                 copyToClipboard(url ?: text)
@@ -529,7 +509,6 @@ class QrFragment : Fragment() {
         cameraErrorView = view.findViewById<View>(R.id.camera_error) as TextView
         captureButton = view.findViewById(R.id.capture_button)
         captureButton.setOnClickListener { onCaptureButtonClicked() }
-        captureView = view.findViewById(R.id.captured_frame)
 
         CustomViewFinder.setMessage(scanMessage)
         qrState = STATE_FIND_QRCODE
@@ -566,8 +545,11 @@ class QrFragment : Fragment() {
         textRecognizer = null
         // A full screen captured bitmap must not outlive the screen it was shown on.
         hideActionBar()
-        if (frozen) resumePreview()
-        textOverlay?.clear()
+        if (frozen) {
+            resumePreview()
+        } else {
+            textOverlay?.clearFrame()
+        }
         super.onPause()
     }
 
