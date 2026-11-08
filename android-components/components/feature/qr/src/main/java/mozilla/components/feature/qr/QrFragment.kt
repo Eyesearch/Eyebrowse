@@ -425,7 +425,15 @@ class QrFragment : Fragment() {
         capturedFrame = frame
         // The overlay draws the frame itself, with the same transform it uses for the markers, so
         // the picture and the text can never drift apart and the capture can be zoomed as a whole.
-        textOverlay?.setFrame(frame)
+        // The preview's own rectangle, so the photo lands exactly where the preview was and the
+        // only change the user sees is the text being marked.
+        val previewBounds = RectF(
+            textureView.left.toFloat(),
+            textureView.top.toFloat(),
+            textureView.right.toFloat(),
+            textureView.bottom.toFloat(),
+        )
+        textOverlay?.setFrame(frame, previewBounds)
         // Safe to release only once the overlay no longer draws it.
         previous?.recycle()
         captureButton.isEnabled = true
