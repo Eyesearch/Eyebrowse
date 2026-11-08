@@ -21,8 +21,11 @@ import android.content.Context
 import android.graphics.ImageFormat
 import android.graphics.Matrix
 import android.graphics.Point
+import android.graphics.Color
 import android.graphics.Rect
 import android.graphics.RectF
+import android.graphics.Typeface
+import android.graphics.drawable.GradientDrawable
 import android.graphics.SurfaceTexture
 import android.hardware.camera2.CameraAccessException
 import android.hardware.camera2.CameraCaptureSession
@@ -48,6 +51,7 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.StringRes
@@ -56,7 +60,6 @@ import androidx.core.content.ContextCompat.getColor
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import android.graphics.Bitmap
-import androidx.appcompat.app.AlertDialog
 import com.google.zxing.BinaryBitmap
 import mozilla.components.feature.qr.text.LinkDetector
 import mozilla.components.feature.qr.text.ScanOverlayView
@@ -154,6 +157,9 @@ class QrFragment : Fragment() {
 
     /** True while the frame is captured and the preview is not allowed to move under the boxes. */
     private var frozen = false
+
+    /** The floating row of actions shown next to the selection, if one is up. */
+    private var actionBar: View? = null
 
     internal lateinit var captureButton: ImageButton
 
@@ -303,6 +309,7 @@ class QrFragment : Fragment() {
         val overlay = ScanOverlayView(
             context = requireContext(),
             onSelectionConfirmed = { selection -> showSelectionMenu(selection) },
+            onSelectionCleared = { hideActionBar() },
         )
         root.addView(
             overlay,
@@ -379,6 +386,7 @@ class QrFragment : Fragment() {
      */
     private fun resumePreview() {
         frozen = false
+        hideActionBar()
         textOverlay?.clear()
         captureView.setImageDrawable(null)
         captureView.visibility = View.GONE
@@ -397,34 +405,113 @@ class QrFragment : Fragment() {
      * always follows the user's default.
      */
     private fun showSelectionMenu(selection: ScanSelection) {
+        val root = view as? ViewGroup ?: return
+        val barContext = context ?: return
         val text = selection.text
         val url = LinkDetector.toUrl(text)
-        val dialogContext = context ?: return
-        val options = arrayOf(
-            getString(R.string.mozac_feature_qr_scan_open_link),
-            getString(R.string.mozac_feature_qr_scan_copy_link),
-            getString(R.string.mozac_feature_qr_scan_copy_text),
-            getString(R.string.mozac_feature_qr_scan_search),
+        val density = resources.displayMetrics.density
+
+        hideActionBar()
+
+        val bar = LinearLayout(barContext).apply {
+            orientation = LinearLayout.HORIZONTAL
+            background = GradientDrawable().apply {
+                cornerRadius = ACTION_BAR_CORNER_RADIUS_DP * density
+                setColor(Color.WHITE)
+            }
+            elevation = ACTION_BAR_ELEVATION_DP * density
+        }
+
+        bar.addView(
+            actionButton(getString(R.string.mozac_feature_qr_scan_open_link)) {
+                if (url != null) {
+                    scanCompleteListener?.onScanComplete(url)
+                } else {
+                    Toast.makeText(barContext, R.string.mozac_feature_qr_scan_not_a_link, Toast.LENGTH_SHORT).show()
+                }
+                dismissSelection()
+            },
+        )
+        bar.addView(
+            actionButton(getString(R.string.mozac_feature_qr_scan_copy_link)) {
+                copyToClipboard(url ?: text)
+                dismissSelection()
+            },
+        )
+        bar.addView(
+            actionButton(getString(R.string.mozac_feature_qr_scan_copy_text)) {
+                copyToClipboard(text)
+                dismissSelection()
+            },
+        )
+        bar.addView(
+            actionButton(getString(R.string.mozac_feature_qr_scan_search)) {
+                searchRequestListener?.invoke(text) ?: copyToClipboard(text)
+                dismissSelection()
+            },
         )
 
-        AlertDialog.Builder(dialogContext)
-            .setTitle(text)
-            .setItems(options) { _, which ->
-                when (which) {
-                    ACTION_OPEN_LINK -> if (url != null) {
-                        scanCompleteListener?.onScanComplete(url)
-                    } else {
-                        Toast.makeText(dialogContext, R.string.mozac_feature_qr_scan_not_a_link, Toast.LENGTH_SHORT)
-                            .show()
-                    }
-                    ACTION_COPY_LINK -> copyToClipboard(url ?: text)
-                    ACTION_COPY_TEXT -> copyToClipboard(text)
-                    else -> searchRequestListener?.invoke(text) ?: copyToClipboard(text)
-                }
-            }
-            // Let new frames in again as soon as the user is done with this selection.
-            .setOnDismissListener { textOverlay?.clearSelection() }
-            .show()
+        // addView converts the params to the parent's own type, which is why the bar is added and
+        // then moved with x and y instead of having its layout params replaced later.
+        root.addView(
+            bar,
+            ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+            ),
+        )
+        bar.bringToFront()
+        actionBar = bar
+        // The bar can only be placed once it knows its own size.
+        bar.addOnLayoutChangeListener { laidOut, _, _, _, _, _, _, _, _ -> placeActionBar(laidOut) }
+    }
+
+    /**
+     * Builds one action of the floating bar.
+     */
+    private fun actionButton(label: String, onClick: () -> Unit): TextView {
+        val density = resources.displayMetrics.density
+        return TextView(requireContext()).apply {
+            text = label
+            textSize = ACTION_LABEL_TEXT_SIZE_SP
+            setTextColor(Color.BLACK)
+            typeface = Typeface.DEFAULT_BOLD
+            setPadding(
+                (ACTION_LABEL_PADDING_H_DP * density).toInt(),
+                (ACTION_LABEL_PADDING_V_DP * density).toInt(),
+                (ACTION_LABEL_PADDING_H_DP * density).toInt(),
+                (ACTION_LABEL_PADDING_V_DP * density).toInt(),
+            )
+            isClickable = true
+            setOnClickListener { onClick() }
+        }
+    }
+
+    /**
+     * Puts the bar just under the selection, and above it when there is no room below.
+     */
+    private fun placeActionBar(bar: View) {
+        val root = view ?: return
+        val selection = textOverlay?.selectionBoundsInView() ?: return
+        val margin = ACTION_BAR_MARGIN_DP * resources.displayMetrics.density
+        val maxY = (root.height - bar.height).toFloat().coerceAtLeast(0f)
+        val below = selection.bottom + margin
+        val y = if (below <= maxY) below else selection.top - margin - bar.height
+        bar.x = ((root.width - bar.width) / 2f).coerceAtLeast(0f)
+        bar.y = y.coerceIn(0f, maxY)
+    }
+
+    private fun hideActionBar() {
+        actionBar?.let { bar -> (bar.parent as? ViewGroup)?.removeView(bar) }
+        actionBar = null
+    }
+
+    /**
+     * Ends the whole interaction: the bar goes, the highlight goes, the preview comes back.
+     */
+    private fun dismissSelection() {
+        hideActionBar()
+        textOverlay?.clearSelection()
     }
 
     private fun copyToClipboard(text: String) {
@@ -478,6 +565,7 @@ class QrFragment : Fragment() {
         textRecognizer?.close()
         textRecognizer = null
         // A full screen captured bitmap must not outlive the screen it was shown on.
+        hideActionBar()
         if (frozen) resumePreview()
         textOverlay?.clear()
         super.onPause()
@@ -646,12 +734,10 @@ class QrFragment : Fragment() {
 
     private fun showNoCameraAvailableError() {
         cameraErrorView.visibility = View.VISIBLE
-        customViewFinder.visibility = View.GONE
     }
 
     private fun hideNoCameraAvailableError() {
         cameraErrorView.visibility = View.GONE
-        customViewFinder.visibility = View.VISIBLE
     }
 
     /**
@@ -917,10 +1003,13 @@ class QrFragment : Fragment() {
             }
         }
 
-        // Positions in the action menu, which is built in the same order for every selection.
-        private const val ACTION_OPEN_LINK = 0
-        private const val ACTION_COPY_LINK = 1
-        private const val ACTION_COPY_TEXT = 2
+        // The floating action bar next to a selection.
+        private const val ACTION_BAR_CORNER_RADIUS_DP = 24f
+        private const val ACTION_BAR_ELEVATION_DP = 10f
+        private const val ACTION_BAR_MARGIN_DP = 12f
+        private const val ACTION_LABEL_TEXT_SIZE_SP = 14f
+        private const val ACTION_LABEL_PADDING_H_DP = 16f
+        private const val ACTION_LABEL_PADDING_V_DP = 12f
 
         internal fun readImageSource(image: Image): PlanarYUVLuminanceSource {
             val plane = image.planes[0]
