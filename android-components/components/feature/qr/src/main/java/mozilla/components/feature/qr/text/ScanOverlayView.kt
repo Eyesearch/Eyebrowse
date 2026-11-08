@@ -98,6 +98,12 @@ class ScanOverlayView @JvmOverloads constructor(
     }
 
     private var frame: Bitmap? = null
+
+    /**
+     * The rectangle on screen the photo is shown in: the preview's own rectangle. A capture is
+     * then exactly as big, and in exactly the same place, as the preview was a moment before.
+     */
+    private val target = RectF()
     private var words: List<ScanWord> = emptyList()
     private var selection: ScanSelection? = null
     private var draggingHandle: Handle? = null
@@ -131,8 +137,8 @@ class ScanOverlayView @JvmOverloads constructor(
 
                 zoom = (zoom * detector.scaleFactor).coerceIn(MIN_ZOOM, MAX_ZOOM)
                 val scale = currentScale()
-                panX = focusX - frameX * scale - (width - current.width * scale) / 2f
-                panY = focusY - frameY * scale - (height - current.height * scale) / 2f
+                panX = focusX - frameX * scale - (target.centerX() - current.width * scale / 2f)
+                panY = focusY - frameY * scale - (target.centerY() - current.height * scale / 2f)
                 clampPan()
                 invalidate()
                 return true
@@ -176,13 +182,18 @@ class ScanOverlayView @JvmOverloads constructor(
     )
 
     /**
-     * Shows a captured frame, covering the view, with the zoom reset for a new capture.
+     * Shows a captured frame where the preview was, with the zoom reset for a new capture.
      *
      * @param bitmap The frame the words were read from. The caller keeps ownership and may recycle
      * it after [clearFrame] or after another frame has been set.
+     * @param bounds The rectangle the preview occupied on screen, which is where the photo is
+     * shown. The whole view is used when it is null or empty.
      */
-    fun setFrame(bitmap: Bitmap) {
+    fun setFrame(bitmap: Bitmap, bounds: RectF? = null) {
         frame = bitmap
+        target.set(
+            bounds?.takeIf { !it.isEmpty } ?: RectF(0f, 0f, width.toFloat(), height.toFloat()),
+        )
         zoom = MIN_ZOOM
         panX = 0f
         panY = 0f
@@ -239,10 +250,10 @@ class ScanOverlayView @JvmOverloads constructor(
 
     private fun updateBaseScale() {
         val current = frame ?: return
-        if (width == 0 || height == 0 || current.width == 0 || current.height == 0) return
-        // Show the whole capture, unscaled by us: a photo is shown as it is and only the user
-        // zooms it. Stretching it to fill the screen is what turns small text into fog.
-        baseScale = minOf(width.toFloat() / current.width, height.toFloat() / current.height)
+        if (target.isEmpty || current.width == 0 || current.height == 0) return
+        // Cover the preview's rectangle. The capture is several megapixels, so this is a shrink
+        // and never a stretch, and the picture looks exactly like the preview did.
+        baseScale = maxOf(target.width() / current.width, target.height() / current.height)
     }
 
     private fun currentScale(): Float = baseScale * zoom
@@ -251,16 +262,16 @@ class ScanOverlayView @JvmOverloads constructor(
         val current = frame ?: return PointF()
         val scale = currentScale()
         return PointF(
-            (width - current.width * scale) / 2f + panX,
-            (height - current.height * scale) / 2f + panY,
+            target.centerX() - current.width * scale / 2f + panX,
+            target.centerY() - current.height * scale / 2f + panY,
         )
     }
 
     private fun clampPan() {
         val current = frame ?: return
         val scale = currentScale()
-        val maxX = ((current.width * scale - width) / 2f).coerceAtLeast(0f)
-        val maxY = ((current.height * scale - height) / 2f).coerceAtLeast(0f)
+        val maxX = ((current.width * scale - target.width()) / 2f).coerceAtLeast(0f)
+        val maxY = ((current.height * scale - target.height()) / 2f).coerceAtLeast(0f)
         panX = panX.coerceIn(-maxX, maxX)
         panY = panY.coerceIn(-maxY, maxY)
     }
