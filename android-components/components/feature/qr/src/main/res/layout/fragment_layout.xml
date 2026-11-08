@@ -26,16 +26,6 @@
         android:layout_height="match_parent"
         android:layout_centerInParent="true" />
 
-    <!-- The captured frame is drawn here while its text is being read: the same bitmap the words
-         were found in, scaled the same way the boxes are, so the two cannot drift apart. -->
-    <ImageView
-        android:id="@+id/captured_frame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        android:scaleType="fitCenter"
-        android:visibility="gone" />
-
     <!-- The viewfinder frame is a QR affordance and the scanner now draws boxes over the text
          instead, so it stays out of the way. -->
     <mozilla.components.feature.qr.views.CustomViewFinder
