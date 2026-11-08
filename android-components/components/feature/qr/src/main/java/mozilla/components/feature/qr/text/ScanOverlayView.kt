@@ -271,9 +271,27 @@ class ScanOverlayView @JvmOverloads constructor(
             }
         }
         if (current == null) return
-        canvas.drawRect(toView(current.bounds), selectionOutlinePaint)
+        drawSelectionOutline(canvas, current)
         drawHandle(canvas, handleCenter(current.selectedWords.first(), isStart = true))
         drawHandle(canvas, handleCenter(current.selectedWords.last(), isStart = false))
+    }
+
+    /**
+     * Outlines the selection one line at a time, the way system text selection does.
+     *
+     * A single rectangle around everything would box the whole block the words happen to sit in,
+     * which reads as a frame that has nothing to do with the text the user picked.
+     */
+    private fun drawSelectionOutline(canvas: Canvas, selection: ScanSelection) {
+        selection.selectedWords
+            .groupBy { it.lineIndex }
+            .values
+            .forEach { lineWords ->
+                val line = lineWords
+                    .map { it.bounds }
+                    .reduce { acc, rect -> Rect(acc).apply { union(rect) } }
+                canvas.drawRect(toView(line), selectionOutlinePaint)
+            }
     }
 
     private fun drawHandle(canvas: Canvas, centre: PointF) {
