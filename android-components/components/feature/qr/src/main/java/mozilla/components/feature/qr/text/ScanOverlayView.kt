@@ -38,6 +38,8 @@ import kotlin.math.hypot
  * @param onSelectionConfirmed Called with the selection when the user lifts a handle, or taps a
  * word, which is when the action menu should appear.
  * @param onSelectionCleared Called when the selection goes away, so the menu can go with it.
+ * @param onSelectionMoved Called when the picture is zoomed or panned, so anything anchored to
+ * the selection can follow it.
  */
 class ScanOverlayView @JvmOverloads constructor(
     context: Context,
@@ -45,6 +47,7 @@ class ScanOverlayView @JvmOverloads constructor(
     defStyle: Int = 0,
     private val onSelectionConfirmed: (ScanSelection) -> Unit = {},
     private val onSelectionCleared: () -> Unit = {},
+    private val onSelectionMoved: () -> Unit = {},
 ) : View(context, attrs, defStyle) {
 
     private enum class Handle { START, END }
@@ -141,6 +144,7 @@ class ScanOverlayView @JvmOverloads constructor(
                 panY = focusY - frameY * scale - (target.centerY() - current.height * scale / 2f)
                 clampPan()
                 invalidate()
+                notifySelectionMoved()
                 return true
             }
         },
@@ -226,11 +230,6 @@ class ScanOverlayView @JvmOverloads constructor(
         }
         invalidate()
     }
-
-    /**
-     * @return true while the user has words selected.
-     */
-    fun hasSelection(): Boolean = selection != null
 
     /**
      * Drops the selection, keeping the frame and the words.
@@ -352,6 +351,14 @@ class ScanOverlayView @JvmOverloads constructor(
         invalidate()
     }
 
+    /**
+     * Tells the screen that the selection has moved on the display, so anything anchored to it,
+     * such as the action bar, can follow.
+     */
+    private fun notifySelectionMoved() {
+        if (selection != null) onSelectionMoved()
+    }
+
     private fun confirmSelection() {
         selection?.let(onSelectionConfirmed)
     }
@@ -424,6 +431,7 @@ class ScanOverlayView @JvmOverloads constructor(
                         lastTouchY = event.y
                         clampPan()
                         invalidate()
+                        notifySelectionMoved()
                         return true
                     }
                 }

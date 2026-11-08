@@ -344,6 +344,8 @@ class QrFragment : Fragment() {
             context = requireContext(),
             onSelectionConfirmed = { selection -> showSelectionMenu(selection) },
             onSelectionCleared = { hideActionBar() },
+            // The bar is anchored to the selection, so it follows when the photo is zoomed or panned.
+            onSelectionMoved = { actionBar?.let { placeActionBar(it) } },
         )
         root.addView(
             overlay,
