@@ -87,6 +87,7 @@ import java.util.concurrent.Executors
 import java.util.concurrent.RejectedExecutionException
 import java.util.concurrent.Semaphore
 import java.util.concurrent.TimeUnit
+import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 
@@ -540,14 +541,24 @@ class QrFragment : Fragment() {
     }
 
     /**
-     * @return the largest still size the device offers that stays within [MAX_STILL_PIXELS], so a
-     * capture is sharp without a bitmap big enough to hurt a small phone.
+     * @return the largest still size within [MAX_STILL_PIXELS] that has the same shape as the
+     * sensor's own frame, so the capture covers exactly the field of view the preview showed.
+     *
+     * This is what keeps the picture from changing size at the moment of capture. The preview is a
+     * square crop of the sensor's frame; a still of a different shape, say 16:9 on a 4:3 sensor,
+     * covers a narrower part of the scene, and the photo then looks zoomed in against the preview.
      */
-    private fun chooseStillSize(sizes: Array<Size>): Size {
-        val usable = sizes.filter { it.width.toLong() * it.height <= MAX_STILL_PIXELS }
-        return usable.maxByOrNull { it.width.toLong() * it.height }
-            ?: sizes.minByOrNull { it.width.toLong() * it.height }
-            ?: Size(MAX_PREVIEW_WIDTH, MAX_PREVIEW_HEIGHT)
+    private fun chooseStillSize(sizes: Array<Size>, reference: Size): Size {
+        val referenceAspect = reference.width.toFloat() / reference.height.toFloat()
+        val withinBudget = sizes.filter { it.width.toLong() * it.height <= MAX_STILL_PIXELS }
+        val sameShape = withinBudget.filter {
+            abs(it.width.toFloat() / it.height.toFloat() - referenceAspect) <= STILL_SHAPE_TOLERANCE
+        }
+        return sameShape.maxByOrNull { it.width.toLong() * it.height }
+            ?: withinBudget.minByOrNull {
+                abs(it.width.toFloat() / it.height.toFloat() - referenceAspect)
+            }
+            ?: reference
     }
 
     /**
@@ -826,7 +837,7 @@ class QrFragment : Fragment() {
             // A capture is read from a much larger stream than the preview, so zooming into it
             // shows real detail instead of magnified screen pixels.
             stillReader?.close()
-            val stillSize = chooseStillSize(map.getOutputSizes(ImageFormat.YUV_420_888))
+            val stillSize = chooseStillSize(map.getOutputSizes(ImageFormat.YUV_420_888), largest)
             stillReader = ImageReader.newInstance(stillSize.width, stillSize.height, ImageFormat.YUV_420_888, 2)
                 .apply { setOnImageAvailableListener(stillImageListener, backgroundHandler) }
             stillSurfaceRejected = false
@@ -1191,6 +1202,9 @@ class QrFragment : Fragment() {
 
         /** Captures are read from a stream no larger than this, about three megapixels. */
         private const val MAX_STILL_PIXELS = 3_000_000L
+
+        /** How close two aspect ratios must be to count as the same shape. */
+        private const val STILL_SHAPE_TOLERANCE = 0.02f
 
         /** Recognition does not need the whole photo; this keeps it fast and still accurate. */
         private const val RECOGNITION_MAX_SIDE = 2000
