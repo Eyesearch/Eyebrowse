@@ -144,10 +144,10 @@ class QrFragment : Fragment() {
     private var textRecognitionEnabled = false
 
     /**
-     * Holds the captured frame still on screen while its words are on top of it. Null until the
-     * user captures, and back to null when they go live again.
+     * Shows the captured frame still on screen while its words are on top of it. It lives in the
+     * layout, above the preview and below the boxes, so its scaling is the same as theirs.
      */
-    private var captureView: ImageView? = null
+    internal lateinit var captureView: ImageView
 
     /** The captured frame the boxes were read from, kept only until the user moves on. */
     private var capturedFrame: Bitmap? = null
@@ -300,12 +300,6 @@ class QrFragment : Fragment() {
         val root = view as? ViewGroup ?: return
         if (textOverlay != null) return
 
-        // The captured frame is drawn here, under the boxes, so the picture stops moving at the
-        // moment the button is pressed and the words stay exactly where the user saw them.
-        val capture = ImageView(requireContext()).apply { visibility = View.GONE }
-        root.addView(capture, ViewGroup.LayoutParams(0, 0))
-        captureView = capture
-
         val overlay = ScanOverlayView(
             context = requireContext(),
             onSelectionConfirmed = { selection -> showSelectionMenu(selection) },
@@ -345,7 +339,6 @@ class QrFragment : Fragment() {
      */
     private fun captureFrame() {
         val recognizer = textRecognizer ?: return
-        val view = captureView ?: return
         val bitmap = runCatching { textureView.bitmap }.getOrNull() ?: return
         if (bitmap.width == 0 || bitmap.height == 0) {
             bitmap.recycle()
@@ -356,21 +349,28 @@ class QrFragment : Fragment() {
         val previous = capturedFrame
         capturedFrame = bitmap
 
-        view.setImageBitmap(bitmap)
+        // The view is match_parent with fitCenter, so it draws the bitmap in exactly the rectangle
+        // the overlay maps the boxes into. Nothing here may touch layout parameters: replacing a
+        // RelativeLayout child's params with a plain LayoutParams throws on the next layout pass.
+        captureView.setImageBitmap(bitmap)
         // Safe to release only once the view no longer draws it.
         previous?.recycle()
-        view.x = textureView.x
-        view.y = textureView.y
-        view.layoutParams = ViewGroup.LayoutParams(bitmap.width, bitmap.height)
-        view.visibility = View.VISIBLE
+        captureView.visibility = View.VISIBLE
 
         captureButton.isEnabled = false
         captureButton.setImageResource(R.drawable.mozac_feature_qr_retake)
         captureButton.contentDescription = getString(R.string.mozac_feature_qr_scan_retake)
 
-        recognizer.recognize(bitmap) { words ->
+        try {
+            recognizer.recognize(bitmap) { words ->
+                captureButton.isEnabled = true
+                textOverlay?.setWords(words, bitmap.width, bitmap.height)
+            }
+        } catch (error: Exception) {
+            // A camera screen must never take the app down with it: show the frame, no boxes.
+            logger.warn("Text capture failed: ${error.message}")
             captureButton.isEnabled = true
-            textOverlay?.setWords(words, bitmap.width, bitmap.height)
+            resumePreview()
         }
     }
 
@@ -380,10 +380,8 @@ class QrFragment : Fragment() {
     private fun resumePreview() {
         frozen = false
         textOverlay?.clear()
-        captureView?.apply {
-            setImageDrawable(null)
-            visibility = View.GONE
-        }
+        captureView.setImageDrawable(null)
+        captureView.visibility = View.GONE
         capturedFrame?.recycle()
         capturedFrame = null
         captureButton.isEnabled = true
@@ -444,6 +442,7 @@ class QrFragment : Fragment() {
         cameraErrorView = view.findViewById<View>(R.id.camera_error) as TextView
         captureButton = view.findViewById(R.id.capture_button)
         captureButton.setOnClickListener { onCaptureButtonClicked() }
+        captureView = view.findViewById(R.id.captured_frame)
 
         CustomViewFinder.setMessage(scanMessage)
         qrState = STATE_FIND_QRCODE
