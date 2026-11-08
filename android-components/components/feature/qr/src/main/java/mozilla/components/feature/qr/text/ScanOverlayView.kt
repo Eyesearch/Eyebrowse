@@ -19,28 +19,30 @@ import kotlin.math.abs
 import kotlin.math.hypot
 
 /**
- * Draws a box around every recognised word and lets the user select a run of them.
+ * Highlights the words the user selects, the way a scanner is expected to look.
  *
- * A long press selects the word under the finger and shows two handles. Dragging a handle grows or
- * shrinks the selection word by word, and lifting the finger opens the action menu for everything
- * that is selected. A plain tap is still the quick path: it selects one word and opens the menu for
- * it straight away.
+ * Nothing is drawn over the picture until the user touches it: a long press highlights the word
+ * under the finger in blue and puts a handle at each end. Dragging a handle grows or shrinks the
+ * highlight word by word, and lifting the finger opens the action menu for everything selected. A
+ * plain tap is still the quick path: it selects one word and opens the menu for it straight away.
  *
  * Coordinates come from the captured frame, which is a different size from this view, so the view
- * keeps a scale that maps frame pixels to view pixels. That is why the boxes stay on the words
+ * keeps a scale that maps frame pixels to view pixels. That is why the highlight stays on the words
  * even though the preview and the photo are different resolutions.
  *
- * While a selection is on screen the words are frozen: [setWords] ignores new frames, so the boxes
- * do not move under the user's finger while they are dragging a handle.
+ * While a selection is on screen the words are frozen: [setWords] ignores new frames, so the
+ * highlight does not move under the user's finger while they are dragging a handle.
  *
  * @param onSelectionConfirmed Called with the selection when the user lifts a handle, or taps a
  * word, which is when the action menu should appear.
+ * @param onSelectionCleared Called when the selection goes away, so the menu can go with it.
  */
 class ScanOverlayView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyle: Int = 0,
     private val onSelectionConfirmed: (ScanSelection) -> Unit = {},
+    private val onSelectionCleared: () -> Unit = {},
 ) : View(context, attrs, defStyle) {
 
     private enum class Handle { START, END }
@@ -56,37 +58,28 @@ class ScanOverlayView @JvmOverloads constructor(
     /** A finger is imprecise, so a tap counts when it is slightly outside the word box too. */
     private val tapMargin = 8f * density
 
-    private val boxPaint = Paint().apply {
-        style = Paint.Style.STROKE
-        strokeWidth = 3f
-        color = Color.WHITE
-        isAntiAlias = true
-    }
-
-    private val selectedPaint = Paint().apply {
+    /** The blue of a text highlight, light enough to read the words through it. */
+    private val highlightPaint = Paint().apply {
         style = Paint.Style.FILL
-        color = Color.argb(90, 255, 255, 255)
-    }
-
-    private val selectionOutlinePaint = Paint().apply {
-        style = Paint.Style.STROKE
-        strokeWidth = 4f
-        color = Color.WHITE
+        color = Color.argb(120, 66, 133, 244)
         isAntiAlias = true
     }
 
     private val handlePaint = Paint().apply {
         style = Paint.Style.FILL
-        color = Color.WHITE
+        color = Color.rgb(26, 115, 232)
         isAntiAlias = true
     }
 
     private val handleOutlinePaint = Paint().apply {
         style = Paint.Style.STROKE
-        strokeWidth = 1.5f * density
-        color = Color.argb(120, 0, 0, 0)
+        strokeWidth = 2f * density
+        color = Color.WHITE
         isAntiAlias = true
     }
+
+    /** Corner radius of the highlight, which is what makes it read as a marker and not a box. */
+    private val highlightRadius = 8f * density
 
     private var words: List<ScanWord> = emptyList()
     private var selection: ScanSelection? = null
@@ -163,6 +156,7 @@ class ScanOverlayView @JvmOverloads constructor(
         if (selection == null) return
         selection = null
         invalidate()
+        onSelectionCleared()
     }
 
     /**
@@ -174,6 +168,12 @@ class ScanOverlayView @JvmOverloads constructor(
         draggingHandle = null
         invalidate()
     }
+
+    /**
+     * @return where the selection sits on screen, so the action menu can be placed next to it,
+     * or null when nothing is selected.
+     */
+    fun selectionBoundsInView(): RectF? = selection?.let { toView(it.bounds) }
 
     private fun updateScale() {
         if (frameWidth == 0 || frameHeight == 0 || width == 0 || height == 0) return
@@ -261,28 +261,21 @@ class ScanOverlayView @JvmOverloads constructor(
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        val current = selection
-        words.forEachIndexed { index, word ->
-            val box = toView(word.bounds)
-            if (current != null && current.contains(index)) {
-                canvas.drawRect(box, selectedPaint)
-            } else {
-                canvas.drawRect(box, boxPaint)
-            }
-        }
-        if (current == null) return
-        drawSelectionOutline(canvas, current)
+        // Nothing is drawn until the user selects something: the picture is the point, and boxes
+        // over every word make a page of text unreadable.
+        val current = selection ?: return
+        drawHighlight(canvas, current)
         drawHandle(canvas, handleCenter(current.selectedWords.first(), isStart = true))
         drawHandle(canvas, handleCenter(current.selectedWords.last(), isStart = false))
     }
 
     /**
-     * Outlines the selection one line at a time, the way system text selection does.
+     * Paints the selection one line at a time as a rounded blue marker.
      *
      * A single rectangle around everything would box the whole block the words happen to sit in,
      * which reads as a frame that has nothing to do with the text the user picked.
      */
-    private fun drawSelectionOutline(canvas: Canvas, selection: ScanSelection) {
+    private fun drawHighlight(canvas: Canvas, selection: ScanSelection) {
         selection.selectedWords
             .groupBy { it.lineIndex }
             .values
@@ -290,7 +283,7 @@ class ScanOverlayView @JvmOverloads constructor(
                 val line = lineWords
                     .map { it.bounds }
                     .reduce { acc, rect -> Rect(acc).apply { union(rect) } }
-                canvas.drawRect(toView(line), selectionOutlinePaint)
+                canvas.drawRoundRect(toView(line), highlightRadius, highlightRadius, highlightPaint)
             }
     }
 
