@@ -65,6 +65,11 @@ class ScanOverlayView @JvmOverloads constructor(
 
     private val touchSlop = ViewConfiguration.get(context).scaledTouchSlop.toFloat()
 
+    /** Backdrop behind a capture that does not fill the view, so the live preview never shows. */
+    private val backdropPaint = Paint().apply {
+        color = Color.BLACK
+    }
+
     /** Light marker over every recognised line, so readable text is visible before a selection. */
     private val linePaint = Paint().apply {
         style = Paint.Style.FILL
@@ -235,8 +240,9 @@ class ScanOverlayView @JvmOverloads constructor(
     private fun updateBaseScale() {
         val current = frame ?: return
         if (width == 0 || height == 0 || current.width == 0 || current.height == 0) return
-        // Cover the view: a capture is shown filling the screen, not letterboxed with black bands.
-        baseScale = maxOf(width.toFloat() / current.width, height.toFloat() / current.height)
+        // Show the whole capture, unscaled by us: a photo is shown as it is and only the user
+        // zooms it. Stretching it to fill the screen is what turns small text into fog.
+        baseScale = minOf(width.toFloat() / current.width, height.toFloat() / current.height)
     }
 
     private fun currentScale(): Float = baseScale * zoom
@@ -342,6 +348,7 @@ class ScanOverlayView @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         val current = frame ?: return
+        canvas.drawRect(0f, 0f, width.toFloat(), height.toFloat(), backdropPaint)
         val scale = currentScale()
         val offset = offsets()
         drawMatrix.setScale(scale, scale)
@@ -449,6 +456,6 @@ class ScanOverlayView @JvmOverloads constructor(
 
     private companion object {
         const val MIN_ZOOM = 1f
-        const val MAX_ZOOM = 4f
+        const val MAX_ZOOM = 8f
     }
 }
