@@ -382,6 +382,21 @@
             </intent-filter>
         </service>
 
+        <!-- Eyebrowse: the door Indo Account comes back through. -->
+        <activity
+            android:name="org.eyesearch.eyebrowse.account.IndoAccountAuthActivity"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:theme="@style/NormalTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="indobrowse" android:host="auth" />
+            </intent-filter>
+        </activity>
+
         <meta-data
             android:name="firebase_messaging_auto_init_enabled"
             android:value="true" />

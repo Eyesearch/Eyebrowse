@@ -580,6 +580,18 @@
     <!-- Browser menu row that turns the browser's own protection off for the open site -->
     <string name="eyeblock_turn_off_site">Turn off protection for this site</string>
     <!-- Advanced settings switch: Eyebrowse's own ad blocker -->
+    <!-- Indo Account: identity only, the web panel keeps the settings -->
+    <string name="preferences_indo_account">Indo Account</string>
+    <string name="preferences_indo_account_signed_out">Continue with Indo Account</string>
+    <string name="preferences_indo_account_sign_out">Sign out of Indo Account</string>
+    <string name="indo_account_signed_in">Signed in to Indo Account</string>
+    <string name="indo_account_signed_out_toast">Signed out of Indo Account</string>
+    <string name="indo_account_error_missing_code">The account did not send a sign-in code.</string>
+    <string name="indo_account_error_state">That sign-in did not start here, so it was refused.</string>
+    <string name="indo_account_error_exchange">Sign in could not be completed. Try again.</string>
+    <string name="indo_account_profile_line">%1$s · %2$s</string>
+    <string name="indo_account_profile_loading">Reading your account…</string>
+
     <string name="preferences_eyeblock">EyeBlock</string>
     <!-- Summary for the EyeBlock switch -->
     <string name="preferences_eyeblock_summary">Our own ad blocker, block ads and trackers</string>

@@ -144,6 +144,19 @@
         android:title="@string/preferences_category_advanced"
         android:key="@string/pref_key_advanced"
         android:layout="@layout/preference_category_no_icon_style">
+        <androidx.preference.Preference
+            android:key="@string/pref_key_indo_account"
+            android:title="@string/preferences_indo_account"
+            android:summary="@string/preferences_indo_account_signed_out"
+            app:iconSpaceReserved="false" />
+
+        <androidx.preference.Preference
+            android:key="@string/pref_key_indo_account_sign_out"
+            android:title="@string/preferences_indo_account_sign_out"
+            android:persistent="false"
+            app:iconSpaceReserved="false"
+            app:isPreferenceVisible="false" />
+
         <androidx.preference.SwitchPreference
             android:key="@string/pref_key_eyeblock"
             android:title="@string/preferences_eyeblock"
