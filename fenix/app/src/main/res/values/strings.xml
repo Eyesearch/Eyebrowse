@@ -573,6 +573,10 @@
     <string name="eyebrowse_setup_disable_chrome">Disable Chrome</string>
     <!-- First run screen: button that closes the screen -->
     <string name="eyebrowse_setup_later">Not now</string>
+    <!-- Advanced settings switch: Eyebrowse's own ad blocker -->
+    <string name="preferences_eyeblock">EyeBlock</string>
+    <!-- Summary for the EyeBlock switch -->
+    <string name="preferences_eyeblock_summary">Our own ad blocker, block ads and trackers</string>
     <!-- Preference that opens Chrome's app info screen, where Android offers to disable it -->
     <string name="preferences_disable_chrome">Disable Chrome</string>
     <!-- Summary for the Disable Chrome preference -->
