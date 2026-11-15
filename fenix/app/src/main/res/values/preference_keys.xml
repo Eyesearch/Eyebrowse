@@ -219,6 +219,7 @@
     <string name="pref_key_open_links_in_external_app_old" translatable="false">pref_key_open_links_in_external_app</string>
     <string name="pref_key_open_links_in_apps" translatable="false">pref_key_open_links_in_apps</string>
     <string name="pref_key_disable_chrome" translatable="false">pref_key_disable_chrome</string>
+    <string name="pref_key_eyeblock" translatable="false">pref_key_eyeblock</string>
     <string name="pref_key_should_show_eyebrowse_setup" translatable="false">pref_key_should_show_eyebrowse_setup</string>
     <string name="pref_key_open_links_in_apps_always" translatable="false">pref_key_open_links_in_apps_always</string>
     <string name="pref_key_open_links_in_apps_ask" translatable="false">pref_key_open_links_in_apps_ask</string>

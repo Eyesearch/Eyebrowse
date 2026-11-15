@@ -409,6 +409,23 @@ class SettingsFragment : PreferenceFragmentCompat() {
         return super.onPreferenceTreeClick(preference)
     }
 
+    /**
+     * EyeBlock, our own ad blocker. The switch only stores the choice; the blocking itself is
+     * applied when a page is created or reloaded, so a page already open keeps its policy until it
+     * is loaded again.
+     */
+    private fun setupEyeblockPreference() {
+        val preference = findPreference<SwitchPreference>(getPreferenceKey(R.string.pref_key_eyeblock))
+            ?: return
+        val settings = context?.settings() ?: return
+
+        preference.isChecked = settings.eyeblockEnabled
+        preference.setOnPreferenceChangeListener { _, newValue ->
+            settings.eyeblockEnabled = newValue == true
+            true
+        }
+    }
+
     private fun setupPreferences() {
         val leakKey = getPreferenceKey(R.string.pref_key_leakcanary)
         val debuggingKey = getPreferenceKey(R.string.pref_key_remote_debugging)
@@ -458,6 +475,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
             preferenceStartProfiler?.isVisible = showSecretDebugMenuThisSession &&
                 (requireContext().components.core.engine.profiler?.isProfilerActive() != null)
         }
+        setupEyeblockPreference()
         setupCookieBannerPreference()
         setupGeckoLogsPreference(requireContext().settings())
         setupAllowDomesticChinaFxaServerPreference()

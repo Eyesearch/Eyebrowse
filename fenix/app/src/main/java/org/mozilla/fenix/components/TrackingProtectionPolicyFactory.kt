@@ -35,8 +35,11 @@ class TrackingProtectionPolicyFactory(
         normalMode: Boolean = settings.shouldUseTrackingProtection,
         privateMode: Boolean = settings.shouldUseTrackingProtection,
     ): TrackingProtectionPolicy {
-        // Eyebrowse: remote kill-switch for content blocking / adblocking.
-        if (!RemoteConfigManager.isFeatureEnabled(RemoteConfigManager.KEY_ENABLE_ADBLOCKER)) {
+        // Eyebrowse: remote kill-switch for content blocking / adblocking, and the user's own
+        // EyeBlock switch in Advanced. Either one being off means normal browsing, ads included.
+        if (!RemoteConfigManager.isFeatureEnabled(RemoteConfigManager.KEY_ENABLE_ADBLOCKER) ||
+            !settings.eyeblockEnabled
+        ) {
             return TrackingProtectionPolicy.none()
         }
 

@@ -182,6 +182,15 @@ class Settings(private val appContext: Context) : PreferencesHolder {
         default = true,
     )
 
+    /**
+     * EyeBlock, our own ad blocker. On means ads and trackers are blocked while browsing, off means
+     * the browser behaves like it did before the blocker existed.
+     */
+    var eyeblockEnabled by booleanPreference(
+        appContext.getPreferenceKey(R.string.pref_key_eyeblock),
+        default = true,
+    )
+
     var adjustCampaignId by stringPreference(
         appContext.getPreferenceKey(R.string.pref_key_adjust_campaign),
         default = "",
