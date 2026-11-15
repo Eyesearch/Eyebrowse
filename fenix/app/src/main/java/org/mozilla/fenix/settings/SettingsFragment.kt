@@ -13,7 +13,6 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.provider.Settings as AndroidSettings
 import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.annotation.VisibleForTesting
@@ -54,6 +53,7 @@ import org.mozilla.fenix.ext.application
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.getPreferenceKey
 import org.mozilla.fenix.ext.navigateToNotificationsSettings
+import org.mozilla.fenix.ext.openChromeAppInfo
 import org.mozilla.fenix.ext.openSetDefaultBrowserOption
 import org.mozilla.fenix.ext.requireComponents
 import org.mozilla.fenix.ext.settings
@@ -347,7 +347,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
             /* Advanced preferences */
             resources.getString(R.string.pref_key_disable_chrome) -> {
-                openChromeAppInfo()
+                context?.openChromeAppInfo()
                 null
             }
 
@@ -407,31 +407,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
         }
         directions?.let { navigateFromSettings(directions) }
         return super.onPreferenceTreeClick(preference)
-    }
-
-    /**
-     * Sends the user to Chrome's app info screen, which is the one place Android offers to disable
-     * it. An app cannot disable another app itself, so the best we can do is open that screen.
-     */
-    private fun openChromeAppInfo() {
-        val context = context ?: return
-        val chromeInstalled = runCatching {
-            context.packageManager.getApplicationInfo(CHROME_PACKAGE, 0)
-        }.isSuccess
-
-        if (!chromeInstalled) {
-            Toast.makeText(context, R.string.preferences_disable_chrome_missing, Toast.LENGTH_LONG).show()
-            return
-        }
-
-        val intent = Intent(AndroidSettings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
-            data = Uri.fromParts("package", CHROME_PACKAGE, null)
-        }
-        try {
-            startActivity(intent)
-        } catch (error: ActivityNotFoundException) {
-            Toast.makeText(context, R.string.preferences_disable_chrome_missing, Toast.LENGTH_LONG).show()
-        }
     }
 
     private fun setupPreferences() {
@@ -708,9 +683,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
     }
 
     companion object {
-        /** The package Android installs Chrome under on every device that ships with it. */
-        private const val CHROME_PACKAGE = "com.android.chrome"
-
         private const val SCROLL_INDICATOR_DELAY = 10L
         private const val FXA_SYNC_OVERRIDE_EXIT_DELAY = 2000L
         private const val AMO_COLLECTION_OVERRIDE_EXIT_DELAY = 3000L

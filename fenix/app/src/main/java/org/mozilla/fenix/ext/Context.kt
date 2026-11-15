@@ -5,15 +5,18 @@
 package org.mozilla.fenix.ext
 
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
+import android.net.Uri
 import android.os.Build
 import android.provider.Settings
 import android.view.ContextThemeWrapper
 import android.view.View
 import android.view.ViewGroup
 import android.view.accessibility.AccessibilityManager
+import android.widget.Toast
 import androidx.annotation.StringRes
 import mozilla.components.support.locale.LocaleManager
 import org.mozilla.fenix.FenixApplication
@@ -47,6 +50,37 @@ fun Context.asActivity() = (this as? ContextThemeWrapper)?.baseContext as? Activ
 
 fun Context.getPreferenceKey(@StringRes resourceId: Int): String =
     resources.getString(resourceId)
+
+/**
+ * The package Android installs Chrome under on every device that ships with it.
+ */
+private const val CHROME_PACKAGE = "com.android.chrome"
+
+/**
+ * Opens Chrome's app info screen, which is the one place Android offers to disable it.
+ *
+ * An app cannot disable another app itself, so the closest we can get is taking the user to the
+ * screen that has the button.
+ */
+fun Context.openChromeAppInfo() {
+    val installed = runCatching {
+        packageManager.getApplicationInfo(CHROME_PACKAGE, 0)
+    }.isSuccess
+
+    if (!installed) {
+        Toast.makeText(this, R.string.preferences_disable_chrome_missing, Toast.LENGTH_LONG).show()
+        return
+    }
+
+    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+        data = Uri.fromParts("package", CHROME_PACKAGE, null)
+    }
+    try {
+        startActivity(intent)
+    } catch (error: ActivityNotFoundException) {
+        Toast.makeText(this, R.string.preferences_disable_chrome_missing, Toast.LENGTH_LONG).show()
+    }
+}
 
 /**
  * Gets the Root View with an activity context

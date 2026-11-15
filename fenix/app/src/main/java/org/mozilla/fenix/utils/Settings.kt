@@ -173,6 +173,15 @@ class Settings(private val appContext: Context) : PreferencesHolder {
         default = false,
     )
 
+    /**
+     * Indicates whether the first run screen, default browser and Disable Chrome, is still to be
+     * shown. It is shown once and then never again.
+     */
+    var showEyebrowseSetup by booleanPreference(
+        appContext.getPreferenceKey(R.string.pref_key_should_show_eyebrowse_setup),
+        default = true,
+    )
+
     var adjustCampaignId by stringPreference(
         appContext.getPreferenceKey(R.string.pref_key_adjust_campaign),
         default = "",

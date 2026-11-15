@@ -117,6 +117,7 @@ import org.mozilla.fenix.library.bookmarks.DesktopFolders
 import org.mozilla.fenix.messaging.FenixMessageSurfaceId
 import org.mozilla.fenix.messaging.MessageNotificationWorker
 import org.mozilla.fenix.nimbus.FxNimbus
+import org.mozilla.fenix.onboarding.EyebrowseSetupDialogFragment
 import org.mozilla.fenix.onboarding.ReEngagementNotificationWorker
 import org.mozilla.fenix.perf.MarkersActivityLifecycleCallbacks
 import org.mozilla.fenix.perf.MarkersFragmentLifecycleCallbacks
@@ -302,6 +303,15 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
 
             if (settings().showHomeOnboardingDialog && components.fenixOnboarding.userHasBeenOnboarded()) {
                 navHost.navController.navigate(NavGraphDirections.actionGlobalHomeOnboardingDialog())
+            }
+
+            // First run: make Eyebrowse the browser and turn Chrome off. Shown once, and never when
+            // this is already the browser that opens links.
+            if (savedInstanceState == null && EyebrowseSetupDialogFragment.shouldShow(this)) {
+                EyebrowseSetupDialogFragment().show(
+                    supportFragmentManager,
+                    EyebrowseSetupDialogFragment.TAG,
+                )
             }
         }
 
