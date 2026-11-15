@@ -145,6 +145,12 @@
         android:key="@string/pref_key_advanced"
         android:layout="@layout/preference_category_no_icon_style">
         <androidx.preference.Preference
+            android:key="@string/pref_key_disable_chrome"
+            android:title="@string/preferences_disable_chrome"
+            android:summary="@string/preferences_disable_chrome_summary"
+            app:iconSpaceReserved="false" />
+
+        <androidx.preference.Preference
             android:key="@string/pref_key_open_links_in_apps"
             android:title="@string/preferences_open_links_in_apps"
             app:iconSpaceReserved="false" />

@@ -563,6 +563,12 @@
     <string name="preferences_open_links_in_apps_ask">Ask before opening</string>
     <!-- Preference for open links in third party apps never open in apps option -->
     <string name="preferences_open_links_in_apps_never">Never</string>
+    <!-- Preference that opens Chrome's app info screen, where Android offers to disable it -->
+    <string name="preferences_disable_chrome">Disable Chrome</string>
+    <!-- Summary for the Disable Chrome preference -->
+    <string name="preferences_disable_chrome_summary">Opens Chrome\'s app info, where you can turn it off</string>
+    <!-- Shown when the Disable Chrome preference is tapped but Chrome is not installed -->
+    <string name="preferences_disable_chrome_missing">Chrome is not installed on this device</string>
     <!-- Preference for open download with an external download manager app -->
     <string name="preferences_external_download_manager">External download manager</string>
     <!-- Preference for enabling gecko engine logs -->
