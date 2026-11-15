@@ -72,7 +72,7 @@ class IndoAccountClient(private val client: Client) {
                 url = IndoAccountConfig.API_BASE + IndoAccountConfig.PROFILE_PATH,
                 method = Request.Method.GET,
                 headers = MutableHeaders(
-                    Headers.Names.AUTHORIZATION to "Bearer $token",
+                    "Authorization" to "Bearer $token",
                     Headers.Names.CONTENT_TYPE to Headers.Values.CONTENT_TYPE_APPLICATION_JSON,
                 ),
             ),
