@@ -33,6 +33,7 @@ import org.mozilla.fenix.home.recentvisits.view.RecentlyVisitedViewHolder
 import org.mozilla.fenix.home.sessioncontrol.viewholders.CollectionHeaderViewHolder
 import org.mozilla.fenix.home.sessioncontrol.viewholders.CustomizeHomeButtonViewHolder
 import org.mozilla.fenix.home.sessioncontrol.viewholders.NoCollectionsMessageViewHolder
+import org.mozilla.fenix.home.sessioncontrol.viewholders.OurAppsViewHolder
 import org.mozilla.fenix.home.sessioncontrol.viewholders.PrivateBrowsingDescriptionViewHolder
 import org.mozilla.fenix.home.sessioncontrol.viewholders.onboarding.MessageCardViewHolder
 import org.mozilla.fenix.home.topsites.TopSitePagerViewHolder
@@ -165,6 +166,11 @@ sealed class AdapterItem(@LayoutRes val viewType: Int) {
     object BottomSpacer : AdapterItem(BottomSpacerViewHolder.LAYOUT_ID)
 
     /**
+     * Our own marks, Indo Workspace and Sankalp, as two quiet tiles on the home screen.
+     */
+    object OurApps : AdapterItem(OurAppsViewHolder.LAYOUT_ID)
+
+    /**
      * True if this item represents the same value as other. Used by [AdapterItemDiffCallback].
      */
     open fun sameAs(other: AdapterItem) = this::class == other::class
@@ -200,6 +206,10 @@ class SessionControlAdapter(
     @SuppressWarnings("ComplexMethod", "LongMethod", "ReturnCount")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         when (viewType) {
+            OurAppsViewHolder.LAYOUT_ID -> return OurAppsViewHolder(
+                composeView = ComposeView(parent.context),
+                viewLifecycleOwner = viewLifecycleOwner,
+            )
             CustomizeHomeButtonViewHolder.LAYOUT_ID -> return CustomizeHomeButtonViewHolder(
                 composeView = ComposeView(parent.context),
                 viewLifecycleOwner = viewLifecycleOwner,
