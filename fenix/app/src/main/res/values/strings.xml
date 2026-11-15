@@ -563,6 +563,16 @@
     <string name="preferences_open_links_in_apps_ask">Ask before opening</string>
     <!-- Preference for open links in third party apps never open in apps option -->
     <string name="preferences_open_links_in_apps_never">Never</string>
+    <!-- First run screen: title -->
+    <string name="eyebrowse_setup_title">Welcome to Eyebrowse</string>
+    <!-- First run screen: what the two steps are -->
+    <string name="eyebrowse_setup_message">Two steps and you are done. Make Eyebrowse the browser that opens your links, and turn Chrome off so nothing takes you back to it.</string>
+    <!-- First run screen: button that opens the system default browser choice -->
+    <string name="eyebrowse_setup_set_default">Set as default browser</string>
+    <!-- First run screen: button that opens Chrome's app info -->
+    <string name="eyebrowse_setup_disable_chrome">Disable Chrome</string>
+    <!-- First run screen: button that closes the screen -->
+    <string name="eyebrowse_setup_later">Not now</string>
     <!-- Preference that opens Chrome's app info screen, where Android offers to disable it -->
     <string name="preferences_disable_chrome">Disable Chrome</string>
     <!-- Summary for the Disable Chrome preference -->
