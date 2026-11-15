@@ -12,11 +12,17 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
+import mozilla.components.support.locale.LocaleUseCases
 import mozilla.components.support.utils.BrowsersCache
 import org.mozilla.fenix.R
 import org.mozilla.fenix.ext.openChromeAppInfo
 import org.mozilla.fenix.ext.openSetDefaultBrowserOption
+import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.settings
+import org.mozilla.fenix.settings.advanced.DefaultLocaleSettingsController
+import org.mozilla.fenix.settings.advanced.LocaleSettingsStore
+import org.mozilla.fenix.settings.advanced.createInitialLocaleSettingsState
+import java.util.Locale
 
 /**
  * The first screen a new user sees: make Eyebrowse the browser, and turn Chrome off.
@@ -42,6 +48,12 @@ class EyebrowseSetupDialogFragment : DialogFragment() {
             chromeContext?.openChromeAppInfo()
         }
 
+        view.findViewById<View>(R.id.setup_use_kannada).setOnClickListener {
+            val host = activity
+            dismiss()
+            host?.let { useKannada(it) }
+        }
+
         view.findViewById<View>(R.id.setup_later).setOnClickListener {
             dismiss()
         }
@@ -49,6 +61,21 @@ class EyebrowseSetupDialogFragment : DialogFragment() {
         return AlertDialog.Builder(dialogContext)
             .setView(view)
             .create()
+    }
+
+    /**
+     * Switches the whole app to Kannada, using the same controller the Language settings screen
+     * uses, so the choice is stored where that screen expects to find it.
+     */
+    private fun useKannada(host: android.app.Activity) {
+        val context = host.applicationContext
+        val browserStore = context.components.core.store
+        DefaultLocaleSettingsController(
+            activity = host,
+            localeSettingsStore = LocaleSettingsStore(createInitialLocaleSettingsState(context)),
+            browserStore = browserStore,
+            localeUseCase = LocaleUseCases(browserStore),
+        ).handleLocaleSelected(Locale.forLanguageTag(KANNADA_LANGUAGE_TAG))
     }
 
     override fun onDismiss(dialog: DialogInterface) {
@@ -59,6 +86,8 @@ class EyebrowseSetupDialogFragment : DialogFragment() {
 
     companion object {
         const val TAG = "EyebrowseSetupDialogFragment"
+
+        private const val KANNADA_LANGUAGE_TAG = "kn-IN"
 
         /**
          * @return true when the screen is worth showing: the user has not seen it, and this is not

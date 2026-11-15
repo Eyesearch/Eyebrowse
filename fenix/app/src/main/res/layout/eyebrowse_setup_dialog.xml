@@ -44,6 +44,14 @@
             android:text="@string/eyebrowse_setup_disable_chrome" />
 
         <Button
+            android:id="@+id/setup_use_kannada"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/eyebrowse_setup_use_kannada" />
+
+        <Button
             android:id="@+id/setup_later"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"

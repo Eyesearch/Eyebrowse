@@ -571,6 +571,8 @@
     <string name="eyebrowse_setup_set_default">Set as default browser</string>
     <!-- First run screen: button that opens Chrome's app info -->
     <string name="eyebrowse_setup_disable_chrome">Disable Chrome</string>
+    <!-- First run screen: switches the whole app to Kannada -->
+    <string name="eyebrowse_setup_use_kannada">ಕನ್ನಡದಲ್ಲಿ ಬಳಸಿ</string>
     <!-- First run screen: button that closes the screen -->
     <string name="eyebrowse_setup_later">Not now</string>
     <!-- Browser menu row while the blocked count is still loading -->
