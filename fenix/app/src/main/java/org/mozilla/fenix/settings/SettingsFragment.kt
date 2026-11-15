@@ -48,6 +48,10 @@ import org.mozilla.fenix.GleanMetrics.CookieBanners
 import org.mozilla.fenix.GleanMetrics.Events
 import org.mozilla.fenix.GleanMetrics.TrackingProtection
 import org.mozilla.fenix.HomeActivity
+import org.eyesearch.eyebrowse.account.IndoAccountClient
+import org.eyesearch.eyebrowse.account.IndoAccountEntry
+import org.eyesearch.eyebrowse.account.IndoAccountError
+import org.eyesearch.eyebrowse.account.IndoAccountStorage
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.accounts.FenixFxAEntryPoint
 import org.mozilla.fenix.ext.application
@@ -431,6 +435,71 @@ class SettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
+    /**
+     * Indo Account: one row. Signed out it starts the sign-in; signed in it shows the live Indo ID and
+     * display name and opens the web panel, where every setting actually lives. The profile is read
+     * from the account on each open and is never copied into local storage.
+     */
+    private fun setupIndoAccountPreferences() {
+        val context = context ?: return
+        val storage = IndoAccountStorage(context)
+        val accountPreference =
+            findPreference<Preference>(getPreferenceKey(R.string.pref_key_indo_account)) ?: return
+        val signOutPreference =
+            findPreference<Preference>(getPreferenceKey(R.string.pref_key_indo_account_sign_out)) ?: return
+
+        signOutPreference.isVisible = storage.isSignedIn()
+
+        if (!storage.isSignedIn()) {
+            accountPreference.summary = getString(R.string.preferences_indo_account_signed_out)
+        } else {
+            accountPreference.summary = getString(R.string.indo_account_profile_loading)
+            val token = storage.token()
+            if (token != null) {
+                viewLifecycleOwner.lifecycleScope.launch {
+                    try {
+                        val profile = IndoAccountClient(requireContext().components.core.client)
+                            .profile(token)
+                        accountPreference.summary = getString(
+                            R.string.indo_account_profile_line,
+                            profile.displayName,
+                            profile.indoId,
+                        )
+                    } catch (error: IndoAccountError) {
+                        if (error.status == 401) {
+                            // The token is no longer good: drop it and go back to the entry point.
+                            storage.signOut()
+                            signOutPreference.isVisible = false
+                            accountPreference.summary =
+                                getString(R.string.preferences_indo_account_signed_out)
+                        } else {
+                            accountPreference.summary =
+                                getString(R.string.preferences_indo_account_signed_out)
+                        }
+                    }
+                }
+            }
+        }
+
+        accountPreference.setOnPreferenceClickListener {
+            if (storage.isSignedIn()) {
+                IndoAccountEntry.openManagement(requireContext())
+            } else {
+                IndoAccountEntry.startSignIn(requireContext())
+            }
+            true
+        }
+
+        signOutPreference.setOnPreferenceClickListener {
+            storage.signOut()
+            signOutPreference.isVisible = false
+            accountPreference.summary = getString(R.string.preferences_indo_account_signed_out)
+            Toast.makeText(requireContext(), R.string.indo_account_signed_out_toast, Toast.LENGTH_SHORT)
+                .show()
+            true
+        }
+    }
+
     private fun setupPreferences() {
         val leakKey = getPreferenceKey(R.string.pref_key_leakcanary)
         val debuggingKey = getPreferenceKey(R.string.pref_key_remote_debugging)
@@ -481,6 +550,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
                 (requireContext().components.core.engine.profiler?.isProfilerActive() != null)
         }
         setupEyeblockPreference()
+        setupIndoAccountPreferences()
         setupCookieBannerPreference()
         setupGeckoLogsPreference(requireContext().settings())
         setupAllowDomesticChinaFxaServerPreference()
