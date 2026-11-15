@@ -50,6 +50,9 @@ internal fun normalModeAdapterItems(
     // Add a synchronous, unconditional and invisible placeholder so home is anchored to the top when created.
     items.add(AdapterItem.TopPlaceholderItem)
 
+    // Our own apps, always first: Indo Workspace then Sankalp.
+    items.add(AdapterItem.OurApps)
+
     nimbusMessageCard?.let {
         items.add(AdapterItem.NimbusMessageCard(it))
     }
