@@ -91,6 +91,7 @@ import org.mozilla.fenix.AppRequestInterceptor
 import org.mozilla.fenix.BuildConfig
 import org.mozilla.fenix.Config
 import org.mozilla.fenix.IntentReceiverActivity
+import org.eyesearch.eyebrowse.core.EyeblockSupport
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.search.SearchMigration
 import org.mozilla.fenix.downloads.DownloadService
@@ -308,6 +309,10 @@ class Core(
         ).apply {
             // Install the "icons" WebExtension to automatically load icons for every visited website.
             icons.install(engine, this)
+
+            // Eyebrowse: EyeBlock, uBlock Origin bundled in the APK. Installed once here, then
+            // switched on or off by the EyeBlock preference in Advanced settings.
+            EyeblockSupport.install(engine, context.settings().eyeblockEnabled)
 
             // Eyebrowse: the SERP provider list is no longer fetched from Mozilla's remote
             // settings. The ads and cookies WebExtensions are still installed so search keeps
