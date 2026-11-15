@@ -7,11 +7,12 @@ package org.mozilla.fenix.home.sessioncontrol.viewholders
 import android.view.View
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -22,12 +23,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.LifecycleOwner
@@ -37,12 +40,10 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.ComposeViewHolder
 
 /**
- * Six tiles under the toolbar: our own two marks first, then the services beside them.
+ * Six tiles under the toolbar, built like a pinned top site: the mark on top, the name under it,
+ * a hairline edge and a soft shadow, so each one reads as a button and not as an empty white box.
  *
  * Row one is Indo Workspace, Sankalp and Zoho. Row two is IRCTC, DigiLocker and Passport Seva.
- * Two of those marks are not ours and are not in the app yet, so those two tiles show their name
- * until the real files are dropped in; a tile with a name is honest, a made-up logo is not.
- *
  * Each tile opens its page in a new tab of this browser.
  */
 class OurAppsViewHolder(
@@ -53,11 +54,15 @@ class OurAppsViewHolder(
     private data class AppTile(
         val label: String,
         val url: String,
-        val mark: Int? = null,
+        val mark: Int,
     )
 
     companion object {
         val LAYOUT_ID = View.generateViewId()
+
+        private val TILE_SHAPE = RoundedCornerShape(12.dp)
+        private val TILE_EDGE = Color(0xFFE3E3E8)
+        private val LABEL_COLOUR = Color(0xFF1B1B1F)
 
         private val FIRST_ROW = listOf(
             AppTile("Indo Workspace", "https://indoworkspace.in/", R.drawable.ic_indo_workspace),
@@ -66,9 +71,9 @@ class OurAppsViewHolder(
         )
 
         private val SECOND_ROW = listOf(
-            AppTile("IRCTC", "https://www.irctc.co.in/"),
+            AppTile("IRCTC", "https://www.irctc.co.in/", R.drawable.ic_irctc),
             AppTile("DigiLocker", "https://www.digilocker.gov.in/", R.drawable.ic_digilocker),
-            AppTile("Passport Seva", "https://www.passportindia.gov.in/"),
+            AppTile("Passport Seva", "https://www.passportindia.gov.in/", R.drawable.ic_passport_seva),
         )
     }
 
@@ -103,11 +108,13 @@ class OurAppsViewHolder(
     @Composable
     private fun Tile(tile: AppTile, modifier: Modifier) {
         val context = LocalContext.current
-        Box(
+        Column(
             modifier = modifier
-                .height(72.dp)
-                .clip(RoundedCornerShape(16.dp))
+                .height(86.dp)
+                .shadow(elevation = 1.dp, shape = TILE_SHAPE)
+                .clip(TILE_SHAPE)
                 .background(Color.White)
+                .border(width = 1.dp, color = TILE_EDGE, shape = TILE_SHAPE)
                 .clickable {
                     // The marks sit on white, so the tile stays white in both themes rather than
                     // turning into a bright square in the middle of a dark home screen.
@@ -116,26 +123,26 @@ class OurAppsViewHolder(
                         newTab = true,
                         from = BrowserDirection.FromHome,
                     )
-                },
-            contentAlignment = Alignment.Center,
+                }
+                .padding(horizontal = 6.dp, vertical = 8.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
         ) {
-            val mark = tile.mark
-            if (mark != null) {
-                Image(
-                    painter = painterResource(mark),
-                    contentDescription = tile.label,
-                    modifier = Modifier.size(40.dp),
-                    contentScale = ContentScale.Fit,
-                )
-            } else {
-                Text(
-                    text = tile.label,
-                    color = Color(0xFF1B1B1F),
-                    fontSize = 11.sp,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(horizontal = 6.dp),
-                )
-            }
+            Image(
+                painter = painterResource(tile.mark),
+                contentDescription = tile.label,
+                modifier = Modifier.size(36.dp),
+                contentScale = ContentScale.Fit,
+            )
+            Spacer(modifier = Modifier.height(6.dp))
+            Text(
+                text = tile.label,
+                color = LABEL_COLOUR,
+                fontSize = 10.sp,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                textAlign = TextAlign.Center,
+            )
         }
     }
 }
