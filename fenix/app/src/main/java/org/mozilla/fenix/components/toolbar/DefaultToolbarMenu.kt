@@ -33,6 +33,7 @@ import mozilla.components.feature.top.sites.PinnedSiteStorage
 import mozilla.components.lib.state.ext.flowScoped
 import mozilla.components.support.ktx.android.content.getColorFromAttr
 import mozilla.components.support.ktx.kotlinx.coroutines.flow.ifAnyChanged
+import org.eyesearch.eyebrowse.core.EyeblockMenuRow
 import org.mozilla.fenix.Config
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.accounts.FenixAccountManager
@@ -380,6 +381,44 @@ open class DefaultToolbarMenu(
         }
     }
 
+    /**
+     * How many requests were blocked on the page that is open. The count comes from the engine, so
+     * the row fills itself in when the menu is shown.
+     */
+    private val eyeblockCountItem = EyeblockMenuRow(
+        loadingLabel = context.getString(R.string.eyeblock_menu_count_loading),
+        countLabel = { count -> context.getString(R.string.eyeblock_menu_count, count) },
+        loadCount = { onResult ->
+            val tabId = store.state.selectedTabId
+            if (tabId == null) {
+                onResult(0)
+            } else {
+                context.components.useCases.trackingProtectionUseCases.fetchTrackingLogs(
+                    tabId,
+                    onSuccess = { logs -> onResult(logs.size) },
+                    onError = { onResult(0) },
+                )
+            }
+        },
+        visibleProvider = ::isOnAWebPage,
+    )
+
+    /** Turns the browser's own protection off for this site only; EyeBlock keeps running. */
+    private val eyeblockSiteItem = BrowserMenuImageText(
+        label = context.getString(R.string.eyeblock_turn_off_site),
+        imageResource = R.drawable.ic_tracking_protection_disabled,
+        iconTintColorResource = primaryTextColor(),
+    ) {
+        store.state.selectedTabId?.let { tabId ->
+            context.components.useCases.trackingProtectionUseCases.addException(tabId)
+        }
+    }.apply { visible = ::isOnAWebPage }
+
+    private fun isOnAWebPage(): Boolean {
+        val url = store.state.selectedTab?.content?.url ?: return false
+        return url.startsWith("http")
+    }
+
     @VisibleForTesting(otherwise = PRIVATE)
     val coreMenuItems by lazy {
         val menuItems =
@@ -390,6 +429,8 @@ open class DefaultToolbarMenu(
                 bookmarksItem,
                 historyItem,
                 downloadsItem,
+                eyeblockCountItem,
+                eyeblockSiteItem,
                 syncMenuItem(),
                 BrowserMenuDivider(),
                 findInPageItem,

@@ -573,6 +573,12 @@
     <string name="eyebrowse_setup_disable_chrome">Disable Chrome</string>
     <!-- First run screen: button that closes the screen -->
     <string name="eyebrowse_setup_later">Not now</string>
+    <!-- Browser menu row while the blocked count is still loading -->
+    <string name="eyeblock_menu_count_loading">Checking this page…</string>
+    <!-- Browser menu row: how many requests were blocked on the open page -->
+    <string name="eyeblock_menu_count">%1$d blocked on this page</string>
+    <!-- Browser menu row that turns the browser's own protection off for the open site -->
+    <string name="eyeblock_turn_off_site">Turn off protection for this site</string>
     <!-- Advanced settings switch: Eyebrowse's own ad blocker -->
     <string name="preferences_eyeblock">EyeBlock</string>
     <!-- Summary for the EyeBlock switch -->
