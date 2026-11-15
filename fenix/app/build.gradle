@@ -904,3 +904,49 @@ def getSupportedLocales() {
 
 // Enable expiration by major version.
 ext.gleanExpireByVersion = Config.majorVersion()
+
+// EyeBlock: uBlock Origin ships inside the APK as a built-in extension, so blocking works offline
+// from the first launch and needs no store, account or network. The archive is 6 MB, too large to
+// keep in the repository, so it is fetched once at build time from the pinned release and checked
+// against its SHA-256. Delete src/main/assets/extensions/ublock_origin.xpi to fetch it again.
+def eyeblockXpi = file("$projectDir/src/main/assets/extensions/ublock_origin.xpi")
+
+tasks.register("prepareEyeblock") {
+    description = 'Fetches the uBlock Origin archive that ships inside the APK.'
+    outputs.file(eyeblockXpi)
+    doLast {
+        if (eyeblockXpi.exists()) {
+            return
+        }
+        def url = 'https://github.com/gorhill/uBlock/releases/download/1.76.4/' +
+            'uBlock0_1.76.4.firefox.signed.xpi'
+        def expected = '66d0e3f21ce3b32b1bc0a9399b93cb2c9aa598ef18805d92118c76f66e266c1e'
+        eyeblockXpi.parentFile.mkdirs()
+        def partial = new File(eyeblockXpi.parentFile, 'ublock_origin.xpi.part')
+        partial.delete()
+        try {
+            partial.withOutputStream { output ->
+                new URL(url).openStream().withCloseable { input -> output << input }
+            }
+            def actual = java.security.MessageDigest.getInstance('SHA-256')
+                .digest(partial.bytes)
+                .encodeHex()
+                .toString()
+            if (actual != expected) {
+                throw new GradleException("EyeBlock checksum mismatch: expected $expected, got $actual")
+            }
+            if (!partial.renameTo(eyeblockXpi)) {
+                throw new GradleException("Could not move $partial to $eyeblockXpi")
+            }
+        } catch (Exception error) {
+            partial.delete()
+            throw new GradleException("Could not fetch the EyeBlock archive from $url", error)
+        }
+    }
+}
+
+tasks.matching { it.name.startsWith('merge') && it.name.endsWith('Assets') }.configureEach {
+    dependsOn 'prepareEyeblock'
+}
+
+tasks.named('preBuild').configure { dependsOn 'prepareEyeblock' }

@@ -39,6 +39,7 @@ import mozilla.components.concept.sync.Profile
 import mozilla.components.service.glean.private.NoExtras
 import mozilla.components.support.ktx.android.view.showKeyboard
 import mozilla.components.ui.widgets.withCenterAlignedButtons
+import org.eyesearch.eyebrowse.core.EyeblockSupport
 import org.mozilla.fenix.BrowserDirection
 import org.mozilla.fenix.Config
 import org.mozilla.fenix.FeatureFlags
@@ -421,7 +422,11 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         preference.isChecked = settings.eyeblockEnabled
         preference.setOnPreferenceChangeListener { _, newValue ->
-            settings.eyeblockEnabled = newValue == true
+            val enabled = newValue == true
+            settings.eyeblockEnabled = enabled
+            context?.components?.core?.engine?.let { engine ->
+                EyeblockSupport.setEnabled(engine, enabled)
+            }
             true
         }
     }
