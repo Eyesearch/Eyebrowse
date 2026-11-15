@@ -35,11 +35,17 @@ class TrackingProtectionPolicyFactory(
         normalMode: Boolean = settings.shouldUseTrackingProtection,
         privateMode: Boolean = settings.shouldUseTrackingProtection,
     ): TrackingProtectionPolicy {
-        // Eyebrowse: remote kill-switch for content blocking / adblocking, and the user's own
-        // EyeBlock switch in Advanced. Either one being off means normal browsing, ads included.
-        if (!RemoteConfigManager.isFeatureEnabled(RemoteConfigManager.KEY_ENABLE_ADBLOCKER) ||
-            !settings.eyeblockEnabled
-        ) {
+        // Eyebrowse: the remote kill-switch turns all blocking off, ads included.
+        if (!RemoteConfigManager.isFeatureEnabled(RemoteConfigManager.KEY_ENABLE_ADBLOCKER)) {
+            return TrackingProtectionPolicy.none()
+        }
+
+        // Eyebrowse: one blocker at a time. EyeBlock is a full content blocker, so when it is on it
+        // does the blocking and the engine's own list stands down. Running both at once means two
+        // blockers cancelling each other's requests, and that is what leaves a video player
+        // spinning and never starting: the ad request is stopped, and so is the stream that comes
+        // with it. With EyeBlock off the engine blocks as it always did.
+        if (settings.eyeblockEnabled) {
             return TrackingProtectionPolicy.none()
         }
 
