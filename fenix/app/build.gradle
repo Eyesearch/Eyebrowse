@@ -150,6 +150,9 @@ android {
         }
         release releaseTemplate >> {
             buildConfigField "boolean", "USE_RELEASE_VERSIONING", "true"
+            // Eyebrowse: the release APK is the one we hand out, and it has to install.
+            // The debug key is fine for sideloading; swap in a real keystore before a store.
+            signingConfig signingConfigs.debug
             def deepLinkSchemeValue = "fenix"
             buildConfigField "String", "DEEP_LINK_SCHEME", "\"$deepLinkSchemeValue\""
             manifestPlaceholders.putAll([
