@@ -403,30 +403,36 @@ class SettingsFragment : PreferenceFragmentCompat() {
         signOutPreference.isVisible = storage.isSignedIn()
 
         if (!storage.isSignedIn()) {
-            accountPreference.summary = getString(R.string.preferences_indo_account_signed_out)
+            // Signed out: the card is the way in, and it carries no summary.
+            accountPreference.title = getString(R.string.preferences_indo_account)
+            accountPreference.summary = null
         } else {
-            accountPreference.summary = getString(R.string.indo_account_profile_loading)
+            // Signed in: the card is the way to the panel, and it names the person.
+            accountPreference.title = getString(R.string.preferences_indo_account_manage)
             val token = storage.token()
             if (token != null) {
                 viewLifecycleOwner.lifecycleScope.launch {
                     try {
                         val identity = IndoAccountClient(requireContext().components.core.client)
                             .identity(token)
-                        accountPreference.summary = getString(
-                            R.string.indo_account_profile_line,
-                            identity.displayName,
-                            identity.indoId,
-                        )
+                        // Name and ID when there is a name, the ID alone when there is not, and the
+                        // summary is left as it is if the identity has not arrived.
+                        accountPreference.summary = if (identity.fullName.isBlank()) {
+                            identity.indoId
+                        } else {
+                            getString(
+                                R.string.indo_account_profile_line,
+                                identity.fullName,
+                                identity.indoId,
+                            )
+                        }
                     } catch (error: IndoAccountError) {
                         if (error.status == 401) {
                             // The token is no longer good: drop it and go back to the entry point.
                             storage.signOut()
                             signOutPreference.isVisible = false
-                            accountPreference.summary =
-                                getString(R.string.preferences_indo_account_signed_out)
-                        } else {
-                            accountPreference.summary =
-                                getString(R.string.preferences_indo_account_signed_out)
+                            accountPreference.title = getString(R.string.preferences_indo_account)
+                            accountPreference.summary = null
                         }
                     }
                 }
@@ -436,7 +442,8 @@ class SettingsFragment : PreferenceFragmentCompat() {
         signOutPreference.setOnPreferenceClickListener {
             storage.signOut()
             signOutPreference.isVisible = false
-            accountPreference.summary = getString(R.string.preferences_indo_account_signed_out)
+            accountPreference.title = getString(R.string.preferences_indo_account)
+            accountPreference.summary = null
             Toast.makeText(requireContext(), R.string.indo_account_signed_out_toast, Toast.LENGTH_SHORT)
                 .show()
             true

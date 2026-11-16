@@ -582,6 +582,7 @@
     <!-- Advanced settings switch: Eyebrowse's own ad blocker -->
     <!-- Indo Account: identity only, the web panel keeps the settings -->
     <string name="preferences_indo_account">Continue with Indo Account</string>
+    <string name="preferences_indo_account_manage">Manage your account</string>
     <string name="preferences_indo_account_signed_out">Sign in to keep your account on this phone</string>
     <string name="preferences_indo_account_sign_out">Sign out of Indo Account</string>
     <string name="indo_account_signed_in">Signed in to Indo Account</string>
