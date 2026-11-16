@@ -139,7 +139,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         // Account UI state is updated as part of `onCreate`. To not do it twice in a row, we only
         // update it here if we're not going through the `onCreate->onStart->onResume` lifecycle chain.
-        update(shouldUpdateAccountUIState = !creatingFragment)
+        update()
 
         requireView().findViewById<RecyclerView>(R.id.recycler_view)
             ?.hideInitialScrollBar(viewLifecycleOwner.lifecycleScope)
@@ -166,7 +166,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         super.onDestroyView()
     }
 
-    private fun update(shouldUpdateAccountUIState: Boolean) {
+    private fun update() {
         val settings = requireContext().settings()
 
         val aboutPreference = requirePreference<Preference>(R.string.pref_key_about)
