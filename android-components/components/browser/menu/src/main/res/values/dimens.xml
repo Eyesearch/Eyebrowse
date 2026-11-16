@@ -77,4 +77,7 @@
 
     <!-- BrowserMenuItemToolbar -->
     <dimen name="mozac_browser_menu_item_toolbar_height">56dp</dimen>
+    <!-- Eyebrowse: width of the side drawer the menu opens in. -->
+    <dimen name="mozac_browser_menu_drawer_width">320dp</dimen>
+
 </resources>
