@@ -51,6 +51,7 @@ import org.mozilla.fenix.HomeActivity
 import org.eyesearch.eyebrowse.account.IndoAccountClient
 import org.eyesearch.eyebrowse.account.IndoAccountEntry
 import org.eyesearch.eyebrowse.account.IndoAccountError
+import org.eyesearch.eyebrowse.account.IndoIdentity
 import org.eyesearch.eyebrowse.account.IndoAccountStorage
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.accounts.FenixFxAEntryPoint
@@ -402,39 +403,38 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         signOutPreference.isVisible = storage.isSignedIn()
 
-        if (!storage.isSignedIn()) {
+        val token = storage.token()
+
+        if (token == null) {
             // Signed out: the card is the way in, and it carries no summary.
             accountPreference.title = getString(R.string.preferences_indo_account)
             accountPreference.summary = null
         } else {
-            // Signed in: the card is the way to the panel, and it names the person.
+            // Signed in: the card is drawn from what we already hold, on the first frame, so it
+            // never flickers through the signed-out wording while the network answers.
             accountPreference.title = getString(R.string.preferences_indo_account_manage)
-            val token = storage.token()
-            if (token != null) {
-                viewLifecycleOwner.lifecycleScope.launch {
-                    try {
-                        val identity = IndoAccountClient(requireContext().components.core.client)
-                            .identity(token)
-                        // Name and ID when there is a name, the ID alone when there is not, and the
-                        // summary is left as it is if the identity has not arrived.
-                        accountPreference.summary = if (identity.fullName.isBlank()) {
-                            identity.indoId
-                        } else {
-                            getString(
-                                R.string.indo_account_profile_line,
-                                identity.fullName,
-                                identity.indoId,
-                            )
-                        }
-                    } catch (error: IndoAccountError) {
-                        if (error.status == 401) {
-                            // The token is no longer good: drop it and go back to the entry point.
-                            storage.signOut()
-                            signOutPreference.isVisible = false
-                            accountPreference.title = getString(R.string.preferences_indo_account)
-                            accountPreference.summary = null
-                        }
+            val storedIdentity = storage.identity()
+            accountPreference.summary = storedIdentity?.let { identity -> identitySummary(identity) }
+
+            viewLifecycleOwner.lifecycleScope.launch {
+                try {
+                    val fresh = IndoAccountClient(requireContext().components.core.client)
+                        .identity(token)
+                    if (fresh != storedIdentity) {
+                        storage.saveIdentity(fresh)
+                        accountPreference.summary = identitySummary(fresh)
                     }
+                } catch (error: IndoAccountError) {
+                    if (error.status == 401) {
+                        // The token is no longer good: drop it and go back to the entry point.
+                        storage.signOut()
+                        signOutPreference.isVisible = false
+                        accountPreference.title = getString(R.string.preferences_indo_account)
+                        accountPreference.summary = null
+                    }
+                    // Any other failure keeps what we hold: no clearing, no signed-out wording.
+                } catch (error: Exception) {
+                    // Offline is not a sign-out.
                 }
             }
         }
@@ -448,6 +448,13 @@ class SettingsFragment : PreferenceFragmentCompat() {
                 .show()
             true
         }
+    }
+
+    /** The name and the Indo ID, or the ID alone when there is no name. */
+    private fun identitySummary(identity: IndoIdentity): String = if (identity.fullName.isBlank()) {
+        identity.indoId
+    } else {
+        getString(R.string.indo_account_profile_line, identity.fullName, identity.indoId)
     }
 
     private fun setupPreferences() {
