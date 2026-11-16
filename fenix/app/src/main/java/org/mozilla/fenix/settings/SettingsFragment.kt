@@ -215,10 +215,34 @@ class SettingsFragment : PreferenceFragmentCompat() {
                 // Eyebrowse: this card is ours. It opens Indo Account, and there is no Mozilla
                 // sign-in behind it any more.
                 val storage = IndoAccountStorage(requireContext())
-                if (storage.isSignedIn()) {
-                    IndoAccountEntry.openManagement(requireContext())
-                } else {
+                val token = storage.token()
+                if (token == null) {
                     IndoAccountEntry.startSignIn(requireContext())
+                } else {
+                    // A 401 means the session is over, not that the network was slow: the account
+                    // revokes every session when a password or recovery email changes. So ask once
+                    // before opening the panel, and if the token is dead, drop it and go to sign-in
+                    // instead of showing a panel that will only bounce to a login prompt.
+                    viewLifecycleOwner.lifecycleScope.launch {
+                        val isDead = try {
+                            IndoAccountClient(requireContext().components.core.client).identity(token)
+                            false
+                        } catch (error: IndoAccountError) {
+                            error.status == 401
+                        } catch (error: Exception) {
+                            // Offline is not a sign-out: open the panel and let it try.
+                            false
+                        }
+
+                        if (isDead) {
+                            storage.signOut()
+                            // Put the card back to the signed-out wording straight away.
+                            setupIndoAccountPreferences()
+                            IndoAccountEntry.startSignIn(requireContext())
+                        } else {
+                            IndoAccountEntry.openManagement(requireContext())
+                        }
+                    }
                 }
                 return true
             }
