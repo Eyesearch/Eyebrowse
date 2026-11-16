@@ -382,6 +382,14 @@
             </intent-filter>
         </service>
 
+        <!-- Eyebrowse: Indo Account inside the app, so the handoff finishes without a tap. -->
+        <activity
+            android:name="org.eyesearch.eyebrowse.account.IndoAccountWebViewActivity"
+            android:exported="false"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/preferences_indo_account"
+            android:theme="@style/NormalTheme" />
+
         <!-- Eyebrowse: the door Indo Account comes back through. -->
         <activity
             android:name="org.eyesearch.eyebrowse.account.IndoAccountAuthActivity"

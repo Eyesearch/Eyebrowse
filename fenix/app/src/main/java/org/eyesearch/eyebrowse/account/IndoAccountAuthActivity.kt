@@ -4,7 +4,6 @@
 
 package org.eyesearch.eyebrowse.account
 
-import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -28,50 +27,29 @@ class IndoAccountAuthActivity : AppCompatActivity() {
         val data = intent?.data
         val code = data?.getQueryParameter(QUERY_CODE)
         val state = data?.getQueryParameter(QUERY_STATE)
-        val storage = IndoAccountStorage(this)
-        val expectedState = storage.takePendingState()
-        val codeVerifier = storage.takePendingVerifier()
 
         if (code.isNullOrBlank() || state.isNullOrBlank()) {
             finishWithMessage(R.string.indo_account_error_missing_code)
             return
         }
 
-        if (expectedState == null || expectedState != state) {
-            finishWithMessage(R.string.indo_account_error_state)
-            return
-        }
-
-        if (codeVerifier.isNullOrBlank()) {
-            finishWithMessage(R.string.indo_account_error_state)
-            return
-        }
-
         lifecycleScope.launch {
-            try {
-                val session = IndoAccountClient(components.core.client).exchangeCode(
-                    code = code,
-                    codeVerifier = codeVerifier,
-                    device = Build.MODEL.orEmpty(),
-                )
-                storage.saveToken(session.token)
+            val errorRes = IndoAccountHandoff(
+                context = applicationContext,
+                client = components.core.client,
+            ).complete(code = code, state = state)
+
+            if (errorRes == null) {
                 Toast.makeText(
                     this@IndoAccountAuthActivity,
                     R.string.indo_account_signed_in,
                     Toast.LENGTH_SHORT,
                 ).show()
                 setResult(RESULT_OK)
-            } catch (error: IndoAccountError) {
-                if (error.status == STATUS_UNAUTHORIZED) {
-                    storage.signOut()
-                }
-                finishWithMessage(R.string.indo_account_error_exchange)
-                return@launch
-            } catch (error: Exception) {
-                finishWithMessage(R.string.indo_account_error_exchange)
-                return@launch
+                finish()
+            } else {
+                finishWithMessage(errorRes)
             }
-            finish()
         }
     }
 
@@ -83,6 +61,5 @@ class IndoAccountAuthActivity : AppCompatActivity() {
     companion object {
         private const val QUERY_CODE = "code"
         private const val QUERY_STATE = "state"
-        private const val STATUS_UNAUTHORIZED = 401
     }
 }
