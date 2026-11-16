@@ -1,4 +1,4 @@
-name: Build Debug APK
+name: Build APKs
 
 on:
   push:
@@ -192,5 +192,146 @@ jobs:
         with:
           name: Eyebrowse-Debug-APK
           path: fenix/app/build/outputs/apk/fenix/debug/*arm64*.apk
+          if-no-files-found: error
+          retention-days: 14
+
+  build-release-apk:
+    name: Assemble Eyebrowse release APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    defaults:
+      run:
+        working-directory: fenix
+    env:
+      GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up the Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools'
+
+      - name: Install the Android SDK packages this project needs
+        run: |
+          sdkmanager --install "platforms;android-34" "build-tools;34.0.0"
+          yes | sdkmanager --licenses > /dev/null
+
+      - name: Set up Gradle with caching
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Provide google-services.json
+        working-directory: .
+        run: |
+          set -euo pipefail
+          target="fenix/app/google-services.json"
+          if [ -n "${GOOGLE_SERVICES_JSON:-}" ]; then
+            printf '%s' "$GOOGLE_SERVICES_JSON" > "$target"
+            echo "Wrote google-services.json from the GOOGLE_SERVICES_JSON secret."
+          else
+            cat > "$target" <<'JSON'
+          {
+            "project_info": {
+              "project_number": "000000000000",
+              "project_id": "eyebrowse-ci-placeholder",
+              "storage_bucket": "eyebrowse-ci-placeholder.appspot.com"
+            },
+            "client": [
+              {
+                "client_info": {
+                  "mobilesdk_app_id": "1:000000000000:android:0000000000000000000000",
+                  "android_client_info": {
+                    "package_name": "org.eyesearch.eyebrowse"
+                  }
+                },
+                "oauth_client": [],
+                "api_key": [
+                  {
+                    "current_key": "AIzaSyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ],
+                "services": {
+                  "appinvite_service": {
+                    "other_platform_oauth_client": []
+                  }
+                }
+              }
+            ],
+            "configuration_version": "1"
+          }
+          JSON
+            echo "No GOOGLE_SERVICES_JSON secret found; wrote a placeholder file."
+          fi
+
+      - name: Provide the Nimbus FML tooling
+        working-directory: .
+        run: |
+          set -euo pipefail
+          version="$(sed -n 's/^val VERSION = "\(.*\)"/\1/p' \
+            android-components/plugins/dependencies/src/main/java/ApplicationServices.kt)"
+          target="fenix/build/bin/nimbus/$version"
+          mkdir -p "$target"
+          if [ -x "$target/nimbus-fml" ]; then
+            exit 0
+          fi
+          tmp="$(mktemp -d)"
+          found=""
+          for candidate in "$version" "125.0"; do
+            url="https://archive.mozilla.org/pub/app-services/releases/$candidate/nimbus-fml.zip"
+            if curl -fsSL --retry 3 -o "$tmp/nimbus-fml.zip" "$url"; then
+              found="$candidate"
+              break
+            fi
+          done
+          if [ -z "$found" ]; then
+            echo "::error::Could not download a nimbus-fml binary"
+            exit 1
+          fi
+          unzip -o -q "$tmp/nimbus-fml.zip" -d "$tmp/extracted"
+          elf_files="$(find "$tmp/extracted" -type f -exec sh -c '
+            if [ "$(head -c 4 "$1" | od -An -tx1 | tr -d " \n")" = "7f454c46" ]; then
+              echo "$1"
+            fi' _ {} \; | sort)"
+          binary="$(printf '%s\n' "$elf_files" | grep 'x86_64-unknown-linux' | head -n 1 || true)"
+          if [ -z "$binary" ]; then
+            binary="$(printf '%s\n' "$elf_files" | head -n 1 || true)"
+          fi
+          if [ -z "$binary" ]; then
+            echo "::error::The nimbus-fml archive has no linux executable"
+            exit 1
+          fi
+          cp "$binary" "$target/nimbus-fml"
+          chmod +x "$target/nimbus-fml"
+
+      - name: Assemble the release APK
+        run: |
+          chmod +x ./gradlew
+          # Eyebrowse: a release build with shrinking on, signed with the debug key
+          # so it can be installed straight away. This is the build users get: the
+          # debug one carries every language, every symbol and no shrinking.
+          ./gradlew :app:assembleFenixRelease \
+            -Pabis=arm64-v8a \
+            -PlocalProperties.autosignReleaseWithDebugKey=true \
+            --stacktrace
+
+      - name: Report the sizes
+        run: |
+          ls -l app/build/outputs/apk/fenix/release/*arm64*.apk || true
+
+      - name: Upload the release APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Eyebrowse-Release-APK
+          path: fenix/app/build/outputs/apk/fenix/release/*arm64*.apk
           if-no-files-found: error
           retention-days: 14
