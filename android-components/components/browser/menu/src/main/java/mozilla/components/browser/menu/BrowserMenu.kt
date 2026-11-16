@@ -314,7 +314,7 @@ open class BrowserMenu internal constructor(
         var useSideDrawer: Boolean = true
 
         private const val DRAWER_SCRIM_ALPHA = 120
-        private const val DRAWER_SCREEN_FRACTION = 0.5f
+        private const val DRAWER_SCREEN_FRACTION = 0.6f
 
         /**
          * Determines the orientation to be used for a menu based on the positioning of the [parent] in the layout.
