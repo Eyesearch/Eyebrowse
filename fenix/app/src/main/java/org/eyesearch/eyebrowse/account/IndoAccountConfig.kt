@@ -7,12 +7,11 @@ package org.eyesearch.eyebrowse.account
 import java.net.URLEncoder
 
 /**
- * Everything the Indo Account handoff needs, in one place, so that when the other side freezes the
- * exchange endpoint it is one constant to change and not a refactor.
+ * The handoff, frozen against `Indoworkspace/Indo-Account: docs/app-data-contract.md`.
  *
- * The exchange path is the one value here that is not confirmed yet: Indo Account has no app handoff
- * endpoint at the time of writing, so this is the shape we proposed and nothing else in the app
- * depends on it being right.
+ * Sign-in carries a PKCE S256 challenge; the code is exchanged at /api/v1/app/session for an app
+ * token; identity is read at /api/v1/app/me. The user session endpoint /api/v1/me is refused for an
+ * app token by design, so it is never called from here.
  */
 object IndoAccountConfig {
 
@@ -27,13 +26,19 @@ object IndoAccountConfig {
 
     const val DEEPLINK = "indobrowse://auth"
 
-    /** Unconfirmed: proposed shape, flagged in the pull request. */
-    const val EXCHANGE_PATH = "/api/v1/apps/eyebrowse/exchange"
+    const val EXCHANGE_PATH = "/api/v1/app/session"
 
-    const val PROFILE_PATH = "/api/v1/me"
+    const val IDENTITY_PATH = "/api/v1/app/me"
 
-    fun signInUrl(state: String): String {
+    fun signInUrl(state: String, codeChallenge: String): String {
         val redirect = URLEncoder.encode(DEEPLINK, "UTF-8")
-        return "$SIGN_IN_URL?app=$APP_ID&redirect=$redirect&state=$state"
+        return buildString {
+            append(SIGN_IN_URL)
+            append("?app=").append(APP_ID)
+            append("&redirect=").append(redirect)
+            append("&state=").append(URLEncoder.encode(state, "UTF-8"))
+            append("&code_challenge=").append(URLEncoder.encode(codeChallenge, "UTF-8"))
+            append("&code_challenge_method=S256")
+        }
     }
 }

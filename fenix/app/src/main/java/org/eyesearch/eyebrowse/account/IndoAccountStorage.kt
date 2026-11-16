@@ -5,14 +5,15 @@
 package org.eyesearch.eyebrowse.account
 
 import android.content.Context
+import android.util.Base64
 import mozilla.components.lib.dataprotect.SecureAbove22Preferences
 import java.security.SecureRandom
 
 /**
- * The scoped token and the pending sign-in state.
+ * The app token and the one pending sign-in.
  *
  * The token lives in a Keystore backed preference file, never in plain preferences, never in a log.
- * The state is written before the browser leaves for the sign-in page and taken exactly once, so a
+ * The state and its PKCE verifier are written before the browser leaves and taken exactly once, so a
  * second deep link carrying the same state is refused.
  */
 class IndoAccountStorage(context: Context) {
@@ -22,16 +23,25 @@ class IndoAccountStorage(context: Context) {
         name = PREFERENCES_NAME,
     )
 
-    fun startSignIn(): String {
+    /** Writes a fresh state and verifier and hands both back for the sign-in URL. */
+    fun startSignIn(): SignInStart {
         val state = randomState()
+        val verifier = Pkce.newVerifier()
         prefs.putString(KEY_PENDING_STATE, state)
-        return state
+        prefs.putString(KEY_PENDING_VERIFIER, verifier)
+        return SignInStart(state = state, verifier = verifier, challenge = Pkce.challenge(verifier))
     }
 
     fun takePendingState(): String? {
         val state = prefs.getString(KEY_PENDING_STATE)
         prefs.remove(KEY_PENDING_STATE)
         return state
+    }
+
+    fun takePendingVerifier(): String? {
+        val verifier = prefs.getString(KEY_PENDING_VERIFIER)
+        prefs.remove(KEY_PENDING_VERIFIER)
+        return verifier
     }
 
     fun saveToken(token: String) = prefs.putString(KEY_TOKEN, token)
@@ -43,17 +53,25 @@ class IndoAccountStorage(context: Context) {
     fun signOut() {
         prefs.remove(KEY_TOKEN)
         prefs.remove(KEY_PENDING_STATE)
+        prefs.remove(KEY_PENDING_VERIFIER)
     }
 
     private fun randomState(): String {
-        val bytes = ByteArray(32)
+        val bytes = ByteArray(STATE_BYTES)
         SecureRandom().nextBytes(bytes)
-        return bytes.joinToString(separator = "") { "%02x".format(it) }
+        return Base64.encodeToString(
+            bytes,
+            Base64.URL_SAFE or Base64.NO_WRAP or Base64.NO_PADDING,
+        )
     }
+
+    data class SignInStart(val state: String, val verifier: String, val challenge: String)
 
     companion object {
         private const val PREFERENCES_NAME = "indo_account"
         private const val KEY_TOKEN = "indo_account_token"
         private const val KEY_PENDING_STATE = "indo_account_pending_state"
+        private const val KEY_PENDING_VERIFIER = "indo_account_pending_verifier"
+        private const val STATE_BYTES = 32
     }
 }

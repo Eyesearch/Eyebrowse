@@ -4,6 +4,7 @@
 
 package org.eyesearch.eyebrowse.account
 
+import android.os.Build
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -29,6 +30,7 @@ class IndoAccountAuthActivity : AppCompatActivity() {
         val state = data?.getQueryParameter(QUERY_STATE)
         val storage = IndoAccountStorage(this)
         val expectedState = storage.takePendingState()
+        val codeVerifier = storage.takePendingVerifier()
 
         if (code.isNullOrBlank() || state.isNullOrBlank()) {
             finishWithMessage(R.string.indo_account_error_missing_code)
@@ -40,9 +42,18 @@ class IndoAccountAuthActivity : AppCompatActivity() {
             return
         }
 
+        if (codeVerifier.isNullOrBlank()) {
+            finishWithMessage(R.string.indo_account_error_state)
+            return
+        }
+
         lifecycleScope.launch {
             try {
-                val session = IndoAccountClient(components.core.client).exchangeCode(code)
+                val session = IndoAccountClient(components.core.client).exchangeCode(
+                    code = code,
+                    codeVerifier = codeVerifier,
+                    device = Build.MODEL.orEmpty(),
+                )
                 storage.saveToken(session.token)
                 Toast.makeText(
                     this@IndoAccountAuthActivity,
