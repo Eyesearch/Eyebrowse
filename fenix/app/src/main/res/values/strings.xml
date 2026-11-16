@@ -583,6 +583,14 @@
     <!-- Indo Account: identity only, the web panel keeps the settings -->
     <string name="preferences_indo_account">Continue with Indo Account</string>
     <string name="preferences_indo_account_manage">Manage your account</string>
+    <!-- VPN, step one: the switch, the service and its notification -->
+    <string name="preferences_vpn">VPN</string>
+    <string name="preferences_vpn_off">Off</string>
+    <string name="preferences_vpn_preparing">On, no exit yet</string>
+    <string name="vpn_session_name">Eyebrowse VPN</string>
+    <string name="vpn_notification_title">Eyebrowse VPN</string>
+    <string name="vpn_notification_text">On, no exit yet</string>
+    <string name="vpn_notification_stop">Stop</string>
     <string name="preferences_indo_account_signed_out">Sign in to keep your account on this phone</string>
     <string name="preferences_indo_account_sign_out">Sign out of Indo Account</string>
     <string name="indo_account_signed_in">Signed in to Indo Account</string>

@@ -6,6 +6,10 @@ package org.mozilla.fenix.settings
 
 import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
+import android.app.Activity
+import android.app.NotificationManager
+import android.content.Context
+import androidx.activity.result.contract.ActivityResultContracts
 import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
@@ -53,6 +57,8 @@ import org.eyesearch.eyebrowse.account.IndoAccountEntry
 import org.eyesearch.eyebrowse.account.IndoAccountError
 import org.eyesearch.eyebrowse.account.IndoIdentity
 import org.eyesearch.eyebrowse.account.IndoAccountStorage
+import org.eyesearch.eyebrowse.vpn.EyebrowseVpnService
+import org.eyesearch.eyebrowse.vpn.VpnController
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.accounts.FenixFxAEntryPoint
 import org.mozilla.fenix.ext.application
@@ -470,6 +476,59 @@ class SettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
+    /**
+     * VPN, step one: the switch, the consent Android insists on, and the service. The tunnel has no
+     * exit yet, and the summary says so rather than pretending.
+     */
+    private fun setupVpnPreference() {
+        val preference = findPreference<SwitchPreference>(getPreferenceKey(R.string.pref_key_vpn))
+            ?: return
+        val context = context ?: return
+
+        preference.summary = getString(R.string.preferences_vpn_off)
+        preference.setOnPreferenceChangeListener { _, newValue ->
+            if (newValue == true) {
+                val consent = VpnController.consentIntent(context)
+                if (consent != null) {
+                    vpnConsentLauncher.launch(consent)
+                    // The switch flips when the consent comes back, not now.
+                    return@setOnPreferenceChangeListener false
+                }
+                startVpn(context)
+            } else {
+                VpnController.stop(context)
+                preference.summary = getString(R.string.preferences_vpn_off)
+            }
+            true
+        }
+    }
+
+    private fun startVpn(context: Context) {
+        context.getSystemService(NotificationManager::class.java)?.let { manager ->
+            EyebrowseVpnService.ensureChannel(manager)
+        }
+        VpnController.start(context)
+        findPreference<SwitchPreference>(getPreferenceKey(R.string.pref_key_vpn))?.let {
+            it.isChecked = true
+            it.summary = getString(R.string.preferences_vpn_preparing)
+        }
+    }
+
+    /** Android's consent dialog, which is the only thing that can grant a tunnel. */
+    private val vpnConsentLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult(),
+    ) { result ->
+        val context = context ?: return@registerForActivityResult
+        if (result.resultCode == Activity.RESULT_OK) {
+            startVpn(context)
+        } else {
+            findPreference<SwitchPreference>(getPreferenceKey(R.string.pref_key_vpn))?.let {
+                it.isChecked = false
+                it.summary = getString(R.string.preferences_vpn_off)
+            }
+        }
+    }
+
     /** The name and the Indo ID, or the ID alone when there is no name. */
     private fun identitySummary(identity: IndoIdentity): String = if (identity.fullName.isBlank()) {
         identity.indoId
@@ -528,6 +587,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         }
         setupEyeblockPreference()
         setupIndoAccountPreferences()
+        setupVpnPreference()
         setupCookieBannerPreference()
         setupGeckoLogsPreference(requireContext().settings())
         setupAllowDomesticChinaFxaServerPreference()

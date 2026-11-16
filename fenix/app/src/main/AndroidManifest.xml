@@ -44,6 +44,8 @@
 
     <!-- Needed to post notifications on devices with Android 13 and later-->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
 
     <!-- Needed for uploading media files on devices with Android 13 and later. -->
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
@@ -380,6 +382,20 @@
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
+        </service>
+
+        <!-- Eyebrowse: the VPN. It runs as a foreground service, which Android requires. -->
+        <service
+            android:name="org.eyesearch.eyebrowse.vpn.EyebrowseVpnService"
+            android:exported="false"
+            android:permission="android.permission.BIND_VPN_SERVICE"
+            android:foregroundServiceType="specialUse">
+            <intent-filter>
+                <action android:name="android.net.VpnService" />
+            </intent-filter>
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Browser VPN tunnel" />
         </service>
 
         <!-- Eyebrowse: Indo Account inside the app, so the handoff finishes without a tap. -->

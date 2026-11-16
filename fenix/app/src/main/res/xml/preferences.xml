@@ -15,6 +15,12 @@
         android:title="@string/preferences_indo_account"
         app:allowDividerBelow="false" />
 
+    <androidx.preference.SwitchPreference
+        android:key="@string/pref_key_vpn"
+        android:title="@string/preferences_vpn"
+        android:summary="@string/preferences_vpn_off"
+        app:iconSpaceReserved="false" />
+
     <androidx.preference.Preference
         android:key="@string/pref_key_indo_account_sign_out"
         android:title="@string/preferences_indo_account_sign_out"
