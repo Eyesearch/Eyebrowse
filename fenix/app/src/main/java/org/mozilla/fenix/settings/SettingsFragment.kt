@@ -154,17 +154,12 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
     override fun onStart() {
         super.onStart()
-        // Observe account changes to keep the UI up-to-date.
-        requireComponents.backgroundServices.accountManager.register(
-            owner = this,
-            autoPause = true,
-        )
+        // Eyebrowse: this screen no longer follows Mozilla's account, so there is nothing to
+        // register for here. Indo Account state is read when the screen is built.
     }
 
     override fun onStop() {
         super.onStop()
-        // If the screen isn't visible we don't need to show updates.
-        // Also prevent the observer registered to the FXA singleton causing memory leaks.
     }
 
     override fun onDestroyView() {
