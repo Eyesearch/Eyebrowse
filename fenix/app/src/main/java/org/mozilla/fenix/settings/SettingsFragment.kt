@@ -212,36 +212,32 @@ class SettingsFragment : PreferenceFragmentCompat() {
             /* Top level account preferences.
             Note: Only ONE of these preferences is visible at a time. */
             resources.getString(R.string.pref_key_sign_in) -> {
-                // Eyebrowse: this card is ours. It opens Indo Account, and there is no Mozilla
-                // sign-in behind it any more.
+                // Eyebrowse: this card is ours. Signed in it opens the account panel at Home, with a
+                // fresh short lived panel token, so there is no sign-in page and no blank wait.
                 val storage = IndoAccountStorage(requireContext())
                 val token = storage.token()
                 if (token == null) {
                     IndoAccountEntry.startSignIn(requireContext())
                 } else {
-                    // A 401 means the session is over, not that the network was slow: the account
-                    // revokes every session when a password or recovery email changes. So ask once
-                    // before opening the panel, and if the token is dead, drop it and go to sign-in
-                    // instead of showing a panel that will only bounce to a login prompt.
                     viewLifecycleOwner.lifecycleScope.launch {
-                        val isDead = try {
-                            IndoAccountClient(requireContext().components.core.client).identity(token)
-                            false
+                        val client = IndoAccountClient(requireContext().components.core.client)
+                        val panelToken = try {
+                            client.panelSession(token = token, device = Build.MODEL.orEmpty())
                         } catch (error: IndoAccountError) {
-                            error.status == 401
+                            if (error.status == 401) {
+                                // The app session is over: clear it, redraw the card, sign in again.
+                                storage.signOut()
+                                setupIndoAccountPreferences()
+                                IndoAccountEntry.startSignIn(requireContext())
+                                return@launch
+                            }
+                            // Offline or a server fault is not a sign-out: open the panel anyway.
+                            null
                         } catch (error: Exception) {
-                            // Offline is not a sign-out: open the panel and let it try.
-                            false
+                            null
                         }
 
-                        if (isDead) {
-                            storage.signOut()
-                            // Put the card back to the signed-out wording straight away.
-                            setupIndoAccountPreferences()
-                            IndoAccountEntry.startSignIn(requireContext())
-                        } else {
-                            IndoAccountEntry.openManagement(requireContext())
-                        }
+                        IndoAccountEntry.openManagement(requireContext(), panelToken)
                     }
                 }
                 return true

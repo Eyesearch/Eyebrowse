@@ -38,12 +38,17 @@ object IndoAccountEntry {
         }
     }
 
-    fun openManagement(context: Context) {
-        val token = IndoAccountStorage(context).token()
-        val url = if (token.isNullOrBlank()) {
-            IndoAccountConfig.MANAGE_URL
-        } else {
-            IndoAccountConfig.MANAGE_URL + "#app_token=" + URLEncoder.encode(token, "UTF-8")
+    /**
+     * Opens the account panel. With a panel token it opens the panel at Home, signed in, with no
+     * sign-in page in between. Without one, which is the offline case, it falls back to the app token
+     * on the Eyebrowse page, exactly as before.
+     */
+    fun openManagement(context: Context, panelToken: String? = null) {
+        val appToken = IndoAccountStorage(context).token()
+        val url = when {
+            !panelToken.isNullOrBlank() -> IndoAccountConfig.panelUrl(panelToken)
+            appToken.isNullOrBlank() -> IndoAccountConfig.MANAGE_URL
+            else -> IndoAccountConfig.MANAGE_URL + "#app_token=" + URLEncoder.encode(appToken, "UTF-8")
         }
 
         if (hasWebView()) {
