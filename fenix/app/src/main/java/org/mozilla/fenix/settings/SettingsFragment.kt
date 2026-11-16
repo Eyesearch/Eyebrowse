@@ -410,12 +410,12 @@ class SettingsFragment : PreferenceFragmentCompat() {
             if (token != null) {
                 viewLifecycleOwner.lifecycleScope.launch {
                     try {
-                        val profile = IndoAccountClient(requireContext().components.core.client)
-                            .profile(token)
+                        val identity = IndoAccountClient(requireContext().components.core.client)
+                            .identity(token)
                         accountPreference.summary = getString(
                             R.string.indo_account_profile_line,
-                            profile.displayName,
-                            profile.indoId,
+                            identity.displayName,
+                            identity.indoId,
                         )
                     } catch (error: IndoAccountError) {
                         if (error.status == 401) {

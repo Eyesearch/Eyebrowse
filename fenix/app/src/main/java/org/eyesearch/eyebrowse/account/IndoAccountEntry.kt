@@ -16,8 +16,8 @@ object IndoAccountEntry {
 
     /** Writes a fresh state, then opens the sign-in page with it. */
     fun startSignIn(context: Context) {
-        val state = IndoAccountStorage(context).startSignIn()
-        open(context, IndoAccountConfig.signInUrl(state))
+        val start = IndoAccountStorage(context).startSignIn()
+        open(context, IndoAccountConfig.signInUrl(state = start.state, codeChallenge = start.challenge))
     }
 
     fun openManagement(context: Context) {
