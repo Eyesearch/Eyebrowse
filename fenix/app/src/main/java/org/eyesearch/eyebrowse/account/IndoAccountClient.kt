@@ -118,6 +118,35 @@ class IndoAccountClient(private val client: Client) {
         }
     }
 
+    /**
+     * A short lived token for the panel, minted fresh on every tap. It is never stored: it lives for
+     * fifteen minutes by design and exists only long enough to open the panel once.
+     */
+    suspend fun panelSession(token: String, device: String): String = withContext(Dispatchers.IO) {
+        val payload = JSONObject().put("device", device).toString()
+
+        val response = client.fetch(
+            Request(
+                url = IndoAccountConfig.API_BASE + IndoAccountConfig.PANEL_SESSION_PATH,
+                method = Request.Method.POST,
+                headers = MutableHeaders(
+                    "Authorization" to "Bearer $token",
+                    Headers.Names.CONTENT_TYPE to Headers.Values.CONTENT_TYPE_APPLICATION_JSON,
+                ),
+                body = Request.Body.fromString(payload),
+            ),
+        )
+
+        response.use {
+            val text = it.body.useBufferedReader { reader -> reader.readText() }
+            if (!it.isSuccess) {
+                throw IndoAccountError(it.status, "The panel could not be opened.")
+            }
+            JSONObject(text).optString("panel_token").takeIf { value -> value.isNotBlank() }
+                ?: throw IndoAccountError(it.status, "The account did not return a panel token.")
+        }
+    }
+
     private fun JSONObject.toIdentity(): IndoIdentity {
         val indoId = optString("indo_id")
         return IndoIdentity(

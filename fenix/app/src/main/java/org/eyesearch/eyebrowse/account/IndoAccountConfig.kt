@@ -30,6 +30,15 @@ object IndoAccountConfig {
 
     const val IDENTITY_PATH = "/api/v1/app/me"
 
+    const val PANEL_SESSION_PATH = "/api/v1/app/panel-session"
+
+    /** The panel at Home, which is the account as a browser sees it. */
+    const val PANEL_URL = "https://indoworkspace.github.io/Indo-Account/management/home/index.html"
+
+    /** The panel, opened with a short lived panel token in the fragment and nothing else. */
+    fun panelUrl(panelToken: String): String =
+        PANEL_URL + "#panel_token=" + URLEncoder.encode(panelToken, "UTF-8")
+
     fun signInUrl(state: String, codeChallenge: String): String {
         val redirect = URLEncoder.encode(DEEPLINK, "UTF-8")
         return buildString {
