@@ -41,6 +41,7 @@ class IndoAccountHandoff(
                 device = Build.MODEL.orEmpty(),
             )
             storage.saveToken(session.token)
+            session.identity?.let { identity -> storage.saveIdentity(identity) }
             null
         } catch (error: IndoAccountError) {
             if (error.status == STATUS_UNAUTHORIZED) {
