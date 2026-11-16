@@ -25,7 +25,7 @@ object IndoAccountEntry {
         val start = IndoAccountStorage(context).startSignIn()
         val url = IndoAccountConfig.signInUrl(state = start.state, codeChallenge = start.challenge)
 
-        if (hasWebView(context)) {
+        if (hasWebView()) {
             context.startActivity(
                 IndoAccountWebViewActivity.intent(
                     context = context,
@@ -46,7 +46,7 @@ object IndoAccountEntry {
             IndoAccountConfig.MANAGE_URL + "#app_token=" + URLEncoder.encode(token, "UTF-8")
         }
 
-        if (hasWebView(context)) {
+        if (hasWebView()) {
             context.startActivity(
                 IndoAccountWebViewActivity.intent(
                     context = context,
@@ -59,7 +59,7 @@ object IndoAccountEntry {
         }
     }
 
-    private fun hasWebView(context: Context): Boolean {
+    private fun hasWebView(): Boolean {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
             return true
         }

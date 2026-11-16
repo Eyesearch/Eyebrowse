@@ -62,7 +62,7 @@ class IndoAccountWebViewActivity : AppCompatActivity() {
                     request: WebResourceRequest,
                 ): Boolean = handleUri(request.url, mode)
 
-                @Suppress("DEPRECATION")
+                @Deprecated("Kept for older WebView versions", ReplaceWith("shouldOverrideUrlLoading(view, request)"))
                 override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean =
                     handleUri(Uri.parse(url), mode)
             }
