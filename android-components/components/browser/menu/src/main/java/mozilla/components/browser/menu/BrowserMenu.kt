@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.view.accessibility.AccessibilityNodeInfo
+import android.widget.FrameLayout
 import android.widget.PopupWindow
 import androidx.annotation.VisibleForTesting
 import androidx.cardview.widget.CardView
@@ -113,6 +114,11 @@ open class BrowserMenu internal constructor(
         )
 
         view = configureExpandableMenu(view, endOfMenuAlwaysVisible)
+
+        if (useSideDrawer) {
+            return showAsSideDrawer(anchor, view, onDismiss)
+        }
+
         return getNewPopupWindow(view).apply {
             setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             isFocusable = true
@@ -126,6 +132,62 @@ open class BrowserMenu internal constructor(
             }
 
             displayPopup(menuPositioningData).also {
+                anchor.addOnAttachStateChangeListener(this@BrowserMenu)
+                currAnchor = anchor
+            }
+        }.also {
+            currentPopup = it
+            isShown = true
+        }
+    }
+
+    /**
+     * Eyebrowse: the menu is not a popup under its button any more. It is a full height panel that
+     * comes in from the right, edge to edge, top of the screen to the bottom, with the rest of the
+     * screen dimmed. Tapping the dimmed part closes it, which is what [PopupWindow] outside touch
+     * does for us, and tapping an item does whatever it always did and closes the panel on the way.
+     */
+    private fun showAsSideDrawer(
+        anchor: View,
+        menuView: View,
+        onDismiss: () -> Unit,
+    ): PopupWindow {
+        val context = anchor.context
+        val screenWidth = context.resources.displayMetrics.widthPixels
+        val panelWidth = minOf(
+            context.resources.getDimensionPixelSize(R.dimen.mozac_browser_menu_drawer_width),
+            (screenWidth * DRAWER_MAX_SCREEN_FRACTION).toInt(),
+        )
+
+        val container = FrameLayout(context).apply {
+            setBackgroundColor(Color.argb(DRAWER_SCRIM_ALPHA, 0, 0, 0))
+        }
+        container.addView(
+            menuView,
+            FrameLayout.LayoutParams(
+                panelWidth,
+                FrameLayout.LayoutParams.MATCH_PARENT,
+                Gravity.END,
+            ),
+        )
+
+        return getNewPopupWindow(container).apply {
+            // A drawer covers the window: the scrim is the popup, the panel is a child of it.
+            width = WindowManager.LayoutParams.MATCH_PARENT
+            height = WindowManager.LayoutParams.MATCH_PARENT
+            setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            isFocusable = true
+            isOutsideTouchable = true
+            elevation = menuView.resources.getDimension(R.dimen.mozac_browser_menu_elevation)
+
+            setOnDismissListener {
+                adapter.menu = null
+                currentPopup = null
+                isShown = false
+                onDismiss()
+            }
+
+            showAtLocation(anchor, Gravity.FILL, 0, 0).also {
                 anchor.addOnAttachStateChangeListener(this@BrowserMenu)
                 currAnchor = anchor
             }
@@ -232,6 +294,15 @@ open class BrowserMenu internal constructor(
     }
 
     companion object {
+        /**
+         * Eyebrowse: true means the menu opens as a full height drawer from the right instead of a
+         * popup anchored to its button. Set to false to get the old popup back.
+         */
+        var useSideDrawer: Boolean = true
+
+        private const val DRAWER_SCRIM_ALPHA = 120
+        private const val DRAWER_MAX_SCREEN_FRACTION = 0.9f
+
         /**
          * Determines the orientation to be used for a menu based on the positioning of the [parent] in the layout.
          */
