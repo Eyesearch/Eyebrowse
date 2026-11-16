@@ -73,7 +73,7 @@ class EyebrowseVpnService : VpnService() {
     }
 
     private fun buildNotification() = NotificationCompat.Builder(this, CHANNEL_ID)
-        .setSmallIcon(R.drawable.ic_notification)
+        .setSmallIcon(R.drawable.ic_status_logo)
         .setContentTitle(getString(R.string.vpn_notification_title))
         .setContentText(getString(R.string.vpn_notification_text))
         .setOngoing(true)
