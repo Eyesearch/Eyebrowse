@@ -154,10 +154,9 @@ open class BrowserMenu internal constructor(
     ): PopupWindow {
         val context = anchor.context
         val screenWidth = context.resources.displayMetrics.widthPixels
-        val panelWidth = minOf(
-            context.resources.getDimensionPixelSize(R.dimen.mozac_browser_menu_drawer_width),
-            (screenWidth * DRAWER_MAX_SCREEN_FRACTION).toInt(),
-        )
+        // Eyebrowse: the panel is half the screen and comes in from the left, so the other half is
+        // the dimmed area you tap to close.
+        val panelWidth = (screenWidth * DRAWER_SCREEN_FRACTION).toInt()
 
         val container = FrameLayout(context).apply {
             setBackgroundColor(Color.argb(DRAWER_SCRIM_ALPHA, 0, 0, 0))
@@ -181,7 +180,7 @@ open class BrowserMenu internal constructor(
             FrameLayout.LayoutParams(
                 panelWidth,
                 FrameLayout.LayoutParams.MATCH_PARENT,
-                Gravity.END,
+                Gravity.START,
             ),
         )
 
@@ -315,7 +314,7 @@ open class BrowserMenu internal constructor(
         var useSideDrawer: Boolean = true
 
         private const val DRAWER_SCRIM_ALPHA = 120
-        private const val DRAWER_MAX_SCREEN_FRACTION = 0.9f
+        private const val DRAWER_SCREEN_FRACTION = 0.5f
 
         /**
          * Determines the orientation to be used for a menu based on the positioning of the [parent] in the layout.
