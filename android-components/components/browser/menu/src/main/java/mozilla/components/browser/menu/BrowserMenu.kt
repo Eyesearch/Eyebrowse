@@ -161,6 +161,20 @@ open class BrowserMenu internal constructor(
 
         val container = FrameLayout(context).apply {
             setBackgroundColor(Color.argb(DRAWER_SCRIM_ALPHA, 0, 0, 0))
+            // The dimmed area is the popup itself, so a tap on it has to close the drawer. Without
+            // this only the back button closes it, which is not what a drawer does.
+            isClickable = true
+            setOnClickListener { dismiss() }
+        }
+
+        // The panel is the menu card, but a card in a drawer is not a card: no compat padding, no
+        // rounded corners, no elevation, so it sits flush against the top, the right and the bottom
+        // edges with no gap around it.
+        (menuView as? CardView)?.apply {
+            useCompatPadding = false
+            radius = 0f
+            cardElevation = 0f
+            setContentPadding(0, 0, 0, 0)
         }
         container.addView(
             menuView,
