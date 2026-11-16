@@ -65,7 +65,6 @@ import org.mozilla.fenix.ext.settings
 import org.mozilla.fenix.ext.showToolbar
 import org.mozilla.fenix.nimbus.FxNimbus
 import org.mozilla.fenix.perf.ProfilerViewModel
-import org.mozilla.fenix.settings.account.AccountUiView
 import org.mozilla.fenix.utils.Settings
 import kotlin.system.exitProcess
 import org.mozilla.fenix.GleanMetrics.Settings as SettingsMetrics
@@ -74,27 +73,7 @@ import org.mozilla.fenix.GleanMetrics.Settings as SettingsMetrics
 class SettingsFragment : PreferenceFragmentCompat() {
 
     private val args by navArgs<SettingsFragmentArgs>()
-    private lateinit var accountUiView: AccountUiView
     private val profilerViewModel: ProfilerViewModel by activityViewModels()
-
-    @VisibleForTesting
-    internal val accountObserver = object : AccountObserver {
-        private fun updateAccountUi(profile: Profile? = null) {
-            val context = context ?: return
-            lifecycleScope.launch {
-                accountUiView.updateAccountUIState(
-                    context = context,
-                    profile = profile
-                        ?: context.components.backgroundServices.accountManager.accountProfile(),
-                )
-            }
-        }
-
-        override fun onAuthenticated(account: OAuthAccount, authType: AuthType) = updateAccountUi()
-        override fun onLoggedOut() = updateAccountUi()
-        override fun onProfileUpdated(profile: Profile) = updateAccountUi(profile)
-        override fun onAuthenticationProblems() = updateAccountUi()
-    }
 
     // A flag used to track if we're going through the onCreate->onStart->onResume lifecycle chain.
     // If it's set to `true`, code in `onResume` can assume that `onCreate` executed a moment prior.
@@ -104,24 +83,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        accountUiView = AccountUiView(
-            fragment = this,
-            scope = lifecycleScope,
-            accountManager = requireComponents.backgroundServices.accountManager,
-            httpClient = requireComponents.core.client,
-            updateFxAAllowDomesticChinaServerMenu = ::updateFxAAllowDomesticChinaServerMenu,
-        )
-
-        // It's important to update the account UI state in onCreate since that ensures we'll never
-        // display an incorrect state in the UI. We take care to not also call it as part of onResume
-        // if it was just called here (via the 'creatingFragment' flag).
-        // For example, if user is signed-in, and we don't perform this call in onCreate, we'll briefly
-        // display a "Sign In" preference, which will then get replaced by the correct account information
-        // once this call is ran in onResume shortly after.
-        accountUiView.updateAccountUIState(
-            requireContext(),
-            requireComponents.backgroundServices.accountManager.accountProfile(),
-        )
 
         val booleanPreferenceTelemetryAllowList = listOf(
             requireContext().getString(R.string.pref_key_show_search_suggestions),
@@ -195,7 +156,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
         super.onStart()
         // Observe account changes to keep the UI up-to-date.
         requireComponents.backgroundServices.accountManager.register(
-            accountObserver,
             owner = this,
             autoPause = true,
         )
@@ -205,12 +165,10 @@ class SettingsFragment : PreferenceFragmentCompat() {
         super.onStop()
         // If the screen isn't visible we don't need to show updates.
         // Also prevent the observer registered to the FXA singleton causing memory leaks.
-        requireComponents.backgroundServices.accountManager.unregister(accountObserver)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        accountUiView.cancel()
     }
 
     private fun update(shouldUpdateAccountUIState: Boolean) {
@@ -245,12 +203,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         setupPreferences()
 
-        if (shouldUpdateAccountUIState) {
-            accountUiView.updateAccountUIState(
-                requireContext(),
-                requireComponents.backgroundServices.accountManager.accountProfile(),
-            )
-        }
     }
 
     @SuppressLint("InflateParams")
@@ -264,10 +216,15 @@ class SettingsFragment : PreferenceFragmentCompat() {
             /* Top level account preferences.
             Note: Only ONE of these preferences is visible at a time. */
             resources.getString(R.string.pref_key_sign_in) -> {
-                SettingsMetrics.signIntoSync.add()
-                SettingsFragmentDirections.actionSettingsFragmentToTurnOnSyncFragment(
-                    entrypoint = FenixFxAEntryPoint.SettingsMenu,
-                )
+                // Eyebrowse: this card is ours. It opens Indo Account, and there is no Mozilla
+                // sign-in behind it any more.
+                val storage = IndoAccountStorage(requireContext())
+                if (storage.isSignedIn()) {
+                    IndoAccountEntry.openManagement(requireContext())
+                } else {
+                    IndoAccountEntry.startSignIn(requireContext())
+                }
+                return true
             }
 
             resources.getString(R.string.pref_key_account) -> {
@@ -444,7 +401,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         val context = context ?: return
         val storage = IndoAccountStorage(context)
         val accountPreference =
-            findPreference<Preference>(getPreferenceKey(R.string.pref_key_indo_account)) ?: return
+            findPreference<Preference>(getPreferenceKey(R.string.pref_key_sign_in)) ?: return
         val signOutPreference =
             findPreference<Preference>(getPreferenceKey(R.string.pref_key_indo_account_sign_out)) ?: return
 
@@ -479,15 +436,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
                     }
                 }
             }
-        }
-
-        accountPreference.setOnPreferenceClickListener {
-            if (storage.isSignedIn()) {
-                IndoAccountEntry.openManagement(requireContext())
-            } else {
-                IndoAccountEntry.startSignIn(requireContext())
-            }
-            true
         }
 
         signOutPreference.setOnPreferenceClickListener {
