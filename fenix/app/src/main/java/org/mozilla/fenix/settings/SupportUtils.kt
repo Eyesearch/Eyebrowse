@@ -24,12 +24,18 @@ object SupportUtils {
     const val RATE_APP_URL = "market://details?id=" + BuildConfig.APPLICATION_ID
     const val POCKET_TRENDING_URL = "https://getpocket.com/fenix-top-articles"
     const val WIKIPEDIA_URL = "https://www.wikipedia.org/"
-    const val FENIX_PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=${BuildConfig.APPLICATION_ID}"
+    const val FENIX_PLAY_STORE_URL = "https://play.google.com/store/apps/details"
     const val GOOGLE_URL = "https://www.google.com/"
     const val BAIDU_URL = "https://m.baidu.com/"
-    const val GOOGLE_US_URL = "https://www.google.com/webhp?client=firefox-b-1-m&channel=ts"
-    const val GOOGLE_XX_URL = "https://www.google.com/webhp?client=firefox-b-m&channel=ts"
-    const val WHATS_NEW_URL = "https://eyebrowse.in/whats-new"
+    const val GOOGLE_US_URL = "https://www.google.com/webhp"
+    const val GOOGLE_XX_URL = "https://www.google.com/webhp"
+    /**
+     * Eyebrowse: the one page we actually publish. Every in-app help, privacy and what's new link
+     * goes here, because the old support and marketing domains were Mozilla's and ours do not
+     * exist yet.
+     */
+    const val EYEBROWSE_HOME_URL = "https://eyesearch.github.io/Eyebrowse/"
+    const val WHATS_NEW_URL = EYEBROWSE_HOME_URL
 
     enum class SumoTopic(internal val topicStr: String) {
         HELP("faq-android"),
@@ -61,37 +67,31 @@ object SupportUtils {
     /**
      * Gets a support page URL for the corresponding topic.
      */
+    @Suppress("UNUSED_PARAMETER")
     fun getSumoURLForTopic(
         context: Context,
         topic: SumoTopic,
         locale: Locale = Locale.getDefault(),
     ): String {
-        val escapedTopic = getEncodedTopicUTF8(topic.topicStr)
-        // Remove the whitespace so a search is not triggered:
-        val appVersion = context.appVersionName.replace(" ", "")
-        val osTarget = "Android"
-        val langTag = getLanguageTag(locale)
-        return "https://support.eyebrowse.in/1/mobile/$appVersion/$osTarget/$langTag/$escapedTopic"
+        // Eyebrowse: there is no support site yet, so a help link lands on our own page rather
+        // than a domain that does not answer. The topic is kept for the day there is one.
+        return EYEBROWSE_HOME_URL
     }
 
     /**
      * Gets a support page URL for the corresponding topic.
      * Used when the app version and os are not part of the URL.
      */
-    fun getGenericSumoURLForTopic(topic: SumoTopic, locale: Locale = Locale.getDefault()): String {
-        val escapedTopic = getEncodedTopicUTF8(topic.topicStr)
-        val langTag = getLanguageTag(locale)
-        return "https://support.eyebrowse.in/$langTag/kb/$escapedTopic"
-    }
+    @Suppress("UNUSED_PARAMETER")
+    fun getGenericSumoURLForTopic(topic: SumoTopic, locale: Locale = Locale.getDefault()): String =
+        EYEBROWSE_HOME_URL
 
-    fun getFirefoxAccountSumoUrl(): String {
-        return "https://support.eyebrowse.in/kb/access-account"
-    }
+    fun getFirefoxAccountSumoUrl(): String = EYEBROWSE_HOME_URL
 
+    @Suppress("UNUSED_PARAMETER")
     fun getMozillaPageUrl(page: MozillaPage, locale: Locale = Locale.getDefault()): String {
-        val path = page.path
-        val langTag = getLanguageTag(locale)
-        return "https://eyebrowse.in/$langTag/$path"
+        // Eyebrowse: privacy notice and manifesto were Mozilla's pages. Ours is the landing page.
+        return EYEBROWSE_HOME_URL
     }
 
     fun createCustomTabIntent(context: Context, url: String): Intent = CustomTabsIntent.Builder()
@@ -115,17 +115,4 @@ object SupportUtils {
     fun createSandboxCustomTabIntent(context: Context, url: String): Intent =
         createCustomTabIntent(context, url).putExtra(EXTRA_IS_SANDBOX_CUSTOM_TAB, true)
 
-    private fun getEncodedTopicUTF8(topic: String): String {
-        try {
-            return URLEncoder.encode(topic, "UTF-8")
-        } catch (e: UnsupportedEncodingException) {
-            throw IllegalStateException("utf-8 should always be available", e)
-        }
-    }
-
-    private fun getLanguageTag(locale: Locale): String {
-        val language = locale.language
-        val country = locale.country // Can be an empty string.
-        return if (country.isEmpty()) language else "$language-$country"
-    }
 }
