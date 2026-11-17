@@ -38,7 +38,10 @@ internal class PocketEndpointRaw internal constructor(
     }
 
     companion object {
-        private const val pocketEndpointUrl = "https://firefox-android-home-recommendations.getpocket.com/"
+        // Eyebrowse: Pocket is Mozilla's recommendation service, and this endpoint was theirs.
+        // It is pointed at a loopback address that nothing listens on, so the request fails at
+        // once and no story ever arrives. Replace it the day we have our own recommendations.
+        private const val pocketEndpointUrl = "https://127.0.0.1/"
 
         /**
          * Returns a new instance of [PocketEndpointRaw].
