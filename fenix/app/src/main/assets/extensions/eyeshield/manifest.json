@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "EyeShield",
+  "version": "1.0",
+  "description": "Stops the browser talking to Mozilla. Nothing leaves the phone.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "eyeshield@eyesearch.org",
+      "strict_min_version": "115.0"
+    }
+  },
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  }
+}
