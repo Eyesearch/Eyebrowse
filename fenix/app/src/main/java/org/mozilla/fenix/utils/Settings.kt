@@ -357,17 +357,18 @@ class Settings(private val appContext: Context) : PreferencesHolder {
 
     var isTelemetryEnabled by booleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_telemetry),
-        default = true,
+        // Eyebrowse: nothing is sent to Mozilla. This is not a default the user can flip back.
+        default = false,
     )
 
     var isMarketingTelemetryEnabled by booleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_marketing_telemetry),
-        default = !Config.channel.isMozillaOnline,
+        default = false,
     )
 
     var isExperimentationEnabled by booleanPreference(
         appContext.getPreferenceKey(R.string.pref_key_experimentation),
-        default = true,
+        default = false,
     )
 
     var isOverrideTPPopupsForPerformanceTest = false

@@ -2,13 +2,6 @@
 <!-- This Source Code Form is subject to the terms of the Mozilla Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <SwitchPreference
-        android:key="@string/pref_key_telemetry"
-        android:summary="@string/preferences_usage_data_description"
-        android:title="@string/preference_usage_data" />
-    <SwitchPreference
-        android:key="@string/pref_key_marketing_telemetry"
-        android:summary="@string/preferences_marketing_data_description2"
-        android:title="@string/preferences_marketing_data" />
-</PreferenceScreen>
+<!-- Eyebrowse: this screen used to hold Mozilla's usage data and marketing switches.
+     Both are gone, and the upload is off in code, so there is nothing left to switch. -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" />

@@ -68,9 +68,10 @@ class GleanMetricsService(
     private val activationPing = ActivationPing(context)
 
     override fun start() {
-        logger.debug("Enabling Glean.")
-        // Initialization of Glean already happened in FenixApplication.
-        Glean.setUploadEnabled(true)
+        logger.debug("Glean is initialised but never uploads.")
+        // Eyebrowse: the upload is off, permanently. The library stays for its internal event
+        // plumbing, but nothing it records leaves the phone.
+        Glean.setUploadEnabled(false)
 
         if (initialized) return
         initialized = true
