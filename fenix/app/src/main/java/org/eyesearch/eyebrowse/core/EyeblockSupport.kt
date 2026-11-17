@@ -27,10 +27,19 @@ object EyeblockSupport {
     private const val TAG = "EyeblockSupport"
 
     /**
+     * EyeShield, the small extension of ours that cancels every request to Mozilla inside the
+     * browser. It is separate from the blocker on purpose: the blocker stops ads and trackers,
+     * this stops the engine talking to the people who built it.
+     */
+    private const val SHIELD_ID = "eyeshield@eyesearch.org"
+    private const val SHIELD_URL = "resource://android/assets/extensions/eyeshield/"
+
+    /**
      * Installs the bundled blocker once, at startup, and leaves it enabled or disabled to match
      * the user's switch.
      */
     fun install(engine: Engine, enabled: Boolean) {
+        installShield(engine)
         engine.installBuiltInWebExtension(
             id = EXTENSION_ID,
             url = EXTENSION_URL,
@@ -70,4 +79,21 @@ object EyeblockSupport {
             },
         )
     }
+    /**
+     * EyeShield is installed whatever the blocker switch says. Turning EyeBlock off is a choice
+     * about ads; it is not a choice about whether our browser is allowed to phone Mozilla.
+     */
+    private fun installShield(engine: Engine) {
+        engine.installBuiltInWebExtension(
+            id = SHIELD_ID,
+            url = SHIELD_URL,
+            onSuccess = { extension ->
+                engine.setAllowedInPrivateBrowsing(extension, allowed = true)
+            },
+            onError = { error ->
+                Log.w(TAG, "EyeShield could not be installed: ${error.message}")
+            },
+        )
+    }
+
 }
