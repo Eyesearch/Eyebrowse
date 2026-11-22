@@ -6,7 +6,7 @@ package org.eyesearch.eyebrowse.sync
 
 import mozilla.components.concept.storage.BookmarkNode
 import mozilla.components.concept.storage.BookmarkNodeType
-import mozilla.components.concept.storage.BookmarkRoot
+import mozilla.appservices.places.BookmarkRoot
 import mozilla.components.concept.storage.BookmarksStorage
 import org.json.JSONObject
 
