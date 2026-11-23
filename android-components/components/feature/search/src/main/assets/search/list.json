@@ -5,7 +5,11 @@
       "DuckDuckGo"
     ],
     "visibleDefaultEngines": [
-      "ddg"
+      "ddg",
+      "bing",
+      "ecosia",
+      "qwant",
+      "google-b-m"
     ]
   },
   "regionOverrides": {},
