@@ -229,6 +229,12 @@ class SearchDialogController(
                 )
             }
             else -> {
+                // Eyebrowse: the engine a person picks here is remembered, in the app's own local
+                // storage, and the next search starts with it. Picking an engine once should not be
+                // something the user has to repeat every time.
+                if (searchEngine.isGeneral) {
+                    settings.defaultSearchEngineName = searchEngine.name
+                }
                 fragmentStore.dispatch(
                     SearchFragmentAction.SearchShortcutEngineSelected(
                         engine = searchEngine,
