@@ -6,7 +6,9 @@ name: Compile check
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, develop]
+  push:
+    branches: [develop]
   workflow_dispatch:
 
 concurrency:
