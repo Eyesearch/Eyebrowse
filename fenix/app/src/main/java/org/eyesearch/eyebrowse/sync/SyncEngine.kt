@@ -15,6 +15,7 @@ class SyncEngine(
     private val client: SyncClient,
     private val changeLog: SyncChangeLog,
     private val bookmarks: BookmarkSync,
+    private val logins: LoginsSync? = null,
 ) {
 
     data class Report(
@@ -68,6 +69,39 @@ class SyncEngine(
                     return report.copy(downloaded = downloaded, applied = applied, stoppedBy = "too-large")
                 is SyncClient.Outcome.Failed ->
                     return report.copy(downloaded = downloaded, applied = applied, stoppedBy = "failed")
+            }
+        }
+    }
+
+    /** The same three steps for saved logins. */
+    suspend fun runLogins(): Report {
+        val sync = logins ?: return Report(stoppedBy = "not-available")
+        val changes = sync.recordChanges()
+        var report = Report(recorded = changes.added, tombstones = changes.removed)
+
+        val uploader = SyncUploader(changeLog, client) { type, id ->
+            if (type == SyncType.LOGINS) sync.payloadFor(id) else null
+        }
+        val pushed = uploader.upload(SyncType.LOGINS)
+        report = report.copy(uploaded = pushed.uploaded, stoppedBy = pushed.stoppedBy)
+        if (pushed.stoppedBy != null) return report
+
+        var cursor: String? = null
+        var applied = 0
+        var downloaded = 0
+        while (true) {
+            when (val outcome = client.pull(SyncType.LOGINS, cursor)) {
+                is SyncClient.Outcome.Ok -> {
+                    downloaded += outcome.value.records.size
+                    outcome.value.records.forEach { record ->
+                        runCatching { sync.apply(record) }.onSuccess { applied += 1 }
+                    }
+                    cursor = outcome.value.cursor
+                    if (!outcome.value.hasMore) {
+                        return report.copy(downloaded = downloaded, applied = applied)
+                    }
+                }
+                else -> return report.copy(downloaded = downloaded, applied = applied, stoppedBy = "stopped")
             }
         }
     }

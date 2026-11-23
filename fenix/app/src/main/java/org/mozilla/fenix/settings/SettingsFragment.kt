@@ -552,6 +552,51 @@ class SettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
+    /** The same shape as bookmarks, for saved passwords. */
+    private fun setupSyncLoginsPreference() {
+        val preference = findPreference<SwitchPreference>(getPreferenceKey(R.string.pref_key_eyebrowse_sync_logins))
+            ?: return
+        val context = context ?: return
+        val account = IndoAccountStorage(context)
+
+        if (!account.isSignedIn()) {
+            preference.isChecked = false
+            preference.isEnabled = false
+            preference.summary = getString(R.string.preferences_eyebrowse_sync_bookmarks_signed_out)
+            return
+        }
+
+        preference.summary = getString(R.string.preferences_eyebrowse_sync_logins_off)
+        preference.setOnPreferenceChangeListener { _, newValue ->
+            val enabled = newValue == true
+            preference.summary = getString(
+                if (enabled) R.string.preferences_eyebrowse_sync_logins_on
+                else R.string.preferences_eyebrowse_sync_logins_off,
+            )
+            viewLifecycleOwner.lifecycleScope.launch {
+                val client = SyncFactory.client(context)
+                when (client.setEnabled(SyncType.LOGINS, enabled)) {
+                    is SyncClient.Outcome.Ok -> if (enabled) {
+                        val engine = SyncFactory.engine(
+                            context,
+                            context.components.core.bookmarksStorage,
+                            context.components.core.passwordsStorage,
+                        )
+                        val report = engine.runLogins()
+                        Log.i(
+                            "EyebrowseSync",
+                            "logins: recorded ${report.recorded}, uploaded ${report.uploaded}, " +
+                                "downloaded ${report.downloaded}, applied ${report.applied}, " +
+                                "stopped by ${report.stoppedBy ?: "nothing"}",
+                        )
+                    }
+                    else -> preference.summary = getString(R.string.preferences_eyebrowse_sync_logins_off)
+                }
+            }
+            true
+        }
+    }
+
     /** One run, in the background, so the switch does not freeze while the network answers. */
     private suspend fun runSyncOnce(context: Context) {
         val bookmarksStorage = context.components.core.bookmarksStorage
@@ -639,6 +684,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         setupIndoAccountPreferences()
         setupVpnPreference()
         setupSyncPreference()
+        setupSyncLoginsPreference()
         setupCookieBannerPreference()
         setupGeckoLogsPreference(requireContext().settings())
         setupAllowDomesticChinaFxaServerPreference()
