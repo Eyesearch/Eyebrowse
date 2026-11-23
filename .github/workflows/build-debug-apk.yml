@@ -200,6 +200,9 @@ jobs:
           retention-days: 14
 
   build-release-apk:
+    # Eyebrowse: debug only while we are testing. The release APK is built by hand, on purpose,
+    # when testing is done; two builds per commit was the slowest thing in the day.
+    if: ${{ false }}
     name: Assemble Eyebrowse release APK
     runs-on: ubuntu-latest
     timeout-minutes: 120
