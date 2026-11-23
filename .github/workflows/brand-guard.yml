@@ -1,0 +1,44 @@
+name: Brand guard
+
+# Why this exists: once already, a revert put Mozilla's wordmark back on the home screen and
+# nobody noticed until it was on a phone. This job fails the moment our brand assets change, so
+# the mistake cannot reach a build silently. If a change is deliberate, the hashes below are
+# updated in the same commit, which makes it a decision rather than an accident.
+
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [main, develop]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  brand:
+    name: Our logo and name are still ours
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Compare the brand assets
+        run: |
+          set -euo pipefail
+          check() {
+            file="$1"; want="$2"
+            if [ ! -f "$file" ]; then
+              echo "::error::$file is missing"
+              exit 1
+            fi
+            got="$(sha256sum "$file" | cut -d' ' -f1)"
+            if [ "$got" != "$want" ]; then
+              echo "::error::$file changed. If this is deliberate, update the hash in brand-guard.yml. If not, Mozilla's artwork is back."
+              exit 1
+            fi
+            echo "ok $file"
+          }
+          check fenix/app/src/main/res/drawable/ic_wordmark_logo.webp 3f62a3a7cbaf46de1af95733e5540c8e515c979bd91118de7cd69dbb9803dd5a
+          check fenix/app/src/main/res/drawable/ic_wordmark_text_normal.webp 931abe6c8d2a2f4fb59b557e7b3edff4158bac547ff00f03938458f7be62c59f
+          check fenix/app/src/main/res/drawable/ic_wordmark_text_private.webp eaa53a53afb93d911f3c98822e7046f85ec35b54393ddcd9e7f2d9d16e71bc9b
