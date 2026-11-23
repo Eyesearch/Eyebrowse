@@ -339,7 +339,7 @@
     <color name="device_foreground">@color/photonInk80</color>
 
     <!-- Launcher Icon colors -->
-    <color name="ic_launcher_background">#FFFFFF</color>
+    <color name="ic_launcher_background">#f7f4ec</color>
     <!-- Eyebrowse: splash screen background. -->
     <color name="eyebrowse_splash_background">#FFFFFF</color>
 
