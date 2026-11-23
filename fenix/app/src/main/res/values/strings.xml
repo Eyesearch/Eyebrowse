@@ -584,6 +584,11 @@
     <string name="preferences_indo_account">Continue with Indo Account</string>
     <string name="preferences_indo_account_manage">Manage your account</string>
     <!-- VPN, step one: the switch, the service and its notification -->
+    <!-- Sync: one switch per type, and this is the first one -->
+    <string name="preferences_sync_bookmarks">Sync bookmarks</string>
+    <string name="preferences_sync_bookmarks_off">Off. Your bookmarks stay on this phone only.</string>
+    <string name="preferences_sync_bookmarks_on">On. Bookmark changes travel between your devices.</string>
+    <string name="preferences_sync_bookmarks_signed_out">Sign in to Indo Account first</string>
     <string name="preferences_vpn">VPN</string>
     <string name="preferences_vpn_off">Off</string>
     <string name="preferences_vpn_preparing">On, no exit yet</string>
