@@ -106,7 +106,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
             requireContext().getString(R.string.pref_key_show_search_engine_shortcuts),
             requireContext().getString(R.string.pref_key_open_links_in_a_private_tab),
             requireContext().getString(R.string.pref_key_sync_logins),
-            requireContext().getString(R.string.pref_key_sync_bookmarks),
+            requireContext().getString(R.string.pref_key_eyebrowse_sync_bookmarks),
             requireContext().getString(R.string.pref_key_sync_history),
             requireContext().getString(R.string.pref_key_show_voice_search),
             requireContext().getString(R.string.pref_key_show_search_suggestions_in_private),
@@ -523,7 +523,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
      * then runs a sync immediately so the user sees a result instead of a promise.
      */
     private fun setupSyncPreference() {
-        val preference = findPreference<SwitchPreference>(getPreferenceKey(R.string.pref_key_sync_bookmarks))
+        val preference = findPreference<SwitchPreference>(getPreferenceKey(R.string.pref_key_eyebrowse_sync_bookmarks))
             ?: return
         val context = context ?: return
         val account = IndoAccountStorage(context)
