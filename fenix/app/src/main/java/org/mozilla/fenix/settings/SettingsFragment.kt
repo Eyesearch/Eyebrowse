@@ -531,21 +531,21 @@ class SettingsFragment : PreferenceFragmentCompat() {
         if (!account.isSignedIn()) {
             preference.isChecked = false
             preference.isEnabled = false
-            preference.summary = getString(R.string.preferences_sync_bookmarks_signed_out)
+            preference.summary = getString(R.string.preferences_eyebrowse_sync_bookmarks_signed_out)
             return
         }
 
-        preference.summary = getString(R.string.preferences_sync_bookmarks_off)
+        preference.summary = getString(R.string.preferences_eyebrowse_sync_bookmarks_off)
         preference.setOnPreferenceChangeListener { _, newValue ->
             val enabled = newValue == true
             preference.summary = getString(
-                if (enabled) R.string.preferences_sync_bookmarks_on else R.string.preferences_sync_bookmarks_off,
+                if (enabled) R.string.preferences_eyebrowse_sync_bookmarks_on else R.string.preferences_eyebrowse_sync_bookmarks_off,
             )
             viewLifecycleOwner.lifecycleScope.launch {
                 val client = SyncFactory.client(context)
                 when (val outcome = client.setEnabled(SyncType.BOOKMARKS, enabled)) {
                     is SyncClient.Outcome.Ok -> if (enabled) runSyncOnce(context)
-                    else -> preference.summary = getString(R.string.preferences_sync_bookmarks_off)
+                    else -> preference.summary = getString(R.string.preferences_eyebrowse_sync_bookmarks_off)
                 }
             }
             true
