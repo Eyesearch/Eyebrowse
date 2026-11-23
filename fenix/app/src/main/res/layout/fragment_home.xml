@@ -51,10 +51,10 @@
             <LinearLayout
                 android:id="@+id/wordmark"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="34dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginBottom="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="10dp"
                 android:clickable="false"
                 android:focusable="false"
                 android:importantForAccessibility="no"
