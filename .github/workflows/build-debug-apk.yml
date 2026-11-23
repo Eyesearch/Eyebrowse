@@ -1,10 +1,9 @@
 name: Build APKs
 
+# Eyebrowse: the APK is built only when someone asks for it. Every push building a 120 MB
+# release was the slowest part of the day, and the compile check below catches what the APK build
+# was catching anyway.
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
   workflow_dispatch:
 
 concurrency:
