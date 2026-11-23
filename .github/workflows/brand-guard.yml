@@ -39,6 +39,13 @@ jobs:
             fi
             echo "ok $file"
           }
+          # the file Mozilla's fox used to live in must stay ours, by content rather than by hash,
+          # because it is a tiny xml that points at our launcher mark
+          if ! grep -q "@mipmap/ic_launcher" fenix/app/src/main/res/drawable/ic_firefox.xml; then
+            echo "::error::ic_firefox.xml no longer points at our launcher mark"
+            exit 1
+          fi
+          echo "ok ic_firefox.xml"
           check fenix/app/src/main/res/drawable/ic_wordmark_logo.webp 3f62a3a7cbaf46de1af95733e5540c8e515c979bd91118de7cd69dbb9803dd5a
           check fenix/app/src/main/res/drawable/ic_wordmark_text_normal.webp 931abe6c8d2a2f4fb59b557e7b3edff4158bac547ff00f03938458f7be62c59f
           check fenix/app/src/main/res/drawable/ic_wordmark_text_private.webp eaa53a53afb93d911f3c98822e7046f85ec35b54393ddcd9e7f2d9d16e71bc9b
