@@ -543,7 +543,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
             )
             viewLifecycleOwner.lifecycleScope.launch {
                 val client = SyncFactory.client(context)
-                when (val outcome = client.setEnabled(SyncType.BOOKMARKS, enabled)) {
+                when (client.setEnabled(SyncType.BOOKMARKS, enabled)) {
                     is SyncClient.Outcome.Ok -> if (enabled) runSyncOnce(context)
                     else -> preference.summary = getString(R.string.preferences_eyebrowse_sync_bookmarks_off)
                 }
