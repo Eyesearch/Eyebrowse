@@ -16,6 +16,12 @@
         app:allowDividerBelow="false" />
 
     <androidx.preference.SwitchPreference
+        android:key="@string/pref_key_eyebrowse_sync_bookmarks"
+        android:title="@string/preferences_eyebrowse_sync_bookmarks"
+        android:summary="@string/preferences_eyebrowse_sync_bookmarks_off"
+        app:iconSpaceReserved="false" />
+
+    <androidx.preference.SwitchPreference
         android:key="@string/pref_key_vpn"
         android:title="@string/preferences_vpn"
         android:summary="@string/preferences_vpn_off"

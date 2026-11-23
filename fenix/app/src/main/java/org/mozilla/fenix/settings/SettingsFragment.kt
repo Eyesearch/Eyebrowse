@@ -6,6 +6,7 @@ package org.mozilla.fenix.settings
 
 import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
+import android.util.Log
 import android.app.Activity
 import android.app.NotificationManager
 import android.content.Context
@@ -59,6 +60,9 @@ import org.eyesearch.eyebrowse.account.IndoIdentity
 import org.eyesearch.eyebrowse.account.IndoAccountStorage
 import org.eyesearch.eyebrowse.vpn.EyebrowseVpnService
 import org.eyesearch.eyebrowse.vpn.VpnController
+import org.eyesearch.eyebrowse.sync.SyncClient
+import org.eyesearch.eyebrowse.sync.SyncFactory
+import org.eyesearch.eyebrowse.sync.SyncType
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.accounts.FenixFxAEntryPoint
 import org.mozilla.fenix.ext.application
@@ -102,7 +106,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
             requireContext().getString(R.string.pref_key_show_search_engine_shortcuts),
             requireContext().getString(R.string.pref_key_open_links_in_a_private_tab),
             requireContext().getString(R.string.pref_key_sync_logins),
-            requireContext().getString(R.string.pref_key_sync_bookmarks),
+            requireContext().getString(R.string.pref_key_eyebrowse_sync_bookmarks),
             requireContext().getString(R.string.pref_key_sync_history),
             requireContext().getString(R.string.pref_key_show_voice_search),
             requireContext().getString(R.string.pref_key_show_search_suggestions_in_private),
@@ -514,6 +518,52 @@ class SettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
+    /**
+     * One switch, one type: bookmarks. Turning it on tells the server this account wants that type,
+     * then runs a sync immediately so the user sees a result instead of a promise.
+     */
+    private fun setupSyncPreference() {
+        val preference = findPreference<SwitchPreference>(getPreferenceKey(R.string.pref_key_eyebrowse_sync_bookmarks))
+            ?: return
+        val context = context ?: return
+        val account = IndoAccountStorage(context)
+
+        if (!account.isSignedIn()) {
+            preference.isChecked = false
+            preference.isEnabled = false
+            preference.summary = getString(R.string.preferences_eyebrowse_sync_bookmarks_signed_out)
+            return
+        }
+
+        preference.summary = getString(R.string.preferences_eyebrowse_sync_bookmarks_off)
+        preference.setOnPreferenceChangeListener { _, newValue ->
+            val enabled = newValue == true
+            preference.summary = getString(
+                if (enabled) R.string.preferences_eyebrowse_sync_bookmarks_on else R.string.preferences_eyebrowse_sync_bookmarks_off,
+            )
+            viewLifecycleOwner.lifecycleScope.launch {
+                val client = SyncFactory.client(context)
+                when (client.setEnabled(SyncType.BOOKMARKS, enabled)) {
+                    is SyncClient.Outcome.Ok -> if (enabled) runSyncOnce(context)
+                    else -> preference.summary = getString(R.string.preferences_eyebrowse_sync_bookmarks_off)
+                }
+            }
+            true
+        }
+    }
+
+    /** One run, in the background, so the switch does not freeze while the network answers. */
+    private suspend fun runSyncOnce(context: Context) {
+        val bookmarksStorage = context.components.core.bookmarksStorage
+        val report = SyncFactory.engine(context, bookmarksStorage).runBookmarks()
+        Log.i(
+            "EyebrowseSync",
+            "bookmarks: recorded ${report.recorded}, removed ${report.tombstones}, " +
+                "uploaded ${report.uploaded}, downloaded ${report.downloaded}, applied ${report.applied}, " +
+                "stopped by ${report.stoppedBy ?: "nothing"}",
+        )
+    }
+
     /** Android's consent dialog, which is the only thing that can grant a tunnel. */
     private val vpnConsentLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult(),
@@ -588,6 +638,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         setupEyeblockPreference()
         setupIndoAccountPreferences()
         setupVpnPreference()
+        setupSyncPreference()
         setupCookieBannerPreference()
         setupGeckoLogsPreference(requireContext().settings())
         setupAllowDomesticChinaFxaServerPreference()

@@ -223,6 +223,7 @@
     <string name="pref_key_indo_account" translatable="false">pref_key_indo_account</string>
     <string name="pref_key_indo_account_sign_out" translatable="false">pref_key_indo_account_sign_out</string>
     <string name="pref_key_vpn" translatable="false">pref_key_vpn</string>
+    <string name="pref_key_eyebrowse_sync_bookmarks" translatable="false">pref_key_eyebrowse_sync_bookmarks</string>
     <string name="pref_key_should_show_eyebrowse_setup" translatable="false">pref_key_should_show_eyebrowse_setup</string>
     <string name="pref_key_open_links_in_apps_always" translatable="false">pref_key_open_links_in_apps_always</string>
     <string name="pref_key_open_links_in_apps_ask" translatable="false">pref_key_open_links_in_apps_ask</string>
