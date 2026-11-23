@@ -5,6 +5,11 @@ name: Build APKs
 # was catching anyway.
 on:
   workflow_dispatch:
+  # Dispatch is refused for the app token, so a tag is how we ask for a build by hand: push a tag
+  # named apk-* and this runs. Nothing else triggers it.
+  push:
+    tags:
+      - 'apk-*'
 
 concurrency:
   group: build-debug-apk-${{ github.ref }}
