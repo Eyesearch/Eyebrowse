@@ -47,5 +47,5 @@ jobs:
           fi
           echo "ok ic_firefox.xml"
           check fenix/app/src/main/res/drawable/ic_wordmark_logo.webp 71e013d4b1ccf3c9c912732517f2a010bd1839c8d16d7109b245323cd4f72c8b
-          check fenix/app/src/main/res/drawable/ic_wordmark_text_normal.webp 931abe6c8d2a2f4fb59b557e7b3edff4158bac547ff00f03938458f7be62c59f
-          check fenix/app/src/main/res/drawable/ic_wordmark_text_private.webp eaa53a53afb93d911f3c98822e7046f85ec35b54393ddcd9e7f2d9d16e71bc9b
+          check fenix/app/src/main/res/drawable/ic_wordmark_text_normal.webp bbb4f2c4c940765f6490d5161d6f044e9a2ed5c8a31ff178282a5b351262d1a0
+          check fenix/app/src/main/res/drawable/ic_wordmark_text_private.webp 8ed6b798d586309818c81f04b704f76b7cf45498993129630a9035ea89c42c6b
