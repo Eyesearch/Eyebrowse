@@ -552,6 +552,33 @@ class SettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
+    /**
+     * EyeShield had no switch, by my design, and that hid a rendering bug from us for two rounds.
+     * A thing that blocks page requests must be something the user can turn off.
+     */
+    private fun setupShieldPreference() {
+        val preference = findPreference<SwitchPreference>(getPreferenceKey(R.string.pref_key_eyebrowse_shield))
+            ?: return
+        val engine = context?.components?.core?.engine ?: return
+
+        preference.isChecked = EyeblockSupport.isShieldEnabled(preference.context)
+        preference.summary = getString(
+            if (preference.isChecked) R.string.preferences_eyebrowse_shield_on
+            else R.string.preferences_eyebrowse_shield_off,
+        )
+
+        preference.setOnPreferenceChangeListener { _, newValue ->
+            val enabled = newValue == true
+            EyeblockSupport.setShieldEnabled(preference.context, enabled)
+            EyeblockSupport.setShieldRunning(engine, enabled)
+            preference.summary = getString(
+                if (enabled) R.string.preferences_eyebrowse_shield_on
+                else R.string.preferences_eyebrowse_shield_off,
+            )
+            true
+        }
+    }
+
     /** The same shape as bookmarks, for saved passwords. */
     private fun setupSyncLoginsPreference() {
         val preference = findPreference<SwitchPreference>(getPreferenceKey(R.string.pref_key_eyebrowse_sync_logins))
@@ -685,6 +712,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         setupVpnPreference()
         setupSyncPreference()
         setupSyncLoginsPreference()
+        setupShieldPreference()
         setupCookieBannerPreference()
         setupGeckoLogsPreference(requireContext().settings())
         setupAllowDomesticChinaFxaServerPreference()

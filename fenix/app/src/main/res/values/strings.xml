@@ -586,6 +586,9 @@
     <!-- VPN, step one: the switch, the service and its notification -->
     <!-- Eyebrowse: one switch per type, and bookmarks is the first one. The name has a prefix of
          its own because Mozilla's sync screen already owns preferences_sync_bookmarks. -->
+    <string name="preferences_eyebrowse_shield">EyeShield</string>
+    <string name="preferences_eyebrowse_shield_on">On. Stops the browser calling Mozilla.</string>
+    <string name="preferences_eyebrowse_shield_off">Off. Nothing is blocked, for testing a page that misbehaves.</string>
     <string name="preferences_eyebrowse_sync_logins">Sync passwords</string>
     <string name="preferences_eyebrowse_sync_logins_off">Off. Saved passwords stay on this phone only.</string>
     <string name="preferences_eyebrowse_sync_logins_on">On. Passwords travel locked, and only this account can open them.</string>
