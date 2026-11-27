@@ -626,6 +626,11 @@
     <string name="preferences_vpn_gate_preview">Directory preview only. These are provider-reported results, not measured on your device. No VPN connection has been started.</string>
     <string name="preferences_vpn_gate_row">%1$s · %2$s\nReported ping: %3$d ms · Logging: %4$s</string>
     <string name="preferences_vpn_gate_instructions">Official OpenVPN instructions</string>
+    <string name="preferences_vpn_gate_experimental_consent">Experimental OpenVPN connection. Volunteer servers log connections; the directory receives your IP. Only compatible profiles are accepted. Traffic may leak during disconnect or failure. No full kill switch. Continue only for local testing.</string>
+    <string name="preferences_vpn_gate_experimental">Experimental debug-only VPN Gate connection. Not release verified. Connection status is reported by the engine; a connected status is not a leak test.</string>
+    <string name="preferences_vpn_gate_connect">Connect to best compatible server</string>
+    <string name="preferences_vpn_gate_stop">Stop experimental VPN</string>
+    <string name="preferences_vpn_gate_no_compatible">No compatible VPN Gate profile</string>
     <string name="preferences_vpn_clear">Remove all saved profiles</string>
     <string name="preferences_vpn_clear_confirm">Remove every saved VPN profile from Eyebrowse?</string>
     <string name="preferences_vpn_profile_saved">VPN profile added. Tap VPN to connect.</string>

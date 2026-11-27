@@ -61,6 +61,8 @@ import org.eyesearch.eyebrowse.account.IndoIdentity
 import org.eyesearch.eyebrowse.account.IndoAccountStorage
 import org.eyesearch.eyebrowse.vpn.VpnController
 import org.eyesearch.eyebrowse.vpn.VpnGateDirectory
+import org.eyesearch.eyebrowse.vpn.OpenVpnExperiment
+import org.eyesearch.eyebrowse.vpn.OpenVpnProfilePolicy
 import org.eyesearch.eyebrowse.vpn.VpnNavigationGuard
 import org.eyesearch.eyebrowse.sync.SyncClient
 import org.eyesearch.eyebrowse.sync.SyncFactory
@@ -598,11 +600,55 @@ class SettingsFragment : PreferenceFragmentCompat() {
             .show()
     }
 
+    private var pendingOpenVpnProfile: OpenVpnProfilePolicy.ValidatedProfile? = null
+    private val openVpnConsent = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        val profile = pendingOpenVpnProfile
+        pendingOpenVpnProfile = null
+        if (result.resultCode == Activity.RESULT_OK && profile != null && isAdded) {
+            startExperimentalOpenVpn(profile)
+        }
+    }
+
+    private fun startExperimentalOpenVpn(profile: OpenVpnProfilePolicy.ValidatedProfile) {
+        val context = context ?: return
+        val consent = android.net.VpnService.prepare(context)
+        if (consent != null) {
+            pendingOpenVpnProfile = profile
+            openVpnConsent.launch(consent)
+            return
+        }
+        if (!OpenVpnExperiment.connect(context, profile)) {
+            Toast.makeText(context, R.string.preferences_vpn_error, Toast.LENGTH_LONG).show()
+        }
+        showExperimentalOpenVpnStatus()
+    }
+
+    private fun showExperimentalOpenVpnStatus() {
+        val context = context ?: return
+        val dialog = AlertDialog.Builder(context)
+            .setTitle(R.string.preferences_vpn_gate)
+            .setMessage(R.string.preferences_vpn_gate_experimental)
+            .setPositiveButton(R.string.preferences_vpn_gate_stop) { _, _ -> OpenVpnExperiment.stop(context) }
+            .setNegativeButton(android.R.string.cancel, null)
+            .create()
+        dialog.show()
+        val job = viewLifecycleOwner.lifecycleScope.launch {
+            OpenVpnExperiment.status.collect { status ->
+                dialog.setMessage(getString(R.string.preferences_vpn_gate_experimental) + "\n\n" + status.name)
+            }
+        }
+        dialog.setOnDismissListener { job.cancel() }
+    }
+
     private fun showVpnGateConsent() {
         val context = context ?: return
+        if (OpenVpnExperiment.busy) {
+            showExperimentalOpenVpnStatus()
+            return
+        }
         AlertDialog.Builder(context)
             .setTitle(R.string.preferences_vpn_gate)
-            .setMessage(R.string.preferences_vpn_gate_consent)
+            .setMessage(if (OpenVpnExperiment.enabled) R.string.preferences_vpn_gate_experimental_consent else R.string.preferences_vpn_gate_consent)
             .setPositiveButton(R.string.preferences_vpn_gate_browse) { _, _ ->
                 loadVpnGateDirectory()
             }
@@ -634,14 +680,22 @@ class SettingsFragment : PreferenceFragmentCompat() {
             val rows = servers.map { server ->
                 getString(R.string.preferences_vpn_gate_row, server.country, server.host, server.pingMs, server.logType)
             }.joinToString("\n\n")
-            AlertDialog.Builder(requireContext())
+            val candidate = servers.firstNotNullOfOrNull { it.validatedProfile }
+            val results = AlertDialog.Builder(requireContext())
                 .setTitle(R.string.preferences_vpn_gate_results)
-                .setMessage(getString(R.string.preferences_vpn_gate_preview) + "\n\n" + rows)
-                .setPositiveButton(R.string.preferences_vpn_gate_instructions) { _, _ ->
+                .setMessage(getString(if (OpenVpnExperiment.enabled) R.string.preferences_vpn_gate_experimental else R.string.preferences_vpn_gate_preview) + "\n\n" + rows)
+                .setNeutralButton(R.string.preferences_vpn_gate_instructions) { _, _ ->
                     openVpnProvider("https://www.vpngate.net/en/howto_openvpn.aspx")
                 }
                 .setNegativeButton(android.R.string.cancel, null)
-                .show()
+            if (OpenVpnExperiment.enabled && candidate != null) {
+                results.setPositiveButton(R.string.preferences_vpn_gate_connect) { _, _ ->
+                    startExperimentalOpenVpn(candidate)
+                }
+            } else if (OpenVpnExperiment.enabled) {
+                results.setTitle(R.string.preferences_vpn_gate_no_compatible)
+            }
+            results.show()
         }
         progress.setOnCancelListener { job.cancel() }
         progress.setOnDismissListener {

@@ -29,6 +29,21 @@ if (file("google-services.json").exists()) {
 
 apply from: 'benchmark.gradle'
 
+// Local debug experiment only. Normal/release builds do not package OpenVPN.
+// A source-built, independently reviewed AAR must be supplied explicitly.
+def experimentalOpenVpn = project.hasProperty('eyebrowseOpenVpnAar')
+def experimentalOpenVpnAar = experimentalOpenVpn ? file(project.property('eyebrowseOpenVpnAar')) : null
+if (experimentalOpenVpn) {
+    if (!experimentalOpenVpnAar.isFile()) {
+        throw new GradleException('Missing experimental OpenVPN AAR')
+    }
+    def digest = java.security.MessageDigest.getInstance('SHA-256')
+        .digest(experimentalOpenVpnAar.bytes).encodeHex().toString()
+    if (digest != '3540c8579b0056baac517cb6c930d9d9fb19cbbdf6216e4353fce5513aee50f6') {
+        throw new GradleException('Experimental OpenVPN AAR checksum mismatch')
+    }
+}
+
 android {
     compileOptions {
         coreLibraryDesugaringEnabled true
@@ -51,6 +66,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
         resValue "bool", "IS_DEBUG", "false"
+        buildConfigField 'boolean', 'EXPERIMENTAL_OPENVPN', 'false'
         buildConfigField "boolean", "USE_RELEASE_VERSIONING", "false"
         buildConfigField "String", "GIT_HASH", "\"\"" // see override in release builds for why it's blank.
         // This should be the "public" base URL of AMO.
@@ -119,6 +135,7 @@ android {
 
     buildTypes {
         debug {
+            buildConfigField 'boolean', 'EXPERIMENTAL_OPENVPN', experimentalOpenVpn.toString()
             shrinkResources false
             minifyEnabled false
             applicationIdSuffix ".debug"
@@ -209,6 +226,9 @@ android {
     }
 
     sourceSets {
+        if (experimentalOpenVpn) {
+            debug.java.srcDir 'src/openvpnExperimental/java'
+        }
         androidTest {
             resources.srcDirs += ['src/androidTest/resources']
         }
@@ -518,7 +538,17 @@ tasks.withType(KotlinCompile).configureEach {
     kotlinOptions.freeCompilerArgs += "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
 }
 
+if (experimentalOpenVpn) {
+    // The reviewed AAR was built with SDK 35; keep the ordinary toolchain unchanged.
+    android.compileSdkVersion 35
+}
+
 dependencies {
+    if (experimentalOpenVpn) {
+        debugImplementation files(experimentalOpenVpnAar)
+        debugImplementation 'androidx.annotation:annotation:1.9.1'
+        debugImplementation 'androidx.core:core-ktx:1.13.1'
+    }
     // WireGuard tunnel library: SDK 34 compatible upstream release.
     implementation 'com.wireguard.android:tunnel:1.0.20230706'
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'

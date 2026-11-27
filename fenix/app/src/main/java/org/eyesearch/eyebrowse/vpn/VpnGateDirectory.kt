@@ -23,6 +23,7 @@ internal object VpnGateDirectory {
         val pingMs: Int,
         val score: Long,
         val logType: String,
+        internal val validatedProfile: OpenVpnProfilePolicy.ValidatedProfile? = null,
     )
 
     suspend fun fetch(): List<Server> = withContext(Dispatchers.IO) {
@@ -50,7 +51,7 @@ internal object VpnGateDirectory {
                 }
                 output.toString("UTF-8")
             }
-            parse(body)
+            parse(body, OpenVpnExperiment.enabled)
         } catch (cancelled: CancellationException) {
             throw cancelled
         } catch (_: Exception) {
@@ -60,8 +61,8 @@ internal object VpnGateDirectory {
         }
     }
 
-    /** Read only the documented metadata. Keep the OpenVPN config field opaque. */
-    internal fun parse(body: String): List<Server> {
+    /** Parse metadata; validate profile text only in the explicitly enabled debug experiment. */
+    internal fun parse(body: String, includeProfiles: Boolean = false): List<Server> {
         val lines = body.lineSequence().iterator()
         if (!lines.hasNext() || lines.next().trim().removePrefix("\uFEFF") != "*vpn_servers") return emptyList()
         if (!lines.hasNext()) return emptyList()
@@ -84,7 +85,25 @@ internal object VpnGateDirectory {
             if (!host.matches(Regex("[A-Za-z0-9.-]{1,253}")) ||
                 !safeLabel(country) || !safeLabel(logType) || ping !in 1..10000 || score < 0
             ) continue
-            servers.add(Server(host, country, ping, score, logType))
+            val validated = if (includeProfiles) {
+                val encoded = fields.last()
+                if (encoded.length > 90000) null else runCatching {
+                    val decoded = android.util.Base64.decode(encoded, android.util.Base64.DEFAULT)
+                    try {
+                        val text = decoded.toString(Charsets.UTF_8)
+                        // VPN Gate profiles can name the directory hostname or its advertised IP.
+                        OpenVpnProfilePolicy.validate(text, host)
+                            ?: fields[1].trim().takeIf { ip ->
+                                ip.matches(Regex("[0-9.]{7,15}")) &&
+                                    ip.split('.').size == 4 &&
+                                    ip.split('.').all { part -> (part.toIntOrNull() ?: -1) in 0..255 }
+                            }?.let { OpenVpnProfilePolicy.validate(text, it) }
+                    } finally {
+                        decoded.fill(0)
+                    }
+                }.getOrNull()
+            } else null
+            servers.add(Server(host, country, ping, score, logType, validated))
         }
         return servers.sortedWith(compareByDescending<Server> { it.score }.thenBy { it.pingMs })
             .distinctBy { it.host.lowercase() }

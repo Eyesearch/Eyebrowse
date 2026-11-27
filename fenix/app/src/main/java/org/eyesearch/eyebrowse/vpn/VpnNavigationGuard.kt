@@ -27,7 +27,8 @@ internal object VpnNavigationGuard {
     fun shouldBlock(context: Context, uri: String): Boolean {
         if (!isEnabled(context)) return false
         val scheme = Uri.parse(uri).scheme
-        val handshake = VpnController.status.value == VpnController.Status.HANDSHAKE
+        val handshake = VpnController.status.value == VpnController.Status.HANDSHAKE ||
+            OpenVpnExperiment.status.value == OpenVpnExperiment.Status.CONNECTED
         val vpnNetwork = if (handshake && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             try {
                 val manager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

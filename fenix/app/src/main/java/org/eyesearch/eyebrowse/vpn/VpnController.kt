@@ -154,6 +154,7 @@ object VpnController {
     }
 
     fun start(context: Context) {
+        if (OpenVpnExperiment.busy) return
         if (connection?.isActive == true || mutableStatus.value == Status.IMPORTING ||
             mutableStatus.value == Status.STOP_FAILED
         ) return

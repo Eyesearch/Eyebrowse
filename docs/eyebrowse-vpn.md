@@ -125,3 +125,25 @@ Candidate evaluation:
 No embedded engine or dependency was added. Actual tunnel, automatic first-time
 connection, full packet kill switch and release tests remain blocked on an
 approved, verifiable backend and native build/device testing.
+
+## Experimental native adapter (local debug only)
+An opt-in direct ics-openvpn backend is now implemented against the pinned
+source-built Mysterium AAR, source revision 435fd97a51a9b1fb71148c0a697da04f32fc10f1:
+https://github.com/mysteriumnetwork/openvpn_dart/tree/435fd97a51a9b1fb71148c0a697da04f32fc10f1/android/localmaven
+Use the upstream provenance, patch and corresponding source to review the AAR;
+expected SHA-256 3540c8579b0056baac517cb6c930d9d9fb19cbbdf6216e4353fce5513aee50f6.
+Local developers may opt in with -PeyebrowseOpenVpnAar=/absolute/path/to/verified.aar
+and Android SDK 35. The binary is not committed, downloaded, or bundled in default
+builds. Dependency and adapter are debug-only. This is not a distribution license
+approval; resolve all GPL/third-party obligations before shipping any binary.
+
+The experimental flow validates directory profiles, obtains explicit consent,
+selects the highest-ranked compatible candidate, launches the native service,
+sets a package-only allowlist, and reads UUID-matched engine callbacks. It keeps
+TUN across reconnects where supported, blocks unused families and disables app
+bypass; no OS-level kill switch is claimed. WireGuard and experimental OpenVPN
+are mutually exclusive by controller state. Strict policy may reject every live
+VPN Gate profile; do not weaken it just to connect. Verify actual native config,
+certificate trust, routing, callback ordering, service/manifest and SDK/toolchain
+compatibility, stop and process recreation, and all ABIs before enabling release.
+No APK or native compile has been run. Default VPN Gate directory remains read-only.
