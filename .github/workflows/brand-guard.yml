@@ -103,3 +103,31 @@ jobs:
                       failed = True
           raise SystemExit(1 if failed else 0)
           PY
+
+      - name: Reject build variant branding overrides
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          root = Path("fenix/app/src")
+          reserved = {
+              "ic_wordmark_logo", "ic_wordmark_text_normal", "ic_wordmark_text_private",
+              "ic_logo_wordmark_normal", "ic_logo_wordmark_private", "ic_splash_logo",
+              "ic_launcher", "ic_launcher_round", "ic_launcher_foreground",
+              "ic_launcher_private", "ic_launcher_private_round", "ic_launcher_private_foreground",
+              "ic_launcher_monochrome", "fenix_search_widget",
+          }
+          bad = []
+          for source in root.iterdir():
+              if not source.is_dir() or source.name in {"main", "test", "androidTest"}:
+                  continue
+              for file in (source / "res").rglob("*"):
+                  if file.is_file() and file.stem in reserved:
+                      bad.append(file)
+              for file in (source / "res").glob("values*/*.xml"):
+                  if 'name="app_name"' in file.read_text(encoding="utf-8") or 'name="ic_launcher_background"' in file.read_text(encoding="utf-8") or 'name="SplashScreen"' in file.read_text(encoding="utf-8"):
+                      bad.append(file)
+          for file in bad:
+              print(f"::error file={file}::Use shared Eyebrowse branding from src/main/res")
+          raise SystemExit(1 if bad else 0)
+          PY
