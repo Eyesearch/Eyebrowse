@@ -29,3 +29,14 @@ The pinned engine is GeckoView 125 (March 2024). Upgrade it with matching Androi
 Components as a separate security and compatibility task. The extension is
 pinned to a verified upstream release digest; do not bypass manifest compatibility
 or downgrade protections to make a newer extension install.
+
+## Automated source-level regression coverage
+
+- EyeBlock install failure followed by successful retry.
+- Latest switch choice wins during asynchronous installation.
+- Private permission failure is not reported as fully enabled.
+- Build preparation rejects upstream minimum Gecko major versions newer than the pinned engine.
+
+Run the targeted tests before a release APK is approved. They are not a substitute
+for the controlled network and playback checks above. The first navigation may
+still race filter initialization; verify cold-start external links on a device.

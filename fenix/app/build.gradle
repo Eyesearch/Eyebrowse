@@ -922,6 +922,7 @@ tasks.register("prepareEyeblock") {
     description = 'Verify and unpack uBlock Origin into the built-in extension asset directory.'
     inputs.property('extensionVersion', eyeblockVersion)
     inputs.property('extensionSha256', eyeblockHash)
+    inputs.file(rootProject.file('../android-components/plugins/dependencies/src/main/java/Gecko.kt'))
     outputs.dir(eyeblockDirectory)
     doLast {
         def sha256 = { File archive ->
@@ -965,6 +966,20 @@ tasks.register("prepareEyeblock") {
         def gecko = manifest.browser_specific_settings?.gecko ?: manifest.applications?.gecko
         if (gecko?.id != 'uBlock0@raymondhill.net' || manifest.version != eyeblockVersion) {
             throw new GradleException("Unexpected EyeBlock extension identity or version")
+        }
+        // Fail before packaging if an upstream update raises the minimum Gecko version.
+        def geckoVersionSource = rootProject.file('../android-components/plugins/dependencies/src/main/java/Gecko.kt')
+        def versionMatch = (geckoVersionSource.text =~ /const val version = "([0-9]+)\./)
+        if (!versionMatch.find()) {
+            throw new GradleException("Cannot determine bundled GeckoView major version")
+        }
+        def engineMajor = versionMatch.group(1).toInteger()
+        def minimumVersions = [gecko?.strict_min_version, manifest.browser_specific_settings?.gecko_android?.strict_min_version]
+        minimumVersions.findAll { it != null }.each { minimum ->
+            def minimumMajor = minimum.toString().tokenize('.')[0].toInteger()
+            if (minimumMajor > engineMajor) {
+                throw new GradleException("EyeBlock requires Gecko ${minimum}; bundled engine is ${engineMajor}")
+            }
         }
         def requiredPermissions = ['webRequest', 'webRequestBlocking', '<all_urls>', 'storage']
         if (!manifest.permissions?.containsAll(requiredPermissions)) {

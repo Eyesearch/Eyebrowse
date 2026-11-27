@@ -424,9 +424,12 @@ class SettingsFragment : PreferenceFragmentCompat() {
             }
         }
 
-        // Retry a failed installation when the user revisits Settings.
-        if (EyeblockSupport.status.value == EyeblockSupport.Status.ERROR && settings.eyeblockEnabled) {
-            EyeblockSupport.setEnabled(engine, true)
+        // Retry both failed enable and failed disable operations, including private permission.
+        val blockerStatus = EyeblockSupport.status.value
+        if (blockerStatus == EyeblockSupport.Status.ERROR ||
+            (settings.eyeblockEnabled && blockerStatus == EyeblockSupport.Status.PRIVATE_UNAVAILABLE)
+        ) {
+            EyeblockSupport.setEnabled(engine, settings.eyeblockEnabled)
         }
         preference.setOnPreferenceChangeListener { _, newValue ->
             val enabled = newValue == true
