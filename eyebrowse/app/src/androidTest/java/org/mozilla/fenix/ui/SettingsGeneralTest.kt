@@ -7,7 +7,7 @@ package org.mozilla.fenix.ui
 import org.junit.Ignore
 import org.junit.Rule
 import org.junit.Test
-import org.mozilla.fenix.FenixApplication
+import org.mozilla.fenix.EyebrowseApplication
 import org.mozilla.fenix.R
 import org.mozilla.fenix.customannotations.SmokeTest
 import org.mozilla.fenix.helpers.AppAndSystemHelper.registerAndCleanupIdlingResources
@@ -64,7 +64,7 @@ class SettingsGeneralTest : TestSetup() {
     @Test
     fun verifyFontSizingChangeTest() {
         // Goes through the settings and changes the default text on a webpage, then verifies if the text has changed.
-        val fenixApp = activityIntentTestRule.activity.applicationContext as FenixApplication
+        val fenixApp = activityIntentTestRule.activity.applicationContext as EyebrowseApplication
         val webpage = getLoremIpsumAsset(mockWebServer).url
 
         // This value will represent the text size percentage the webpage will scale to. The default value is 100%.

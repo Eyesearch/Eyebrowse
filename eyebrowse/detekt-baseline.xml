@@ -117,7 +117,7 @@
     <ID>UndocumentedPublicClass:CustomTabsIntegration.kt$CustomTabsIntegration : LifecycleAwareFeatureUserInteractionHandler</ID>
     <ID>UndocumentedPublicClass:CustomTabsService.kt$CustomTabsService : AbstractCustomTabsService</ID>
     <ID>UndocumentedPublicClass:CustomizeHomeButtonViewHolder.kt$CustomizeHomeButtonViewHolder : ComposeViewHolder</ID>
-    <ID>UndocumentedPublicClass:DebugFenixApplication.kt$DebugFenixApplication : FenixApplication</ID>
+    <ID>UndocumentedPublicClass:DebugEyebrowseApplication.kt$DebugEyebrowseApplication : EyebrowseApplication</ID>
     <ID>UndocumentedPublicClass:DefaultBrowserPreference.kt$DefaultBrowserPreference : Preference</ID>
     <ID>UndocumentedPublicClass:DefaultLocaleSettingsController.kt$DefaultLocaleSettingsController : LocaleSettingsController</ID>
     <ID>UndocumentedPublicClass:DefaultLocaleSettingsController.kt$LocaleSettingsController</ID>
@@ -591,8 +591,8 @@
     <ID>UndocumentedPublicFunction:Extensions.kt$fun SitePermissions.get(field: PhoneFeature)</ID>
     <ID>UndocumentedPublicFunction:Extensions.kt$fun SitePermissions.toggle(featurePhone: PhoneFeature): SitePermissions</ID>
     <ID>UndocumentedPublicFunction:Extensions.kt$fun SitePermissions.update(field: PhoneFeature, value: SitePermissions.Status)</ID>
-    <ID>UndocumentedPublicFunction:FenixApplication.kt$FenixApplication$@OptIn(DelicateCoroutinesApi::class) open fun downloadWallpapers()</ID>
-    <ID>UndocumentedPublicFunction:FenixApplication.kt$FenixApplication$open fun updateLeakCanaryState(isEnabled: Boolean)</ID>
+    <ID>UndocumentedPublicFunction:EyebrowseApplication.kt$EyebrowseApplication$@OptIn(DelicateCoroutinesApi::class) open fun downloadWallpapers()</ID>
+    <ID>UndocumentedPublicFunction:EyebrowseApplication.kt$EyebrowseApplication$open fun updateLeakCanaryState(isEnabled: Boolean)</ID>
     <ID>UndocumentedPublicFunction:FenixDialogFragment.kt$FenixDialogFragment$fun inflateRootView(container: ViewGroup? = null): View</ID>
     <ID>UndocumentedPublicFunction:FenixOnboarding.kt$FenixOnboarding$fun finish()</ID>
     <ID>UndocumentedPublicFunction:FenixOnboarding.kt$FenixOnboarding$fun userHasBeenOnboarded(): Boolean</ID>

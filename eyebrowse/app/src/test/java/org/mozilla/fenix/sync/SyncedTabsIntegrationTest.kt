@@ -18,7 +18,7 @@ import mozilla.components.feature.syncedtabs.storage.SyncedTabsStorage
 import mozilla.components.service.fxa.manager.FxaAccountManager
 import org.junit.Before
 import org.junit.Test
-import org.mozilla.fenix.FenixApplication
+import org.mozilla.fenix.EyebrowseApplication
 
 class SyncedTabsIntegrationTest {
 
@@ -33,7 +33,7 @@ class SyncedTabsIntegrationTest {
         MockKAnnotations.init(this)
         every { syncedTabsStorage.stop() } just Runs
         every { accountManager.register(any(), owner = any(), autoPause = true) } just Runs
-        every { context.applicationContext } returns mockk<FenixApplication> {
+        every { context.applicationContext } returns mockk<EyebrowseApplication> {
             every { components } returns mockk {
                 every { backgroundServices.syncedTabsStorage } returns syncedTabsStorage
             }

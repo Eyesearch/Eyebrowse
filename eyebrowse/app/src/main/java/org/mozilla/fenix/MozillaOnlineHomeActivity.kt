@@ -19,7 +19,7 @@ class MozillaOnlineHomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if ((this.application as FenixApplication).shouldShowPrivacyNotice()) {
+        if ((this.application as EyebrowseApplication).shouldShowPrivacyNotice()) {
             showPrivacyPopWindow(this.applicationContext, this)
         } else {
             startActivity(Intent(this, HomeActivity::class.java))

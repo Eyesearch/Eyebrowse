@@ -13,7 +13,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.mozilla.experiments.nimbus.Res
-import org.mozilla.fenix.FenixApplication
+import org.mozilla.fenix.EyebrowseApplication
 import org.mozilla.fenix.helpers.HomeActivityIntentTestRule
 import org.mozilla.fenix.helpers.RetryTestRule
 import org.mozilla.fenix.helpers.TestSetup
@@ -90,7 +90,7 @@ class NimbusMessagingHomescreenTest : TestSetup() {
             )
         }
         // refresh message store
-        val application = (homeActivityTestRule.activity.application as FenixApplication)
+        val application = (homeActivityTestRule.activity.application as EyebrowseApplication)
         application.restoreMessaging()
     }
 

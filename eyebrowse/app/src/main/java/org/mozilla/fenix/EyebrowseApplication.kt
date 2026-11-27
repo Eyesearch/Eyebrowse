@@ -119,12 +119,12 @@ private const val BYTES_TO_MEGABYTES_CONVERSION = 1024.0 * 1024.0
  *  Installs [CrashReporter], initializes [Glean]  in fenix builds and setup Megazord in the main process.
  */
 @Suppress("Registered", "TooManyFunctions", "LargeClass")
-open class FenixApplication : LocaleAwareApplication(), Provider {
+open class EyebrowseApplication : LocaleAwareApplication(), Provider {
     init {
         recordOnInit() // DO NOT MOVE ANYTHING ABOVE HERE: the timing of this measurement is critical.
     }
 
-    private val logger = Logger("FenixApplication")
+    private val logger = Logger("EyebrowseApplication")
 
     internal val isDeviceRamAboveThreshold by lazy {
         isDeviceRamAboveThreshold()
@@ -625,7 +625,7 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
         // We avoid blocking the main thread for BrowsersCache on startup by loading it on
         // background thread.
         GlobalScope.launch(Dispatchers.Default) {
-            BrowsersCache.all(this@FenixApplication)
+            BrowsersCache.all(this@EyebrowseApplication)
         }
     }
 

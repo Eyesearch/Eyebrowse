@@ -6,7 +6,7 @@ package org.mozilla.fenix.helpers
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.IdlingResource
 import mozilla.components.browser.state.selector.selectedTab
-import org.mozilla.fenix.FenixApplication
+import org.mozilla.fenix.EyebrowseApplication
 
 /**
  * An IdlingResource implementation that waits until the current session is not loading anymore.
@@ -21,7 +21,7 @@ class SessionLoadedIdlingResource : IdlingResource {
     }
 
     override fun isIdleNow(): Boolean {
-        val context = ApplicationProvider.getApplicationContext<FenixApplication>()
+        val context = ApplicationProvider.getApplicationContext<EyebrowseApplication>()
         val selectedTab = context.components.core.store.state.selectedTab
 
         return if (selectedTab?.content?.loading == true) {

@@ -19,7 +19,7 @@ import android.view.accessibility.AccessibilityManager
 import android.widget.Toast
 import androidx.annotation.StringRes
 import mozilla.components.support.locale.LocaleManager
-import org.mozilla.fenix.FenixApplication
+import org.mozilla.fenix.EyebrowseApplication
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.Components
 import org.mozilla.fenix.components.metrics.MetricController
@@ -30,8 +30,8 @@ import java.util.Locale
 /**
  * Get the BrowserApplication object from a context.
  */
-val Context.application: FenixApplication
-    get() = applicationContext as FenixApplication
+val Context.application: EyebrowseApplication
+    get() = applicationContext as EyebrowseApplication
 
 /**
  * Get the requireComponents of this application.

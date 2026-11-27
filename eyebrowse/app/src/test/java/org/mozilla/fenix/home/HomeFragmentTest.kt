@@ -29,7 +29,7 @@ import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
-import org.mozilla.fenix.FenixApplication
+import org.mozilla.fenix.EyebrowseApplication
 import org.mozilla.fenix.HomeActivity
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.Core
@@ -54,7 +54,7 @@ class HomeFragmentTest {
         context = mockk(relaxed = true)
         core = mockk(relaxed = true)
 
-        val fenixApplication: FenixApplication = mockk(relaxed = true)
+        val fenixApplication: EyebrowseApplication = mockk(relaxed = true)
 
         homeFragment = spyk(HomeFragment())
 

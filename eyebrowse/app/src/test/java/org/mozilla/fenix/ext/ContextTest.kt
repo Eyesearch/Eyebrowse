@@ -24,7 +24,7 @@ import org.junit.Assert.assertNull
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mozilla.fenix.FenixApplication
+import org.mozilla.fenix.EyebrowseApplication
 import org.mozilla.fenix.R
 import org.mozilla.fenix.helpers.FenixRobolectricTestRunner
 import java.lang.String.format
@@ -79,20 +79,20 @@ class ContextTest {
 
     @Test
     fun `GIVEN context WHEN seeking application of context THEN send back application context`() {
-        val expectedAppValue = ApplicationProvider.getApplicationContext<FenixApplication>()
+        val expectedAppValue = ApplicationProvider.getApplicationContext<EyebrowseApplication>()
         assertEquals(expectedAppValue, testContext.application)
     }
 
     @Test
     fun `GIVEN context WHEN requiring components THEN send back application components`() {
-        val expectedComponentsValue = ApplicationProvider.getApplicationContext<FenixApplication>().components
+        val expectedComponentsValue = ApplicationProvider.getApplicationContext<EyebrowseApplication>().components
         assertEquals(expectedComponentsValue, testContext.components)
     }
 
     @Test
     fun `GIVEN context WHEN getting metrics controller THEN send back metrics`() {
         every { testContext.components.analytics } returns mockk(relaxed = true)
-        val expectedMetricsValue = ApplicationProvider.getApplicationContext<FenixApplication>().components.analytics.metrics
+        val expectedMetricsValue = ApplicationProvider.getApplicationContext<EyebrowseApplication>().components.analytics.metrics
         assertEquals(expectedMetricsValue, testContext.metrics)
     }
 
@@ -118,7 +118,7 @@ class ContextTest {
     @Test
     fun `GIVEN theme wrapper context without activity base context WHEN make it an activity THEN return null`() {
         val mockThemeWrapper = mockk<ContextThemeWrapper> {
-            every { baseContext } returns mockk<FenixApplication>()
+            every { baseContext } returns mockk<EyebrowseApplication>()
         }
         val mockContext: Context = mockThemeWrapper
         assertNull(mockContext.asActivity())

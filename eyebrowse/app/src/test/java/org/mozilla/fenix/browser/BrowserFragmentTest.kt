@@ -37,7 +37,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mozilla.fenix.FeatureFlags
-import org.mozilla.fenix.FenixApplication
+import org.mozilla.fenix.EyebrowseApplication
 import org.mozilla.fenix.HomeActivity
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.toolbar.BrowserToolbarView
@@ -58,7 +58,7 @@ class BrowserFragmentTest {
     private lateinit var browserFragment: BrowserFragment
     private lateinit var view: View
     private lateinit var homeActivity: HomeActivity
-    private lateinit var fenixApplication: FenixApplication
+    private lateinit var fenixApplication: EyebrowseApplication
     private lateinit var context: Context
     private lateinit var lifecycleOwner: MockedLifecycleOwner
     private lateinit var navController: NavController

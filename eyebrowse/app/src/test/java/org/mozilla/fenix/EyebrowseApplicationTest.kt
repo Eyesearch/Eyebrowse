@@ -41,11 +41,11 @@ import org.mozilla.fenix.utils.Settings
 import org.robolectric.annotation.Config
 
 @RunWith(FenixRobolectricTestRunner::class)
-class FenixApplicationTest {
+class EyebrowseApplicationTest {
 
     @get:Rule val gleanTestRule = GleanTestRule(ApplicationProvider.getApplicationContext())
 
-    private lateinit var application: FenixApplication
+    private lateinit var application: EyebrowseApplication
     private lateinit var browsersCache: BrowsersCache
     private lateinit var mozillaProductDetector: MozillaProductDetector
     private lateinit var browserStore: BrowserStore

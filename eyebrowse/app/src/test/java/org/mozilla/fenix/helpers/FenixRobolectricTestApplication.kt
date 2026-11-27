@@ -5,7 +5,7 @@
 package org.mozilla.fenix.helpers
 
 import io.mockk.mockk
-import org.mozilla.fenix.FenixApplication
+import org.mozilla.fenix.EyebrowseApplication
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.Components
 
@@ -14,7 +14,7 @@ import org.mozilla.fenix.components.Components
  * because our standard application fails to initialize in Robolectric with exceptions like:
  * "Crash handler service must run in a separate process".
  */
-class FenixRobolectricTestApplication : FenixApplication() {
+class FenixRobolectricTestApplication : EyebrowseApplication() {
 
     override fun onCreate() {
         super.onCreate()

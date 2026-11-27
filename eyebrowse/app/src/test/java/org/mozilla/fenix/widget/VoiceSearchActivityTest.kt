@@ -26,7 +26,7 @@ import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mozilla.fenix.FenixApplication
+import org.mozilla.fenix.EyebrowseApplication
 import org.mozilla.fenix.HomeActivity.Companion.OPEN_TO_BROWSER_AND_LOAD
 import org.mozilla.fenix.IntentReceiverActivity
 import org.mozilla.fenix.ext.components
@@ -57,7 +57,7 @@ class VoiceSearchActivityTest {
     }
 
     private fun allowVoiceIntentToResolveActivity() {
-        val context = ApplicationProvider.getApplicationContext<FenixApplication>()
+        val context = ApplicationProvider.getApplicationContext<EyebrowseApplication>()
         val shadowPackageManager = shadowOf(context.packageManager)
         val component = ComponentName("com.test", "Test")
         shadowPackageManager.addActivityIfNotPresent(component)
