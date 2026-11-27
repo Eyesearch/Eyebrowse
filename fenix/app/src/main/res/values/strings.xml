@@ -615,7 +615,12 @@
 
     <string name="preferences_eyeblock">EyeBlock</string>
     <!-- Summary for the EyeBlock switch -->
-    <string name="preferences_eyeblock_summary">Our own ad blocker, block ads and trackers</string>
+    <string name="preferences_eyeblock_summary">Block ads and trackers</string>
+    <string name="eyeblock_status_checking">Checking ad blocker…</string>
+    <string name="eyeblock_status_enabled">Extension enabled in normal and private browsing</string>
+    <string name="eyeblock_status_private_unavailable">Extension enabled; private browsing permission unavailable</string>
+    <string name="eyeblock_status_disabled">Ad blocker disabled</string>
+    <string name="eyeblock_status_error">Ad blocker unavailable. Turn off and on to retry.</string>
     <!-- Preference that opens Chrome's app info screen, where Android offers to disable it -->
     <string name="preferences_disable_chrome">Disable Chrome</string>
     <!-- Summary for the Disable Chrome preference -->

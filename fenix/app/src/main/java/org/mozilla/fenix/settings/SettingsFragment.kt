@@ -34,6 +34,8 @@ import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreference
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import mozilla.components.browser.state.state.selectedOrDefaultSearchEngine
@@ -90,6 +92,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
     // If it's set to `true`, code in `onResume` can assume that `onCreate` executed a moment prior.
     // This flag is set to `false` at the end of `onResume`.
     private var creatingFragment = true
+    private var eyeblockStatusJob: Job? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -397,23 +400,38 @@ class SettingsFragment : PreferenceFragmentCompat() {
         return super.onPreferenceTreeClick(preference)
     }
 
-    /**
-     * EyeBlock, our own ad blocker. The switch only stores the choice; the blocking itself is
-     * applied when a page is created or reloaded, so a page already open keeps its policy until it
-     * is loaded again.
-     */
+    /** Show the engine-confirmed state separately from the user's requested switch state. */
     private fun setupEyeblockPreference() {
         val preference = findPreference<SwitchPreference>(getPreferenceKey(R.string.pref_key_eyeblock))
             ?: return
-        val settings = context?.settings() ?: return
+        val context = context ?: return
+        val settings = context.settings()
+        val engine = context.components.core.engine
 
         preference.isChecked = settings.eyeblockEnabled
+        eyeblockStatusJob?.cancel()
+        eyeblockStatusJob = viewLifecycleOwner.lifecycleScope.launch {
+            EyeblockSupport.status.collect { status ->
+                preference.setSummary(
+                    when (status) {
+                        EyeblockSupport.Status.CHECKING -> R.string.eyeblock_status_checking
+                        EyeblockSupport.Status.ENABLED -> R.string.eyeblock_status_enabled
+                        EyeblockSupport.Status.PRIVATE_UNAVAILABLE -> R.string.eyeblock_status_private_unavailable
+                        EyeblockSupport.Status.DISABLED -> R.string.eyeblock_status_disabled
+                        EyeblockSupport.Status.ERROR -> R.string.eyeblock_status_error
+                    },
+                )
+            }
+        }
+
+        // Retry a failed installation when the user revisits Settings.
+        if (EyeblockSupport.status.value == EyeblockSupport.Status.ERROR && settings.eyeblockEnabled) {
+            EyeblockSupport.setEnabled(engine, true)
+        }
         preference.setOnPreferenceChangeListener { _, newValue ->
             val enabled = newValue == true
             settings.eyeblockEnabled = enabled
-            context?.components?.core?.engine?.let { engine ->
-                EyeblockSupport.setEnabled(engine, enabled)
-            }
+            EyeblockSupport.setEnabled(engine, enabled)
             true
         }
     }

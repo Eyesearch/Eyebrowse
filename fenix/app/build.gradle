@@ -910,8 +910,8 @@ ext.gleanExpireByVersion = Config.majorVersion()
 
 // EyeBlock: GeckoView built-in extensions are installed from a resource directory.
 // Verify the upstream archive, then unpack it into generated APK assets.
-def eyeblockVersion = '1.76.4'
-def eyeblockHash = '66d0e3f21ce3b32b1bc0a9399b93cb2c9aa598ef18805d92118c76f66e266c1e'
+def eyeblockVersion = '1.77.4'
+def eyeblockHash = '5ffd52b863d5a02a639423e90252f7a7f8866c5599e360970f4d1f69dfc4b74a'
 def eyeblockAssets = file("$buildDir/generated/eyeblockAssets")
 def eyeblockDirectory = new File(eyeblockAssets, 'extensions/ublock_origin')
 def eyeblockArchive = file("$buildDir/eyeblock/ublock_origin-${eyeblockVersion}.xpi")
@@ -934,7 +934,10 @@ tasks.register("prepareEyeblock") {
             partial.delete()
             try {
                 def url = "https://github.com/gorhill/uBlock/releases/download/${eyeblockVersion}/uBlock0_${eyeblockVersion}.firefox.signed.xpi"
-                new URL(url).openStream().withCloseable { input ->
+                def connection = new URL(url).openConnection()
+                connection.connectTimeout = 30000
+                connection.readTimeout = 60000
+                connection.inputStream.withCloseable { input ->
                     partial.withOutputStream { output -> output << input }
                 }
                 if (sha256(partial) != eyeblockHash) {
@@ -962,6 +965,23 @@ tasks.register("prepareEyeblock") {
         def gecko = manifest.browser_specific_settings?.gecko ?: manifest.applications?.gecko
         if (gecko?.id != 'uBlock0@raymondhill.net' || manifest.version != eyeblockVersion) {
             throw new GradleException("Unexpected EyeBlock extension identity or version")
+        }
+        def requiredPermissions = ['webRequest', 'webRequestBlocking', '<all_urls>', 'storage']
+        if (!manifest.permissions?.containsAll(requiredPermissions)) {
+            throw new GradleException("EyeBlock is missing content-blocking permissions")
+        }
+        if (!manifest.background?.page || !new File(eyeblockDirectory, manifest.background.page).isFile()) {
+            throw new GradleException("EyeBlock background page missing")
+        }
+        if (!manifest.content_scripts?.any { it.run_at == 'document_start' }) {
+            throw new GradleException("EyeBlock document-start content scripts missing")
+        }
+        manifest.content_scripts.each { script ->
+            (script.js ?: []).each { name ->
+                if (!new File(eyeblockDirectory, name).isFile()) {
+                    throw new GradleException("EyeBlock missing content script: " + name)
+                }
+            }
         }
         logger.lifecycle("Prepared EyeBlock ${eyeblockVersion} as a built-in extension directory")
     }

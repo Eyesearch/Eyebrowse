@@ -45,6 +45,17 @@ class TrackingProtectionPolicyFactoryTest {
     }
 
     @Test
+    fun `EyeBlock preference must not disable independent tracking protection`() {
+        val settings = mockSettings(useTrackingProtection = true)
+        every { settings.eyeblockEnabled } returns true
+
+        val policy = TrackingProtectionPolicyFactory(settings, testContext.resources)
+            .createTrackingProtectionPolicy()
+
+        TrackingProtectionPolicy.recommended().assertPolicyEquals(policy, checkPrivacy = false)
+    }
+
+    @Test
     fun `WHEN useStrictMode is true then SHOULD return strict mode`() {
         val expected = TrackingProtectionPolicy.strict()
 

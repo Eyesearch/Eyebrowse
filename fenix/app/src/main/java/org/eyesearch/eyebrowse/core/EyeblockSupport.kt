@@ -5,6 +5,8 @@
 package org.eyesearch.eyebrowse.core
 
 import android.util.Log
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import mozilla.components.concept.engine.Engine
 import mozilla.components.concept.engine.webextension.WebExtension
 
@@ -43,6 +45,20 @@ object EyeblockSupport {
     private var desiredEnabled = true
     private var operationInProgress = false
 
+    enum class Status { CHECKING, ENABLED, PRIVATE_UNAVAILABLE, DISABLED, ERROR }
+
+    private val mutableStatus = MutableStateFlow(Status.CHECKING)
+    val status = mutableStatus.asStateFlow()
+
+    private fun reportState(extension: WebExtension, target: Boolean) {
+        mutableStatus.value = when {
+            extension.isEnabled() != target -> Status.ERROR
+            !target -> Status.DISABLED
+            !extension.isAllowedInPrivateBrowsing() -> Status.PRIVATE_UNAVAILABLE
+            else -> Status.ENABLED
+        }
+    }
+
     fun install(engine: Engine, enabled: Boolean, shieldDefault: Boolean = true) {
         installShield(engine, shieldEnabled = shieldDefault)
         setEnabled(engine, enabled)
@@ -53,6 +69,7 @@ object EyeblockSupport {
         desiredEnabled = enabled
         if (operationInProgress) return
         operationInProgress = true
+        mutableStatus.value = Status.CHECKING
         engine.installBuiltInWebExtension(
             id = EXTENSION_ID,
             url = EXTENSION_URL,
@@ -74,6 +91,7 @@ object EyeblockSupport {
             },
             onError = { error ->
                 operationInProgress = false
+                mutableStatus.value = Status.ERROR
                 Log.e(TAG, "EyeBlock install failed; tracking protection remains available", error)
             },
         )
@@ -83,6 +101,7 @@ object EyeblockSupport {
         val target = desiredEnabled
         if (extension.isEnabled() == target) {
             operationInProgress = false
+            reportState(extension, target)
             Log.i(TAG, "EyeBlock enabled=$target; private=${extension.isAllowedInPrivateBrowsing()}")
             return
         }
@@ -93,6 +112,7 @@ object EyeblockSupport {
                 applyDesiredState(engine, updated)
             } else {
                 operationInProgress = false
+                reportState(updated, target)
                 if (updated.isEnabled() != target) {
                     Log.e(TAG, "EyeBlock did not reach the requested state")
                 }
@@ -100,6 +120,7 @@ object EyeblockSupport {
         }
         val failure: (Throwable) -> Unit = { error ->
             operationInProgress = false
+            mutableStatus.value = Status.ERROR
             Log.e(TAG, "EyeBlock state change failed", error)
             if (desiredEnabled != target) setEnabled(engine, desiredEnabled)
         }
