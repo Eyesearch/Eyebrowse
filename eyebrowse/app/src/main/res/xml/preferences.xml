@@ -180,6 +180,13 @@
             app:iconSpaceReserved="false" />
 
         <androidx.preference.Preference
+            android:key="@string/pref_key_eyeblock_filters"
+            android:title="@string/eyeblock_filters_title"
+            android:summary="@string/eyeblock_filters_summary"
+            android:persistent="false"
+            app:iconSpaceReserved="false" />
+
+        <androidx.preference.Preference
             android:key="@string/pref_key_device_ad_blocking"
             android:title="@string/device_ad_blocking_title"
             android:summary="@string/device_ad_blocking_summary"

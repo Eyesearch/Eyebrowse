@@ -50,3 +50,16 @@ same-domain ads, including many ads in the official YouTube app. Test device
 settings navigation, copy, cancellation, DNS activation/reversal, ordinary apps,
 VPN coexistence and network failures on a real device. No device test completed.
 Provider documentation: https://adguard-dns.io/en/public-dns.html
+
+## YouTube website investigation
+
+Settings > EyeBlock filter settings opens the installed extension's own options
+URL, obtained from Gecko metadata rather than guessing an extension UUID.
+The user can keep default lists enabled, update filters (including Quick fixes),
+and check whether youtube.com or m.youtube.com is trusted. Close existing
+YouTube tabs and retest in a fresh tab. Test the dashboard navigation and
+filter-update result, normal/private playback, pre-roll/mid-roll and Shorts.
+This change exposes maintenance controls; it does not establish that any
+particular YouTube ad is blocked. GeckoView 125 remains a compatibility and
+security upgrade dependency. Do not inject ad-skipping scripts, replace the
+player, or disable engine security as a substitute for verified filtering.

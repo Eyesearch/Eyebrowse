@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_key_eyeblock_filters" translatable="false">pref_key_eyeblock_filters</string>
+    <string name="eyeblock_filters_title">EyeBlock filter settings</string>
+    <string name="eyeblock_filters_summary">Open the blocker dashboard to update filter lists and check site exceptions</string>
+    <string name="eyeblock_filters_unavailable">EyeBlock options unavailable. Enable EyeBlock and try again.</string>
+</resources>

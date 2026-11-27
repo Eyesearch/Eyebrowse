@@ -432,6 +432,39 @@ class SettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
+    /** Open the installed blocker's own options; never guess a moz-extension UUID. */
+    private fun setupEyeblockFiltersPreference() {
+        val preference = findPreference<Preference>(
+            getPreferenceKey(R.string.pref_key_eyeblock_filters),
+        ) ?: return
+        preference.setOnPreferenceClickListener {
+            val context = context ?: return@setOnPreferenceClickListener false
+            context.components.core.engine.listInstalledWebExtensions(
+                onSuccess = { extensions ->
+                    if (isAdded) {
+                        val extension = extensions.firstOrNull { it.id == EyeblockSupport.EXTENSION_ID }
+                        val url = extension?.getMetadata()?.optionsPageUrl
+                        val host = activity as? HomeActivity
+                        if (extension?.isEnabled() == true && url != null &&
+                            Uri.parse(url).scheme == "moz-extension" && host != null
+                        ) {
+                            context.components.useCases.tabsUseCases.addTab(url = url, private = false)
+                            host.openToBrowser(BrowserDirection.FromSettings)
+                        } else {
+                            Toast.makeText(context, R.string.eyeblock_filters_unavailable, Toast.LENGTH_LONG).show()
+                        }
+                    }
+                },
+                onError = {
+                    if (isAdded) {
+                        Toast.makeText(context, R.string.eyeblock_filters_unavailable, Toast.LENGTH_LONG).show()
+                    }
+                },
+            )
+            true
+        }
+    }
+
     /** Show the engine-confirmed state separately from the user's requested switch state. */
     private fun setupEyeblockPreference() {
         val preference = findPreference<SwitchPreference>(getPreferenceKey(R.string.pref_key_eyeblock))
@@ -950,6 +983,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
                 (requireContext().components.core.engine.profiler?.isProfilerActive() != null)
         }
         setupEyeblockPreference()
+        setupEyeblockFiltersPreference()
         setupDeviceAdBlockingPreference()
         setupIndoAccountPreferences()
         setupVpnPreference()
