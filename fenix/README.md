@@ -8,9 +8,34 @@ This module contains the Eyebrowse Android application. The internal `fenix` mod
 
 The following build and development notes are adapted from the upstream Mozilla project. Links to Mozilla tools and documentation identify those external resources, not Eyebrowse support channels.
 
-## Building debuggable release variants
+## Build instructions
 
-Nightly, Beta and Release variants are getting published to Google Play and therefore are not debuggable. To locally create debuggable builds of those variants, add the following to `<proj-root>/local.properties`:
+Install JDK 17, Android SDK 34 and the Android build tools. Clone this repository, then open the `fenix/` project in Android Studio or run:
+
+```sh
+git clone https://github.com/Eyesearch/Eyebrowse.git
+cd Eyebrowse/fenix
+./gradlew assembleFenixDebug
+```
+
+For source-only compilation, use `./gradlew :app:compileFenixDebugKotlin`. The `fenix` task prefix is an internal Gradle flavor, not the product name. Refer to the root README for CI triggers.
+
+### Build variants
+
+- Debug: `org.eyesearch.eyebrowse.debug`
+- Nightly: `org.eyesearch.eyebrowse.nightly`
+- Beta: `org.eyesearch.eyebrowse.beta`
+- Release: `org.eyesearch.eyebrowse`
+
+The repository currently uses debug signing for the release APK; configure proper signing before public production distribution. No store publishing status is implied.
+
+For the original upstream development and performance instructions, refer to the [upstream documentation](https://github.com/mozilla-mobile/firefox-android/tree/main/fenix). The notes below describe inherited local-development options; they may require additional validation for this fork.
+
+## Local development options
+
+### Building debuggable release variants
+
+The upstream build system supports non-debuggable Nightly, Beta and Release variants. To locally create debuggable builds of those variants, add the following to `<proj-root>/local.properties`:
 
 ```sh
 debuggable
@@ -25,14 +50,14 @@ raptorEnabled
 ```
 
 ### Auto-publication workflow for application-services and glean
-If you're making changes to these projects and want to test them in Fenix, auto-publication workflow is the fastest, most reliable
+If you're making changes to these projects and want to test them in Eyebrowse, auto-publication workflow is the fastest, most reliable
 way to do that.
 
 In `local.properties`, specify a relative path to your local `glean` and/or `application-services` projects. E.g.:
 - `autoPublish.glean.dir=../glean`
 - `autoPublish.application-services.dir=../application-services`
 
-Once these flags are set, your Fenix builds will include any local modifications present in these projects.
+Once these flags are set, your Eyebrowse builds will include any local modifications present in these projects.
 
 See a [demo of auto-publication workflow in action](https://www.youtube.com/watch?v=qZKlBzVvQGc).
 
