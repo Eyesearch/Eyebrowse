@@ -2,7 +2,6 @@ name: Namespace migration and compile
 on:
   push:
     branches: [branding/eyebrowse-namespace-migration]
-    paths: ['.github/workflows/namespace-migration.yml', 'eyebrowse/tools/migrate_namespace.py']
   workflow_dispatch:
 permissions:
   contents: write

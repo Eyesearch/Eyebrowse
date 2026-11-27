@@ -27,6 +27,7 @@ RENAME.update({x + "Test": RENAME[x] + "Test" for x in CLASSES})
 RENAME.update({"FenixSnackbarKt": "EyebrowseSnackbarKt",
                "FenixSnackbarKtTest": "EyebrowseSnackbarKtTest"})
 RENAME.update({x: x.replace("fenix", "eyebrowse") for x in RESOURCES})
+RENAME["FenixSnackbarBinding"] = "EyebrowseSnackbarBinding"
 RENAME["messaging-fenix.fml.yaml"] = "messaging-eyebrowse.fml.yaml"
 NAMES = re.compile(r"(?<![A-Za-z0-9_])(" + "|".join(
     re.escape(x) for x in sorted(RENAME, key=len, reverse=True)
@@ -39,7 +40,7 @@ ACTION_MARKER = "__EYEBROWSE_KEEP_LEGACY_WIDGET_ACTION__"
 # Source declarations, Gradle namespace and FML package are handled separately.
 APP_ID = re.compile(r"""(?P<quote>["'])(org\.mozilla\.fenix(?:\.(?:debug|nightly|beta|release))?)(?P=quote)""")
 TEXT = {".kt", ".java", ".xml", ".gradle", ".kts", ".pro", ".yaml", ".yml",
-        ".toml", ".properties", ".py", ".md", ".sh"}
+        ".toml", ".properties", ".py", ".md", ".sh", ".proto"}
 def tracked():
     return [Path(p) for p in subprocess.check_output(
         ["git", "ls-files", "-z"]).decode().split("\0") if p]

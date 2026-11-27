@@ -20,13 +20,13 @@ import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.ContentViewCallback
 import com.google.android.material.snackbar.Snackbar
 import org.eyesearch.eyebrowse.R
-import org.eyesearch.eyebrowse.databinding.FenixSnackbarBinding
+import org.eyesearch.eyebrowse.databinding.EyebrowseSnackbarBinding
 import org.eyesearch.eyebrowse.ext.increaseTapArea
 import org.eyesearch.eyebrowse.ext.settings
 
 class EyebrowseSnackbar private constructor(
     parent: ViewGroup,
-    private val binding: FenixSnackbarBinding,
+    private val binding: EyebrowseSnackbarBinding,
     contentViewCallback: FenixSnackbarCallback,
     isError: Boolean,
 ) : BaseTransientBottomBar<EyebrowseSnackbar>(parent, binding.root, contentViewCallback) {
@@ -135,7 +135,7 @@ class EyebrowseSnackbar private constructor(
             }
 
             val inflater = LayoutInflater.from(parent.context)
-            val binding = FenixSnackbarBinding.inflate(inflater, parent, false)
+            val binding = EyebrowseSnackbarBinding.inflate(inflater, parent, false)
 
             val durationOrAccessibleDuration =
                 if (parent.context.settings().accessibilityServicesEnabled) {
