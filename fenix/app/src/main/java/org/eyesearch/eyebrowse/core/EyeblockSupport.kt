@@ -6,6 +6,7 @@ package org.eyesearch.eyebrowse.core
 
 import android.util.Log
 import mozilla.components.concept.engine.Engine
+import mozilla.components.concept.engine.webextension.WebExtension
 
 /**
  * EyeBlock: uBlock Origin, shipped inside the app as a built-in extension.
@@ -23,7 +24,7 @@ object EyeblockSupport {
     /** The id uBlock Origin declares in its own manifest; the engine keys the install on it. */
     const val EXTENSION_ID = "uBlock0@raymondhill.net"
 
-    private const val EXTENSION_URL = "resource://android/assets/extensions/ublock_origin.xpi"
+    private const val EXTENSION_URL = "resource://android/assets/extensions/ublock_origin/"
     private const val TAG = "EyeblockSupport"
 
     /**
@@ -37,64 +38,78 @@ object EyeblockSupport {
     private const val SHIELD_ID = "eyeshield@eyesearch.org"
     private const val SHIELD_URL = "resource://android/assets/extensions/eyeshield/"
 
-    /**
-     * Installs the bundled blocker once, at startup, and leaves it enabled or disabled to match
-     * the user's switch.
-     */
+    // Engine extension callbacks and Settings changes are dispatched on the main thread.
+    // Serialize operations so a quick toggle cannot overwrite a newer preference.
+    private var desiredEnabled = true
+    private var operationInProgress = false
+
     fun install(engine: Engine, enabled: Boolean, shieldDefault: Boolean = true) {
         installShield(engine, shieldEnabled = shieldDefault)
+        setEnabled(engine, enabled)
+    }
+
+    /** Reconcile the actual extension state, installing it if it is missing. */
+    fun setEnabled(engine: Engine, enabled: Boolean) {
+        desiredEnabled = enabled
+        if (operationInProgress) return
+        operationInProgress = true
         engine.installBuiltInWebExtension(
             id = EXTENSION_ID,
             url = EXTENSION_URL,
             onSuccess = { extension ->
-                // Blocking is just as relevant in private browsing, and a blocker that stops
-                // working there is the first thing people notice.
-                engine.setAllowedInPrivateBrowsing(extension, allowed = true)
-                // An extension that installs is not always an extension that runs: this engine can
-                // land it disabled, which looks exactly like a blocker that does nothing. Say which
-                // state we want, out loud, every time.
-                if (enabled) {
-                    engine.enableWebExtension(
-                        extension,
-                        onSuccess = { Log.i(TAG, "EyeBlock enabled: ${extension.id}") },
-                        onError = { error -> Log.w(TAG, "EyeBlock could not be enabled: ${error.message}") },
-                    )
+                Log.i(TAG, "EyeBlock installed: ${extension.id}")
+                if (extension.isAllowedInPrivateBrowsing()) {
+                    applyDesiredState(engine, extension)
                 } else {
-                    engine.disableWebExtension(
+                    engine.setAllowedInPrivateBrowsing(
                         extension,
-                        onSuccess = { Log.i(TAG, "EyeBlock disabled: ${extension.id}") },
-                        onError = { error -> Log.w(TAG, "EyeBlock could not be disabled: ${error.message}") },
+                        allowed = true,
+                        onSuccess = { updated -> applyDesiredState(engine, updated) },
+                        onError = { error ->
+                            Log.w(TAG, "EyeBlock private permission failed", error)
+                            applyDesiredState(engine, extension)
+                        },
                     )
                 }
             },
             onError = { error ->
-                Log.w(TAG, "EyeBlock could not be installed: ${error.message}")
+                operationInProgress = false
+                Log.e(TAG, "EyeBlock install failed; tracking protection remains available", error)
             },
         )
     }
 
-    /**
-     * Turns the installed blocker on or off, without restarting anything.
-     */
-    fun setEnabled(engine: Engine, enabled: Boolean) {
-        engine.listInstalledWebExtensions(
-            onSuccess = { extensions ->
-                val extension = extensions.firstOrNull { it.id == EXTENSION_ID }
-                if (extension == null) {
-                    Log.w(TAG, "EyeBlock is not installed yet")
-                    return@listInstalledWebExtensions
+    private fun applyDesiredState(engine: Engine, extension: WebExtension) {
+        val target = desiredEnabled
+        if (extension.isEnabled() == target) {
+            operationInProgress = false
+            Log.i(TAG, "EyeBlock enabled=$target; private=${extension.isAllowedInPrivateBrowsing()}")
+            return
+        }
+
+        val success: (WebExtension) -> Unit = { updated ->
+            Log.i(TAG, "EyeBlock enabled=${updated.isEnabled()}; private=${updated.isAllowedInPrivateBrowsing()}")
+            if (desiredEnabled != target) {
+                applyDesiredState(engine, updated)
+            } else {
+                operationInProgress = false
+                if (updated.isEnabled() != target) {
+                    Log.e(TAG, "EyeBlock did not reach the requested state")
                 }
-                if (enabled) {
-                    engine.enableWebExtension(extension, onSuccess = { }, onError = { })
-                } else {
-                    engine.disableWebExtension(extension, onSuccess = { }, onError = { })
-                }
-            },
-            onError = { error ->
-                Log.w(TAG, "EyeBlock could not be reached: ${error.message}")
-            },
-        )
+            }
+        }
+        val failure: (Throwable) -> Unit = { error ->
+            operationInProgress = false
+            Log.e(TAG, "EyeBlock state change failed", error)
+            if (desiredEnabled != target) setEnabled(engine, desiredEnabled)
+        }
+        if (target) {
+            engine.enableWebExtension(extension, onSuccess = success, onError = failure)
+        } else {
+            engine.disableWebExtension(extension, onSuccess = success, onError = failure)
+        }
     }
+
     /** Whether EyeShield should run. Stored in the app's own preferences, default on. */
     fun isShieldEnabled(context: android.content.Context): Boolean =
         context.getSharedPreferences(PREFS, android.content.Context.MODE_PRIVATE)

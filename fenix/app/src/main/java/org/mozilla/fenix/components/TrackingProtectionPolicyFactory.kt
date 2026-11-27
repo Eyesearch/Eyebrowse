@@ -9,7 +9,6 @@ import androidx.annotation.VisibleForTesting
 import mozilla.components.concept.engine.EngineSession.TrackingProtectionPolicy
 import mozilla.components.concept.engine.EngineSession.TrackingProtectionPolicy.CookiePolicy
 import mozilla.components.concept.engine.EngineSession.TrackingProtectionPolicyForSessionTypes
-import org.eyesearch.eyebrowse.core.RemoteConfigManager
 import org.mozilla.fenix.R
 import org.mozilla.fenix.utils.Settings
 
@@ -35,20 +34,8 @@ class TrackingProtectionPolicyFactory(
         normalMode: Boolean = settings.shouldUseTrackingProtection,
         privateMode: Boolean = settings.shouldUseTrackingProtection,
     ): TrackingProtectionPolicy {
-        // Eyebrowse: the remote kill-switch turns all blocking off, ads included.
-        if (!RemoteConfigManager.isFeatureEnabled(RemoteConfigManager.KEY_ENABLE_ADBLOCKER)) {
-            return TrackingProtectionPolicy.none()
-        }
-
-        // Eyebrowse: one blocker at a time. EyeBlock is a full content blocker, so when it is on it
-        // does the blocking and the engine's own list stands down. Running both at once means two
-        // blockers cancelling each other's requests, and that is what leaves a video player
-        // spinning and never starting: the ad request is stopped, and so is the stream that comes
-        // with it. With EyeBlock off the engine blocks as it always did.
-        if (settings.eyeblockEnabled) {
-            return TrackingProtectionPolicy.none()
-        }
-
+        // EyeBlock and Gecko tracking protection are independent. A preference or an
+        // asynchronous extension installation must not silently turn off engine privacy.
         val trackingProtectionPolicy =
             when {
                 settings.useStrictTrackingProtection -> TrackingProtectionPolicy.strict()

@@ -908,48 +908,66 @@ def getSupportedLocales() {
 // Enable expiration by major version.
 ext.gleanExpireByVersion = Config.majorVersion()
 
-// EyeBlock: uBlock Origin ships inside the APK as a built-in extension, so blocking works offline
-// from the first launch and needs no store, account or network. The archive is 6 MB, too large to
-// keep in the repository, so it is fetched once at build time from the pinned release and checked
-// against its SHA-256. Delete src/main/assets/extensions/ublock_origin.xpi to fetch it again.
-def eyeblockXpi = file("$projectDir/src/main/assets/extensions/ublock_origin.xpi")
+// EyeBlock: GeckoView built-in extensions are installed from a resource directory.
+// Verify the upstream archive, then unpack it into generated APK assets.
+def eyeblockVersion = '1.76.4'
+def eyeblockHash = '66d0e3f21ce3b32b1bc0a9399b93cb2c9aa598ef18805d92118c76f66e266c1e'
+def eyeblockAssets = file("$buildDir/generated/eyeblockAssets")
+def eyeblockDirectory = new File(eyeblockAssets, 'extensions/ublock_origin')
+def eyeblockArchive = file("$buildDir/eyeblock/ublock_origin-${eyeblockVersion}.xpi")
+
+android.sourceSets.main.assets.srcDir(eyeblockAssets)
 
 tasks.register("prepareEyeblock") {
-    description = 'Fetches the uBlock Origin archive that ships inside the APK.'
-    outputs.file(eyeblockXpi)
+    description = 'Verify and unpack uBlock Origin into the built-in extension asset directory.'
+    inputs.property('extensionVersion', eyeblockVersion)
+    inputs.property('extensionSha256', eyeblockHash)
+    outputs.dir(eyeblockDirectory)
     doLast {
-        if (eyeblockXpi.exists()) {
-            return
+        def sha256 = { File archive ->
+            java.security.MessageDigest.getInstance('SHA-256')
+                .digest(archive.bytes).encodeHex().toString()
         }
-        def url = 'https://github.com/gorhill/uBlock/releases/download/1.76.4/' +
-            'uBlock0_1.76.4.firefox.signed.xpi'
-        def expected = '66d0e3f21ce3b32b1bc0a9399b93cb2c9aa598ef18805d92118c76f66e266c1e'
-        eyeblockXpi.parentFile.mkdirs()
-        def partial = new File(eyeblockXpi.parentFile, 'ublock_origin.xpi.part')
-        partial.delete()
-        try {
-            partial.withOutputStream { output ->
-                new URL(url).openStream().withCloseable { input -> output << input }
-            }
-            def actual = java.security.MessageDigest.getInstance('SHA-256')
-                .digest(partial.bytes)
-                .encodeHex()
-                .toString()
-            if (actual != expected) {
-                throw new GradleException("EyeBlock checksum mismatch: expected $expected, got $actual")
-            }
-            if (!partial.renameTo(eyeblockXpi)) {
-                throw new GradleException("Could not move $partial to $eyeblockXpi")
-            }
-        } catch (Exception error) {
+        if (!eyeblockArchive.exists() || sha256(eyeblockArchive) != eyeblockHash) {
+            eyeblockArchive.parentFile.mkdirs()
+            def partial = new File(eyeblockArchive.parentFile, eyeblockArchive.name + '.part')
             partial.delete()
-            throw new GradleException("Could not fetch the EyeBlock archive from $url", error)
+            try {
+                def url = "https://github.com/gorhill/uBlock/releases/download/${eyeblockVersion}/uBlock0_${eyeblockVersion}.firefox.signed.xpi"
+                new URL(url).openStream().withCloseable { input ->
+                    partial.withOutputStream { output -> output << input }
+                }
+                if (sha256(partial) != eyeblockHash) {
+                    throw new GradleException("EyeBlock checksum mismatch")
+                }
+                eyeblockArchive.delete()
+                if (!partial.renameTo(eyeblockArchive)) {
+                    throw new GradleException("Could not move EyeBlock archive")
+                }
+            } finally {
+                partial.delete()
+            }
         }
+
+        delete eyeblockDirectory
+        copy {
+            from zipTree(eyeblockArchive)
+            into eyeblockDirectory
+        }
+        def manifestFile = new File(eyeblockDirectory, 'manifest.json')
+        if (!manifestFile.isFile()) {
+            throw new GradleException("EyeBlock manifest missing from generated assets")
+        }
+        def manifest = new groovy.json.JsonSlurper().parse(manifestFile)
+        def gecko = manifest.browser_specific_settings?.gecko ?: manifest.applications?.gecko
+        if (gecko?.id != 'uBlock0@raymondhill.net' || manifest.version != eyeblockVersion) {
+            throw new GradleException("Unexpected EyeBlock extension identity or version")
+        }
+        logger.lifecycle("Prepared EyeBlock ${eyeblockVersion} as a built-in extension directory")
     }
 }
 
 tasks.matching { it.name.startsWith('merge') && it.name.endsWith('Assets') }.configureEach {
     dependsOn 'prepareEyeblock'
 }
-
 tasks.named('preBuild').configure { dependsOn 'prepareEyeblock' }
