@@ -61,7 +61,7 @@
         android:textSize="16sp"
         android:letterSpacing="0.03"
         android:maxLines="2"
-        tools:text="Firefox"
+        tools:text="Eyebrowse"
         app:layout_constraintEnd_toStartOf="@id/mozac_browser_tabstray_close"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@id/mozac_browser_tabstray_card"
