@@ -1,6 +1,6 @@
 # Eyebrowse Android app
 
-This module contains the Eyebrowse Android application. The application project lives in `eyebrowse/`. The Gradle product flavor is `eyebrowse`. The inherited Kotlin namespace remains pending a coordinated migration.
+This module contains the Eyebrowse Android application. The application project lives in `eyebrowse/`. The Gradle product flavor is `eyebrowse`. The Kotlin namespace is `org.eyesearch.eyebrowse`.
 
 - [Eyebrowse repository](https://github.com/Eyesearch/Eyebrowse)
 - [Eyebrowse issues](https://github.com/Eyesearch/Eyebrowse/issues)
