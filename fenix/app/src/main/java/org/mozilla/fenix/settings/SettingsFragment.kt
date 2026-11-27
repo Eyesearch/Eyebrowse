@@ -500,22 +500,28 @@ class SettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
-    /** The switch reflects the actual tunnel, never a saved preference. */
+    /** Connect using stored profiles; provider enrollment is deliberately user-controlled. */
     private fun setupVpnPreference() {
         val preference = findPreference<SwitchPreference>(getPreferenceKey(R.string.pref_key_vpn))
             ?: return
         val context = context ?: return
+        val manage = findPreference<Preference>(getPreferenceKey(R.string.pref_key_vpn_profiles))
         preference.isPersistent = false
         vpnStatusJob?.cancel()
         vpnStatusJob = viewLifecycleOwner.lifecycleScope.launch {
             VpnController.status.collect { status ->
                 preference.isChecked = status == VpnController.Status.WAITING ||
-                    status == VpnController.Status.HANDSHAKE
-                preference.isEnabled = status != VpnController.Status.CONNECTING &&
-                    status != VpnController.Status.DISCONNECTING
+                    status == VpnController.Status.HANDSHAKE ||
+                    status == VpnController.Status.CONNECTING
+                preference.isEnabled = status != VpnController.Status.DISCONNECTING &&
+                    status != VpnController.Status.IMPORTING
+                manage?.isEnabled = status == VpnController.Status.OFF ||
+                    status == VpnController.Status.ERROR ||
+                    status == VpnController.Status.INVALID_PROFILE
                 preference.setSummary(
                     when (status) {
                         VpnController.Status.OFF -> R.string.preferences_vpn_off
+                        VpnController.Status.IMPORTING -> R.string.preferences_vpn_importing
                         VpnController.Status.CONNECTING -> R.string.preferences_vpn_connecting
                         VpnController.Status.WAITING -> R.string.preferences_vpn_waiting
                         VpnController.Status.HANDSHAKE -> R.string.preferences_vpn_handshake
@@ -528,18 +534,71 @@ class SettingsFragment : PreferenceFragmentCompat() {
         }
         preference.setOnPreferenceChangeListener { _, newValue ->
             if (newValue == true) {
-                AlertDialog.Builder(context)
-                    .setTitle(R.string.preferences_vpn)
-                    .setMessage(R.string.preferences_vpn_import_explanation)
-                    .setPositiveButton(R.string.preferences_vpn_import) { _, _ ->
-                        vpnProfileLauncher.launch(arrayOf("*/*"))
-                    }
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .show()
+                if (VpnController.hasProfiles(context)) {
+                    requestVpnConsent()
+                } else {
+                    showVpnProviders()
+                }
             } else {
                 VpnController.stop()
             }
             false
+        }
+        manage?.setOnPreferenceClickListener {
+            showVpnProviders()
+            true
+        }
+    }
+
+    private fun showVpnProviders() {
+        val context = context ?: return
+        val actions = arrayOf(
+            getString(R.string.preferences_vpn_proton),
+            getString(R.string.preferences_vpn_vpnbook),
+            getString(R.string.preferences_vpn_import),
+            getString(R.string.preferences_vpn_clear),
+        )
+        AlertDialog.Builder(context)
+            .setTitle(R.string.preferences_vpn_profiles)
+            .setItems(actions) { _, which ->
+                when (which) {
+                    0 -> openVpnProvider("https://protonvpn.com/support/wireguard-configurations")
+                    1 -> openVpnProvider("https://www.vpnbook.com/freevpn/wireguard-vpn")
+                    2 -> AlertDialog.Builder(context)
+                        .setMessage(R.string.preferences_vpn_import_explanation)
+                        .setPositiveButton(R.string.preferences_vpn_import) { _, _ ->
+                            vpnProfileLauncher.launch(arrayOf("*/*"))
+                        }
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .show()
+                    3 -> AlertDialog.Builder(context)
+                        .setMessage(R.string.preferences_vpn_clear_confirm)
+                        .setPositiveButton(android.R.string.ok) { _, _ ->
+                            VpnController.clearProfiles(context)
+                        }
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .show()
+                }
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .show()
+    }
+
+    private fun openVpnProvider(url: String) {
+        try {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+        } catch (_: ActivityNotFoundException) {
+            Toast.makeText(requireContext(), R.string.preferences_vpn_error, Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun requestVpnConsent() {
+        val context = context ?: return
+        val consent = VpnController.consentIntent(context)
+        if (consent == null) {
+            VpnController.start(context)
+        } else {
+            vpnConsentLauncher.launch(consent)
         }
     }
 
@@ -666,14 +725,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         if (uri == null) return@registerForActivityResult
         VpnController.importProfile(context, uri) { accepted ->
             if (accepted && isAdded) {
-                val consent = VpnController.consentIntent(requireContext())
-                if (consent == null) {
-                    VpnController.start(requireContext())
-                } else {
-                    vpnConsentLauncher.launch(consent)
-                }
-            } else if (accepted) {
-                VpnController.cancelProfile()
+                Toast.makeText(requireContext(), R.string.preferences_vpn_profile_saved, Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -684,8 +736,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
         val context = context
         if (result.resultCode == Activity.RESULT_OK && context != null) {
             VpnController.start(context)
-        } else {
-            VpnController.cancelProfile()
         }
     }
 

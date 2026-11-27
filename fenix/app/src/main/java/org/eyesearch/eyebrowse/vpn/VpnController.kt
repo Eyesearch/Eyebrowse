@@ -8,10 +8,12 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.net.VpnService
+import android.os.SystemClock
 import com.wireguard.android.backend.GoBackend
 import com.wireguard.android.backend.Tunnel
 import com.wireguard.config.Config
 import com.wireguard.config.Interface
+import com.wireguard.config.Peer
 import java.io.ByteArrayInputStream
 import java.net.Inet4Address
 import java.net.Inet6Address
@@ -23,43 +25,34 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.sync.Mutex
-import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 
-/** In-memory browser-only WireGuard client. Never logs or persists profile credentials. */
+/** Browser-scoped VPN using only profiles issued by a user-authorized provider. */
 object VpnController {
-    enum class Status { OFF, CONNECTING, WAITING, HANDSHAKE, DISCONNECTING, ERROR, INVALID_PROFILE }
+    enum class Status { OFF, IMPORTING, CONNECTING, WAITING, HANDSHAKE, DISCONNECTING, ERROR, INVALID_PROFILE }
 
     private const val MAX_PROFILE_BYTES = 65536
-    private const val CHECK_INTERVAL_MS = 5000L
+    private const val MAX_PROFILES = 5
+    private const val CHECK_INTERVAL_MS = 2000L
+    private const val CONNECT_TIMEOUT_MS = 40000L
     private const val HANDSHAKE_WINDOW_MS = 180000L
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
-    private val mutex = Mutex()
     private val mutableStatus = MutableStateFlow(Status.OFF)
     val status = mutableStatus.asStateFlow()
 
     private var backend: GoBackend? = null
-    private var pendingProfile: Config? = null
-    private var monitor: Job? = null
+    private var connection: Job? = null
+    private var wanted = false
+    private var memoryProfiles: List<Config>? = null
+    private var preferredIndex = 0
     private val tunnel = object : Tunnel {
         override fun getName() = "Eyebrowse"
-        override fun onStateChange(newState: Tunnel.State) {
-            if (newState == Tunnel.State.DOWN) {
-                scope.launch {
-                    if (mutableStatus.value == Status.WAITING ||
-                        mutableStatus.value == Status.HANDSHAKE
-                    ) {
-                        mutableStatus.value = Status.ERROR
-                    }
-                }
-            }
-        }
+        override fun onStateChange(newState: Tunnel.State) = Unit
     }
 
     fun consentIntent(context: Context): Intent? = VpnService.prepare(context)
 
-    /** Accept only a full-route single-peer config; override any app scope with this package. */
+    /** Require full-route single-peer profiles. Scope routes to Eyebrowse only. */
     internal fun browserProfile(config: Config, packageName: String): Config {
         val source = config.getInterface()
         val peer = config.peers.single()
@@ -76,21 +69,36 @@ object VpnController {
             .includeApplication(packageName)
         if (source.listenPort.isPresent) scoped.setListenPort(source.listenPort.get())
         if (source.mtu.isPresent) scoped.setMtu(source.mtu.get())
-        return Config.Builder().setInterface(scoped.build()).addPeer(peer).build()
+        // Initiate a handshake even before a user navigates, and keep NAT state alive.
+        val remote = Peer.Builder()
+            .setPublicKey(peer.publicKey)
+            .setEndpoint(peer.endpoint.get())
+            .addAllowedIps(peer.allowedIps)
+            .setPersistentKeepalive(peer.persistentKeepalive.orElse(0).takeIf { it > 0 } ?: 25)
+        if (peer.preSharedKey.isPresent) remote.setPreSharedKey(peer.preSharedKey.get())
+        return Config.Builder().setInterface(scoped.build()).addPeer(remote.build()).build()
     }
 
+    private fun profiles(context: Context): List<Config> {
+        memoryProfiles?.let { return it }
+        return VpnProfileStore.load(context).mapNotNull { text ->
+            runCatching {
+                browserProfile(Config.parse(text.byteInputStream()), context.packageName)
+            }.getOrNull()
+        }.also { memoryProfiles = it }
+    }
+
+    fun hasProfiles(context: Context): Boolean = memoryProfiles?.isNotEmpty() == true ||
+        VpnProfileStore.hasSaved(context)
+
     fun importProfile(context: Context, uri: Uri, completed: (Boolean) -> Unit) {
-        if (mutableStatus.value == Status.CONNECTING ||
-            mutableStatus.value == Status.DISCONNECTING ||
-            mutableStatus.value == Status.WAITING ||
-            mutableStatus.value == Status.HANDSHAKE
-        ) return
+        if (connection?.isActive == true || mutableStatus.value == Status.IMPORTING) return
         val app = context.applicationContext
-        mutableStatus.value = Status.CONNECTING
+        mutableStatus.value = Status.IMPORTING
         scope.launch {
-            val profile = try {
+            val accepted = try {
                 withContext(Dispatchers.IO) {
-                    val bytes = app.contentResolver.openInputStream(uri)?.use { input ->
+                    val config = app.contentResolver.openInputStream(uri)?.use { input ->
                         val buffer = ByteArray(MAX_PROFILE_BYTES + 1)
                         var size = 0
                         try {
@@ -106,99 +114,138 @@ object VpnController {
                         } finally {
                             buffer.fill(0)
                         }
-                    }
-                    bytes
+                    } ?: error("Missing profile")
+                    val updated = (listOf(config) + profiles(app).filterNot {
+                        it.toWgQuickString() == config.toWgQuickString()
+                    }).take(MAX_PROFILES)
+                    VpnProfileStore.save(app, updated.map { it.toWgQuickString() })
+                    memoryProfiles = updated
+                    true
                 }
             } catch (_: Exception) {
-                null
+                false
             }
-            pendingProfile = profile
-            if (profile == null) mutableStatus.value = Status.INVALID_PROFILE
-            completed(profile != null)
+            preferredIndex = 0
+            mutableStatus.value = if (accepted) Status.OFF else Status.INVALID_PROFILE
+            completed(accepted)
         }
     }
 
-    fun cancelProfile() {
-        pendingProfile = null
+    fun clearProfiles(context: Context) {
+        if (connection?.isActive == true || mutableStatus.value == Status.IMPORTING) return
+        VpnProfileStore.clear(context)
+        memoryProfiles = emptyList()
+        preferredIndex = 0
         mutableStatus.value = Status.OFF
     }
 
     fun start(context: Context) {
-        val profile = pendingProfile ?: run {
-            mutableStatus.value = Status.INVALID_PROFILE
-            return
-        }
-        pendingProfile = null
+        if (connection?.isActive == true || mutableStatus.value == Status.IMPORTING) return
         val app = context.applicationContext
-        scope.launch {
-            mutex.withLock {
-                try {
+        wanted = true
+        mutableStatus.value = Status.CONNECTING
+        connection = scope.launch {
+            var finalStatus = Status.ERROR
+            try {
+                val candidates = withContext(Dispatchers.IO) { profiles(app) }
+                if (candidates.isEmpty()) {
+                    finalStatus = Status.INVALID_PROFILE
+                    return@launch
+                }
+                val active = withContext(Dispatchers.IO) {
+                    backend ?: GoBackend(app).also { backend = it }
+                }
+                // Try each candidate once, most recently successful first. A bounded retry
+                // avoids flooding the free provider. Do not reconnect after Android revoke.
+                for (offset in candidates.indices) {
+                    if (!wanted || consentIntent(app) != null) break
+                    val index = (preferredIndex + offset) % candidates.size
+                    mutableStatus.value = Status.CONNECTING
                     val started = withContext(Dispatchers.IO) {
-                        val active = backend ?: GoBackend(app).also { backend = it }
-                        active.setState(tunnel, Tunnel.State.UP, profile) == Tunnel.State.UP
+                        runCatching {
+                            active.setState(tunnel, Tunnel.State.UP, candidates[index]) == Tunnel.State.UP
+                        }.getOrDefault(false)
                     }
-                    mutableStatus.value = if (started) Status.WAITING else Status.ERROR
-                    if (started) monitorTunnel()
-                } catch (_: Exception) {
-                    mutableStatus.value = Status.ERROR
-                } catch (_: LinkageError) {
-                    mutableStatus.value = Status.ERROR
+                    if (!started) continue
+                    if (wanted) mutableStatus.value = Status.WAITING
+                    val deadline = SystemClock.elapsedRealtime() + CONNECT_TIMEOUT_MS
+                    var connected = false
+                    while (wanted) {
+                        val (running, recent) = withContext(Dispatchers.IO) {
+                            val up = active.getState(tunnel) == Tunnel.State.UP
+                            up to (up && recentHandshake(active))
+                        }
+                        if (!running) {
+                            // Service stopped or consent revoked. Never silently start another VPN.
+                            wanted = false
+                            finalStatus = Status.ERROR
+                            break
+                        }
+                        if (recent) {
+                            if (!connected) preferredIndex = index
+                            connected = true
+                            if (wanted) mutableStatus.value = Status.HANDSHAKE
+                        } else {
+                            if (wanted) mutableStatus.value = Status.WAITING
+                            if (connected || SystemClock.elapsedRealtime() >= deadline) break
+                        }
+                        delay(CHECK_INTERVAL_MS)
+                    }
+                    if (!wanted) break
+                    val down = withContext(Dispatchers.IO) {
+                        runCatching {
+                            active.setState(tunnel, Tunnel.State.DOWN, null) == Tunnel.State.DOWN
+                        }.getOrDefault(false)
+                    }
+                    if (!down) break
+                    // Server switching can briefly expose normal network traffic; UI discloses it.
+                    if (connected) {
+                        // A later stale handshake ends this session; user can reconnect with backup.
+                        preferredIndex = (index + 1) % candidates.size
+                        break
+                    }
+                }
+            } catch (_: Exception) {
+                finalStatus = Status.ERROR
+            } catch (_: LinkageError) {
+                finalStatus = Status.ERROR
+            } finally {
+                val requestedStop = mutableStatus.value == Status.DISCONNECTING
+                val stopped = withContext(Dispatchers.IO) {
+                    runCatching {
+                        backend?.setState(tunnel, Tunnel.State.DOWN, null) != Tunnel.State.UP
+                    }.getOrDefault(false)
+                }
+                wanted = false
+                mutableStatus.value = when {
+                    !stopped -> Status.WAITING
+                    requestedStop -> Status.OFF
+                    else -> finalStatus
                 }
             }
         }
     }
 
-    private fun monitorTunnel() {
-        monitor?.cancel()
-        monitor = scope.launch {
-            while (true) {
-                val next = mutex.withLock {
-                    withContext(Dispatchers.IO) {
-                        try {
-                            val active = backend
-                            if (active == null || active.getState(tunnel) != Tunnel.State.UP) {
-                                Status.ERROR
-                            } else {
-                                val stats = active.getStatistics(tunnel)
-                                val now = System.currentTimeMillis()
-                                val recent = stats.peers().any { key ->
-                                    val time = stats.peer(key)?.latestHandshakeEpochMillis() ?: 0L
-                                    time > 0 && now - time in 0..HANDSHAKE_WINDOW_MS
-                                }
-                                if (recent) Status.HANDSHAKE else Status.WAITING
-                            }
-                        } catch (_: Exception) {
-                            Status.WAITING
-                        }
-                    }
-                }
-                mutableStatus.value = next
-                if (next == Status.ERROR) break
-                delay(CHECK_INTERVAL_MS)
-            }
+    private fun recentHandshake(active: GoBackend): Boolean {
+        val stats = active.getStatistics(tunnel)
+        val now = System.currentTimeMillis()
+        return stats.peers().any { key ->
+            val time = stats.peer(key)?.latestHandshakeEpochMillis() ?: 0L
+            time > 0 && now - time in 0..HANDSHAKE_WINDOW_MS
         }
     }
 
     fun stop() {
-        pendingProfile = null
-        monitor?.cancel()
+        wanted = false
         mutableStatus.value = Status.DISCONNECTING
-        scope.launch {
-            mutex.withLock {
-                mutableStatus.value = try {
-                    val stopped = withContext(Dispatchers.IO) {
-                        backend?.setState(tunnel, Tunnel.State.DOWN, null) != Tunnel.State.UP
-                    }
-                    if (stopped) Status.OFF else Status.WAITING
-                } catch (_: Exception) {
-                    // Do not claim disconnected if the backend failed to stop.
-                    val running = withContext(Dispatchers.IO) {
-                        runCatching { backend?.getState(tunnel) == Tunnel.State.UP }.getOrDefault(true)
-                    }
-                    if (running) Status.WAITING else Status.ERROR
-                }
-                if (mutableStatus.value == Status.WAITING) monitorTunnel()
+        if (connection?.isActive == true) return
+        connection = scope.launch {
+            val stopped = withContext(Dispatchers.IO) {
+                runCatching {
+                    backend?.setState(tunnel, Tunnel.State.DOWN, null) != Tunnel.State.UP
+                }.getOrDefault(false)
             }
+            mutableStatus.value = if (stopped) Status.OFF else Status.WAITING
         }
     }
 }

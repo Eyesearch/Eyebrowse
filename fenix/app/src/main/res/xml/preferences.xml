@@ -42,6 +42,13 @@
         app:iconSpaceReserved="false" />
 
     <androidx.preference.Preference
+        android:key="@string/pref_key_vpn_profiles"
+        android:title="@string/preferences_vpn_profiles"
+        android:summary="@string/preferences_vpn_profiles_summary"
+        android:persistent="false"
+        app:iconSpaceReserved="false" />
+
+    <androidx.preference.Preference
         android:key="@string/pref_key_indo_account_sign_out"
         android:title="@string/preferences_indo_account_sign_out"
         android:persistent="false"
