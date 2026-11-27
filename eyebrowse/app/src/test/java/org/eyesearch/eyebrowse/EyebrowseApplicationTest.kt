@@ -58,38 +58,11 @@ class EyebrowseApplicationTest {
         browserStore = BrowserStore()
     }
 
-    @Test
-    fun `GIVEN there are unsupported addons installed WHEN subscribing for new add-ons checks THEN register for checks`() {
-        val checker = mockk<DefaultSupportedAddonsChecker>(relaxed = true)
-        val unSupportedExtension: WebExtension = mockk()
-        val metadata: Metadata = mockk()
-
-        every { unSupportedExtension.getMetadata() } returns metadata
-        every { metadata.disabledFlags } returns DisabledFlags.select(DisabledFlags.APP_SUPPORT)
-
-        application.subscribeForNewAddonsIfNeeded(checker, listOf(unSupportedExtension))
-
-        verify { checker.registerForChecks() }
-    }
-
-    @Test
-    fun `GIVEN there are no unsupported addons installed WHEN subscribing for new add-ons checks THEN unregister for checks`() {
-        val checker = mockk<DefaultSupportedAddonsChecker>(relaxed = true)
-        val unSupportedExtension: WebExtension = mockk()
-        val metadata: Metadata = mockk()
-
-        every { unSupportedExtension.getMetadata() } returns metadata
-        every { metadata.disabledFlags } returns DisabledFlags.select(DisabledFlags.USER)
-
-        application.subscribeForNewAddonsIfNeeded(checker, listOf(unSupportedExtension))
-
-        verify { checker.unregisterForChecks() }
-    }
 
     @Test
     @Config(sdk = [Build.VERSION_CODES.O])
     fun `WHEN setStartupMetrics is called THEN sets some base metrics`() {
-        val expectedAppName = "org.mozilla.fenix"
+        val expectedAppName = org.eyesearch.eyebrowse.BuildConfig.APPLICATION_ID
         val expectedAppInstallSource = "org.mozilla.install.source"
         val settings = spyk(Settings(testContext))
         val application = spyk(application)

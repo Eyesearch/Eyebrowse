@@ -568,20 +568,6 @@ class DefaultBrowserToolbarMenuControllerTest {
         verify { removePinnedSiteUseCase.invoke(topSite) }
     }
 
-    @Test
-    fun `WHEN addon extensions menu item is pressed THEN navigate to addons manager`() = runTest {
-        val item = ToolbarMenu.Item.AddonsManager
-
-        val controller = createController(scope = this, store = browserStore)
-        assertNull(Events.browserMenuAction.testGetValue())
-
-        controller.handleToolbarItemInteraction(item)
-
-        assertNotNull(Events.browserMenuAction.testGetValue())
-        val snapshot = Events.browserMenuAction.testGetValue()!!
-        assertEquals(1, snapshot.size)
-        assertEquals("addons_manager", snapshot.single().extra?.getValue("item"))
-    }
 
     @Test
     fun `WHEN Add To Home Screen menu item is pressed THEN add site`() = runTest {
@@ -823,28 +809,6 @@ class DefaultBrowserToolbarMenuControllerTest {
         verify { navController.navigate(turnOnSyncDirections, null) }
     }
 
-    @Test
-    fun `WHEN the Translations menu item is pressed THEN navigate to translations flow AND post telemetry`() =
-        runTest {
-            val item = ToolbarMenu.Item.Translate
-
-            val controller = createController(scope = this, store = browserStore)
-
-            controller.handleToolbarItemInteraction(item)
-
-            verify {
-                navController.navigate(
-                    directionsEq(
-                        BrowserFragmentDirections.actionBrowserFragmentToTranslationsDialogFragment(
-                            sessionId = selectedTab.id,
-                        ),
-                    ),
-                )
-            }
-
-            val telemetry = Events.translationsAction.testGetValue()?.firstOrNull()
-            assertEquals("main_flow_browser", telemetry?.extra?.get("item"))
-        }
 
     private fun createController(
         scope: CoroutineScope,

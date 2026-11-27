@@ -157,11 +157,11 @@ class HomeDeepLinkIntentProcessorTest {
         verify { out wasNot Called }
     }
 
-    @Test
-    fun `process settings_addon_manager deep link`() {
-        assertTrue(processorHome.process(testIntent("settings_addon_manager"), navController, out))
 
-        verify { navController.navigate(NavGraphDirections.actionGlobalAddonsManagementFragment()) }
+    @Test
+    fun `removed addon manager deep link is consumed without navigation`() {
+        assertTrue(processorHome.process(testIntent("settings_addon_manager"), navController, out))
+        verify { navController wasNot Called }
         verify { out wasNot Called }
     }
 

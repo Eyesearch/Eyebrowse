@@ -232,17 +232,6 @@ class HomeMenuViewTest {
         }
     }
 
-    @Test
-    fun `WHEN Extensions menu item is tapped THEN navigate to the addons management fragment`() {
-        homeMenuView.onItemTapped(HomeMenu.Item.Extensions)
-
-        verify {
-            navController.nav(
-                R.id.homeFragment,
-                HomeFragmentDirections.actionGlobalAddonsManagementFragment(),
-            )
-        }
-    }
 
     @Test
     fun `WHEN Desktop Mode menu item is tapped THEN set the desktop mode settings`() {

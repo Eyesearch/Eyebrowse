@@ -49,7 +49,6 @@ import org.eyesearch.eyebrowse.browser.browsingmode.BrowsingMode
 import org.eyesearch.eyebrowse.components.Core
 import org.eyesearch.eyebrowse.components.metrics.MetricsUtils
 import org.eyesearch.eyebrowse.helpers.EyebrowseRobolectricTestRunner
-import org.eyesearch.eyebrowse.search.SearchDialogFragmentDirections.Companion.actionGlobalAddonsManagementFragment
 import org.eyesearch.eyebrowse.search.SearchDialogFragmentDirections.Companion.actionGlobalSearchEngineFragment
 import org.eyesearch.eyebrowse.search.toolbar.SearchSelectorMenu
 import org.eyesearch.eyebrowse.settings.SupportUtils
@@ -252,21 +251,6 @@ class SearchDialogControllerTest {
         }
     }
 
-    @Test
-    fun handleAddonsUrlCommitted() {
-        val url = "about:addons"
-        val directions = actionGlobalAddonsManagementFragment()
-
-        createController().handleUrlCommitted(url)
-
-        browserStore.waitUntilIdle()
-
-        verify { navController.navigate(directions) }
-
-        middleware.assertLastAction(AwesomeBarAction.EngagementFinished::class) { action ->
-            assertFalse(action.abandoned)
-        }
-    }
 
     @Test
     fun handleMozillaUrlCommitted() {
