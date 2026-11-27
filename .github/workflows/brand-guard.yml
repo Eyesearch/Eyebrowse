@@ -41,14 +41,18 @@ jobs:
           }
           # the file Mozilla's fox used to live in must stay ours, by content rather than by hash,
           # because it is a tiny xml that points at our launcher mark
-          if ! grep -q "@mipmap/ic_launcher" fenix/app/src/main/res/drawable/ic_survey_mark.xml; then
+          if ! grep -q "@mipmap/ic_launcher" eyebrowse/app/src/main/res/drawable/ic_survey_mark.xml; then
             echo "::error::ic_survey_mark.xml no longer points at our launcher mark"
             exit 1
           fi
           echo "ok ic_survey_mark.xml"
-          check fenix/app/src/main/res/drawable/ic_wordmark_logo.webp 3f62a3a7cbaf46de1af95733e5540c8e515c979bd91118de7cd69dbb9803dd5a
-          check fenix/app/src/main/res/drawable/ic_wordmark_text_normal.webp bbb4f2c4c940765f6490d5161d6f044e9a2ed5c8a31ff178282a5b351262d1a0
-          check fenix/app/src/main/res/drawable/ic_wordmark_text_private.webp 8ed6b798d586309818c81f04b704f76b7cf45498993129630a9035ea89c42c6b
+          # Use the supplied transparent infinity mark for splash; preserve private launcher artwork.
+          check eyebrowse/app/src/main/res/drawable-nodpi/ic_splash_logo.png 203fbbb21c37de09c62241a0a1ebea7645a3abe20931482369f3ef4eeee3bd91
+          check eyebrowse/app/src/main/res/mipmap-xxhdpi/ic_launcher_private.png edec1500795ec6d7e0a5a298d82712134bfa9fcdeee0fc00f48b57c6e476f55f
+          check eyebrowse/app/src/main/res/mipmap-xxhdpi/ic_launcher_private_round.png 9abf345a316baabc09292556ab78449f0058b19b3dc0ae6c1e507b32ca5d7189
+          check eyebrowse/app/src/main/res/drawable/ic_wordmark_logo.webp 3f62a3a7cbaf46de1af95733e5540c8e515c979bd91118de7cd69dbb9803dd5a
+          check eyebrowse/app/src/main/res/drawable/ic_wordmark_text_normal.webp bbb4f2c4c940765f6490d5161d6f044e9a2ed5c8a31ff178282a5b351262d1a0
+          check eyebrowse/app/src/main/res/drawable/ic_wordmark_text_private.webp 8ed6b798d586309818c81f04b704f76b7cf45498993129630a9035ea89c42c6b
 
       - name: No Mozilla artwork by content
         # File names can stay, artwork cannot. This looks for the actual shapes and words rather
@@ -58,19 +62,19 @@ jobs:
           fail=0
 
           # 1. the fox vector, by its path data
-          if grep -rl "M50.15,18.05" fenix/app/src android-components 2>/dev/null | grep -q .; then
+          if grep -rl "M50.15,18.05" eyebrowse/app/src android-components 2>/dev/null | grep -q .; then
             echo "::error::Mozilla's fox vector is back in the tree"
-            grep -rl "M50.15,18.05" fenix/app/src android-components | head -5
+            grep -rl "M50.15,18.05" eyebrowse/app/src android-components | head -5
             fail=1
           fi
 
           # 2. every screen that used to draw their artwork must point at our mark
           for f in \
-            fenix/app/src/main/res/drawable/ic_survey_mark.xml \
-            fenix/app/src/main/res/drawable/ic_pocket.xml \
-            fenix/app/src/main/res/drawable/pocket_vector.xml \
-            fenix/app/src/main/res/drawable/ic_account.xml \
-            fenix/app/src/main/res/drawable/ic_fx_accounts_avatar.xml ; do
+            eyebrowse/app/src/main/res/drawable/ic_survey_mark.xml \
+            eyebrowse/app/src/main/res/drawable/ic_pocket.xml \
+            eyebrowse/app/src/main/res/drawable/pocket_vector.xml \
+            eyebrowse/app/src/main/res/drawable/ic_account.xml \
+            eyebrowse/app/src/main/res/drawable/ic_fx_accounts_avatar.xml ; do
             if [ -f "$f" ] && ! grep -q "@mipmap/ic_launcher" "$f"; then
               echo "::error::$f no longer points at our launcher mark"
               fail=1
@@ -78,11 +82,94 @@ jobs:
           done
 
           # 3. no user-visible string may say Firefox in the default language
-          if grep -n ">Firefox<\|>Firefox \| Firefox<" fenix/app/src/main/res/values/strings.xml 2>/dev/null | grep -v "<!--" | grep -q .; then
+          if grep -n ">Firefox<\|>Firefox \| Firefox<" eyebrowse/app/src/main/res/values/strings.xml 2>/dev/null | grep -v "<!--" | grep -q .; then
             echo "::error::a visible string still says Firefox"
-            grep -n ">Firefox<\|>Firefox \| Firefox<" fenix/app/src/main/res/values/strings.xml | grep -v "<!--" | head -5
+            grep -n ">Firefox<\|>Firefox \| Firefox<" eyebrowse/app/src/main/res/values/strings.xml | grep -v "<!--" | head -5
             fail=1
           fi
 
           if [ "$fail" -ne 0 ]; then exit 1; fi
           echo "no Mozilla artwork, no Mozilla word on any screen"
+
+      - name: Check localized browser branding
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          # Check translated spellings missed by an English-only brand scan.
+          old_brand = re.compile(r"ಫೈರ್[\u200c\u200d]?ಫಾಕ್ಸ್|फ़ायरफ़ॉक्स|फायरफॉक्स|फ़ायरफॉक्स|फायरफ़ॉक्स|ഫയർഫോക്[\u200c\u200d]?സ്|ෆයර්ෆොක්ස්|فایرفاکس|فایەرفۆکس")
+          failed = False
+          for path in sorted(Path("eyebrowse/app/src/main/res").glob("values*/strings.xml")):
+              for number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+                  if old_brand.search(line):
+                      print(f"::error file={path},line={number}::Legacy localized browser name")
+                      failed = True
+          raise SystemExit(1 if failed else 0)
+          PY
+
+      - name: Reject build variant branding overrides
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          root = Path("eyebrowse/app/src")
+          reserved = {
+              "ic_wordmark_logo", "ic_wordmark_text_normal", "ic_wordmark_text_private",
+              "ic_logo_wordmark_normal", "ic_logo_wordmark_private", "ic_splash_logo",
+              "ic_launcher", "ic_launcher_round", "ic_launcher_foreground",
+              "ic_launcher_private", "ic_launcher_private_round", "ic_launcher_private_foreground",
+              "ic_launcher_monochrome", "fenix_search_widget",
+          }
+          bad = []
+          for source in root.iterdir():
+              if not source.is_dir() or source.name in {"main", "test", "androidTest"}:
+                  continue
+              for file in (source / "res").rglob("*"):
+                  if file.is_file() and file.stem in reserved:
+                      bad.append(file)
+              for file in (source / "res").glob("values*/*.xml"):
+                  if 'name="app_name"' in file.read_text(encoding="utf-8") or 'name="ic_launcher_background"' in file.read_text(encoding="utf-8") or 'name="SplashScreen"' in file.read_text(encoding="utf-8"):
+                      bad.append(file)
+          for file in bad:
+              print(f"::error file={file}::Use shared Eyebrowse branding from src/main/res")
+          raise SystemExit(1 if bad else 0)
+          PY
+
+      - name: Verify repository product identity
+        run: |
+          python3 - <<'PY'
+          import re
+          import subprocess
+          from pathlib import Path
+
+          # Only first-party product metadata. External project references, dependency
+          # IDs, license notices, historical fixtures and upstream URLs are legitimate.
+          errors = []
+          tracked = subprocess.check_output(["git", "ls-files", "-z"]).decode().split("\0")
+          if not Path('eyebrowse/settings.gradle').is_file() or Path('fenix').exists():
+              errors.append('Expected eyebrowse/ application directory; legacy fenix/ root is not allowed')
+          if "rootProject.name = 'Eyebrowse'" not in Path('eyebrowse/settings.gradle').read_text():
+              errors.append('Gradle root project name is not Eyebrowse')
+          for name in filter(None, tracked):
+              if re.search(r"fire(?:fox|box)", name, re.IGNORECASE):
+                  print(f"::warning::Review legacy product name in path: {name}")
+          for name in ("eyebrowse/gradle.properties", "android-components/gradle.properties"):
+              content = Path(name).read_text()
+              for key in ("libUrl", "libVcsUrl"):
+                  if not re.search(rf"^{key}=https://github\.com/Eyesearch/Eyebrowse(?:[/.]|$)", content, re.M):
+                      errors.append(f"{name}: {key} does not point to Eyebrowse")
+          for name in ("eyebrowse/app/onboarding.fml.yaml", "eyebrowse/app/nimbus.fml.yaml",
+                       "eyebrowse/app/.experimenter.yaml", "eyebrowse/app/messaging-evergreen-messages.fml.yaml"):
+              for line in Path(name).read_text().splitlines():
+                  if re.search(r"\bfire(?:fox|box)\b", line, re.I):
+                      errors.append(f"{name}: legacy product description")
+          profiling = Path("eyebrowse/tools/setup-startup-profiling.py").read_text()
+          for channel, suffix in (("release", ""), ("beta", ".beta"),
+                                  ("nightly", ".nightly"), ("debug", ".debug")):
+              if f'"{channel}": "org.eyesearch.eyebrowse{suffix}"' not in profiling:
+                  errors.append(f"Incorrect profiling package for {channel}")
+          for error in errors:
+              print(f"::error::{error}")
+          raise SystemExit(1 if errors else 0)
+          PY

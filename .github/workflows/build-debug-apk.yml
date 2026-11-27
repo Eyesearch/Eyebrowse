@@ -25,7 +25,7 @@ jobs:
     timeout-minutes: 120
     defaults:
       run:
-        working-directory: fenix
+        working-directory: eyebrowse
     env:
       # Optional: add the real file from the Firebase console as a repository
       # secret named GOOGLE_SERVICES_JSON. Without it a placeholder is written,
@@ -65,7 +65,7 @@ jobs:
         working-directory: .
         run: |
           set -euo pipefail
-          target="fenix/app/google-services.json"
+          target="eyebrowse/app/google-services.json"
           if [ -n "${GOOGLE_SERVICES_JSON:-}" ]; then
             printf '%s' "$GOOGLE_SERVICES_JSON" > "$target"
             echo "Wrote google-services.json from the GOOGLE_SERVICES_JSON secret."
@@ -135,7 +135,7 @@ jobs:
           version="$(sed -n 's/^val VERSION = "\(.*\)"/\1/p' \
             android-components/plugins/dependencies/src/main/java/ApplicationServices.kt)"
           echo "application-services version: $version"
-          target="fenix/build/bin/nimbus/$version"
+          target="eyebrowse/build/bin/nimbus/$version"
           mkdir -p "$target"
           if [ -x "$target/nimbus-fml" ]; then
             echo "nimbus-fml already present"
@@ -189,13 +189,13 @@ jobs:
           chmod +x ./gradlew
           # Only the arm64-v8a split is built: modern 64-bit devices are the
           # target, and it keeps the artifact around 80 MB instead of 450 MB.
-          ./gradlew :app:assembleFenixDebug -Pabis=arm64-v8a --stacktrace
+          ./gradlew :app:assembleEyebrowseDebug -Pabis=arm64-v8a --stacktrace
 
       - name: Upload the debug APK
         uses: actions/upload-artifact@v4
         with:
           name: Eyebrowse-Debug-APK
-          path: fenix/app/build/outputs/apk/fenix/debug/*arm64*.apk
+          path: eyebrowse/app/build/outputs/apk/eyebrowse/debug/*arm64*.apk
           if-no-files-found: error
           retention-days: 14
 
@@ -209,7 +209,7 @@ jobs:
     timeout-minutes: 120
     defaults:
       run:
-        working-directory: fenix
+        working-directory: eyebrowse
     env:
       GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
 
@@ -242,7 +242,7 @@ jobs:
         working-directory: .
         run: |
           set -euo pipefail
-          target="fenix/app/google-services.json"
+          target="eyebrowse/app/google-services.json"
           if [ -n "${GOOGLE_SERVICES_JSON:-}" ]; then
             printf '%s' "$GOOGLE_SERVICES_JSON" > "$target"
             echo "Wrote google-services.json from the GOOGLE_SERVICES_JSON secret."
@@ -287,7 +287,7 @@ jobs:
           set -euo pipefail
           version="$(sed -n 's/^val VERSION = "\(.*\)"/\1/p' \
             android-components/plugins/dependencies/src/main/java/ApplicationServices.kt)"
-          target="fenix/build/bin/nimbus/$version"
+          target="eyebrowse/build/bin/nimbus/$version"
           mkdir -p "$target"
           if [ -x "$target/nimbus-fml" ]; then
             exit 0
@@ -327,19 +327,19 @@ jobs:
           # Eyebrowse: a release build with shrinking on, signed with the debug key
           # so it can be installed straight away. This is the build users get: the
           # debug one carries every language, every symbol and no shrinking.
-          ./gradlew :app:assembleFenixRelease \
+          ./gradlew :app:assembleEyebrowseRelease \
             -Pabis=arm64-v8a \
             -PlocalProperties.autosignReleaseWithDebugKey=true \
             --stacktrace
 
       - name: Report the sizes
         run: |
-          ls -l app/build/outputs/apk/fenix/release/*arm64*.apk || true
+          ls -l app/build/outputs/apk/eyebrowse/release/*arm64*.apk || true
 
       - name: Upload the release APK
         uses: actions/upload-artifact@v4
         with:
           name: Eyebrowse-Release-APK
-          path: fenix/app/build/outputs/apk/fenix/release/*arm64*.apk
+          path: eyebrowse/app/build/outputs/apk/eyebrowse/release/*arm64*.apk
           if-no-files-found: error
           retention-days: 14
