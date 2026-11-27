@@ -512,7 +512,9 @@ class SettingsFragment : PreferenceFragmentCompat() {
             VpnController.status.collect { status ->
                 preference.isChecked = status == VpnController.Status.WAITING ||
                     status == VpnController.Status.HANDSHAKE ||
-                    status == VpnController.Status.CONNECTING
+                    status == VpnController.Status.CONNECTING ||
+                    status == VpnController.Status.RECONNECTING ||
+                    status == VpnController.Status.STOP_FAILED
                 preference.isEnabled = status != VpnController.Status.DISCONNECTING &&
                     status != VpnController.Status.IMPORTING
                 manage?.isEnabled = status == VpnController.Status.OFF ||
@@ -525,6 +527,8 @@ class SettingsFragment : PreferenceFragmentCompat() {
                         VpnController.Status.CONNECTING -> R.string.preferences_vpn_connecting
                         VpnController.Status.WAITING -> R.string.preferences_vpn_waiting
                         VpnController.Status.HANDSHAKE -> R.string.preferences_vpn_handshake
+                        VpnController.Status.RECONNECTING -> R.string.preferences_vpn_reconnecting
+                        VpnController.Status.STOP_FAILED -> R.string.preferences_vpn_stop_failed
                         VpnController.Status.DISCONNECTING -> R.string.preferences_vpn_disconnecting
                         VpnController.Status.ERROR -> R.string.preferences_vpn_error
                         VpnController.Status.INVALID_PROFILE -> R.string.preferences_vpn_invalid

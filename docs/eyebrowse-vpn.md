@@ -23,13 +23,16 @@ It is deliberately not integrated here.
    Eyebrowse. Add up to five valid profiles from authorized servers.
 3. Tap VPN. Android may request consent. Subsequent taps reconnect using saved
    profiles; the most recently successful profile in this process is tried first.
-4. If a profile never handshakes, try the next saved profile after 40 seconds,
-   at most once per attempt. A later stale handshake ends the session; reconnect
-   selects another candidate. Consent revocation never auto-restarts the VPN.
+4. If a profile never handshakes, try the next saved profile after 40 seconds.
+   A later stale handshake also starts recovery. Retry at most two rounds of
+   saved profiles per outage, with five-second spacing. A successful handshake
+   resets the retry budget. Consent revocation/service removal stops recovery.
 5. Use the profile management row to delete saved credentials.
 
 Only Eyebrowse traffic is routed. Require a single peer with a configured
-endpoint, DNS and IPv4/IPv6 default routes. Keys are AES-GCM encrypted using
+endpoint, DNS and full IPv4 routing. IPv6 must be fully routed or entirely
+unused; the pinned GoBackend leaves unused IP families blocked while a
+single-peer default-route tunnel is active. Verify IPv6 leak tests on device. Keys are AES-GCM encrypted using
 Android Keystore on API 23+, with no plaintext persistence on API 21/22.
 The provider can observe metadata and unencrypted traffic. A handshake is
 not proof of internet reachability. Traffic may use the normal network during
@@ -43,3 +46,13 @@ transitions, DNS/IPv4/IPv6 leakage and browser-only routing. Test provider terms
 and quota handling. Do not claim an anonymous zero-setup or no-logs VPN.
 An official permitted automatic provisioning API would be needed to remove
 first-time enrollment. No such integration has been verified.
+
+## Remaining provider and safety constraints
+Zero-setup WireGuard provisioning is not available from the verified free
+providers: Proton requires an account and profile, VPNBook requires a generated
+profile. VPN Gate publishes a no-account directory but uses OpenVPN and records
+connection metadata; do not silently switch the product to that provider.
+Android system lockdown changes device-wide connectivity and is not a browser-only
+kill switch. Do not advertise leak prevention during tunnel replacement. A failed
+stop leaves a distinct STOP_FAILED state with a retry action. Run VpnPolicyTest
+and all device checks before release.

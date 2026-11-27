@@ -29,13 +29,15 @@ import kotlinx.coroutines.withContext
 
 /** Browser-scoped VPN using only profiles issued by a user-authorized provider. */
 object VpnController {
-    enum class Status { OFF, IMPORTING, CONNECTING, WAITING, HANDSHAKE, DISCONNECTING, ERROR, INVALID_PROFILE }
+    enum class Status { OFF, IMPORTING, CONNECTING, WAITING, HANDSHAKE, RECONNECTING, DISCONNECTING, STOP_FAILED, ERROR, INVALID_PROFILE }
 
     private const val MAX_PROFILE_BYTES = 65536
     private const val MAX_PROFILES = 5
     private const val CHECK_INTERVAL_MS = 2000L
     private const val CONNECT_TIMEOUT_MS = 40000L
     private const val HANDSHAKE_WINDOW_MS = 180000L
+    private const val MAX_RETRY_ROUNDS = 2
+    private const val RECOVERY_DELAY_MS = 5000L
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
     private val mutableStatus = MutableStateFlow(Status.OFF)
     val status = mutableStatus.asStateFlow()
@@ -52,14 +54,22 @@ object VpnController {
 
     fun consentIntent(context: Context): Intent? = VpnService.prepare(context)
 
-    /** Require full-route single-peer profiles. Scope routes to Eyebrowse only. */
+    /** Require full IPv4 coverage and either full IPv6 coverage or an unused IPv6 family. */
     internal fun browserProfile(config: Config, packageName: String): Config {
         val source = config.getInterface()
         val peer = config.peers.single()
         require(peer.endpoint.isPresent)
         require(source.addresses.isNotEmpty() && source.dnsServers.isNotEmpty())
-        require(peer.allowedIps.any { it.mask == 0 && it.address is Inet4Address })
-        require(peer.allowedIps.any { it.mask == 0 && it.address is Inet6Address })
+        val ipv4Default = peer.allowedIps.any { it.mask == 0 && it.address is Inet4Address }
+        val ipv6Default = peer.allowedIps.any { it.mask == 0 && it.address is Inet6Address }
+        val usesIpv6 = source.addresses.any { it.address is Inet6Address } ||
+            source.dnsServers.any { it is Inet6Address } ||
+            peer.allowedIps.any { it.address is Inet6Address }
+        require(source.addresses.any { it.address is Inet4Address })
+        require(VpnPolicy.acceptRoutes(ipv4Default, ipv6Default, usesIpv6))
+        // GoBackend does not call allowFamily for a single peer with a default route.
+        // IPv4-only profiles therefore leave IPv6 blocked, rather than permitting a bypass.
+        // Actual device leak tests remain mandatory.
 
         val scoped = Interface.Builder()
             .setKeyPair(source.keyPair)
@@ -92,7 +102,9 @@ object VpnController {
         VpnProfileStore.hasSaved(context)
 
     fun importProfile(context: Context, uri: Uri, completed: (Boolean) -> Unit) {
-        if (connection?.isActive == true || mutableStatus.value == Status.IMPORTING) return
+        if (connection?.isActive == true || mutableStatus.value == Status.IMPORTING ||
+            mutableStatus.value == Status.STOP_FAILED
+        ) return
         val app = context.applicationContext
         mutableStatus.value = Status.IMPORTING
         scope.launch {
@@ -132,7 +144,9 @@ object VpnController {
     }
 
     fun clearProfiles(context: Context) {
-        if (connection?.isActive == true || mutableStatus.value == Status.IMPORTING) return
+        if (connection?.isActive == true || mutableStatus.value == Status.IMPORTING ||
+            mutableStatus.value == Status.STOP_FAILED
+        ) return
         VpnProfileStore.clear(context)
         memoryProfiles = emptyList()
         preferredIndex = 0
@@ -140,7 +154,9 @@ object VpnController {
     }
 
     fun start(context: Context) {
-        if (connection?.isActive == true || mutableStatus.value == Status.IMPORTING) return
+        if (connection?.isActive == true || mutableStatus.value == Status.IMPORTING ||
+            mutableStatus.value == Status.STOP_FAILED
+        ) return
         val app = context.applicationContext
         wanted = true
         mutableStatus.value = Status.CONNECTING
@@ -155,18 +171,30 @@ object VpnController {
                 val active = withContext(Dispatchers.IO) {
                     backend ?: GoBackend(app).also { backend = it }
                 }
-                // Try each candidate once, most recently successful first. A bounded retry
-                // avoids flooding the free provider. Do not reconnect after Android revoke.
-                for (offset in candidates.indices) {
-                    if (!wanted || consentIntent(app) != null) break
-                    val index = (preferredIndex + offset) % candidates.size
-                    mutableStatus.value = Status.CONNECTING
+                // Recovery is bounded per outage; a successful handshake resets the budget.
+                // Never reconnect following Android consent revocation or service removal.
+                var cursor = preferredIndex % candidates.size
+                var failedAttempts = 0
+                var recovering = false
+                val maxAttempts = candidates.size * MAX_RETRY_ROUNDS
+                while (wanted && failedAttempts < maxAttempts && consentIntent(app) == null) {
+                    val index = cursor
+                    cursor = (cursor + 1) % candidates.size
+                    mutableStatus.value = if (recovering) Status.RECONNECTING else Status.CONNECTING
                     val started = withContext(Dispatchers.IO) {
                         runCatching {
                             active.setState(tunnel, Tunnel.State.UP, candidates[index]) == Tunnel.State.UP
                         }.getOrDefault(false)
                     }
-                    if (!started) continue
+                    if (!started) {
+                        failedAttempts++
+                        recovering = true
+                        if (wanted) {
+                            mutableStatus.value = Status.RECONNECTING
+                            delay(RECOVERY_DELAY_MS)
+                        }
+                        continue
+                    }
                     if (wanted) mutableStatus.value = Status.WAITING
                     val deadline = SystemClock.elapsedRealtime() + CONNECT_TIMEOUT_MS
                     var connected = false
@@ -175,15 +203,15 @@ object VpnController {
                             val up = active.getState(tunnel) == Tunnel.State.UP
                             up to (up && recentHandshake(active))
                         }
-                        if (!running) {
-                            // Service stopped or consent revoked. Never silently start another VPN.
+                        if (!running || consentIntent(app) != null) {
                             wanted = false
                             finalStatus = Status.ERROR
                             break
                         }
                         if (recent) {
-                            if (!connected) preferredIndex = index
+                            preferredIndex = index
                             connected = true
+                            failedAttempts = 0
                             if (wanted) mutableStatus.value = Status.HANDSHAKE
                         } else {
                             if (wanted) mutableStatus.value = Status.WAITING
@@ -198,11 +226,11 @@ object VpnController {
                         }.getOrDefault(false)
                     }
                     if (!down) break
-                    // Server switching can briefly expose normal network traffic; UI discloses it.
-                    if (connected) {
-                        // A later stale handshake ends this session; user can reconnect with backup.
-                        preferredIndex = (index + 1) % candidates.size
-                        break
+                    failedAttempts++
+                    recovering = true
+                    if (wanted && failedAttempts < maxAttempts) {
+                        mutableStatus.value = Status.RECONNECTING
+                        delay(RECOVERY_DELAY_MS)
                     }
                 }
             } catch (_: Exception) {
@@ -218,7 +246,7 @@ object VpnController {
                 }
                 wanted = false
                 mutableStatus.value = when {
-                    !stopped -> Status.WAITING
+                    !stopped -> Status.STOP_FAILED
                     requestedStop -> Status.OFF
                     else -> finalStatus
                 }
@@ -231,7 +259,7 @@ object VpnController {
         val now = System.currentTimeMillis()
         return stats.peers().any { key ->
             val time = stats.peer(key)?.latestHandshakeEpochMillis() ?: 0L
-            time > 0 && now - time in 0..HANDSHAKE_WINDOW_MS
+            VpnPolicy.recentHandshake(time, now, HANDSHAKE_WINDOW_MS)
         }
     }
 
@@ -245,7 +273,7 @@ object VpnController {
                     backend?.setState(tunnel, Tunnel.State.DOWN, null) != Tunnel.State.UP
                 }.getOrDefault(false)
             }
-            mutableStatus.value = if (stopped) Status.OFF else Status.WAITING
+            mutableStatus.value = if (stopped) Status.OFF else Status.STOP_FAILED
         }
     }
 }

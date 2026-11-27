@@ -603,8 +603,10 @@
     <string name="preferences_vpn_waiting">Tunnel started — waiting for a recent server handshake</string>
     <string name="preferences_vpn_handshake">Server handshake verified — Eyebrowse only</string>
     <string name="preferences_vpn_disconnecting">Disconnecting…</string>
+    <string name="preferences_vpn_reconnecting">Reconnecting to an authorized saved server…</string>
+    <string name="preferences_vpn_stop_failed">Could not stop VPN — tap off to retry</string>
     <string name="preferences_vpn_error">VPN unavailable — traffic may use your normal connection</string>
-    <string name="preferences_vpn_invalid">Invalid profile. A peer, DNS and IPv4/IPv6 default routes are required.</string>
+    <string name="preferences_vpn_invalid">Invalid profile. A peer, DNS and a full IPv4 route are required; IPv6 must be fully routed or unused.</string>
     <string name="preferences_vpn_import">Import profile</string>
     <string name="preferences_vpn_import_explanation">Import a configuration obtained from an authorized third-party provider. Up to five profiles are saved on this device using Android Keystore encryption on Android 6 and later. Older Android versions keep them in memory only. The provider can observe connection metadata and unencrypted traffic. Only Eyebrowse uses this tunnel; traffic may use the normal connection during connection failure or server switching. No kill switch or Eyebrowse-operated servers.</string>
     <string name="preferences_vpn_profiles">Free VPN providers and profiles</string>
