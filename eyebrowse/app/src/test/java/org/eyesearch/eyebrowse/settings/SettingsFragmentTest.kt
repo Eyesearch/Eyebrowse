@@ -8,6 +8,7 @@ import android.os.Build
 import androidx.core.app.NotificationManagerCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.preference.Preference
+import io.mockk.Called
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkObject
@@ -282,23 +283,23 @@ class SettingsFragmentTest {
     }
 
     @Test
-    fun `GIVEN an account observer WHEN the fragment is visible THEN register it for updates`() {
+    fun `GIVEN Mozilla account integration is removed WHEN the fragment starts THEN do not register a Mozilla observer`() {
         val accountManager: FxaAccountManager = mockk(relaxed = true)
         every { testContext.components.backgroundServices.accountManager } returns accountManager
 
         settingsFragment.onStart()
 
-        verify { accountManager.register(settingsFragment.accountObserver, settingsFragment, true) }
+        verify { accountManager wasNot Called }
     }
 
     @Test
-    fun `GIVEN an account observer WHEN the fragment stops being visible THEN unregister it for updates`() {
+    fun `GIVEN Mozilla account integration is removed WHEN the fragment stops THEN do not unregister a Mozilla observer`() {
         val accountManager: FxaAccountManager = mockk(relaxed = true)
         every { testContext.components.backgroundServices.accountManager } returns accountManager
 
         settingsFragment.onStop()
 
-        verify { accountManager.unregister(settingsFragment.accountObserver) }
+        verify { accountManager wasNot Called }
     }
 
     @After
