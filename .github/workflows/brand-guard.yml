@@ -49,3 +49,40 @@ jobs:
           check fenix/app/src/main/res/drawable/ic_wordmark_logo.webp 71e013d4b1ccf3c9c912732517f2a010bd1839c8d16d7109b245323cd4f72c8b
           check fenix/app/src/main/res/drawable/ic_wordmark_text_normal.webp bbb4f2c4c940765f6490d5161d6f044e9a2ed5c8a31ff178282a5b351262d1a0
           check fenix/app/src/main/res/drawable/ic_wordmark_text_private.webp 8ed6b798d586309818c81f04b704f76b7cf45498993129630a9035ea89c42c6b
+
+      - name: No Mozilla artwork by content
+        # File names can stay, artwork cannot. This looks for the actual shapes and words rather
+        # than trusting a file to be what its name says.
+        run: |
+          set -euo pipefail
+          fail=0
+
+          # 1. the fox vector, by its path data
+          if grep -rl "M50.15,18.05" fenix/app/src android-components 2>/dev/null | grep -q .; then
+            echo "::error::Mozilla's fox vector is back in the tree"
+            grep -rl "M50.15,18.05" fenix/app/src android-components | head -5
+            fail=1
+          fi
+
+          # 2. every screen that used to draw their artwork must point at our mark
+          for f in \
+            fenix/app/src/main/res/drawable/ic_firefox.xml \
+            fenix/app/src/main/res/drawable/ic_pocket.xml \
+            fenix/app/src/main/res/drawable/pocket_vector.xml \
+            fenix/app/src/main/res/drawable/ic_account.xml \
+            fenix/app/src/main/res/drawable/ic_fx_accounts_avatar.xml ; do
+            if [ -f "$f" ] && ! grep -q "@mipmap/ic_launcher" "$f"; then
+              echo "::error::$f no longer points at our launcher mark"
+              fail=1
+            fi
+          done
+
+          # 3. no user-visible string may say Firefox in the default language
+          if grep -n ">Firefox<\|>Firefox \| Firefox<" fenix/app/src/main/res/values/strings.xml 2>/dev/null | grep -v "<!--" | grep -q .; then
+            echo "::error::a visible string still says Firefox"
+            grep -n ">Firefox<\|>Firefox \| Firefox<" fenix/app/src/main/res/values/strings.xml | grep -v "<!--" | head -5
+            fail=1
+          fi
+
+          if [ "$fail" -ne 0 ]; then exit 1; fi
+          echo "no Mozilla artwork, no Mozilla word on any screen"
