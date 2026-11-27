@@ -32,7 +32,7 @@ import androidx.compose.ui.unit.dp
 import mozilla.telemetry.glean.private.NoExtras
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.GleanMetrics.Onboarding as OnboardingMetrics
 
 /**
@@ -60,7 +60,7 @@ fun UpgradeOnboarding(
 
     Column(
         modifier = Modifier
-            .background(FirefoxTheme.colors.layer1)
+            .background(EyebrowseTheme.colors.layer1)
             .fillMaxSize()
             .padding(bottom = 32.dp)
             .statusBarsPadding()
@@ -138,9 +138,9 @@ private fun Indicators(
     ) {
         Indicator(
             color = if (onboardingState == UpgradeOnboardingState.Welcome) {
-                FirefoxTheme.colors.indicatorActive
+                EyebrowseTheme.colors.indicatorActive
             } else {
-                FirefoxTheme.colors.indicatorInactive
+                EyebrowseTheme.colors.indicatorInactive
             },
         )
 
@@ -148,9 +148,9 @@ private fun Indicators(
 
         Indicator(
             color = if (onboardingState == UpgradeOnboardingState.SyncSignIn) {
-                FirefoxTheme.colors.indicatorActive
+                EyebrowseTheme.colors.indicatorActive
             } else {
-                FirefoxTheme.colors.indicatorInactive
+                EyebrowseTheme.colors.indicatorInactive
             },
         )
     }
@@ -169,7 +169,7 @@ private fun Indicator(color: Color) {
 @Composable
 @LightDarkPreview
 private fun OnboardingPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         UpgradeOnboarding(
             isSyncSignIn = false,
             onDismiss = {},

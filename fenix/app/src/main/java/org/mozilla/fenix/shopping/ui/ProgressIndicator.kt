@@ -26,7 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 private val ProgressIndicatorWidth = 5.dp
 
@@ -49,8 +49,8 @@ fun DeterminateProgressIndicator(
     CircularProgressIndicator(
         modifier = modifier,
         progress = floatState.value,
-        color = FirefoxTheme.colors.layerAccent,
-        backgroundColor = FirefoxTheme.colors.actionTertiary,
+        color = EyebrowseTheme.colors.layerAccent,
+        backgroundColor = EyebrowseTheme.colors.actionTertiary,
         strokeWidth = ProgressIndicatorWidth,
         strokeCap = StrokeCap.Butt,
     )
@@ -59,10 +59,10 @@ fun DeterminateProgressIndicator(
 @LightDarkPreview
 @Composable
 private fun DeterminateProgressIndicatorPreviewDark() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Column(
             modifier = Modifier
-                .background(FirefoxTheme.colors.layer1)
+                .background(EyebrowseTheme.colors.layer1)
                 .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(16.dp),

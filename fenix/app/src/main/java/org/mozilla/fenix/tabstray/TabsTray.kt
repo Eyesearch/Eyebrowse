@@ -46,7 +46,7 @@ import org.mozilla.fenix.tabstray.ext.isNormalTab
 import org.mozilla.fenix.tabstray.inactivetabs.InactiveTabsList
 import org.mozilla.fenix.tabstray.syncedtabs.SyncedTabsList
 import org.mozilla.fenix.tabstray.syncedtabs.SyncedTabsListItem
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import mozilla.components.browser.storage.sync.Tab as SyncTab
 
 /**
@@ -155,7 +155,7 @@ fun TabsTray(
         modifier = Modifier
             .fillMaxSize()
             .then(shapeModifier)
-            .background(FirefoxTheme.colors.layer1)
+            .background(EyebrowseTheme.colors.layer1)
             .testTag(TabsTrayTestTag.tabsTray),
     ) {
         Box(modifier = Modifier.nestedScroll(rememberNestedScrollInteropConnection())) {
@@ -399,8 +399,8 @@ private fun EmptyTabPage(isPrivate: Boolean) {
             modifier = Modifier
                 .align(Alignment.TopCenter)
                 .padding(top = 80.dp),
-            color = FirefoxTheme.colors.textSecondary,
-            style = FirefoxTheme.typography.body1,
+            color = EyebrowseTheme.colors.textSecondary,
+            style = EyebrowseTheme.typography.body1,
         )
     }
 }
@@ -516,7 +516,7 @@ private fun TabsTrayPreviewRoot(
         ),
     )
 
-    FirefoxTheme {
+    EyebrowseTheme {
         TabsTray(
             appStore = appStore,
             browserStore = browserStore,

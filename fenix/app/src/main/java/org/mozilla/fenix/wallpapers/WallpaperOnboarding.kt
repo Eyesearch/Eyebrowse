@@ -28,7 +28,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
 import org.mozilla.fenix.settings.wallpaper.WallpaperThumbnails
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * A view that shows content of a WallpaperOnboarding dialog.
@@ -51,7 +51,7 @@ fun WallpaperOnboarding(
     onSelectWallpaper: (Wallpaper) -> Unit,
 ) {
     Surface(
-        color = FirefoxTheme.colors.layer2,
+        color = EyebrowseTheme.colors.layer2,
         shape = RoundedCornerShape(topStart = 8.dp, topEnd = 8.dp),
     ) {
         Column(
@@ -61,7 +61,7 @@ fun WallpaperOnboarding(
             Icon(
                 painter = painterResource(id = R.drawable.mozac_ic_cross_24),
                 contentDescription = stringResource(id = R.string.close_tab),
-                tint = FirefoxTheme.colors.iconPrimary,
+                tint = EyebrowseTheme.colors.iconPrimary,
                 modifier = Modifier
                     .clickable { onCloseClicked() }
                     .size(24.dp)
@@ -72,20 +72,20 @@ fun WallpaperOnboarding(
 
             Text(
                 text = stringResource(R.string.wallpapers_onboarding_dialog_title_text),
-                color = FirefoxTheme.colors.textPrimary,
+                color = EyebrowseTheme.colors.textPrimary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
-                style = FirefoxTheme.typography.headline7,
+                style = EyebrowseTheme.typography.headline7,
             )
 
             Spacer(modifier = Modifier.height(4.dp))
 
             Text(
                 text = stringResource(R.string.wallpapers_onboarding_dialog_body_text),
-                color = FirefoxTheme.colors.textSecondary,
+                color = EyebrowseTheme.colors.textSecondary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
-                style = FirefoxTheme.typography.caption,
+                style = EyebrowseTheme.typography.caption,
             )
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -108,10 +108,10 @@ fun WallpaperOnboarding(
             ) {
                 Text(
                     text = stringResource(R.string.wallpapers_onboarding_dialog_explore_more_button_text),
-                    color = FirefoxTheme.colors.textAccent,
+                    color = EyebrowseTheme.colors.textAccent,
                     overflow = TextOverflow.Ellipsis,
                     maxLines = 1,
-                    style = FirefoxTheme.typography.button,
+                    style = EyebrowseTheme.typography.button,
                 )
             }
         }
@@ -122,7 +122,7 @@ fun WallpaperOnboarding(
 @ExperimentalMaterialApi
 @Composable
 private fun WallpaperSnackbarPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         WallpaperOnboarding(
             wallpapers = listOf(Wallpaper.Default),
             currentWallpaper = Wallpaper.Default,

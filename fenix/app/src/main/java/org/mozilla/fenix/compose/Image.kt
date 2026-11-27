@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import mozilla.components.support.images.compose.loader.ImageLoader
 import mozilla.components.support.images.compose.loader.WithImage
 import org.mozilla.fenix.components.components
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * A composable that lays out and draws the image from a given URL while showing a default placeholder
@@ -81,7 +81,7 @@ fun Image(
 @Composable
 @Preview
 private fun ImagePreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Image(
             url = "https://mozilla.com",
             modifier = Modifier.height(100.dp).width(200.dp),

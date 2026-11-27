@@ -25,7 +25,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 const val DEFAULT_MAX_LINES = 2
 
@@ -83,7 +83,7 @@ private fun Button(
             text = text,
             textAlign = TextAlign.Center,
             color = textColor,
-            style = FirefoxTheme.typography.button,
+            style = EyebrowseTheme.typography.button,
             maxLines = if (fontScale > 1.0f) Int.MAX_VALUE else DEFAULT_MAX_LINES,
         )
     }
@@ -107,8 +107,8 @@ fun PrimaryButton(
     text: String,
     modifier: Modifier = Modifier.fillMaxWidth(),
     enabled: Boolean = true,
-    textColor: Color = FirefoxTheme.colors.textActionPrimary,
-    backgroundColor: Color = FirefoxTheme.colors.actionPrimary,
+    textColor: Color = EyebrowseTheme.colors.textActionPrimary,
+    backgroundColor: Color = EyebrowseTheme.colors.actionPrimary,
     icon: Painter? = null,
     iconModifier: Modifier = Modifier,
     onClick: () -> Unit,
@@ -121,7 +121,7 @@ fun PrimaryButton(
         enabled = enabled,
         icon = icon,
         iconModifier = iconModifier,
-        tint = FirefoxTheme.colors.iconActionPrimary,
+        tint = EyebrowseTheme.colors.iconActionPrimary,
         onClick = onClick,
     )
 }
@@ -144,8 +144,8 @@ fun SecondaryButton(
     text: String,
     modifier: Modifier = Modifier.fillMaxWidth(),
     enabled: Boolean = true,
-    textColor: Color = FirefoxTheme.colors.textActionSecondary,
-    backgroundColor: Color = FirefoxTheme.colors.actionSecondary,
+    textColor: Color = EyebrowseTheme.colors.textActionSecondary,
+    backgroundColor: Color = EyebrowseTheme.colors.actionSecondary,
     icon: Painter? = null,
     iconModifier: Modifier = Modifier,
     onClick: () -> Unit,
@@ -158,7 +158,7 @@ fun SecondaryButton(
         enabled = enabled,
         icon = icon,
         iconModifier = iconModifier,
-        tint = FirefoxTheme.colors.iconActionSecondary,
+        tint = EyebrowseTheme.colors.iconActionSecondary,
         onClick = onClick,
     )
 }
@@ -181,8 +181,8 @@ fun TertiaryButton(
     text: String,
     modifier: Modifier = Modifier.fillMaxWidth(),
     enabled: Boolean = true,
-    textColor: Color = FirefoxTheme.colors.textActionTertiary,
-    backgroundColor: Color = FirefoxTheme.colors.actionTertiary,
+    textColor: Color = EyebrowseTheme.colors.textActionTertiary,
+    backgroundColor: Color = EyebrowseTheme.colors.actionTertiary,
     icon: Painter? = null,
     iconModifier: Modifier = Modifier,
     onClick: () -> Unit,
@@ -195,7 +195,7 @@ fun TertiaryButton(
         enabled = enabled,
         icon = icon,
         iconModifier = iconModifier,
-        tint = FirefoxTheme.colors.iconActionTertiary,
+        tint = EyebrowseTheme.colors.iconActionTertiary,
         onClick = onClick,
     )
 }
@@ -218,8 +218,8 @@ fun DestructiveButton(
     text: String,
     modifier: Modifier = Modifier.fillMaxWidth(),
     enabled: Boolean = true,
-    textColor: Color = FirefoxTheme.colors.textWarningButton,
-    backgroundColor: Color = FirefoxTheme.colors.actionSecondary,
+    textColor: Color = EyebrowseTheme.colors.textWarningButton,
+    backgroundColor: Color = EyebrowseTheme.colors.actionSecondary,
     icon: Painter? = null,
     iconModifier: Modifier = Modifier,
     onClick: () -> Unit,
@@ -232,7 +232,7 @@ fun DestructiveButton(
         enabled = enabled,
         icon = icon,
         iconModifier = iconModifier,
-        tint = FirefoxTheme.colors.iconWarningButton,
+        tint = EyebrowseTheme.colors.iconWarningButton,
         onClick = onClick,
     )
 }
@@ -240,10 +240,10 @@ fun DestructiveButton(
 @Composable
 @LightDarkPreview
 private fun ButtonPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Column(
             modifier = Modifier
-                .background(FirefoxTheme.colors.layer1)
+                .background(EyebrowseTheme.colors.layer1)
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),
         ) {

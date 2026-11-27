@@ -38,7 +38,7 @@ import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.shopping.ui.ext.headingResource
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 private val cardShape = RoundedCornerShape(8.dp)
 private val defaultCardElevation = 5.dp
@@ -85,8 +85,8 @@ fun ReviewQualityCheckExpandableCard(
         ) {
             Text(
                 text = title,
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.headline8,
+                color = EyebrowseTheme.colors.textPrimary,
+                style = EyebrowseTheme.typography.headline8,
                 modifier = Modifier.semantics {
                     contentDescription = titleContentDescription
                 },
@@ -105,7 +105,7 @@ fun ReviewQualityCheckExpandableCard(
                 } else {
                     stringResource(R.string.a11y_state_label_collapsed)
                 },
-                tint = FirefoxTheme.colors.iconPrimary,
+                tint = EyebrowseTheme.colors.iconPrimary,
             )
         }
 
@@ -135,7 +135,7 @@ fun ReviewQualityCheckExpandableCard(
 @Composable
 fun ReviewQualityCheckCard(
     modifier: Modifier,
-    backgroundColor: Color = FirefoxTheme.colors.layer2,
+    backgroundColor: Color = EyebrowseTheme.colors.layer2,
     elevation: Dp = defaultCardElevation,
     contentPadding: PaddingValues = PaddingValues(defaultCardContentPadding),
     content: @Composable ColumnScope.() -> Unit,
@@ -157,7 +157,7 @@ fun ReviewQualityCheckCard(
 @LightDarkPreview
 @Composable
 private fun ReviewQualityCheckCardPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Column(modifier = Modifier.padding(16.dp)) {
             var isExpanded by remember { mutableStateOf(true) }
 
@@ -166,8 +166,8 @@ private fun ReviewQualityCheckCardPreview() {
             ) {
                 Text(
                     text = "Review Quality Check Card Content",
-                    color = FirefoxTheme.colors.textPrimary,
-                    style = FirefoxTheme.typography.headline8,
+                    color = EyebrowseTheme.colors.textPrimary,
+                    style = EyebrowseTheme.typography.headline8,
                 )
             }
 
@@ -181,8 +181,8 @@ private fun ReviewQualityCheckCardPreview() {
             ) {
                 Text(
                     text = "content",
-                    color = FirefoxTheme.colors.textPrimary,
-                    style = FirefoxTheme.typography.body2,
+                    color = EyebrowseTheme.colors.textPrimary,
+                    style = EyebrowseTheme.typography.body2,
                 )
             }
         }

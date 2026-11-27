@@ -23,7 +23,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.SwitchWithLabel
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.compose.button.SecondaryButton
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Review quality check settings card UI. Contains toggles to disable product recommendations and
@@ -91,11 +91,11 @@ private fun SettingsContent(
 @LightDarkPreview
 @Composable
 private fun ReviewQualityCheckSettingsCardPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(color = FirefoxTheme.colors.layer1)
+                .background(color = EyebrowseTheme.colors.layer1)
                 .padding(all = 16.dp),
         ) {
             var isSettingsExpanded by remember { mutableStateOf(true) }

@@ -25,7 +25,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 private const val ANIMATION_DURATION_MS = 1000
 private const val INITIAL_ALPHA = 0.25f
@@ -69,7 +69,7 @@ fun ProductReviewLoading(
                     .fillMaxWidth()
                     .alpha(alpha)
                     .background(
-                        color = FirefoxTheme.colors.layer3,
+                        color = EyebrowseTheme.colors.layer3,
                         shape = RoundedCornerShape(8.dp),
                     ),
             )
@@ -85,7 +85,7 @@ private data class BoxInfo(
 @LightDarkPreview
 @Composable
 private fun ProductReviewLoadingPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         ReviewQualityCheckScaffold(
             onRequestDismiss = {},
         ) {

@@ -20,7 +20,7 @@ import org.mozilla.fenix.compose.ComposeViewHolder
 import org.mozilla.fenix.compose.MessageCard
 import org.mozilla.fenix.compose.MessageCardColors
 import org.mozilla.fenix.home.sessioncontrol.SessionControlInteractor
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.wallpapers.Wallpaper
 import org.mozilla.fenix.wallpapers.WallpaperState
 
@@ -63,10 +63,10 @@ class MessageCardViewHolder(
         var (_, _, _, _, buttonColor, buttonTextColor) = MessageCardColors.buildMessageCardColors()
 
         if (isWallpaperNotDefault) {
-            buttonColor = FirefoxTheme.colors.layer1
+            buttonColor = EyebrowseTheme.colors.layer1
 
             if (!isSystemInDarkTheme()) {
-                buttonTextColor = FirefoxTheme.colors.textActionSecondary
+                buttonTextColor = EyebrowseTheme.colors.textActionSecondary
             }
         }
 

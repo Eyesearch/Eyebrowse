@@ -60,7 +60,7 @@ import org.mozilla.fenix.settings.quicksettings.protections.cookiebanners.getCoo
 import org.mozilla.fenix.shopping.DefaultShoppingExperienceFeature
 import org.mozilla.fenix.shopping.ReviewQualityCheckFeature
 import org.mozilla.fenix.shortcut.PwaOnboardingObserver
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.theme.ThemeManager
 
 /**
@@ -239,7 +239,7 @@ class BrowserFragment : BaseBrowserFragment(), UserInteractionHandler {
         binding.tabStripView.apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
-                FirefoxTheme {
+                EyebrowseTheme {
                     TabStrip(
                         onAddTabClick = {
                             findNavController().navigate(

@@ -33,7 +33,7 @@ import org.mozilla.fenix.shopping.store.ReviewQualityCheckState
 import org.mozilla.fenix.shopping.store.ReviewQualityCheckState.ProductVendor
 import org.mozilla.fenix.shopping.ui.ext.displayName
 import org.mozilla.fenix.shopping.ui.ext.headingResource
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 private const val MAX_SUPPORTED_VENDORS_PER_TLD = 3
 
@@ -70,8 +70,8 @@ fun ReviewQualityCheckContextualOnboarding(
     ReviewQualityCheckCard(modifier = Modifier.fillMaxWidth()) {
         Text(
             text = stringResource(R.string.review_quality_check_contextual_onboarding_title),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.headline5,
+            color = EyebrowseTheme.colors.textPrimary,
+            style = EyebrowseTheme.typography.headline5,
             modifier = Modifier.semantics {
                 heading()
                 contentDescription = titleContentDescription
@@ -82,8 +82,8 @@ fun ReviewQualityCheckContextualOnboarding(
 
         Text(
             text = createDescriptionString(productVendors),
-            color = FirefoxTheme.colors.textSecondary,
-            style = FirefoxTheme.typography.body2,
+            color = EyebrowseTheme.colors.textSecondary,
+            style = EyebrowseTheme.typography.body2,
         )
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -103,8 +103,8 @@ fun ReviewQualityCheckContextualOnboarding(
                     },
                 ),
             ),
-            style = FirefoxTheme.typography.body2.copy(
-                color = FirefoxTheme.colors.textSecondary,
+            style = EyebrowseTheme.typography.body2.copy(
+                color = EyebrowseTheme.colors.textSecondary,
             ),
             linkTextDecoration = TextDecoration.Underline,
         )
@@ -135,9 +135,9 @@ fun ReviewQualityCheckContextualOnboarding(
                     },
                 ),
             ),
-            style = FirefoxTheme.typography.caption
+            style = EyebrowseTheme.typography.caption
                 .copy(
-                    color = FirefoxTheme.colors.textSecondary,
+                    color = EyebrowseTheme.colors.textSecondary,
                 ),
             linkTextDecoration = TextDecoration.Underline,
         )
@@ -168,8 +168,8 @@ fun ReviewQualityCheckContextualOnboarding(
         ) {
             Text(
                 text = stringResource(R.string.review_quality_check_contextual_onboarding_secondary_button_text),
-                color = FirefoxTheme.colors.textAccent,
-                style = FirefoxTheme.typography.button,
+                color = EyebrowseTheme.colors.textAccent,
+                style = EyebrowseTheme.typography.button,
                 maxLines = 1,
             )
         }
@@ -214,7 +214,7 @@ private fun createDescriptionString(
 @Composable
 @LightDarkPreview
 private fun ProductAnalysisPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         ReviewQualityCheckScaffold(
             onRequestDismiss = {},
         ) {

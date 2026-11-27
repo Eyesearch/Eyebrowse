@@ -11,7 +11,7 @@ import androidx.lifecycle.setViewTreeLifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import androidx.savedstate.SavedStateRegistryOwner
 import androidx.savedstate.setViewTreeSavedStateRegistryOwner
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.theme.Theme
 
 /**
@@ -38,7 +38,7 @@ abstract class ComposeViewHolder(
 
     init {
         composeView.setContent {
-            FirefoxTheme(theme = Theme.getTheme(allowPrivateTheme = allowPrivateTheme)) {
+            EyebrowseTheme(theme = Theme.getTheme(allowPrivateTheme = allowPrivateTheme)) {
                 Content()
             }
         }

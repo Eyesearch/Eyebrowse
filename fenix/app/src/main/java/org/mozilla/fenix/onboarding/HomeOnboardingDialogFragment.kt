@@ -20,7 +20,7 @@ import org.mozilla.fenix.components.components
 import org.mozilla.fenix.ext.nav
 import org.mozilla.fenix.ext.settings
 import org.mozilla.fenix.onboarding.view.UpgradeOnboarding
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Dialog displaying a welcome and sync sign in onboarding.
@@ -44,7 +44,7 @@ class HomeOnboardingDialogFragment : DialogFragment() {
         savedInstanceState: Bundle?,
     ): View = ComposeView(requireContext()).apply {
         setContent {
-            FirefoxTheme {
+            EyebrowseTheme {
                 val account =
                     components.backgroundServices.syncStore.observeAsComposableState { state -> state.account }
 

@@ -28,7 +28,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.compose.ext.toLocaleString
 import org.mozilla.fenix.tabstray.TabsTrayTestTag
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 private const val MAX_VISIBLE_TABS = 99
 private const val SO_MANY_TABS_OPEN = "∞"
@@ -126,9 +126,9 @@ fun TabCounter(tabCount: Int) {
 @Preview(locale = "ar")
 @Composable
 private fun TabCounterPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Box(
-            modifier = Modifier.background(color = FirefoxTheme.colors.layer1),
+            modifier = Modifier.background(color = EyebrowseTheme.colors.layer1),
         ) {
             TabCounter(tabCount = 55)
         }

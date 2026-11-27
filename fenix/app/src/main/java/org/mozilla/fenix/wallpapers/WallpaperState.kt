@@ -7,7 +7,7 @@ package org.mozilla.fenix.wallpapers
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Represents all state related to the Wallpapers feature.
@@ -40,7 +40,7 @@ data class WallpaperState(
                     Color(currentWallpaper.cardColorLight)
                 }
             }
-            else -> FirefoxTheme.colors.layer2
+            else -> EyebrowseTheme.colors.layer2
         }
 
     /**

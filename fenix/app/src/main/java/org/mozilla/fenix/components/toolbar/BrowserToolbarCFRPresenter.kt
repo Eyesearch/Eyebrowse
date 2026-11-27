@@ -55,7 +55,7 @@ import org.mozilla.fenix.settings.SupportUtils
 import org.mozilla.fenix.settings.SupportUtils.SumoTopic.TOTAL_COOKIE_PROTECTION
 import org.mozilla.fenix.shopping.DefaultShoppingExperienceFeature
 import org.mozilla.fenix.shopping.ShoppingExperienceFeature
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.utils.Settings
 
 /**
@@ -264,11 +264,11 @@ class BrowserToolbarCFRPresenter(
                 }
             },
             text = {
-                FirefoxTheme {
+                EyebrowseTheme {
                     Text(
                         text = context.getString(R.string.erase_action_cfr_message),
-                        color = FirefoxTheme.colors.textOnColorPrimary,
-                        style = FirefoxTheme.typography.body2,
+                        color = EyebrowseTheme.colors.textOnColorPrimary,
+                        style = EyebrowseTheme.typography.body2,
                     )
                 }
             },
@@ -311,11 +311,11 @@ class BrowserToolbarCFRPresenter(
                 }
             },
             text = {
-                FirefoxTheme {
+                EyebrowseTheme {
                     Text(
                         text = context.getString(R.string.tcp_cfr_message),
-                        color = FirefoxTheme.colors.textOnColorPrimary,
-                        style = FirefoxTheme.typography.body2,
+                        color = EyebrowseTheme.colors.textOnColorPrimary,
+                        style = EyebrowseTheme.typography.body2,
                         modifier = Modifier
                             .semantics {
                                 testTagsAsResourceId = true
@@ -325,10 +325,10 @@ class BrowserToolbarCFRPresenter(
                 }
             },
             action = {
-                FirefoxTheme {
+                EyebrowseTheme {
                     Text(
                         text = context.getString(R.string.tcp_cfr_learn_more),
-                        color = FirefoxTheme.colors.textOnColorPrimary,
+                        color = EyebrowseTheme.colors.textOnColorPrimary,
                         modifier = Modifier
                             .semantics {
                                 testTagsAsResourceId = true
@@ -345,7 +345,7 @@ class BrowserToolbarCFRPresenter(
                                 settings.shouldShowTotalCookieProtectionCFR = false
                                 popup?.dismiss()
                             },
-                        style = FirefoxTheme.typography.body2.copy(
+                        style = EyebrowseTheme.typography.body2.copy(
                             textDecoration = TextDecoration.Underline,
                         ),
                     )
@@ -383,7 +383,7 @@ class BrowserToolbarCFRPresenter(
                 CookieBanners.cfrDismissal.record(NoExtras())
             },
             text = {
-                FirefoxTheme {
+                EyebrowseTheme {
                     Column {
                         Row(
                             verticalAlignment = Alignment.CenterVertically,
@@ -391,7 +391,7 @@ class BrowserToolbarCFRPresenter(
                             Icon(
                                 painter = painterResource(id = R.drawable.ic_cookies_disabled),
                                 contentDescription = null,
-                                tint = FirefoxTheme.colors.iconPrimary,
+                                tint = EyebrowseTheme.colors.iconPrimary,
                             )
                             Spacer(modifier = Modifier.width(8.dp))
                             Text(
@@ -399,14 +399,14 @@ class BrowserToolbarCFRPresenter(
                                     R.string.cookie_banner_cfr_title,
                                     context.getString(R.string.firefox),
                                 ),
-                                color = FirefoxTheme.colors.textOnColorPrimary,
-                                style = FirefoxTheme.typography.subtitle2,
+                                color = EyebrowseTheme.colors.textOnColorPrimary,
+                                style = EyebrowseTheme.typography.subtitle2,
                             )
                         }
                         Text(
                             text = context.getString(R.string.cookie_banner_cfr_message),
-                            color = FirefoxTheme.colors.textOnColorPrimary,
-                            style = FirefoxTheme.typography.body2,
+                            color = EyebrowseTheme.colors.textOnColorPrimary,
+                            style = EyebrowseTheme.typography.body2,
                             modifier = Modifier.padding(top = 2.dp),
                         )
                     }
@@ -444,33 +444,33 @@ class BrowserToolbarCFRPresenter(
             ),
             onDismiss = {},
             text = {
-                FirefoxTheme {
+                EyebrowseTheme {
                     Text(
                         text = if (shouldShowOptedInCFR) {
                             stringResource(id = R.string.review_quality_check_second_cfr_message)
                         } else {
                             stringResource(id = R.string.review_quality_check_first_cfr_message)
                         },
-                        color = FirefoxTheme.colors.textOnColorPrimary,
-                        style = FirefoxTheme.typography.body2,
+                        color = EyebrowseTheme.colors.textOnColorPrimary,
+                        style = EyebrowseTheme.typography.body2,
                     )
                 }
             },
             action = {
-                FirefoxTheme {
+                EyebrowseTheme {
                     Text(
                         text = if (shouldShowOptedInCFR) {
                             stringResource(id = R.string.review_quality_check_second_cfr_action)
                         } else {
                             stringResource(id = R.string.review_quality_check_first_cfr_action)
                         },
-                        color = FirefoxTheme.colors.textOnColorPrimary,
+                        color = EyebrowseTheme.colors.textOnColorPrimary,
                         modifier = Modifier
                             .clickable {
                                 onShoppingCfrActionClicked()
                                 popup?.dismiss()
                             },
-                        style = FirefoxTheme.typography.body2.copy(
+                        style = EyebrowseTheme.typography.body2.copy(
                             textDecoration = TextDecoration.Underline,
                         ),
                     )

@@ -22,7 +22,7 @@ import mozilla.components.browser.icons.IconRequest
 import mozilla.components.browser.icons.compose.Placeholder
 import mozilla.components.browser.icons.compose.WithIcon
 import org.mozilla.fenix.components.components
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Load and display the favicon of a particular website.
@@ -98,7 +98,7 @@ private fun FaviconPlaceholder(
             .size(size)
             .clip(RoundedCornerShape(2.dp))
             .background(
-                color = FirefoxTheme.colors.layer2,
+                color = EyebrowseTheme.colors.layer2,
             ),
     )
 }
@@ -106,8 +106,8 @@ private fun FaviconPlaceholder(
 @Composable
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 private fun FaviconPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Box(Modifier.background(EyebrowseTheme.colors.layer1)) {
             Favicon(
                 url = "www.mozilla.com",
                 size = 64.dp,

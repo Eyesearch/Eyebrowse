@@ -17,7 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Generic divider.
@@ -30,7 +30,7 @@ fun Divider(
 ) {
     androidx.compose.material.Divider(
         modifier = modifier,
-        color = FirefoxTheme.colors.borderPrimary,
+        color = EyebrowseTheme.colors.borderPrimary,
     )
 }
 
@@ -40,10 +40,10 @@ fun Divider(
 @Composable
 @LightDarkPreview
 private fun VerticalDividerPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Box(
             Modifier
-                .background(FirefoxTheme.colors.layer1)
+                .background(EyebrowseTheme.colors.layer1)
                 .height(75.dp),
         ) {
             Row {
@@ -74,10 +74,10 @@ private fun VerticalDividerPreview() {
 @Composable
 @LightDarkPreview
 private fun HorizontalDividerPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Box(
             Modifier
-                .background(FirefoxTheme.colors.layer1)
+                .background(EyebrowseTheme.colors.layer1)
                 .width(100.dp)
                 .height(175.dp),
         ) {

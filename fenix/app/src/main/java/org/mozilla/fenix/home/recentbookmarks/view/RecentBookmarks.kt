@@ -50,7 +50,7 @@ import org.mozilla.fenix.compose.MenuItem
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.compose.inComposePreview
 import org.mozilla.fenix.home.recentbookmarks.RecentBookmark
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 private val cardShape = RoundedCornerShape(8.dp)
 
@@ -143,10 +143,10 @@ private fun RecentBookmarkItem(
                     testTagsAsResourceId = true
                     testTag = "recent.bookmark.title"
                 },
-                color = FirefoxTheme.colors.textPrimary,
+                color = EyebrowseTheme.colors.textPrimary,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
-                style = FirefoxTheme.typography.caption,
+                style = EyebrowseTheme.typography.caption,
             )
 
             ContextualMenu(
@@ -211,7 +211,7 @@ private fun FallbackBookmarkFaviconImage(
 ) {
     Box(
         modifier = imageModifier.background(
-            color = FirefoxTheme.colors.layer2,
+            color = EyebrowseTheme.colors.layer2,
         ),
         contentAlignment = Alignment.Center,
     ) {
@@ -222,7 +222,7 @@ private fun FallbackBookmarkFaviconImage(
 @Composable
 @LightDarkPreview
 private fun RecentBookmarksPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         RecentBookmarks(
             bookmarks = listOf(
                 RecentBookmark(
@@ -247,7 +247,7 @@ private fun RecentBookmarksPreview() {
                 ),
             ),
             menuItems = listOf(),
-            backgroundColor = FirefoxTheme.colors.layer2,
+            backgroundColor = EyebrowseTheme.colors.layer2,
         )
     }
 }

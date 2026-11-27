@@ -15,7 +15,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.navArgs
 import org.mozilla.fenix.R
 import org.mozilla.fenix.experiments.view.ResearchSurfaceSurvey
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Dialog displaying the fullscreen research surface message.
@@ -61,7 +61,7 @@ class ResearchSurfaceDialogFragment : DialogFragment() {
             ?: getString(R.string.preferences_not_take_survey)
 
         setContent {
-            FirefoxTheme {
+            EyebrowseTheme {
                 ResearchSurfaceSurvey(
                     messageText = messageText,
                     onAcceptButtonText = acceptButtonText,

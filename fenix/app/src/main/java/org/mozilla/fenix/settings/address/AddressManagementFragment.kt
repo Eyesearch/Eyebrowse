@@ -27,7 +27,7 @@ import org.mozilla.fenix.settings.address.view.AddressList
 import org.mozilla.fenix.settings.autofill.AutofillAction
 import org.mozilla.fenix.settings.autofill.AutofillFragmentState
 import org.mozilla.fenix.settings.autofill.AutofillFragmentStore
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Displays a list of saved addresses.
@@ -56,7 +56,7 @@ class AddressManagementFragment : Fragment() {
 
         return ComposeView(requireContext()).apply {
             setContent {
-                FirefoxTheme {
+                EyebrowseTheme {
                     val addresses = store.observeAsComposableState { state -> state.addresses }
 
                     AddressList(

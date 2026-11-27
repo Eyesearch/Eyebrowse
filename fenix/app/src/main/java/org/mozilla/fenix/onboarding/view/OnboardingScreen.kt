@@ -41,7 +41,7 @@ import org.mozilla.fenix.compose.LinkTextState
 import org.mozilla.fenix.compose.PagerIndicator
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.onboarding.WidgetPinnedReceiver.WidgetPinnedState
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * A screen for displaying onboarding.
@@ -174,7 +174,7 @@ private fun OnboardingContent(
 
     Column(
         modifier = Modifier
-            .background(FirefoxTheme.colors.layer1)
+            .background(EyebrowseTheme.colors.layer1)
             .statusBarsPadding()
             .navigationBarsPadding(),
     ) {
@@ -202,8 +202,8 @@ private fun OnboardingContent(
 
         PagerIndicator(
             pagerState = pagerState,
-            activeColor = FirefoxTheme.colors.actionPrimary,
-            inactiveColor = FirefoxTheme.colors.actionSecondary,
+            activeColor = EyebrowseTheme.colors.actionPrimary,
+            inactiveColor = EyebrowseTheme.colors.actionSecondary,
             leaveTrail = true,
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
@@ -237,7 +237,7 @@ private class DisableForwardSwipeNestedScrollConnection(
 @Composable
 private fun OnboardingScreenPreview() {
     val pageCount = defaultPreviewPages().size
-    FirefoxTheme {
+    EyebrowseTheme {
         OnboardingContent(
             pagesToDisplay = defaultPreviewPages(),
             pagerState = rememberPagerState(initialPage = 0) {

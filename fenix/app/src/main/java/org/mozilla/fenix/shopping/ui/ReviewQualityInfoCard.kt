@@ -32,7 +32,7 @@ import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.compose.parseHtml
 import org.mozilla.fenix.shopping.store.ReviewQualityCheckState
 import org.mozilla.fenix.shopping.ui.ext.displayName
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Info card UI containing an explanation of the review quality.
@@ -90,14 +90,14 @@ private fun ReviewQualityInfo(
                 id = R.string.review_quality_check_explanation_body_reliability,
                 stringResource(R.string.shopping_product_name),
             ),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.body2,
+            color = EyebrowseTheme.colors.textPrimary,
+            style = EyebrowseTheme.typography.body2,
         )
 
         Text(
             text = remember(letterGradeText) { parseHtml(letterGradeText) },
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.body2,
+            color = EyebrowseTheme.colors.textPrimary,
+            style = EyebrowseTheme.typography.body2,
         )
 
         ReviewGradingScaleInfo(
@@ -126,14 +126,14 @@ private fun ReviewQualityInfo(
 
         Text(
             text = remember(adjustedGradingText) { parseHtml(adjustedGradingText) },
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.body2,
+            color = EyebrowseTheme.colors.textPrimary,
+            style = EyebrowseTheme.typography.body2,
         )
 
         Text(
             text = remember(highlightsText) { parseHtml(highlightsText) },
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.body2,
+            color = EyebrowseTheme.colors.textPrimary,
+            style = EyebrowseTheme.typography.body2,
         )
 
         val link = stringResource(
@@ -152,10 +152,10 @@ private fun ReviewQualityInfo(
                     },
                 ),
             ),
-            style = FirefoxTheme.typography.body2.copy(
-                color = FirefoxTheme.colors.textPrimary,
+            style = EyebrowseTheme.typography.body2.copy(
+                color = EyebrowseTheme.colors.textPrimary,
             ),
-            linkTextColor = FirefoxTheme.colors.textAccent,
+            linkTextColor = EyebrowseTheme.colors.textAccent,
             linkTextDecoration = TextDecoration.Underline,
         )
     }
@@ -182,8 +182,8 @@ private fun ReviewGradingScaleInfo(
 
         Text(
             text = info,
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.body2,
+            color = EyebrowseTheme.colors.textPrimary,
+            style = EyebrowseTheme.typography.body2,
         )
     }
 }
@@ -191,11 +191,11 @@ private fun ReviewGradingScaleInfo(
 @Composable
 @LightDarkPreview
 private fun ReviewQualityInfoCardPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(color = FirefoxTheme.colors.layer1)
+                .background(color = EyebrowseTheme.colors.layer1)
                 .padding(all = 16.dp),
         ) {
             var isInfoExpanded by remember { mutableStateOf(true) }

@@ -12,7 +12,7 @@ import org.mozilla.fenix.tabstray.SyncedTabsInteractor
 import org.mozilla.fenix.tabstray.TabsTrayState
 import org.mozilla.fenix.tabstray.TabsTrayStore
 import org.mozilla.fenix.tabstray.syncedtabs.SyncedTabsList
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.theme.Theme
 
 /**
@@ -31,7 +31,7 @@ class SyncedTabsPageViewHolder(
     fun bind() {
         composeView.setContent {
             val tabs = tabsTrayStore.observeAsComposableState { state -> state.syncedTabs }.value
-            FirefoxTheme(theme = Theme.getTheme(allowPrivateTheme = false)) {
+            EyebrowseTheme(theme = Theme.getTheme(allowPrivateTheme = false)) {
                 SyncedTabsList(
                     syncedTabs = tabs ?: emptyList(),
                     onTabClick = interactor::onSyncedTabClicked,

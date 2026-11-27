@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import mozilla.components.browser.state.state.TabSessionState
 import mozilla.components.browser.state.state.createTab
 import mozilla.components.concept.base.images.ImageLoadRequest
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 private const val FALLBACK_ICON_SIZE = 36
 
@@ -43,7 +43,7 @@ fun TabThumbnail(
     tab: TabSessionState,
     size: Int,
     modifier: Modifier = Modifier,
-    backgroundColor: Color = FirefoxTheme.colors.layer2,
+    backgroundColor: Color = EyebrowseTheme.colors.layer2,
     contentDescription: String? = null,
     contentScale: ContentScale = ContentScale.FillWidth,
     alignment: Alignment = Alignment.TopCenter,
@@ -90,7 +90,7 @@ fun TabThumbnail(
 @Preview
 @Composable
 private fun ThumbnailCardPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         TabThumbnail(
             tab = createTab(url = "www.mozilla.com", title = "Mozilla"),
             size = 108,

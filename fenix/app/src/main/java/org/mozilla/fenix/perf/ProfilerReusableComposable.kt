@@ -28,17 +28,17 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.compose.button.RadioButton
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Dialogue top level card for the profiler.
  */
 @Composable
 fun ProfilerDialogueCard(content: @Composable () -> Unit) {
-    FirefoxTheme {
+    EyebrowseTheme {
         Card(
             elevation = 8.dp,
-            backgroundColor = FirefoxTheme.colors.layer2,
+            backgroundColor = EyebrowseTheme.colors.layer2,
             shape = RoundedCornerShape(12.dp),
         ) {
             content()
@@ -74,11 +74,11 @@ fun ProfilerLabeledRadioButton(
         ) {
             Text(
                 text = text,
-                color = FirefoxTheme.colors.textPrimary,
+                color = EyebrowseTheme.colors.textPrimary,
             )
             Text(
                 text = subText,
-                color = FirefoxTheme.colors.textPrimary,
+                color = EyebrowseTheme.colors.textPrimary,
                 fontWeight = FontWeight.ExtraLight,
             )
         }
@@ -119,9 +119,9 @@ private fun ProfilerLabeledRadioButtonPreview() {
     val radioOptions = listOf("Firefox", "Graphics", "Media", "Networking")
     val selectedOption = remember { mutableStateOf("Firefox") }
 
-    FirefoxTheme {
+    EyebrowseTheme {
         Column(
-            modifier = Modifier.background(FirefoxTheme.colors.layer1),
+            modifier = Modifier.background(EyebrowseTheme.colors.layer1),
         ) {
             radioOptions.forEach { text ->
                 ProfilerLabeledRadioButton(

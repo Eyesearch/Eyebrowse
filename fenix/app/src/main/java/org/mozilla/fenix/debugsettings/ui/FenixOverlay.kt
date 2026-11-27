@@ -18,7 +18,7 @@ import org.mozilla.fenix.debugsettings.store.DebugDrawerNavigationMiddleware
 import org.mozilla.fenix.debugsettings.store.DebugDrawerStore
 import org.mozilla.fenix.debugsettings.store.DrawerStatus
 import org.mozilla.fenix.debugsettings.tabs.TabTools
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.theme.Theme
 
 /**
@@ -55,7 +55,7 @@ fun FenixOverlay(
         state.drawerStatus
     }
 
-    FirefoxTheme(theme = Theme.getTheme(allowPrivateTheme = false)) {
+    EyebrowseTheme(theme = Theme.getTheme(allowPrivateTheme = false)) {
         DebugOverlay(
             navController = navController,
             drawerStatus = drawerStatus,

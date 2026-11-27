@@ -21,7 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * A save to PDF item.
@@ -44,15 +44,15 @@ fun SaveToPDFItem(
         Icon(
             painter = painterResource(R.drawable.ic_download),
             contentDescription = null,
-            tint = FirefoxTheme.colors.iconPrimary,
+            tint = EyebrowseTheme.colors.iconPrimary,
         )
 
         Spacer(Modifier.width(32.dp))
 
         Text(
-            color = FirefoxTheme.colors.textPrimary,
+            color = EyebrowseTheme.colors.textPrimary,
             text = stringResource(R.string.share_save_to_pdf),
-            style = FirefoxTheme.typography.subtitle1,
+            style = EyebrowseTheme.typography.subtitle1,
         )
     }
 }
@@ -61,7 +61,7 @@ fun SaveToPDFItem(
 @Preview
 @LightDarkPreview
 private fun SaveToPDFItemPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         SaveToPDFItem {}
     }
 }

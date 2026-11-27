@@ -26,7 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Displays the [content] with the right edge fading.
@@ -79,14 +79,14 @@ fun HorizontalFadingEdgeBox(
 @Preview
 @Composable
 private fun FadingRightTextPreview() {
-    FirefoxTheme {
-        Surface(modifier = Modifier.background(FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Surface(modifier = Modifier.background(EyebrowseTheme.colors.layer1)) {
             HorizontalFadingEdgeBox(
                 modifier = Modifier
                     .width(250.dp)
                     .height(20.dp)
                     .clipToBounds(),
-                backgroundColor = FirefoxTheme.colors.layer1,
+                backgroundColor = EyebrowseTheme.colors.layer1,
             ) {
                 Text(
                     "Example text set to fade on the right",
@@ -102,8 +102,8 @@ private fun FadingRightTextPreview() {
 @Preview
 @Composable
 private fun FadingLeftTextPreview() {
-    FirefoxTheme {
-        Surface(modifier = Modifier.background(FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Surface(modifier = Modifier.background(EyebrowseTheme.colors.layer1)) {
             HorizontalFadingEdgeBox(
                 modifier = Modifier
                     .width(250.dp)
@@ -111,7 +111,7 @@ private fun FadingLeftTextPreview() {
                     .clipToBounds(),
                 isContentRtl = true,
                 fadeWidth = 50.dp,
-                backgroundColor = FirefoxTheme.colors.layer1,
+                backgroundColor = EyebrowseTheme.colors.layer1,
             ) {
                 Text(
                     "Example text set to fade on the left",

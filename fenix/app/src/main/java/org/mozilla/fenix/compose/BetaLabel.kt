@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 import mozilla.components.ui.colors.PhotonColors
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Beta label.
@@ -34,10 +34,10 @@ fun BetaLabel(modifier: Modifier = Modifier) {
 
     if (isSystemInDarkTheme()) {
         borderColor = PhotonColors.LightGrey10
-        textColor = FirefoxTheme.colors.textActionPrimary
+        textColor = EyebrowseTheme.colors.textActionPrimary
     } else {
-        borderColor = FirefoxTheme.colors.actionTertiary
-        textColor = FirefoxTheme.colors.textSecondary
+        borderColor = EyebrowseTheme.colors.actionTertiary
+        textColor = EyebrowseTheme.colors.textSecondary
     }
 
     Card(
@@ -51,7 +51,7 @@ fun BetaLabel(modifier: Modifier = Modifier) {
             text = stringResource(R.string.review_quality_check_beta_flag).uppercase(),
             modifier = Modifier.padding(horizontal = 8.dp, vertical = 3.dp),
             color = textColor,
-            style = FirefoxTheme.typography.body2,
+            style = EyebrowseTheme.typography.body2,
         )
     }
 }
@@ -59,10 +59,10 @@ fun BetaLabel(modifier: Modifier = Modifier) {
 @LightDarkPreview
 @Composable
 private fun HeaderPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Box(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer2)
+                .background(color = EyebrowseTheme.colors.layer2)
                 .padding(16.dp),
         ) {
             BetaLabel()

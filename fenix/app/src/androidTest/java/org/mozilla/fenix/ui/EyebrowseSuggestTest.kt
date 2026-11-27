@@ -22,7 +22,7 @@ import org.mozilla.fenix.ui.robots.navigationToolbar
  *
  */
 
-class FirefoxSuggestTest : TestSetup() {
+class EyebrowseSuggestTest : TestSetup() {
 
     @get:Rule
     val activityTestRule = AndroidComposeTestRule(

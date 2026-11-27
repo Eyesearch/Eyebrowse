@@ -35,7 +35,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import org.mozilla.fenix.R
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * The tag used for links in the text for annotated strings.
@@ -68,11 +68,11 @@ data class LinkTextState(
 fun LinkText(
     text: String,
     linkTextStates: List<LinkTextState>,
-    style: TextStyle = FirefoxTheme.typography.body2.copy(
+    style: TextStyle = EyebrowseTheme.typography.body2.copy(
         textAlign = TextAlign.Center,
-        color = FirefoxTheme.colors.textSecondary,
+        color = EyebrowseTheme.colors.textSecondary,
     ),
-    linkTextColor: Color = FirefoxTheme.colors.textAccent,
+    linkTextColor: Color = EyebrowseTheme.colors.textAccent,
     linkTextDecoration: TextDecoration = TextDecoration.None,
 ) {
     val annotatedString = buildUrlAnnotatedString(
@@ -128,14 +128,14 @@ private fun LinksDialog(
         ) {
             Column(
                 modifier = Modifier
-                    .background(color = FirefoxTheme.colors.layer2)
+                    .background(color = EyebrowseTheme.colors.layer2)
                     .padding(all = 16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text(
                     text = stringResource(id = R.string.a11y_links_title),
-                    color = FirefoxTheme.colors.textPrimary,
-                    style = FirefoxTheme.typography.headline5,
+                    color = EyebrowseTheme.colors.textPrimary,
+                    style = EyebrowseTheme.typography.headline5,
                 )
 
                 linkTextStates.forEach { linkText ->
@@ -146,9 +146,9 @@ private fun LinksDialog(
                     ) {
                         Text(
                             text = linkText.text,
-                            color = FirefoxTheme.colors.textAccent,
+                            color = EyebrowseTheme.colors.textAccent,
                             textDecoration = TextDecoration.Underline,
-                            style = FirefoxTheme.typography.button,
+                            style = EyebrowseTheme.typography.button,
                         )
                     }
                 }
@@ -160,8 +160,8 @@ private fun LinksDialog(
                 ) {
                     Text(
                         text = stringResource(id = R.string.standard_snackbar_error_dismiss),
-                        color = FirefoxTheme.colors.textAccent,
-                        style = FirefoxTheme.typography.button,
+                        color = EyebrowseTheme.colors.textAccent,
+                        style = EyebrowseTheme.typography.button,
                     )
                 }
             }
@@ -226,8 +226,8 @@ private fun LinkTextEndPreview() {
         url = "www.mozilla.com",
         onClick = {},
     )
-    FirefoxTheme {
-        Box(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Box(modifier = Modifier.background(color = EyebrowseTheme.colors.layer1)) {
             LinkText(text = "This is normal text, click here", linkTextStates = listOf(state))
         }
     }
@@ -241,8 +241,8 @@ private fun LinkTextMiddlePreview() {
         url = "www.mozilla.com",
         onClick = {},
     )
-    FirefoxTheme {
-        Box(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Box(modifier = Modifier.background(color = EyebrowseTheme.colors.layer1)) {
             LinkText(text = "This is clickable text, followed by normal text", linkTextStates = listOf(state))
         }
     }
@@ -256,12 +256,12 @@ private fun LinkTextStyledPreview() {
         url = "www.mozilla.com",
         onClick = {},
     )
-    FirefoxTheme {
-        Box(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Box(modifier = Modifier.background(color = EyebrowseTheme.colors.layer1)) {
             LinkText(
                 text = "This is clickable text, in a different style",
                 linkTextStates = listOf(state),
-                style = FirefoxTheme.typography.headline5,
+                style = EyebrowseTheme.typography.headline5,
             )
         }
     }
@@ -275,13 +275,13 @@ private fun LinkTextClickStyledPreview() {
         url = "www.mozilla.com",
         onClick = {},
     )
-    FirefoxTheme {
-        Box(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Box(modifier = Modifier.background(color = EyebrowseTheme.colors.layer1)) {
             LinkText(
                 text = "This is clickable text, with underlined text",
                 linkTextStates = listOf(state),
-                style = FirefoxTheme.typography.headline5,
-                linkTextColor = FirefoxTheme.colors.textOnColorSecondary,
+                style = EyebrowseTheme.typography.headline5,
+                linkTextColor = EyebrowseTheme.colors.textOnColorSecondary,
                 linkTextDecoration = TextDecoration.Underline,
             )
         }
@@ -302,8 +302,8 @@ private fun MultipleLinksPreview() {
         url = "www.mozilla.com",
         onClick = {},
     )
-    FirefoxTheme {
-        Box(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Box(modifier = Modifier.background(color = EyebrowseTheme.colors.layer1)) {
             LinkText(
                 text = "This is clickable text, followed by normal text, followed by another clickable text",
                 linkTextStates = listOf(state1, state2),
@@ -328,7 +328,7 @@ private fun LinksDialogPreview() {
     )
 
     val linkTextStateList = listOf(state1, state2)
-    FirefoxTheme {
+    EyebrowseTheme {
         LinksDialog(
             linkTextStates = linkTextStateList,
             onDismissRequest = {},

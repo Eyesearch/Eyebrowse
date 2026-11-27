@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 import mozilla.components.support.images.compose.loader.Fallback
 import mozilla.components.support.images.compose.loader.ImageLoaderScope
 import mozilla.components.support.images.compose.loader.Placeholder
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Renders the app image placeholder while the image is still getting loaded.
@@ -62,13 +62,13 @@ internal fun DefaultImagePlaceholder(
     modifier: Modifier,
     contentDescription: String? = null,
 ) {
-    Image(ColorPainter(FirefoxTheme.colors.layer2), contentDescription, modifier)
+    Image(ColorPainter(EyebrowseTheme.colors.layer2), contentDescription, modifier)
 }
 
 @Composable
 @Preview
 private fun DefaultImagePlaceholderPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         DefaultImagePlaceholder(
             modifier = Modifier
                 .size(200.dp, 100.dp)

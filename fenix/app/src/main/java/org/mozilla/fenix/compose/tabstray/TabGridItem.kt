@@ -67,7 +67,7 @@ import org.mozilla.fenix.compose.TabThumbnail
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.tabstray.TabsTrayTestTag
 import org.mozilla.fenix.tabstray.ext.toDisplayTitle
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Tab grid item used to display a tab that supports clicks,
@@ -104,7 +104,7 @@ fun TabGridItem(
     val tabBorderModifier = if (isSelected) {
         Modifier.border(
             4.dp,
-            FirefoxTheme.colors.borderAccent,
+            EyebrowseTheme.colors.borderAccent,
             RoundedCornerShape(12.dp),
         )
     } else {
@@ -170,10 +170,10 @@ fun TabGridItem(
                     .then(clickableModifier),
                 elevation = 0.dp,
                 shape = RoundedCornerShape(dimensionResource(id = R.dimen.tab_tray_grid_item_border_radius)),
-                border = BorderStroke(1.dp, FirefoxTheme.colors.borderPrimary),
+                border = BorderStroke(1.dp, EyebrowseTheme.colors.borderPrimary),
             ) {
                 Column(
-                    modifier = Modifier.background(FirefoxTheme.colors.layer2),
+                    modifier = Modifier.background(EyebrowseTheme.colors.layer2),
                 ) {
                     Row(
                         modifier = Modifier
@@ -200,7 +200,7 @@ fun TabGridItem(
                                 .requiredHeight(30.dp)
                                 .padding(7.dp, 5.dp)
                                 .clipToBounds(),
-                            backgroundColor = FirefoxTheme.colors.layer2,
+                            backgroundColor = EyebrowseTheme.colors.layer2,
                             isContentRtl = BidiFormatter.getInstance().isRtl(tab.content.title),
                         ) {
                             Text(
@@ -209,7 +209,7 @@ fun TabGridItem(
                                 maxLines = 1,
                                 softWrap = false,
                                 style = TextStyle(
-                                    color = FirefoxTheme.colors.textPrimary,
+                                    color = EyebrowseTheme.colors.textPrimary,
                                     textDirection = TextDirection.Content,
                                 ),
                             )
@@ -228,7 +228,7 @@ fun TabGridItem(
                                 Icon(
                                     painter = painterResource(id = R.drawable.mozac_ic_cross_20),
                                     contentDescription = stringResource(id = R.string.close_tab),
-                                    tint = FirefoxTheme.colors.iconPrimary,
+                                    tint = EyebrowseTheme.colors.iconPrimary,
                                 )
                             }
                         }
@@ -279,7 +279,7 @@ private fun Thumbnail(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(FirefoxTheme.colors.layer2)
+            .background(EyebrowseTheme.colors.layer2)
             .semantics(mergeDescendants = true) {
                 testTag = TabsTrayTestTag.tabItemThumbnail
             },
@@ -294,7 +294,7 @@ private fun Thumbnail(
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(FirefoxTheme.colors.layerAccentNonOpaque),
+                    .background(EyebrowseTheme.colors.layerAccentNonOpaque),
             )
 
             Card(
@@ -302,7 +302,7 @@ private fun Thumbnail(
                     .size(size = 40.dp)
                     .align(alignment = Alignment.Center),
                 shape = CircleShape,
-                backgroundColor = FirefoxTheme.colors.layerAccent,
+                backgroundColor = EyebrowseTheme.colors.layerAccent,
             ) {
                 Icon(
                     painter = painterResource(id = R.drawable.mozac_ic_checkmark_24),
@@ -320,7 +320,7 @@ private fun Thumbnail(
 @Composable
 @LightDarkPreview
 private fun TabGridItemPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         TabGridItem(
             tab = createTab(
                 url = "www.mozilla.com",
@@ -337,7 +337,7 @@ private fun TabGridItemPreview() {
 @Composable
 @LightDarkPreview
 private fun TabGridItemSelectedPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         TabGridItem(
             tab = createTab(url = "www.mozilla.com", title = "Mozilla"),
             thumbnailSize = 108,
@@ -353,7 +353,7 @@ private fun TabGridItemSelectedPreview() {
 @Composable
 @LightDarkPreview
 private fun TabGridItemMultiSelectedPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         TabGridItem(
             tab = createTab(url = "www.mozilla.com", title = "Mozilla"),
             thumbnailSize = 108,

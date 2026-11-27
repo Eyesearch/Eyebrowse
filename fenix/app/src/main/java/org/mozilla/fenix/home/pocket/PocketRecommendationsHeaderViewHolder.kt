@@ -25,7 +25,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.components.components
 import org.mozilla.fenix.compose.ComposeViewHolder
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * [RecyclerView.ViewHolder] for displaying the Pocket feature header.
@@ -49,8 +49,8 @@ class PocketRecommendationsHeaderViewHolder(
         val wallpaperState = components.appStore
             .observeAsComposableState { state -> state.wallpaperState }.value
 
-        var textColor = FirefoxTheme.colors.textPrimary
-        var linkTextColor = FirefoxTheme.colors.textAccent
+        var textColor = EyebrowseTheme.colors.textPrimary
+        var linkTextColor = EyebrowseTheme.colors.textAccent
 
         wallpaperState?.currentWallpaper?.let { currentWallpaper ->
             currentWallpaper.textColor?.let {
@@ -80,8 +80,8 @@ class PocketRecommendationsHeaderViewHolder(
 @Composable
 @LightDarkPreview
 private fun PocketRecommendationsFooterViewHolderPreview() {
-    FirefoxTheme {
-        Box(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Box(modifier = Modifier.background(color = EyebrowseTheme.colors.layer1)) {
             PoweredByPocketHeader(
                 onLearnMoreClicked = {},
             )

@@ -15,7 +15,7 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Special caption text for a tab layout shown on one line.
@@ -51,21 +51,21 @@ fun TabSubtitleWithInterdot(
         content = {
             Text(
                 text = firstText,
-                color = FirefoxTheme.colors.textSecondary,
+                color = EyebrowseTheme.colors.textSecondary,
                 fontSize = 12.sp,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
             )
             Text(
                 text = " \u00b7 ",
-                color = FirefoxTheme.colors.textSecondary,
+                color = EyebrowseTheme.colors.textSecondary,
                 fontSize = 12.sp,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
             )
             Text(
                 text = secondText,
-                color = FirefoxTheme.colors.textSecondary,
+                color = EyebrowseTheme.colors.textSecondary,
                 fontSize = 12.sp,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
@@ -105,8 +105,8 @@ fun TabSubtitleWithInterdot(
 @Composable
 @Preview
 private fun TabSubtitleWithInterdotPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer2)) {
+    EyebrowseTheme {
+        Box(Modifier.background(EyebrowseTheme.colors.layer2)) {
             TabSubtitleWithInterdot(
                 firstText = "firstText",
                 secondText = "secondText",

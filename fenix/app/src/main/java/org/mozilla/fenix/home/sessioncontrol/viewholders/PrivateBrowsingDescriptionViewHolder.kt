@@ -29,7 +29,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.ComposeViewHolder
 import org.mozilla.fenix.ext.settings
 import org.mozilla.fenix.home.privatebrowsing.interactor.PrivateBrowsingInteractor
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * View holder for a private browsing description.
@@ -90,7 +90,7 @@ fun PrivateBrowsingDescription(
                 stringResource(R.string.app_name),
             ),
             modifier = Modifier.padding(top = 4.dp),
-            color = FirefoxTheme.colors.textPrimary,
+            color = EyebrowseTheme.colors.textPrimary,
             fontSize = 14.sp,
             lineHeight = 20.sp,
         )
@@ -111,7 +111,7 @@ fun PrivateBrowsingDescription(
                 text = stringResource(R.string.private_browsing_common_myths),
                 modifier = Modifier.padding(top = 10.dp),
                 style = TextStyle(
-                    color = FirefoxTheme.colors.textPrimary,
+                    color = EyebrowseTheme.colors.textPrimary,
                     fontSize = 14.sp,
                     textDecoration = TextDecoration.Underline,
                     textDirection = TextDirection.Content,
@@ -124,7 +124,7 @@ fun PrivateBrowsingDescription(
 @Composable
 @Preview
 private fun PrivateBrowsingDescriptionPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         PrivateBrowsingDescription(
             onLearnMoreClick = {},
         )

@@ -16,7 +16,7 @@ import mozilla.components.lib.state.ext.observeAsComposableState
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.compose.button.FloatingActionButton
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Floating action button for tabs tray.
@@ -100,7 +100,7 @@ private fun TabsTraySyncFabPreview() {
         ),
     )
 
-    FirefoxTheme {
+    EyebrowseTheme {
         TabsTrayFab(
             tabsTrayStore = store,
             isSignedIn = true,
@@ -119,7 +119,7 @@ private fun TabsTrayPrivateFabPreview() {
             selectedPage = Page.PrivateTabs,
         ),
     )
-    FirefoxTheme {
+    EyebrowseTheme {
         TabsTrayFab(
             tabsTrayStore = store,
             isSignedIn = true,

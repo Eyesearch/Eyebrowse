@@ -37,7 +37,7 @@ import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.compose.button.FloatingActionButton
 import org.mozilla.fenix.debugsettings.navigation.DebugDrawerDestination
 import org.mozilla.fenix.debugsettings.store.DrawerStatus
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Overlay for presenting app-wide debugging content.
@@ -113,8 +113,8 @@ fun DebugOverlay(
                             )
                         }
                     },
-                    drawerBackgroundColor = FirefoxTheme.colors.layer1,
-                    scrimColor = FirefoxTheme.colors.scrim,
+                    drawerBackgroundColor = EyebrowseTheme.colors.layer1,
+                    scrimColor = EyebrowseTheme.colors.scrim,
                     drawerState = drawerState,
                     content = {},
                 )
@@ -149,15 +149,15 @@ private fun DebugOverlayPreview() {
                 content = {
                     Text(
                         text = "Tool $index",
-                        color = FirefoxTheme.colors.textPrimary,
-                        style = FirefoxTheme.typography.headline6,
+                        color = EyebrowseTheme.colors.textPrimary,
+                        style = EyebrowseTheme.typography.headline6,
                     )
                 },
             )
         }
     }
 
-    FirefoxTheme {
+    EyebrowseTheme {
         DebugOverlay(
             navController = navController,
             drawerStatus = drawerStatus,

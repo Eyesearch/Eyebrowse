@@ -36,7 +36,7 @@ enum class Theme {
          * Returns the current [Theme] that is displayed.
          *
          * @param allowPrivateTheme Boolean used to control whether [Theme.Private] is an option
-         * for [FirefoxTheme] colors.
+         * for [EyebrowseTheme] colors.
          *
          * @return the current [Theme] that is displayed.
          */
@@ -62,7 +62,7 @@ enum class Theme {
  * @param content The children composables to be laid out.
  */
 @Composable
-fun FirefoxTheme(
+fun EyebrowseTheme(
     theme: Theme = Theme.getTheme(),
     content: @Composable () -> Unit,
 ) {
@@ -79,7 +79,7 @@ fun FirefoxTheme(
     }
 }
 
-object FirefoxTheme {
+object EyebrowseTheme {
     val colors: FirefoxColors
         @Composable
         get() = localFirefoxColors.current

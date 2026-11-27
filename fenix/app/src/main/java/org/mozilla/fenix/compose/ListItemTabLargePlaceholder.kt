@@ -22,7 +22,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Placeholder of a [ListItemTabLarge] with the same dimensions but only a centered text.
@@ -63,7 +63,7 @@ fun ListItemTabLargePlaceholder(
         ) {
             Text(
                 text = text,
-                color = FirefoxTheme.colors.textPrimary,
+                color = EyebrowseTheme.colors.textPrimary,
                 textAlign = TextAlign.Center,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
@@ -76,10 +76,10 @@ fun ListItemTabLargePlaceholder(
 @Composable
 @Preview
 private fun ListItemTabLargePlaceholderPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         ListItemTabLargePlaceholder(
             text = "Item placeholder",
-            backgroundColor = FirefoxTheme.colors.layer2,
+            backgroundColor = EyebrowseTheme.colors.layer2,
         )
     }
 }

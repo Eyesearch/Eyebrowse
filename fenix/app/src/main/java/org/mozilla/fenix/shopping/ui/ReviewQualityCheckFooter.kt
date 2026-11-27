@@ -16,7 +16,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.LinkText
 import org.mozilla.fenix.compose.LinkTextState
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Review Quality Check footer with an embedded link to navigate to Fakespot.com.
@@ -46,21 +46,21 @@ fun ReviewQualityCheckFooter(
                 },
             ),
         ),
-        style = FirefoxTheme.typography.body2.copy(
-            color = FirefoxTheme.colors.textSecondary,
+        style = EyebrowseTheme.typography.body2.copy(
+            color = EyebrowseTheme.colors.textSecondary,
         ),
-        linkTextColor = FirefoxTheme.colors.textAccent,
+        linkTextColor = EyebrowseTheme.colors.textAccent,
     )
 }
 
 @LightDarkPreview
 @Composable
 private fun ReviewQualityCheckFooterPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(color = FirefoxTheme.colors.layer1)
+                .background(color = EyebrowseTheme.colors.layer1)
                 .padding(all = 16.dp),
         ) {
             ReviewQualityCheckFooter(

@@ -30,7 +30,7 @@ import mozilla.components.ui.colors.PhotonColors
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.shopping.store.ReviewQualityCheckState.Grade
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 private val height = 24.dp
 private val borderColor = Color(0x26000000)
@@ -143,7 +143,7 @@ fun ReviewGradeExpanded(
         Text(
             text = stringResource(id = reviewGrade.stringResourceId),
             color = PhotonColors.DarkGrey90,
-            style = FirefoxTheme.typography.body2,
+            style = EyebrowseTheme.typography.body2,
             modifier = Modifier.padding(horizontal = 8.dp),
         )
     }
@@ -170,7 +170,7 @@ private fun ReviewGradeLetter(
         Text(
             text = reviewGrade.name,
             color = PhotonColors.Black,
-            style = FirefoxTheme.typography.subtitle2,
+            style = EyebrowseTheme.typography.subtitle2,
         )
     }
 }
@@ -190,10 +190,10 @@ private fun Grade.toReviewGrade(): ReviewGrade =
 @Composable
 @LightDarkPreview
 private fun ReviewGradePreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Column(
             modifier = Modifier
-                .background(FirefoxTheme.colors.layer1)
+                .background(EyebrowseTheme.colors.layer1)
                 .padding(16.dp),
         ) {
             Grade.values().forEach {

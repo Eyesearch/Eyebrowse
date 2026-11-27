@@ -37,7 +37,7 @@ import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.shopping.store.ReviewQualityCheckState
 import org.mozilla.fenix.shopping.store.ReviewQualityCheckState.OptedIn.ProductReviewState.NoAnalysisPresent
 import org.mozilla.fenix.shopping.store.ReviewQualityCheckState.OptedIn.ProductReviewState.Progress
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * No analysis UI for review quality check content.
@@ -137,8 +137,8 @@ private fun ReviewQualityNoAnalysisCard(
                         id = R.string.review_quality_check_analysis_in_progress_warning_title_2,
                         noAnalysisPresent.progress.formattedProgress,
                     ),
-                    style = FirefoxTheme.typography.headline8,
-                    color = FirefoxTheme.colors.textPrimary,
+                    style = EyebrowseTheme.typography.headline8,
+                    color = EyebrowseTheme.colors.textPrimary,
                     modifier = Modifier.fillMaxWidth(),
                 )
             }
@@ -147,15 +147,15 @@ private fun ReviewQualityNoAnalysisCard(
 
             Text(
                 text = stringResource(id = R.string.review_quality_check_analysis_in_progress_warning_body),
-                style = FirefoxTheme.typography.body2,
-                color = FirefoxTheme.colors.textSecondary,
+                style = EyebrowseTheme.typography.body2,
+                color = EyebrowseTheme.colors.textSecondary,
                 modifier = Modifier.fillMaxWidth(),
             )
         } else {
             Text(
                 text = stringResource(id = R.string.review_quality_check_no_analysis_title),
-                style = FirefoxTheme.typography.headline8,
-                color = FirefoxTheme.colors.textPrimary,
+                style = EyebrowseTheme.typography.headline8,
+                color = EyebrowseTheme.colors.textPrimary,
                 modifier = Modifier.fillMaxWidth(),
             )
 
@@ -163,8 +163,8 @@ private fun ReviewQualityNoAnalysisCard(
 
             Text(
                 text = stringResource(id = R.string.review_quality_check_no_analysis_body),
-                style = FirefoxTheme.typography.body2,
-                color = FirefoxTheme.colors.textSecondary,
+                style = EyebrowseTheme.typography.body2,
+                color = EyebrowseTheme.colors.textSecondary,
                 modifier = Modifier.fillMaxWidth(),
             )
 
@@ -174,15 +174,15 @@ private fun ReviewQualityNoAnalysisCard(
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(
-                        color = FirefoxTheme.colors.actionPrimary,
+                        color = EyebrowseTheme.colors.actionPrimary,
                         shape = RoundedCornerShape(4.dp),
                     ),
                 onClick = onAnalyzeClick,
             ) {
                 Text(
                     text = stringResource(id = R.string.review_quality_check_no_analysis_link),
-                    color = FirefoxTheme.colors.textOnColorPrimary,
-                    style = FirefoxTheme.typography.headline8,
+                    color = EyebrowseTheme.colors.textOnColorPrimary,
+                    style = EyebrowseTheme.typography.headline8,
                 )
             }
         }
@@ -204,11 +204,11 @@ private class NoAnalysisPreviewModelParameterProvider :
 private fun NoAnalysisPreview(
     @PreviewParameter(NoAnalysisPreviewModelParameterProvider::class) noAnalysisPresent: NoAnalysisPresent,
 ) {
-    FirefoxTheme {
+    EyebrowseTheme {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(color = FirefoxTheme.colors.layer1)
+                .background(color = EyebrowseTheme.colors.layer1)
                 .padding(all = 16.dp),
         ) {
             var isAnalyzing by remember { mutableStateOf(false) }

@@ -48,7 +48,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.ContextualMenu
 import org.mozilla.fenix.compose.MenuItem
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Top-level UI for search shortcuts settings.
@@ -77,7 +77,7 @@ fun SearchEngineShortcuts(
 
     LazyColumn(
         modifier = Modifier
-            .background(color = FirefoxTheme.colors.layer1)
+            .background(color = EyebrowseTheme.colors.layer1)
             .fillMaxSize(),
     ) {
         item {
@@ -116,10 +116,10 @@ private fun Title(title: String) {
     ) {
         Text(
             text = title,
-            color = FirefoxTheme.colors.textAccent,
+            color = EyebrowseTheme.colors.textAccent,
             fontWeight = FontWeight.W400,
             modifier = Modifier.padding(horizontal = 16.dp),
-            style = FirefoxTheme.typography.headline8,
+            style = EyebrowseTheme.typography.headline8,
         )
     }
 }
@@ -146,8 +146,8 @@ private fun SearchItem(
             checked = isEnabled,
             onCheckedChange = { onCheckboxClicked.invoke(engine, it) },
             colors = CheckboxDefaults.colors(
-                checkedColor = FirefoxTheme.colors.formSelected,
-                uncheckedColor = FirefoxTheme.colors.formDefault,
+                checkedColor = EyebrowseTheme.colors.formSelected,
+                uncheckedColor = EyebrowseTheme.colors.formDefault,
             ),
         )
 
@@ -172,8 +172,8 @@ private fun SearchItem(
                 .padding(vertical = 8.dp)
                 .weight(1f),
             text = name,
-            style = FirefoxTheme.typography.subtitle1,
-            color = FirefoxTheme.colors.textPrimary,
+            style = EyebrowseTheme.typography.subtitle1,
+            color = EyebrowseTheme.colors.textPrimary,
         )
 
         if (engine.type == SearchEngine.Type.CUSTOM) {
@@ -189,7 +189,7 @@ private fun SearchItem(
                     Icon(
                         painter = painterResource(id = R.drawable.ic_menu),
                         contentDescription = stringResource(id = R.string.content_description_menu),
-                        tint = FirefoxTheme.colors.iconPrimary,
+                        tint = EyebrowseTheme.colors.iconPrimary,
                     )
 
                     ContextualMenu(
@@ -198,13 +198,13 @@ private fun SearchItem(
                         menuItems = listOf(
                             MenuItem(
                                 stringResource(R.string.search_engine_edit),
-                                color = FirefoxTheme.colors.textWarning,
+                                color = EyebrowseTheme.colors.textWarning,
                             ) {
                                 onEditEngineClicked(engine)
                             },
                             MenuItem(
                                 stringResource(R.string.search_engine_delete),
-                                color = FirefoxTheme.colors.textWarning,
+                                color = EyebrowseTheme.colors.textWarning,
                             ) {
                                 onDeleteEngineClicked(engine)
                             },
@@ -239,7 +239,7 @@ private fun AddEngineButton(
             contentDescription = stringResource(
                 id = R.string.search_engine_add_custom_search_engine_button_content_description,
             ),
-            tint = FirefoxTheme.colors.iconPrimary,
+            tint = EyebrowseTheme.colors.iconPrimary,
         )
 
         Spacer(modifier = Modifier.width(16.dp))
@@ -250,8 +250,8 @@ private fun AddEngineButton(
                 .padding(vertical = 8.dp)
                 .weight(1f),
             text = stringResource(id = R.string.search_engine_add_custom_search_engine_title),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.subtitle1,
+            color = EyebrowseTheme.colors.textPrimary,
+            style = EyebrowseTheme.typography.subtitle1,
         )
 
         Spacer(modifier = Modifier.width(16.dp))
@@ -261,7 +261,7 @@ private fun AddEngineButton(
 @LightDarkPreview
 @Composable
 private fun SearchEngineShortcutsPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         SearchEngineShortcuts(
             categoryTitle = stringResource(id = R.string.preferences_category_engines_in_search_menu),
             store = BrowserStore(

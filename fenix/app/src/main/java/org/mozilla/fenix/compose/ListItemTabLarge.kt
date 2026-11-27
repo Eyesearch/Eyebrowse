@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.compose.ext.thenConditional
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 const val ITEM_WIDTH = 328
 const val ITEM_HEIGHT = 116
@@ -56,7 +56,7 @@ fun ListItemTabLarge(
     imageUrl: String,
     title: String,
     caption: String? = null,
-    backgroundColor: Color = FirefoxTheme.colors.layer2,
+    backgroundColor: Color = EyebrowseTheme.colors.layer2,
     onClick: (() -> Unit)? = null,
 ) {
     ListItemTabSurface(
@@ -66,7 +66,7 @@ fun ListItemTabLarge(
     ) {
         Text(
             text = title,
-            color = FirefoxTheme.colors.textPrimary,
+            color = EyebrowseTheme.colors.textPrimary,
             fontSize = 14.sp,
             overflow = TextOverflow.Ellipsis,
             maxLines = 3,
@@ -75,7 +75,7 @@ fun ListItemTabLarge(
         if (caption != null) {
             Text(
                 text = caption,
-                color = FirefoxTheme.colors.textSecondary,
+                color = EyebrowseTheme.colors.textSecondary,
                 fontSize = 12.sp,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
@@ -109,7 +109,7 @@ fun ListItemTabLarge(
 @Composable
 fun ListItemTabLarge(
     imageUrl: String,
-    backgroundColor: Color = FirefoxTheme.colors.layer2,
+    backgroundColor: Color = EyebrowseTheme.colors.layer2,
     onClick: () -> Unit,
     title: @Composable () -> Unit,
     subtitle: @Composable (() -> Unit)? = null,
@@ -137,7 +137,7 @@ fun ListItemTabLarge(
 @Composable
 fun ListItemTabSurface(
     imageUrl: String,
-    backgroundColor: Color = FirefoxTheme.colors.layer2,
+    backgroundColor: Color = EyebrowseTheme.colors.layer2,
     contentPadding: PaddingValues = PaddingValues(16.dp),
     onClick: (() -> Unit)? = null,
     tabDetails: @Composable () -> Unit,
@@ -181,7 +181,7 @@ fun ListItemTabSurface(
 @Composable
 @LightDarkPreview
 private fun ListItemTabLargePreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         ListItemTabLarge(
             imageUrl = "",
             title = "This is a very long title for a tab but needs to be so for this preview",
@@ -193,13 +193,13 @@ private fun ListItemTabLargePreview() {
 @Composable
 @LightDarkPreview
 private fun ListItemTabSurfacePreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         ListItemTabSurface(
             imageUrl = "",
         ) {
             Text(
                 text = "This can be anything",
-                color = FirefoxTheme.colors.textPrimary,
+                color = EyebrowseTheme.colors.textPrimary,
                 fontSize = 22.sp,
             )
         }
@@ -209,14 +209,14 @@ private fun ListItemTabSurfacePreview() {
 @Composable
 @LightDarkPreview
 private fun ListItemTabSurfaceWithCustomBackgroundPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         ListItemTabSurface(
             imageUrl = "",
             backgroundColor = Color.Cyan,
         ) {
             Text(
                 text = "This can be anything",
-                color = FirefoxTheme.colors.textPrimary,
+                color = EyebrowseTheme.colors.textPrimary,
                 fontSize = 22.sp,
             )
         }

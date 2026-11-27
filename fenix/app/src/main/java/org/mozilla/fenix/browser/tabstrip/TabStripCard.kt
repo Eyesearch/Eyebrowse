@@ -18,7 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 private val cardShape = RoundedCornerShape(8.dp)
 internal val defaultTabStripCardElevation = 0.dp
@@ -35,7 +35,7 @@ internal val selectedTabStripCardElevation = 1.dp
 @Composable
 fun TabStripCard(
     modifier: Modifier = Modifier,
-    backgroundColor: Color = FirefoxTheme.colors.layer3,
+    backgroundColor: Color = EyebrowseTheme.colors.layer3,
     elevation: Dp = defaultTabStripCardElevation,
     content: @Composable () -> Unit,
 ) {
@@ -51,7 +51,7 @@ fun TabStripCard(
 @LightDarkPreview
 @Composable
 private fun TabStripCardPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         TabStripCard {
             Box(
                 modifier = Modifier
@@ -62,8 +62,8 @@ private fun TabStripCardPreview() {
             ) {
                 Text(
                     text = "Tab Strip Card",
-                    color = FirefoxTheme.colors.textPrimary,
-                    style = FirefoxTheme.typography.subtitle1,
+                    color = EyebrowseTheme.colors.textPrimary,
+                    style = EyebrowseTheme.typography.subtitle1,
                 )
             }
         }

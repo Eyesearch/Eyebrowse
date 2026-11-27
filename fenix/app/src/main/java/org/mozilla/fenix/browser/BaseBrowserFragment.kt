@@ -179,7 +179,7 @@ import org.mozilla.fenix.settings.SupportUtils
 import org.mozilla.fenix.settings.biometric.BiometricPromptFeature
 import org.mozilla.fenix.tabstray.Page
 import org.mozilla.fenix.tabstray.ext.toDisplayTitle
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.theme.ThemeManager
 import org.mozilla.fenix.utils.allowUndo
 import org.mozilla.fenix.wifi.SitePermissionsWifiIntegration
@@ -486,7 +486,7 @@ abstract class BaseBrowserFragment :
                 parent = binding.browserLayout,
                 hideOnScroll = shouldHideOnScroll,
                 composableContent = {
-                    FirefoxTheme {
+                    EyebrowseTheme {
                         Column {
                             if (isToolbarAtBottom) {
                                 AndroidView(factory = { _ -> browserToolbar })

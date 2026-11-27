@@ -47,7 +47,7 @@ import org.mozilla.fenix.compose.ext.toLocaleString
 import org.mozilla.fenix.debugsettings.ui.DebugDrawer
 import org.mozilla.fenix.ext.maxActiveTime
 import org.mozilla.fenix.tabstray.ext.isNormalTabInactive
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Tab Tools UI for [DebugDrawer] that displays the tab counts and allows easy bulk-opening of tabs.
@@ -145,8 +145,8 @@ private fun TabCounter(
     Column {
         Text(
             text = stringResource(R.string.debug_drawer_tab_tools_tab_count_title),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.headline5,
+            color = EyebrowseTheme.colors.textPrimary,
+            style = EyebrowseTheme.typography.headline5,
         )
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -194,14 +194,14 @@ private fun TabCountRow(
     ) {
         Text(
             text = tabType,
-            color = FirefoxTheme.colors.textSecondary,
-            style = FirefoxTheme.typography.headline6,
+            color = EyebrowseTheme.colors.textSecondary,
+            style = EyebrowseTheme.typography.headline6,
         )
 
         Text(
             text = count.toLocaleString(),
-            color = FirefoxTheme.colors.textSecondary,
-            style = FirefoxTheme.typography.headline6,
+            color = EyebrowseTheme.colors.textSecondary,
+            style = EyebrowseTheme.typography.headline6,
         )
     }
 }
@@ -221,8 +221,8 @@ private fun TabCreationTool(
     Column {
         Text(
             text = stringResource(R.string.debug_drawer_tab_tools_tab_creation_tool_title),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.headline5,
+            color = EyebrowseTheme.colors.textPrimary,
+            style = EyebrowseTheme.typography.headline5,
         )
 
         TextField(
@@ -232,12 +232,12 @@ private fun TabCreationTool(
                 hasError = it.isEmpty() || !it.isDigitsOnly() || it.toInt() == 0
             },
             modifier = Modifier.fillMaxWidth(),
-            textStyle = FirefoxTheme.typography.subtitle1,
+            textStyle = EyebrowseTheme.typography.subtitle1,
             label = {
                 Text(
                     text = stringResource(R.string.debug_drawer_tab_tools_tab_creation_tool_text_field_label),
-                    color = FirefoxTheme.colors.textPrimary,
-                    style = FirefoxTheme.typography.caption,
+                    color = EyebrowseTheme.colors.textPrimary,
+                    style = EyebrowseTheme.typography.caption,
                 )
             },
             isError = hasError,
@@ -251,13 +251,13 @@ private fun TabCreationTool(
             ),
             singleLine = true,
             colors = TextFieldDefaults.textFieldColors(
-                textColor = FirefoxTheme.colors.textPrimary,
+                textColor = EyebrowseTheme.colors.textPrimary,
                 backgroundColor = Color.Transparent,
-                cursorColor = FirefoxTheme.colors.borderFormDefault,
-                errorCursorColor = FirefoxTheme.colors.borderWarning,
-                focusedIndicatorColor = FirefoxTheme.colors.borderPrimary,
-                unfocusedIndicatorColor = FirefoxTheme.colors.borderPrimary,
-                errorIndicatorColor = FirefoxTheme.colors.borderWarning,
+                cursorColor = EyebrowseTheme.colors.borderFormDefault,
+                errorCursorColor = EyebrowseTheme.colors.borderWarning,
+                focusedIndicatorColor = EyebrowseTheme.colors.borderPrimary,
+                unfocusedIndicatorColor = EyebrowseTheme.colors.borderPrimary,
+                errorIndicatorColor = EyebrowseTheme.colors.borderWarning,
             ),
         )
 
@@ -316,9 +316,9 @@ private class TabToolsPreviewParameterProvider : PreviewParameterProvider<TabToo
 private fun TabToolsPreview(
     @PreviewParameter(TabToolsPreviewParameterProvider::class) model: TabToolsPreviewModel,
 ) {
-    FirefoxTheme {
+    EyebrowseTheme {
         Box(
-            modifier = Modifier.background(color = FirefoxTheme.colors.layer1),
+            modifier = Modifier.background(color = EyebrowseTheme.colors.layer1),
         ) {
             TabTools(
                 store = BrowserStore(),

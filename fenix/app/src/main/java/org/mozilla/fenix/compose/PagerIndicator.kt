@@ -28,7 +28,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * An horizontally laid out indicator for a [HorizontalPager] with the ability to leave the trail of
@@ -47,8 +47,8 @@ import org.mozilla.fenix.theme.FirefoxTheme
 fun PagerIndicator(
     pagerState: PagerState,
     modifier: Modifier = Modifier,
-    activeColor: Color = FirefoxTheme.colors.indicatorActive,
-    inactiveColor: Color = FirefoxTheme.colors.indicatorInactive,
+    activeColor: Color = EyebrowseTheme.colors.indicatorActive,
+    inactiveColor: Color = EyebrowseTheme.colors.indicatorInactive,
     leaveTrail: Boolean = false,
     spacing: Dp = 8.dp,
 ) {
@@ -84,25 +84,25 @@ fun PagerIndicator(
 @LightDarkPreview
 @Composable
 private fun PagerIndicatorPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Column(
             modifier = Modifier
-                .background(FirefoxTheme.colors.layer1)
+                .background(EyebrowseTheme.colors.layer1)
                 .padding(32.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
                 text = "Without trail",
-                style = FirefoxTheme.typography.caption,
-                color = FirefoxTheme.colors.textPrimary,
+                style = EyebrowseTheme.typography.caption,
+                color = EyebrowseTheme.colors.textPrimary,
             )
 
             Spacer(modifier = Modifier.height(8.dp))
 
             PagerIndicator(
                 pagerState = rememberPagerState(1, pageCount = { 3 }),
-                activeColor = FirefoxTheme.colors.actionPrimary,
-                inactiveColor = FirefoxTheme.colors.actionSecondary,
+                activeColor = EyebrowseTheme.colors.actionPrimary,
+                inactiveColor = EyebrowseTheme.colors.actionSecondary,
                 modifier = Modifier.align(Alignment.CenterHorizontally),
             )
 
@@ -110,16 +110,16 @@ private fun PagerIndicatorPreview() {
 
             Text(
                 text = "With trail",
-                style = FirefoxTheme.typography.caption,
-                color = FirefoxTheme.colors.textPrimary,
+                style = EyebrowseTheme.typography.caption,
+                color = EyebrowseTheme.colors.textPrimary,
             )
 
             Spacer(modifier = Modifier.height(8.dp))
 
             PagerIndicator(
                 pagerState = rememberPagerState(1, pageCount = { 3 }),
-                activeColor = FirefoxTheme.colors.actionPrimary,
-                inactiveColor = FirefoxTheme.colors.actionSecondary,
+                activeColor = EyebrowseTheme.colors.actionPrimary,
+                inactiveColor = EyebrowseTheme.colors.actionSecondary,
                 leaveTrail = true,
                 modifier = Modifier.align(Alignment.CenterHorizontally),
             )
@@ -128,8 +128,8 @@ private fun PagerIndicatorPreview() {
 
             Text(
                 text = "Default colors",
-                style = FirefoxTheme.typography.caption,
-                color = FirefoxTheme.colors.textPrimary,
+                style = EyebrowseTheme.typography.caption,
+                color = EyebrowseTheme.colors.textPrimary,
             )
 
             Spacer(modifier = Modifier.height(8.dp))

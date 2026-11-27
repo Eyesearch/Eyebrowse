@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import org.mozilla.experiments.nimbus.AvailableExperiment
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.compose.list.TextListItem
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * List of Nimbus Experiments.
@@ -52,7 +52,7 @@ private fun NimbusExperimentsPreview() {
         referenceBranch = null,
     )
 
-    FirefoxTheme {
+    EyebrowseTheme {
         NimbusExperiments(
             experiments = listOf(
                 testExperiment,

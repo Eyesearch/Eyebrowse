@@ -39,7 +39,7 @@ import org.mozilla.fenix.compose.LongPressIconButton
 import org.mozilla.fenix.compose.TabCounter
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.search.SearchDialogFragment
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.theme.Theme
 import org.mozilla.fenix.theme.ThemeManager
 
@@ -177,7 +177,7 @@ private fun NavBar(
 ) {
     Row(
         modifier = Modifier
-            .background(FirefoxTheme.colors.layer1)
+            .background(EyebrowseTheme.colors.layer1)
             .height(dimensionResource(id = R.dimen.browser_navbar_height))
             .fillMaxWidth()
             .padding(horizontal = 16.dp),
@@ -200,7 +200,7 @@ private fun BackButton(
         Icon(
             painter = painterResource(R.drawable.mozac_ic_back_24),
             stringResource(id = R.string.browser_menu_back),
-            tint = if (enabled) FirefoxTheme.colors.iconPrimary else FirefoxTheme.colors.iconDisabled,
+            tint = if (enabled) EyebrowseTheme.colors.iconPrimary else EyebrowseTheme.colors.iconDisabled,
         )
     }
 }
@@ -219,7 +219,7 @@ private fun ForwardButton(
         Icon(
             painter = painterResource(R.drawable.mozac_ic_forward_24),
             stringResource(id = R.string.browser_menu_forward),
-            tint = if (enabled) FirefoxTheme.colors.iconPrimary else FirefoxTheme.colors.iconDisabled,
+            tint = if (enabled) EyebrowseTheme.colors.iconPrimary else EyebrowseTheme.colors.iconDisabled,
         )
     }
 }
@@ -234,7 +234,7 @@ private fun HomeButton(
         Icon(
             painter = painterResource(R.drawable.mozac_ic_home_24),
             stringResource(id = R.string.browser_toolbar_home),
-            tint = FirefoxTheme.colors.iconPrimary,
+            tint = EyebrowseTheme.colors.iconPrimary,
         )
     }
 }
@@ -249,7 +249,7 @@ private fun SearchWebButton(
         Icon(
             painter = painterResource(R.drawable.mozac_ic_search_24),
             stringResource(id = R.string.search_hint),
-            tint = FirefoxTheme.colors.iconPrimary,
+            tint = EyebrowseTheme.colors.iconPrimary,
         )
     }
 }
@@ -272,7 +272,7 @@ private fun TabsButton(
     onTabsButtonClick: () -> Unit,
     tabCount: Int,
 ) {
-    CompositionLocalProvider(LocalContentColor provides FirefoxTheme.colors.iconPrimary) {
+    CompositionLocalProvider(LocalContentColor provides EyebrowseTheme.colors.iconPrimary) {
         IconButton(onClick = { onTabsButtonClick() }) {
             TabCounter(tabCount = tabCount)
         }
@@ -340,7 +340,7 @@ private fun OpenTabNavBarNavBarPreviewRoot(isPrivateMode: Boolean) {
 @LightDarkPreview
 @Composable
 private fun HomeNavBarPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         HomeNavBarPreviewRoot(isPrivateMode = false)
     }
 }
@@ -348,7 +348,7 @@ private fun HomeNavBarPreview() {
 @Preview
 @Composable
 private fun HomeNavBarPrivatePreview() {
-    FirefoxTheme(theme = Theme.Private) {
+    EyebrowseTheme(theme = Theme.Private) {
         HomeNavBarPreviewRoot(isPrivateMode = true)
     }
 }
@@ -356,7 +356,7 @@ private fun HomeNavBarPrivatePreview() {
 @LightDarkPreview
 @Composable
 private fun OpenTabNavBarPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         OpenTabNavBarNavBarPreviewRoot(isPrivateMode = false)
     }
 }
@@ -364,7 +364,7 @@ private fun OpenTabNavBarPreview() {
 @Preview
 @Composable
 private fun OpenTabNavBarPrivatePreview() {
-    FirefoxTheme(theme = Theme.Private) {
+    EyebrowseTheme(theme = Theme.Private) {
         OpenTabNavBarNavBarPreviewRoot(isPrivateMode = true)
     }
 }

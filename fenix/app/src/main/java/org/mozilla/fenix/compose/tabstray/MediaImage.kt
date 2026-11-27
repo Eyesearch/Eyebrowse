@@ -21,7 +21,7 @@ import mozilla.components.browser.state.state.createTab
 import mozilla.components.concept.engine.mediasession.MediaSession.PlaybackState
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Controller buttons for the media (play/pause) state for the given [tab].
@@ -62,7 +62,7 @@ fun MediaImage(
 @Composable
 @LightDarkPreview
 private fun ImagePreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         MediaImage(
             tab = createTab(url = "https://mozilla.com"),
             onMediaIconClicked = {},

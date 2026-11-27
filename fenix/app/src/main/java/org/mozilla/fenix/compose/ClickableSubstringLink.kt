@@ -16,7 +16,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * [Text] containing a substring styled as an URL informing when this is clicked.
@@ -34,9 +34,9 @@ import org.mozilla.fenix.theme.FirefoxTheme
 @Composable
 fun ClickableSubstringLink(
     text: String,
-    textStyle: TextStyle = FirefoxTheme.typography.caption,
-    textColor: Color = FirefoxTheme.colors.textPrimary,
-    linkTextColor: Color = FirefoxTheme.colors.textAccent,
+    textStyle: TextStyle = EyebrowseTheme.typography.caption,
+    textColor: Color = EyebrowseTheme.colors.textPrimary,
+    linkTextColor: Color = EyebrowseTheme.colors.textAccent,
     linkTextDecoration: TextDecoration? = null,
     clickableStartIndex: Int,
     clickableEndIndex: Int,
@@ -93,8 +93,8 @@ fun ClickableSubstringLink(
 private fun ClickableSubstringTextPreview() {
     val text = "This text contains a link"
 
-    FirefoxTheme {
-        Box(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Box(modifier = Modifier.background(color = EyebrowseTheme.colors.layer1)) {
             ClickableSubstringLink(
                 text = text,
                 linkTextDecoration = TextDecoration.Underline,

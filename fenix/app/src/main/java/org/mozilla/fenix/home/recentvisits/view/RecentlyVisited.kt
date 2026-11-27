@@ -53,7 +53,7 @@ import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.home.recentvisits.RecentlyVisitedItem
 import org.mozilla.fenix.home.recentvisits.RecentlyVisitedItem.RecentHistoryGroup
 import org.mozilla.fenix.home.recentvisits.RecentlyVisitedItem.RecentHistoryHighlight
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 // Number of recently visited items per column.
 private const val VISITS_PER_COLUMN = 3
@@ -94,7 +94,7 @@ private val multipleColumnsWidth: Dp =
 fun RecentlyVisited(
     recentVisits: List<RecentlyVisitedItem>,
     menuItems: List<RecentVisitMenuItem>,
-    backgroundColor: Color = FirefoxTheme.colors.layer2,
+    backgroundColor: Color = EyebrowseTheme.colors.layer2,
     onRecentVisitClick: (RecentlyVisitedItem, Int) -> Unit = { _, _ -> },
 ) {
     val itemsMatrix: List<List<RecentlyVisitedItem>> = recentVisits.chunked(VISITS_PER_COLUMN)
@@ -357,7 +357,7 @@ private fun RecentlyVisitedTitle(
     Text(
         text = text,
         modifier = modifier,
-        color = FirefoxTheme.colors.textPrimary,
+        color = EyebrowseTheme.colors.textPrimary,
         fontSize = 16.sp,
         overflow = TextOverflow.Ellipsis,
         maxLines = 1,
@@ -385,8 +385,8 @@ private fun RecentlyVisitedCaption(
         text = String.format(LocalContext.current.getString(stringId), count),
         modifier = modifier,
         color = when (isSystemInDarkTheme()) {
-            true -> FirefoxTheme.colors.textPrimary
-            false -> FirefoxTheme.colors.textSecondary
+            true -> EyebrowseTheme.colors.textPrimary
+            false -> EyebrowseTheme.colors.textSecondary
         },
         fontSize = 12.sp,
         overflow = TextOverflow.Ellipsis,
@@ -397,7 +397,7 @@ private fun RecentlyVisitedCaption(
 @Composable
 @LightDarkPreview
 private fun RecentlyVisitedMultipleColumnsPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         RecentlyVisited(
             recentVisits = listOf(
                 RecentHistoryGroup(title = "running shoes"),
@@ -413,7 +413,7 @@ private fun RecentlyVisitedMultipleColumnsPreview() {
 @Composable
 @LightDarkPreview
 private fun RecentlyVisitedSingleColumnPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         RecentlyVisited(
             recentVisits = listOf(
                 RecentHistoryGroup(title = "running shoes"),

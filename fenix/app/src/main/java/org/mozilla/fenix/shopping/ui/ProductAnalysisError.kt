@@ -23,7 +23,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.shopping.store.ReviewQualityCheckState
 import org.mozilla.fenix.shopping.store.ReviewQualityCheckState.OptedIn.ProductReviewState
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Product analysis error UI
@@ -171,11 +171,11 @@ fun ProductAnalysisError(
 @Composable
 @LightDarkPreview
 private fun ProductAnalysisErrorPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(color = FirefoxTheme.colors.layer1)
+                .background(color = EyebrowseTheme.colors.layer1)
                 .padding(all = 16.dp),
         ) {
             var productRecommendationsEnabled by remember { mutableStateOf(false) }

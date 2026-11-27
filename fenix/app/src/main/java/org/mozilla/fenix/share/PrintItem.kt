@@ -21,7 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * A Print item.
@@ -44,15 +44,15 @@ fun PrintItem(
         Icon(
             painter = painterResource(R.drawable.ic_print),
             contentDescription = null,
-            tint = FirefoxTheme.colors.iconPrimary,
+            tint = EyebrowseTheme.colors.iconPrimary,
         )
 
         Spacer(Modifier.width(32.dp))
 
         Text(
-            color = FirefoxTheme.colors.textPrimary,
+            color = EyebrowseTheme.colors.textPrimary,
             text = stringResource(R.string.menu_print),
-            style = FirefoxTheme.typography.subtitle1,
+            style = EyebrowseTheme.typography.subtitle1,
         )
     }
 }
@@ -61,7 +61,7 @@ fun PrintItem(
 @Preview
 @LightDarkPreview
 private fun PrintItemPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         PrintItem {}
     }
 }

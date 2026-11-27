@@ -27,7 +27,7 @@ import org.mozilla.fenix.compose.ComposeViewHolder
 import org.mozilla.fenix.compose.MenuItem
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.home.sessioncontrol.CollectionInteractor
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * [RecyclerView.ViewHolder] for displaying an individual [TabCollection].
@@ -117,13 +117,13 @@ private fun getMenuItems(
     return listOfNotNull(
         MenuItem(
             title = stringResource(R.string.collection_open_tabs),
-            color = FirefoxTheme.colors.textPrimary,
+            color = EyebrowseTheme.colors.textPrimary,
         ) {
             onOpenTabsTapped(collection)
         },
         MenuItem(
             title = stringResource(R.string.collection_rename),
-            color = FirefoxTheme.colors.textPrimary,
+            color = EyebrowseTheme.colors.textPrimary,
         ) {
             onRenameCollectionTapped(collection)
         },
@@ -131,7 +131,7 @@ private fun getMenuItems(
         if (LocalContext.current.components.core.store.state.normalTabs.isNotEmpty()) {
             MenuItem(
                 title = stringResource(R.string.add_tab),
-                color = FirefoxTheme.colors.textPrimary,
+                color = EyebrowseTheme.colors.textPrimary,
             ) {
                 onAddTabTapped(collection)
             }
@@ -141,7 +141,7 @@ private fun getMenuItems(
 
         MenuItem(
             title = stringResource(R.string.collection_delete),
-            color = FirefoxTheme.colors.textWarning,
+            color = EyebrowseTheme.colors.textWarning,
         ) {
             onDeleteCollectionTapped(collection)
         },
