@@ -45,7 +45,7 @@ def tracked():
         ["git", "ls-files", "-z"]).decode().split("\0") if p]
 def is_candidate(p):
     s = p.as_posix()
-    if not (s.startswith("eyebrowse/") or s.startswith(".github/workflows/")):
+    if not s.startswith("eyebrowse/"):
         return False
     if any(x in p.parts for x in ("assets", "raw", "resources", "certificates")):
         return False

@@ -119,7 +119,7 @@ jobs:
               "ic_logo_wordmark_normal", "ic_logo_wordmark_private", "ic_splash_logo",
               "ic_launcher", "ic_launcher_round", "ic_launcher_foreground",
               "ic_launcher_private", "ic_launcher_private_round", "ic_launcher_private_foreground",
-              "ic_launcher_monochrome", "fenix_search_widget",
+              "ic_launcher_monochrome", "eyebrowse_search_widget",
           }
           bad = []
           for source in root.iterdir():

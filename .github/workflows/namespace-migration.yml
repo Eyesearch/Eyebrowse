@@ -31,10 +31,14 @@ jobs:
         working-directory: .
         run: |
           set -euo pipefail
-          python3 -m py_compile eyebrowse/tools/migrate_namespace.py
+          python3 -c 'from pathlib import Path; p = Path("eyebrowse/tools/migrate_namespace.py"); compile(p.read_text(), str(p), "exec")'
           python3 eyebrowse/tools/migrate_namespace.py
           python3 eyebrowse/tools/migrate_namespace.py --apply
-          git add -A
+          git add -A -- eyebrowse/
+          if ! git diff --quiet -- .github/workflows/ || ! git diff --cached --quiet -- .github/workflows/; then
+            echo 'Migration must not modify GitHub workflows'
+            exit 1
+          fi
           git diff --cached --check
           git diff --cached --stat
           git diff --cached --binary > /tmp/eyebrowse-namespace.patch
