@@ -1,6 +1,6 @@
 # Eyebrowse Android app
 
-This module contains the Eyebrowse Android application. The application project lives in `eyebrowse/`. The inherited Gradle flavor `fenix` and Kotlin namespace remain for compatibility with generated code and upstream libraries.
+This module contains the Eyebrowse Android application. The application project lives in `eyebrowse/`. The Gradle product flavor is `eyebrowse`. The inherited Kotlin namespace remains pending a coordinated migration.
 
 - [Eyebrowse repository](https://github.com/Eyesearch/Eyebrowse)
 - [Eyebrowse issues](https://github.com/Eyesearch/Eyebrowse/issues)
@@ -15,10 +15,10 @@ Install JDK 17, Android SDK 34 and the Android build tools. Clone this repositor
 ```sh
 git clone https://github.com/Eyesearch/Eyebrowse.git
 cd Eyebrowse/eyebrowse
-./gradlew assembleFenixDebug
+./gradlew assembleEyebrowseDebug
 ```
 
-For source-only compilation, use `./gradlew :app:compileFenixDebugKotlin`. The `fenix` task prefix is an internal Gradle flavor, not the product name. Refer to the root README for CI triggers.
+For source-only compilation, use `./gradlew :app:compileEyebrowseDebugKotlin`. The `Eyebrowse` task prefix reflects the product flavor. Refer to the root README for CI triggers.
 
 ### Build variants
 

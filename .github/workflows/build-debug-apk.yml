@@ -189,13 +189,13 @@ jobs:
           chmod +x ./gradlew
           # Only the arm64-v8a split is built: modern 64-bit devices are the
           # target, and it keeps the artifact around 80 MB instead of 450 MB.
-          ./gradlew :app:assembleFenixDebug -Pabis=arm64-v8a --stacktrace
+          ./gradlew :app:assembleEyebrowseDebug -Pabis=arm64-v8a --stacktrace
 
       - name: Upload the debug APK
         uses: actions/upload-artifact@v4
         with:
           name: Eyebrowse-Debug-APK
-          path: eyebrowse/app/build/outputs/apk/fenix/debug/*arm64*.apk
+          path: eyebrowse/app/build/outputs/apk/eyebrowse/debug/*arm64*.apk
           if-no-files-found: error
           retention-days: 14
 
@@ -327,19 +327,19 @@ jobs:
           # Eyebrowse: a release build with shrinking on, signed with the debug key
           # so it can be installed straight away. This is the build users get: the
           # debug one carries every language, every symbol and no shrinking.
-          ./gradlew :app:assembleFenixRelease \
+          ./gradlew :app:assembleEyebrowseRelease \
             -Pabis=arm64-v8a \
             -PlocalProperties.autosignReleaseWithDebugKey=true \
             --stacktrace
 
       - name: Report the sizes
         run: |
-          ls -l app/build/outputs/apk/fenix/release/*arm64*.apk || true
+          ls -l app/build/outputs/apk/eyebrowse/release/*arm64*.apk || true
 
       - name: Upload the release APK
         uses: actions/upload-artifact@v4
         with:
           name: Eyebrowse-Release-APK
-          path: eyebrowse/app/build/outputs/apk/fenix/release/*arm64*.apk
+          path: eyebrowse/app/build/outputs/apk/eyebrowse/release/*arm64*.apk
           if-no-files-found: error
           retention-days: 14

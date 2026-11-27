@@ -180,4 +180,4 @@ jobs:
       - name: Compile the debug variant
         run: |
           chmod +x ./gradlew
-          ./gradlew :app:compileFenixDebugKotlin -Pabis=arm64-v8a --stacktrace
+          ./gradlew :app:compileEyebrowseDebugKotlin -Pabis=arm64-v8a --stacktrace

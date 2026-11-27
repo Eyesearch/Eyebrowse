@@ -17,7 +17,7 @@ Use JDK 17 and Android SDK 34. The ordinary build resolves GeckoView and other d
 
 ```sh
 cd eyebrowse
-./gradlew assembleFenixDebug
+./gradlew assembleEyebrowseDebug
 ```
 
 The APK workflow is `Build APKs`; it runs on manual dispatch or an `apk-*` tag. The compile-check workflow runs on pushes to develop and relevant pull requests. Do not create APK tags just to change documentation or branding.

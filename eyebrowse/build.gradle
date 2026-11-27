@@ -274,7 +274,7 @@ tasks.register("listRepositories") {
 }
 
 tasks.register("githubTestDetails", GithubDetailsTask) {
-    text = "### [Unit Test Results Eyebrowse]({reportsUrl}/test/testFenixDebugUnitTest/index.html)"
+    text = "### [Unit Test Results Eyebrowse]({reportsUrl}/test/testEyebrowseDebugUnitTest/index.html)"
 }
 
 tasks.register("githubLintDetektDetails", GithubDetailsTask) {
