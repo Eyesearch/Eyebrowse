@@ -60,6 +60,7 @@ import org.eyesearch.eyebrowse.account.IndoAccountError
 import org.eyesearch.eyebrowse.account.IndoIdentity
 import org.eyesearch.eyebrowse.account.IndoAccountStorage
 import org.eyesearch.eyebrowse.vpn.VpnController
+import org.eyesearch.eyebrowse.vpn.VpnGateDirectory
 import org.eyesearch.eyebrowse.vpn.VpnNavigationGuard
 import org.eyesearch.eyebrowse.sync.SyncClient
 import org.eyesearch.eyebrowse.sync.SyncFactory
@@ -568,6 +569,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
             getString(R.string.preferences_vpn_vpnbook),
             getString(R.string.preferences_vpn_import),
             getString(R.string.preferences_vpn_clear),
+            getString(R.string.preferences_vpn_gate),
         )
         AlertDialog.Builder(context)
             .setTitle(R.string.preferences_vpn_profiles)
@@ -589,10 +591,63 @@ class SettingsFragment : PreferenceFragmentCompat() {
                         }
                         .setNegativeButton(android.R.string.cancel, null)
                         .show()
+                    4 -> showVpnGateConsent()
                 }
             }
             .setNegativeButton(android.R.string.cancel, null)
             .show()
+    }
+
+    private fun showVpnGateConsent() {
+        val context = context ?: return
+        AlertDialog.Builder(context)
+            .setTitle(R.string.preferences_vpn_gate)
+            .setMessage(R.string.preferences_vpn_gate_consent)
+            .setPositiveButton(R.string.preferences_vpn_gate_browse) { _, _ ->
+                loadVpnGateDirectory()
+            }
+            .setNeutralButton(R.string.preferences_vpn_gate_policy) { _, _ ->
+                openVpnProvider("https://www.vpngate.net/en/about_abuse.aspx")
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .show()
+    }
+
+    private fun loadVpnGateDirectory() {
+        val context = context ?: return
+        val progress = AlertDialog.Builder(context)
+            .setMessage(R.string.preferences_vpn_gate_loading)
+            .setNegativeButton(android.R.string.cancel, null)
+            .create()
+        progress.show()
+        val job = viewLifecycleOwner.lifecycleScope.launch {
+            val servers = VpnGateDirectory.fetch()
+            if (!isAdded || !progress.isShowing) return@launch
+            progress.dismiss()
+            if (servers.isEmpty()) {
+                AlertDialog.Builder(requireContext())
+                    .setMessage(R.string.preferences_vpn_gate_unavailable)
+                    .setPositiveButton(android.R.string.ok, null)
+                    .show()
+                return@launch
+            }
+            val rows = servers.map { server ->
+                getString(R.string.preferences_vpn_gate_row, server.country, server.host, server.pingMs, server.logType)
+            }.joinToString("\n\n")
+            AlertDialog.Builder(requireContext())
+                .setTitle(R.string.preferences_vpn_gate_results)
+                .setMessage(getString(R.string.preferences_vpn_gate_preview) + "\n\n" + rows)
+                .setPositiveButton(R.string.preferences_vpn_gate_instructions) { _, _ ->
+                    openVpnProvider("https://www.vpngate.net/en/howto_openvpn.aspx")
+                }
+                .setNegativeButton(android.R.string.cancel, null)
+                .show()
+        }
+        progress.setOnCancelListener { job.cancel() }
+        progress.setOnDismissListener {
+            // An explicit dismiss cancels only if the dialog was closed before results.
+            if (!job.isCompleted && !isAdded) job.cancel()
+        }
     }
 
     private fun openVpnProvider(url: String) {

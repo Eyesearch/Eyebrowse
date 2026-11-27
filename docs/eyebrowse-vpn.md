@@ -15,7 +15,7 @@ Both links open official provider pages. No shared credentials, scraped keys,
 undocumented provisioning API, CAPTCHA bypass, paid subscription or company
 VPN hosting is used. VPN Gate's public directory permits third-party clients
 but uses OpenVPN rather than WireGuard and records connection metadata.
-It is deliberately not integrated here.
+An opt-in read-only directory preview is implemented; OpenVPN connection is not.
 
 ## Usage and actual behavior
 1. Settings > Free VPN providers and profiles > choose an official provider.
@@ -81,3 +81,22 @@ and real connection testing. Do not expose an automatic server selector until a
 working protocol backend exists. No company-hosted servers will be introduced.
 Android always-on lockdown can impact excluded apps and cannot be silently enabled
 as a browser-only kill switch: https://developer.android.com/develop/connectivity/vpn
+
+## VPN Gate discovery implementation
+Official source: https://www.vpngate.net/api/iphone/ (VPN Gate explicitly permits
+CSV clients: https://www.vpngate.net/en/). Fetch only after a user opens the
+provider and accepts its logging disclosure. Use HTTPS, no redirects, bounded
+response size/timeouts, exact schema checks, metadata sanitization and a capped
+ranked list. Do not download separate files, apply remote configuration, persist
+server records, or change connection status. The listed score and ping are
+provider-reported. The directory is not a server selection/connect control.
+
+OpenVPN for Android's embedded code is GPLv2 with additional derivative-work
+clarifications: https://github.com/schwabe/ics-openvpn/blob/master/doc/LICENSE.txt
+Its external AIDL sample is Apache-2.0, but requires a separate app and does not
+by itself guarantee Eyebrowse-only routing. OpenVPN 3 requires a reviewed native
+Android integration: https://github.com/OpenVPN/openvpn3. No native backend or
+companion app is bundled. Before enabling connection, resolve distribution
+licensing, pin supported versions, test ABI and Android foreground service,
+validate relay config and certificate verification, DNS and routing, explicit
+provider consent, and actual connection/failover. Keep WireGuard independent.

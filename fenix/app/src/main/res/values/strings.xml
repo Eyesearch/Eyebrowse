@@ -616,6 +616,16 @@
     <string name="preferences_vpn_profiles_summary">Get a free profile, add backups, or remove saved keys</string>
     <string name="preferences_vpn_proton">Proton VPN — free account required</string>
     <string name="preferences_vpn_vpnbook">VPNBook — free, configuration expires after 7 days</string>
+    <string name="preferences_vpn_gate">VPN Gate — browse free volunteer servers</string>
+    <string name="preferences_vpn_gate_consent">VPN Gate is operated by volunteers and logs access to its server directory and VPN connections. Fetching the list shares your network IP with VPN Gate. The list is for discovery only; Eyebrowse cannot connect to these OpenVPN servers yet. Do not use this provider as a no-logs VPN.</string>
+    <string name="preferences_vpn_gate_browse">Browse servers</string>
+    <string name="preferences_vpn_gate_policy">Privacy policy</string>
+    <string name="preferences_vpn_gate_loading">Loading VPN Gate public directory…</string>
+    <string name="preferences_vpn_gate_unavailable">No usable server information was returned. Try again later.</string>
+    <string name="preferences_vpn_gate_results">VPN Gate server directory</string>
+    <string name="preferences_vpn_gate_preview">Directory preview only. These are provider-reported results, not measured on your device. No VPN connection has been started.</string>
+    <string name="preferences_vpn_gate_row">%1$s · %2$s\nReported ping: %3$d ms · Logging: %4$s</string>
+    <string name="preferences_vpn_gate_instructions">Official OpenVPN instructions</string>
     <string name="preferences_vpn_clear">Remove all saved profiles</string>
     <string name="preferences_vpn_clear_confirm">Remove every saved VPN profile from Eyebrowse?</string>
     <string name="preferences_vpn_profile_saved">VPN profile added. Tap VPN to connect.</string>
