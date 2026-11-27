@@ -128,6 +128,7 @@ internal class NativeOpenVpnBackend : OpenVpnExperiment.Backend, VpnStatus.State
     }
 
     override fun stop(context: Context) {
+        if (mutable.value == OpenVpnExperiment.Status.OFF) return
         deadline?.cancel()
         mutable.value = OpenVpnExperiment.Status.STOPPING
         val conn = object : ServiceConnection {

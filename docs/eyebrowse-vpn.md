@@ -147,3 +147,9 @@ VPN Gate profile; do not weaken it just to connect. Verify actual native config,
 certificate trust, routing, callback ordering, service/manifest and SDK/toolchain
 compatibility, stop and process recreation, and all ABIs before enabling release.
 No APK or native compile has been run. Default VPN Gate directory remains read-only.
+
+The upstream temporary-profile API saves a temporary profile to app-private
+storage. This path is for public VPN Gate profiles only (not private user keys).
+Do not claim memory-only storage for this engine; review deletion, backup and
+process-restart behavior before release. The selected candidate is displayed
+before connect. A stop request while OFF is a no-op.

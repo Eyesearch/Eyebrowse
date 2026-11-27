@@ -548,6 +548,10 @@ class SettingsFragment : PreferenceFragmentCompat() {
         }
         preference.setOnPreferenceChangeListener { _, newValue ->
             if (newValue == true) {
+                if (OpenVpnExperiment.busy) {
+                    showExperimentalOpenVpnStatus()
+                    return@setOnPreferenceChangeListener false
+                }
                 if (VpnController.hasProfiles(context)) {
                     requestVpnConsent()
                 } else {
@@ -680,7 +684,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
             val rows = servers.map { server ->
                 getString(R.string.preferences_vpn_gate_row, server.country, server.host, server.pingMs, server.logType)
             }.joinToString("\n\n")
-            val candidate = servers.firstNotNullOfOrNull { it.validatedProfile }
+            val candidate = servers.firstOrNull { it.validatedProfile != null }
             val results = AlertDialog.Builder(requireContext())
                 .setTitle(R.string.preferences_vpn_gate_results)
                 .setMessage(getString(if (OpenVpnExperiment.enabled) R.string.preferences_vpn_gate_experimental else R.string.preferences_vpn_gate_preview) + "\n\n" + rows)
@@ -689,8 +693,9 @@ class SettingsFragment : PreferenceFragmentCompat() {
                 }
                 .setNegativeButton(android.R.string.cancel, null)
             if (OpenVpnExperiment.enabled && candidate != null) {
+                results.setTitle(getString(R.string.preferences_vpn_gate_selected, candidate.country, candidate.host))
                 results.setPositiveButton(R.string.preferences_vpn_gate_connect) { _, _ ->
-                    startExperimentalOpenVpn(candidate)
+                    candidate.validatedProfile?.let { startExperimentalOpenVpn(it) }
                 }
             } else if (OpenVpnExperiment.enabled) {
                 results.setTitle(R.string.preferences_vpn_gate_no_compatible)
