@@ -51,9 +51,10 @@ class SessionControlViewTest {
         )
 
         assertTrue(results[0] is AdapterItem.TopPlaceholderItem)
-        assertTrue(results[1] is AdapterItem.RecentBookmarksHeader)
-        assertTrue(results[2] is AdapterItem.RecentBookmarks)
-        assertTrue(results[3] is AdapterItem.CustomizeHomeButton)
+        assertTrue(results[1] is AdapterItem.OurApps)
+        assertTrue(results[2] is AdapterItem.RecentBookmarksHeader)
+        assertTrue(results[3] is AdapterItem.RecentBookmarks)
+        assertTrue(results[4] is AdapterItem.CustomizeHomeButton)
     }
 
     @Test
@@ -121,9 +122,10 @@ class SessionControlViewTest {
         )
 
         assertTrue(results[0] is AdapterItem.TopPlaceholderItem)
-        assertTrue(results[1] is AdapterItem.RecentTabsHeader)
-        assertTrue(results[2] is AdapterItem.RecentTabItem)
-        assertTrue(results[3] is AdapterItem.CustomizeHomeButton)
+        assertTrue(results[1] is AdapterItem.OurApps)
+        assertTrue(results[2] is AdapterItem.RecentTabsHeader)
+        assertTrue(results[3] is AdapterItem.RecentTabItem)
+        assertTrue(results[4] is AdapterItem.CustomizeHomeButton)
     }
 
     @Test
@@ -157,9 +159,10 @@ class SessionControlViewTest {
         )
 
         assertTrue(results[0] is AdapterItem.TopPlaceholderItem)
-        assertTrue(results[1] is AdapterItem.RecentVisitsHeader)
-        assertTrue(results[2] is AdapterItem.RecentVisitsItems)
-        assertTrue(results[3] is AdapterItem.CustomizeHomeButton)
+        assertTrue(results[1] is AdapterItem.OurApps)
+        assertTrue(results[2] is AdapterItem.RecentVisitsHeader)
+        assertTrue(results[3] is AdapterItem.RecentVisitsItems)
+        assertTrue(results[4] is AdapterItem.CustomizeHomeButton)
     }
 
     @Test
@@ -194,10 +197,11 @@ class SessionControlViewTest {
         )
 
         assertTrue(results[0] is AdapterItem.TopPlaceholderItem)
-        assertTrue(results[1] is AdapterItem.PocketStoriesItem)
-        assertTrue(results[2] is AdapterItem.PocketCategoriesItem)
-        assertTrue(results[3] is AdapterItem.PocketRecommendationsFooterItem)
-        assertTrue(results[4] is AdapterItem.CustomizeHomeButton)
+        assertTrue(results[1] is AdapterItem.OurApps)
+        assertTrue(results[2] is AdapterItem.PocketStoriesItem)
+        assertTrue(results[3] is AdapterItem.PocketCategoriesItem)
+        assertTrue(results[4] is AdapterItem.PocketRecommendationsFooterItem)
+        assertTrue(results[5] is AdapterItem.CustomizeHomeButton)
 
         // When the first frame has not yet drawn don't add pocket.
         val results2 = normalModeAdapterItems(
@@ -216,7 +220,8 @@ class SessionControlViewTest {
         )
 
         assertTrue(results2[0] is AdapterItem.TopPlaceholderItem)
-        assertTrue(results2[1] is AdapterItem.BottomSpacer)
+        assertTrue(results2[1] is AdapterItem.OurApps)
+        assertTrue(results2[2] is AdapterItem.BottomSpacer)
     }
 
     @Test
@@ -248,8 +253,10 @@ class SessionControlViewTest {
             historyMetadata,
             pocketStories,
         )
-        assertEquals(results.size, 2)
+        assertEquals(3, results.size)
+        assertTrue(results[2] is AdapterItem.BottomSpacer)
         assertTrue(results[0] is AdapterItem.TopPlaceholderItem)
+        assertTrue(results[1] is AdapterItem.OurApps)
     }
 
     @Test
@@ -287,5 +294,6 @@ class SessionControlViewTest {
         )
 
         assertTrue(results[0] is AdapterItem.TopPlaceholderItem)
+        assertTrue(results[1] is AdapterItem.OurApps)
     }
 }

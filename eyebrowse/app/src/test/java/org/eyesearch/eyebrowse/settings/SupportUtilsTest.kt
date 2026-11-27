@@ -18,15 +18,15 @@ class SupportUtilsTest {
     @Test
     fun getSumoURLForTopic() {
         assertEquals(
-            "https://support.mozilla.org/1/mobile/1.6/Android/en-US/common-myths-about-private-browsing",
+            "https://eyesearch.github.io/Eyebrowse/",
             SupportUtils.getSumoURLForTopic(mockContext("1.6"), SupportUtils.SumoTopic.PRIVATE_BROWSING_MYTHS, Locale("en", "US")),
         )
         assertEquals(
-            "https://support.mozilla.org/1/mobile/20/Android/fr/tracking-protection-eyebrowse-android",
+            "https://eyesearch.github.io/Eyebrowse/",
             SupportUtils.getSumoURLForTopic(mockContext("2 0"), SupportUtils.SumoTopic.TRACKING_PROTECTION, Locale("fr")),
         )
         assertEquals(
-            "https://www.mozilla.org/eyebrowse/android/notes",
+            "https://eyesearch.github.io/Eyebrowse/",
             SupportUtils.WHATS_NEW_URL,
         )
     }
@@ -34,11 +34,11 @@ class SupportUtilsTest {
     @Test
     fun getGenericSumoURLForTopic() {
         assertEquals(
-            "https://support.mozilla.org/en-GB/kb/faq-android",
+            "https://eyesearch.github.io/Eyebrowse/",
             SupportUtils.getGenericSumoURLForTopic(SupportUtils.SumoTopic.HELP, Locale("en", "GB")),
         )
         assertEquals(
-            "https://support.mozilla.org/de/kb/your-rights",
+            "https://eyesearch.github.io/Eyebrowse/",
             SupportUtils.getGenericSumoURLForTopic(SupportUtils.SumoTopic.YOUR_RIGHTS, Locale("de")),
         )
     }
@@ -46,11 +46,11 @@ class SupportUtilsTest {
     @Test
     fun getMozillaPageUrl() {
         assertEquals(
-            "https://www.mozilla.org/en-US/about/manifesto/",
+            "https://eyesearch.github.io/Eyebrowse/",
             SupportUtils.getMozillaPageUrl(SupportUtils.MozillaPage.MANIFESTO, Locale("en", "US")),
         )
         assertEquals(
-            "https://www.mozilla.org/zh/privacy/eyebrowse/",
+            "https://eyesearch.github.io/Eyebrowse/",
             SupportUtils.getMozillaPageUrl(SupportUtils.MozillaPage.PRIVATE_NOTICE, Locale("zh")),
         )
     }

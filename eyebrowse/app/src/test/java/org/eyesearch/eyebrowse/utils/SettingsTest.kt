@@ -156,10 +156,10 @@ class SettingsTest {
     }
 
     @Test
-    fun isTelemetryEnabled() {
+    fun `telemetry is disabled by default`() {
         // When just created
         // Then
-        assertTrue(settings.isTelemetryEnabled)
+        assertFalse(settings.isTelemetryEnabled)
     }
 
     @Test

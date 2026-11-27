@@ -11,9 +11,7 @@ import io.mockk.mockk
 import io.mockk.runs
 import io.mockk.slot
 import mozilla.components.service.nimbus.messaging.NimbusSystem
-import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
-import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.mozilla.experiments.nimbus.NimbusInterface
@@ -57,27 +55,27 @@ class NimbusSystemTest {
     }
 
     @Test
-    fun `GIVEN a nimbus object WHEN calling maybeFetchExperiments after an interval THEN call fetchExperiments`() {
+    fun `GIVEN a nimbus object WHEN calling maybeFetchExperiments after an interval THEN do not fetch while experiments are disabled`() {
         val elapsedTime: Long = Settings.ONE_HOUR_MS + 1
         nimbus.maybeFetchExperiments(
             context,
             config,
             elapsedTime,
         )
-        assertTrue(nimbus.isFetching)
-        assertEquals(elapsedTime, lastTimeSlot.captured)
+        assertFalse(nimbus.isFetching)
+        assertFalse(lastTimeSlot.isCaptured)
     }
 
     @Test
-    fun `GIVEN a nimbus object WHEN calling maybeFetchExperiments at exactly an interval THEN call fetchExperiments`() {
+    fun `GIVEN a nimbus object WHEN calling maybeFetchExperiments at exactly an interval THEN do not fetch while experiments are disabled`() {
         val elapsedTime: Long = Settings.ONE_HOUR_MS
         nimbus.maybeFetchExperiments(
             context,
             config,
             elapsedTime,
         )
-        assertTrue(nimbus.isFetching)
-        assertEquals(elapsedTime, lastTimeSlot.captured)
+        assertFalse(nimbus.isFetching)
+        assertFalse(lastTimeSlot.isCaptured)
     }
 
     @Test
@@ -92,42 +90,42 @@ class NimbusSystemTest {
     }
 
     @Test
-    fun `GIVEN a nimbus object WHEN calling maybeFetchExperiments at without an elapsedTime THEN call fetchExperiments`() {
+    fun `GIVEN a nimbus object WHEN calling maybeFetchExperiments at without an elapsedTime THEN do not fetch while experiments are disabled`() {
         // since elapsedTime = currentTimeMillis
         nimbus.maybeFetchExperiments(
             context,
             config,
         )
-        assertTrue(nimbus.isFetching)
+        assertFalse(nimbus.isFetching)
     }
 
     @Test
-    fun `GIVEN a nimbus object calling maybeFetchExperiments WHEN using a preview collection THEN always call fetchExperiments`() {
+    fun `GIVEN a nimbus object calling maybeFetchExperiments WHEN using a preview collection THEN do not fetch while experiments are disabled`() {
         var currentTime = 0L
-        fun assertFetchEveryTime() {
+        fun assertNoFetch() {
             nimbus.maybeFetchExperiments(
                 context,
                 config,
                 currentTime,
             )
-            assertTrue(nimbus.isFetching)
-            assertEquals(lastTimeSlot.captured, 0L)
+            assertFalse(nimbus.isFetching)
+            assertFalse(lastTimeSlot.isCaptured)
             nimbus.isFetching = false
         }
 
-        // Using usePreview, we call fetch every time we call maybeFetch.
+        // Preview mode must not bypass the disabled-experiments policy.
         every { settings.nimbusUsePreview } returns true
         currentTime = Settings.ONE_HOUR_MS
-        assertFetchEveryTime()
+        assertNoFetch()
 
         currentTime += Settings.ONE_MINUTE_MS
-        assertFetchEveryTime()
+        assertNoFetch()
 
         currentTime += Settings.ONE_MINUTE_MS
-        assertFetchEveryTime()
+        assertNoFetch()
 
         // Now turn preview collection off.
-        // We should fetch exactly once…
+        // Disabling preview must not enable remote fetching.
         every { settings.nimbusUsePreview } returns false
 
         currentTime += Settings.ONE_MINUTE_MS
@@ -136,13 +134,12 @@ class NimbusSystemTest {
             config,
             currentTime,
         )
-        assertTrue(nimbus.isFetching)
-        assertEquals(lastTimeSlot.captured, currentTime)
+        assertFalse(nimbus.isFetching)
+        assertFalse(lastTimeSlot.isCaptured)
         nimbus.isFetching = false
         every { settings.nimbusLastFetchTime } returns currentTime
 
-        // … and then back off. We show here that the next call to maybeFetch
-        // doesn't call fetch.
+        // Repeated calls remain disabled.
         currentTime += Settings.ONE_MINUTE_MS
         nimbus.maybeFetchExperiments(
             context,
@@ -151,14 +148,14 @@ class NimbusSystemTest {
         )
         assertFalse(nimbus.isFetching)
 
-        // Now wait, another hour, and we've reset the behaviour back to normal operation.
+        // Even after an hour, experiments remain disabled.
         currentTime += Settings.ONE_HOUR_MS + Settings.ONE_MINUTE_MS
         nimbus.maybeFetchExperiments(
             context,
             config,
             currentTime,
         )
-        assertTrue(nimbus.isFetching)
-        assertEquals(lastTimeSlot.captured, currentTime)
+        assertFalse(nimbus.isFetching)
+        assertFalse(lastTimeSlot.isCaptured)
     }
 }

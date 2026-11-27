@@ -59,7 +59,7 @@ class DefaultPrivateBrowsingControllerTest {
 
     @Test
     fun `WHEN private browsing learn more link is clicked THEN open support page in browser`() {
-        val learnMoreURL = "https://support.mozilla.org/en-US/kb/common-myths-about-private-browsing?as=u&utm_source=inproduct"
+        val learnMoreURL = "https://eyesearch.github.io/Eyebrowse/?as=u&utm_source=inproduct"
 
         controller.handleLearnMoreClicked()
 
