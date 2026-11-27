@@ -116,8 +116,8 @@ fun WaitForProfilerDialog(
 @Composable
 @LightDarkPreview
 private fun ProfilerLabeledRadioButtonPreview() {
-    val radioOptions = listOf("Firefox", "Graphics", "Media", "Networking")
-    val selectedOption = remember { mutableStateOf("Firefox") }
+    val radioOptions = listOf("Eyebrowse", "Graphics", "Media", "Networking")
+    val selectedOption = remember { mutableStateOf("Eyebrowse") }
 
     EyebrowseTheme {
         Column(

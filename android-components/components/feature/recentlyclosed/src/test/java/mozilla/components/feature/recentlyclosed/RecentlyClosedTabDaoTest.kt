@@ -57,7 +57,7 @@ class RecentlyClosedTabDaoTest {
 
         val tab2 = RecentlyClosedTabEntity(
             title = "RecentlyClosedTab Two",
-            url = "https://www.firefox.com",
+            url = "https://www.eyebrowse.com",
             uuid = UUID.randomUUID().toString(),
             createdAt = 100,
         ).also {
@@ -85,7 +85,7 @@ class RecentlyClosedTabDaoTest {
 
         val tab2 = RecentlyClosedTabEntity(
             title = "RecentlyClosedTab Two",
-            url = "https://www.firefox.com",
+            url = "https://www.eyebrowse.com",
             uuid = UUID.randomUUID().toString(),
             createdAt = 100,
         ).also {
@@ -114,7 +114,7 @@ class RecentlyClosedTabDaoTest {
 
         RecentlyClosedTabEntity(
             title = "RecentlyClosedTab Two",
-            url = "https://www.firefox.com",
+            url = "https://www.eyebrowse.com",
             uuid = UUID.randomUUID().toString(),
             createdAt = 100,
         ).also {

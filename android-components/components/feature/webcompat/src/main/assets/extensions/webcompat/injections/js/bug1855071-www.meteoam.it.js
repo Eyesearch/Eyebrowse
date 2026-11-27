@@ -9,7 +9,7 @@
  * webcompat issue #121197 - https://webcompat.com/issues/121197
  *
  * the site's map is 75vh tall, and it hides the keyboard onresize,
- * meaning the keyboard is closed as it it brought up in Firefox.
+ * meaning the keyboard is closed as it it brought up in Eyebrowse.
  */
 
 console.info(

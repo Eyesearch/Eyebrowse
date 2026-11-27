@@ -16,7 +16,7 @@ import mozilla.components.support.base.worker.Frequency
 import java.util.concurrent.TimeUnit
 
 /**
- * Schedules a periodic background task to incrementally download and persist new Firefox Suggest
+ * Schedules a periodic background task to incrementally download and persist new Eyebrowse Suggest
  * search suggestions.
  *
  * @property context The Android application context.

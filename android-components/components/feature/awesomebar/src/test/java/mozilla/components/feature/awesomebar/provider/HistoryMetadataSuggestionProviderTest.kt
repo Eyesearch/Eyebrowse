@@ -256,7 +256,7 @@ class HistoryMetadataSuggestionProviderTest {
     @Test
     fun `GIVEN a results host filter WHEN querying history THEN return only the results that pass through the filter`() = runTest {
         val storage: HistoryMetadataStorage = mock()
-        val metadataKey2 = HistoryMetadataKey("https://mozilla.com/firefox", null, null)
+        val metadataKey2 = HistoryMetadataKey("https://mozilla.com/eyebrowse", null, null)
         val historyEntry2 = HistoryMetadata(
             key = metadataKey2,
             title = "mozilla",
@@ -277,14 +277,14 @@ class HistoryMetadataSuggestionProviderTest {
         val suggestions = provider.onInputChanged("moz")
 
         assertEquals(2, suggestions.size)
-        assertTrue(suggestions.map { it.description }.contains("https://mozilla.com/firefox"))
+        assertTrue(suggestions.map { it.description }.contains("https://mozilla.com/eyebrowse"))
         assertTrue(suggestions.map { it.description }.contains("http://www.mozilla.com"))
     }
 
     @Test
     fun `GIVEN a results host filter WHEN querying history THEN return results containing mobile subdomains`() = runTest {
         val storage: HistoryMetadataStorage = mock()
-        val metadataKey1 = HistoryMetadataKey("https://m.mozilla.com/firefox", null, null)
+        val metadataKey1 = HistoryMetadataKey("https://m.mozilla.com/eyebrowse", null, null)
         val historyEntry1 = HistoryMetadata(
             key = metadataKey1,
             title = "mozilla",
@@ -295,7 +295,7 @@ class HistoryMetadataSuggestionProviderTest {
             previewImageUrl = null,
         )
 
-        val metadataKey2 = HistoryMetadataKey("http://www.mobile.mozilla.com/firefox", null, null)
+        val metadataKey2 = HistoryMetadataKey("http://www.mobile.mozilla.com/eyebrowse", null, null)
         val historyEntry2 = HistoryMetadata(
             key = metadataKey2,
             title = "mozilla",
@@ -316,7 +316,7 @@ class HistoryMetadataSuggestionProviderTest {
         val suggestions = provider.onInputChanged("moz")
 
         assertEquals(2, suggestions.size)
-        assertTrue(suggestions.map { it.description }.contains("http://www.mobile.mozilla.com/firefox"))
-        assertTrue(suggestions.map { it.description }.contains("https://m.mozilla.com/firefox"))
+        assertTrue(suggestions.map { it.description }.contains("http://www.mobile.mozilla.com/eyebrowse"))
+        assertTrue(suggestions.map { it.description }.contains("https://m.mozilla.com/eyebrowse"))
     }
 }

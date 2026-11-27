@@ -41,7 +41,7 @@ class TabGroupActionTest {
         val store = BrowserStore(
             BrowserState(
                 tabs = listOf(
-                    createTab(id = "tab1", url = "https://firefox.com"),
+                    createTab(id = "tab1", url = "https://eyebrowse.com"),
                     createTab(id = "tab2", url = "https://mozilla.org"),
                 ),
             ),
@@ -66,7 +66,7 @@ class TabGroupActionTest {
         val store = BrowserStore(
             BrowserState(
                 tabs = listOf(
-                    createTab(id = "tab1", url = "https://firefox.com"),
+                    createTab(id = "tab1", url = "https://eyebrowse.com"),
                     createTab(id = "tab2", url = "https://mozilla.org"),
                 ),
                 tabPartitions = mapOf("testFeaturePartition" to tabPartition),
@@ -88,7 +88,7 @@ class TabGroupActionTest {
         val store = BrowserStore(
             BrowserState(
                 tabs = listOf(
-                    createTab(id = "tab1", url = "https://firefox.com"),
+                    createTab(id = "tab1", url = "https://eyebrowse.com"),
                     createTab(id = "tab2", url = "https://mozilla.org"),
                 ),
                 tabPartitions = mapOf("testFeaturePartition" to tabPartition),
@@ -104,7 +104,7 @@ class TabGroupActionTest {
     fun `AddTabAction - Adds provided tab to groups`() {
         val tabGroup = TabGroup("test1", tabIds = emptyList())
         val tabPartition = TabPartition("testFeaturePartition", tabGroups = listOf(tabGroup))
-        val tab = createTab(id = "tab1", url = "https://firefox.com")
+        val tab = createTab(id = "tab1", url = "https://eyebrowse.com")
 
         val store = BrowserStore(
             BrowserState(
@@ -126,7 +126,7 @@ class TabGroupActionTest {
     fun `AddTabAction - Creates partition if needed`() {
         val tabGroup = TabGroup("test1", tabIds = emptyList())
         val tabPartition = TabPartition("testFeaturePartition")
-        val tab = createTab(id = "tab1", url = "https://firefox.com")
+        val tab = createTab(id = "tab1", url = "https://eyebrowse.com")
 
         val store = BrowserStore(
             BrowserState(
@@ -147,7 +147,7 @@ class TabGroupActionTest {
     fun `AddTabAction - Doesn't add tab if already in group`() {
         val tabGroup = TabGroup("test1", tabIds = listOf("tab1"))
         val tabPartition = TabPartition("testFeaturePartition", tabGroups = listOf(tabGroup))
-        val tab = createTab(id = "tab1", url = "https://firefox.com")
+        val tab = createTab(id = "tab1", url = "https://eyebrowse.com")
 
         val store = BrowserStore(
             BrowserState(
@@ -170,7 +170,7 @@ class TabGroupActionTest {
     fun `AddTabsAction - Adds provided tab to groups`() {
         val tabGroup = TabGroup("test1", tabIds = emptyList())
         val tabPartition = TabPartition("testFeaturePartition", tabGroups = listOf(tabGroup))
-        val tab1 = createTab(id = "tab1", url = "https://firefox.com")
+        val tab1 = createTab(id = "tab1", url = "https://eyebrowse.com")
         val tab2 = createTab(id = "tab2", url = "https://mozilla.org")
 
         val store = BrowserStore(
@@ -196,7 +196,7 @@ class TabGroupActionTest {
     fun `AddTabsAction - Creates partition if needed`() {
         val tabGroup = TabGroup("test1", tabIds = emptyList())
         val tabPartition = TabPartition("testFeaturePartition")
-        val tab1 = createTab(id = "tab1", url = "https://firefox.com")
+        val tab1 = createTab(id = "tab1", url = "https://eyebrowse.com")
         val tab2 = createTab(id = "tab2", url = "https://mozilla.org")
 
         val store = BrowserStore(
@@ -221,7 +221,7 @@ class TabGroupActionTest {
     fun `AddTabsAction - Doesn't add tabs if already in group`() {
         val tabGroup = TabGroup("test1", tabIds = listOf("tab1"))
         val tabPartition = TabPartition("testFeaturePartition", tabGroups = listOf(tabGroup))
-        val tab1 = createTab(id = "tab1", url = "https://firefox.com")
+        val tab1 = createTab(id = "tab1", url = "https://eyebrowse.com")
         val tab2 = createTab(id = "tab2", url = "https://mozilla.org")
 
         val store = BrowserStore(
@@ -248,7 +248,7 @@ class TabGroupActionTest {
     fun `AddTabsAction - Creates partition if needed but only adds distinct tabs`() {
         val tabGroup = TabGroup("test1", tabIds = emptyList())
         val tabPartition = TabPartition("testFeaturePartition")
-        val tab1 = createTab(id = "tab1", url = "https://firefox.com")
+        val tab1 = createTab(id = "tab1", url = "https://eyebrowse.com")
 
         val store = BrowserStore(
             BrowserState(
@@ -270,7 +270,7 @@ class TabGroupActionTest {
 
     @Test
     fun `RemoveTabAction - Removes tab from group`() {
-        val tab1 = createTab(id = "tab1", url = "https://firefox.com")
+        val tab1 = createTab(id = "tab1", url = "https://eyebrowse.com")
         val tab2 = createTab(id = "tab2", url = "https://mozilla.org")
         val tabGroup = TabGroup("test1", tabIds = listOf(tab1.id, tab2.id))
         val tabPartition = TabPartition("testFeaturePartition", tabGroups = listOf(tabGroup))
@@ -294,7 +294,7 @@ class TabGroupActionTest {
 
     @Test
     fun `RemoveTabsAction - Removes tabs from group`() {
-        val tab1 = createTab(id = "tab1", url = "https://firefox.com")
+        val tab1 = createTab(id = "tab1", url = "https://eyebrowse.com")
         val tab2 = createTab(id = "tab2", url = "https://mozilla.org")
         val tabGroup = TabGroup("test1", tabIds = listOf(tab1.id, tab2.id))
         val tabPartition = TabPartition("testFeaturePartition", tabGroups = listOf(tabGroup))

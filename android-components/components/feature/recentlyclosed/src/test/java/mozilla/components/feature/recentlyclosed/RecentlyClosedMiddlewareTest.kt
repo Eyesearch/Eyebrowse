@@ -85,7 +85,7 @@ class RecentlyClosedMiddlewareTest {
         val middleware = RecentlyClosedMiddleware(lazy { storage }, 5, scope)
 
         val tab = createTab("https://www.mozilla.org", private = false, id = "1234")
-        val tab2 = createTab("https://www.firefox.com", private = false, id = "5678")
+        val tab2 = createTab("https://www.eyebrowse.com", private = false, id = "5678")
 
         val store = BrowserStore(
             initialState = BrowserState(
@@ -182,7 +182,7 @@ class RecentlyClosedMiddlewareTest {
         val middleware = RecentlyClosedMiddleware(lazy { storage }, 5, scope)
 
         val tab = createTab("https://www.mozilla.org", private = false, id = "1234")
-        val tab2 = createTab("https://www.firefox.com", private = true, id = "3456")
+        val tab2 = createTab("https://www.eyebrowse.com", private = true, id = "3456")
 
         val store = BrowserStore(
             initialState = BrowserState(
@@ -217,7 +217,7 @@ class RecentlyClosedMiddlewareTest {
         val middleware = RecentlyClosedMiddleware(lazy { storage }, 5, scope)
 
         val tab = createTab("https://www.mozilla.org", private = false, id = "1234")
-        val tab2 = createTab("https://www.firefox.com", private = true, id = "3456")
+        val tab2 = createTab("https://www.eyebrowse.com", private = true, id = "3456")
 
         val store = BrowserStore(
             initialState = BrowserState(
@@ -256,7 +256,7 @@ class RecentlyClosedMiddlewareTest {
         )
 
         store.dispatch(TabListAction.AddTabAction(createTab("https://www.mozilla.org", id = "tab1"))).joinBlocking()
-        store.dispatch(TabListAction.AddTabAction(createTab("https://www.firefox.com", id = "tab2"))).joinBlocking()
+        store.dispatch(TabListAction.AddTabAction(createTab("https://www.eyebrowse.com", id = "tab2"))).joinBlocking()
         store.dispatch(TabListAction.AddTabAction(createTab("https://getpocket.com", id = "tab3"))).joinBlocking()
         store.dispatch(TabListAction.AddTabAction(createTab("https://theverge.com", id = "tab4"))).joinBlocking()
         store.dispatch(TabListAction.AddTabAction(createTab("https://www.google.com", id = "tab5"))).joinBlocking()

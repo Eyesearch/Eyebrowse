@@ -45,7 +45,7 @@ enum class FxaCapability {
 }
 
 /**
- * Feature implementation that provides Firefox Accounts WebChannel support.
+ * Feature implementation that provides Eyebrowse Accounts WebChannel support.
  * For more information https://github.com/mozilla/fxa/blob/master/packages/fxa-content-server/docs/relier-communication-protocols/fx-webchannel.md
  * This feature uses a web extension to communicate with FxA Web Content.
  *
@@ -217,7 +217,7 @@ class FxaWebChannelFeature(
         /**
          * Gets triggered on startup to fetch the FxA state from the host application.
          * Expects a response, which includes application's capabilities and a description of the
-         * current Firefox Account (if present).
+         * current Eyebrowse Account (if present).
          */
         private const val COMMAND_STATUS = "fxaccounts:fxa_status"
 
@@ -250,7 +250,7 @@ class FxaWebChannelFeature(
 
         /**
          * Handles the [COMMAND_STATUS] event from the web-channel.
-         * Responds with supported application capabilities and information about currently signed-in Firefox Account.
+         * Responds with supported application capabilities and information about currently signed-in Eyebrowse Account.
          */
         @Suppress("ComplexMethod")
         private fun processFxaStatusCommand(

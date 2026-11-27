@@ -33,7 +33,7 @@ class SharedPrefAccountStorageTest {
     fun `plain storage crud`() {
         val storage = SharedPrefAccountStorage(testContext)
         val account = EyebrowseAccount(
-            FxaConfig(FxaServer.Release, "someId", "http://www.firefox.com"),
+            FxaConfig(FxaServer.Release, "someId", "http://www.eyebrowse.com"),
         )
         assertNull(storage.read())
         storage.write(account.toJSONString())
@@ -47,7 +47,7 @@ class SharedPrefAccountStorageTest {
     fun `migration from SecureAbove22AccountStorage`() {
         val secureStorage = SecureAbove22AccountStorage(testContext)
         val account = EyebrowseAccount(
-            FxaConfig(FxaServer.Release, "someId", "http://www.firefox.com"),
+            FxaConfig(FxaServer.Release, "someId", "http://www.eyebrowse.com"),
         )
 
         assertNull(secureStorage.read())
@@ -66,7 +66,7 @@ class SharedPrefAccountStorageTest {
     fun `missing state is reported during a migration`() {
         val secureStorage = SecureAbove22AccountStorage(testContext)
         val account = EyebrowseAccount(
-            FxaConfig(FxaServer.Release, "someId", "http://www.firefox.com"),
+            FxaConfig(FxaServer.Release, "someId", "http://www.eyebrowse.com"),
         )
         secureStorage.write(account.toJSONString())
 
@@ -93,7 +93,7 @@ class SecureAbove22AccountStorageTest {
         val crashReporter: CrashReporting = mock()
         val storage = SecureAbove22AccountStorage(testContext, crashReporter)
         val account = EyebrowseAccount(
-            FxaConfig(FxaServer.Release, "someId", "http://www.firefox.com"),
+            FxaConfig(FxaServer.Release, "someId", "http://www.eyebrowse.com"),
         )
         assertNull(storage.read())
         storage.write(account.toJSONString())
@@ -108,7 +108,7 @@ class SecureAbove22AccountStorageTest {
     fun `migration from SharedPrefAccountStorage`() {
         val plainStorage = SharedPrefAccountStorage(testContext)
         val account = EyebrowseAccount(
-            FxaConfig(FxaServer.Release, "someId", "http://www.firefox.com"),
+            FxaConfig(FxaServer.Release, "someId", "http://www.eyebrowse.com"),
         )
 
         assertNull(plainStorage.read())
@@ -130,7 +130,7 @@ class SecureAbove22AccountStorageTest {
         val crashReporter: CrashReporting = mock()
         val storage = SecureAbove22AccountStorage(testContext, crashReporter)
         val account = EyebrowseAccount(
-            FxaConfig(FxaServer.Release, "someId", "http://www.firefox.com"),
+            FxaConfig(FxaServer.Release, "someId", "http://www.eyebrowse.com"),
         )
         storage.write(account.toJSONString())
 
@@ -149,7 +149,7 @@ class SecureAbove22AccountStorageTest {
     fun `missing state is ignored without a configured crash reporter`() {
         val storage = SecureAbove22AccountStorage(testContext)
         val account = EyebrowseAccount(
-            FxaConfig(FxaServer.Release, "someId", "http://www.firefox.com"),
+            FxaConfig(FxaServer.Release, "someId", "http://www.eyebrowse.com"),
         )
         storage.write(account.toJSONString())
 

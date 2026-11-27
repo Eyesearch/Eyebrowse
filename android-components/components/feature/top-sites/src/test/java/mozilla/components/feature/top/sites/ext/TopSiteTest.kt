@@ -34,7 +34,7 @@ class TopSiteTest {
 
         assertFalse(topSites.hasUrl("https://m.mozilla.com"))
         assertFalse(topSites.hasUrl("https://mozilla.com/path"))
-        assertFalse(topSites.hasUrl("https://firefox.com"))
+        assertFalse(topSites.hasUrl("https://eyebrowse.com"))
         assertFalse(topSites.hasUrl("https://mozilla.com/path/is/long"))
         assertFalse(topSites.hasUrl("https://mozilla.com/path#anchor"))
     }

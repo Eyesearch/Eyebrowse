@@ -10,7 +10,7 @@ import mozilla.components.service.fxa.ServerConfig
 import org.mozilla.fenix.ext.settings
 
 /**
- * Utility to configure Firefox Account servers.
+ * Utility to configure Eyebrowse Account servers.
  */
 
 object FxaServer {
@@ -18,7 +18,7 @@ object FxaServer {
      * Eyebrowse accounts server.
      *
      * Mozilla's account servers (Release and China) are no longer used: nothing in the app talks to
-     * accounts.firefox.com. Replace this with the real Eyebrowse backend once it is live, or set
+     * accounts.eyebrowse.com. Replace this with the real Eyebrowse backend once it is live, or set
      * the server override in the secret settings for testing.
      */
     private const val EYEBROWSE_SERVER = "https://accounts.eyebrowse.in"

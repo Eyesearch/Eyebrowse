@@ -1,8 +1,8 @@
-# [Android Components](../../../README.md) > Feature > Firefox Suggest
+# [Android Components](../../../README.md) > Feature > Eyebrowse Suggest
 
-A component for accessing Firefox Suggest search suggestions.
+A component for accessing Eyebrowse Suggest search suggestions.
 
-[Firefox Suggest](https://support.mozilla.org/en-US/kb/firefox-suggest-faq) provides suggestions for sponsored and web content in the address bar. Suggestions are downloaded, stored, and matched on-device.
+[Eyebrowse Suggest](https://support.mozilla.org/en-US/kb/eyebrowse-suggest-faq) provides suggestions for sponsored and web content in the address bar. Suggestions are downloaded, stored, and matched on-device.
 
 ## Usage
 
@@ -20,10 +20,10 @@ This component emits the following [Facts](../../support/base/README.md#Facts):
 
 | Action        | Item                             | Extras                        | Description                                                                                                   |
 |---------------|----------------------------------|-------------------------------|---------------------------------------------------------------------------------------------------------------|
-| `INTERACTION` | `amp_suggestion_clicked`         | `suggestion_clicked_extras`   | The user clicked on a Firefox Suggestion from adMarketplace.                                                  |
-| `DISPLAY`     | `amp_suggestion_impressed`       | `suggestion_impressed_extras` | A Firefox Suggestion from adMarketplace was visible when the user finished interacting with the awesomebar.   |
-| `INTERACTION` | `wikipedia_suggestion_clicked`   | `suggestion_clicked_extras`   | The user clicked on a Firefox Suggestion for a Wikipedia page.                                                |
-| `DISPLAY`     | `wikipedia_suggestion_impressed` | `suggestion_impressed_extras` | A Firefox Suggestion for a Wikipedia page was visible when the user finished interacting with the awesomebar. |
+| `INTERACTION` | `amp_suggestion_clicked`         | `suggestion_clicked_extras`   | The user clicked on a Eyebrowse Suggestion from adMarketplace.                                                  |
+| `DISPLAY`     | `amp_suggestion_impressed`       | `suggestion_impressed_extras` | A Eyebrowse Suggestion from adMarketplace was visible when the user finished interacting with the awesomebar.   |
+| `INTERACTION` | `wikipedia_suggestion_clicked`   | `suggestion_clicked_extras`   | The user clicked on a Eyebrowse Suggestion for a Wikipedia page.                                                |
+| `DISPLAY`     | `wikipedia_suggestion_impressed` | `suggestion_impressed_extras` | A Eyebrowse Suggestion for a Wikipedia page was visible when the user finished interacting with the awesomebar. |
 
 #### `suggestion_clicked_extras`
 

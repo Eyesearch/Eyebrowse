@@ -66,7 +66,7 @@ import java.util.Locale
 
 class SearchTest : TestSetup() {
     private lateinit var searchMockServer: MockWebServer
-    private var queryString = "firefox"
+    private var queryString = "eyebrowse"
     private val generalEnginesList = listOf("DuckDuckGo", "Google", "Bing")
     private val topicEnginesList = listOf("Amazon.com", "Wikipedia", "eBay")
 
@@ -726,7 +726,7 @@ class SearchTest : TestSetup() {
                 verifySearchEngineSuggestionResults(
                     rule = activityTestRule,
                     searchSuggestions = arrayOf(
-                        "Firefox Suggest",
+                        "Eyebrowse Suggest",
                         firstPageUrl.url.toString(),
                         secondPageUrl.url.toString(),
                     ),
@@ -772,7 +772,7 @@ class SearchTest : TestSetup() {
                 searchSuggestions = arrayOf(
                     "TestSearchEngine search",
                     "test page 1",
-                    "Firefox Suggest",
+                    "Eyebrowse Suggest",
                     firstPageUrl.url.toString(),
                 ),
                 searchTerm = "test page 1",
@@ -807,8 +807,8 @@ class SearchTest : TestSetup() {
                     "ويكيبيديا (ar)",
                 )
                 selectTemporarySearchMethod("ويكيبيديا (ar)")
-            }.submitQuery("firefox") {
-                verifyUrl("firefox")
+            }.submitQuery("eyebrowse") {
+                verifyUrl("eyebrowse")
             }
         }
     }

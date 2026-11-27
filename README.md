@@ -1,7 +1,7 @@
 # Eyebrowse
 
 Eyebrowse is a privacy-focused mobile browser for Android, built by Eyesearch. It is a
-rebranded, trimmed fork of Firefox for Android, with the Mozilla services removed: no
+rebranded, trimmed fork of Eyebrowse for Android, with the Mozilla services removed: no
 telemetry, no Mozilla account servers, no sponsored content, no Mozilla help links.
 
 ## What is in here
@@ -40,5 +40,5 @@ cd fenix
 ## Licence
 
 MPL 2.0, see `LICENSE`. Files modified by Eyesearch keep their MPL headers, and the
-source of those modifications is this repository. Mozilla trademarks and the Firefox name
+source of those modifications is this repository. Mozilla trademarks and the Eyebrowse name
 are not used.

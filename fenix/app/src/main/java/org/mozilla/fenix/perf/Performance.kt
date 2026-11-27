@@ -41,9 +41,9 @@ object Performance {
 
     /**
      * The checks for the charging state and ADB debugging are checks in case another application
-     * tries to leverage this intent to trigger a code path for Firefox that shouldn't be used unless
+     * tries to leverage this intent to trigger a code path for Eyebrowse that shouldn't be used unless
      * it is for testing visual metrics. These checks aren't full proof but most of our users won't have
-     * ADB on and charging at the same time when running Firefox.
+     * ADB on and charging at the same time when running Eyebrowse.
      */
     private fun isPerformanceTest(intent: Intent, context: Context): Boolean {
         if (!intent.getBooleanExtra(EXTRA_IS_PERFORMANCE_TEST, false)) {

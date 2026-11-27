@@ -451,7 +451,7 @@ fun PoweredByPocketHeader(
                     role = Role.Button
                     onClick(label = onClickLabel) {
                         onLearnMoreClicked(
-                            "https://www.mozilla.org/en-US/firefox/pocket/?$POCKET_FEATURE_UTM_KEY_VALUE",
+                            "https://www.mozilla.org/en-US/eyebrowse/pocket/?$POCKET_FEATURE_UTM_KEY_VALUE",
                         )
                         false
                     }
@@ -485,7 +485,7 @@ fun PoweredByPocketHeader(
                         clickableEndIndex = linkEndIndex,
                     ) {
                         onLearnMoreClicked(
-                            "https://www.mozilla.org/en-US/firefox/pocket/?$POCKET_FEATURE_UTM_KEY_VALUE",
+                            "https://www.mozilla.org/en-US/eyebrowse/pocket/?$POCKET_FEATURE_UTM_KEY_VALUE",
                         )
                     }
                 }

@@ -12,11 +12,11 @@ import mozilla.components.support.utils.ext.getPackageInfoCompat
 object MozillaProductDetector {
     enum class MozillaProducts(val productName: String) {
         // Browsers
-        FIREFOX("org.mozilla.firefox"),
-        FIREFOX_NIGHTLY("org.mozilla.fennec_aurora"),
-        FIREFOX_BETA("org.mozilla.firefox_beta"),
-        FIREFOX_FDROID("org.mozilla.fennec_fdroid"),
-        FIREFOX_LITE("org.mozilla.rocket"),
+        EYEBROWSE("org.mozilla.eyebrowse"),
+        EYEBROWSE_NIGHTLY("org.mozilla.fennec_aurora"),
+        EYEBROWSE_BETA("org.mozilla.eyebrowse_beta"),
+        EYEBROWSE_FDROID("org.mozilla.fennec_fdroid"),
+        EYEBROWSE_LITE("org.mozilla.rocket"),
         REFERENCE_BROWSER("org.mozilla.reference.browser"),
         REFERENCE_BROWSER_DEBUG("org.mozilla.reference.browser.debug"),
         FENIX("org.mozilla.fenix"),
@@ -62,7 +62,7 @@ object MozillaProductDetector {
         return if (isMozillaProduct(browserPackageName)) { browserPackageName } else { null }
     }
 
-    // Note: we intentionally do not use a-c `firefoxBrandedBrowser` as this only gives us the first from that list
+    // Note: we intentionally do not use a-c `eyebrowseBrandedBrowser` as this only gives us the first from that list
     private fun isMozillaProduct(packageName: String?): Boolean {
         packageName ?: return false
         return MozillaProducts.values().any { product -> product.productName == packageName }

@@ -218,7 +218,7 @@ class MediaSessionFullscreenFeatureTest {
         assertEquals(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED, activity.requestedOrientation)
 
         val tab2 = createTab(
-            url = "https://firefox.com",
+            url = "https://eyebrowse.com",
             id = "tab2",
         )
         store.dispatch(TabListAction.AddTabAction(tab2, select = true))
@@ -466,7 +466,7 @@ class MediaSessionFullscreenFeatureTest {
         verify(activity.window).addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         val tab2 = createTab(
-            url = "https://firefox.com",
+            url = "https://eyebrowse.com",
             id = "tab2",
         )
         clearInvocations(activity.window)

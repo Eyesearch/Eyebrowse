@@ -203,7 +203,7 @@ class FullScreenFeatureTest {
             BrowserState(
                 tabs = listOf(
                     createTab("https://www.mozilla.org", id = "A"),
-                    createTab("https://www.firefox.com", id = "B"),
+                    createTab("https://www.eyebrowse.com", id = "B"),
                     createTab("https://getpocket.com", id = "C"),
                 ),
                 selectedTabId = "A",
@@ -264,7 +264,7 @@ class FullScreenFeatureTest {
             BrowserState(
                 tabs = listOf(
                     createTab("https://www.mozilla.org", id = "A"),
-                    createTab("https://www.firefox.com", id = "B"),
+                    createTab("https://www.eyebrowse.com", id = "B"),
                     createTab("https://getpocket.com", id = "C"),
                 ),
                 selectedTabId = "A",
@@ -329,7 +329,7 @@ class FullScreenFeatureTest {
             BrowserState(
                 tabs = listOf(
                     createTab("https://www.mozilla.org", id = "A"),
-                    createTab("https://www.firefox.com", id = "B"),
+                    createTab("https://www.eyebrowse.com", id = "B"),
                     createTab("https://getpocket.com", id = "C"),
                 ),
                 selectedTabId = "A",
@@ -421,7 +421,7 @@ class FullScreenFeatureTest {
             BrowserState(
                 tabs = listOf(
                     createTab("https://www.mozilla.org", id = "A"),
-                    createTab("https://www.firefox.com", id = "B"),
+                    createTab("https://www.eyebrowse.com", id = "B"),
                     createTab("https://getpocket.com", id = "C"),
                 ),
                 selectedTabId = "A",

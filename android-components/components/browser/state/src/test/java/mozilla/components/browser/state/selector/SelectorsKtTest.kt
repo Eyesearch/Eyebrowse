@@ -31,7 +31,7 @@ class SelectorsKtTest {
 
         assertNull(store.state.selectedTab)
 
-        val tab = createTab("https://www.firefox.com")
+        val tab = createTab("https://www.eyebrowse.com")
         store.dispatch(TabListAction.AddTabAction(tab, select = true)).joinBlocking()
 
         assertEquals(tab, store.state.selectedTab)
@@ -58,7 +58,7 @@ class SelectorsKtTest {
 
         assertNull(store.state.selectedNormalTab)
 
-        val privateTab = createTab("https://www.firefox.com", private = true)
+        val privateTab = createTab("https://www.eyebrowse.com", private = true)
         store.dispatch(TabListAction.AddTabAction(privateTab, select = true)).joinBlocking()
         assertNull(store.state.selectedNormalTab)
 
@@ -90,7 +90,7 @@ class SelectorsKtTest {
 
     @Test
     fun `findTab extension function`() {
-        val tab = createTab("https://www.firefox.com")
+        val tab = createTab("https://www.eyebrowse.com")
         val otherTab = createTab("https://getpocket.com")
         val customTab = createCustomTab("https://www.mozilla.org")
 
@@ -106,7 +106,7 @@ class SelectorsKtTest {
 
     @Test
     fun `findNormalTab extension function`() {
-        val privateTab = createTab("https://www.firefox.com", private = true)
+        val privateTab = createTab("https://www.eyebrowse.com", private = true)
         val normalTab = createTab("https://getpocket.com")
         val customTab = createCustomTab("https://www.mozilla.org")
 
@@ -122,7 +122,7 @@ class SelectorsKtTest {
 
     @Test
     fun `findTabCustomTab extension function`() {
-        val tab = createTab("https://www.firefox.com")
+        val tab = createTab("https://www.eyebrowse.com")
         val otherTab = createTab("https://getpocket.com")
         val customTab = createCustomTab("https://www.mozilla.org")
 
@@ -138,7 +138,7 @@ class SelectorsKtTest {
 
     @Test
     fun `findCustomTabOrSelectedTab extension function`() {
-        val tab = createTab("https://www.firefox.com")
+        val tab = createTab("https://www.eyebrowse.com")
         val otherTab = createTab("https://getpocket.com")
         val customTab = createCustomTab("https://www.mozilla.org")
 
@@ -157,7 +157,7 @@ class SelectorsKtTest {
 
     @Test
     fun `findTabOrCustomTabOrSelectedTab extension function`() {
-        val tab = createTab("https://www.firefox.com")
+        val tab = createTab("https://www.eyebrowse.com")
         val otherTab = createTab("https://getpocket.com")
         val customTab = createCustomTab("https://www.mozilla.org")
 
@@ -176,7 +176,7 @@ class SelectorsKtTest {
 
     @Test
     fun `getNormalOrPrivateTabs extension function`() {
-        val tab1 = createTab("https://www.firefox.com")
+        val tab1 = createTab("https://www.eyebrowse.com")
         val tab2 = createTab("https://www.mozilla.org")
         val privateTab1 = createTab("https://getpocket.com", private = true)
         val privateTab2 = createTab("https://www.example.org", private = true)
@@ -195,7 +195,7 @@ class SelectorsKtTest {
 
     @Test
     fun `privateTabs and normalTabs extension properties`() {
-        val tab1 = createTab("https://www.firefox.com")
+        val tab1 = createTab("https://www.eyebrowse.com")
         val tab2 = createTab("https://www.mozilla.org")
         val privateTab1 = createTab("https://getpocket.com", private = true)
         val privateTab2 = createTab("https://www.example.org", private = true)
@@ -289,17 +289,17 @@ class SelectorsKtTest {
 
     @Test
     fun `findNormalOrPrivateTabByUrlIgnoringFragment extension function`() {
-        val tab1 = createTab("https://www.firefox.com/query?isMorning=yes#hello", private = false)
+        val tab1 = createTab("https://www.eyebrowse.com/query?isMorning=yes#hello", private = false)
         val tab2 = createTab("moz-extension://4d1a24b3-bdd1-4763-a766-b5a8c1a0012c/dashboard.html#settings.html", private = false)
         val privateTab1 = createTab("https://getpocket.com", private = true)
         val privateTab2 = createTab("https://mozilla.org", private = true)
         val state = BrowserState(tabs = listOf(tab1, privateTab1, tab2, privateTab2))
 
-        assertEquals(tab1, state.findNormalOrPrivateTabByUrlIgnoringFragment("https://www.firefox.com/query?isMorning=yes", private = false))
-        assertEquals(tab1, state.findNormalOrPrivateTabByUrlIgnoringFragment("https://www.firefox.com/query?isMorning=yes#bye", private = false))
+        assertEquals(tab1, state.findNormalOrPrivateTabByUrlIgnoringFragment("https://www.eyebrowse.com/query?isMorning=yes", private = false))
+        assertEquals(tab1, state.findNormalOrPrivateTabByUrlIgnoringFragment("https://www.eyebrowse.com/query?isMorning=yes#bye", private = false))
         assertEquals(tab2, state.findNormalOrPrivateTabByUrlIgnoringFragment("moz-extension://4d1a24b3-bdd1-4763-a766-b5a8c1a0012c/dashboard.html", private = false))
         assertEquals(privateTab2, state.findNormalOrPrivateTabByUrlIgnoringFragment("https://mozilla.org/", private = true))
-        assertNull(state.findNormalOrPrivateTabByUrlIgnoringFragment("https://firefox.com/query?isMorning=yes", private = false))
+        assertNull(state.findNormalOrPrivateTabByUrlIgnoringFragment("https://eyebrowse.com/query?isMorning=yes", private = false))
         // This asserts that the function doesn't throw if an illegal url is checked
         assertNull(state.findNormalOrPrivateTabByUrlIgnoringFragment("https://getpocket.com/#/private#now", private = true))
     }

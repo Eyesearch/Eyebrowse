@@ -108,7 +108,7 @@ class TabIntentProcessorTest {
         val tab = store.state.findNormalOrPrivateTabByUrl("http://mozilla.org", private = false)
         assertNotNull(tab)
 
-        val otherTab = createTab("https://firefox.com")
+        val otherTab = createTab("https://eyebrowse.com")
         store.dispatch(TabListAction.AddTabAction(otherTab, select = true)).joinBlocking()
         assertEquals(2, store.state.tabs.size)
         assertEquals(otherTab, store.state.selectedTab)
@@ -152,7 +152,7 @@ class TabIntentProcessorTest {
         val tab = store.state.findNormalOrPrivateTabByUrl("https://mozilla.org", false)
         assertNotNull(tab)
 
-        val otherTab = createTab("https://firefox.com")
+        val otherTab = createTab("https://eyebrowse.com")
         store.dispatch(TabListAction.AddTabAction(otherTab, select = true)).joinBlocking()
         assertEquals(2, store.state.tabs.size)
         assertEquals(otherTab, store.state.selectedTab)
@@ -186,7 +186,7 @@ class TabIntentProcessorTest {
         val tab = store.state.findNormalOrPrivateTabByUrl("https://mozilla.org", false)
         assertNotNull(tab)
 
-        val otherTab = createTab("https://firefox.com")
+        val otherTab = createTab("https://eyebrowse.com")
         store.dispatch(TabListAction.AddTabAction(otherTab, select = true)).joinBlocking()
         assertEquals(2, store.state.tabs.size)
         assertEquals(otherTab, store.state.selectedTab)
@@ -227,11 +227,11 @@ class TabIntentProcessorTest {
         assertEquals("https://getpocket.com", store.state.tabs[1].content.url)
         assertTrue(store.state.tabs[1].source is SessionState.Source.External.ActionSend)
 
-        whenever(intent.getStringExtra(Intent.EXTRA_TEXT)).thenReturn("see https://firefox.com and https://mozilla.org")
+        whenever(intent.getStringExtra(Intent.EXTRA_TEXT)).thenReturn("see https://eyebrowse.com and https://mozilla.org")
         handler.process(intent)
         store.waitUntilIdle()
         assertEquals(3, store.state.tabs.size)
-        assertEquals("https://firefox.com", store.state.tabs[2].content.url)
+        assertEquals("https://eyebrowse.com", store.state.tabs[2].content.url)
         assertTrue(store.state.tabs[2].source is SessionState.Source.External.ActionSend)
 
         whenever(intent.getStringExtra(Intent.EXTRA_TEXT)).thenReturn("checkout the Tweet: https://tweets.mozilla.com")

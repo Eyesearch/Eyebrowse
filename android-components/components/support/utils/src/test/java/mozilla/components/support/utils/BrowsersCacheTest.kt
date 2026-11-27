@@ -29,7 +29,7 @@ class BrowsersCacheTest {
         BrowsersCache.resetAll()
         pretendBrowsersAreInstalled(
             browsers = listOf(
-                Browsers.KnownBrowser.FIREFOX_NIGHTLY.packageName,
+                Browsers.KnownBrowser.EYEBROWSE_NIGHTLY.packageName,
                 Browsers.KnownBrowser.REFERENCE_BROWSER.packageName,
             ),
         )
@@ -39,8 +39,8 @@ class BrowsersCacheTest {
 
         pretendBrowsersAreInstalled(
             browsers = listOf(
-                Browsers.KnownBrowser.FIREFOX_NIGHTLY.packageName,
-                Browsers.KnownBrowser.FIREFOX.packageName,
+                Browsers.KnownBrowser.EYEBROWSE_NIGHTLY.packageName,
+                Browsers.KnownBrowser.EYEBROWSE.packageName,
                 Browsers.KnownBrowser.CHROME.packageName,
                 Browsers.KnownBrowser.SAMSUNG_INTERNET.packageName,
                 Browsers.KnownBrowser.DUCKDUCKGO.packageName,
@@ -56,7 +56,7 @@ class BrowsersCacheTest {
         BrowsersCache.resetAll()
         pretendBrowsersAreInstalled(
             browsers = listOf(
-                Browsers.KnownBrowser.FIREFOX_NIGHTLY.packageName,
+                Browsers.KnownBrowser.EYEBROWSE_NIGHTLY.packageName,
                 Browsers.KnownBrowser.REFERENCE_BROWSER.packageName,
             ),
         )
@@ -66,8 +66,8 @@ class BrowsersCacheTest {
 
         pretendBrowsersAreInstalled(
             browsers = listOf(
-                Browsers.KnownBrowser.FIREFOX_NIGHTLY.packageName,
-                Browsers.KnownBrowser.FIREFOX.packageName,
+                Browsers.KnownBrowser.EYEBROWSE_NIGHTLY.packageName,
+                Browsers.KnownBrowser.EYEBROWSE.packageName,
                 Browsers.KnownBrowser.CHROME.packageName,
                 Browsers.KnownBrowser.SAMSUNG_INTERNET.packageName,
                 Browsers.KnownBrowser.DUCKDUCKGO.packageName,

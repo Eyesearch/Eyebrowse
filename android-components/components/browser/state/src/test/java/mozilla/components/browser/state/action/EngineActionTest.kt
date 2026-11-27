@@ -95,7 +95,7 @@ class EngineActionTest {
             engineState = EngineState(engineSession = null, engineSessionState = mock()),
         )
 
-        val tab2 = createTab("https://www.firefox.com").copy(
+        val tab2 = createTab("https://www.eyebrowse.com").copy(
             engineState = EngineState(engineSession = mock(), engineSessionState = mock()),
         )
 

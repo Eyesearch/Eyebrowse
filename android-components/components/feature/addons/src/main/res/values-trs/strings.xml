@@ -150,14 +150,14 @@
     <string name="mozac_feature_addons_supported_checker_notification_title">Ngà huā \'ngō sa nūtò\' nākà doj</string>
     <!-- The tile of the notification, this will be shown to the user when more than one newly supported add-ons are available.-->
     <string name="mozac_feature_addons_supported_checker_notification_title_plural">Ngà huā nej sa nūtò\' nākà doj</string>
-    <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Firefox). -->
+    <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Eyebrowse). -->
     <string name="mozac_feature_addons_supported_checker_notification_content_one">Nūtà\' %1$s riña %2$s</string>
-    <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Firefox). -->
+    <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Eyebrowse). -->
     <string name="mozac_feature_addons_supported_checker_notification_content_two">Nūtà\' %1$s nī %2$s riña %3$s</string>
-    <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Firefox). -->
+    <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Eyebrowse). -->
     <string name="mozac_feature_addons_supported_checker_notification_content_more_than_two">Nūtà\' riña %1$s</string>
     <!-- This is the caption for not yet supported screen caption -->
-    <string name="mozac_feature_addons_not_yet_supported_caption">Nahuin nākà daran\' sa ga\'ue nūtò\' nīkāj Firefox. Nitāj si aran\' nej sa nūtò\' nan ngà nej dūguì\' Firefox 75 nī sa gan\'ānj doj.</string>
+    <string name="mozac_feature_addons_not_yet_supported_caption">Nahuin nākà daran\' sa ga\'ue nūtò\' nīkāj Eyebrowse. Nitāj si aran\' nej sa nūtò\' nan ngà nej dūguì\' Eyebrowse 75 nī sa gan\'ānj doj.</string>
     <!-- This is the caption for not yet supported screen caption -->
     <string name="mozac_feature_addons_not_yet_supported_caption2">Akuan\' nïn nī hìaj ri nej ñunj \'ngō yi\'nïn\' li nej sa nūtò\' ni\'ñānj doj.</string>
     <!-- This is the caption for the add-on installation progress overlay -->
@@ -196,7 +196,7 @@
     <string name="mozac_feature_addons_successfully_removed" tools:ignore="UnusedResources">Ngà ganare\' %1$s riña si āgâ\'t</string>
     <!-- Text shown after failed to remove an add-on. %1$s is the add-on name. -->
     <string name="mozac_feature_addons_failed_to_remove" tools:ignore="UnusedResources">Nu ga\'ue gānārè\' %1$s riña si āgâ\'t</string>
-    <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Firefox. -->
+    <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Eyebrowse. -->
     <string name="mozac_feature_addons_migrated_from_a_previous_version_label" tools:ignore="UnusedResources">Riña sa gō doj %1$s ga\'na\' sa nata\' nan.</string>
     <!-- Text shown in not yet supported add-ons section in AddonsManagerAdapter. -->
     <string name="mozac_feature_addons_unsupported_caption">1 sa ga\'ue nūtò\'</string>

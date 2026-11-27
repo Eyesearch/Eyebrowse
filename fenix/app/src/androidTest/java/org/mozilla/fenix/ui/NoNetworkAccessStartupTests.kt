@@ -93,7 +93,7 @@ class NoNetworkAccessStartupTests : TestSetup() {
         }.openTurnOnSyncMenu {
             tapOnUseEmailToSignIn()
             verifyUrl(
-                "firefox.com",
+                "eyebrowse.com",
                 "$packageName:id/mozac_browser_toolbar_url_view",
                 R.id.mozac_browser_toolbar_url_view,
             )

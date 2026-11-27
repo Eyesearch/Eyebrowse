@@ -310,7 +310,7 @@
     <string name="errorpage_httpsonly_message_title">Malamang sa malamang, ang website ay sadyang hindi suportado ang HTTPS.</string>
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">Accessibility</string>
-    <!-- Preference to override the Firefox Account server -->
+    <!-- Preference to override the Eyebrowse Account server -->
     <string name="preferences_override_fxa_server">Pasadya na Eyebrowse Account server</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">Pasadya na Sync server</string>
@@ -636,7 +636,7 @@
     <string name="studies_remove">Tanggalin</string>
     <!-- Title of the active section on the studies list -->
     <string name="studies_active">Aktibo</string>
-    <!-- Description for studies, it indicates why Firefox use studies. The first parameter is the name of the application. -->
+    <!-- Description for studies, it indicates why Eyebrowse use studies. The first parameter is the name of the application. -->
     <string name="studies_description_2">Paminsan-minsan, maaaring mag-install at magpatakbo ang %1$s ng mga pag-aaral.</string>
     <!-- Learn more link for studies, links to an article for more information about studies. -->
     <string name="studies_learn_more">Matuto ng higit pa</string>
@@ -1138,14 +1138,14 @@
 
     <!-- Text for the onboarding welcome message. -->
     <string name="onboarding_message">Browser na binuo para sa mga tao, hindi para sa kita.</string>
-    <!-- Text for the Firefox account onboarding sign in card header. -->
+    <!-- Text for the Eyebrowse account onboarding sign in card header. -->
     <string name="onboarding_account_sign_in_header">Kunin kung saan ka umalis</string>
-    <!-- Text for the button to learn more about signing in to your Firefox account. -->
+    <!-- Text for the button to learn more about signing in to your Eyebrowse account. -->
     <string name="onboarding_manual_sign_in_description">Bring bookmarks, history, and passwords to Eyebrowse on this device.</string>
-    <!-- Text for the button to manually sign into Firefox account. -->
-    <string name="onboarding_firefox_account_sign_in">Mag-sign in</string>
+    <!-- Text for the button to manually sign into Eyebrowse account. -->
+    <string name="onboarding_eyebrowse_account_sign_in">Mag-sign in</string>
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">Nakabukas ang Sync</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">Nakabukas ang Sync</string>
     <!-- text for tracking protection radio button option for standard level of blocking -->
     <string name="onboarding_tracking_protection_standard_button_2">Karaniwan (default)</string>
     <!-- text for standard blocking option button description -->
@@ -1199,9 +1199,9 @@
     <string name="sign_in_with_camera">Mag-sign in gamit ang iyong camera</string>
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">Gumamit na lang ng email</string>
-    <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
+    <!-- Text shown for settings option for create new account text.'Eyebrowse' intentionally hardcoded here.-->
     <string name="sign_in_create_account_text"><![CDATA[Walang account? <u>Gumawa ng isa</u> para makapag-sync ng Eyebrowse sa mga device.]]></string>
-    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="sign_out_confirmation_message_2">Titigil na ang %s sa pag-sync sa iyong account, pero hindi nito buburahin ang kahit anong browsing data sa device na ito.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
     <string name="sign_out_disconnect">Mag-disconnect</string>
@@ -1366,7 +1366,7 @@
     <!-- Preference option for never saving passwords in Fenix -->
     <string name="preferences_passwords_save_logins_never_save">Huwag mag-save kailanman</string>
 
-    <!-- Preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill2">i-Autofill ang %1$s</string>
     <!-- Preference for autofilling logins from Fenix in other apps (e.g. autofilling the Twitter app) -->
     <string name="preferences_android_autofill">i-Autofill sa ibang apps</string>
@@ -1639,13 +1639,13 @@
     <string name="synced_tabs_connect_another_device">Magkonekta ng isa pang device.</string>
     <!-- Text displayed asking user to re-authenticate -->
     <string name="synced_tabs_reauth">Mangyaring mag-re-authenticate.</string>
-    <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+    <!-- Text displayed when user has disabled tab syncing in Eyebrowse Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">Paki-enable ang pag-sync ng tab.</string>
     <!-- Text displayed when user has no tabs that have been synced -->
     <string name="synced_tabs_no_tabs">Wala kang mga nakabukas na tab sa Eyebrowse sa iba mo pang mga device.</string>
-    <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+    <!-- Text displayed in the synced tabs screen when a user is not signed in to Eyebrowse Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">Tingnan ang listahan ng mga tab mula sa iba mong mga device.</string>
-    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Eyebrowse Sync -->
     <string name="synced_tabs_sign_in_button">Mag-sign in sa sync</string>
     <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->
     <string name="synced_tabs_no_open_tabs">Walang nakabukas na mga tab</string>

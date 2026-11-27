@@ -296,23 +296,23 @@
     <string name="onboarding_home_enable_notifications_negative_button">Chan ann an-dràsta</string>
 
     <!-- Juno first user onboarding flow experiment -->
-    <!-- Title for set firefox as default browser screen.
+    <!-- Title for set eyebrowse as default browser screen.
         The first parameter is the name of the app defined in app_name (for example: Fenix) -->
     <string name="juno_onboarding_default_browser_title">Cleachd %s mar am brabhsair bunaiteach agad</string>
-    <!-- Title for set firefox as default browser screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+    <!-- Title for set eyebrowse as default browser screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_default_browser_title_nimbus" tools:ignore="UnusedResources">Cleachd Eyebrowse mar am brabhsair bunaiteach agad</string>
-    <!-- Description for set firefox as default browser screen.
-        The first parameter is the Firefox brand name.
+    <!-- Description for set eyebrowse as default browser screen.
+        The first parameter is the Eyebrowse brand name.
         The second parameter is the string with key "juno_onboarding_default_browser_description_link_text". -->
     <string name="juno_onboarding_default_browser_description">Tha daoine nas cudromaiche dha %1$s na prothaid agus dìonaidh e do phrìobhaideachd le bhith a’ bacadh gleusan a thracaicheadh tu air feadh làraichean.\n\nGheibh thu barrachd fiosrachaidh ann an %2$s againn.</string>
-    <!-- Description for set firefox as default browser screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+    <!-- Description for set eyebrowse as default browser screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_default_browser_description_nimbus" tools:ignore="UnusedResources">Tha daoine nas cudromaiche dha Eyebrowse na prothaid agus dìonaidh e do phrìobhaideachd le bhith a’ bacadh gleusan a thracaicheadh tu air feadh làraichean.\n\nGheibh thu barrachd fiosrachaidh ann an aithris na prìobhaideachd againn.</string>
-    <!-- Text for the link to the privacy notice webpage for set as firefox default browser screen.
+    <!-- Text for the link to the privacy notice webpage for set as eyebrowse default browser screen.
     This is part of the string with the key "juno_onboarding_default_browser_description". -->
     <string name="juno_onboarding_default_browser_description_link_text">aithris na prìobhaideachd</string>
-    <!-- Text for the button to set firefox as default browser on the device -->
+    <!-- Text for the button to set eyebrowse as default browser on the device -->
     <string name="juno_onboarding_default_browser_positive_button">Suidhich mar am brabhsair bunaiteach</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_default_browser_negative_button">Chan ann an-dràsta</string>
@@ -329,13 +329,13 @@
         The first parameter is the name of the app defined in app_name (for example: Fenix) -->
     <string name="juno_onboarding_enable_notifications_title">’S urrainn dhut barrachd a dhèanamh le %s ma bhios na brathan an comas agad</string>
     <!-- Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_enable_notifications_title_nimbus" tools:ignore="UnusedResources">’S urrainn dhut barrachd a dhèanamh le Eyebrowse ma bhios na brathan an comas agad</string>
     <!-- Description for enable notification permission screen.
         The first parameter is the name of the app defined in app_name (for example: Fenix) -->
     <string name="juno_onboarding_enable_notifications_description">Cuir tabaichean eadar uidheaman, stiùirich na luchdaich thu a-nuas is faigh gliocasan airson %s a chur gu làn-fheum.</string>
     <!-- Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-       Note: The word "Firefox" should NOT be translated   -->
+       Note: The word "Eyebrowse" should NOT be translated   -->
     <string name="juno_onboarding_enable_notifications_description_nimbus" tools:ignore="UnusedResources">Cuir tabaichean eadar uidheaman, stiùirich na luchdaich thu a-nuas is faigh gliocasan airson Eyebrowse a chur gu làn-fheum.</string>
     <!-- Text for the button to request notification permission on the device -->
     <string name="juno_onboarding_enable_notifications_positive_button">Cuir na brathan air</string>
@@ -483,7 +483,7 @@
     <string name="errorpage_httpsonly_message_summary">Ge-tà, dh’fhaoidte gu bheil neach-ionnsaigh na lùib ann. Ma leanas tu air adhart gun làrach-lìn, na cuir a-steach fiosrachadh dìomhair sam bith. Ma leanas tu air adhart, thèid am modh HTTPS a-mhàin a chur dheth gu sealach air an làrach ud.</string>
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">So-ruigsinneachd</string>
-    <!-- Preference to override the Firefox Account server -->
+    <!-- Preference to override the Eyebrowse Account server -->
     <string name="preferences_override_fxa_server">Frithealaiche chunntasan Eyebrowse gnàthaichte</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">Frithealaiche sioncronachaidh gnàthaichte</string>
@@ -607,7 +607,7 @@
     <string name="wallpaper_select_error_snackbar_message">Cha b’ urrainn dhuinn am pàipear-balla atharrachadh</string>
     <!-- Text displayed that links to website containing documentation about the "Limited Edition" wallpapers. -->
     <string name="wallpaper_learn_more">Barrachd fiosrachaidh</string>
-    <!-- Text for classic wallpapers title. The first parameter is the Firefox name. -->
+    <!-- Text for classic wallpapers title. The first parameter is the Eyebrowse name. -->
     <string name="wallpaper_classic_title">%s clasaigeach</string>
     <!-- Text for limited edition wallpapers title. -->
     <string name="wallpaper_limited_edition_title">Tionndadh cuingichte</string>
@@ -851,7 +851,7 @@
     <string name="studies_remove">Thoir air falbh</string>
     <!-- Title of the active section on the studies list -->
     <string name="studies_active">Gnìomhach</string>
-    <!-- Description for studies, it indicates why Firefox use studies. The first parameter is the name of the application. -->
+    <!-- Description for studies, it indicates why Eyebrowse use studies. The first parameter is the name of the application. -->
     <string name="studies_description_2">Faodaidh %1$s rannsachadh a stàladh is a ruith o àm gu àm.</string>
     <!-- Learn more link for studies, links to an article for more information about studies. -->
     <string name="studies_learn_more">Barrachd fiosrachaidh</string>
@@ -1396,14 +1396,14 @@
     <string name="onboarding_header_2">Fàilte gu eadar-lìon ùr</string>
     <!-- Text for the onboarding welcome message. -->
     <string name="onboarding_message">Brabhsair a chaidh a dhealbhadh do dhaoine ’s chan ann airson prothaid.</string>
-    <!-- Text for the Firefox account onboarding sign in card header. -->
+    <!-- Text for the Eyebrowse account onboarding sign in card header. -->
     <string name="onboarding_account_sign_in_header">Lean ort far an do stad thu roimhe</string>
-    <!-- Text for the button to learn more about signing in to your Firefox account. -->
+    <!-- Text for the button to learn more about signing in to your Eyebrowse account. -->
     <string name="onboarding_manual_sign_in_description">Sioncronaich tabaichean is faclan-faire air feadh uidheaman airson leumadh eadar sgrìnichean gun chnap-starra.</string>
-    <!-- Text for the button to manually sign into Firefox account. -->
-    <string name="onboarding_firefox_account_sign_in">Clàraich a-steach</string>
+    <!-- Text for the button to manually sign into Eyebrowse account. -->
+    <string name="onboarding_eyebrowse_account_sign_in">Clàraich a-steach</string>
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">Tha an sioncronachadh air</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">Tha an sioncronachadh air</string>
     <!-- Text for the tracking protection onboarding card header -->
     <string name="onboarding_tracking_protection_header">Brabhsair a dhìonas do phrìobhaideachd a ghnàth</string>
     <!-- Text for the tracking protection card description. The first parameter is the name of the application.-->
@@ -1467,9 +1467,9 @@
     <string name="sign_in_with_camera">Clàraich a-steach leis a’ chamara agad</string>
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">Cleachd post-d na àite</string>
-    <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
+    <!-- Text shown for settings option for create new account text.'Eyebrowse' intentionally hardcoded here.-->
     <string name="sign_in_create_account_text"><![CDATA[Nach eil cunntas agad? <u>Cruthaich fear</u> airson Eyebrowse a shioncronachadh eadar uidheaman.]]></string>
-    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="sign_out_confirmation_message_2">Sguiridh %s de shioncronachadh a’ chunntais agad ach cha sguab e às gin dhen dàta brabhsaidh agad air an uidheam seo.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
     <string name="sign_out_disconnect">Dì-cheangail</string>
@@ -1490,7 +1490,7 @@
     <string name="preference_enhanced_tracking_protection_summary">Le làn-dìon o bhriosgaidean a-nis, am balla-bacaidh as treasa againn fhathast an aghaidh gleusan a thracaicheas tu air feadh làraichean.</string>
     <!-- Description of enhanced tracking protection. The first parameter is the name of the application (For example: Fenix) -->
     <string name="preference_enhanced_tracking_protection_explanation" moz:removedIn="114" tools:ignore="UnusedResources">Cùm an dàta agad agad fhèin. Dìonaidh %s thu o mhòran dhe na tracaichean as cumanta a leanas mun cuairt thu air an lìon.</string>
-    <!-- Description of enhanced tracking protection. The parameter is the name of the application (For example: Firefox Fenix) -->
+    <!-- Description of enhanced tracking protection. The parameter is the name of the application (For example: Eyebrowse Fenix) -->
     <string name="preference_enhanced_tracking_protection_explanation_2">Dìonaidh %s thu o mhòran dhe na tracaichean as cumanta a leanas mun cuairt thu air an lìon.</string>
     <!-- Text displayed that links to website about enhanced tracking protection -->
     <string name="preference_enhanced_tracking_protection_explanation_learn_more">Barrachd fiosrachaidh</string>
@@ -1651,9 +1651,9 @@
     <!-- Preference option for never saving passwords in Fenix -->
     <string name="preferences_passwords_save_logins_never_save">Na sàbhail idir</string>
 
-    <!-- Preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill2">Lìon gu fèin-obrachail ann am %1$s</string>
-    <!-- Description for the preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Description for the preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill_description">Lìon is sàbhail ainmean-chleachdaichean is faclan-faire air làraichean-lìn ’s tu a’ cleachdadh %1$s.</string>
     <!-- Preference for autofilling logins from Fenix in other apps (e.g. autofilling the Twitter app) -->
     <string name="preferences_android_autofill">Fèin-lìon ann an aplacaidean eile</string>
@@ -1996,13 +1996,13 @@
     <string name="synced_tabs_connect_another_device">Ceangail uidheam eile ris.</string>
     <!-- Text displayed asking user to re-authenticate -->
     <string name="synced_tabs_reauth">Dèan dearbhadh às ùr.</string>
-    <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+    <!-- Text displayed when user has disabled tab syncing in Eyebrowse Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">Cuir an comas sioncronachadh nan tabaichean.</string>
     <!-- Text displayed when user has no tabs that have been synced -->
     <string name="synced_tabs_no_tabs">Chan eil taba sam bith fosgailte agad ann am Eyebrowse air uidheaman eile.</string>
-    <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+    <!-- Text displayed in the synced tabs screen when a user is not signed in to Eyebrowse Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">Seall liosta nan tabaichean a tha agad air uidheaman eile.</string>
-    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Eyebrowse Sync -->
     <string name="synced_tabs_sign_in_button">Clàraich a-steach a shioncronachadh</string>
     <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->
     <string name="synced_tabs_no_open_tabs">Chan eil taba fosgailte</string>
@@ -2061,8 +2061,8 @@
     <string name="inactive_tabs_auto_close_message_snackbar">Tha an dùnadh fèin-obrachail an comas</string>
 
     <!-- Awesome bar suggestion's headers -->
-    <!-- Search suggestions title for Firefox Suggest. -->
-    <string name="firefox_suggest_header">Eyebrowse Suggest</string>
+    <!-- Search suggestions title for Eyebrowse Suggest. -->
+    <string name="eyebrowse_suggest_header">Eyebrowse Suggest</string>
 
     <!-- Title for search suggestions when Google is the default search suggestion engine. -->
     <string name="google_search_engine_suggestion_header">Lorg le Google</string>
@@ -2115,6 +2115,6 @@
     <string name="a11y_action_label_wallpaper_collection_learn_more">fosgail an ceangal airson barrachd fiosrachaidh mun chruinneachadh seo</string>
     <!-- Action label for links that point to an article. Talkback will append this to say "Double tap to read the article". -->
     <string name="a11y_action_label_read_article">leugh an t-artaigeal</string>
-    <!-- Action label for links to the Firefox Pocket website. Talkback will append this to say "Double tap to open link to learn more". -->
+    <!-- Action label for links to the Eyebrowse Pocket website. Talkback will append this to say "Double tap to open link to learn more". -->
     <string name="a11y_action_label_pocket_learn_more">fosgail an ceangal airson barrachd fiosrachaidh</string>
 </resources>

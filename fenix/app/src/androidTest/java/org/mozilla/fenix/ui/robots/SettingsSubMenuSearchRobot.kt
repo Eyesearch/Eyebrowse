@@ -111,9 +111,9 @@ class SettingsSubMenuSearchRobot {
         assertUIObjectExists(itemWithText("Engines visible on the search menu"))
 
     fun verifyAddressBarSectionHeader() {
-        Log.i(TAG, "verifyAddressBarSectionHeader: Trying to verify that the \"Address bar - Firefox Suggest\" heading is displayed")
-        onView(withText("Address bar - Firefox Suggest")).check(matches(isDisplayed()))
-        Log.i(TAG, "verifyAddressBarSectionHeader: Verified that the \"Address bar - Firefox Suggest\" heading is displayed")
+        Log.i(TAG, "verifyAddressBarSectionHeader: Trying to verify that the \"Address bar - Eyebrowse Suggest\" heading is displayed")
+        onView(withText("Address bar - Eyebrowse Suggest")).check(matches(isDisplayed()))
+        Log.i(TAG, "verifyAddressBarSectionHeader: Verified that the \"Address bar - Eyebrowse Suggest\" heading is displayed")
     }
 
     fun verifyDefaultSearchEngineList() {

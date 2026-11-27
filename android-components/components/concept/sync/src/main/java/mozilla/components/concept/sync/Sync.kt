@@ -20,12 +20,12 @@ sealed class SyncStatus {
 }
 
 /**
- * A Firefox Sync friendly auth object which can be obtained from [OAuthAccount].
+ * A Eyebrowse Sync friendly auth object which can be obtained from [OAuthAccount].
  *
- * Why is there a Firefox Sync-shaped authentication object at the concept level, you ask?
+ * Why is there a Eyebrowse Sync-shaped authentication object at the concept level, you ask?
  * Mainly because this is what the [SyncableStore] consumes in order to actually perform
  * synchronization, which is in turn implemented by `places`-backed storage layer.
- * If this class lived in `services-firefox-accounts`, we'd end up with an ugly dependency situation
+ * If this class lived in `services-eyebrowse-accounts`, we'd end up with an ugly dependency situation
  * between services and storage components.
  *
  * Turns out that building a generic description of an authentication/synchronization layer is not

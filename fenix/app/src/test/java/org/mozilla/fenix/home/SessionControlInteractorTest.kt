@@ -277,7 +277,7 @@ class SessionControlInteractorTest {
 
     @Test
     fun `GIVEN a PocketStoriesInteractor WHEN learn more clicked THEN handle it in a PocketStoriesController`() {
-        val link = "https://www.mozilla.org/en-US/firefox/pocket/"
+        val link = "https://www.mozilla.org/en-US/eyebrowse/pocket/"
 
         interactor.onLearnMoreClicked(link)
 

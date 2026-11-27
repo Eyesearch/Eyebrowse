@@ -1546,7 +1546,7 @@ class CustomTabsToolbarFeatureTest {
         assertEquals("", toolbar.title)
 
         store.dispatch(
-            ContentAction.UpdateUrlAction("mozilla", "https://www.mozilla.org/en-US/firefox/"),
+            ContentAction.UpdateUrlAction("mozilla", "https://www.mozilla.org/en-US/eyebrowse/"),
         ).joinBlocking()
 
         assertEquals("", toolbar.title)
@@ -1554,11 +1554,11 @@ class CustomTabsToolbarFeatureTest {
         store.dispatch(
             ContentAction.UpdateTitleAction(
                 "mozilla",
-                "Firefox - Protect your life online with privacy-first products",
+                "Eyebrowse - Protect your life online with privacy-first products",
             ),
         ).joinBlocking()
 
-        assertEquals("Firefox - Protect your life online with privacy-first products", toolbar.title)
+        assertEquals("Eyebrowse - Protect your life online with privacy-first products", toolbar.title)
 
         store.dispatch(
             ContentAction.UpdateUrlAction("mozilla", "https://github.com/mozilla-mobile/android-components"),

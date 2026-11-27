@@ -124,25 +124,25 @@ private fun OnboardingCardType.toPageUiDataType() = when (this) {
 @Suppress("LongParameterList")
 internal fun mapToOnboardingPageState(
     onboardingPageUiData: OnboardingPageUiData,
-    onMakeFirefoxDefaultClick: () -> Unit,
-    onMakeFirefoxDefaultSkipClick: () -> Unit,
+    onMakeEyebrowseDefaultClick: () -> Unit,
+    onMakeEyebrowseDefaultSkipClick: () -> Unit,
     onSignInButtonClick: () -> Unit,
     onSignInSkipClick: () -> Unit,
     onNotificationPermissionButtonClick: () -> Unit,
     onNotificationPermissionSkipClick: () -> Unit,
-    onAddFirefoxWidgetClick: () -> Unit,
-    onAddFirefoxWidgetSkipClick: () -> Unit,
+    onAddEyebrowseWidgetClick: () -> Unit,
+    onAddEyebrowseWidgetSkipClick: () -> Unit,
 ): OnboardingPageState = when (onboardingPageUiData.type) {
     OnboardingPageUiData.Type.DEFAULT_BROWSER -> createOnboardingPageState(
         onboardingPageUiData = onboardingPageUiData,
-        onPositiveButtonClick = onMakeFirefoxDefaultClick,
-        onNegativeButtonClick = onMakeFirefoxDefaultSkipClick,
+        onPositiveButtonClick = onMakeEyebrowseDefaultClick,
+        onNegativeButtonClick = onMakeEyebrowseDefaultSkipClick,
     )
 
     OnboardingPageUiData.Type.ADD_SEARCH_WIDGET -> createOnboardingPageState(
         onboardingPageUiData = onboardingPageUiData,
-        onPositiveButtonClick = onAddFirefoxWidgetClick,
-        onNegativeButtonClick = onAddFirefoxWidgetSkipClick,
+        onPositiveButtonClick = onAddEyebrowseWidgetClick,
+        onNegativeButtonClick = onAddEyebrowseWidgetSkipClick,
     )
 
     OnboardingPageUiData.Type.SYNC_SIGN_IN -> createOnboardingPageState(

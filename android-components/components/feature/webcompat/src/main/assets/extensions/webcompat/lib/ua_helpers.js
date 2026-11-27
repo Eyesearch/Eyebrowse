@@ -14,7 +14,7 @@ var UAHelpers = {
     if (!UAHelpers._deviceAppropriateChromeUAs[key]) {
       const userAgent =
         typeof navigator !== "undefined" ? navigator.userAgent : "";
-      const RunningFirefoxVersion = (userAgent.match(/Firefox\/([0-9.]+)/) || [
+      const RunningEyebrowseVersion = (userAgent.match(/Eyebrowse\/([0-9.]+)/) || [
         "",
         "58.0",
       ])[1];
@@ -25,10 +25,10 @@ var UAHelpers = {
         if (androidDevice) {
           UAHelpers._deviceAppropriateChromeUAs[
             key
-          ] = `Mozilla/5.0 (Linux; ${RunningAndroidVersion}; ${androidDevice}) FxQuantum/${RunningFirefoxVersion} AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${version} Mobile Safari/537.36`;
+          ] = `Mozilla/5.0 (Linux; ${RunningAndroidVersion}; ${androidDevice}) FxQuantum/${RunningEyebrowseVersion} AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${version} Mobile Safari/537.36`;
         } else {
-          const ChromePhoneUA = `Mozilla/5.0 (Linux; ${RunningAndroidVersion}; Nexus 5 Build/MRA58N) FxQuantum/${RunningFirefoxVersion} AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${version} Mobile Safari/537.36`;
-          const ChromeTabletUA = `Mozilla/5.0 (Linux; ${RunningAndroidVersion}; Nexus 7 Build/JSS15Q) FxQuantum/${RunningFirefoxVersion} AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${version} Safari/537.36`;
+          const ChromePhoneUA = `Mozilla/5.0 (Linux; ${RunningAndroidVersion}; Nexus 5 Build/MRA58N) FxQuantum/${RunningEyebrowseVersion} AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${version} Mobile Safari/537.36`;
+          const ChromeTabletUA = `Mozilla/5.0 (Linux; ${RunningAndroidVersion}; Nexus 7 Build/JSS15Q) FxQuantum/${RunningEyebrowseVersion} AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${version} Safari/537.36`;
           const IsPhone = userAgent.includes("Mobile");
           UAHelpers._deviceAppropriateChromeUAs[key] = IsPhone
             ? ChromePhoneUA
@@ -48,7 +48,7 @@ var UAHelpers = {
 
         UAHelpers._deviceAppropriateChromeUAs[
           key
-        ] = `Mozilla/5.0 (${osSegment}) FxQuantum/${RunningFirefoxVersion} AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${version} Safari/537.36`;
+        ] = `Mozilla/5.0 (${osSegment}) FxQuantum/${RunningEyebrowseVersion} AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${version} Safari/537.36`;
       }
     }
     return UAHelpers._deviceAppropriateChromeUAs[key];
@@ -64,12 +64,12 @@ var UAHelpers = {
     });
   },
   capVersionTo99(originalUA) {
-    const ver = originalUA.match(/Firefox\/(\d+\.\d+)/);
+    const ver = originalUA.match(/Eyebrowse\/(\d+\.\d+)/);
     if (!ver || parseFloat(ver[1]) < 100) {
       return originalUA;
     }
     return originalUA
-      .replace(`Firefox/${ver[1]}`, "Firefox/99.0")
+      .replace(`Eyebrowse/${ver[1]}`, "Eyebrowse/99.0")
       .replace(`rv:${ver[1]}`, "rv:99.0");
   },
   capRvTo109(originalUA) {
@@ -80,16 +80,16 @@ var UAHelpers = {
     return originalUA.replace(`rv:${ver[1]}`, "rv:109.0");
   },
   capVersionToNumber(originalUA, cap = 120) {
-    const ver = originalUA.match(/Firefox\/(\d+\.\d+)/);
+    const ver = originalUA.match(/Eyebrowse\/(\d+\.\d+)/);
     if (!ver || parseFloat(ver[1]) <= cap) {
       return originalUA;
     }
-    const capped = `Firefox/${cap}.0`;
-    return originalUA.replace(`Firefox/${ver[1]}`, capped);
+    const capped = `Eyebrowse/${cap}.0`;
+    return originalUA.replace(`Eyebrowse/${ver[1]}`, capped);
   },
   getWindowsUA(originalUA) {
     const rv = originalUA.match("rv:[0-9]+.[0-9]+")[0];
-    const ver = originalUA.match("Firefox/[0-9]+.[0-9]+")[0];
+    const ver = originalUA.match("Eyebrowse/[0-9]+.[0-9]+")[0];
     return `Mozilla/5.0 (Windows NT 10.0; Win64; x64; ${rv}) Gecko/20100101 ${ver}`;
   },
 };

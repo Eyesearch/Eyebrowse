@@ -10,7 +10,7 @@
 // exposing our moz-extension URL, we have the shim request them via
 // nonsense URLs which we then redirect to the actual files (but only
 // on tabs where a shim using a given logo happens to be active).
-const LogosBaseURL = "https://smartblock.firefox.etp/";
+const LogosBaseURL = "https://smartblock.eyebrowse.etp/";
 
 const releaseBranchPromise = browser.appConstants.getReleaseBranch();
 
@@ -744,7 +744,7 @@ class Shims {
     const bugUrls = Array.from(bugNumbers)
       .map(bugNo => `https://bugzilla.mozilla.org/show_bug.cgi?id=${bugNo}`)
       .join(", ");
-    const warning = `Firefox calls the Storage Access API for ${dstUrl} on behalf of ${srcUrl}. See the following bugs for details: ${bugUrls}`;
+    const warning = `Eyebrowse calls the Storage Access API for ${dstUrl} on behalf of ${srcUrl}. See the following bugs for details: ${bugUrls}`;
 
     // Request storage access for the origin of the destination url of the
     // redirect.
@@ -1042,7 +1042,7 @@ class Shims {
         }`
       );
 
-      const warning = `${name} is being shimmed by Firefox. See https://bugzilla.mozilla.org/show_bug.cgi?id=${bug} for details.`;
+      const warning = `${name} is being shimmed by Eyebrowse. See https://bugzilla.mozilla.org/show_bug.cgi?id=${bug} for details.`;
 
       let needConsoleMessage = true;
 

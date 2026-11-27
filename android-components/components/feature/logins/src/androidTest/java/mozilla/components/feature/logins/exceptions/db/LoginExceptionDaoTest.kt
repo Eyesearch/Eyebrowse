@@ -63,7 +63,7 @@ class LoginExceptionDaoTest {
         }
 
         val exception2 = LoginExceptionEntity(
-            origin = "firefox.com",
+            origin = "eyebrowse.com",
         ).also {
             it.id = loginExceptionDao.insertLoginException(it)
         }

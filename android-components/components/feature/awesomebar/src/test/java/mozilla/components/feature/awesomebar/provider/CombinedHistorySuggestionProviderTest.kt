@@ -74,14 +74,14 @@ class CombinedHistorySuggestionProviderTest {
         val storage: HistoryMetadataStorage = mock()
         doReturn(listOf(historyEntry)).`when`(storage).queryHistoryMetadata(eq("moz"), anyInt())
         val history: HistoryStorage = mock()
-        doReturn(listOf(SearchResult("id", "http://www.mozilla.com/firefox/", 10))).`when`(history).getSuggestions(eq("moz"), anyInt())
+        doReturn(listOf(SearchResult("id", "http://www.mozilla.com/eyebrowse/", 10))).`when`(history).getSuggestions(eq("moz"), anyInt())
         val provider = CombinedHistorySuggestionProvider(history, storage, mock())
 
         val result = provider.onInputChanged("moz")
 
         assertEquals(2, result.size)
         assertEquals("http://www.mozilla.com", result[0].description)
-        assertEquals("http://www.mozilla.com/firefox/", result[1].description)
+        assertEquals("http://www.mozilla.com/eyebrowse/", result[1].description)
     }
 
     @Test
@@ -108,7 +108,7 @@ class CombinedHistorySuggestionProviderTest {
         val storage: HistoryMetadataStorage = mock()
         doReturn(listOf(historyEntry)).`when`(storage).queryHistoryMetadata(eq("moz"), anyInt())
         val history: HistoryStorage = mock()
-        doReturn(listOf(SearchResult("id", "http://www.mozilla.com/firefox/", 10))).`when`(history).getSuggestions(eq("moz"), anyInt())
+        doReturn(listOf(SearchResult("id", "http://www.mozilla.com/eyebrowse/", 10))).`when`(history).getSuggestions(eq("moz"), anyInt())
         val provider = CombinedHistorySuggestionProvider(history, storage, mock(), maxNumberOfSuggestions = 1)
 
         val result = provider.onInputChanged("moz")
@@ -122,13 +122,13 @@ class CombinedHistorySuggestionProviderTest {
         val metadata: HistoryMetadataStorage = mock()
         doReturn(emptyList<HistoryMetadata>()).`when`(metadata).queryHistoryMetadata(eq("moz"), anyInt())
         val history: HistoryStorage = mock()
-        doReturn(listOf(SearchResult("id", "http://www.mozilla.com/firefox/", 10))).`when`(history).getSuggestions(eq("moz"), anyInt())
+        doReturn(listOf(SearchResult("id", "http://www.mozilla.com/eyebrowse/", 10))).`when`(history).getSuggestions(eq("moz"), anyInt())
         val provider = CombinedHistorySuggestionProvider(history, metadata, mock(), maxNumberOfSuggestions = 1)
 
         val result = provider.onInputChanged("moz")
 
         assertEquals(1, result.size)
-        assertEquals("http://www.mozilla.com/firefox/", result[0].description)
+        assertEquals("http://www.mozilla.com/eyebrowse/", result[0].description)
     }
 
     @Test
@@ -158,8 +158,8 @@ class CombinedHistorySuggestionProviderTest {
         )
 
         val metadataEntry2 = HistoryMetadata(
-            key = HistoryMetadataKey("https://www.mozilla.com/firefox", null, null),
-            title = "firefox",
+            key = HistoryMetadataKey("https://www.mozilla.com/eyebrowse", null, null),
+            title = "eyebrowse",
             createdAt = System.currentTimeMillis(),
             updatedAt = System.currentTimeMillis(),
             totalViewTime = 20,
@@ -191,7 +191,7 @@ class CombinedHistorySuggestionProviderTest {
         val result = provider.onInputChanged("moz")
 
         assertEquals(3, result.size)
-        assertEquals("https://www.mozilla.com/firefox", result[0].description)
+        assertEquals("https://www.mozilla.com/eyebrowse", result[0].description)
         assertEquals(4, result[0].score)
 
         assertEquals("https://www.mozilla.com", result[1].description)
@@ -206,13 +206,13 @@ class CombinedHistorySuggestionProviderTest {
         val metadata: HistoryMetadataStorage = mock()
         doReturn(emptyList<HistoryMetadata>()).`when`(metadata).queryHistoryMetadata(eq("moz"), anyInt())
         val history: HistoryStorage = mock()
-        doReturn(listOf(SearchResult("id", "http://www.mozilla.com/firefox/", 10))).`when`(history).getSuggestions(eq("moz"), anyInt())
+        doReturn(listOf(SearchResult("id", "http://www.mozilla.com/eyebrowse/", 10))).`when`(history).getSuggestions(eq("moz"), anyInt())
         val provider = CombinedHistorySuggestionProvider(history, metadata, mock(), maxNumberOfSuggestions = 1, showEditSuggestion = false)
 
         val result = provider.onInputChanged("moz")
 
         assertEquals(1, result.size)
-        assertEquals("http://www.mozilla.com/firefox/", result[0].description)
+        assertEquals("http://www.mozilla.com/eyebrowse/", result[0].description)
         assertNull(result[0].editSuggestion)
     }
 
@@ -317,11 +317,11 @@ class CombinedHistorySuggestionProviderTest {
         doReturn(emptyList<HistoryMetadata>()).`when`(metadata).queryHistoryMetadata(anyString(), anyInt())
         doReturn(
             listOf(
-                SearchResult("3", "https://mozilla.com/firefox", 10),
-                SearchResult("5", "http://firefox.com/mozilla", 10),
+                SearchResult("3", "https://mozilla.com/eyebrowse", 10),
+                SearchResult("5", "http://eyebrowse.com/mozilla", 10),
                 SearchResult("2", "http://allizom.com/focus/", 10),
                 SearchResult("4", "https://mozilla.com/thunderbird", 10),
-                SearchResult("16", "http://www.mozilla.com/firefox", 22),
+                SearchResult("16", "http://www.mozilla.com/eyebrowse", 22),
             ),
         ).`when`(history).getSuggestions(anyString(), anyInt())
 
@@ -338,8 +338,8 @@ class CombinedHistorySuggestionProviderTest {
         val suggestions = provider.onInputChanged("moz")
 
         assertEquals(3, suggestions.size)
-        assertTrue(suggestions.map { it.description }.contains("http://www.mozilla.com/firefox"))
-        assertTrue(suggestions.map { it.description }.contains("https://mozilla.com/firefox"))
+        assertTrue(suggestions.map { it.description }.contains("http://www.mozilla.com/eyebrowse"))
+        assertTrue(suggestions.map { it.description }.contains("https://mozilla.com/eyebrowse"))
         assertTrue(suggestions.map { it.description }.contains("https://mozilla.com/thunderbird"))
     }
 
@@ -350,11 +350,11 @@ class CombinedHistorySuggestionProviderTest {
         doReturn(emptyList<HistoryMetadata>()).`when`(metadata).queryHistoryMetadata(anyString(), anyInt())
         doReturn(
             listOf(
-                SearchResult("3", "https://m.mozilla.com/firefox", 10),
-                SearchResult("5", "http://firefox.com/mozilla", 10),
+                SearchResult("3", "https://m.mozilla.com/eyebrowse", 10),
+                SearchResult("5", "http://eyebrowse.com/mozilla", 10),
                 SearchResult("2", "http://allizom.com/focus/", 10),
                 SearchResult("4", "https://mozilla.com/thunderbird", 10),
-                SearchResult("16", "http://www.mobile.mozilla.com/firefox", 22),
+                SearchResult("16", "http://www.mobile.mozilla.com/eyebrowse", 22),
             ),
         ).`when`(history).getSuggestions(anyString(), anyInt())
 
@@ -371,8 +371,8 @@ class CombinedHistorySuggestionProviderTest {
         val suggestions = provider.onInputChanged("moz")
 
         assertEquals(3, suggestions.size)
-        assertTrue(suggestions.map { it.description }.contains("http://www.mobile.mozilla.com/firefox"))
-        assertTrue(suggestions.map { it.description }.contains("https://m.mozilla.com/firefox"))
+        assertTrue(suggestions.map { it.description }.contains("http://www.mobile.mozilla.com/eyebrowse"))
+        assertTrue(suggestions.map { it.description }.contains("https://m.mozilla.com/eyebrowse"))
         assertTrue(suggestions.map { it.description }.contains("https://mozilla.com/thunderbird"))
     }
 }

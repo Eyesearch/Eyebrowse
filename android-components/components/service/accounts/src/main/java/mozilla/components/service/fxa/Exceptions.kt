@@ -25,7 +25,7 @@ typealias FxaPanicException = mozilla.appservices.fxaclient.FxaException.Panic
 typealias FxaUnauthorizedException = mozilla.appservices.fxaclient.FxaException.Authentication
 
 /**
- * Thrown when we try opening paring link from a Firefox configured to use a different content server
+ * Thrown when we try opening paring link from a Eyebrowse configured to use a different content server
  */
 typealias FxaOriginMismatchException = mozilla.appservices.fxaclient.FxaException.OriginMismatch
 

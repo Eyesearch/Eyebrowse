@@ -58,7 +58,7 @@ class EngineDelegateMiddlewareTest {
         store.dispatch(
             EngineAction.LoadUrlAction(
                 "test-tab",
-                "https://www.firefox.com",
+                "https://www.eyebrowse.com",
             ),
         ).joinBlocking()
 
@@ -66,7 +66,7 @@ class EngineDelegateMiddlewareTest {
         store.waitUntilIdle()
 
         verify(engine).createSession(private = false, contextId = null)
-        verify(engineSession, times(1)).loadUrl("https://www.firefox.com")
+        verify(engineSession, times(1)).loadUrl("https://www.eyebrowse.com")
         assertEquals(engineSession, store.state.tabs[0].engineState.engineSession)
     }
 
@@ -90,7 +90,7 @@ class EngineDelegateMiddlewareTest {
         store.dispatch(
             EngineAction.LoadUrlAction(
                 "test-tab",
-                "https://www.firefox.com",
+                "https://www.eyebrowse.com",
             ),
         ).joinBlocking()
 
@@ -98,7 +98,7 @@ class EngineDelegateMiddlewareTest {
         store.waitUntilIdle()
 
         verify(engine).createSession(private = true, contextId = null)
-        verify(engineSession, times(1)).loadUrl("https://www.firefox.com")
+        verify(engineSession, times(1)).loadUrl("https://www.eyebrowse.com")
         assertEquals(engineSession, store.state.tabs[0].engineState.engineSession)
     }
 
@@ -122,7 +122,7 @@ class EngineDelegateMiddlewareTest {
         store.dispatch(
             EngineAction.LoadUrlAction(
                 "test-tab",
-                "https://www.firefox.com",
+                "https://www.eyebrowse.com",
             ),
         ).joinBlocking()
 
@@ -130,7 +130,7 @@ class EngineDelegateMiddlewareTest {
         store.waitUntilIdle()
 
         verify(engine).createSession(private = false, contextId = "test-container")
-        verify(engineSession, times(1)).loadUrl("https://www.firefox.com")
+        verify(engineSession, times(1)).loadUrl("https://www.eyebrowse.com")
         assertEquals(engineSession, store.state.tabs[0].engineState.engineSession)
     }
 
@@ -156,7 +156,7 @@ class EngineDelegateMiddlewareTest {
         store.dispatch(
             EngineAction.LoadUrlAction(
                 "test-tab",
-                "https://www.firefox.com",
+                "https://www.eyebrowse.com",
             ),
         ).joinBlocking()
 
@@ -164,7 +164,7 @@ class EngineDelegateMiddlewareTest {
         store.waitUntilIdle()
 
         verify(engine, never()).createSession(ArgumentMatchers.anyBoolean(), ArgumentMatchers.anyString())
-        verify(engineSession, times(1)).loadUrl("https://www.firefox.com")
+        verify(engineSession, times(1)).loadUrl("https://www.eyebrowse.com")
         assertEquals(engineSession, store.state.tabs[0].engineState.engineSession)
     }
 
@@ -190,7 +190,7 @@ class EngineDelegateMiddlewareTest {
         store.dispatch(
             EngineAction.LoadUrlAction(
                 "test-tab",
-                "https://www.firefox.com",
+                "https://www.eyebrowse.com",
             ),
         ).joinBlocking()
 
@@ -198,7 +198,7 @@ class EngineDelegateMiddlewareTest {
         store.waitUntilIdle()
 
         verify(engine, never()).createSession(ArgumentMatchers.anyBoolean(), ArgumentMatchers.anyString())
-        verify(engineSession, times(1)).loadUrl("https://www.firefox.com")
+        verify(engineSession, times(1)).loadUrl("https://www.eyebrowse.com")
         assertEquals(engineSession, store.state.tabs[0].engineState.engineSession)
     }
 
@@ -224,7 +224,7 @@ class EngineDelegateMiddlewareTest {
         store.dispatch(
             EngineAction.LoadUrlAction(
                 "test-tab",
-                "https://www.firefox.com",
+                "https://www.eyebrowse.com",
             ),
         ).joinBlocking()
 
@@ -232,7 +232,7 @@ class EngineDelegateMiddlewareTest {
         store.waitUntilIdle()
 
         verify(engine, never()).createSession(ArgumentMatchers.anyBoolean(), ArgumentMatchers.anyString())
-        verify(engineSession, times(1)).loadUrl("https://www.firefox.com")
+        verify(engineSession, times(1)).loadUrl("https://www.eyebrowse.com")
         assertEquals(engineSession, store.state.tabs[0].engineState.engineSession)
     }
 
@@ -262,7 +262,7 @@ class EngineDelegateMiddlewareTest {
         store.dispatch(
             EngineAction.LoadUrlAction(
                 "test-tab",
-                "https://www.firefox.com",
+                "https://www.eyebrowse.com",
             ),
         ).joinBlocking()
 
@@ -270,7 +270,7 @@ class EngineDelegateMiddlewareTest {
         store.waitUntilIdle()
 
         verify(engine).createSession(private = false, contextId = null)
-        verify(engineSession, times(1)).loadUrl("https://www.firefox.com", parentEngineSession)
+        verify(engineSession, times(1)).loadUrl("https://www.eyebrowse.com", parentEngineSession)
         assertEquals(parentEngineSession, store.state.tabs[0].engineState.engineSession)
         assertEquals(engineSession, store.state.tabs[1].engineState.engineSession)
     }
@@ -297,7 +297,7 @@ class EngineDelegateMiddlewareTest {
         store.dispatch(
             EngineAction.LoadUrlAction(
                 "test-tab",
-                "https://www.firefox.com",
+                "https://www.eyebrowse.com",
             ),
         ).joinBlocking()
 
@@ -305,7 +305,7 @@ class EngineDelegateMiddlewareTest {
         store.waitUntilIdle()
 
         verify(engine, times(1)).createSession(private = false, contextId = null)
-        verify(engineSession, times(1)).loadUrl("https://www.firefox.com")
+        verify(engineSession, times(1)).loadUrl("https://www.eyebrowse.com")
         assertEquals(engineSession, store.state.tabs[1].engineState.engineSession)
     }
 
@@ -330,7 +330,7 @@ class EngineDelegateMiddlewareTest {
         store.dispatch(
             EngineAction.LoadUrlAction(
                 "test-tab",
-                "https://www.firefox.com",
+                "https://www.eyebrowse.com",
                 EngineSession.LoadUrlFlags.external(),
                 mapOf(
                     "X-Coffee" to "Large",
@@ -343,7 +343,7 @@ class EngineDelegateMiddlewareTest {
         store.waitUntilIdle()
 
         verify(engineSession, times(1)).loadUrl(
-            "https://www.firefox.com",
+            "https://www.eyebrowse.com",
             flags = EngineSession.LoadUrlFlags.external(),
             additionalHeaders = mapOf(
                 "X-Coffee" to "Large",
@@ -725,7 +725,7 @@ class EngineDelegateMiddlewareTest {
                     createTab("https://www.mozilla.org").copy(
                         engineState = EngineState(engineSession = null, engineSessionState = mock()),
                     ),
-                    createTab("https://www.firefox.com").copy(
+                    createTab("https://www.eyebrowse.com").copy(
                         engineState = EngineState(engineSession = engineSession1, engineSessionState = mock()),
                     ),
                 ),

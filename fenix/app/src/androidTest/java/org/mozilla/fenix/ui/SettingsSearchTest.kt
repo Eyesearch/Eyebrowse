@@ -164,7 +164,7 @@ class SettingsSearchTest : TestSetup() {
             typeSearch("test")
             verifySuggestionsAreNotDisplayed(
                 activityTestRule,
-                "Firefox Suggest",
+                "Eyebrowse Suggest",
                 websiteURL,
             )
         }
@@ -193,7 +193,7 @@ class SettingsSearchTest : TestSetup() {
             typeSearch("test")
             verifySuggestionsAreNotDisplayed(
                 activityTestRule,
-                "Firefox Suggest",
+                "Eyebrowse Suggest",
                 website.title,
             )
         }
@@ -272,7 +272,7 @@ class SettingsSearchTest : TestSetup() {
             openAddSearchEngineMenu()
         }.clickCustomSearchStringLearnMoreLink {
             verifyUrl(
-                "support.mozilla.org/en-US/kb/manage-my-default-search-engines-firefox-android?as=u&utm_source=inproduct",
+                "support.mozilla.org/en-US/kb/manage-my-default-search-engines-eyebrowse-android?as=u&utm_source=inproduct",
             )
         }.openThreeDotMenu {
         }.openSettings {
@@ -281,7 +281,7 @@ class SettingsSearchTest : TestSetup() {
             openAddSearchEngineMenu()
         }.clickCustomSearchSuggestionsLearnMoreLink {
             verifyUrl(
-                "support.mozilla.org/en-US/kb/manage-my-default-search-engines-firefox-android?as=u&utm_source=inproduct",
+                "support.mozilla.org/en-US/kb/manage-my-default-search-engines-eyebrowse-android?as=u&utm_source=inproduct",
             )
         }
     }
@@ -427,7 +427,7 @@ class SettingsSearchTest : TestSetup() {
             typeSearch("mozilla ")
             verifySearchEngineSuggestionResults(
                 activityTestRule,
-                "mozilla firefox",
+                "mozilla eyebrowse",
                 searchTerm = "mozilla ",
             )
         }.dismissSearchBar {
@@ -443,7 +443,7 @@ class SettingsSearchTest : TestSetup() {
             clickSearchSelectorButton()
             selectTemporarySearchMethod("DuckDuckGo")
             typeSearch("mozilla")
-            verifySuggestionsAreNotDisplayed(activityTestRule, "mozilla firefox")
+            verifySuggestionsAreNotDisplayed(activityTestRule, "mozilla eyebrowse")
         }
     }
 
@@ -457,7 +457,7 @@ class SettingsSearchTest : TestSetup() {
             typeSearch("mozilla")
             verifyAllowSuggestionsInPrivateModeDialog()
             denySuggestionsInPrivateMode()
-            verifySuggestionsAreNotDisplayed(activityTestRule, "mozilla firefox")
+            verifySuggestionsAreNotDisplayed(activityTestRule, "mozilla eyebrowse")
         }
     }
 
@@ -473,7 +473,7 @@ class SettingsSearchTest : TestSetup() {
             allowSuggestionsInPrivateMode()
             verifySearchEngineSuggestionResults(
                 activityTestRule,
-                "mozilla firefox",
+                "mozilla eyebrowse",
                 searchTerm = "mozilla",
             )
         }.dismissSearchBar {
@@ -485,7 +485,7 @@ class SettingsSearchTest : TestSetup() {
         }.goBack {
         }.openSearch {
             typeSearch("mozilla")
-            verifySuggestionsAreNotDisplayed(activityTestRule, "mozilla firefox")
+            verifySuggestionsAreNotDisplayed(activityTestRule, "mozilla eyebrowse")
         }
     }
 

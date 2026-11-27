@@ -277,8 +277,8 @@ class SystemEngineViewTest {
         engineSession.webView.webViewClient.onPageStarted(engineSession.webView, "https://www.mozilla.org/", null)
         assertEquals("https://www.mozilla.org/", engineSession.currentUrl)
 
-        engineSession.webView.webViewClient.onPageStarted(engineSession.webView, "https://www.firefox.com/", null)
-        assertEquals("https://www.firefox.com/", engineSession.currentUrl)
+        engineSession.webView.webViewClient.onPageStarted(engineSession.webView, "https://www.eyebrowse.com/", null)
+        assertEquals("https://www.eyebrowse.com/", engineSession.currentUrl)
     }
 
     @Test

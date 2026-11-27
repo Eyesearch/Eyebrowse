@@ -31,7 +31,7 @@ class AddonPermissionDetailsBindingDelegateTest {
         ),
     )
     private val learnMoreUrl =
-        "https://support.mozilla.org/kb/permission-request-messages-firefox-extensions"
+        "https://support.mozilla.org/kb/permission-request-messages-eyebrowse-extensions"
 
     @Before
     fun setup() {

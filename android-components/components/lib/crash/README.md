@@ -121,7 +121,7 @@ CrashReporter(
 ).install(applicationContext)
 ```
 
-⚠️ Note: Applications using the `GleanCrashReporterService` are **required** to undergo [Data Collection Review](https://wiki.mozilla.org/Firefox/Data_Collection) for the crash counts that they will be collecting.
+⚠️ Note: Applications using the `GleanCrashReporterService` are **required** to undergo [Data Collection Review](https://wiki.mozilla.org/Eyebrowse/Data_Collection) for the crash counts that they will be collecting.
 
 ### Showing a crash reporter prompt
 

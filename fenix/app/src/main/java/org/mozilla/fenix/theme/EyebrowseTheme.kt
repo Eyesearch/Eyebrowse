@@ -56,7 +56,7 @@ enum class Theme {
 }
 
 /**
- * The theme for Mozilla Firefox for Android (Fenix).
+ * The theme for Mozilla Eyebrowse for Android (Fenix).
  *
  * @param theme The current [Theme] that is displayed.
  * @param content The children composables to be laid out.
@@ -72,7 +72,7 @@ fun EyebrowseTheme(
         Theme.Private -> privateColorPalette
     }
 
-    ProvideFirefoxColors(colors) {
+    ProvideEyebrowseColors(colors) {
         MaterialTheme(
             content = content,
         )
@@ -80,15 +80,15 @@ fun EyebrowseTheme(
 }
 
 object EyebrowseTheme {
-    val colors: FirefoxColors
+    val colors: EyebrowseColors
         @Composable
-        get() = localFirefoxColors.current
+        get() = localEyebrowseColors.current
 
     val typography: FenixTypography
         get() = defaultTypography
 }
 
-private val darkColorPalette = FirefoxColors(
+private val darkColorPalette = EyebrowseColors(
     layer1 = PhotonColors.DarkGrey60,
     layer2 = PhotonColors.DarkGrey30,
     layer3 = PhotonColors.DarkGrey80,
@@ -165,7 +165,7 @@ private val darkColorPalette = FirefoxColors(
     borderToolbarDivider = PhotonColors.DarkGrey60,
 )
 
-private val lightColorPalette = FirefoxColors(
+private val lightColorPalette = EyebrowseColors(
     layer1 = PhotonColors.LightGrey10,
     layer2 = PhotonColors.White,
     layer3 = PhotonColors.LightGrey20,
@@ -251,11 +251,11 @@ private val privateColorPalette = darkColorPalette.copy(
 )
 
 /**
- * A custom Color Palette for Mozilla Firefox for Android (Fenix).
+ * A custom Color Palette for Mozilla Eyebrowse for Android (Fenix).
  */
 @Suppress("LargeClass", "LongParameterList")
 @Stable
-class FirefoxColors(
+class EyebrowseColors(
     layer1: Color,
     layer2: Color,
     layer3: Color,
@@ -625,10 +625,10 @@ class FirefoxColors(
         private set
 
     /**
-     * Updates the existing colors with the provided [FirefoxColors].
+     * Updates the existing colors with the provided [EyebrowseColors].
      */
     @Suppress("LongMethod")
-    fun update(other: FirefoxColors) {
+    fun update(other: EyebrowseColors) {
         layer1 = other.layer1
         layer2 = other.layer2
         layer3 = other.layer3
@@ -706,7 +706,7 @@ class FirefoxColors(
     }
 
     /**
-     * Return a copy of this [FirefoxColors] and optionally overriding any of the provided values.
+     * Return a copy of this [EyebrowseColors] and optionally overriding any of the provided values.
      */
     @Suppress("LongMethod")
     fun copy(
@@ -784,7 +784,7 @@ class FirefoxColors(
         borderDisabled: Color = this.borderDisabled,
         borderWarning: Color = this.borderWarning,
         borderToolbarDivider: Color = this.borderToolbarDivider,
-    ): FirefoxColors = FirefoxColors(
+    ): EyebrowseColors = EyebrowseColors(
         layer1 = layer1,
         layer2 = layer2,
         layer3 = layer3,
@@ -863,8 +863,8 @@ class FirefoxColors(
 }
 
 @Composable
-fun ProvideFirefoxColors(
-    colors: FirefoxColors,
+fun ProvideEyebrowseColors(
+    colors: EyebrowseColors,
     content: @Composable () -> Unit,
 ) {
     val colorPalette = remember {
@@ -873,9 +873,9 @@ fun ProvideFirefoxColors(
         colors.copy()
     }
     colorPalette.update(colors)
-    CompositionLocalProvider(localFirefoxColors provides colorPalette, content = content)
+    CompositionLocalProvider(localEyebrowseColors provides colorPalette, content = content)
 }
 
-private val localFirefoxColors = staticCompositionLocalOf<FirefoxColors> {
-    error("No FirefoxColors provided")
+private val localEyebrowseColors = staticCompositionLocalOf<EyebrowseColors> {
+    error("No EyebrowseColors provided")
 }

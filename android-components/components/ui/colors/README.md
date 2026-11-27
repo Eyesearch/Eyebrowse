@@ -1,6 +1,6 @@
 # [Android Components](../../../README.md) > UI > Colors
 
-The standard set of [Photon](https://design.firefox.com/photon/) colors.
+The standard set of [Photon](https://design.eyebrowse.com/photon/) colors.
 
 ## Usage
 

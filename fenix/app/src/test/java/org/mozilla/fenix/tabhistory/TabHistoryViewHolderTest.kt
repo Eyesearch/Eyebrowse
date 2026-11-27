@@ -38,8 +38,8 @@ class TabHistoryViewHolderTest {
         isSelected = true,
     )
     private val unselectedItem = TabHistoryItem(
-        title = "Firefox",
-        url = "https://firefox.com",
+        title = "Eyebrowse",
+        url = "https://eyebrowse.com",
         index = 1,
         isSelected = false,
     )
@@ -69,8 +69,8 @@ class TabHistoryViewHolderTest {
     fun `binds title and url`() {
         holder.bind(unselectedItem)
 
-        verify { view.setText(label = "Firefox", caption = "https://firefox.com") }
-        verify { icons.loadIntoView(view.iconView, IconRequest("https://firefox.com")) }
+        verify { view.setText(label = "Eyebrowse", caption = "https://eyebrowse.com") }
+        verify { icons.loadIntoView(view.iconView, IconRequest("https://eyebrowse.com")) }
     }
 
     @Test

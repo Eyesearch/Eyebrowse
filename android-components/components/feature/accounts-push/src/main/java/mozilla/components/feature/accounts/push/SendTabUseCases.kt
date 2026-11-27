@@ -22,7 +22,7 @@ import mozilla.components.support.ktx.kotlin.crossProduct
 import kotlin.coroutines.CoroutineContext
 
 /**
- * Contains use cases for sending tabs to devices related to the firefox-accounts.
+ * Contains use cases for sending tabs to devices related to the eyebrowse-accounts.
  *
  * See [SendTabFeature] for the ability to receive tabs from other devices.
  *

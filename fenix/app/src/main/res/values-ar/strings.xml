@@ -270,7 +270,7 @@
 
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">الإتاحة</string>
-    <!-- Preference to override the Firefox Account server -->
+    <!-- Preference to override the Eyebrowse Account server -->
     <string name="preferences_override_fxa_server">خادوم حسابات Eyebrowse مخصص</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">خادوم مزامنة مخصص</string>
@@ -1018,10 +1018,10 @@
     <!-- Text for the snackbar to show the user that the deletion of browsing data is in progress -->
     <string name="deleting_browsing_data_in_progress">يحذف بيانات التصفح…</string>
 
-    <!-- Text for the button to learn more about signing in to your Firefox account. -->
+    <!-- Text for the button to learn more about signing in to your Eyebrowse account. -->
     <string name="onboarding_manual_sign_in_description" moz:RemovedIn="118" tools:ignore="UnusedResources">اسحب العلامات والتأريخ وكلمات السر إلى Eyebrowse على هذا الجهاز.</string>
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">التزامن يعمل</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">التزامن يعمل</string>
     <!-- text for tracking protection radio button option for standard level of blocking -->
     <string name="onboarding_tracking_protection_standard_button_2" moz:RemovedIn="118" tools:ignore="UnusedResources">القياسي (المبدئي)</string>
     <!-- text for standard blocking option button description -->
@@ -1071,9 +1071,9 @@
     <string name="sign_in_with_camera">لِج باستخدام كمرتك</string>
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">استعمل البريد بدل المسح</string>
-    <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
+    <!-- Text shown for settings option for create new account text.'Eyebrowse' intentionally hardcoded here.-->
     <string name="sign_in_create_account_text"><![CDATA[ليس لديك حساب؟ <u>أنشِئ واحدًا</u> لمزامنة Eyebrowse بين الأجهزة.]]></string>
-    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="sign_out_confirmation_message_2">سيتوقف %s عن مزامنة حسابك، لكن لن يحذف أيًا من بيانات تصفحك على هذا الجهاز.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
     <string name="sign_out_disconnect">اقطع الاتصال</string>
@@ -1229,9 +1229,9 @@
     <string name="preferences_passwords_save_logins_ask_to_save">اسألني قبل الحفظ</string>
     <!-- Preference option for never saving passwords in Fenix -->
     <string name="preferences_passwords_save_logins_never_save">لا تحفظ أبدًا</string>
-    <!-- Preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill2">الملء التلقائي في %1$s</string>
-    <!-- Description for the preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Description for the preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill_description">املأ واحفظ أسماء المستخدمين وكلمات السر في مواقع الوِب أثناء استعمالك لمتصفّح %1$s.</string>
     <!-- Preference for autofilling logins from Fenix in other apps (e.g. autofilling the Twitter app) -->
     <string name="preferences_android_autofill">الملء التلقائي في التطبيقات الأخرى</string>
@@ -1493,13 +1493,13 @@
     <string name="synced_tabs_connect_another_device">صِلْ جهازا آخر.</string>
     <!-- Text displayed asking user to re-authenticate -->
     <string name="synced_tabs_reauth">من فضلك أعِد الاستيثاق.</string>
-    <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+    <!-- Text displayed when user has disabled tab syncing in Eyebrowse Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">من فضلك فعّل مزامنة الألسنة.</string>
     <!-- Text displayed when user has no tabs that have been synced -->
     <string name="synced_tabs_no_tabs">لا ألسنة مفتوحة في Eyebrowse على أجهزتك الأخرى.</string>
-    <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+    <!-- Text displayed in the synced tabs screen when a user is not signed in to Eyebrowse Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">اعرض قائمة بالألسنة من أجهزتك الأخرى.</string>
-    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Eyebrowse Sync -->
     <string name="synced_tabs_sign_in_button">لِج إلى «المزامنة»</string>
 
     <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->

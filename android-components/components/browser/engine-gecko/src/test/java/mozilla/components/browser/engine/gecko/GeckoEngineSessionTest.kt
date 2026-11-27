@@ -923,7 +923,7 @@ class GeckoEngineSessionTest {
         progressDelegate.value.onPageStart(geckoSession, "https://www.mozilla.org")
         assertNull(engineSession.currentUrl)
 
-        progressDelegate.value.onPageStart(geckoSession, "https://www.firefox.com")
+        progressDelegate.value.onPageStart(geckoSession, "https://www.eyebrowse.com")
         assertNull(engineSession.currentUrl)
     }
 
@@ -939,8 +939,8 @@ class GeckoEngineSessionTest {
         navigationDelegate.value.onLocationChange(geckoSession, "https://www.mozilla.org", emptyList(), false)
         assertEquals("https://www.mozilla.org", engineSession.currentUrl)
 
-        navigationDelegate.value.onLocationChange(geckoSession, "https://www.firefox.com", emptyList(), false)
-        assertEquals("https://www.firefox.com", engineSession.currentUrl)
+        navigationDelegate.value.onLocationChange(geckoSession, "https://www.eyebrowse.com", emptyList(), false)
+        assertEquals("https://www.eyebrowse.com", engineSession.currentUrl)
     }
 
     @Test
@@ -1402,7 +1402,7 @@ class GeckoEngineSessionTest {
             mock(),
             MockHistoryList(
                 listOf(
-                    mockHistoryItem("Firefox", "https://firefox.com"),
+                    mockHistoryItem("Eyebrowse", "https://eyebrowse.com"),
                     mockHistoryItem("Mozilla", "http://mozilla.org"),
                     mockHistoryItem(null, "https://example.com"),
                 ),
@@ -1411,7 +1411,7 @@ class GeckoEngineSessionTest {
         )
         verify(observer).onHistoryStateChanged(
             listOf(
-                HistoryItem("Firefox", "https://firefox.com"),
+                HistoryItem("Eyebrowse", "https://eyebrowse.com"),
                 HistoryItem("Mozilla", "http://mozilla.org"),
                 HistoryItem("https://example.com", "https://example.com"),
             ),

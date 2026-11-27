@@ -73,7 +73,7 @@ class HistoryMetadataMiddlewareTest {
         assertEquals(expectedKey, store.state.findTab(tab.id)?.historyMetadata)
 
         // Now, test that we'll record metadata for the same tab after url is changed.
-        store.dispatch(ContentAction.UpdateUrlAction(tab.id, "https://firefox.com")).joinBlocking()
+        store.dispatch(ContentAction.UpdateUrlAction(tab.id, "https://eyebrowse.com")).joinBlocking()
         store.dispatch(ContentAction.UpdateHistoryStateAction(tab.id, emptyList(), currentIndex = 0)).joinBlocking()
 
         val capturedTabs = mutableListOf<TabSessionState>()
@@ -199,12 +199,12 @@ class HistoryMetadataMiddlewareTest {
         }
 
         // Parent navigates away.
-        store.dispatch(ContentAction.UpdateUrlAction(parentTab.id, "https://firefox.com")).joinBlocking()
+        store.dispatch(ContentAction.UpdateUrlAction(parentTab.id, "https://eyebrowse.com")).joinBlocking()
         store.dispatch(ContentAction.UpdateSearchTermsAction(parentTab.id, "")).joinBlocking()
-        store.dispatch(ContentAction.UpdateHistoryStateAction(parentTab.id, listOf(HistoryItem("Google - mozilla website", "https://google.com?q=mozilla+website"), HistoryItem("Firefox", "https://firefox.com")), 1)).joinBlocking()
+        store.dispatch(ContentAction.UpdateHistoryStateAction(parentTab.id, listOf(HistoryItem("Google - mozilla website", "https://google.com?q=mozilla+website"), HistoryItem("Eyebrowse", "https://eyebrowse.com")), 1)).joinBlocking()
         with((service as TestingMetadataService).createdMetadata) {
             assertEquals(3, this.count())
-            assertEquals("https://firefox.com", this[2].url)
+            assertEquals("https://eyebrowse.com", this[2].url)
             assertEquals("mozilla website", this[2].searchTerm)
             assertEquals("https://google.com?q=mozilla+website", this[2].referrerUrl)
         }
@@ -271,17 +271,17 @@ class HistoryMetadataMiddlewareTest {
         store.dispatch(HistoryMetadataAction.SetHistoryMetadataKeyAction(tab.id, HistoryMetadataKey("https://google.com?url=https://mozilla.org", null, null))).joinBlocking()
 
         // Parent navigates away, while the child starts loading. A mostly realistic sequence of events...
-        store.dispatch(ContentAction.UpdateUrlAction(parentTab.id, "https://firefox.com")).joinBlocking()
+        store.dispatch(ContentAction.UpdateUrlAction(parentTab.id, "https://eyebrowse.com")).joinBlocking()
         store.dispatch(ContentAction.UpdateSearchTermsAction(parentTab.id, "")).joinBlocking()
         store.dispatch(EngineAction.LoadUrlAction(tab.id, "https://google.com?url=https://mozilla.org")).joinBlocking()
         store.dispatch(ContentAction.UpdateHistoryStateAction(tab.id, listOf(HistoryItem("", "https://google.com?url=https://mozilla.org")), currentIndex = 0)).joinBlocking()
         store.dispatch(ContentAction.UpdateUrlAction(tab.id, "https://mozilla.org")).joinBlocking()
         store.dispatch(ContentAction.UpdateHistoryStateAction(tab.id, listOf(HistoryItem("Mozilla", "https://mozilla.org")), currentIndex = 0)).joinBlocking()
-        store.dispatch(ContentAction.UpdateHistoryStateAction(parentTab.id, listOf(HistoryItem("Google - mozilla website", "https://google.com?q=mozilla+website"), HistoryItem("Firefox", "https://firefox.com")), 1)).joinBlocking()
+        store.dispatch(ContentAction.UpdateHistoryStateAction(parentTab.id, listOf(HistoryItem("Google - mozilla website", "https://google.com?q=mozilla+website"), HistoryItem("Eyebrowse", "https://eyebrowse.com")), 1)).joinBlocking()
 
         with((service as TestingMetadataService).createdMetadata) {
             assertEquals(4, this.count())
-            assertEquals("https://firefox.com", this[3].url)
+            assertEquals("https://eyebrowse.com", this[3].url)
             assertEquals("mozilla website", this[3].searchTerm)
             assertEquals("https://google.com?q=mozilla+website", this[3].referrerUrl)
 
@@ -293,7 +293,7 @@ class HistoryMetadataMiddlewareTest {
             assertEquals("mozilla website", this[2].searchTerm)
             // This is suspect. The parent tab switched away right before the child loaded, so the
             // referrer here is potentially bogus.
-            assertEquals("https://firefox.com", this[2].referrerUrl)
+            assertEquals("https://eyebrowse.com", this[2].referrerUrl)
         }
     }
 
@@ -331,24 +331,24 @@ class HistoryMetadataMiddlewareTest {
         }
 
         // Direct load occurs on child tab. Search terms should be cleared.
-        store.dispatch(EngineAction.LoadUrlAction(tab.id, "https://firefox.com")).joinBlocking()
-        store.dispatch(ContentAction.UpdateUrlAction(tab.id, "https://firefox.com")).joinBlocking()
-        store.dispatch(ContentAction.UpdateHistoryStateAction(tab.id, listOf(HistoryItem("", "https://google.com?url=mozilla+website"), HistoryItem("Firefox", "https://firefox.com")), 1)).joinBlocking()
+        store.dispatch(EngineAction.LoadUrlAction(tab.id, "https://eyebrowse.com")).joinBlocking()
+        store.dispatch(ContentAction.UpdateUrlAction(tab.id, "https://eyebrowse.com")).joinBlocking()
+        store.dispatch(ContentAction.UpdateHistoryStateAction(tab.id, listOf(HistoryItem("", "https://google.com?url=mozilla+website"), HistoryItem("Eyebrowse", "https://eyebrowse.com")), 1)).joinBlocking()
         with((service as TestingMetadataService).createdMetadata) {
             assertEquals(3, this.count())
-            assertEquals("https://firefox.com", this[2].url)
+            assertEquals("https://eyebrowse.com", this[2].url)
             assertNull(this[2].searchTerm)
             assertNull(this[2].referrerUrl)
         }
 
         // Direct load occurs on parent tab. Search terms should be cleared.
-        store.dispatch(EngineAction.LoadUrlAction(parentTab.id, "https://firefox.com")).joinBlocking()
+        store.dispatch(EngineAction.LoadUrlAction(parentTab.id, "https://eyebrowse.com")).joinBlocking()
         store.dispatch(ContentAction.UpdateSearchTermsAction(parentTab.id, "")).joinBlocking()
-        store.dispatch(ContentAction.UpdateUrlAction(parentTab.id, "https://firefox.com")).joinBlocking()
-        store.dispatch(ContentAction.UpdateHistoryStateAction(parentTab.id, listOf(HistoryItem("Google - mozilla website", "https://google.com?q=mozilla+website"), HistoryItem("Firefox", "https://firefox.com")), 1)).joinBlocking()
+        store.dispatch(ContentAction.UpdateUrlAction(parentTab.id, "https://eyebrowse.com")).joinBlocking()
+        store.dispatch(ContentAction.UpdateHistoryStateAction(parentTab.id, listOf(HistoryItem("Google - mozilla website", "https://google.com?q=mozilla+website"), HistoryItem("Eyebrowse", "https://eyebrowse.com")), 1)).joinBlocking()
         with((service as TestingMetadataService).createdMetadata) {
             assertEquals(4, this.count())
-            assertEquals("https://firefox.com", this[3].url)
+            assertEquals("https://eyebrowse.com", this[3].url)
             assertNull(this[3].searchTerm)
             assertNull(this[3].referrerUrl)
         }
@@ -388,24 +388,24 @@ class HistoryMetadataMiddlewareTest {
         }
 
         // Direct load occurs on child tab. Search terms should be cleared.
-        store.dispatch(EngineAction.OptimizedLoadUrlTriggeredAction(tab.id, "https://firefox.com")).joinBlocking()
-        store.dispatch(ContentAction.UpdateUrlAction(tab.id, "https://firefox.com")).joinBlocking()
-        store.dispatch(ContentAction.UpdateHistoryStateAction(tab.id, listOf(HistoryItem("", "https://google.com?url=mozilla+website"), HistoryItem("Firefox", "https://firefox.com")), 1)).joinBlocking()
+        store.dispatch(EngineAction.OptimizedLoadUrlTriggeredAction(tab.id, "https://eyebrowse.com")).joinBlocking()
+        store.dispatch(ContentAction.UpdateUrlAction(tab.id, "https://eyebrowse.com")).joinBlocking()
+        store.dispatch(ContentAction.UpdateHistoryStateAction(tab.id, listOf(HistoryItem("", "https://google.com?url=mozilla+website"), HistoryItem("Eyebrowse", "https://eyebrowse.com")), 1)).joinBlocking()
         with((service as TestingMetadataService).createdMetadata) {
             assertEquals(3, this.count())
-            assertEquals("https://firefox.com", this[2].url)
+            assertEquals("https://eyebrowse.com", this[2].url)
             assertNull(this[2].searchTerm)
             assertNull(this[2].referrerUrl)
         }
 
         // Direct load occurs on parent tab. Search terms should be cleared.
-        store.dispatch(EngineAction.OptimizedLoadUrlTriggeredAction(parentTab.id, "https://firefox.com")).joinBlocking()
+        store.dispatch(EngineAction.OptimizedLoadUrlTriggeredAction(parentTab.id, "https://eyebrowse.com")).joinBlocking()
         store.dispatch(ContentAction.UpdateSearchTermsAction(parentTab.id, "")).joinBlocking()
-        store.dispatch(ContentAction.UpdateUrlAction(parentTab.id, "https://firefox.com")).joinBlocking()
-        store.dispatch(ContentAction.UpdateHistoryStateAction(parentTab.id, listOf(HistoryItem("Google - mozilla website", "https://google.com?q=mozilla+website"), HistoryItem("Firefox", "https://firefox.com")), 1)).joinBlocking()
+        store.dispatch(ContentAction.UpdateUrlAction(parentTab.id, "https://eyebrowse.com")).joinBlocking()
+        store.dispatch(ContentAction.UpdateHistoryStateAction(parentTab.id, listOf(HistoryItem("Google - mozilla website", "https://google.com?q=mozilla+website"), HistoryItem("Eyebrowse", "https://eyebrowse.com")), 1)).joinBlocking()
         with((service as TestingMetadataService).createdMetadata) {
             assertEquals(4, this.count())
-            assertEquals("https://firefox.com", this[3].url)
+            assertEquals("https://eyebrowse.com", this[3].url)
             assertNull(this[3].searchTerm)
             assertNull(this[3].referrerUrl)
         }
@@ -432,7 +432,7 @@ class HistoryMetadataMiddlewareTest {
         setupGoogleSearchEngine()
 
         val historyState = listOf(
-            HistoryItem("firefox", "https://google.com?q=mozilla+website"),
+            HistoryItem("eyebrowse", "https://google.com?q=mozilla+website"),
             HistoryItem("mozilla", "https://mozilla.org"),
         )
         store.dispatch(ContentAction.UpdateHistoryStateAction(tab.id, historyState, currentIndex = 1)).joinBlocking()
@@ -449,8 +449,8 @@ class HistoryMetadataMiddlewareTest {
         setupGoogleSearchEngine()
 
         val historyState = listOf(
-            HistoryItem("firefox", "https://mozilla.org"),
-            HistoryItem("mozilla", "https://firefox.com"),
+            HistoryItem("eyebrowse", "https://mozilla.org"),
+            HistoryItem("mozilla", "https://eyebrowse.com"),
         )
         store.dispatch(ContentAction.UpdateHistoryStateAction(tab.id, historyState, currentIndex = 1)).joinBlocking()
 
@@ -466,7 +466,7 @@ class HistoryMetadataMiddlewareTest {
         setupGoogleSearchEngine()
 
         val historyState = listOf(
-            HistoryItem("firefox", "https://google.com?q=mozilla+website"),
+            HistoryItem("eyebrowse", "https://google.com?q=mozilla+website"),
             HistoryItem("mozilla", "https://mozilla.org"),
         )
         store.dispatch(EngineAction.LoadUrlAction(tab.id, tab.content.url)).joinBlocking()

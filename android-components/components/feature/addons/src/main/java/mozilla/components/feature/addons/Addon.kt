@@ -25,7 +25,7 @@ val logger = Logger("Addon")
 
 /**
  * Represents an add-on based on the AMO store:
- * https://addons.mozilla.org/en-US/firefox/
+ * https://addons.mozilla.org/en-US/eyebrowse/
  *
  * @property id The unique ID of this add-on.
  * @property author Information about the add-on author.

@@ -176,7 +176,7 @@ class LegacyWallpaperMigrationTest {
             downloadWallpaper(
                 withArg {
                     assertEquals(Wallpaper.ceruleanName, it.name)
-                    assertEquals(Wallpaper.ClassicFirefoxCollection, it.collection)
+                    assertEquals(Wallpaper.ClassicEyebrowseCollection, it.collection)
                 },
             )
         }
@@ -188,7 +188,7 @@ class LegacyWallpaperMigrationTest {
             downloadWallpaper(
                 withArg {
                     assertEquals(Wallpaper.sunriseName, it.name)
-                    assertEquals(Wallpaper.ClassicFirefoxCollection, it.collection)
+                    assertEquals(Wallpaper.ClassicEyebrowseCollection, it.collection)
                 },
             )
         }
@@ -200,7 +200,7 @@ class LegacyWallpaperMigrationTest {
             downloadWallpaper(
                 withArg {
                     assertEquals(Wallpaper.amethystName, it.name)
-                    assertEquals(Wallpaper.ClassicFirefoxCollection, it.collection)
+                    assertEquals(Wallpaper.ClassicEyebrowseCollection, it.collection)
                 },
             )
         }

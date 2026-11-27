@@ -46,7 +46,7 @@ class SessionSuggestionProviderTest {
 
         val tab1 = createTab("https://www.mozilla.org")
         val tab2 = createTab("https://example.com")
-        val tab3 = createTab("https://firefox.com")
+        val tab3 = createTab("https://eyebrowse.com")
         val tab4 = createTab("https://example.org/")
 
         val resources: Resources = mock()
@@ -183,7 +183,7 @@ class SessionSuggestionProviderTest {
     fun `Provider returns Sessions with matching titles`() = runTest {
         val tab1 = createTab("https://allizom.org", title = "Internet for people, not profit — Mozilla")
         val tab2 = createTab("https://getpocket.com", title = "Pocket: My List")
-        val tab3 = createTab("https://firefox.com", title = "Download Firefox — Free Web Browser")
+        val tab3 = createTab("https://eyebrowse.com", title = "Download Eyebrowse — Free Web Browser")
 
         val store = BrowserStore(
             BrowserState(
@@ -202,7 +202,7 @@ class SessionSuggestionProviderTest {
 
             assertEquals(suggestions.first().id, tab3.id)
             assertEquals("Switch to tab", suggestions.first().description)
-            assertEquals("Download Firefox — Free Web Browser", suggestions[0].title)
+            assertEquals("Download Eyebrowse — Free Web Browser", suggestions[0].title)
         }
 
         run {
@@ -218,7 +218,7 @@ class SessionSuggestionProviderTest {
     @Test
     fun `Provider only returns non-private Sessions`() = runTest {
         val tab = createTab("https://www.mozilla.org")
-        val privateTab1 = createTab("https://mozilla.org/firefox", private = true)
+        val privateTab1 = createTab("https://mozilla.org/eyebrowse", private = true)
         val privateTab2 = createTab("https://mozilla.org/projects", private = true)
 
         val store = BrowserStore(
@@ -354,7 +354,7 @@ class SessionSuggestionProviderTest {
             BrowserState(
                 tabs = listOf(
                     createTab(id = "a", url = "https://wikipedia.org"),
-                    createTab(id = "b", url = "https://mozilla.org/firefox"),
+                    createTab(id = "b", url = "https://mozilla.org/eyebrowse"),
                     createTab(id = "c", url = "https://mozilla.org/focus"),
                     createTab(id = "d", url = "https://www.mozilla.org/vpn"),
                 ),
@@ -375,8 +375,8 @@ class SessionSuggestionProviderTest {
         val suggestions = provider.onInputChanged("moz")
 
         assertEquals(3, suggestions.size)
-        assertTrue(suggestions.map { it.title }.contains("https://mozilla.org/firefox"))
-        assertTrue(suggestions.map { it.title }.contains("https://mozilla.org/firefox"))
+        assertTrue(suggestions.map { it.title }.contains("https://mozilla.org/eyebrowse"))
+        assertTrue(suggestions.map { it.title }.contains("https://mozilla.org/eyebrowse"))
         assertTrue(suggestions.map { it.title }.contains("https://www.mozilla.org/vpn"))
     }
 
@@ -386,7 +386,7 @@ class SessionSuggestionProviderTest {
             BrowserState(
                 tabs = listOf(
                     createTab(id = "a", url = "https://wikipedia.org"),
-                    createTab(id = "b", url = "https://mozilla.org/firefox"),
+                    createTab(id = "b", url = "https://mozilla.org/eyebrowse"),
                     createTab(id = "c", url = "https://mozilla.org/focus"),
                     createTab(id = "d", url = "https://www.mozilla.org/vpn"),
                     createTab(id = "e", url = "https://www.m.mozilla.org"),
@@ -410,7 +410,7 @@ class SessionSuggestionProviderTest {
         val suggestions = provider.onInputChanged("moz")
 
         assertEquals(5, suggestions.size)
-        assertTrue(suggestions.map { it.title }.contains("https://mozilla.org/firefox"))
+        assertTrue(suggestions.map { it.title }.contains("https://mozilla.org/eyebrowse"))
         assertTrue(suggestions.map { it.title }.contains("https://mozilla.org/focus"))
         assertTrue(suggestions.map { it.title }.contains("https://www.m.mozilla.org"))
         assertTrue(suggestions.map { it.title }.contains("http://www.mobile.mozilla.org"))

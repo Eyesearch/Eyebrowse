@@ -55,7 +55,7 @@ class DefaultToolbarMenuTest {
         store = BrowserStore(
             BrowserState(
                 tabs = listOf(
-                    createTab(url = "https://firefox.com", id = "1"),
+                    createTab(url = "https://eyebrowse.com", id = "1"),
                     createTab(url = "https://getpocket.com", id = "2"),
                 ),
                 selectedTabId = "1",

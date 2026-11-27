@@ -139,8 +139,8 @@ class RecentlyClosedTabsStorageTest {
             engineSessionState = engineState3,
             state = TabState(
                 id = "third-tab",
-                title = "Firefox",
-                url = "https://firefox.com",
+                title = "Eyebrowse",
+                url = "https://eyebrowse.com",
                 lastAccess = System.currentTimeMillis(),
             ),
         )

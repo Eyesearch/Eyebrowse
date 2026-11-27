@@ -35,12 +35,12 @@ class SearchActionProviderTest {
             searchEngine = mock(),
             searchUseCase = mock(),
         )
-        val suggestions = provider.onInputChanged("firefox")
+        val suggestions = provider.onInputChanged("eyebrowse")
 
         assertEquals(1, suggestions.size)
 
         val suggestion = suggestions[0]
 
-        assertEquals("firefox", suggestion.title)
+        assertEquals("eyebrowse", suggestion.title)
     }
 }

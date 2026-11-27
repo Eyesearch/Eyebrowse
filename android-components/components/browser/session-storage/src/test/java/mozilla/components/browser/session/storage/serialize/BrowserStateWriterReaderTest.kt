@@ -134,7 +134,7 @@ class BrowserStateWriterReaderTest {
             historyMetadata = HistoryMetadataKey(
                 "https://www.mozilla.org",
                 searchTerm = "test",
-                referrerUrl = "https://firefox.com",
+                referrerUrl = "https://eyebrowse.com",
             ),
         )
 

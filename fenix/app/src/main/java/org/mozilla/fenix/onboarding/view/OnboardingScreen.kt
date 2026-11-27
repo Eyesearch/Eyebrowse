@@ -47,15 +47,15 @@ import org.mozilla.fenix.theme.EyebrowseTheme
  * A screen for displaying onboarding.
  *
  * @param pagesToDisplay List of pages to be displayed in onboarding pager ui.
- * @param onMakeFirefoxDefaultClick Invoked when positive button on default browser page is clicked.
+ * @param onMakeEyebrowseDefaultClick Invoked when positive button on default browser page is clicked.
  * @param onSkipDefaultClick Invoked when negative button on default browser page is clicked.
  * @param onSignInButtonClick Invoked when the positive button on the sign in page is clicked.
  * @param onSkipSignInClick Invoked when the negative button on the sign in page is clicked.
  * @param onNotificationPermissionButtonClick Invoked when positive button on notification page is
  * clicked.
  * @param onSkipNotificationClick Invoked when negative button on notification page is clicked.
- * @param onAddFirefoxWidgetClick Invoked when positive button on add search widget page is clicked.
- * @param onSkipFirefoxWidgetClick Invoked when negative button on add search widget page is clicked.
+ * @param onAddEyebrowseWidgetClick Invoked when positive button on add search widget page is clicked.
+ * @param onSkipEyebrowseWidgetClick Invoked when negative button on add search widget page is clicked.
  * @param onFinish Invoked when the onboarding is completed.
  * @param onImpression Invoked when a page in the pager is displayed.
  */
@@ -63,14 +63,14 @@ import org.mozilla.fenix.theme.EyebrowseTheme
 @Suppress("LongParameterList", "LongMethod")
 fun OnboardingScreen(
     pagesToDisplay: List<OnboardingPageUiData>,
-    onMakeFirefoxDefaultClick: () -> Unit,
+    onMakeEyebrowseDefaultClick: () -> Unit,
     onSkipDefaultClick: () -> Unit,
     onSignInButtonClick: () -> Unit,
     onSkipSignInClick: () -> Unit,
     onNotificationPermissionButtonClick: () -> Unit,
     onSkipNotificationClick: () -> Unit,
-    onAddFirefoxWidgetClick: () -> Unit,
-    onSkipFirefoxWidgetClick: () -> Unit,
+    onAddEyebrowseWidgetClick: () -> Unit,
+    onSkipEyebrowseWidgetClick: () -> Unit,
     onFinish: (pageType: OnboardingPageUiData) -> Unit,
     onImpression: (pageType: OnboardingPageUiData) -> Unit,
 ) {
@@ -118,11 +118,11 @@ fun OnboardingScreen(
     OnboardingContent(
         pagesToDisplay = pagesToDisplay,
         pagerState = pagerState,
-        onMakeFirefoxDefaultClick = {
+        onMakeEyebrowseDefaultClick = {
             scrollToNextPageOrDismiss()
-            onMakeFirefoxDefaultClick()
+            onMakeEyebrowseDefaultClick()
         },
-        onMakeFirefoxDefaultSkipClick = {
+        onMakeEyebrowseDefaultSkipClick = {
             scrollToNextPageOrDismiss()
             onSkipDefaultClick()
         },
@@ -142,16 +142,16 @@ fun OnboardingScreen(
             scrollToNextPageOrDismiss()
             onSkipNotificationClick()
         },
-        onAddFirefoxWidgetClick = {
+        onAddEyebrowseWidgetClick = {
             if (isWidgetPinnedState) {
                 scrollToNextPageOrDismiss()
             } else {
-                onAddFirefoxWidgetClick()
+                onAddEyebrowseWidgetClick()
             }
         },
-        onSkipFirefoxWidgetClick = {
+        onSkipEyebrowseWidgetClick = {
             scrollToNextPageOrDismiss()
-            onSkipFirefoxWidgetClick()
+            onSkipEyebrowseWidgetClick()
         },
     )
 }
@@ -161,14 +161,14 @@ fun OnboardingScreen(
 private fun OnboardingContent(
     pagesToDisplay: List<OnboardingPageUiData>,
     pagerState: PagerState,
-    onMakeFirefoxDefaultClick: () -> Unit,
-    onMakeFirefoxDefaultSkipClick: () -> Unit,
+    onMakeEyebrowseDefaultClick: () -> Unit,
+    onMakeEyebrowseDefaultSkipClick: () -> Unit,
     onSignInButtonClick: () -> Unit,
     onSignInSkipClick: () -> Unit,
     onNotificationPermissionButtonClick: () -> Unit,
     onNotificationPermissionSkipClick: () -> Unit,
-    onAddFirefoxWidgetClick: () -> Unit,
-    onSkipFirefoxWidgetClick: () -> Unit,
+    onAddEyebrowseWidgetClick: () -> Unit,
+    onSkipEyebrowseWidgetClick: () -> Unit,
 ) {
     val nestedScrollConnection = remember { DisableForwardSwipeNestedScrollConnection(pagerState) }
 
@@ -188,14 +188,14 @@ private fun OnboardingContent(
             val pageUiState = pagesToDisplay[pageIndex]
             val onboardingPageState = mapToOnboardingPageState(
                 onboardingPageUiData = pageUiState,
-                onMakeFirefoxDefaultClick = onMakeFirefoxDefaultClick,
-                onMakeFirefoxDefaultSkipClick = onMakeFirefoxDefaultSkipClick,
+                onMakeEyebrowseDefaultClick = onMakeEyebrowseDefaultClick,
+                onMakeEyebrowseDefaultSkipClick = onMakeEyebrowseDefaultSkipClick,
                 onSignInButtonClick = onSignInButtonClick,
                 onSignInSkipClick = onSignInSkipClick,
                 onNotificationPermissionButtonClick = onNotificationPermissionButtonClick,
                 onNotificationPermissionSkipClick = onNotificationPermissionSkipClick,
-                onAddFirefoxWidgetClick = onAddFirefoxWidgetClick,
-                onAddFirefoxWidgetSkipClick = onSkipFirefoxWidgetClick,
+                onAddEyebrowseWidgetClick = onAddEyebrowseWidgetClick,
+                onAddEyebrowseWidgetSkipClick = onSkipEyebrowseWidgetClick,
             )
             OnboardingPage(pageState = onboardingPageState)
         }
@@ -243,14 +243,14 @@ private fun OnboardingScreenPreview() {
             pagerState = rememberPagerState(initialPage = 0) {
                 pageCount
             },
-            onMakeFirefoxDefaultClick = {},
-            onMakeFirefoxDefaultSkipClick = {},
+            onMakeEyebrowseDefaultClick = {},
+            onMakeEyebrowseDefaultSkipClick = {},
             onSignInButtonClick = {},
             onSignInSkipClick = {},
             onNotificationPermissionButtonClick = {},
             onNotificationPermissionSkipClick = {},
-            onAddFirefoxWidgetClick = {},
-            onSkipFirefoxWidgetClick = {},
+            onAddEyebrowseWidgetClick = {},
+            onSkipEyebrowseWidgetClick = {},
         )
     }
 }

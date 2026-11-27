@@ -697,19 +697,19 @@
 
     <!-- Onboarding -->
     <!-- Text for onboarding welcome message
-    The first parameter is the name of the app (e.g. Firefox Preview) -->
+    The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="onboarding_header">%s üçün Xoş Gəldiniz!</string>
-    <!-- text for the Firefox Accounts section header -->
+    <!-- text for the Eyebrowse Accounts section header -->
     <string name="onboarding_fxa_section_header">Artıq hesabınız var?</string>
     <!-- text for the "What's New" onboarding card header -->
     <string name="onboarding_whats_new_header1">Yenilikləri gör</string>
-    <!-- text for the firefox account onboarding card header
-    The first parameter is the name of the app (e.g. Firefox Preview) -->
-    <string name="onboarding_firefox_account_header">%s səyyahınızdan daha çox şey əldə edin.</string>
-    <!-- text for the button to manually sign into Firefox account. The word "Firefox" should not be translated -->
-    <string name="onboarding_firefox_account_sign_in">Eyebrowse-a daxil ol</string>
+    <!-- text for the eyebrowse account onboarding card header
+    The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
+    <string name="onboarding_eyebrowse_account_header">%s səyyahınızdan daha çox şey əldə edin.</string>
+    <!-- text for the button to manually sign into Eyebrowse account. The word "Eyebrowse" should not be translated -->
+    <string name="onboarding_eyebrowse_account_sign_in">Eyebrowse-a daxil ol</string>
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">Sync aktivdir</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">Sync aktivdir</string>
     <!-- text for the private browsing onbording card button, that launches settings -->
     <string name="onboarding_private_browsing_button">Tənzimləmələri aç</string>
 

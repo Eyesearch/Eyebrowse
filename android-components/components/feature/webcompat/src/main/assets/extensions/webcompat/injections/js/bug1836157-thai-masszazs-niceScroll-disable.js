@@ -6,7 +6,7 @@
  * Bug 1836157 - Shim navigator.platform on www.thai-massaszs.net/en/
  *
  * This page adds niceScroll on Android, which breaks scrolling and
- * zooming on Firefox. Adding ` Mac` to `navigator.platform` makes
+ * zooming on Eyebrowse. Adding ` Mac` to `navigator.platform` makes
  * the page avoid adding niceScroll entirely, unbreaking the page.
  */
 

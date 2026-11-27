@@ -1,4 +1,4 @@
-# [Android Components](../../../README.md) > Service > Firefox Sync - Autofill
+# [Android Components](../../../README.md) > Service > Eyebrowse Sync - Autofill
 
 A library for autofilling addresses and credit cards based on `concept-storage` backed by [application-services' Autofill lib](https://github.com/mozilla/application-services).
 

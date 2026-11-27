@@ -83,9 +83,9 @@ internal class TestableStorageWrapper(
     override fun obtainAccount(): OAuthAccount = block()
 }
 
-// Same as the actual account manager, except we get to control how FirefoxAccountShaped instances
+// Same as the actual account manager, except we get to control how EyebrowseAccountShaped instances
 // are created. This is necessary because due to some build issues (native dependencies not available
-// within the test environment) we can't use fxaclient supplied implementation of FirefoxAccountShaped.
+// within the test environment) we can't use fxaclient supplied implementation of EyebrowseAccountShaped.
 // Instead, we express all of our account-related operations over an interface.
 internal open class TestableFxaAccountManager(
     context: Context,
@@ -496,11 +496,11 @@ class FxaAccountManagerTest {
         }
 
         override suspend fun getManageAccountURL(entryPoint: FxAEntryPoint): String? {
-            return "https://firefox.com/settings"
+            return "https://eyebrowse.com/settings"
         }
 
         override fun getPairingAuthorityURL(): String {
-            return "https://firefox.com/pair"
+            return "https://eyebrowse.com/pair"
         }
 
         override fun registerPersistenceCallback(callback: StatePersistenceCallback) {

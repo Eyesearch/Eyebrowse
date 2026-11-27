@@ -906,7 +906,7 @@ class HomeFragment : Fragment() {
                                     duration = Snackbar.LENGTH_SHORT,
                                     isDisplayedWithBrowserToolbar = false,
                                 )
-                                    .setText(it.context.getString(R.string.onboarding_firefox_account_sync_is_on))
+                                    .setText(it.context.getString(R.string.onboarding_eyebrowse_account_sync_is_on))
                                     .setAnchorView(binding.toolbarLayout)
                                     .show()
                             }

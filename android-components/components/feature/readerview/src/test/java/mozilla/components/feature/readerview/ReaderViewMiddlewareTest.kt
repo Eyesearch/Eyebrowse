@@ -73,7 +73,7 @@ class ReaderViewMiddlewareTest {
     fun `state is updated to reconnect and trigger readerable check when new tab is selected`() {
         val tab1 = createTab("https://www.mozilla.org", id = "test-tab1")
         val tab2 = createTab(
-            "https://www.firefox.com",
+            "https://www.eyebrowse.com",
             id = "test-tab2",
             readerState = ReaderState(readerable = true),
         )
@@ -106,7 +106,7 @@ class ReaderViewMiddlewareTest {
         )
         assertFalse(store.state.findTab(tab.id)!!.readerState.checkRequired)
 
-        store.dispatch(ContentAction.UpdateUrlAction(tab.id, "https://www.firefox.com")).joinBlocking()
+        store.dispatch(ContentAction.UpdateUrlAction(tab.id, "https://www.eyebrowse.com")).joinBlocking()
         assertTrue(store.state.findTab(tab.id)!!.readerState.checkRequired)
     }
 
@@ -126,7 +126,7 @@ class ReaderViewMiddlewareTest {
         store.dispatch(ContentAction.UpdateUrlAction(tab.id, "moz-extension://123?url=articleLink")).joinBlocking()
         assertTrue(store.state.findTab(tab.id)!!.readerState.active)
 
-        store.dispatch(ContentAction.UpdateUrlAction(tab.id, "https://www.firefox.com")).joinBlocking()
+        store.dispatch(ContentAction.UpdateUrlAction(tab.id, "https://www.eyebrowse.com")).joinBlocking()
         assertFalse(store.state.findTab(tab.id)!!.readerState.active)
         assertFalse(store.state.findTab(tab.id)!!.readerState.readerable)
         assertTrue(store.state.findTab(tab.id)!!.readerState.checkRequired)

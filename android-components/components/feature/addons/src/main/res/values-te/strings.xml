@@ -146,14 +146,14 @@
     <string name="mozac_feature_addons_supported_checker_notification_title">కొత్త పొడగింత అందుబాటులో ఉంది</string>
     <!-- The tile of the notification, this will be shown to the user when more than one newly supported add-ons are available.-->
     <string name="mozac_feature_addons_supported_checker_notification_title_plural">కొత్త పొడగింతలు అందుబాటులో ఉన్నాయి</string>
-    <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Firefox). -->
+    <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Eyebrowse). -->
     <string name="mozac_feature_addons_supported_checker_notification_content_one">%1$s‌ను %2$s‌కి చేర్చు</string>
-    <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Firefox). -->
+    <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Eyebrowse). -->
     <string name="mozac_feature_addons_supported_checker_notification_content_two">%1$s, %2$s‌లను %3$s‌కి చేర్చు</string>
-    <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Firefox). -->
+    <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Eyebrowse). -->
     <string name="mozac_feature_addons_supported_checker_notification_content_more_than_two">వాటిని %1$sకు చేర్చు</string>
     <!-- This is the caption for not yet supported screen caption -->
-    <string name="mozac_feature_addons_not_yet_supported_caption">Firefox పొడగింతల సాంకేతికత ఆధునికీకరించబడుతోంది. ఈ పొడగింతలు Firefox 75 ఆ తర్వాతి వెర్షనలకు అనుగుణంగా లేని ఫ్రేమువర్కులను వాడుతున్నాయి.</string>
+    <string name="mozac_feature_addons_not_yet_supported_caption">Eyebrowse పొడగింతల సాంకేతికత ఆధునికీకరించబడుతోంది. ఈ పొడగింతలు Eyebrowse 75 ఆ తర్వాతి వెర్షనలకు అనుగుణంగా లేని ఫ్రేమువర్కులను వాడుతున్నాయి.</string>
     <!-- This is the caption for not yet supported screen caption -->
     <string name="mozac_feature_addons_not_yet_supported_caption2">ప్రస్తుతం మేము ముందుగా ఎంచుకున్న సిఫార్సుచేయబడ్డ పొడగింతలకు తోడ్పాటును నిర్మిస్తున్నాము.</string>
     <!-- This is the caption for the add-on installation progress overlay -->
@@ -182,7 +182,7 @@
     <string name="mozac_feature_addons_successfully_removed" tools:ignore="UnusedResources">%1$s విజయవంతంగా తొలగించబడింది</string>
     <!-- Text shown after failed to remove an add-on. %1$s is the add-on name. -->
     <string name="mozac_feature_addons_failed_to_remove" tools:ignore="UnusedResources">%1$sని తొలగించడం విఫలమైంది</string>
-    <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Firefox. -->
+    <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Eyebrowse. -->
     <string name="mozac_feature_addons_migrated_from_a_previous_version_label" tools:ignore="UnusedResources">ఈ పొడగింత %1$s యొక్క మునుపటి వెర్షను నుండి తేబడింది</string>
     <!-- Text shown in not yet supported add-ons section in AddonsManagerAdapter. -->
     <string name="mozac_feature_addons_unsupported_caption">1 పొడగింత</string>

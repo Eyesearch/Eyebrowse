@@ -62,7 +62,7 @@ class SaveCollectionListAdapterTest {
                     every { url } returns "https://mozilla.org"
                 },
                 mockk {
-                    every { url } returns "https://firefox.com"
+                    every { url } returns "https://eyebrowse.com"
                 },
             )
         }
@@ -76,7 +76,7 @@ class SaveCollectionListAdapterTest {
         val binding = CollectionsListItemBinding.bind(holder.itemView)
 
         assertEquals("Collection", binding.collectionItem.text)
-        assertEquals("mozilla.org, firefox.com", binding.collectionDescription.text)
+        assertEquals("mozilla.org, eyebrowse.com", binding.collectionDescription.text)
 
         holder.itemView.performClick()
         verify { interactor.selectCollection(collection, emptyList()) }

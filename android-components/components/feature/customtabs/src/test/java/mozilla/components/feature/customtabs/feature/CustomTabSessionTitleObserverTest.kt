@@ -40,17 +40,17 @@ class CustomTabSessionTitleObserverTest {
         observer.onTab(tab)
         assertEquals("", toolbar.title)
 
-        tab = tab.withUrl("https://www.mozilla.org/en-US/firefox/")
+        tab = tab.withUrl("https://www.mozilla.org/en-US/eyebrowse/")
         observer.onTab(tab)
         assertEquals("", toolbar.title)
 
-        tab = tab.withTitle("Firefox - Protect your life online with privacy-first products")
+        tab = tab.withTitle("Eyebrowse - Protect your life online with privacy-first products")
         observer.onTab(tab)
-        assertEquals("Firefox - Protect your life online with privacy-first products", toolbar.title)
+        assertEquals("Eyebrowse - Protect your life online with privacy-first products", toolbar.title)
 
         tab = tab.withUrl("https://github.com/mozilla-mobile/android-components")
         observer.onTab(tab)
-        assertEquals("Firefox - Protect your life online with privacy-first products", toolbar.title)
+        assertEquals("Eyebrowse - Protect your life online with privacy-first products", toolbar.title)
 
         tab = tab.withTitle("")
         observer.onTab(tab)

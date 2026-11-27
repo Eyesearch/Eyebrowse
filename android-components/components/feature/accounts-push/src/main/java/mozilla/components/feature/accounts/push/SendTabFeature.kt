@@ -24,7 +24,7 @@ import mozilla.components.support.base.log.logger.Logger
  *
  * See [SendTabUseCases] for the ability to send tabs to other devices.
  *
- * @param accountManager Firefox account manager.
+ * @param accountManager Eyebrowse account manager.
  * @param owner Android lifecycle owner for the observers. Defaults to the [ProcessLifecycleOwner]
  * so that we can always observe events throughout the application lifecycle.
  * @param autoPause whether or not the observer should automatically be

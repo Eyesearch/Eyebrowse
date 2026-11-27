@@ -432,7 +432,7 @@ class SettingsRobot {
     }
 
     fun verifyRateOnGooglePlay() = assertUIObjectExists(rateOnGooglePlayHeading())
-    fun verifyAboutFirefoxPreview() = assertUIObjectExists(aboutFirefoxHeading())
+    fun verifyAboutEyebrowsePreview() = assertUIObjectExists(aboutEyebrowseHeading())
     fun verifyGooglePlayRedirect() {
         if (isPackageInstalled(GOOGLE_PLAY_SERVICES)) {
             Log.i(TAG, "verifyGooglePlayRedirect: $GOOGLE_PLAY_SERVICES is installed")
@@ -497,10 +497,10 @@ class SettingsRobot {
             return BrowserRobot.Transition()
         }
 
-        fun openAboutFirefoxPreview(interact: SettingsSubMenuAboutRobot.() -> Unit): SettingsSubMenuAboutRobot.Transition {
-            Log.i(TAG, "openAboutFirefoxPreview: Trying to click the \"About Firefox\" button")
-            aboutFirefoxHeading().click()
-            Log.i(TAG, "openAboutFirefoxPreview: Clicked the \"About Firefox\" button")
+        fun openAboutEyebrowsePreview(interact: SettingsSubMenuAboutRobot.() -> Unit): SettingsSubMenuAboutRobot.Transition {
+            Log.i(TAG, "openAboutEyebrowsePreview: Trying to click the \"About Eyebrowse\" button")
+            aboutEyebrowseHeading().click()
+            Log.i(TAG, "openAboutEyebrowsePreview: Clicked the \"About Eyebrowse\" button")
             SettingsSubMenuAboutRobot().interact()
             return SettingsSubMenuAboutRobot.Transition()
         }
@@ -771,7 +771,7 @@ private fun rateOnGooglePlayHeading(): UiObject {
     return rateOnGooglePlay
 }
 
-private fun aboutFirefoxHeading(): UiObject {
+private fun aboutEyebrowseHeading(): UiObject {
     for (i in 1..RETRY_COUNT) {
         try {
             settingsList().scrollToEnd(LISTS_MAXSWIPES)

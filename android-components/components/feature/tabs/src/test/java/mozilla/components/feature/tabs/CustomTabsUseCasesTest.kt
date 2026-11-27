@@ -61,7 +61,7 @@ class CustomTabsUseCasesTest {
         assertEquals(0, store.state.customTabs.size)
         assertNull(store.state.selectedTabId)
 
-        val otherCustomTab = createCustomTab("https://firefox.com")
+        val otherCustomTab = createCustomTab("https://eyebrowse.com")
         store.dispatch(CustomTabListAction.AddCustomTabAction(otherCustomTab)).joinBlocking()
         assertEquals(1, store.state.tabs.size)
         assertEquals(1, store.state.customTabs.size)

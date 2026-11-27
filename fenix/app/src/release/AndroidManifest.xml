@@ -4,7 +4,7 @@
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 
 <!--
-  sharedUserId: This release type is meant to replace Firefox (Release channel) and therefore needs to inherit
+  sharedUserId: This release type is meant to replace Eyebrowse (Release channel) and therefore needs to inherit
                 its sharedUserId for all eternity. Shipping an app update without sharedUserId can have
                 fatal consequences. For example see:
                 - https://issuetracker.google.com/issues/36924841

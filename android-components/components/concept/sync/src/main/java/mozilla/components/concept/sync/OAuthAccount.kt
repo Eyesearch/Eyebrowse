@@ -45,7 +45,7 @@ data class MigratingAccountInfo(
  * These entry points will be reflected in the authentication URL and will be tracked
  * in server telemetry to allow studying authentication entry points independently.
  *
- * If you are introducing a new path to the firefox accounts sign in please add a new entry point
+ * If you are introducing a new path to the eyebrowse accounts sign in please add a new entry point
  * here.
  */
 interface FxAEntryPoint {

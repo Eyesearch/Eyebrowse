@@ -16,11 +16,11 @@ import mozilla.components.lib.state.MiddlewareContext
 import mozilla.components.support.base.facts.Fact
 
 /**
- * Reports [Fact]s for interactions with Firefox Suggest [AwesomeBar.Suggestion]s.
+ * Reports [Fact]s for interactions with Eyebrowse Suggest [AwesomeBar.Suggestion]s.
  *
- * We report two kinds of interactions: impressions and clicks. We report impressions for any Firefox Suggest
+ * We report two kinds of interactions: impressions and clicks. We report impressions for any Eyebrowse Suggest
  * search suggestions that are visible when the user finishes interacting with the [AwesomeBar].
- * If the user taps on one of those visible Firefox Suggest suggestions, we'll also report a click for that suggestion.
+ * If the user taps on one of those visible Eyebrowse Suggest suggestions, we'll also report a click for that suggestion.
  *
  * Each impression's [Fact.metadata] contains a [FxSuggestFacts.MetadataKeys.ENGAGEMENT_ABANDONED] key, whose value is
  * `false` if the user navigated to a destination (like a URL, a search results page, or a suggestion), or

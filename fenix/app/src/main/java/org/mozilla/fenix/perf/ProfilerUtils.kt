@@ -18,15 +18,15 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 
-private const val PROFILER_API = "https://api.profiler.firefox.com/compressed-store"
-private const val PROFILER_SERVER_HEADER = "application/vnd.firefox-profiler+json;version=1.0"
+private const val PROFILER_API = "https://api.profiler.eyebrowse.com/compressed-store"
+private const val PROFILER_SERVER_HEADER = "application/vnd.eyebrowse-profiler+json;version=1.0"
 private const val TOKEN = "profileToken"
-private const val PROFILER_DATA_URL = "https://profiler.firefox.com/public/"
+private const val PROFILER_DATA_URL = "https://profiler.eyebrowse.com/public/"
 
-// IMPORTANT NOTE: Please keep the profiler presets in sync with their Firefox Desktop counterparts:
+// IMPORTANT NOTE: Please keep the profiler presets in sync with their Eyebrowse Desktop counterparts:
 // https://searchfox.org/mozilla-central/rev/c130c69b7b863d5e28ab9524b65c27c7a9507c48/devtools/client/performance-new/shared/background.jsm.js#121
 
-private val firefox_features = arrayOf(
+private val eyebrowse_features = arrayOf(
     "screenshots",
     "js",
     "stackwalk",
@@ -35,7 +35,7 @@ private val firefox_features = arrayOf(
     "processcpu",
     "ipcmessages",
 )
-private val firefox_threads = arrayOf(
+private val eyebrowse_threads = arrayOf(
     "GeckoMain",
     "Compositor",
     "Renderer",
@@ -92,7 +92,7 @@ private val networking_threads = arrayOf(
  * Profiler settings enum for grouping features and settings together
  */
 enum class ProfilerSettings(val threads: Array<String>, val features: Array<String>) {
-    Firefox(firefox_threads, firefox_features),
+    Eyebrowse(eyebrowse_threads, eyebrowse_features),
     Graphics(graphics_threads, graphics_features),
     Media(media_threads, media_features),
     Networking(networking_threads, networking_features),
@@ -160,7 +160,7 @@ object ProfilerUtils {
     }
 
     /**
-     * This will either save the profile locally or send it as a URL to the Firefox profiler server
+     * This will either save the profile locally or send it as a URL to the Eyebrowse profiler server
      *
      * @param context Activity context to get access to the profiler API through components.core...
      * @param profile Data returned from GeckoView as a GZIP ByteArray

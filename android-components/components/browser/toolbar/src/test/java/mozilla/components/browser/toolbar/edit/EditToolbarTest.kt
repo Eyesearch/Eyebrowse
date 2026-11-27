@@ -280,11 +280,11 @@ class EditToolbarTest {
             }
         }
 
-        editToolbar.editSuggestion("firefox")
+        editToolbar.editSuggestion("eyebrowse")
 
-        assertEquals("firefox", url.text.toString())
+        assertEquals("eyebrowse", url.text.toString())
         assertTrue(callbackCalled)
-        assertEquals("firefox".length, url.selectionStart)
+        assertEquals("eyebrowse".length, url.selectionStart)
         assertTrue(url.hasFocus())
     }
 }

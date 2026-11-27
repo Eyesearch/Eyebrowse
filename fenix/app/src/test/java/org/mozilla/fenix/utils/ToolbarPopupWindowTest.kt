@@ -35,9 +35,9 @@ class ToolbarPopupWindowTest {
         )
 
         // Regular tab
-        val regularTab = createTab(url = "http://firefox.com")
+        val regularTab = createTab(url = "http://eyebrowse.com")
         store = BrowserStore(BrowserState(tabs = listOf(regularTab), selectedTabId = regularTab.id))
-        assertEquals("http://firefox.com", ToolbarPopupWindow.getUrlForClipboard(store))
+        assertEquals("http://eyebrowse.com", ToolbarPopupWindow.getUrlForClipboard(store))
 
         // Reader Tab
         val readerTab = createTab(
@@ -53,14 +53,14 @@ class ToolbarPopupWindowTest {
         // Custom tab
         val customTabSession = createCustomTab("https://mozilla.org")
         var store = BrowserStore(BrowserState(customTabs = listOf(customTabSession)))
-        store.dispatch(ContentAction.UpdateUrlAction(customTabSession.id, "https://firefox.com")).joinBlocking()
+        store.dispatch(ContentAction.UpdateUrlAction(customTabSession.id, "https://eyebrowse.com")).joinBlocking()
         assertEquals(
-            "https://firefox.com",
+            "https://eyebrowse.com",
             ToolbarPopupWindow.getUrlForClipboard(store, customTabSession.id),
         )
 
         // Regular tab
-        val regularTab = createTab(url = "http://firefox.com")
+        val regularTab = createTab(url = "http://eyebrowse.com")
         store = BrowserStore(BrowserState(tabs = listOf(regularTab), selectedTabId = regularTab.id))
         store.dispatch(ContentAction.UpdateUrlAction(regularTab.id, "https://mozilla.org")).joinBlocking()
         assertEquals("https://mozilla.org", ToolbarPopupWindow.getUrlForClipboard(store))

@@ -43,7 +43,7 @@ class CustomTabListActionTest {
     @Test
     fun `RemoveCustomTabAction - Removes tab with given id`() {
         val customTab1 = createCustomTab("https://www.mozilla.org")
-        val customTab2 = createCustomTab("https://www.firefox.com")
+        val customTab2 = createCustomTab("https://www.eyebrowse.com")
 
         val state = BrowserState(customTabs = listOf(customTab1, customTab2))
         val store = BrowserStore(state)
@@ -59,7 +59,7 @@ class CustomTabListActionTest {
     @Test
     fun `RemoveCustomTabAction - Noop for unknown id`() {
         val customTab1 = createCustomTab("https://www.mozilla.org")
-        val customTab2 = createCustomTab("https://www.firefox.com")
+        val customTab2 = createCustomTab("https://www.eyebrowse.com")
 
         val state = BrowserState(customTabs = listOf(customTab1, customTab2))
         val store = BrowserStore(state)
@@ -76,7 +76,7 @@ class CustomTabListActionTest {
     @Test
     fun `RemoveAllCustomTabsAction - Removes all custom tabs (but not regular tabs)`() {
         val customTab1 = createCustomTab("https://www.mozilla.org")
-        val customTab2 = createCustomTab("https://www.firefox.com")
+        val customTab2 = createCustomTab("https://www.eyebrowse.com")
         val regularTab = createTab(url = "https://www.mozilla.org")
 
         val state = BrowserState(customTabs = listOf(customTab1, customTab2), tabs = listOf(regularTab))

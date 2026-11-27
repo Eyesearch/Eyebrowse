@@ -14,7 +14,7 @@ import org.junit.Test
 
 class BrowserStateReducerKtTest {
     private val initialUrl = "https://mozilla.com"
-    private val updatedUrl = "https://firefox.com"
+    private val updatedUrl = "https://eyebrowse.com"
 
     @Test
     fun `GIVEN tabs and custom tabs exist WHEN updateTabOrCustomTabState is called with unknown id THEN no tab is updated`() {

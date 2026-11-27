@@ -343,11 +343,11 @@ class HistoryStorageSuggestionProviderTest {
         val history: HistoryStorage = mock()
         doReturn(
             listOf(
-                SearchResult("3", "https://mozilla.com/firefox", 10),
-                SearchResult("5", "http://firefox.com/mozilla", 10),
+                SearchResult("3", "https://mozilla.com/eyebrowse", 10),
+                SearchResult("5", "http://eyebrowse.com/mozilla", 10),
                 SearchResult("2", "http://allizom.com/focus/", 10),
                 SearchResult("4", "https://mozilla.com/thunderbird", 10),
-                SearchResult("16", "http://www.mozilla.com/firefox", 22),
+                SearchResult("16", "http://www.mozilla.com/eyebrowse", 22),
             ),
         ).`when`(history).getSuggestions(anyString(), anyInt())
 
@@ -362,8 +362,8 @@ class HistoryStorageSuggestionProviderTest {
         val suggestions = provider.onInputChanged("moz")
 
         assertEquals(3, suggestions.size)
-        assertTrue(suggestions.map { it.description }.contains("http://www.mozilla.com/firefox"))
-        assertTrue(suggestions.map { it.description }.contains("https://mozilla.com/firefox"))
+        assertTrue(suggestions.map { it.description }.contains("http://www.mozilla.com/eyebrowse"))
+        assertTrue(suggestions.map { it.description }.contains("https://mozilla.com/eyebrowse"))
         assertTrue(suggestions.map { it.description }.contains("https://mozilla.com/thunderbird"))
     }
 
@@ -372,9 +372,9 @@ class HistoryStorageSuggestionProviderTest {
         val history: HistoryStorage = mock()
         doReturn(
             listOf(
-                SearchResult("1", "https://m.mozilla.com/firefox", 10),
+                SearchResult("1", "https://m.mozilla.com/eyebrowse", 10),
                 SearchResult("2", "https://mozilla.com/thunderbird", 10),
-                SearchResult("3", "http://www.mobile.mozilla.com/firefox", 22),
+                SearchResult("3", "http://www.mobile.mozilla.com/eyebrowse", 22),
             ),
         ).`when`(history).getSuggestions(anyString(), anyInt())
 
@@ -389,8 +389,8 @@ class HistoryStorageSuggestionProviderTest {
         val suggestions = provider.onInputChanged("moz")
 
         assertEquals(3, suggestions.size)
-        assertTrue(suggestions.map { it.description }.contains("https://m.mozilla.com/firefox"))
-        assertTrue(suggestions.map { it.description }.contains("http://www.mobile.mozilla.com/firefox"))
+        assertTrue(suggestions.map { it.description }.contains("https://m.mozilla.com/eyebrowse"))
+        assertTrue(suggestions.map { it.description }.contains("http://www.mobile.mozilla.com/eyebrowse"))
         assertTrue(suggestions.map { it.description }.contains("https://mozilla.com/thunderbird"))
     }
 }

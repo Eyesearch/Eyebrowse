@@ -9,7 +9,7 @@ import mozilla.appservices.fxaclient.FxaConfig
 import mozilla.appservices.fxaclient.FxaServer
 
 /**
- * Utility to configure Firefox Account stage servers.
+ * Utility to configure Eyebrowse Account stage servers.
  */
 
 object FxaServer {

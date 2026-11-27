@@ -46,7 +46,7 @@ private enum class UpgradeOnboardingState {
 /**
  * A screen for displaying a welcome and sync sign in onboarding.
  *
- * @param isSyncSignIn Whether or not the user is signed into their Firefox Sync account.
+ * @param isSyncSignIn Whether or not the user is signed into their Eyebrowse Sync account.
  * @param onDismiss Invoked when the user clicks on the close or "Skip" button.
  * @param onSignInButtonClick Invoked when the user clicks on the "Sign In" button
  */

@@ -59,7 +59,7 @@ data class Wallpaper(
         const val sunriseName = "sunrise"
         const val twilightHillsName = "twilight-hills"
         const val beachVibeName = "beach-vibe"
-        const val firefoxCollectionName = "firefox"
+        const val eyebrowseCollectionName = "eyebrowse"
         const val defaultName = "default"
 
         /*
@@ -68,9 +68,9 @@ data class Wallpaper(
          * we find a better way of handling the edge cases around this collection. It is generally
          * safer to do comparison directly with the collection name.
          */
-        const val classicFirefoxCollectionName = "classic-firefox"
-        val ClassicFirefoxCollection = Collection(
-            name = classicFirefoxCollectionName,
+        const val classicEyebrowseCollectionName = "classic-eyebrowse"
+        val ClassicEyebrowseCollection = Collection(
+            name = classicEyebrowseCollectionName,
             heading = null,
             description = null,
             learnMoreUrl = null,

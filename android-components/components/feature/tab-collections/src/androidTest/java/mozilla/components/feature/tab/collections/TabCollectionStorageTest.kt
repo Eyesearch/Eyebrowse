@@ -62,7 +62,7 @@ class TabCollectionStorageTest {
             "Recipes",
             listOf(
                 createTab("https://www.mozilla.org", title = "Mozilla"),
-                createTab("https://www.firefox.com", title = "Firefox"),
+                createTab("https://www.eyebrowse.com", title = "Eyebrowse"),
             ),
         )
 
@@ -73,8 +73,8 @@ class TabCollectionStorageTest {
         assertEquals("Recipes", collections[0].title)
         assertEquals(2, collections[0].tabs.size)
 
-        assertEquals("https://www.firefox.com", collections[0].tabs[0].url)
-        assertEquals("Firefox", collections[0].tabs[0].title)
+        assertEquals("https://www.eyebrowse.com", collections[0].tabs[0].url)
+        assertEquals("Eyebrowse", collections[0].tabs[0].title)
         assertEquals("https://www.mozilla.org", collections[0].tabs[1].url)
         assertEquals("Mozilla", collections[0].tabs[1].title)
 
@@ -95,7 +95,7 @@ class TabCollectionStorageTest {
                 collections[0],
                 listOf(
                     createTab("https://www.mozilla.org", title = "Mozilla"),
-                    createTab("https://www.firefox.com", title = "Firefox"),
+                    createTab("https://www.eyebrowse.com", title = "Eyebrowse"),
                 ),
             )
         }
@@ -105,8 +105,8 @@ class TabCollectionStorageTest {
             assertEquals(1, collections.size)
             assertEquals(2, collections[0].tabs.size)
 
-            assertEquals("https://www.firefox.com", collections[0].tabs[0].url)
-            assertEquals("Firefox", collections[0].tabs[0].title)
+            assertEquals("https://www.eyebrowse.com", collections[0].tabs[0].url)
+            assertEquals("Eyebrowse", collections[0].tabs[0].title)
             assertEquals("https://www.mozilla.org", collections[0].tabs[1].url)
             assertEquals("Mozilla", collections[0].tabs[1].title)
         }
@@ -118,7 +118,7 @@ class TabCollectionStorageTest {
             "Articles",
             listOf(
                 createTab("https://www.mozilla.org", title = "Mozilla"),
-                createTab("https://www.firefox.com", title = "Firefox"),
+                createTab("https://www.eyebrowse.com", title = "Eyebrowse"),
             ),
         )
 
@@ -176,7 +176,7 @@ class TabCollectionStorageTest {
     @Test
     fun testCreatingCollectionAndRestoringState() {
         val session1 = createTab("https://www.mozilla.org", title = "Mozilla")
-        val session2 = createTab("https://www.firefox.com", title = "Firefox")
+        val session2 = createTab("https://www.eyebrowse.com", title = "Eyebrowse")
 
         storage.createCollection("Articles", listOf(session1, session2))
 
@@ -231,7 +231,7 @@ class TabCollectionStorageTest {
         storage.createCollection(
             "Recipes",
             listOf(
-                createTab("https://www.firefox.com", title = "Firefox"),
+                createTab("https://www.eyebrowse.com", title = "Eyebrowse"),
             ),
         )
         storage.createCollection(
@@ -288,8 +288,8 @@ class TabCollectionStorageTest {
             assertEquals("Recipes", title)
             assertEquals(1, tabs.size)
 
-            assertEquals("https://www.firefox.com", tabs[0].url)
-            assertEquals("Firefox", tabs[0].title)
+            assertEquals("https://www.eyebrowse.com", tabs[0].url)
+            assertEquals("Eyebrowse", tabs[0].title)
         }
 
         with(collections[4]) {
@@ -313,7 +313,7 @@ class TabCollectionStorageTest {
         storage.createCollection(
             "Recipes",
             listOf(
-                createTab("https://www.firefox.com", title = "Firefox"),
+                createTab("https://www.eyebrowse.com", title = "Eyebrowse"),
             ),
         )
         storage.createCollection(
@@ -369,8 +369,8 @@ class TabCollectionStorageTest {
             assertEquals("Recipes", title)
             assertEquals(1, tabs.size)
 
-            assertEquals("https://www.firefox.com", tabs[0].url)
-            assertEquals("Firefox", tabs[0].title)
+            assertEquals("https://www.eyebrowse.com", tabs[0].url)
+            assertEquals("Eyebrowse", tabs[0].title)
         }
 
         with(collections[4]) {
@@ -395,7 +395,7 @@ class TabCollectionStorageTest {
         storage.createCollection(
             "Recipes",
             listOf(
-                createTab("https://www.firefox.com", title = "Firefox"),
+                createTab("https://www.eyebrowse.com", title = "Eyebrowse"),
             ),
         )
 
@@ -420,7 +420,7 @@ class TabCollectionStorageTest {
         storage.createCollection(
             "Recipes",
             listOf(
-                createTab("https://www.firefox.com", title = "Firefox"),
+                createTab("https://www.eyebrowse.com", title = "Eyebrowse"),
             ),
         )
 

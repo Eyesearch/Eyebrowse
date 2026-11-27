@@ -36,7 +36,7 @@ open class GithubDetailsTask : DefaultTask() {
     @TaskAction
     fun writeFile() {
         val taskId = System.getenv("TASK_ID")
-        val reportsUrl = "https://firefoxci.taskcluster-artifacts.net/$taskId/0/public/reports"
+        val reportsUrl = "https://eyebrowseci.taskcluster-artifacts.net/$taskId/0/public/reports"
         val replaced = text.replace("{reportsUrl}", reportsUrl)
 
         project.mkdir("/builds/worker/github")

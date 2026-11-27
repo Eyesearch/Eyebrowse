@@ -45,7 +45,7 @@ class TrackingProtectionExceptionsInteractorTest {
                 // Using copy to add TP state because `createTab` doesn't support it right now.
                 createTab("https://mozilla.org", false, "tab1")
                     .copy(trackingProtection = TrackingProtectionState(ignoredOnTrackingProtection = true)),
-                createTab("https://firefox.com", false, "tab2")
+                createTab("https://eyebrowse.com", false, "tab2")
                     .copy(trackingProtection = TrackingProtectionState(ignoredOnTrackingProtection = true)),
             ),
         ),

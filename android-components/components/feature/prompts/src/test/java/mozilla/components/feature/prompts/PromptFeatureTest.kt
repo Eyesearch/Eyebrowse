@@ -1786,7 +1786,7 @@ class PromptFeatureTest {
 
         var onDenyCalled = false
         val onDeny = { onDenyCalled = true }
-        val popupPrompt = PromptRequest.Popup("https://firefox.com", onAllow = { }, onDeny = onDeny)
+        val popupPrompt = PromptRequest.Popup("https://eyebrowse.com", onAllow = { }, onDeny = onDeny)
 
         feature.start()
         assertTrue(feature.promptAbuserDetector.shouldShowMoreDialogs)

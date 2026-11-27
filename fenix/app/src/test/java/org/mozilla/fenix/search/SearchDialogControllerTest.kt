@@ -184,7 +184,7 @@ class SearchDialogControllerTest {
 
     @Test
     fun handleSearchCommitted() {
-        val searchTerm = "Firefox"
+        val searchTerm = "Eyebrowse"
 
         createController().handleUrlCommitted(searchTerm)
 
@@ -209,7 +209,7 @@ class SearchDialogControllerTest {
     fun `WHEN the search engine is added by the application THEN do not load URL`() {
         every { searchEngine.type } returns SearchEngine.Type.APPLICATION
 
-        val searchTerm = "Firefox"
+        val searchTerm = "Eyebrowse"
         var dismissDialogInvoked = false
 
         createController(

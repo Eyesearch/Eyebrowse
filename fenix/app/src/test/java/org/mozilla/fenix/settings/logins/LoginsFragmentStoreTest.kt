@@ -25,8 +25,8 @@ class LoginsFragmentStoreTest {
         timeLastUsed = 0L,
     )
     private val exampleLogin = baseLogin.copy(guid = "example", origin = "example.com", timeLastUsed = 10)
-    private val firefoxLogin = baseLogin.copy(guid = "firefox", origin = "firefox.com", timeLastUsed = 20)
-    private val loginList = listOf(exampleLogin, firefoxLogin)
+    private val eyebrowseLogin = baseLogin.copy(guid = "eyebrowse", origin = "eyebrowse.com", timeLastUsed = 20)
+    private val loginList = listOf(exampleLogin, eyebrowseLogin)
     private val baseState = LoginsListState(
         loginList = emptyList(),
         filteredItems = emptyList(),
@@ -81,7 +81,7 @@ class LoginsFragmentStoreTest {
 
         assertFalse(store.state.isLoading)
         assertEquals(loginList, store.state.loginList)
-        assertEquals(listOf(firefoxLogin, exampleLogin), store.state.filteredItems)
+        assertEquals(listOf(eyebrowseLogin, exampleLogin), store.state.filteredItems)
     }
 
     @Test
@@ -95,10 +95,10 @@ class LoginsFragmentStoreTest {
         assertEquals(listOf(exampleLogin), store.state.loginList)
 
         // Select a login to force "isLoading = true"
-        store.dispatch(LoginsAction.AddLogin(firefoxLogin)).joinBlocking()
+        store.dispatch(LoginsAction.AddLogin(eyebrowseLogin)).joinBlocking()
         assertFalse(store.state.isLoading)
         assertEquals(loginList, store.state.loginList)
-        assertEquals(listOf(firefoxLogin, exampleLogin), store.state.filteredItems)
+        assertEquals(listOf(eyebrowseLogin, exampleLogin), store.state.filteredItems)
     }
 
     @Test
@@ -109,9 +109,9 @@ class LoginsFragmentStoreTest {
                 loginList = loginList,
             ),
         )
-        val updatedLogin = firefoxLogin.copy(origin = "test")
+        val updatedLogin = eyebrowseLogin.copy(origin = "test")
 
-        store.dispatch(LoginsAction.UpdateLogin(firefoxLogin.guid, updatedLogin)).joinBlocking()
+        store.dispatch(LoginsAction.UpdateLogin(eyebrowseLogin.guid, updatedLogin)).joinBlocking()
         assertFalse(store.state.isLoading)
         assertEquals(listOf(exampleLogin, updatedLogin), store.state.loginList)
 
@@ -132,18 +132,18 @@ class LoginsFragmentStoreTest {
 
         store.dispatch(LoginsAction.DeleteLogin("not_existing")).joinBlocking()
         assertEquals(loginList, store.state.loginList)
-        assertEquals(listOf(firefoxLogin, exampleLogin), store.state.filteredItems)
+        assertEquals(listOf(eyebrowseLogin, exampleLogin), store.state.filteredItems)
 
         store.dispatch(LoginsAction.DeleteLogin(exampleLogin.guid)).joinBlocking()
-        assertEquals(listOf(firefoxLogin), store.state.loginList)
-        assertEquals(listOf(firefoxLogin), store.state.filteredItems)
+        assertEquals(listOf(eyebrowseLogin), store.state.loginList)
+        assertEquals(listOf(eyebrowseLogin), store.state.filteredItems)
 
-        store.dispatch(LoginsAction.DeleteLogin(firefoxLogin.guid)).joinBlocking()
+        store.dispatch(LoginsAction.DeleteLogin(eyebrowseLogin.guid)).joinBlocking()
         assertEquals(emptyList<SavedLogin>(), store.state.loginList)
         assertEquals(emptyList<SavedLogin>(), store.state.filteredItems)
 
         // Test deleting from an empty store
-        store.dispatch(LoginsAction.DeleteLogin(firefoxLogin.guid)).joinBlocking()
+        store.dispatch(LoginsAction.DeleteLogin(eyebrowseLogin.guid)).joinBlocking()
         assertEquals(emptyList<SavedLogin>(), store.state.loginList)
         assertEquals(emptyList<SavedLogin>(), store.state.filteredItems)
     }
@@ -153,7 +153,7 @@ class LoginsFragmentStoreTest {
         val store = LoginsFragmentStore(
             baseState.copy(
                 isLoading = true,
-                searchedForText = "firefox",
+                searchedForText = "eyebrowse",
                 loginList = loginList,
             ),
         )
@@ -162,7 +162,7 @@ class LoginsFragmentStoreTest {
 
         assertFalse(store.state.isLoading)
         assertNull(store.state.searchedForText)
-        assertEquals(listOf(firefoxLogin, exampleLogin), store.state.filteredItems)
+        assertEquals(listOf(eyebrowseLogin, exampleLogin), store.state.filteredItems)
     }
 
     @Test
@@ -193,7 +193,7 @@ class LoginsFragmentStoreTest {
         assertEquals(lastUsed, store.state.sortingStrategy)
         assertEquals(SavedLoginsSortingStrategyMenu.Item.LastUsedSort, store.state.highlightedItem)
         assertNull(store.state.searchedForText)
-        assertEquals(listOf(firefoxLogin, exampleLogin), store.state.filteredItems)
+        assertEquals(listOf(eyebrowseLogin, exampleLogin), store.state.filteredItems)
     }
 
     @Test

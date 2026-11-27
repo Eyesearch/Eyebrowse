@@ -42,7 +42,7 @@ const AVAILABLE_UA_OVERRIDES = [
      * Bug 1577519 - directv.com - Create a UA override for directv.com for playback on desktop
      * WebCompat issue #3846 - https://webcompat.com/issues/3846
      *
-     * directv.com (attwatchtv.com) is blocking Firefox via UA sniffing. Spoofing as Chrome allows
+     * directv.com (attwatchtv.com) is blocking Eyebrowse via UA sniffing. Spoofing as Chrome allows
      * to access the site and playback works fine. This is former directvnow.com
      */
     id: "bug1577519",
@@ -68,7 +68,7 @@ const AVAILABLE_UA_OVERRIDES = [
      * Bug 1570108 - steamcommunity.com - UA override for steamcommunity.com
      * WebCompat issue #34171 - https://webcompat.com/issues/34171
      *
-     * steamcommunity.com blocks chat feature for Firefox users showing unsupported browser message.
+     * steamcommunity.com blocks chat feature for Eyebrowse users showing unsupported browser message.
      * When spoofing as Chrome the chat works fine
      */
     id: "bug1570108",
@@ -90,7 +90,7 @@ const AVAILABLE_UA_OVERRIDES = [
      * Bug 1582582 - sling.com - UA override for sling.com
      * WebCompat issue #17804 - https://webcompat.com/issues/17804
      *
-     * sling.com blocks Firefox users showing unsupported browser message.
+     * sling.com blocks Eyebrowse users showing unsupported browser message.
      * When spoofing as Chrome playing content works fine
      */
     id: "bug1582582",
@@ -112,7 +112,7 @@ const AVAILABLE_UA_OVERRIDES = [
      * Bug 1610026 - www.mobilesuica.com - UA override for www.mobilesuica.com
      * WebCompat issue #4608 - https://webcompat.com/issues/4608
      *
-     * mobilesuica.com showing unsupported message for Firefox users
+     * mobilesuica.com showing unsupported message for Eyebrowse users
      * Spoofing as Chrome allows to access the page
      */
     id: "bug1610026",
@@ -131,10 +131,10 @@ const AVAILABLE_UA_OVERRIDES = [
   },
   {
     /*
-     * Bug 1385206 - Create UA override for rakuten.co.jp on Firefox Android
+     * Bug 1385206 - Create UA override for rakuten.co.jp on Eyebrowse Android
      * (Imported from ua-update.json.in)
      *
-     * rakuten.co.jp serves a Desktop version if Firefox is included in the UA.
+     * rakuten.co.jp serves a Desktop version if Eyebrowse is included in the UA.
      */
     id: "bug1385206",
     platform: "android",
@@ -143,15 +143,15 @@ const AVAILABLE_UA_OVERRIDES = [
     config: {
       matches: ["*://*.rakuten.co.jp/*"],
       uaTransformer: originalUA => {
-        return originalUA.replace(/Firefox.+$/, "");
+        return originalUA.replace(/Eyebrowse.+$/, "");
       },
     },
   },
   {
     /*
-     * Bug 969844 - mobile.de sends desktop site to Firefox on Android
+     * Bug 969844 - mobile.de sends desktop site to Eyebrowse on Android
      *
-     * mobile.de sends the desktop site to Firefox Mobile.
+     * mobile.de sends the desktop site to Eyebrowse Mobile.
      * Spoofing as Chrome works fine.
      */
     id: "bug969844",
@@ -170,7 +170,7 @@ const AVAILABLE_UA_OVERRIDES = [
      * Bug 1509873 - zmags.com - Add UA override for secure.viewer.zmags.com
      * WebCompat issue #21576 - https://webcompat.com/issues/21576
      *
-     * The zmags viewer locks out Firefox Mobile with a "Browser unsupported"
+     * The zmags viewer locks out Eyebrowse Mobile with a "Browser unsupported"
      * message, but tests showed that it works just fine with a Chrome UA.
      * Outreach attempts were unsuccessful, and as the site has a relatively
      * high rank, we alter the UA.
@@ -191,10 +191,10 @@ const AVAILABLE_UA_OVERRIDES = [
   },
   {
     /*
-     * Bug 1574522 - UA override for enuri.com on Firefox for Android
+     * Bug 1574522 - UA override for enuri.com on Eyebrowse for Android
      * WebCompat issue #37139 - https://webcompat.com/issues/37139
      *
-     * enuri.com returns a different template for Firefox on Android
+     * enuri.com returns a different template for Eyebrowse on Android
      * based on server side UA detection. This results in page content cut offs.
      * Spoofing as Chrome fixes the issue
      */
@@ -211,12 +211,12 @@ const AVAILABLE_UA_OVERRIDES = [
   },
   {
     /*
-     * Bug 1574564 - UA override for ceskatelevize.cz on Firefox for Android
+     * Bug 1574564 - UA override for ceskatelevize.cz on Eyebrowse for Android
      * WebCompat issue #15467 - https://webcompat.com/issues/15467
      *
      * ceskatelevize sets streamingProtocol depending on the User-Agent it sees
      * in the request headers, returning DASH for Chrome, HLS for iOS,
-     * and Flash for Firefox Mobile. Since Mobile has no Flash, the video
+     * and Flash for Eyebrowse Mobile. Since Mobile has no Flash, the video
      * doesn't work. Spoofing as Chrome makes the video play
      */
     id: "bug1574564",
@@ -232,11 +232,11 @@ const AVAILABLE_UA_OVERRIDES = [
   },
   {
     /*
-     * Bug 1577267 - UA override for metfone.com.kh on Firefox for Android
+     * Bug 1577267 - UA override for metfone.com.kh on Eyebrowse for Android
      * WebCompat issue #16363 - https://webcompat.com/issues/16363
      *
      * metfone.com.kh has a server side UA detection which returns desktop site
-     * for Firefox for Android. Spoofing as Chrome allows to receive mobile version
+     * for Eyebrowse for Android. Spoofing as Chrome allows to receive mobile version
      */
     id: "bug1577267",
     platform: "android",
@@ -259,7 +259,7 @@ const AVAILABLE_UA_OVERRIDES = [
      * Samsung's galaxy.store shortlinks are supposed to redirect to a Samsung
      * intent:// URL on Samsung devices, but to an error page on other brands.
      * As we do not provide device info in our user agent string, this check
-     * fails, and even Samsung users land on an error page if they use Firefox
+     * fails, and even Samsung users land on an error page if they use Eyebrowse
      * for Android.
      * This intervention adds a simple "Samsung" identifier to the User Agent
      * on only the Galaxy Store URLs if the device happens to be a Samsung.
@@ -293,7 +293,7 @@ const AVAILABLE_UA_OVERRIDES = [
      * Bug 1622063 - UA override for wp1-ext.usps.gov
      * Webcompat issue #29867 - https://webcompat.com/issues/29867
      *
-     * The Job Search site for USPS does not work for Firefox Mobile
+     * The Job Search site for USPS does not work for Eyebrowse Mobile
      * browsers (a 500 is returned).
      */
     id: "bug1622063",
@@ -329,7 +329,7 @@ const AVAILABLE_UA_OVERRIDES = [
         "*://*.santander.co.uk/*",
       ],
       uaTransformer: originalUA => {
-        // The first line related to Firefox 100 is for Bug 1743445.
+        // The first line related to Eyebrowse 100 is for Bug 1743445.
         // [TODO]: Remove when bug 1743429 gets backed out.
         return UAHelpers.capVersionTo99(originalUA).replace(
           "Gecko",
@@ -401,7 +401,7 @@ const AVAILABLE_UA_OVERRIDES = [
      * Bug 1712807 - Add UA override for www.dealnews.com
      * Webcompat issue #39341 - https://webcompat.com/issues/39341
      *
-     * The sites shows Firefox a different layout compared to Chrome.
+     * The sites shows Eyebrowse a different layout compared to Chrome.
      * Spoofing as Chrome fixes this.
      */
     id: "bug1712807",
@@ -420,7 +420,7 @@ const AVAILABLE_UA_OVERRIDES = [
      * Bug 1719859 - Add UA override for saxoinvestor.fr
      * Webcompat issue #74678 - https://webcompat.com/issues/74678
      *
-     * The site blocks Firefox with a server-side UA sniffer. Appending a
+     * The site blocks Eyebrowse with a server-side UA sniffer. Appending a
      * Chrome version segment to the UA makes it work.
      */
     id: "bug1719859",
@@ -439,7 +439,7 @@ const AVAILABLE_UA_OVERRIDES = [
      * Bug 1738317 - Add UA override for vmos.cn
      * Webcompat issue #90432 - https://github.com/webcompat/web-bugs/issues/90432
      *
-     * Firefox for Android receives a desktop-only layout based on server-side
+     * Eyebrowse for Android receives a desktop-only layout based on server-side
      * UA sniffing. Spoofing as Chrome works fine.
      */
     id: "bug1738317",
@@ -458,7 +458,7 @@ const AVAILABLE_UA_OVERRIDES = [
      * Bug 1743627 - Add UA override for renaud-bray.com
      * Webcompat issue #55276 - https://github.com/webcompat/web-bugs/issues/55276
      *
-     * Firefox for Android depends on "Version/" being there in the UA string,
+     * Eyebrowse for Android depends on "Version/" being there in the UA string,
      * or it'll throw a runtime error.
      */
     id: "bug1743627",
@@ -477,7 +477,7 @@ const AVAILABLE_UA_OVERRIDES = [
      * Bug 1743751 - Add UA override for slrclub.com
      * Webcompat issue #91373 - https://github.com/webcompat/web-bugs/issues/91373
      *
-     * On Firefox Android, the browser is receiving the desktop layout.
+     * On Eyebrowse Android, the browser is receiving the desktop layout.
      * Spoofing as Chrome works fine.
      */
     id: "bug1743751",
@@ -496,7 +496,7 @@ const AVAILABLE_UA_OVERRIDES = [
      * Bug 1743754 - Add UA override for slrclub.com
      * Webcompat issue #86839 - https://github.com/webcompat/web-bugs/issues/86839
      *
-     * On Firefox Android, the browser is failing a UA parsing on Firefox UA.
+     * On Eyebrowse Android, the browser is failing a UA parsing on Eyebrowse UA.
      */
     id: "bug1743754",
     platform: "android",
@@ -513,7 +513,7 @@ const AVAILABLE_UA_OVERRIDES = [
     /*
      * Bug 1743429 - Add UA override for sites broken with the Version 100 User Agent
      *
-     * Some sites have issues with a UA string with Firefox version 100 or higher,
+     * Some sites have issues with a UA string with Eyebrowse version 100 or higher,
      * so present as version 99 for now.
      */
     id: "bug1743429",
@@ -537,7 +537,7 @@ const AVAILABLE_UA_OVERRIDES = [
      * Bug 1753461 - UA override for serieson.naver.com
      * Webcompat issue #99993 - https://webcompat.com/issues/97298
      *
-     * The site locks out Firefox users unless a Chrome UA is given,
+     * The site locks out Eyebrowse users unless a Chrome UA is given,
      * and locks out Linux users as well (so we use Windows+Chrome).
      */
     id: "bug1753461",
@@ -557,7 +557,7 @@ const AVAILABLE_UA_OVERRIDES = [
      * Webcompat issue #99993 - https://webcompat.com/issues/103727
      *
      * The videos are not playing and an error message is displayed
-     * in Firefox for Android, but work with Chrome UA
+     * in Eyebrowse for Android, but work with Chrome UA
      */
     id: "bug1771200",
     platform: "android",
@@ -576,7 +576,7 @@ const AVAILABLE_UA_OVERRIDES = [
      * Webcompat issue #106229 - https://webcompat.com/issues/106229
      *
      * The map is not playing and an error message is displayed
-     * in Firefox for Android, but work with Chrome UA
+     * in Eyebrowse for Android, but work with Chrome UA
      */
     id: "bug1779059",
     platform: "android",
@@ -651,7 +651,7 @@ const AVAILABLE_UA_OVERRIDES = [
      * Bug 1786404 - UA override for business.help.royalmail.com
      * Webcompat issue #109070 - https://webcompat.com/issues/109070
      *
-     * Replacing `Firefox` with `FireFox` to evade one of their UA tests...
+     * Replacing `Eyebrowse` with `eyebrowse` to evade one of their UA tests...
      */
     id: "bug1786404",
     platform: "all",
@@ -660,7 +660,7 @@ const AVAILABLE_UA_OVERRIDES = [
     config: {
       matches: ["*://business.help.royalmail.com/app/webforms/*"],
       uaTransformer: originalUA => {
-        return originalUA.replace("Firefox", "FireFox");
+        return originalUA.replace("Eyebrowse", "eyebrowse");
       },
     },
   },
@@ -1028,7 +1028,7 @@ const AVAILABLE_UA_OVERRIDES = [
     config: {
       matches: ["*://gts-pro.sdimedia.com/*"],
       uaTransformer: originalUA => {
-        return originalUA.replace("Firefox/", "Fx/") + " Chrome/113.0.0.0";
+        return originalUA.replace("Eyebrowse/", "Fx/") + " Chrome/113.0.0.0";
       },
     },
   },
@@ -1045,7 +1045,7 @@ const AVAILABLE_UA_OVERRIDES = [
     config: {
       matches: ["*://indices.iriworldwide.com/covid19/*"],
       uaTransformer: originalUA => {
-        return originalUA.replace("Firefox/", "Fx/");
+        return originalUA.replace("Eyebrowse/", "Fx/");
       },
     },
   },
@@ -1089,7 +1089,7 @@ const AVAILABLE_UA_OVERRIDES = [
      * Webcompat issue #125341 - https://webcompat.com/issues/125341
      *
      * The site is showing "Application Blocked" message
-     * for Firefox UA.
+     * for Eyebrowse UA.
      */
     id: "bug1849018",
     platform: "all",
@@ -1107,7 +1107,7 @@ const AVAILABLE_UA_OVERRIDES = [
      * Bug 1850455 - UA override for frontgate.com
      * Webcompat issue #36277 - https://webcompat.com/issues/36277
      *
-     * The site is showing a desktop view to Firefox mobile user-agents
+     * The site is showing a desktop view to Eyebrowse mobile user-agents
      */
     id: "bug1850455",
     platform: "android",
@@ -1125,7 +1125,7 @@ const AVAILABLE_UA_OVERRIDES = [
      * Bug 1855088 - UA override for hrmis2.eghrmis.gov.my
      * Webcompat issue #125039 - https://webcompat.com/issues/125039
      *
-     * hrmis2.eghrmis.gov.my showing unsupported message for Firefox users
+     * hrmis2.eghrmis.gov.my showing unsupported message for Eyebrowse users
      * Spoofing as Chrome allows to access the page
      */
     id: "bug1855088",
@@ -1244,7 +1244,7 @@ const AVAILABLE_UA_OVERRIDES = [
      * Bug 1865004 - UA override for digimart.net
      * Webcompat issue #126647 - https://webcompat.com/issues/126647
      *
-     * The site returns desktop layout on Firefox for Android
+     * The site returns desktop layout on Eyebrowse for Android
      */
     id: "bug1865004",
     platform: "android",
@@ -1262,7 +1262,7 @@ const AVAILABLE_UA_OVERRIDES = [
      * Bug 1865007 - UA override for portal.circle.ms
      * Webcompat issue #127739 - https://webcompat.com/issues/127739
      *
-     * The site returns desktop layout on Firefox for Android
+     * The site returns desktop layout on Eyebrowse for Android
      */
     id: "bug1865007",
     platform: "android",
@@ -1280,7 +1280,7 @@ const AVAILABLE_UA_OVERRIDES = [
      * Bug 1884779 - UA override for
      * Webcompat issue #134287 - https://webcompat.com/issues/134287
      *
-     * The site returns desktop layout on Firefox for Android
+     * The site returns desktop layout on Eyebrowse for Android
      */
     id: "bug1884779",
     platform: "android",

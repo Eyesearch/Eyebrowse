@@ -101,7 +101,7 @@ class QuickSettingsFragmentReducerTest {
             websitePermissionsState = emptyMap(),
             protectionsState = ProtectionsState(
                 tab = null,
-                url = "https://www.firefox.com",
+                url = "https://www.eyebrowse.com",
                 isTrackingProtectionEnabled = true,
                 cookieBannerUIMode = CookieBannerUIMode.ENABLE,
                 listTrackers = listOf(),

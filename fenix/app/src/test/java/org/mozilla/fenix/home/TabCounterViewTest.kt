@@ -110,7 +110,7 @@ class TabCounterViewTest {
         val browserState = BrowserState(
             tabs = listOf(
                 createTab(url = "https://www.mozilla.org", id = "mozilla"),
-                createTab(url = "https://www.firefox.com", id = "firefox"),
+                createTab(url = "https://www.eyebrowse.com", id = "eyebrowse"),
                 createTab(url = "https://getpocket.com", private = true, id = "getpocket"),
             ),
             selectedTabId = "mozilla",
@@ -138,7 +138,7 @@ class TabCounterViewTest {
         val browserState = BrowserState(
             tabs = listOf(
                 createTab(url = "https://www.mozilla.org", id = "mozilla"),
-                createTab(url = "https://www.firefox.com", id = "firefox"),
+                createTab(url = "https://www.eyebrowse.com", id = "eyebrowse"),
                 createTab(url = "https://getpocket.com", private = true, id = "getpocket"),
             ),
             selectedTabId = "mozilla",
@@ -159,7 +159,7 @@ class TabCounterViewTest {
         val browserState = BrowserState(
             tabs = listOf(
                 createTab(url = "https://www.mozilla.org", id = "mozilla"),
-                createTab(url = "https://www.firefox.com", id = "firefox"),
+                createTab(url = "https://www.eyebrowse.com", id = "eyebrowse"),
                 createTab(url = "https://getpocket.com", private = true, id = "getpocket"),
             ),
             selectedTabId = "mozilla",

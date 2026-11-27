@@ -63,7 +63,7 @@ class WindowFeatureTest {
 
         val windowRequest: WindowRequest = mock()
         whenever(windowRequest.type).thenReturn(WindowRequest.Type.OPEN)
-        whenever(windowRequest.url).thenReturn("https://www.firefox.com")
+        whenever(windowRequest.url).thenReturn("https://www.eyebrowse.com")
 
         store.dispatch(ContentAction.UpdateWindowRequestAction(tabId, windowRequest)).joinBlocking()
 
@@ -78,7 +78,7 @@ class WindowFeatureTest {
 
         val windowRequest: WindowRequest = mock()
         whenever(windowRequest.type).thenReturn(WindowRequest.Type.OPEN)
-        whenever(windowRequest.url).thenReturn("https://www.firefox.com")
+        whenever(windowRequest.url).thenReturn("https://www.eyebrowse.com")
 
         store.dispatch(TabListAction.SelectTabAction(privateTabId)).joinBlocking()
         store.dispatch(ContentAction.UpdateWindowRequestAction(privateTabId, windowRequest)).joinBlocking()

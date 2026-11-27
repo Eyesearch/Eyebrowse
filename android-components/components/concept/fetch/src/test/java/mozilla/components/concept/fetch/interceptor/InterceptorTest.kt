@@ -103,7 +103,7 @@ class InterceptorTest {
         val client = fake.withInterceptors(
             object : Interceptor {
                 override fun intercept(chain: Interceptor.Chain): Response {
-                    return Response("https://www.firefox.com", 203, MutableHeaders(), Response.Body.empty())
+                    return Response("https://www.eyebrowse.com", 203, MutableHeaders(), Response.Body.empty())
                 }
             },
         )

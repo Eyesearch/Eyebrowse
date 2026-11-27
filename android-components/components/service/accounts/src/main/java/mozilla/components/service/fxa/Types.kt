@@ -70,7 +70,7 @@ fun AccessTokenInfo.into(): mozilla.components.concept.sync.AccessTokenInfo {
 }
 
 /**
- * Converts a generic [AccessTokenInfo] into a Firefox Sync-friendly [SyncAuthInfo] instance which
+ * Converts a generic [AccessTokenInfo] into a Eyebrowse Sync-friendly [SyncAuthInfo] instance which
  * may be used for data synchronization.
  *
  * @return An [SyncAuthInfo] which is guaranteed to have a sync key.

@@ -9,7 +9,7 @@
  * WebCompat issue #117770 - https://webcompat.com/issues/117770
  *
  * The page with bank offerings is not loading options due to the
- * site relying on webkitSpeechRecognition, which is undefined in Firefox.
+ * site relying on webkitSpeechRecognition, which is undefined in Eyebrowse.
  * Shimming it to `class {}` makes the pages work.
  */
 

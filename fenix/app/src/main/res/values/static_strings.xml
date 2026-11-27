@@ -5,7 +5,7 @@
 <resources>
     <!-- Name of the application -->
     <string name="app_name" translatable="false">Eyebrowse</string>
-    <string name="firefox" translatable="false">Eyebrowse</string>
+    <string name="eyebrowse" translatable="false">Eyebrowse</string>
 
     <!-- Preference for developers -->
     <string name="preference_leakcanary" translatable="false">LeakCanary</string>
@@ -68,7 +68,7 @@
     <string name="preferences_debug_settings_tabs_tray_to_compose" translatable="false">Enable Tabs Tray to Compose rewrite</string>
     <!-- Label for enabling the Compose Top Sites -->
     <string name="preferences_debug_settings_compose_top_sites" translatable="false">Enable Compose Top Sites</string>
-    <!-- Label for enabling Firefox Suggest -->
+    <!-- Label for enabling Eyebrowse Suggest -->
     <string name="preferences_debug_settings_fxsuggest" translatable="false">Enable Eyebrowse Suggest</string>
     <!-- Label for enabling Toolbar Redesign incomplete portions -->
     <string name="preferences_debug_settings_toolbar_redesign" translatable="false">Enable Toolbar Redesign incomplete portions</string>
@@ -94,9 +94,9 @@
     <string name="profiler_stop">Stop Profiler</string>
 
     <string name="profiler_settings_title">Profiler Settings</string>
-    <string name="profiler_filter_firefox">Eyebrowse</string>
+    <string name="profiler_filter_eyebrowse">Eyebrowse</string>
     <string name="profiler_running">Profiler is currently running</string>
-    <string name="profiler_filter_firefox_explain">Recommended preset for profiling Eyebrowse</string>
+    <string name="profiler_filter_eyebrowse_explain">Recommended preset for profiling Eyebrowse</string>
     <string name="profiler_filter_graphics">Graphics</string>
     <string name="profiler_filter_graphics_explain">Preset for investigating graphics bugs in Eyebrowse</string>
     <string name="profiler_filter_media">Media</string>

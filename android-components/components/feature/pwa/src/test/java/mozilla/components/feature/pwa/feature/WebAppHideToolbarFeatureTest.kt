@@ -82,7 +82,7 @@ class WebAppHideToolbarFeatureTest {
         val store = BrowserStore(BrowserState(customTabs = listOf(tab)))
         val customTabsStore = CustomTabsServiceStore(
             CustomTabsServiceState(
-                tabs = mapOf(token to mockCustomTabState("https://firefox.com", "https://mozilla.org")),
+                tabs = mapOf(token to mockCustomTabState("https://eyebrowse.com", "https://mozilla.org")),
             ),
         )
 
@@ -159,7 +159,7 @@ class WebAppHideToolbarFeatureTest {
         val token = mock<CustomTabsSessionToken>()
         val tab = createCustomTab(
             id = customTabId,
-            url = "https://firefox.com",
+            url = "https://eyebrowse.com",
             config = CustomTabConfig(sessionToken = token),
         )
         val store = BrowserStore(BrowserState(customTabs = listOf(tab)))
@@ -209,7 +209,7 @@ class WebAppHideToolbarFeatureTest {
         assertFalse(toolbarVisible)
 
         store.dispatch(
-            ContentAction.UpdateUrlAction(customTabId, "https://firefox.com/out-of-scope"),
+            ContentAction.UpdateUrlAction(customTabId, "https://eyebrowse.com/out-of-scope"),
         ).joinBlocking()
         assertTrue(toolbarVisible)
 
@@ -244,7 +244,7 @@ class WebAppHideToolbarFeatureTest {
         assertFalse(toolbarVisible)
 
         store.dispatch(
-            ContentAction.UpdateUrlAction(customTabId, "https://firefox.com/out-of-scope"),
+            ContentAction.UpdateUrlAction(customTabId, "https://eyebrowse.com/out-of-scope"),
         ).joinBlocking()
         assertTrue(toolbarVisible)
 

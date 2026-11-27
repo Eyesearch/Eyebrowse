@@ -107,7 +107,7 @@ class SessionPrioritizationMiddlewareTest {
             initialState = BrowserState(
                 tabs = listOf(
                     createTab("https://www.mozilla.org", id = "1"),
-                    createTab("https://www.firefox.com", id = "2"),
+                    createTab("https://www.eyebrowse.com", id = "2"),
                 ),
             ),
             middleware = listOf(middleware),
@@ -142,7 +142,7 @@ class SessionPrioritizationMiddlewareTest {
             initialState = BrowserState(
                 tabs = listOf(
                     createTab("https://www.mozilla.org", id = "1"),
-                    createTab("https://www.firefox.com", id = "2"),
+                    createTab("https://www.eyebrowse.com", id = "2"),
                 ),
             ),
             middleware = listOf(middleware),

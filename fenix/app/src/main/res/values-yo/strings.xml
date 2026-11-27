@@ -277,7 +277,7 @@
     <string moz:RemovedIn="106" name="onboarding_home_screen_section_useful_history_description_2" tools:ignore="UnusedResources">Tún ṣe àbẹ̀wò sí àwọn ìwádìì tuntun rẹ láti ojú-ìwé akọ́ọ́kàn àti àwọn táàbù rẹ.</string>
 
 
-    <!-- Onboarding home screen popup dialog, shown on top of the Jump back in section. Firefox is intentionally hardcoded. -->
+    <!-- Onboarding home screen popup dialog, shown on top of the Jump back in section. Eyebrowse is intentionally hardcoded. -->
     <string moz:RemovedIn="106" name="onboarding_home_screen_jump_back_contextual_hint" tools:ignore="UnusedResources">Ojú-ìwé akọ́ọ́kàn Eyebrowse rẹ ti jẹ́ kí ó rọrùn láti bẹ̀rẹ̀ ní ibití ó parí rẹ̀ sí. Wá àwọn táàbù àìpẹ́ rẹ, àwọn búkúmaakì, àti àwọn èsì ìwádìí.</string>
 
     <!-- Onboarding home screen popup dialog, shown on top of the Jump back in section. -->
@@ -374,7 +374,7 @@
     <string name="preferences_accessibility">Ìgbaniláàyè</string>
 
 
-    <!-- Preference to override the Firefox Account server -->
+    <!-- Preference to override the Eyebrowse Account server -->
     <string name="preferences_override_fxa_server">Sáfà taraẹni akáǹtì Eyebrowse</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">Sáfà taraẹni onísopọ̀</string>
@@ -707,7 +707,7 @@
     <string name="studies_remove">Yọ kúrò</string>
     <!-- Title of the active section on the studies list -->
     <string name="studies_active">Tí ó ń ṣiṣẹ́</string>
-    <!-- Description for studies, it indicates why Firefox use studies. The first parameter is the name of the application. -->
+    <!-- Description for studies, it indicates why Eyebrowse use studies. The first parameter is the name of the application. -->
     <string name="studies_description_2">%1$s lè fi sórí ẹ̀rọ kí o sì ṣe àwọn àyẹ̀wò láti ìgbàdégbà.  </string>
     <!-- Learn more link for studies, links to an article for more information about studies. -->
     <string name="studies_learn_more">Kọ́ si</string>
@@ -1226,16 +1226,16 @@
 
     <!-- Onboarding -->
     <!-- Text for onboarding welcome message
-    The first parameter is the name of the app (e.g. Firefox Preview) -->
+    The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="onboarding_header">Káàbọ̀ sí %s!</string>
-    <!-- text for the Firefox account onboarding sign in card header. The word "Firefox" should not be translated -->
+    <!-- text for the Eyebrowse account onboarding sign in card header. The word "Eyebrowse" should not be translated -->
     <string name="onboarding_account_sign_in_header_1">Jẹ́kí Eyebrowse ṣiṣẹ́ pọ̀ láàárìn àwọn ẹ̀rọ</string>
-    <!-- Text for the button to learn more about signing in to your Firefox account. The first parameter is the name of the application.-->
+    <!-- Text for the button to learn more about signing in to your Eyebrowse account. The first parameter is the name of the application.-->
     <string name="onboarding_manual_sign_in_description_2">Mú àwọn búkúmaakì, ìtàn, àti àwọn ọ̀rọ̀ ìgbaniwọlé láti %1$s tan ẹ̀rọ yìí.</string>
-    <!-- text for the button to manually sign into Firefox account. -->
-    <string name="onboarding_firefox_account_sign_in_1">Ìforúkọsílẹ̀</string>
+    <!-- text for the button to manually sign into Eyebrowse account. -->
+    <string name="onboarding_eyebrowse_account_sign_in_1">Ìforúkọsílẹ̀</string>
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">Ìṣepọ̀ wà ní títàn </string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">Ìṣepọ̀ wà ní títàn </string>
     <!-- text for the tracking protection onboarding card header -->
     <string name="onboarding_tracking_protection_header_3">Ìdánìkanwà nígbàgbogbo</string>
     <!-- text for the tracking protection card description. The first parameter is the name of the application.-->
@@ -1255,7 +1255,7 @@
     <!-- text for the privacy notice onboarding card header -->
     <string name="onboarding_privacy_notice_header">Ìkọ̀kọ̀ rẹ</string>
     <!-- text for the privacy notice onboarding card description
-    The first parameter is the name of the app (e.g. Firefox Preview) Substitute %s for long browser name. -->
+    The first parameter is the name of the app (e.g. Eyebrowse Preview) Substitute %s for long browser name. -->
     <string name="onboarding_privacy_notice_description2">A ti ṣèto %s láti fún ọ ní ìṣàkóso lóri ohun tí o pín lóri ayélujára àti ohun tí o pín pẹ̀lú wa. </string>
     <!-- Text for the button to read the privacy notice -->
     <string name="onboarding_privacy_notice_read_button">Ka àkíyèsí ìkọ̀kọ̀ wa</string>
@@ -1295,9 +1295,9 @@
     <string name="sign_in_with_camera">Wọlé pẹ̀lú kámẹ́rà rẹ</string>
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">Lo ímeelì dípò</string>
-    <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
+    <!-- Text shown for settings option for create new account text.'Eyebrowse' intentionally hardcoded here.-->
     <string name="sign_in_create_account_text"><![CDATA[Kò sí àkáǹtì? <u> Ṣẹ̀dá ọ̀kan</u>láti jẹ́ kí Eyebrowse ṣiṣẹ́pọ̀ láàárín àwọn ẹ̀rọ.]]></string>
-    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="sign_out_confirmation_message_2">%s yóò dá ìṣiṣẹ́pọ̀ dúrọ́ pẹ̀lú àkáńtì rẹ, àmọ́ ò ní pa dátà bíráwúsìnnì kankan rẹ́ lóri ẹ̀rọ yìí.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
     <string name="sign_out_disconnect">Gé ìsopọ̀ kúrò</string>
@@ -1463,9 +1463,9 @@
     <string name="preferences_passwords_save_logins_ask_to_save">Bèrè láti fipamọ́</string>
     <!-- Preference option for never saving passwords in Fenix -->
     <string name="preferences_passwords_save_logins_never_save">Máṣe fipamọ́</string>
-    <!-- Preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill2">Àìfọwọ́yí sí %1$s</string>
-    <!-- Description for the preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Description for the preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill_description">Fọwọ́sí kí o sì ṣe ìfipamọ́ orúkọ ìgbàwọlé àti àwọn ọ̀rọ̀ ìpamọ́ nínú àwọn ojú ọ̀pọ́ wẹ́ẹ̀bù lásìkò líló %1$s.</string>
     <!-- Preference for autofilling logins from Fenix in other apps (e.g. autofilling the Twitter app) -->
     <string name="preferences_android_autofill">Àìfọwọ́yí nínú àwọn áàpù mìíràn</string>
@@ -1794,13 +1794,13 @@
     <string name="synced_tabs_connect_another_device">Ṣe àsopọ̀ ẹ̀rọ míràn.</string>
     <!-- Text displayed asking user to re-authenticate -->
     <string name="synced_tabs_reauth">Jọ̀wọ́ tún fi ìdí ẹ̀ múlẹ̀.</string>
-    <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+    <!-- Text displayed when user has disabled tab syncing in Eyebrowse Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">Jọ̀wọ́ gba ìṣepọ̀ táàbù láyè.</string>
     <!-- Text displayed when user has no tabs that have been synced -->
     <string name="synced_tabs_no_tabs">O ò ní àwọn táàbù tí ó wà ní ṣíṣí ní Eyebrowse lórí àwọn ẹ̀rọ rẹ tó kù.</string>
-    <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+    <!-- Text displayed in the synced tabs screen when a user is not signed in to Eyebrowse Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">Ṣe àfihàn àtòjọ àwọn táàbù láti àwọn ẹ̀rọ̀ rẹ̀ tó kù.</string>
-    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Eyebrowse Sync -->
     <string name="synced_tabs_sign_in_button">Ṣe ìforúkọsílẹ̀ láti wọ ìṣepọ̀ náà</string>
     <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->
     <string name="synced_tabs_no_open_tabs">Kò sí àwọn táàbù ní ṣíṣí</string>
@@ -1889,5 +1889,5 @@
     <string name="experiments_snackbar">Jẹ́ kí tẹlẹmẹ́tìrì fi dátà ráńṣẹ́.</string>
     <!-- Snackbar button text to navigate to telemetry settings.-->
     <string name="experiments_snackbar_button">Lọ sí àwọn ààtò</string>
-    <string name="firefox_suggest_header">Eyebrowse Dábàá</string>
+    <string name="eyebrowse_suggest_header">Eyebrowse Dábàá</string>
 </resources>

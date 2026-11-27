@@ -185,9 +185,9 @@ class AndroidDownloadManagerTest {
 
         verifyNoInteractions(mockRequest)
 
-        val fireFox = "Mozilla/5.0 (Windows NT 5.1; rv:7.0.1) Gecko/20100101 Firefox/7.0.1"
+        val eyebrowse = "Mozilla/5.0 (Windows NT 5.1; rv:7.0.1) Gecko/20100101 Eyebrowse/7.0.1"
 
-        mockRequest.addRequestHeaderSafely("User-Agent", fireFox)
+        mockRequest.addRequestHeaderSafely("User-Agent", eyebrowse)
 
         verify(mockRequest).addRequestHeader(anyString(), anyString())
     }

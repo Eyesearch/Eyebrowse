@@ -42,9 +42,9 @@ class SettingsSubMenuLoginsAndPasswordRobot {
         Log.i(TAG, "verifyDefaultView: Trying to verify that the \"Save logins and passwords\" button is displayed")
         saveLoginsAndPasswordButton().check(matches(isDisplayed()))
         Log.i(TAG, "verifyDefaultView: Verified that the \"Save passwords\" button is displayed")
-        Log.i(TAG, "verifyDefaultView: Trying to verify that the Autofill in Firefox option is displayed")
-        autofillInFirefoxOption().check(matches(isDisplayed()))
-        Log.i(TAG, "verifyDefaultView: Verified that the Autofill in Firefox option is displayed")
+        Log.i(TAG, "verifyDefaultView: Trying to verify that the Autofill in Eyebrowse option is displayed")
+        autofillInEyebrowseOption().check(matches(isDisplayed()))
+        Log.i(TAG, "verifyDefaultView: Verified that the Autofill in Eyebrowse option is displayed")
         Log.i(TAG, "verifyDefaultView: Trying to verify that the \"Autofill in other apps\" option is displayed")
         autofillInOtherAppsOption().check(matches(isDisplayed()))
         Log.i(TAG, "verifyDefaultView: Verified that the \"Autofill in other apps\" option is displayed")
@@ -68,7 +68,7 @@ class SettingsSubMenuLoginsAndPasswordRobot {
     }
 
     fun verifyDefaultValueAutofillLogins(context: Context) {
-        Log.i(TAG, "verifyDefaultValueAutofillLogins: Trying to verify that the Autofill in Firefox option is displayed")
+        Log.i(TAG, "verifyDefaultValueAutofillLogins: Trying to verify that the Autofill in Eyebrowse option is displayed")
         onView(
             withText(
                 context.getString(
@@ -77,18 +77,18 @@ class SettingsSubMenuLoginsAndPasswordRobot {
                 ),
             ),
         ).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)))
-        Log.i(TAG, "verifyDefaultValueAutofillLogins: Verified that the Autofill in Firefox option is displayed")
+        Log.i(TAG, "verifyDefaultValueAutofillLogins: Verified that the Autofill in Eyebrowse option is displayed")
     }
 
-    fun clickAutofillInFirefoxOption() {
-        Log.i(TAG, "clickAutofillInFirefoxOption: Trying to click the Autofill in Firefox option")
-        autofillInFirefoxOption().click()
-        Log.i(TAG, "clickAutofillInFirefoxOption: Clicked the Autofill in Firefox option")
+    fun clickAutofillInEyebrowseOption() {
+        Log.i(TAG, "clickAutofillInEyebrowseOption: Trying to click the Autofill in Eyebrowse option")
+        autofillInEyebrowseOption().click()
+        Log.i(TAG, "clickAutofillInEyebrowseOption: Clicked the Autofill in Eyebrowse option")
     }
 
-    fun verifyAutofillInFirefoxToggle(enabled: Boolean) {
-        Log.i(TAG, "verifyAutofillInFirefoxToggle: Trying to verify that the Autofill in Firefox toggle is enabled: $enabled")
-        autofillInFirefoxOption()
+    fun verifyAutofillInEyebrowseToggle(enabled: Boolean) {
+        Log.i(TAG, "verifyAutofillInEyebrowseToggle: Trying to verify that the Autofill in Eyebrowse toggle is enabled: $enabled")
+        autofillInEyebrowseOption()
             .check(
                 matches(
                     hasCousin(
@@ -103,7 +103,7 @@ class SettingsSubMenuLoginsAndPasswordRobot {
                     ),
                 ),
             )
-        Log.i(TAG, "verifyAutofillInFirefoxToggle: Verified that the Autofill in Firefox toggle is enabled: $enabled")
+        Log.i(TAG, "verifyAutofillInEyebrowseToggle: Verified that the Autofill in Eyebrowse toggle is enabled: $enabled")
     }
     fun verifyAutofillLoginsInOtherAppsToggle(enabled: Boolean) {
         Log.i(TAG, "verifyAutofillLoginsInOtherAppsToggle: Trying to verify that the \"Autofill in other apps\" toggle is enabled: $enabled")
@@ -190,6 +190,6 @@ private fun loginExceptionsButton() = onView(withText("Exceptions"))
 private fun goBackButton() =
     onView(allOf(ViewMatchers.withContentDescription("Navigate up")))
 
-private fun autofillInFirefoxOption() = onView(withText("Autofill in $appName"))
+private fun autofillInEyebrowseOption() = onView(withText("Autofill in $appName"))
 
 private fun autofillInOtherAppsOption() = onView(withText("Autofill in other apps"))

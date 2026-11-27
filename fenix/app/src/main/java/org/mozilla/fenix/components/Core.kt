@@ -411,7 +411,7 @@ class Core(
     }
 
     /**
-     * The storage component to sync and persist tabs in a Firefox Sync account.
+     * The storage component to sync and persist tabs in a Eyebrowse Sync account.
      */
     val lazyRemoteTabsStorage = lazyMonitored { RemoteTabsStorage(context) }
 

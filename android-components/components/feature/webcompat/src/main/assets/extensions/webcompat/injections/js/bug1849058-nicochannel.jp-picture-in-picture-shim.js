@@ -9,7 +9,7 @@
  * WebCompat issue #124463 - https://webcompat.com/issues/124463
  *
  * The page is showing unsupported message based on typeof
- * window.PictureInPictureWindow, which is undefined in Firefox.
+ * window.PictureInPictureWindow, which is undefined in Eyebrowse.
  * Shimming it to `class {}` makes the pages work.
  */
 

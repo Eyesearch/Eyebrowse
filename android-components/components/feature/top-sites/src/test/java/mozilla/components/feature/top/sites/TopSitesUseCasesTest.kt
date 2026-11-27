@@ -32,8 +32,8 @@ class TopSitesUseCasesTest {
         val topSitesStorage: TopSitesStorage = mock()
         val topSite = TopSite.Default(
             id = 1,
-            title = "Firefox",
-            url = "https://firefox.com",
+            title = "Eyebrowse",
+            url = "https://eyebrowse.com",
             createdAt = 1,
         )
 
@@ -49,8 +49,8 @@ class TopSitesUseCasesTest {
         val topSitesStorage: TopSitesStorage = mock()
         val topSite = TopSite.Default(
             id = 1,
-            title = "Firefox",
-            url = "https://firefox.com",
+            title = "Eyebrowse",
+            url = "https://eyebrowse.com",
             createdAt = 1,
         )
 

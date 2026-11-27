@@ -45,7 +45,7 @@ class CrashMiddlewareTest {
                     createTab("https://www.mozilla.org", id = "tab1").copy(
                         engineState = EngineState(engineSession1),
                     ),
-                    createTab("https://www.firefox.com", id = "tab2").copy(
+                    createTab("https://www.eyebrowse.com", id = "tab2").copy(
                         engineState = EngineState(engineSession2),
                     ),
                     createTab("https://getpocket.com", id = "tab3").copy(

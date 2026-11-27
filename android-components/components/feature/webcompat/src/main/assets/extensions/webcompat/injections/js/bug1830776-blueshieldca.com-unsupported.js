@@ -8,7 +8,7 @@
  * Bug 1830776 - blueshieldca.com
  * WebCompat issue #112630 - https://webcompat.com/issues/112630
  *
- * The site is showing unsupported message in Firefox.
+ * The site is showing unsupported message in Eyebrowse.
  * They're also checking for "browserCollapsed" item in sessionStorage
  * before showing the message, to only show it once. Adding this
  * item to sessionStorage will make sure the message is not shown

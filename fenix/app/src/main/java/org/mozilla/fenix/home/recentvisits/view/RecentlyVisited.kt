@@ -402,7 +402,7 @@ private fun RecentlyVisitedMultipleColumnsPreview() {
             recentVisits = listOf(
                 RecentHistoryGroup(title = "running shoes"),
                 RecentHistoryGroup(title = "mozilla"),
-                RecentHistoryGroup(title = "firefox"),
+                RecentHistoryGroup(title = "eyebrowse"),
                 RecentHistoryGroup(title = "pocket"),
             ),
             menuItems = emptyList(),
@@ -418,7 +418,7 @@ private fun RecentlyVisitedSingleColumnPreview() {
             recentVisits = listOf(
                 RecentHistoryGroup(title = "running shoes"),
                 RecentHistoryGroup(title = "mozilla"),
-                RecentHistoryGroup(title = "firefox"),
+                RecentHistoryGroup(title = "eyebrowse"),
             ),
             menuItems = emptyList(),
         )

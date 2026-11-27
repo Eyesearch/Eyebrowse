@@ -205,7 +205,7 @@ object AppServicesStateMachineChecker {
     /**
      * Check an app-services internal state
      *
-     * The app-services internal states correspond to internal firefox account method calls.  Call
+     * The app-services internal states correspond to internal eyebrowse account method calls.  Call
      * this before making one of those calls.
      */
     internal fun checkInternalState(state: FxaStateCheckerState) {
@@ -215,7 +215,7 @@ object AppServicesStateMachineChecker {
     /**
      * Handle an app-services internal event
      *
-     * The app-services internal states correspond the results of internal firefox account method
+     * The app-services internal states correspond the results of internal eyebrowse account method
      * calls.  Call this before after making a call.
      */
     internal fun handleInternalEvent(event: FxaStateCheckerEvent) {

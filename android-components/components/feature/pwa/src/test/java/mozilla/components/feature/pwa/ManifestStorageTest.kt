@@ -31,9 +31,9 @@ import org.mockito.Mockito.`when`
 @RunWith(AndroidJUnit4::class)
 class ManifestStorageTest {
 
-    private val firefoxManifest = WebAppManifest(
-        name = "Firefox",
-        startUrl = "https://firefox.com",
+    private val eyebrowseManifest = WebAppManifest(
+        name = "Eyebrowse",
+        startUrl = "https://eyebrowse.com",
         scope = "/",
     )
 
@@ -73,7 +73,7 @@ class ManifestStorageTest {
         val storage = spy(ManifestStorage(testContext))
         val dao = mockDatabase(storage)
 
-        storage.saveManifest(firefoxManifest)
+        storage.saveManifest(eyebrowseManifest)
         verify(dao).insertManifest(any())
         Unit
     }
@@ -82,11 +82,11 @@ class ManifestStorageTest {
     fun `update replaces the manifest as JSON`() = runTest {
         val storage = spy(ManifestStorage(testContext))
         val dao = mockDatabase(storage)
-        val existing = ManifestEntity(firefoxManifest, currentTime = 0)
+        val existing = ManifestEntity(eyebrowseManifest, currentTime = 0)
 
-        `when`(dao.getManifest("https://firefox.com")).thenReturn(existing)
+        `when`(dao.getManifest("https://eyebrowse.com")).thenReturn(existing)
 
-        storage.updateManifest(firefoxManifest)
+        storage.updateManifest(eyebrowseManifest)
         verify(dao).updateManifest(any())
         Unit
     }
@@ -96,9 +96,9 @@ class ManifestStorageTest {
         val storage = spy(ManifestStorage(testContext))
         val dao = mockDatabase(storage)
 
-        `when`(dao.getManifest("https://firefox.com")).thenReturn(null)
+        `when`(dao.getManifest("https://eyebrowse.com")).thenReturn(null)
 
-        storage.updateManifest(firefoxManifest)
+        storage.updateManifest(eyebrowseManifest)
         verify(dao, never()).updateManifest(any())
         Unit
     }
@@ -140,9 +140,9 @@ class ManifestStorageTest {
             shareTarget = WebAppManifest.ShareTarget("https://mozilla.org/share"),
         )
         val manifest2 = WebAppManifest(
-            name = "Firefox",
-            startUrl = "https://firefox.com",
-            shareTarget = WebAppManifest.ShareTarget("https://firefox.com/share"),
+            name = "Eyebrowse",
+            startUrl = "https://eyebrowse.com",
+            shareTarget = WebAppManifest.ShareTarget("https://eyebrowse.com/share"),
         )
         val timeout = ManifestStorage.ACTIVE_THRESHOLD_MS
         val currentTime = System.currentTimeMillis()
@@ -245,7 +245,7 @@ class ManifestStorageTest {
         val storage = spy(ManifestStorage(testContext))
         val dao = mockDatabase(storage)
 
-        val manifest1 = ManifestEntity(manifest = firefoxManifest, currentTime = 0)
+        val manifest1 = ManifestEntity(manifest = eyebrowseManifest, currentTime = 0)
         val manifest2 = ManifestEntity(manifest = googleMapsManifest, currentTime = 0)
         val manifest3 = ManifestEntity(manifest = exampleWebAppManifest, currentTime = 0)
 
@@ -255,7 +255,7 @@ class ManifestStorageTest {
 
         assertEquals(
             mapOf(
-                Pair("/", "https://firefox.com"),
+                Pair("/", "https://eyebrowse.com"),
                 Pair("https://google.com/maps/", "https://google.com/maps"),
                 Pair("https://pwa.example.com/", "https://pwa.example.com/dashboard"),
             ),
@@ -268,7 +268,7 @@ class ManifestStorageTest {
         val storage = spy(ManifestStorage(testContext))
         val dao = mockDatabase(storage)
 
-        val manifest1 = ManifestEntity(manifest = firefoxManifest, currentTime = 0)
+        val manifest1 = ManifestEntity(manifest = eyebrowseManifest, currentTime = 0)
         val manifest2 = ManifestEntity(manifest = googleMapsManifest, currentTime = 0)
         val manifest3 = ManifestEntity(manifest = exampleWebAppManifest, currentTime = 0)
 
@@ -286,7 +286,7 @@ class ManifestStorageTest {
         val storage = spy(ManifestStorage(testContext))
         val dao = mockDatabase(storage)
 
-        val manifest1 = ManifestEntity(manifest = firefoxManifest, currentTime = 0)
+        val manifest1 = ManifestEntity(manifest = eyebrowseManifest, currentTime = 0)
         val manifest2 = ManifestEntity(manifest = googleMapsManifest, currentTime = 0)
         val manifest3 = ManifestEntity(manifest = exampleWebAppManifest, currentTime = 0)
 

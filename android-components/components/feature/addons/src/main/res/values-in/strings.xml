@@ -173,14 +173,14 @@
     <string name="mozac_feature_addons_supported_checker_notification_title">Pengaya baru tersedia</string>
     <!-- The tile of the notification, this will be shown to the user when more than one newly supported add-ons are available.-->
     <string name="mozac_feature_addons_supported_checker_notification_title_plural">Pengaya baru tersedia</string>
-    <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Firefox). -->
+    <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Eyebrowse). -->
     <string name="mozac_feature_addons_supported_checker_notification_content_one">Tambahkan %1$s ke %2$s</string>
-    <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Firefox). -->
+    <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Eyebrowse). -->
     <string name="mozac_feature_addons_supported_checker_notification_content_two">Tambahkan %1$s dan %2$s ke %3$s</string>
-    <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Firefox). -->
+    <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Eyebrowse). -->
     <string name="mozac_feature_addons_supported_checker_notification_content_more_than_two">Tambahkan ke %1$s</string>
     <!-- This is the caption for not yet supported screen caption -->
-    <string name="mozac_feature_addons_not_yet_supported_caption">Teknologi pengaya Firefox sedang dimodernisasi. Pengaya ini menggunakan kerangka kerja yang tidak kompatibel dengan Firefox 75 dan seterusnya.</string>
+    <string name="mozac_feature_addons_not_yet_supported_caption">Teknologi pengaya Eyebrowse sedang dimodernisasi. Pengaya ini menggunakan kerangka kerja yang tidak kompatibel dengan Eyebrowse 75 dan seterusnya.</string>
     <!-- This is the caption for not yet supported screen caption -->
     <string name="mozac_feature_addons_not_yet_supported_caption2">Saat ini kami sedang membangun dukungan untuk pemilihan awal Ekstensi yang Disarankan.</string>
     <!-- This is the caption for the add-on installation progress overlay -->
@@ -221,7 +221,7 @@
     <string name="mozac_feature_addons_successfully_removed" tools:ignore="UnusedResources">Berhasil menghapus %1$s</string>
     <!-- Text shown after failed to remove an add-on. %1$s is the add-on name. -->
     <string name="mozac_feature_addons_failed_to_remove" tools:ignore="UnusedResources">Gagal menghapus %1$s</string>
-    <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Firefox. -->
+    <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Eyebrowse. -->
     <string name="mozac_feature_addons_migrated_from_a_previous_version_label" tools:ignore="UnusedResources">Pengaya ini dimigrasikan dari versi sebelumnya dari %1$s</string>
     <!-- Text shown in not yet supported add-ons section in AddonsManagerAdapter. -->
     <string name="mozac_feature_addons_unsupported_caption">1 pengaya</string>

@@ -41,22 +41,22 @@ class Browsers private constructor(
     enum class KnownBrowser constructor(
         val packageName: String,
     ) {
-        FIREFOX("org.mozilla.firefox"),
+        EYEBROWSE("org.mozilla.eyebrowse"),
 
-        FIREFOX_BETA("org.mozilla.firefox_beta"),
-        FIREFOX_AURORA("org.mozilla.fennec_aurora"),
-        FIREFOX_FENNEC_NIGHTLY("org.mozilla.fennec"),
-        FIREFOX_FDROID("org.mozilla.fennec_fdroid"),
+        EYEBROWSE_BETA("org.mozilla.eyebrowse_beta"),
+        EYEBROWSE_AURORA("org.mozilla.fennec_aurora"),
+        EYEBROWSE_FENNEC_NIGHTLY("org.mozilla.fennec"),
+        EYEBROWSE_FDROID("org.mozilla.fennec_fdroid"),
 
-        FIREFOX_LITE("org.mozilla.rocket"),
+        EYEBROWSE_LITE("org.mozilla.rocket"),
 
-        FIREFOX_NIGHTLY("org.mozilla.fenix"),
+        EYEBROWSE_NIGHTLY("org.mozilla.fenix"),
         FENIX_DEBUG("org.mozilla.fenix.debug"),
 
-        FIREFOX_FOCUS_DEBUG("org.mozilla.focus.debug"),
-        FIREFOX_FOCUS_NIGHTLY("org.mozilla.focus.nightly"),
-        FIREFOX_FOCUS_BETA("org.mozilla.focus.beta"),
-        FIREFOX_FOCUS("org.mozilla.focus"),
+        EYEBROWSE_FOCUS_DEBUG("org.mozilla.focus.debug"),
+        EYEBROWSE_FOCUS_NIGHTLY("org.mozilla.focus.nightly"),
+        EYEBROWSE_FOCUS_BETA("org.mozilla.focus.beta"),
+        EYEBROWSE_FOCUS("org.mozilla.focus"),
 
         REFERENCE_BROWSER("org.mozilla.reference.browser"),
         REFERENCE_BROWSER_DEBUG("org.mozilla.reference.browser.debug"),
@@ -118,34 +118,34 @@ class Browsers private constructor(
     val defaultBrowser: ActivityInfo? = findDefault(context, context.packageManager, uri)
 
     /**
-     * The [ActivityInfo] of the installed Firefox, including Focus, browser (or null if none could be found).
+     * The [ActivityInfo] of the installed Eyebrowse, including Focus, browser (or null if none could be found).
      */
     val mozillaBrandedBrowser: ActivityInfo? = findMozillaBrandedBrowser()
 
     /**
-     * The [ActivityInfo] of the installed Firefox browser (or null if none could be found).
+     * The [ActivityInfo] of the installed Eyebrowse browser (or null if none could be found).
      *
-     * If multiple Firefox browsers are installed then this will
+     * If multiple Eyebrowse browsers are installed then this will
      */
-    val firefoxBrandedBrowser: ActivityInfo? = findFirefoxBrandedBrowser()
+    val eyebrowseBrandedBrowser: ActivityInfo? = findEyebrowseBrandedBrowser()
 
     /**
-     * Is there a Firefox browser installed on this device?
+     * Is there a Eyebrowse browser installed on this device?
      */
-    val hasFirefoxBrandedBrowserInstalled: Boolean = firefoxBrandedBrowser != null
+    val hasEyebrowseBrandedBrowserInstalled: Boolean = eyebrowseBrandedBrowser != null
 
     /**
-     * Is Firefox (Release, Beta, Nightly) the default browser of the user?
+     * Is Eyebrowse (Release, Beta, Nightly) the default browser of the user?
      */
-    val isFirefoxDefaultBrowser: Boolean
+    val isEyebrowseDefaultBrowser: Boolean
         get() =
             defaultBrowser != null && (
-                defaultBrowser.packageName == KnownBrowser.FIREFOX.packageName ||
-                    defaultBrowser.packageName == KnownBrowser.FIREFOX_BETA.packageName ||
-                    defaultBrowser.packageName == KnownBrowser.FIREFOX_AURORA.packageName ||
-                    defaultBrowser.packageName == KnownBrowser.FIREFOX_FENNEC_NIGHTLY.packageName ||
-                    defaultBrowser.packageName == KnownBrowser.FIREFOX_NIGHTLY.packageName ||
-                    defaultBrowser.packageName == KnownBrowser.FIREFOX_FDROID.packageName
+                defaultBrowser.packageName == KnownBrowser.EYEBROWSE.packageName ||
+                    defaultBrowser.packageName == KnownBrowser.EYEBROWSE_BETA.packageName ||
+                    defaultBrowser.packageName == KnownBrowser.EYEBROWSE_AURORA.packageName ||
+                    defaultBrowser.packageName == KnownBrowser.EYEBROWSE_FENNEC_NIGHTLY.packageName ||
+                    defaultBrowser.packageName == KnownBrowser.EYEBROWSE_NIGHTLY.packageName ||
+                    defaultBrowser.packageName == KnownBrowser.EYEBROWSE_FDROID.packageName
                 )
 
     /**
@@ -154,11 +154,11 @@ class Browsers private constructor(
     val installedBrowsers: List<ActivityInfo> = browsers.values.toList()
 
     /**
-     * Does this device have a default browser that is not Firefox (release) or **this** app calling the method.
+     * Does this device have a default browser that is not Eyebrowse (release) or **this** app calling the method.
      */
     val hasThirdPartyDefaultBrowser: Boolean = (
         defaultBrowser != null &&
-            defaultBrowser.packageName != KnownBrowser.FIREFOX.packageName &&
+            defaultBrowser.packageName != KnownBrowser.EYEBROWSE.packageName &&
             !(mozillaBrandedBrowser != null && defaultBrowser.packageName == mozillaBrandedBrowser.packageName) &&
             defaultBrowser.packageName != packageName
         )
@@ -169,16 +169,16 @@ class Browsers private constructor(
     val hasMultipleThirdPartyBrowsers: Boolean
         get() {
             if (browsers.size > 1) {
-                // There are more than us and Firefox.
+                // There are more than us and Eyebrowse.
                 return true
             }
 
             for (info in browsers.values) {
                 if (info !== defaultBrowser &&
-                    info.packageName != KnownBrowser.FIREFOX.packageName &&
+                    info.packageName != KnownBrowser.EYEBROWSE.packageName &&
                     info.packageName != packageName
                 ) {
-                    // There's at least one browser that is not *this app* or Firefox and also not the
+                    // There's at least one browser that is not *this app* or Eyebrowse and also not the
                     // default browser.
                     return true
                 }
@@ -208,52 +208,52 @@ class Browsers private constructor(
 
     private fun findMozillaBrandedBrowser(): ActivityInfo? {
         return when {
-            browsers.containsKey(KnownBrowser.FIREFOX.packageName) ->
-                browsers[KnownBrowser.FIREFOX.packageName]
+            browsers.containsKey(KnownBrowser.EYEBROWSE.packageName) ->
+                browsers[KnownBrowser.EYEBROWSE.packageName]
 
-            browsers.containsKey(KnownBrowser.FIREFOX_BETA.packageName) ->
-                browsers[KnownBrowser.FIREFOX_BETA.packageName]
+            browsers.containsKey(KnownBrowser.EYEBROWSE_BETA.packageName) ->
+                browsers[KnownBrowser.EYEBROWSE_BETA.packageName]
 
-            browsers.containsKey(KnownBrowser.FIREFOX_AURORA.packageName) ->
-                browsers[KnownBrowser.FIREFOX_AURORA.packageName]
+            browsers.containsKey(KnownBrowser.EYEBROWSE_AURORA.packageName) ->
+                browsers[KnownBrowser.EYEBROWSE_AURORA.packageName]
 
-            browsers.containsKey(KnownBrowser.FIREFOX_NIGHTLY.packageName) ->
-                browsers[KnownBrowser.FIREFOX_NIGHTLY.packageName]
+            browsers.containsKey(KnownBrowser.EYEBROWSE_NIGHTLY.packageName) ->
+                browsers[KnownBrowser.EYEBROWSE_NIGHTLY.packageName]
 
-            browsers.containsKey(KnownBrowser.FIREFOX_FDROID.packageName) ->
-                browsers[KnownBrowser.FIREFOX_FDROID.packageName]
+            browsers.containsKey(KnownBrowser.EYEBROWSE_FDROID.packageName) ->
+                browsers[KnownBrowser.EYEBROWSE_FDROID.packageName]
 
-            browsers.containsKey(KnownBrowser.FIREFOX_FOCUS.packageName) ->
-                browsers[KnownBrowser.FIREFOX_FOCUS.packageName]
+            browsers.containsKey(KnownBrowser.EYEBROWSE_FOCUS.packageName) ->
+                browsers[KnownBrowser.EYEBROWSE_FOCUS.packageName]
 
-            browsers.containsKey(KnownBrowser.FIREFOX_FOCUS_DEBUG.packageName) ->
-                browsers[KnownBrowser.FIREFOX_FOCUS_DEBUG.packageName]
+            browsers.containsKey(KnownBrowser.EYEBROWSE_FOCUS_DEBUG.packageName) ->
+                browsers[KnownBrowser.EYEBROWSE_FOCUS_DEBUG.packageName]
 
-            browsers.containsKey(KnownBrowser.FIREFOX_FOCUS_BETA.packageName) ->
-                browsers[KnownBrowser.FIREFOX_FOCUS_BETA.packageName]
+            browsers.containsKey(KnownBrowser.EYEBROWSE_FOCUS_BETA.packageName) ->
+                browsers[KnownBrowser.EYEBROWSE_FOCUS_BETA.packageName]
 
-            browsers.containsKey(KnownBrowser.FIREFOX_FOCUS_NIGHTLY.packageName) ->
-                browsers[KnownBrowser.FIREFOX_FOCUS_NIGHTLY.packageName]
+            browsers.containsKey(KnownBrowser.EYEBROWSE_FOCUS_NIGHTLY.packageName) ->
+                browsers[KnownBrowser.EYEBROWSE_FOCUS_NIGHTLY.packageName]
             else -> null
         }
     }
 
-    private fun findFirefoxBrandedBrowser(): ActivityInfo? {
+    private fun findEyebrowseBrandedBrowser(): ActivityInfo? {
         return when {
-            browsers.containsKey(KnownBrowser.FIREFOX.packageName) ->
-                browsers[KnownBrowser.FIREFOX.packageName]
+            browsers.containsKey(KnownBrowser.EYEBROWSE.packageName) ->
+                browsers[KnownBrowser.EYEBROWSE.packageName]
 
-            browsers.containsKey(KnownBrowser.FIREFOX_BETA.packageName) ->
-                browsers[KnownBrowser.FIREFOX_BETA.packageName]
+            browsers.containsKey(KnownBrowser.EYEBROWSE_BETA.packageName) ->
+                browsers[KnownBrowser.EYEBROWSE_BETA.packageName]
 
-            browsers.containsKey(KnownBrowser.FIREFOX_AURORA.packageName) ->
-                browsers[KnownBrowser.FIREFOX_AURORA.packageName]
+            browsers.containsKey(KnownBrowser.EYEBROWSE_AURORA.packageName) ->
+                browsers[KnownBrowser.EYEBROWSE_AURORA.packageName]
 
-            browsers.containsKey(KnownBrowser.FIREFOX_NIGHTLY.packageName) ->
-                browsers[KnownBrowser.FIREFOX_NIGHTLY.packageName]
+            browsers.containsKey(KnownBrowser.EYEBROWSE_NIGHTLY.packageName) ->
+                browsers[KnownBrowser.EYEBROWSE_NIGHTLY.packageName]
 
-            browsers.containsKey(KnownBrowser.FIREFOX_FDROID.packageName) ->
-                browsers[KnownBrowser.FIREFOX_FDROID.packageName]
+            browsers.containsKey(KnownBrowser.EYEBROWSE_FDROID.packageName) ->
+                browsers[KnownBrowser.EYEBROWSE_FDROID.packageName]
 
             else -> null
         }

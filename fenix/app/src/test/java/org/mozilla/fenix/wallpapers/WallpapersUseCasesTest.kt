@@ -551,7 +551,7 @@ class WallpapersUseCasesTest {
             Wallpaper(
                 name = name,
                 collection = Wallpaper.Collection(
-                    name = Wallpaper.firefoxCollectionName,
+                    name = Wallpaper.eyebrowseCollectionName,
                     heading = null,
                     description = null,
                     availableLocales = listOf("en-US"),
@@ -569,7 +569,7 @@ class WallpapersUseCasesTest {
             Wallpaper(
                 name = name,
                 collection = Wallpaper.Collection(
-                    name = Wallpaper.firefoxCollectionName,
+                    name = Wallpaper.eyebrowseCollectionName,
                     heading = null,
                     description = null,
                     availableLocales = null,

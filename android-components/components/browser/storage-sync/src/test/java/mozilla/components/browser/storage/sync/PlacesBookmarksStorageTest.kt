@@ -209,7 +209,7 @@ class PlacesBookmarksStorageTest {
     @Test
     fun `GIVEN bookmarks exist WHEN asked for autocomplete suggestions THEN return the first matching bookmark`() = runTest {
         bookmarks.apply {
-            addItem(BookmarkRoot.Mobile.id, "https://www.mozilla.org/en-us/firefox", "Mozilla", 5u)
+            addItem(BookmarkRoot.Mobile.id, "https://www.mozilla.org/en-us/eyebrowse", "Mozilla", 5u)
             addItem(BookmarkRoot.Toolbar.id, "https://support.mozilla.org/", "Support", 2u)
         }
 

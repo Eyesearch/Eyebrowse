@@ -121,7 +121,7 @@ class PocketTest : TestSetup() {
         homeScreen {
             verifyPoweredByPocket()
         }.clickPocketLearnMoreLink(activityTestRule) {
-            verifyUrl("mozilla.org/en-US/firefox/pocket")
+            verifyUrl("mozilla.org/en-US/eyebrowse/pocket")
         }
     }
 }

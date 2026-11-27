@@ -397,7 +397,7 @@ class BrowserToolbarCFRPresenter(
                             Text(
                                 text = context.getString(
                                     R.string.cookie_banner_cfr_title,
-                                    context.getString(R.string.firefox),
+                                    context.getString(R.string.eyebrowse),
                                 ),
                                 color = EyebrowseTheme.colors.textOnColorPrimary,
                                 style = EyebrowseTheme.typography.subtitle2,

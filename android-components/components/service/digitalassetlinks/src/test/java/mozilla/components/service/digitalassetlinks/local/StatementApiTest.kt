@@ -62,7 +62,7 @@ class StatementApiTest {
     @Test
     fun `return empty list if response does not have status 200`() {
         val response = Response(
-            url = "https://firefox.com/.well-known/assetlinks.json",
+            url = "https://eyebrowse.com/.well-known/assetlinks.json",
             status = 201,
             headers = jsonHeaders,
             body = mock(),
@@ -70,21 +70,21 @@ class StatementApiTest {
         `when`(
             httpClient.fetch(
                 Request(
-                    url = "https://firefox.com/.well-known/assetlinks.json",
+                    url = "https://eyebrowse.com/.well-known/assetlinks.json",
                     connectTimeout = TIMEOUT,
                     readTimeout = TIMEOUT,
                 ),
             ),
         ).thenReturn(response)
 
-        val source = AssetDescriptor.Web("https://firefox.com")
+        val source = AssetDescriptor.Web("https://eyebrowse.com")
         assertEquals(emptyList<Statement>(), listFetcher.listStatements(source).toList())
     }
 
     @Test
     fun `return empty list if response does not have JSON content type`() {
         val response = Response(
-            url = "https://firefox.com/.well-known/assetlinks.json",
+            url = "https://eyebrowse.com/.well-known/assetlinks.json",
             status = 200,
             headers = MutableHeaders(
                 CONTENT_TYPE to CONTENT_TYPE_FORM_URLENCODED,
@@ -95,21 +95,21 @@ class StatementApiTest {
         `when`(
             httpClient.fetch(
                 Request(
-                    url = "https://firefox.com/.well-known/assetlinks.json",
+                    url = "https://eyebrowse.com/.well-known/assetlinks.json",
                     connectTimeout = TIMEOUT,
                     readTimeout = TIMEOUT,
                 ),
             ),
         ).thenReturn(response)
 
-        val source = AssetDescriptor.Web("https://firefox.com")
+        val source = AssetDescriptor.Web("https://eyebrowse.com")
         assertEquals(emptyList<Statement>(), listFetcher.listStatements(source).toList())
     }
 
     @Test
     fun `return empty list if response is not valid JSON`() {
         val response = Response(
-            url = "http://firefox.com/.well-known/assetlinks.json",
+            url = "http://eyebrowse.com/.well-known/assetlinks.json",
             status = 200,
             headers = jsonHeaders,
             body = stringBody("not-json"),
@@ -118,21 +118,21 @@ class StatementApiTest {
         `when`(
             httpClient.fetch(
                 Request(
-                    url = "http://firefox.com/.well-known/assetlinks.json",
+                    url = "http://eyebrowse.com/.well-known/assetlinks.json",
                     connectTimeout = TIMEOUT,
                     readTimeout = TIMEOUT,
                 ),
             ),
         ).thenReturn(response)
 
-        val source = AssetDescriptor.Web("http://firefox.com")
+        val source = AssetDescriptor.Web("http://eyebrowse.com")
         assertEquals(emptyList<Statement>(), listFetcher.listStatements(source).toList())
     }
 
     @Test
     fun `return empty list if response is an empty JSON array`() {
         val response = Response(
-            url = "http://firefox.com/.well-known/assetlinks.json",
+            url = "http://eyebrowse.com/.well-known/assetlinks.json",
             status = 200,
             headers = jsonHeaders,
             body = stringBody("[]"),
@@ -141,21 +141,21 @@ class StatementApiTest {
         `when`(
             httpClient.fetch(
                 Request(
-                    url = "http://firefox.com/.well-known/assetlinks.json",
+                    url = "http://eyebrowse.com/.well-known/assetlinks.json",
                     connectTimeout = TIMEOUT,
                     readTimeout = TIMEOUT,
                 ),
             ),
         ).thenReturn(response)
 
-        val source = AssetDescriptor.Web("http://firefox.com")
+        val source = AssetDescriptor.Web("http://eyebrowse.com")
         assertEquals(emptyList<Statement>(), listFetcher.listStatements(source).toList())
     }
 
     @Test
     fun `parses example asset links file`() {
         val response = Response(
-            url = "http://firefox.com/.well-known/assetlinks.json",
+            url = "http://eyebrowse.com/.well-known/assetlinks.json",
             status = 200,
             headers = jsonHeaders,
             body = stringBody(
@@ -192,14 +192,14 @@ class StatementApiTest {
         `when`(
             httpClient.fetch(
                 Request(
-                    url = "http://firefox.com/.well-known/assetlinks.json",
+                    url = "http://eyebrowse.com/.well-known/assetlinks.json",
                     connectTimeout = TIMEOUT,
                     readTimeout = TIMEOUT,
                 ),
             ),
         ).thenReturn(response)
 
-        val source = AssetDescriptor.Web("http://firefox.com")
+        val source = AssetDescriptor.Web("http://eyebrowse.com")
         assertEquals(
             listOf(
                 Statement(
@@ -241,14 +241,14 @@ class StatementApiTest {
         `when`(
             httpClient.fetch(
                 Request(
-                    url = "http://firefox.com/.well-known/assetlinks.json",
+                    url = "http://eyebrowse.com/.well-known/assetlinks.json",
                     connectTimeout = TIMEOUT,
                     readTimeout = TIMEOUT,
                 ),
             ),
         ).thenReturn(
             Response(
-                url = "http://firefox.com/.well-known/assetlinks.json",
+                url = "http://eyebrowse.com/.well-known/assetlinks.json",
                 status = 200,
                 headers = jsonHeaders,
                 body = stringBody(
@@ -293,7 +293,7 @@ class StatementApiTest {
             ),
         )
 
-        val source = AssetDescriptor.Web("http://firefox.com")
+        val source = AssetDescriptor.Web("http://eyebrowse.com")
         assertEquals(
             listOf(
                 Statement(
@@ -314,14 +314,14 @@ class StatementApiTest {
         `when`(
             httpClient.fetch(
                 Request(
-                    url = "http://firefox.com/.well-known/assetlinks.json",
+                    url = "http://eyebrowse.com/.well-known/assetlinks.json",
                     connectTimeout = TIMEOUT,
                     readTimeout = TIMEOUT,
                 ),
             ),
         ).thenReturn(
             Response(
-                url = "http://firefox.com/.well-known/assetlinks.json",
+                url = "http://eyebrowse.com/.well-known/assetlinks.json",
                 status = 200,
                 headers = jsonHeaders,
                 body = stringBody(
@@ -333,14 +333,14 @@ class StatementApiTest {
                     "site": "https://example.com"
                 }
             },{
-                "include": "http://firefox.com/.well-known/assetlinks.json"
+                "include": "http://eyebrowse.com/.well-known/assetlinks.json"
             }]
             """,
                 ),
             ),
         )
 
-        val source = AssetDescriptor.Web("http://firefox.com")
+        val source = AssetDescriptor.Web("http://eyebrowse.com")
         assertEquals(
             listOf(
                 Statement(

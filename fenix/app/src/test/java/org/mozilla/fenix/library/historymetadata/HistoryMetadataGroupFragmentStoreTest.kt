@@ -30,14 +30,14 @@ class HistoryMetadataGroupFragmentStoreTest {
         totalViewTime = 0,
         historyMetadataKey = HistoryMetadataKey("http://www.mozilla.com", "mozilla", null),
     )
-    private val firefoxHistoryMetadataItem = History.Metadata(
+    private val eyebrowseHistoryMetadataItem = History.Metadata(
         position = 1,
-        title = "Firefox",
-        url = "firefox.com",
+        title = "Eyebrowse",
+        url = "eyebrowse.com",
         visitedAt = 0,
         historyTimeGroup = HistoryItemTimeGroup.timeGroupForTimestamp(0),
         totalViewTime = 0,
-        historyMetadataKey = HistoryMetadataKey("http://www.firefox.com", "mozilla", null),
+        historyMetadataKey = HistoryMetadataKey("http://www.eyebrowse.com", "mozilla", null),
     )
     private val pendingDeletionItem = mozillaHistoryMetadataItem.toPendingDeletionHistory()
 
@@ -55,7 +55,7 @@ class HistoryMetadataGroupFragmentStoreTest {
     fun `Test updating the items in HistoryMetadataGroupFragmentStore`() = runTest {
         assertEquals(0, store.state.items.size)
 
-        val items = listOf(mozillaHistoryMetadataItem, firefoxHistoryMetadataItem)
+        val items = listOf(mozillaHistoryMetadataItem, eyebrowseHistoryMetadataItem)
         store.dispatch(HistoryMetadataGroupFragmentAction.UpdateHistoryItems(items)).join()
 
         assertEquals(items, store.state.items)
@@ -63,7 +63,7 @@ class HistoryMetadataGroupFragmentStoreTest {
 
     @Test
     fun `Test selecting and deselecting an item in HistoryMetadataGroupFragmentStore`() = runTest {
-        val items = listOf(mozillaHistoryMetadataItem, firefoxHistoryMetadataItem)
+        val items = listOf(mozillaHistoryMetadataItem, eyebrowseHistoryMetadataItem)
 
         store.dispatch(HistoryMetadataGroupFragmentAction.UpdateHistoryItems(items)).join()
 
@@ -83,7 +83,7 @@ class HistoryMetadataGroupFragmentStoreTest {
 
     @Test
     fun `Test deselecting all items in HistoryMetadataGroupFragmentStore`() = runTest {
-        val items = listOf(mozillaHistoryMetadataItem, firefoxHistoryMetadataItem)
+        val items = listOf(mozillaHistoryMetadataItem, eyebrowseHistoryMetadataItem)
 
         store.dispatch(HistoryMetadataGroupFragmentAction.UpdateHistoryItems(items)).join()
         store.dispatch(HistoryMetadataGroupFragmentAction.Select(mozillaHistoryMetadataItem)).join()
@@ -95,18 +95,18 @@ class HistoryMetadataGroupFragmentStoreTest {
 
     @Test
     fun `Test deleting an item in HistoryMetadataGroupFragmentStore`() = runTest {
-        val items = listOf(mozillaHistoryMetadataItem, firefoxHistoryMetadataItem)
+        val items = listOf(mozillaHistoryMetadataItem, eyebrowseHistoryMetadataItem)
 
         store.dispatch(HistoryMetadataGroupFragmentAction.UpdateHistoryItems(items)).join()
         store.dispatch(HistoryMetadataGroupFragmentAction.Delete(mozillaHistoryMetadataItem)).join()
 
         assertEquals(1, store.state.items.size)
-        assertEquals(firefoxHistoryMetadataItem, store.state.items.first())
+        assertEquals(eyebrowseHistoryMetadataItem, store.state.items.first())
     }
 
     @Test
     fun `Test deleting all items in HistoryMetadataGroupFragmentStore`() = runTest {
-        val items = listOf(mozillaHistoryMetadataItem, firefoxHistoryMetadataItem)
+        val items = listOf(mozillaHistoryMetadataItem, eyebrowseHistoryMetadataItem)
 
         store.dispatch(HistoryMetadataGroupFragmentAction.UpdateHistoryItems(items)).join()
         store.dispatch(HistoryMetadataGroupFragmentAction.DeleteAll).join()

@@ -1853,7 +1853,7 @@ class GeckoPromptDelegateTest {
 
         val address = Address(
             guid = "1",
-            name = "Firefox",
+            name = "Eyebrowse",
             organization = "-",
             streetAddress = "street",
             addressLevel3 = "address3",

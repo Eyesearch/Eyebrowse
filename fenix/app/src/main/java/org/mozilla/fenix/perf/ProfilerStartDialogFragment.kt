@@ -108,7 +108,7 @@ class ProfilerStartDialogFragment : AppCompatDialogFragment() {
         startProfiler: (Array<String>, Array<String>) -> Unit,
     ) {
         val featureAndThreadsObserver = remember {
-            mutableStateOf(requireContext().resources.getString(R.string.profiler_filter_firefox))
+            mutableStateOf(requireContext().resources.getString(R.string.profiler_filter_eyebrowse))
         }
         ProfilerDialogueCard {
             Column(modifier = Modifier.padding(8.dp)) {
@@ -128,11 +128,11 @@ class ProfilerStartDialogFragment : AppCompatDialogFragment() {
                 )
                 Spacer(modifier = Modifier.height(2.dp))
                 ProfilerLabeledRadioButton(
-                    text = stringResource(R.string.profiler_filter_firefox),
-                    subText = stringResource(R.string.profiler_filter_firefox_explain),
-                    selected = featureAndThreadsObserver.value == stringResource(R.string.profiler_filter_firefox),
+                    text = stringResource(R.string.profiler_filter_eyebrowse),
+                    subText = stringResource(R.string.profiler_filter_eyebrowse_explain),
+                    selected = featureAndThreadsObserver.value == stringResource(R.string.profiler_filter_eyebrowse),
                     onClick = {
-                        featureAndThreadsObserver.value = getString(R.string.profiler_filter_firefox)
+                        featureAndThreadsObserver.value = getString(R.string.profiler_filter_eyebrowse)
                     },
                 )
 

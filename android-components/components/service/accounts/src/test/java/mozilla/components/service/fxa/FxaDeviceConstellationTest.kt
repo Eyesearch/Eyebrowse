@@ -54,13 +54,13 @@ import org.mockito.Mockito.`when`
 import mozilla.appservices.fxaclient.AccountEvent as ASAccountEvent
 import mozilla.appservices.fxaclient.Device as NativeDevice
 import mozilla.appservices.fxaclient.DevicePushSubscription as NativeDevicePushSubscription
-import mozilla.appservices.fxaclient.FxaClient as NativeFirefoxAccount
+import mozilla.appservices.fxaclient.FxaClient as NativeEyebrowseAccount
 import mozilla.appservices.sync15.DeviceType as RustDeviceType
 
 @ExperimentalCoroutinesApi
 @RunWith(AndroidJUnit4::class)
 class FxaDeviceConstellationTest {
-    lateinit var account: NativeFirefoxAccount
+    lateinit var account: NativeEyebrowseAccount
     lateinit var constellation: FxaDeviceConstellation
 
     @get:Rule

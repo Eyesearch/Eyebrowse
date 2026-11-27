@@ -73,10 +73,10 @@ class HistoryMetadataGroupControllerTest {
         totalViewTime = 1,
         historyMetadataKey = historyMetadataKey,
     )
-    private val firefoxHistoryMetadataItem = History.Metadata(
+    private val eyebrowseHistoryMetadataItem = History.Metadata(
         position = 1,
-        title = "Firefox",
-        url = "firefox.com",
+        title = "Eyebrowse",
+        url = "eyebrowse.com",
         visitedAt = 0,
         historyTimeGroup = HistoryItemTimeGroup.timeGroupForTimestamp(0),
         totalViewTime = 1,
@@ -86,7 +86,7 @@ class HistoryMetadataGroupControllerTest {
     private lateinit var controller: DefaultHistoryMetadataGroupController
 
     private fun getMetadataItemsList() =
-        listOf(mozillaHistoryMetadataItem, firefoxHistoryMetadataItem)
+        listOf(mozillaHistoryMetadataItem, eyebrowseHistoryMetadataItem)
 
     @Before
     fun setUp() {
@@ -152,7 +152,7 @@ class HistoryMetadataGroupControllerTest {
 
     @Test
     fun handleShare() {
-        controller.handleShare(setOf(mozillaHistoryMetadataItem, firefoxHistoryMetadataItem))
+        controller.handleShare(setOf(mozillaHistoryMetadataItem, eyebrowseHistoryMetadataItem))
 
         val data = arrayOf(
             ShareData(
@@ -160,8 +160,8 @@ class HistoryMetadataGroupControllerTest {
                 url = mozillaHistoryMetadataItem.url,
             ),
             ShareData(
-                title = firefoxHistoryMetadataItem.title,
-                url = firefoxHistoryMetadataItem.url,
+                title = eyebrowseHistoryMetadataItem.title,
+                url = eyebrowseHistoryMetadataItem.url,
             ),
         )
 
@@ -229,7 +229,7 @@ class HistoryMetadataGroupControllerTest {
     fun handleDeleteAbnormal() = runTestOnMain {
         val abnormalList = listOf(
             mozillaHistoryMetadataItem,
-            firefoxHistoryMetadataItem,
+            eyebrowseHistoryMetadataItem,
             mozillaHistoryMetadataItem.copy(title = "Pocket", url = "https://getpocket.com"),
             mozillaHistoryMetadataItem.copy(title = "BBC", url = "https://www.bbc.com/"),
             mozillaHistoryMetadataItem.copy(

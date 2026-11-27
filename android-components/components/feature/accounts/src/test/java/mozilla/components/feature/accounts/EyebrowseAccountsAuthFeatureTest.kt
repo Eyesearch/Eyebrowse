@@ -54,9 +54,9 @@ internal class TestableStorageWrapper(
     override fun obtainAccount(): OAuthAccount = block()
 }
 
-// Same as the actual account manager, except we get to control how FirefoxAccountShaped instances
+// Same as the actual account manager, except we get to control how EyebrowseAccountShaped instances
 // are created. This is necessary because due to some build issues (native dependencies not available
-// within the test environment) we can't use fxaclient supplied implementation of FirefoxAccountShaped.
+// within the test environment) we can't use fxaclient supplied implementation of EyebrowseAccountShaped.
 // Instead, we express all of our account-related operations over an interface.
 class TestableFxaAccountManager(
     context: Context,
@@ -136,7 +136,7 @@ class EyebrowseAccountsAuthFeatureTest {
         feature.beginAuthentication(testContext, mockEntryPoint)
         authUrl.await()
         // Fallback url is invoked.
-        assertEquals("https://accounts.firefox.com/signin", authUrl.getCompleted())
+        assertEquals("https://accounts.eyebrowse.com/signin", authUrl.getCompleted())
     }
 
     @Config(sdk = [22])
@@ -157,13 +157,13 @@ class EyebrowseAccountsAuthFeatureTest {
         feature.beginPairingAuthentication(testContext, "auth://pair", mockEntryPoint)
         authUrl.await()
         // Fallback url is invoked.
-        assertEquals("https://accounts.firefox.com/signin", authUrl.getCompleted())
+        assertEquals("https://accounts.eyebrowse.com/signin", authUrl.getCompleted())
     }
 
     @Test
     fun `auth interceptor`() = runTest {
         val manager = mock<FxaAccountManager>()
-        val redirectUrl = "https://accounts.firefox.com/oauth/success/123"
+        val redirectUrl = "https://accounts.eyebrowse.com/oauth/success/123"
         val feature = EyebrowseAccountsAuthFeature(
             manager,
             redirectUrl,
@@ -171,7 +171,7 @@ class EyebrowseAccountsAuthFeatureTest {
         ) { _, _ -> }
 
         // Non-final FxA url.
-        assertNull(feature.interceptor.onLoadRequest(mock(), "https://accounts.firefox.com/not/the/right/url", null, false, false, false, false, false))
+        assertNull(feature.interceptor.onLoadRequest(mock(), "https://accounts.eyebrowse.com/not/the/right/url", null, false, false, false, false, false))
         verify(manager, never()).finishAuthentication(any())
 
         // Non-FxA url.
@@ -179,17 +179,17 @@ class EyebrowseAccountsAuthFeatureTest {
         verify(manager, never()).finishAuthentication(any())
 
         // Redirect url, without code/state.
-        assertNull(feature.interceptor.onLoadRequest(mock(), "https://accounts.firefox.com/oauth/success/123/", null, false, false, false, false, false))
+        assertNull(feature.interceptor.onLoadRequest(mock(), "https://accounts.eyebrowse.com/oauth/success/123/", null, false, false, false, false, false))
         verify(manager, never()).finishAuthentication(any())
 
         // Redirect url, without code/state.
-        assertNull(feature.interceptor.onLoadRequest(mock(), "https://accounts.firefox.com/oauth/success/123/test", null, false, false, false, false, false))
+        assertNull(feature.interceptor.onLoadRequest(mock(), "https://accounts.eyebrowse.com/oauth/success/123/test", null, false, false, false, false, false))
         verify(manager, never()).finishAuthentication(any())
 
         // Code+state, no action.
         assertEquals(
             RequestInterceptor.InterceptionResponse.Url(redirectUrl),
-            feature.interceptor.onLoadRequest(mock(), "https://accounts.firefox.com/oauth/success/123/?code=testCode1&state=testState1", null, false, false, false, false, false),
+            feature.interceptor.onLoadRequest(mock(), "https://accounts.eyebrowse.com/oauth/success/123/?code=testCode1&state=testState1", null, false, false, false, false, false),
         )
 
         shadowOf(getMainLooper()).idle()
@@ -201,7 +201,7 @@ class EyebrowseAccountsAuthFeatureTest {
         // Code+state, action=signin.
         assertEquals(
             RequestInterceptor.InterceptionResponse.Url(redirectUrl),
-            feature.interceptor.onLoadRequest(mock(), "https://accounts.firefox.com/oauth/success/123/?code=testCode2&state=testState2&action=signin", null, false, false, false, false, false),
+            feature.interceptor.onLoadRequest(mock(), "https://accounts.eyebrowse.com/oauth/success/123/?code=testCode2&state=testState2&action=signin", null, false, false, false, false, false),
         )
 
         shadowOf(getMainLooper()).idle()
@@ -213,7 +213,7 @@ class EyebrowseAccountsAuthFeatureTest {
         // Code+state, action=signup.
         assertEquals(
             RequestInterceptor.InterceptionResponse.Url(redirectUrl),
-            feature.interceptor.onLoadRequest(mock(), "https://accounts.firefox.com/oauth/success/123/?code=testCode3&state=testState3&action=signup", null, false, false, false, false, false),
+            feature.interceptor.onLoadRequest(mock(), "https://accounts.eyebrowse.com/oauth/success/123/?code=testCode3&state=testState3&action=signup", null, false, false, false, false, false),
         )
 
         shadowOf(getMainLooper()).idle()
@@ -225,7 +225,7 @@ class EyebrowseAccountsAuthFeatureTest {
         // Code+state, action=pairing.
         assertEquals(
             RequestInterceptor.InterceptionResponse.Url(redirectUrl),
-            feature.interceptor.onLoadRequest(mock(), "https://accounts.firefox.com/oauth/success/123/?code=testCode4&state=testState4&action=pairing", null, false, false, false, false, false),
+            feature.interceptor.onLoadRequest(mock(), "https://accounts.eyebrowse.com/oauth/success/123/?code=testCode4&state=testState4&action=pairing", null, false, false, false, false, false),
         )
 
         shadowOf(getMainLooper()).idle()
@@ -237,7 +237,7 @@ class EyebrowseAccountsAuthFeatureTest {
         // Code+state, action is an unknown value.
         assertEquals(
             RequestInterceptor.InterceptionResponse.Url(redirectUrl),
-            feature.interceptor.onLoadRequest(mock(), "https://accounts.firefox.com/oauth/success/123/?code=testCode5&state=testState5&action=someNewActionType", null, false, false, false, false, false),
+            feature.interceptor.onLoadRequest(mock(), "https://accounts.eyebrowse.com/oauth/success/123/?code=testCode5&state=testState5&action=someNewActionType", null, false, false, false, false, false),
         )
 
         shadowOf(getMainLooper()).idle()

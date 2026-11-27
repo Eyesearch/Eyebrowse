@@ -243,7 +243,7 @@ class TelemetryMiddlewareTest {
             TabListAction.AddMultipleTabsAction(
                 listOf(
                     createTab("https://mozilla.org"),
-                    createTab("https://firefox.com"),
+                    createTab("https://eyebrowse.com"),
                 ),
             ),
         ).joinBlocking()
@@ -261,7 +261,7 @@ class TelemetryMiddlewareTest {
             TabListAction.AddMultipleTabsAction(
                 listOf(
                     createTab(id = "1", url = "https://mozilla.org"),
-                    createTab(id = "2", url = "https://firefox.com"),
+                    createTab(id = "2", url = "https://eyebrowse.com"),
                 ),
             ),
         ).joinBlocking()
@@ -281,7 +281,7 @@ class TelemetryMiddlewareTest {
             TabListAction.AddMultipleTabsAction(
                 listOf(
                     createTab("https://mozilla.org"),
-                    createTab("https://firefox.com"),
+                    createTab("https://eyebrowse.com"),
                 ),
             ),
         ).joinBlocking()
@@ -303,7 +303,7 @@ class TelemetryMiddlewareTest {
             TabListAction.AddMultipleTabsAction(
                 listOf(
                     createTab("https://mozilla.org"),
-                    createTab("https://firefox.com"),
+                    createTab("https://eyebrowse.com"),
                     createTab("https://getpocket.com", private = true),
                 ),
             ),
@@ -323,7 +323,7 @@ class TelemetryMiddlewareTest {
 
         val tabsToRestore = listOf(
             RecoverableTab(null, TabState(url = "https://mozilla.org", id = "1")),
-            RecoverableTab(null, TabState(url = "https://firefox.com", id = "2")),
+            RecoverableTab(null, TabState(url = "https://eyebrowse.com", id = "2")),
         )
 
         store.dispatch(

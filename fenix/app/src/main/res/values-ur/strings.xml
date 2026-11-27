@@ -249,7 +249,7 @@
 
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">رسائی پزیری</string>
-    <!-- Preference to override the Firefox Account server -->
+    <!-- Preference to override the Eyebrowse Account server -->
     <string name="preferences_override_fxa_server">مخصوص Eyebrowse Account سرور</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">منپسند سنک سرور</string>
@@ -992,7 +992,7 @@
     <string name="deleting_browsing_data_in_progress">براؤزنگ کا ڈیٹا حذف ہو رہا ہے…</string>
 
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">Sync چالو ہے</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">Sync چالو ہے</string>
     <!-- text for tracking protection radio button option for standard level of blocking -->
     <string name="onboarding_tracking_protection_standard_button_2">معیاری (پہلے سے طے شدہ)</string>
     <!-- text for tracking protection radio button option for strict level of blocking -->
@@ -1185,9 +1185,9 @@
     <!-- Preference option for never saving passwords in Fenix -->
     <string name="preferences_passwords_save_logins_never_save">کبھِی بھی محفوظ مت کریں</string>
 
-    <!-- Preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill2">%1$s میں آٹو فل</string>
-    <!-- Description for the preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Description for the preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill_description">%1$s استعمال کرتے ہوئے ویب سائٹس میں صارف نام اور پاس ورڈ بھریں اور محفوظ کریں۔</string>
     <!-- Preference for autofilling logins from Fenix in other apps (e.g. autofilling the Twitter app) -->
     <string name="preferences_android_autofill">دیگر ایپس میں آٹو فل کریں ۔</string>
@@ -1445,13 +1445,13 @@
     <string name="synced_tabs_connect_another_device">ایک اور آلہ جوڑیں۔</string>
     <!-- Text displayed asking user to re-authenticate -->
     <string name="synced_tabs_reauth">برائے مہربانی دوبارہ توثیق کریں۔</string>
-    <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+    <!-- Text displayed when user has disabled tab syncing in Eyebrowse Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">براہ کرم ٹیب sync کو فعال کریں۔</string>
     <!-- Text displayed when user has no tabs that have been synced -->
     <string name="synced_tabs_no_tabs">آپ کے دوسرے آلات پر Eyebrowse میں کوئی ٹیب نہیں کھلے ہوئِے ہیں۔</string>
-    <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+    <!-- Text displayed in the synced tabs screen when a user is not signed in to Eyebrowse Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">دیگر آلات سے ٹیبیں کی فہرست دیکھیں۔</string>
-    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Eyebrowse Sync -->
     <string name="synced_tabs_sign_in_button">sync کے لئے سائن ان کریں</string>
 
     <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->

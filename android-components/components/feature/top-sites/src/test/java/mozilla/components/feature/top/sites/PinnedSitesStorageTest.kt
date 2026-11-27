@@ -29,7 +29,7 @@ class PinnedSitesStorageTest {
         storage.addAllPinnedSites(
             listOf(
                 Pair("Mozilla", "https://www.mozilla.org"),
-                Pair("Firefox", "https://www.firefox.com"),
+                Pair("Eyebrowse", "https://www.eyebrowse.com"),
                 Pair("Wikipedia", "https://www.wikipedia.com"),
                 Pair("Pocket", "https://www.getpocket.com"),
             ),
@@ -39,7 +39,7 @@ class PinnedSitesStorageTest {
         verify(dao).insertAllPinnedSites(
             listOf(
                 PinnedSiteEntity(title = "Mozilla", url = "https://www.mozilla.org", isDefault = true, createdAt = 42),
-                PinnedSiteEntity(title = "Firefox", url = "https://www.firefox.com", isDefault = true, createdAt = 42),
+                PinnedSiteEntity(title = "Eyebrowse", url = "https://www.eyebrowse.com", isDefault = true, createdAt = 42),
                 PinnedSiteEntity(title = "Wikipedia", url = "https://www.wikipedia.com", isDefault = true, createdAt = 42),
                 PinnedSiteEntity(title = "Pocket", url = "https://www.getpocket.com", isDefault = true, createdAt = 42),
             ),
@@ -56,13 +56,13 @@ class PinnedSitesStorageTest {
         storage.currentTimeMillis = { 3 }
 
         storage.addPinnedSite("Mozilla", "https://www.mozilla.org")
-        storage.addPinnedSite("Firefox", "https://www.firefox.com", isDefault = true)
+        storage.addPinnedSite("Eyebrowse", "https://www.eyebrowse.com", isDefault = true)
 
         // PinnedSiteDao.insertPinnedSite is actually called with "id = null", but due to an
         // extraneous assignment ("entity.id = ") in PinnedSiteStorage.addPinnedSite we can for now
         // only verify the call with "id = 0". See issue #9708.
         verify(dao).insertPinnedSite(PinnedSiteEntity(id = 0, title = "Mozilla", url = "https://www.mozilla.org", isDefault = false, createdAt = 3))
-        verify(dao).insertPinnedSite(PinnedSiteEntity(id = 0, title = "Firefox", url = "https://www.firefox.com", isDefault = true, createdAt = 3))
+        verify(dao).insertPinnedSite(PinnedSiteEntity(id = 0, title = "Eyebrowse", url = "https://www.eyebrowse.com", isDefault = true, createdAt = 3))
 
         Unit
     }
@@ -73,10 +73,10 @@ class PinnedSitesStorageTest {
         val dao = mockDao(storage)
 
         storage.removePinnedSite(TopSite.Pinned(1, "Mozilla", "https://www.mozilla.org", 1))
-        storage.removePinnedSite(TopSite.Default(2, "Firefox", "https://www.firefox.com", 1))
+        storage.removePinnedSite(TopSite.Default(2, "Eyebrowse", "https://www.eyebrowse.com", 1))
 
         verify(dao).deletePinnedSite(PinnedSiteEntity(1, "Mozilla", "https://www.mozilla.org", false, 1))
-        verify(dao).deletePinnedSite(PinnedSiteEntity(2, "Firefox", "https://www.firefox.com", true, 1))
+        verify(dao).deletePinnedSite(PinnedSiteEntity(2, "Eyebrowse", "https://www.eyebrowse.com", true, 1))
     }
 
     @Test
@@ -87,7 +87,7 @@ class PinnedSitesStorageTest {
         `when`(dao.getPinnedSites()).thenReturn(
             listOf(
                 PinnedSiteEntity(1, "Mozilla", "https://www.mozilla.org", false, 10),
-                PinnedSiteEntity(2, "Firefox", "https://www.firefox.com", true, 10),
+                PinnedSiteEntity(2, "Eyebrowse", "https://www.eyebrowse.com", true, 10),
             ),
         )
         `when`(dao.getPinnedSitesCount()).thenReturn(2)
@@ -108,8 +108,8 @@ class PinnedSitesStorageTest {
 
         with(topSites[1]) {
             assertEquals(2L, id)
-            assertEquals("Firefox", title)
-            assertEquals("https://www.firefox.com", url)
+            assertEquals("Eyebrowse", title)
+            assertEquals("https://www.eyebrowse.com", url)
             assertEquals(10L, createdAt)
         }
     }

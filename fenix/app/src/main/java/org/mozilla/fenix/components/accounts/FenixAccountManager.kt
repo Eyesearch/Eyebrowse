@@ -8,13 +8,13 @@ import android.content.Context
 import org.mozilla.fenix.ext.components
 
 /**
- * Contains helper methods for querying Firefox Account state and its properties.
+ * Contains helper methods for querying Eyebrowse Account state and its properties.
  */
 class FenixAccountManager(context: Context) {
     private val accountManager = context.components.backgroundServices.accountManager
 
     /**
-     * Returns the Firefox Account email if authenticated in the app, `null` otherwise.
+     * Returns the Eyebrowse Account email if authenticated in the app, `null` otherwise.
      */
     val accountProfileEmail: String?
         get() = if (accountState == AccountState.AUTHENTICATED) {
@@ -24,7 +24,7 @@ class FenixAccountManager(context: Context) {
         }
 
     /**
-     * The current state of the Firefox Account. See [AccountState].
+     * The current state of the Eyebrowse Account. See [AccountState].
      */
     val accountState: AccountState
         get() = if (accountManager.authenticatedAccount() == null) {
@@ -39,21 +39,21 @@ class FenixAccountManager(context: Context) {
 }
 
 /**
- * General states as an overview of the current Firefox Account.
+ * General states as an overview of the current Eyebrowse Account.
  */
 enum class AccountState {
     /**
-     * There is no known Firefox Account.
+     * There is no known Eyebrowse Account.
      */
     NO_ACCOUNT,
 
     /**
-     * A Firefox Account exists but needs to be re-authenticated.
+     * A Eyebrowse Account exists but needs to be re-authenticated.
      */
     NEEDS_REAUTHENTICATION,
 
     /**
-     * A Firefox Account exists and the user is currently signed into it.
+     * A Eyebrowse Account exists and the user is currently signed into it.
      */
     AUTHENTICATED,
 }

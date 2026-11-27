@@ -164,7 +164,7 @@ class URLStringUtilsTest {
         assertFalse(isSearchTerm(" cnn.com"))
         assertFalse(isSearchTerm("cnn.com "))
         assertFalse(isSearchTerm("my-domain.com"))
-        assertFalse(isSearchTerm("camp-firefox.de"))
+        assertFalse(isSearchTerm("camp-eyebrowse.de"))
         assertFalse(isSearchTerm("http://my-domain.com"))
         assertFalse(isSearchTerm("mozilla.com/~userdir"))
         assertFalse(isSearchTerm("http://faß.de//"))

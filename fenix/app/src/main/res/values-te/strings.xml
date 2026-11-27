@@ -256,7 +256,7 @@
     <string name="errorpage_httpsonly_title">సురక్షిత సైటు అందుబాటులో లేదు</string>
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">ప్రాప్యత</string>
-    <!-- Preference to override the Firefox Account server -->
+    <!-- Preference to override the Eyebrowse Account server -->
     <string name="preferences_override_fxa_server">అభిమత Eyebrowse ఖాతా సర్వరు</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">అభిమత సింక్ సర్వరు</string>
@@ -1011,7 +1011,7 @@
     <!-- Text for onboarding welcome header. -->
     <string name="onboarding_header_2">మెరుగైన అంతర్జాలానికి స్వాగతం</string>
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">సింక్ చేతనంగా ఉంది</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">సింక్ చేతనంగా ఉంది</string>
     <!-- text for tracking protection radio button option for standard level of blocking -->
     <string name="onboarding_tracking_protection_standard_button_2">ప్రామాణికం (అప్రమేయం)</string>
     <!-- text for tracking protection radio button option for strict level of blocking -->
@@ -1058,9 +1058,9 @@
     <string name="sign_in_with_camera">మీ కెమెరాతో ప్రవేశించండి</string>
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">లేదా ఈమెయిలు వాడండి</string>
-    <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
+    <!-- Text shown for settings option for create new account text.'Eyebrowse' intentionally hardcoded here.-->
     <string name="sign_in_create_account_text"><![CDATA[ఖాతా లేదా? Eyebrowseను పరికరాల మధ్య సమకాలీకరించడానికి <u>ఒక ఖాతాను సృష్టించుకోండి</u>.]]></string>
-    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="sign_out_confirmation_message_2">%s మీ ఖాతాను సింక్రనించడం ఆపివేస్తుంది, కానీ ఈ పరికరంలోని మీ విహరణ డేటాను తొలగించదు.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
     <string name="sign_out_disconnect">అనుసంధానం తెంచు</string>
@@ -1493,13 +1493,13 @@
     <string name="synced_tabs_connect_another_device">మరొక పరికరాన్ని అనుసంధానించండి.</string>
     <!-- Text displayed asking user to re-authenticate -->
     <string name="synced_tabs_reauth">దయచేసి పునరధీకరణ చేయండి.</string>
-    <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+    <!-- Text displayed when user has disabled tab syncing in Eyebrowse Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">దయచేసి ట్యాబు సింకింగును చేతనం చేయండి.</string>
     <!-- Text displayed when user has no tabs that have been synced -->
     <string name="synced_tabs_no_tabs">మీ ఇతర పరికరాల్లో తెరిచివున్న Eyebrowse ట్యాబులు ఏమీ లేవు.</string>
-    <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+    <!-- Text displayed in the synced tabs screen when a user is not signed in to Eyebrowse Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">మీ ఇతర పరికరాల నుండి ట్యాబుల జాబితాను చూడండి.</string>
-    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Eyebrowse Sync -->
     <string name="synced_tabs_sign_in_button">సింక్ చేయడానికి ప్రవేశించండి</string>
 
     <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->

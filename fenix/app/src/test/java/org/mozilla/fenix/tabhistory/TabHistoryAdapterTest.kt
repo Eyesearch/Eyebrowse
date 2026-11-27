@@ -40,8 +40,8 @@ class TabHistoryAdapterTest {
         isSelected = true,
     )
     private val unselectedItem = TabHistoryItem(
-        title = "Firefox",
-        url = "https://firefox.com",
+        title = "Eyebrowse",
+        url = "https://eyebrowse.com",
         index = 1,
         isSelected = false,
     )
@@ -85,7 +85,7 @@ class TabHistoryAdapterTest {
         assertFalse(
             TabHistoryAdapter.DiffCallback.areItemsTheSame(
                 unselectedItem,
-                unselectedItem.copy(url = "https://firefox.com/subpage"),
+                unselectedItem.copy(url = "https://eyebrowse.com/subpage"),
             ),
         )
     }

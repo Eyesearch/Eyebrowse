@@ -99,15 +99,15 @@ class HomeFragmentTest {
 
         val eBayTopSite = TopSite.Provided(1L, EBAY_SPONSORED_TITLE, "eBay.com", "", "", "", 0L)
         val amazonTopSite = TopSite.Provided(2L, AMAZON_SPONSORED_TITLE, "Amazon.com", "", "", "", 0L)
-        val firefoxTopSite = TopSite.Provided(3L, "Firefox", "mozilla.org", "", "", "", 0L)
-        val providedTopSites = listOf(eBayTopSite, amazonTopSite, firefoxTopSite)
+        val eyebrowseTopSite = TopSite.Provided(3L, "Eyebrowse", "mozilla.org", "", "", "", 0L)
+        val providedTopSites = listOf(eBayTopSite, amazonTopSite, eyebrowseTopSite)
 
         val topSitesConfig = homeFragment.getTopSitesConfig()
 
         val filteredProvidedSites = providedTopSites.filter {
             topSitesConfig.providerConfig?.providerFilter?.invoke(it) ?: true
         }
-        assertTrue(filteredProvidedSites.containsAll(listOf(amazonTopSite, firefoxTopSite)))
+        assertTrue(filteredProvidedSites.containsAll(listOf(amazonTopSite, eyebrowseTopSite)))
         assertFalse(filteredProvidedSites.contains(eBayTopSite))
     }
 

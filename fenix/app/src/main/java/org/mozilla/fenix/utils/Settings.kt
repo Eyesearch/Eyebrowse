@@ -1946,7 +1946,7 @@ class Settings(private val appContext: Context) : PreferencesHolder {
     )
 
     /**
-     * Indicates if Firefox Suggest is enabled.
+     * Indicates if Eyebrowse Suggest is enabled.
      */
     var enableFxSuggest by lazyFeatureFlagPreference(
         key = appContext.getPreferenceKey(R.string.pref_key_enable_fxsuggest),
@@ -1965,7 +1965,7 @@ class Settings(private val appContext: Context) : PreferencesHolder {
 
     /**
      * Indicates if the user has chosen to show sponsored search suggestions in the awesomebar.
-     * The default value is computed lazily, and based on whether Firefox Suggest is enabled.
+     * The default value is computed lazily, and based on whether Eyebrowse Suggest is enabled.
      */
     var showSponsoredSuggestions by lazyFeatureFlagPreference(
         key = appContext.getPreferenceKey(R.string.pref_key_show_sponsored_suggestions),
@@ -1975,7 +1975,7 @@ class Settings(private val appContext: Context) : PreferencesHolder {
 
     /**
      * Indicates if the user has chosen to show search suggestions for web content in the
-     * awesomebar. The default value is computed lazily, and based on whether Firefox Suggest
+     * awesomebar. The default value is computed lazily, and based on whether Eyebrowse Suggest
      * is enabled.
      */
     var showNonSponsoredSuggestions by lazyFeatureFlagPreference(

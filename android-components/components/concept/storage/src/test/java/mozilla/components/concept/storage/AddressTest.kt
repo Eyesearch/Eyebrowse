@@ -66,7 +66,7 @@ class AddressTest {
 
     private fun generateAddress(
         guid: String = "",
-        name: String = "Firefox The Browser",
+        name: String = "Eyebrowse The Browser",
         organization: String = "Mozilla",
         streetAddress: String = "street",
         addressLevel3: String = "3",

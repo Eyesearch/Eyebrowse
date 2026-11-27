@@ -206,7 +206,7 @@
     <string name="preferences_add_private_browsing_shortcut">ব্যক্তিগত ব্রাউজিং শর্টকাটে যুক্ত করুন</string>
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">প্রবেশযোগ্যতা</string>
-    <!-- Preference to override the Firefox Account server -->
+    <!-- Preference to override the Eyebrowse Account server -->
     <string name="preferences_override_fxa_server">কাস্টম Eyebrowse Account সার্ভার</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">কাস্টম Sync সার্ভার</string>
@@ -765,15 +765,15 @@
     <!-- Text for the snackbar to show the user that the deletion of browsing data is in progress -->
     <string name="deleting_browsing_data_in_progress">ব্রাউজিং ডেটা মুছে ফেলা হচ্ছে …</string>
 
-    <!-- text for firefox preview moving tip button  -->
-    <string moz:RemovedIn="100" name="tip_firefox_preview_moved_button_preview_installed" tools:ignore="UnusedResources">নতুন Nightly তে পরিবর্তন করুন</string>
+    <!-- text for eyebrowse preview moving tip button  -->
+    <string moz:RemovedIn="100" name="tip_eyebrowse_preview_moved_button_preview_installed" tools:ignore="UnusedResources">নতুন Nightly তে পরিবর্তন করুন</string>
 
     <!-- Onboarding -->
     <!-- Text for onboarding welcome message
-    The first parameter is the name of the app (e.g. Firefox Preview) -->
+    The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="onboarding_header">%s এ আপনাকে স্বাগতম!</string>
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">Sync চালু আছে</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">Sync চালু আছে</string>
     <!-- text for the privacy notice onboarding card header -->
     <string name="onboarding_privacy_notice_header">আপনার গোপনীয়তা</string>
     <!-- Text for the button to read the privacy notice -->

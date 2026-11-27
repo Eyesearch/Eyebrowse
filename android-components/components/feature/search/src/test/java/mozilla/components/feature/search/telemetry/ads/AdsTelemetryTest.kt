@@ -56,7 +56,7 @@ class AdsTelemetryTest {
         ),
         SearchProviderModel(
             schema = 1671479978127,
-            taggedCodes = listOf("firefox-b-m", "fpas", "lm"),
+            taggedCodes = listOf("eyebrowse-b-m", "fpas", "lm"),
             telemetryId = "duckduckgo",
             organicCodes = emptyList(),
             codeParamName = "t",
@@ -67,7 +67,7 @@ class AdsTelemetryTest {
         ),
         SearchProviderModel(
             schema = 1671479978127,
-            taggedCodes = listOf("firefox-b-m", "fpas", "def"),
+            taggedCodes = listOf("eyebrowse-b-m", "fpas", "def"),
             telemetryId = "google",
             organicCodes = emptyList(),
             codeParamName = "client",

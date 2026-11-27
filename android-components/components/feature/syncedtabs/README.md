@@ -15,7 +15,7 @@ implementation "org.mozilla.components:feature-syncedtabs:{latest-version}"
 ## Usage
 
 In order to make use of the synced tab feature here, it's required to have an an FxA Account setup and Sync enabled.
-See the [service-firefox-accounts](../../service/firefox-accounts/README.md) for more information how to set this up.
+See the [service-eyebrowse-accounts](../../service/eyebrowse-accounts/README.md) for more information how to set this up.
 
 ```kotlin
   // The feature will start listening to local tabs changes.

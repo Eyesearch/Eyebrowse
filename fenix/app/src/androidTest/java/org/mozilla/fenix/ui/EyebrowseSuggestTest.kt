@@ -18,7 +18,7 @@ import org.mozilla.fenix.helpers.TestSetup
 import org.mozilla.fenix.ui.robots.navigationToolbar
 
 /**
- *  Tests for verifying the Firefox suggest search fragment
+ *  Tests for verifying the Eyebrowse suggest search fragment
  *
  */
 
@@ -105,7 +105,7 @@ class EyebrowseSuggestTest : TestSetup() {
     // Known bug that might affect this UI test: https://bugzilla.mozilla.org/show_bug.cgi?id=1813587
     @SmokeTest
     @Test
-    fun verifyFirefoxSuggestSponsoredSearchResultsTest() {
+    fun verifyEyebrowseSuggestSponsoredSearchResultsTest() {
         runWithCondition(TestHelper.appContext.settings().enableFxSuggest) {
             navigationToolbar {
             }.clickUrlbar {
@@ -113,7 +113,7 @@ class EyebrowseSuggestTest : TestSetup() {
                 verifySearchEngineSuggestionResults(
                     rule = activityTestRule,
                     searchSuggestions = arrayOf(
-                        "Firefox Suggest",
+                        "Eyebrowse Suggest",
                         sponsoredKeyWords.getValue(sponsoredKeyWord)[0],
                         "Sponsored",
                     ),
@@ -126,7 +126,7 @@ class EyebrowseSuggestTest : TestSetup() {
     // TestRail link: https://testrail.stage.mozaws.net/index.php?/cases/view/2348362
     // Known bug that might affect this UI test: https://bugzilla.mozilla.org/show_bug.cgi?id=1813587
     @Test
-    fun verifyFirefoxSuggestSponsoredSearchResultsWithPartialKeywordTest() {
+    fun verifyEyebrowseSuggestSponsoredSearchResultsWithPartialKeywordTest() {
         runWithCondition(TestHelper.appContext.settings().enableFxSuggest) {
             navigationToolbar {
             }.clickUrlbar {
@@ -134,7 +134,7 @@ class EyebrowseSuggestTest : TestSetup() {
                 verifySearchEngineSuggestionResults(
                     rule = activityTestRule,
                     searchSuggestions = arrayOf(
-                        "Firefox Suggest",
+                        "Eyebrowse Suggest",
                         sponsoredKeyWords.getValue(sponsoredKeyWord)[0],
                         "Sponsored",
                     ),
@@ -147,7 +147,7 @@ class EyebrowseSuggestTest : TestSetup() {
     // TestRail link: https://testrail.stage.mozaws.net/index.php?/cases/view/2348363
     // Known bug that might affect this UI test: https://bugzilla.mozilla.org/show_bug.cgi?id=1813587
     @Test
-    fun openFirefoxSuggestSponsoredSearchResultsTest() {
+    fun openEyebrowseSuggestSponsoredSearchResultsTest() {
         runWithCondition(TestHelper.appContext.settings().enableFxSuggest) {
             navigationToolbar {
             }.clickUrlbar {
@@ -155,7 +155,7 @@ class EyebrowseSuggestTest : TestSetup() {
                 verifySearchEngineSuggestionResults(
                     rule = activityTestRule,
                     searchSuggestions = arrayOf(
-                        "Firefox Suggest",
+                        "Eyebrowse Suggest",
                         sponsoredKeyWords.getValue(sponsoredKeyWord)[0],
                         "Sponsored",
                     ),
@@ -171,7 +171,7 @@ class EyebrowseSuggestTest : TestSetup() {
     // TestRail link: https://testrail.stage.mozaws.net/index.php?/cases/view/2348369
     // Known bug that might affect this UI test: https://bugzilla.mozilla.org/show_bug.cgi?id=1813587
     @Test
-    fun verifyFirefoxSuggestSponsoredSearchResultsWithEditedKeywordTest() {
+    fun verifyEyebrowseSuggestSponsoredSearchResultsWithEditedKeywordTest() {
         runWithCondition(TestHelper.appContext.settings().enableFxSuggest) {
             navigationToolbar {
             }.clickUrlbar {
@@ -180,7 +180,7 @@ class EyebrowseSuggestTest : TestSetup() {
                 verifySearchEngineSuggestionResults(
                     rule = activityTestRule,
                     searchSuggestions = arrayOf(
-                        "Firefox Suggest",
+                        "Eyebrowse Suggest",
                         sponsoredKeyWords.getValue(sponsoredKeyWord)[0],
                         "Sponsored",
                     ),
@@ -197,7 +197,7 @@ class EyebrowseSuggestTest : TestSetup() {
     @Ignore("Failing, see: https://bugzilla.mozilla.org/show_bug.cgi?id=1882035")
     @SmokeTest
     @Test
-    fun verifyFirefoxSuggestNonSponsoredSearchResultsTest() {
+    fun verifyEyebrowseSuggestNonSponsoredSearchResultsTest() {
         runWithCondition(TestHelper.appContext.settings().enableFxSuggest) {
             navigationToolbar {
             }.clickUrlbar {
@@ -205,7 +205,7 @@ class EyebrowseSuggestTest : TestSetup() {
                 verifySearchEngineSuggestionResults(
                     rule = activityTestRule,
                     searchSuggestions = arrayOf(
-                        "Firefox Suggest",
+                        "Eyebrowse Suggest",
                         nonSponsoredKeyWords.getValue(nonSponsoredKeyWord)[0],
                     ),
                     searchTerm = nonSponsoredKeyWord,
@@ -224,7 +224,7 @@ class EyebrowseSuggestTest : TestSetup() {
     // Known bug that might affect this UI test: https://bugzilla.mozilla.org/show_bug.cgi?id=1813587
     @Ignore("Failing, see: https://bugzilla.mozilla.org/show_bug.cgi?id=1882035")
     @Test
-    fun verifyFirefoxSuggestNonSponsoredSearchResultsWithPartialKeywordTest() {
+    fun verifyEyebrowseSuggestNonSponsoredSearchResultsWithPartialKeywordTest() {
         runWithCondition(TestHelper.appContext.settings().enableFxSuggest) {
             navigationToolbar {
             }.clickUrlbar {
@@ -232,7 +232,7 @@ class EyebrowseSuggestTest : TestSetup() {
                 verifySearchEngineSuggestionResults(
                     rule = activityTestRule,
                     searchSuggestions = arrayOf(
-                        "Firefox Suggest",
+                        "Eyebrowse Suggest",
                         nonSponsoredKeyWords.getValue(nonSponsoredKeyWord)[0],
                     ),
                     searchTerm = nonSponsoredKeyWord.dropLast(1),
@@ -245,7 +245,7 @@ class EyebrowseSuggestTest : TestSetup() {
     // Known bug that might affect this UI test: https://bugzilla.mozilla.org/show_bug.cgi?id=1813587
     @Ignore("Failing, see: https://bugzilla.mozilla.org/show_bug.cgi?id=1882035")
     @Test
-    fun openFirefoxSuggestNonSponsoredSearchResultsTest() {
+    fun openEyebrowseSuggestNonSponsoredSearchResultsTest() {
         runWithCondition(TestHelper.appContext.settings().enableFxSuggest) {
             navigationToolbar {
             }.clickUrlbar {
@@ -253,7 +253,7 @@ class EyebrowseSuggestTest : TestSetup() {
                 verifySearchEngineSuggestionResults(
                     rule = activityTestRule,
                     searchSuggestions = arrayOf(
-                        "Firefox Suggest",
+                        "Eyebrowse Suggest",
                         nonSponsoredKeyWords.getValue(nonSponsoredKeyWord)[0],
                     ),
                     searchTerm = nonSponsoredKeyWord,

@@ -115,7 +115,7 @@ class OnboardingFragment : Fragment() {
     private fun ScreenContent() {
         OnboardingScreen(
             pagesToDisplay = pagesToDisplay,
-            onMakeFirefoxDefaultClick = {
+            onMakeEyebrowseDefaultClick = {
                 promptToSetAsDefaultBrowser()
             },
             onSkipDefaultClick = {
@@ -157,14 +157,14 @@ class OnboardingFragment : Fragment() {
                     pagesToDisplay.sequencePosition(OnboardingPageUiData.Type.NOTIFICATION_PERMISSION),
                 )
             },
-            onAddFirefoxWidgetClick = {
+            onAddEyebrowseWidgetClick = {
                 telemetryRecorder.onAddSearchWidgetClick(
                     pagesToDisplay.telemetrySequenceId(),
                     pagesToDisplay.sequencePosition(OnboardingPageUiData.Type.ADD_SEARCH_WIDGET),
                 )
                 showAddSearchWidgetDialog()
             },
-            onSkipFirefoxWidgetClick = {
+            onSkipEyebrowseWidgetClick = {
                 telemetryRecorder.onSkipAddWidgetClick(
                     pagesToDisplay.telemetrySequenceId(),
                     pagesToDisplay.sequencePosition(OnboardingPageUiData.Type.ADD_SEARCH_WIDGET),

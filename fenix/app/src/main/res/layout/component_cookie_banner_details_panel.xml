@@ -59,7 +59,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/navigate_back"
         app:layout_constraintTop_toBottomOf="@id/title"
-        tools:text="Firefox will clear this site’s cookies and refresh the page. Clearing all cookies may sign you out or empty shopping carts." />
+        tools:text="Eyebrowse will clear this site’s cookies and refresh the page. Clearing all cookies may sign you out or empty shopping carts." />
 
 
     <androidx.appcompat.widget.AppCompatButton

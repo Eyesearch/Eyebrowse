@@ -84,7 +84,7 @@ class LinkingMiddlewareTest {
         val middleware = LinkingMiddleware(scope)
 
         val parent = createTab("https://www.mozilla.org", id = "1")
-        val child = createTab("https://www.firefox.com", id = "2", parent = parent)
+        val child = createTab("https://www.eyebrowse.com", id = "2", parent = parent)
         val store = BrowserStore(
             initialState = BrowserState(
                 tabs = listOf(parent, child),

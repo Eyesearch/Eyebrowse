@@ -66,7 +66,7 @@ class LoginsTest : TestSetup() {
             scrollToElementByText("Passwords")
         }.openLoginsAndPasswordSubMenu {
             verifyDefaultView()
-            verifyAutofillInFirefoxToggle(true)
+            verifyAutofillInEyebrowseToggle(true)
             verifyAutofillLoginsInOtherAppsToggle(false)
         }
     }
@@ -241,7 +241,7 @@ class LoginsTest : TestSetup() {
     fun verifyMultipleLoginsSelectionsTest() {
         val loginPage = "https://mozilla-mobile.github.io/testapp/v2.0/loginForm.html"
         val firstUser = "mozilla"
-        val firstPass = "firefox"
+        val firstPass = "eyebrowse"
         val secondUser = "fenix"
         val secondPass = "pass"
 
@@ -285,7 +285,7 @@ class LoginsTest : TestSetup() {
         navigationToolbar {
         }.enterURLAndEnterToBrowser(loginPage.toUri()) {
             setPageObjectText(itemWithResId("username"), "mozilla")
-            setPageObjectText(itemWithResId("password"), "firefox")
+            setPageObjectText(itemWithResId("password"), "eyebrowse")
             clickPageObject(itemWithResId("submit"))
             verifySaveLoginPromptIsDisplayed()
             clickPageObject(itemWithText("Save"))
@@ -314,7 +314,7 @@ class LoginsTest : TestSetup() {
         navigationToolbar {
         }.enterURLAndEnterToBrowser(loginPage.toUri()) {
             setPageObjectText(itemWithResId("username"), "mozilla")
-            setPageObjectText(itemWithResId("password"), "firefox")
+            setPageObjectText(itemWithResId("password"), "eyebrowse")
             clickPageObject(itemWithResId("submit"))
             verifySaveLoginPromptIsDisplayed()
             clickPageObject(itemWithText("Save"))
@@ -352,7 +352,7 @@ class LoginsTest : TestSetup() {
         navigationToolbar {
         }.enterURLAndEnterToBrowser(loginPage.toUri()) {
             setPageObjectText(itemWithResId("username"), "mozilla")
-            setPageObjectText(itemWithResId("password"), "firefox")
+            setPageObjectText(itemWithResId("password"), "eyebrowse")
             clickPageObject(itemWithResId("submit"))
             verifySaveLoginPromptIsDisplayed()
             clickPageObject(itemWithText("Save"))
@@ -382,7 +382,7 @@ class LoginsTest : TestSetup() {
         navigationToolbar {
         }.enterURLAndEnterToBrowser(loginPage.toUri()) {
             setPageObjectText(itemWithResId("username"), "mozilla")
-            setPageObjectText(itemWithResId("password"), "firefox")
+            setPageObjectText(itemWithResId("password"), "eyebrowse")
             clickPageObject(itemWithResId("submit"))
             verifySaveLoginPromptIsDisplayed()
             clickPageObject(itemWithText("Save"))
@@ -400,7 +400,7 @@ class LoginsTest : TestSetup() {
             verifySaveLoginButtonIsEnabled(false)
             clickGoBackButton()
             revealPassword()
-            verifyPasswordSaved("firefox")
+            verifyPasswordSaved("eyebrowse")
         }
     }
 
@@ -413,7 +413,7 @@ class LoginsTest : TestSetup() {
         navigationToolbar {
         }.enterURLAndEnterToBrowser(loginPage.toUri()) {
             setPageObjectText(itemWithResId("username"), "mozilla")
-            setPageObjectText(itemWithResId("password"), "firefox")
+            setPageObjectText(itemWithResId("password"), "eyebrowse")
             clickPageObject(itemWithResId("submit"))
             verifySaveLoginPromptIsDisplayed()
             clickPageObject(itemWithText("Save"))
@@ -431,7 +431,7 @@ class LoginsTest : TestSetup() {
             clickGoBackButton()
             verifyLoginItemUsername("mozilla")
             revealPassword()
-            verifyPasswordSaved("firefox")
+            verifyPasswordSaved("eyebrowse")
         }
     }
 
@@ -500,7 +500,7 @@ class LoginsTest : TestSetup() {
             waitForPageToLoad()
             setPageObjectText(itemWithResId("username"), "mozilla")
             waitForAppWindowToBeUpdated()
-            setPageObjectText(itemWithResId("password"), "firefox")
+            setPageObjectText(itemWithResId("password"), "eyebrowse")
             waitForAppWindowToBeUpdated()
             clickPageObject(itemWithResId("submit"))
             waitForPageToLoad()
@@ -514,7 +514,7 @@ class LoginsTest : TestSetup() {
         }.enterURLAndEnterToBrowser(loginPage.toUri()) {
             waitForPageToLoad()
             clickPageObject(itemWithResId("togglePassword"))
-            verifyPrefilledLoginCredentials("mozilla", "firefox", true)
+            verifyPrefilledLoginCredentials("mozilla", "eyebrowse", true)
         }.openTabDrawer {
             closeTab()
         }
@@ -523,9 +523,9 @@ class LoginsTest : TestSetup() {
         }.openThreeDotMenu {
         }.openSettings {
         }.openLoginsAndPasswordSubMenu {
-            verifyAutofillInFirefoxToggle(true)
-            clickAutofillInFirefoxOption()
-            verifyAutofillInFirefoxToggle(false)
+            verifyAutofillInEyebrowseToggle(true)
+            clickAutofillInEyebrowseOption()
+            verifyAutofillInEyebrowseToggle(false)
         }.goBack {
         }
 
@@ -533,7 +533,7 @@ class LoginsTest : TestSetup() {
 
         navigationToolbar {
         }.enterURLAndEnterToBrowser(loginPage.toUri()) {
-            verifyPrefilledLoginCredentials("mozilla", "firefox", false)
+            verifyPrefilledLoginCredentials("mozilla", "eyebrowse", false)
         }
     }
 
@@ -547,7 +547,7 @@ class LoginsTest : TestSetup() {
         navigationToolbar {
         }.enterURLAndEnterToBrowser(loginPage.toUri()) {
             setPageObjectText(itemWithResId("username"), "mozilla")
-            setPageObjectText(itemWithResId("password"), "firefox")
+            setPageObjectText(itemWithResId("password"), "eyebrowse")
             clickPageObject(itemWithResId("submit"))
             verifySaveLoginPromptIsDisplayed()
             clickPageObject(itemWithText("Save"))
@@ -570,7 +570,7 @@ class LoginsTest : TestSetup() {
             tapSetupLater()
             viewSavedLoginDetails(originWebsite)
             revealPassword()
-            verifyPasswordSaved("firefox")
+            verifyPasswordSaved("eyebrowse")
         }
     }
 
@@ -589,7 +589,7 @@ class LoginsTest : TestSetup() {
         }.openNavigationToolbar {
         }.enterURLAndEnterToBrowser(secondLoginPage.toUri()) {
             setPageObjectText(itemWithResId("username"), "android")
-            setPageObjectText(itemWithResId("password"), "firefox")
+            setPageObjectText(itemWithResId("password"), "eyebrowse")
             clickPageObject(itemWithResId("submit"))
             verifySaveLoginPromptIsDisplayed()
             clickPageObject(itemWithText("Save"))
@@ -603,19 +603,19 @@ class LoginsTest : TestSetup() {
             viewSavedLoginDetails(originWebsite)
             verifyLoginItemUsername("android")
             revealPassword()
-            verifyPasswordSaved("firefox")
+            verifyPasswordSaved("eyebrowse")
         }.goBackToSavedLogins {
             searchLogin("android")
             viewSavedLoginDetails(originWebsite)
             verifyLoginItemUsername("android")
             revealPassword()
-            verifyPasswordSaved("firefox")
+            verifyPasswordSaved("eyebrowse")
         }.goBackToSavedLogins {
             searchLogin("AnDrOiD")
             viewSavedLoginDetails(originWebsite)
             verifyLoginItemUsername("android")
             revealPassword()
-            verifyPasswordSaved("firefox")
+            verifyPasswordSaved("eyebrowse")
         }
     }
 
@@ -634,7 +634,7 @@ class LoginsTest : TestSetup() {
         }.openNavigationToolbar {
         }.enterURLAndEnterToBrowser(secondLoginPage.toUri()) {
             setPageObjectText(itemWithResId("username"), "android")
-            setPageObjectText(itemWithResId("password"), "firefox")
+            setPageObjectText(itemWithResId("password"), "eyebrowse")
             clickPageObject(itemWithResId("submit"))
             verifySaveLoginPromptIsDisplayed()
             clickPageObject(itemWithText("Save"))
@@ -648,19 +648,19 @@ class LoginsTest : TestSetup() {
             viewSavedLoginDetails(originWebsite)
             verifyLoginItemUsername("android")
             revealPassword()
-            verifyPasswordSaved("firefox")
+            verifyPasswordSaved("eyebrowse")
         }.goBackToSavedLogins {
             searchLogin("mozilla")
             viewSavedLoginDetails(originWebsite)
             verifyLoginItemUsername("android")
             revealPassword()
-            verifyPasswordSaved("firefox")
+            verifyPasswordSaved("eyebrowse")
         }.goBackToSavedLogins {
             searchLogin("MoZiLlA")
             viewSavedLoginDetails(originWebsite)
             verifyLoginItemUsername("android")
             revealPassword()
-            verifyPasswordSaved("firefox")
+            verifyPasswordSaved("eyebrowse")
         }
     }
 
@@ -679,7 +679,7 @@ class LoginsTest : TestSetup() {
         }.openNavigationToolbar {
         }.enterURLAndEnterToBrowser(secondLoginPage.toUri()) {
             setPageObjectText(itemWithResId("username"), "mozilla")
-            setPageObjectText(itemWithResId("password"), "firefox")
+            setPageObjectText(itemWithResId("password"), "eyebrowse")
             clickPageObject(itemWithResId("submit"))
             verifySaveLoginPromptIsDisplayed()
             clickPageObject(itemWithText("Save"))
@@ -726,7 +726,7 @@ class LoginsTest : TestSetup() {
         }.openNavigationToolbar {
         }.enterURLAndEnterToBrowser(secondLoginPage.toUri()) {
             setPageObjectText(itemWithResId("username"), "mozilla")
-            setPageObjectText(itemWithResId("password"), "firefox")
+            setPageObjectText(itemWithResId("password"), "eyebrowse")
             clickPageObject(itemWithResId("submit"))
             verifySaveLoginPromptIsDisplayed()
             clickPageObject(itemWithText("Save"))
@@ -774,10 +774,10 @@ class LoginsTest : TestSetup() {
             enterSiteCredential(loginPage)
             verifyHostnameClearButtonEnabled()
             setNewUserName("mozilla")
-            setNewPassword("firefox")
+            setNewPassword("eyebrowse")
             clickClearPasswordButton()
             verifyPasswordErrorMessage()
-            setNewPassword("firefox")
+            setNewPassword("eyebrowse")
             verifyPasswordClearButtonEnabled()
             saveEditedLogin()
         }
@@ -791,7 +791,7 @@ class LoginsTest : TestSetup() {
             verifySuggestedUserName("mozilla")
             clickPageObject(itemWithResIdAndText("$packageName:id/username", "mozilla"))
             clickPageObject(itemWithResId("togglePassword"))
-            verifyPrefilledLoginCredentials("mozilla", "firefox", true)
+            verifyPrefilledLoginCredentials("mozilla", "eyebrowse", true)
         }
     }
 

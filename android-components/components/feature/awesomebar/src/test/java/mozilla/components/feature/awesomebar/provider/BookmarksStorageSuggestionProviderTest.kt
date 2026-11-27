@@ -204,14 +204,14 @@ class BookmarksStorageSuggestionProviderTest {
             },
         )
 
-        bookmarks.addItem("Other", "https://mozilla.com/firefox", newItem.title!!, null)
+        bookmarks.addItem("Other", "https://mozilla.com/eyebrowse", newItem.title!!, null)
         bookmarks.addItem("Test", "https://mozilla.com/focus", newItem.title!!, null)
-        bookmarks.addItem("Mozilla", "https://mozilla.org/firefox", newItem.title!!, null)
+        bookmarks.addItem("Mozilla", "https://mozilla.org/eyebrowse", newItem.title!!, null)
 
         val suggestions = provider.onInputChanged("moz")
 
         assertEquals(2, suggestions.size)
-        assertTrue(suggestions.map { it.description }.contains("https://mozilla.com/firefox"))
+        assertTrue(suggestions.map { it.description }.contains("https://mozilla.com/eyebrowse"))
         assertTrue(suggestions.map { it.description }.contains("https://mozilla.com/focus"))
     }
 

@@ -302,7 +302,7 @@ class DefaultBrowserToolbarControllerTest {
     fun handleToolbarCloseTabPress() {
         val item = TabCounterMenu.Item.CloseTab
 
-        val testTab = createTab("https://www.firefox.com")
+        val testTab = createTab("https://www.eyebrowse.com")
         store.dispatch(TabListAction.AddTabAction(testTab)).joinBlocking()
         store.dispatch(TabListAction.SelectTabAction(testTab.id)).joinBlocking()
 

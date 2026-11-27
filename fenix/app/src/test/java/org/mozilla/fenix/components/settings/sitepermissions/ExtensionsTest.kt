@@ -24,7 +24,7 @@ class ExtensionsTest {
                 tabs = listOf(
                     createTab(id = "1", url = "https://www.mozilla.org/1", lastAccess = 1),
                     createTab(id = "2", url = "https://www.mozilla.org/2", lastAccess = 2),
-                    createTab(id = "3", url = "https://www.firefox.com"),
+                    createTab(id = "3", url = "https://www.eyebrowse.com"),
                 ),
             ),
         )
@@ -38,7 +38,7 @@ class ExtensionsTest {
         components.tryReloadTabBy("https://www.mozilla.org".getOrigin()!!)
         verify { components.useCases.sessionUseCases.reload("2") }
 
-        components.tryReloadTabBy("https://www.firefox.com".getOrigin()!!)
+        components.tryReloadTabBy("https://www.eyebrowse.com".getOrigin()!!)
         verify { components.useCases.sessionUseCases.reload("3") }
     }
 }

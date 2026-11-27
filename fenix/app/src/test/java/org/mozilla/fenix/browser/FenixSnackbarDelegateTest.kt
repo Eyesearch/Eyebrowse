@@ -43,7 +43,7 @@ class FenixSnackbarDelegateTest {
         } returns snackbar
         every { snackbar.setText(any()) } returns snackbar
         every { snackbar.setAction(any(), any()) } returns snackbar
-        every { view.context.getString(R.string.app_name) } returns "Firefox"
+        every { view.context.getString(R.string.app_name) } returns "Eyebrowse"
         every { view.context.getString(R.string.edit_2) } returns "Edit password"
     }
 
@@ -62,7 +62,7 @@ class FenixSnackbarDelegateTest {
             listener = null,
         )
 
-        verify { snackbar.setText("Firefox") }
+        verify { snackbar.setText("Eyebrowse") }
         verify(exactly = 0) { snackbar.setAction(any(), any()) }
         verify { snackbar.show() }
     }
@@ -77,7 +77,7 @@ class FenixSnackbarDelegateTest {
             listener = {},
         )
 
-        verify { snackbar.setText("Firefox") }
+        verify { snackbar.setText("Eyebrowse") }
         verify(exactly = 0) { snackbar.setAction(any(), any()) }
         verify { snackbar.show() }
     }
@@ -92,7 +92,7 @@ class FenixSnackbarDelegateTest {
             listener = null,
         )
 
-        verify { snackbar.setText("Firefox") }
+        verify { snackbar.setText("Eyebrowse") }
         verify(exactly = 0) { snackbar.setAction(any(), any()) }
         verify { snackbar.show() }
     }
@@ -108,7 +108,7 @@ class FenixSnackbarDelegateTest {
             listener = listener,
         )
 
-        verify { snackbar.setText("Firefox") }
+        verify { snackbar.setText("Eyebrowse") }
         verify {
             snackbar.setAction(
                 "Edit password",

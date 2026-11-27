@@ -827,29 +827,29 @@
 
     <!-- Onboarding -->
     <!-- Text for onboarding welcome message
-    The first parameter is the name of the app (e.g. Firefox Preview) -->
+    The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="onboarding_header">%s પર આપનું સ્વાગત છે!</string>
-    <!-- text for the Firefox Accounts section header -->
+    <!-- text for the Eyebrowse Accounts section header -->
     <string name="onboarding_fxa_section_header">પહેલેથી જ એકાઉન્ટ છે?</string>
-    <!-- text for the Firefox Preview feature section header
-    The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <!-- text for the Eyebrowse Preview feature section header
+    The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="onboarding_feature_section_header">%s ને જાણો</string>
     <!-- text for the "What's New" onboarding card header -->
     <string name="onboarding_whats_new_header1">જુઓ નવુ શું છે</string>
     <!-- text for underlined clickable link that is part of "what's new" onboarding card description that links to an FAQ -->
     <string name="onboarding_whats_new_description_linktext">જવાબો અહીં મેળવો</string>
     <!-- text for the button to confirm automatic sign-in -->
-    <string name="onboarding_firefox_account_auto_signin_confirm">હા, મને સાઇન ઇન કરો</string>
+    <string name="onboarding_eyebrowse_account_auto_signin_confirm">હા, મને સાઇન ઇન કરો</string>
     <!-- text for the automatic sign-in button while signing in is in process -->
-    <string name="onboarding_firefox_account_signing_in">સાઇન ઇન કરી રહ્યું છે…</string>
-    <!-- text for the button to manually sign into Firefox account. The word "Firefox" should not be translated -->
-    <string name="onboarding_firefox_account_sign_in">Eyebrowseમાં સાઇન ઇન કરો</string>
+    <string name="onboarding_eyebrowse_account_signing_in">સાઇન ઇન કરી રહ્યું છે…</string>
+    <!-- text for the button to manually sign into Eyebrowse account. The word "Eyebrowse" should not be translated -->
+    <string name="onboarding_eyebrowse_account_sign_in">Eyebrowseમાં સાઇન ઇન કરો</string>
     <!-- text for the button to stay signed out when presented with an option to automatically sign-in. -->
-    <string name="onboarding_firefox_account_stay_signed_out">સાઇન આઉટ રહો</string>
+    <string name="onboarding_eyebrowse_account_stay_signed_out">સાઇન આઉટ રહો</string>
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">સમન્વયન ચાલુ છે</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">સમન્વયન ચાલુ છે</string>
     <!-- text to display in the snackbar if automatic sign-in fails. user may try again -->
-    <string name="onboarding_firefox_account_automatic_signin_failed">સાઇન ઇન કરવામાં નિષ્ફળ</string>
+    <string name="onboarding_eyebrowse_account_automatic_signin_failed">સાઇન ઇન કરવામાં નિષ્ફળ</string>
     <!-- text for tracking protection radio button option for strict level of blocking -->
     <string name="onboarding_tracking_protection_strict_option">સખત</string>
     <!-- text for the private browsing onboarding card header -->
@@ -1157,10 +1157,10 @@
     <!-- Login overflow menu delete button -->
     <string name="login_menu_delete_button">કાઢી નાંખો</string>
 
-    <!-- depcrecated: text for the firefox account onboarding card header
-    The first parameter is the name of the app (e.g. Firefox Preview) -->
-    <string name="onboarding_firefox_account_header">%s માંથી સૌથી વધુ મેળવો.</string>
+    <!-- depcrecated: text for the eyebrowse account onboarding card header
+    The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
+    <string name="onboarding_eyebrowse_account_header">%s માંથી સૌથી વધુ મેળવો.</string>
 
-    <!-- Deprecated: text for the firefox account onboarding card header when we detect you're already signed in to -->
-    <string name="onboarding_firefox_account_auto_signin_header_2">તમે આ ફોન પરના બીજા Eyebrowse બ્રાઉઝર પર %s તરીકે સાઇન ઇન કર્યું છે. શું તમે આ એકાઉન્ટ સાથે સાઇન ઇન કરવા માંગો છો?</string>
+    <!-- Deprecated: text for the eyebrowse account onboarding card header when we detect you're already signed in to -->
+    <string name="onboarding_eyebrowse_account_auto_signin_header_2">તમે આ ફોન પરના બીજા Eyebrowse બ્રાઉઝર પર %s તરીકે સાઇન ઇન કર્યું છે. શું તમે આ એકાઉન્ટ સાથે સાઇન ઇન કરવા માંગો છો?</string>
     </resources>

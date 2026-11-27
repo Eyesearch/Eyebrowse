@@ -36,7 +36,7 @@ class EyebrowseAccountsAuthFeature(
     /**
      * Begins Email authentication, launching `onBeginAuthentication` if successful
      * @param context [Context] The application context
-     * @param entrypoint [FxAEntryPoint] The Firefox Accounts feature/entrypoint that is launching
+     * @param entrypoint [FxAEntryPoint] The Eyebrowse Accounts feature/entrypoint that is launching
      * authentication
      */
     fun beginAuthentication(context: Context, entrypoint: FxAEntryPoint) {
@@ -49,7 +49,7 @@ class EyebrowseAccountsAuthFeature(
      * Begins Pairing authentication, launching `onBeginAuthentication` if successful
      * @param context [Context] The application context
      * @param pairingUrl [String] The pairing URL retrieved from the QR scanner
-     * @param entrypoint [FxAEntryPoint] The Firefox Accounts feature/entrypoint that is launching
+     * @param entrypoint [FxAEntryPoint] The Eyebrowse Accounts feature/entrypoint that is launching
      * authentication
      */
     fun beginPairingAuthentication(
@@ -66,7 +66,7 @@ class EyebrowseAccountsAuthFeature(
         CoroutineScope(coroutineContext).launch {
             // FIXME return a fallback URL provided by Config...
             // https://github.com/mozilla-mobile/android-components/issues/2496
-            val authUrl = beginAuthentication() ?: "https://accounts.firefox.com/signin"
+            val authUrl = beginAuthentication() ?: "https://accounts.eyebrowse.com/signin"
 
             // TODO
             // We may fail to obtain an authentication URL, for example due to transient network errors.

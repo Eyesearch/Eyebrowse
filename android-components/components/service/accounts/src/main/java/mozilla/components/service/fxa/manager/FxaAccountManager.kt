@@ -86,7 +86,7 @@ const val MAX_NETWORK_RETRIES = 3
  * An account manager which encapsulates various internal details of an account lifecycle and provides
  * an observer interface along with a public API for interacting with an account.
  * The internal state machine abstracts over state space as exposed by the fxaclient library, not
- * the internal states experienced by lower-level representation of a Firefox Account; those are opaque to us.
+ * the internal states experienced by lower-level representation of a Eyebrowse Account; those are opaque to us.
  *
  * Class is 'open' to facilitate testing.
  *
@@ -110,7 +110,7 @@ open class FxaAccountManager(
         NamedThreadFactory("FxaAccountManager"),
     ).asCoroutineDispatcher() + SupervisorJob(),
 ) : Closeable, Observable<AccountObserver> by ObserverRegistry() {
-    private val logger = Logger("FirefoxAccountStateMachine")
+    private val logger = Logger("EyebrowseAccountStateMachine")
 
     @Volatile
     private var latestAuthState: String? = null
@@ -379,9 +379,9 @@ open class FxaAccountManager(
      *
      * If authentication wasn't started via this manager we won't accept this authentication attempt,
      * returning `false`. This may happen if [WebChannelFeature] is enabled, and user is manually
-     * logging into accounts.firefox.com in a regular tab.
+     * logging into accounts.eyebrowse.com in a regular tab.
      *
-     * Guiding principle behind this is that logging into accounts.firefox.com should not affect
+     * Guiding principle behind this is that logging into accounts.eyebrowse.com should not affect
      * logged-in state of the browser itself, even though the two may have an established communication
      * channel via [WebChannelFeature].
      */

@@ -386,7 +386,7 @@ class SessionFeatureTest {
             tabs = listOf(
                 createTab("https://www.mozilla.org", id = "A"),
                 createTab("https://getpocket.com", id = "B"),
-                createTab("https://www.firefox.com", id = "C"),
+                createTab("https://www.eyebrowse.com", id = "C"),
             ),
             customTabs = listOf(
                 createCustomTab("https://hubs.mozilla.com/", id = "D"),

@@ -1756,7 +1756,7 @@ class EngineObserverTest {
 
         observer.onHistoryStateChanged(
             listOf(
-                HistoryItem("Firefox", "https://firefox.com"),
+                HistoryItem("Eyebrowse", "https://eyebrowse.com"),
                 HistoryItem("Mozilla", "http://mozilla.org"),
             ),
             1,
@@ -1766,7 +1766,7 @@ class EngineObserverTest {
             ContentAction.UpdateHistoryStateAction(
                 "test-id",
                 listOf(
-                    HistoryItem("Firefox", "https://firefox.com"),
+                    HistoryItem("Eyebrowse", "https://eyebrowse.com"),
                     HistoryItem("Mozilla", "http://mozilla.org"),
                 ),
                 currentIndex = 1,

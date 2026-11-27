@@ -678,15 +678,15 @@ class BrowserToolbarTest {
         toolbar.edit = spy(toolbar.edit)
 
         toolbar.url = "https://www.mozilla.org"
-        toolbar.setSearchTerms("Mozilla Firefox")
+        toolbar.setSearchTerms("Mozilla Eyebrowse")
 
         verify(toolbar.edit, never()).updateUrl("https://www.mozilla.org")
-        verify(toolbar.edit, never()).updateUrl("Mozilla Firefox")
+        verify(toolbar.edit, never()).updateUrl("Mozilla Eyebrowse")
 
         toolbar.editMode()
 
         verify(toolbar.edit, never()).updateUrl("https://www.mozilla.org")
-        verify(toolbar.edit).updateUrl("Mozilla Firefox")
+        verify(toolbar.edit).updateUrl("Mozilla Eyebrowse")
     }
 
     @Test
@@ -697,9 +697,9 @@ class BrowserToolbarTest {
 
         toolbar.editMode()
 
-        toolbar.setSearchTerms("Mozilla Firefox")
+        toolbar.setSearchTerms("Mozilla Eyebrowse")
 
-        verify(toolbar.edit).editSuggestion("Mozilla Firefox")
+        verify(toolbar.edit).editSuggestion("Mozilla Eyebrowse")
     }
 
     @Test

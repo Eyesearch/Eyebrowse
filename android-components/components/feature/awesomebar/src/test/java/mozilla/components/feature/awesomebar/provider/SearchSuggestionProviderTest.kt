@@ -38,8 +38,8 @@ import org.mockito.Mockito.verify
 import java.io.IOException
 import mozilla.components.ui.icons.R as iconsR
 
-private const val GOOGLE_MOCK_RESPONSE = "[\"firefox\",[\"firefox\",\"firefox for mac\",\"firefox quantum\",\"firefox update\",\"firefox esr\",\"firefox focus\",\"firefox addons\",\"firefox extensions\",\"firefox nightly\",\"firefox clear cache\"]]"
-private const val GOOGLE_MOCK_RESPONSE_WITH_DUPLICATES = "[\"firefox\",[\"firefox\",\"firefox\",\"firefox for mac\",\"firefox quantum\",\"firefox update\",\"firefox esr\",\"firefox esr\",\"firefox focus\",\"firefox addons\",\"firefox extensions\",\"firefox nightly\",\"firefox clear cache\"]]"
+private const val GOOGLE_MOCK_RESPONSE = "[\"eyebrowse\",[\"eyebrowse\",\"eyebrowse for mac\",\"eyebrowse quantum\",\"eyebrowse update\",\"eyebrowse esr\",\"eyebrowse focus\",\"eyebrowse addons\",\"eyebrowse extensions\",\"eyebrowse nightly\",\"eyebrowse clear cache\"]]"
+private const val GOOGLE_MOCK_RESPONSE_WITH_DUPLICATES = "[\"eyebrowse\",[\"eyebrowse\",\"eyebrowse\",\"eyebrowse for mac\",\"eyebrowse quantum\",\"eyebrowse update\",\"eyebrowse esr\",\"eyebrowse esr\",\"eyebrowse focus\",\"eyebrowse addons\",\"eyebrowse extensions\",\"eyebrowse nightly\",\"eyebrowse clear cache\"]]"
 
 @ExperimentalCoroutinesApi // for runTest
 @RunWith(AndroidJUnit4::class)
@@ -71,16 +71,16 @@ class SearchSuggestionProviderTest {
                 assertEquals(11, suggestion.chips.size)
 
                 assertEquals("fire", suggestion.chips[0].title)
-                assertEquals("firefox", suggestion.chips[1].title)
-                assertEquals("firefox for mac", suggestion.chips[2].title)
-                assertEquals("firefox quantum", suggestion.chips[3].title)
-                assertEquals("firefox update", suggestion.chips[4].title)
-                assertEquals("firefox esr", suggestion.chips[5].title)
-                assertEquals("firefox focus", suggestion.chips[6].title)
-                assertEquals("firefox addons", suggestion.chips[7].title)
-                assertEquals("firefox extensions", suggestion.chips[8].title)
-                assertEquals("firefox nightly", suggestion.chips[9].title)
-                assertEquals("firefox clear cache", suggestion.chips[10].title)
+                assertEquals("eyebrowse", suggestion.chips[1].title)
+                assertEquals("eyebrowse for mac", suggestion.chips[2].title)
+                assertEquals("eyebrowse quantum", suggestion.chips[3].title)
+                assertEquals("eyebrowse update", suggestion.chips[4].title)
+                assertEquals("eyebrowse esr", suggestion.chips[5].title)
+                assertEquals("eyebrowse focus", suggestion.chips[6].title)
+                assertEquals("eyebrowse addons", suggestion.chips[7].title)
+                assertEquals("eyebrowse extensions", suggestion.chips[8].title)
+                assertEquals("eyebrowse nightly", suggestion.chips[9].title)
+                assertEquals("eyebrowse clear cache", suggestion.chips[10].title)
 
                 verify(useCase, never()).invoke(anyString(), any(), any())
 
@@ -98,7 +98,7 @@ class SearchSuggestionProviderTest {
                     }
                 }
 
-                verify(useCase).invoke(eq("firefox focus"), any(), any())
+                verify(useCase).invoke(eq("eyebrowse focus"), any(), any())
             } finally {
                 server.shutdown()
             }
@@ -136,16 +136,16 @@ class SearchSuggestionProviderTest {
                 assertEquals(11, suggestions.size)
 
                 assertEquals("fire", suggestions[0].title)
-                assertEquals("firefox", suggestions[1].title)
-                assertEquals("firefox for mac", suggestions[2].title)
-                assertEquals("firefox quantum", suggestions[3].title)
-                assertEquals("firefox update", suggestions[4].title)
-                assertEquals("firefox esr", suggestions[5].title)
-                assertEquals("firefox focus", suggestions[6].title)
-                assertEquals("firefox addons", suggestions[7].title)
-                assertEquals("firefox extensions", suggestions[8].title)
-                assertEquals("firefox nightly", suggestions[9].title)
-                assertEquals("firefox clear cache", suggestions[10].title)
+                assertEquals("eyebrowse", suggestions[1].title)
+                assertEquals("eyebrowse for mac", suggestions[2].title)
+                assertEquals("eyebrowse quantum", suggestions[3].title)
+                assertEquals("eyebrowse update", suggestions[4].title)
+                assertEquals("eyebrowse esr", suggestions[5].title)
+                assertEquals("eyebrowse focus", suggestions[6].title)
+                assertEquals("eyebrowse addons", suggestions[7].title)
+                assertEquals("eyebrowse extensions", suggestions[8].title)
+                assertEquals("eyebrowse nightly", suggestions[9].title)
+                assertEquals("eyebrowse clear cache", suggestions[10].title)
 
                 verify(useCase, never()).invoke(anyString(), any(), any())
 
@@ -167,7 +167,7 @@ class SearchSuggestionProviderTest {
                     }
                 }
 
-                verify(useCase).invoke(eq("firefox focus"), any(), any())
+                verify(useCase).invoke(eq("eyebrowse focus"), any(), any())
             } finally {
                 server.shutdown()
             }
@@ -206,10 +206,10 @@ class SearchSuggestionProviderTest {
                 assertEquals(5, suggestions.size)
 
                 assertEquals("fire", suggestions[0].title)
-                assertEquals("firefox", suggestions[1].title)
-                assertEquals("firefox for mac", suggestions[2].title)
-                assertEquals("firefox quantum", suggestions[3].title)
-                assertEquals("firefox update", suggestions[4].title)
+                assertEquals("eyebrowse", suggestions[1].title)
+                assertEquals("eyebrowse for mac", suggestions[2].title)
+                assertEquals("eyebrowse quantum", suggestions[3].title)
+                assertEquals("eyebrowse update", suggestions[4].title)
             } finally {
                 server.shutdown()
             }
@@ -243,10 +243,10 @@ class SearchSuggestionProviderTest {
                 assertEquals(5, suggestion.chips.size)
 
                 assertEquals("fire", suggestion.chips[0].title)
-                assertEquals("firefox", suggestion.chips[1].title)
-                assertEquals("firefox for mac", suggestion.chips[2].title)
-                assertEquals("firefox quantum", suggestion.chips[3].title)
-                assertEquals("firefox update", suggestion.chips[4].title)
+                assertEquals("eyebrowse", suggestion.chips[1].title)
+                assertEquals("eyebrowse for mac", suggestion.chips[2].title)
+                assertEquals("eyebrowse quantum", suggestion.chips[3].title)
+                assertEquals("eyebrowse update", suggestion.chips[4].title)
             } finally {
                 server.shutdown()
             }
@@ -444,16 +444,16 @@ class SearchSuggestionProviderTest {
                 val suggestions = provider.onInputChanged("fire")
                 assertEquals(11, suggestions.size)
                 assertEquals("fire", suggestions[0].title)
-                assertEquals("firefox", suggestions[1].title)
-                assertEquals("firefox for mac", suggestions[2].title)
-                assertEquals("firefox quantum", suggestions[3].title)
-                assertEquals("firefox update", suggestions[4].title)
-                assertEquals("firefox esr", suggestions[5].title)
-                assertEquals("firefox focus", suggestions[6].title)
-                assertEquals("firefox addons", suggestions[7].title)
-                assertEquals("firefox extensions", suggestions[8].title)
-                assertEquals("firefox nightly", suggestions[9].title)
-                assertEquals("firefox clear cache", suggestions[10].title)
+                assertEquals("eyebrowse", suggestions[1].title)
+                assertEquals("eyebrowse for mac", suggestions[2].title)
+                assertEquals("eyebrowse quantum", suggestions[3].title)
+                assertEquals("eyebrowse update", suggestions[4].title)
+                assertEquals("eyebrowse esr", suggestions[5].title)
+                assertEquals("eyebrowse focus", suggestions[6].title)
+                assertEquals("eyebrowse addons", suggestions[7].title)
+                assertEquals("eyebrowse extensions", suggestions[8].title)
+                assertEquals("eyebrowse nightly", suggestions[9].title)
+                assertEquals("eyebrowse clear cache", suggestions[10].title)
             } finally {
                 server.shutdown()
             }
@@ -493,8 +493,8 @@ class SearchSuggestionProviderTest {
                 assertEquals(3, suggestions.size)
 
                 assertEquals("fire", suggestions[0].title)
-                assertEquals("firefox", suggestions[1].title)
-                assertEquals("firefox for mac", suggestions[2].title)
+                assertEquals("eyebrowse", suggestions[1].title)
+                assertEquals("eyebrowse for mac", suggestions[2].title)
                 assertNull(suggestions[0].description)
                 assertNull(suggestions[1].description)
                 assertNull(suggestions[2].description)
@@ -603,17 +603,17 @@ class SearchSuggestionProviderTest {
             )
 
             try {
-                val suggestions = provider.onInputChanged("firefox")
+                val suggestions = provider.onInputChanged("eyebrowse")
                 assertEquals(10, suggestions.size)
-                assertEquals("firefox for mac", suggestions[1].title)
-                assertEquals("firefox quantum", suggestions[2].title)
-                assertEquals("firefox update", suggestions[3].title)
-                assertEquals("firefox esr", suggestions[4].title)
-                assertEquals("firefox focus", suggestions[5].title)
-                assertEquals("firefox addons", suggestions[6].title)
-                assertEquals("firefox extensions", suggestions[7].title)
-                assertEquals("firefox nightly", suggestions[8].title)
-                assertEquals("firefox clear cache", suggestions[9].title)
+                assertEquals("eyebrowse for mac", suggestions[1].title)
+                assertEquals("eyebrowse quantum", suggestions[2].title)
+                assertEquals("eyebrowse update", suggestions[3].title)
+                assertEquals("eyebrowse esr", suggestions[4].title)
+                assertEquals("eyebrowse focus", suggestions[5].title)
+                assertEquals("eyebrowse addons", suggestions[6].title)
+                assertEquals("eyebrowse extensions", suggestions[7].title)
+                assertEquals("eyebrowse nightly", suggestions[8].title)
+                assertEquals("eyebrowse clear cache", suggestions[9].title)
             } finally {
                 server.shutdown()
             }
@@ -644,21 +644,21 @@ class SearchSuggestionProviderTest {
             )
 
             try {
-                val suggestions = provider.onInputChanged("firefox")
+                val suggestions = provider.onInputChanged("eyebrowse")
                 assertEquals(1, suggestions.size)
 
                 val suggestion = suggestions[0]
                 assertEquals(9, suggestion.chips.size)
 
-                assertEquals("firefox for mac", suggestion.chips[0].title)
-                assertEquals("firefox quantum", suggestion.chips[1].title)
-                assertEquals("firefox update", suggestion.chips[2].title)
-                assertEquals("firefox esr", suggestion.chips[3].title)
-                assertEquals("firefox focus", suggestion.chips[4].title)
-                assertEquals("firefox addons", suggestion.chips[5].title)
-                assertEquals("firefox extensions", suggestion.chips[6].title)
-                assertEquals("firefox nightly", suggestion.chips[7].title)
-                assertEquals("firefox clear cache", suggestion.chips[8].title)
+                assertEquals("eyebrowse for mac", suggestion.chips[0].title)
+                assertEquals("eyebrowse quantum", suggestion.chips[1].title)
+                assertEquals("eyebrowse update", suggestion.chips[2].title)
+                assertEquals("eyebrowse esr", suggestion.chips[3].title)
+                assertEquals("eyebrowse focus", suggestion.chips[4].title)
+                assertEquals("eyebrowse addons", suggestion.chips[5].title)
+                assertEquals("eyebrowse extensions", suggestion.chips[6].title)
+                assertEquals("eyebrowse nightly", suggestion.chips[7].title)
+                assertEquals("eyebrowse clear cache", suggestion.chips[8].title)
             } finally {
                 server.shutdown()
             }

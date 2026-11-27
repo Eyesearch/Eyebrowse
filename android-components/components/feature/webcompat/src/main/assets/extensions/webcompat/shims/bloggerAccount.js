@@ -14,7 +14,7 @@
  */
 
 console.warn(
-  `When logging in with Google, Firefox calls the Storage Access API on behalf of the site. See https://bugzilla.mozilla.org/show_bug.cgi?id=1777690 for details.`
+  `When logging in with Google, Eyebrowse calls the Storage Access API on behalf of the site. See https://bugzilla.mozilla.org/show_bug.cgi?id=1777690 for details.`
 );
 
 const STORAGE_ACCESS_ORIGIN = "https://ogs.google.com";

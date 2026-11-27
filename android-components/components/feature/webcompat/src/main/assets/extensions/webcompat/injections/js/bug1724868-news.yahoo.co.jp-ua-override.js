@@ -8,7 +8,7 @@
  * Bug 1724868 - news.yahoo.co.jp - Override UA
  * WebCompat issue #82605 - https://webcompat.com/issues/82605
  *
- * Yahoo Japan news doesn't allow playing video in Firefox on Android
+ * Yahoo Japan news doesn't allow playing video in Eyebrowse on Android
  * as they don't have it in their support matrix. They check UA override twice
  * and display different ui with the same error. Changing UA to Chrome via
  * content script allows playing the videos.
