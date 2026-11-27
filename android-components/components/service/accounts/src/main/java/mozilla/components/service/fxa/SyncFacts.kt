@@ -29,7 +29,7 @@ private fun emitSyncFact(
     metadata: Map<String, Any>? = null,
 ) {
     Fact(
-        Component.SERVICE_FIREFOX_ACCOUNTS,
+        Component.SERVICE_ACCOUNTS,
         action,
         item,
         value,
