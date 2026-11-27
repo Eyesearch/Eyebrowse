@@ -100,3 +100,28 @@ companion app is bundled. Before enabling connection, resolve distribution
 licensing, pin supported versions, test ABI and Android foreground service,
 validate relay config and certificate verification, DNS and routing, explicit
 provider consent, and actual connection/failover. Keep WireGuard independent.
+
+## OpenVPN profile and backend investigation
+Added a standalone conservative OpenVPN profile grammar gate and regression
+fixtures. It rejects scripts, plugins, external file references, duplicate
+options, mismatched endpoints, unsupported options, compression and unsafe
+crypto settings. It requires an inline CA, explicit server certificate role
+verification and TLS 1.2+. This validates syntax/policy only, not certificate
+chains, server identity or reachability. Do not use it to silently rewrite
+VPN Gate profiles. It is not connected to the directory or native engine yet;
+legacy VPN Gate profiles that do not meet the policy must be rejected.
+
+Candidate evaluation:
+- Official OpenVPN 3 C++ client: https://github.com/OpenVPN/openvpn3 . Native
+  Android JNI, TUN/socket protection, certificate verification and per-app
+  routing implementation must be reviewed before enabling it.
+- Maven Central io.github.tim06:vpnprotocols-openvpn:3.0.4 exists, but source
+  repo was unavailable during review and the API, native dependencies, and
+  per-app isolation were not verified. It depends on Kotlin 2.2.21; do not
+  blindly add it to the older Fenix toolchain.
+- OpenVPN for Android external AIDL supports inline profile start, but reviewed
+  startVPNwithExtras only exposes allow-vpn-bypass, not a per-app allowlist.
+  Do not start device-wide VPN from this browser without explicit scope change.
+No embedded engine or dependency was added. Actual tunnel, automatic first-time
+connection, full packet kill switch and release tests remain blocked on an
+approved, verifiable backend and native build/device testing.
