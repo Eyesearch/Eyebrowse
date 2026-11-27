@@ -180,6 +180,13 @@
             app:iconSpaceReserved="false" />
 
         <androidx.preference.Preference
+            android:key="@string/pref_key_device_ad_blocking"
+            android:title="@string/device_ad_blocking_title"
+            android:summary="@string/device_ad_blocking_summary"
+            android:persistent="false"
+            app:iconSpaceReserved="false" />
+
+        <androidx.preference.Preference
             android:key="@string/pref_key_disable_chrome"
             android:title="@string/preferences_disable_chrome"
             android:summary="@string/preferences_disable_chrome_summary"

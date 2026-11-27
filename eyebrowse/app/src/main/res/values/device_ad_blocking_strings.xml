@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_key_device_ad_blocking" translatable="false">pref_key_device_ad_blocking</string>
+    <string name="device_ad_blocking_title">Device-wide ad blocking</string>
+    <string name="device_ad_blocking_summary">Set up Android Private DNS to reduce ads in other apps</string>
+    <string name="device_ad_blocking_explanation">Optional: use Android Private DNS to filter known advertising and tracking domains in apps using the system resolver. In network settings, select Private DNS provider hostname and enter dns.adguard-dns.com. AdGuard will receive DNS queries. This does not block all ads, including many YouTube video ads, and some apps or VPNs may bypass it. If connectivity breaks, restore your previous DNS setting. Eyebrowse does not change this setting automatically.</string>
+    <string name="device_ad_blocking_open_settings">Open network settings</string>
+    <string name="device_ad_blocking_copy">Copy DNS hostname</string>
+    <string name="device_ad_blocking_settings_unavailable">Open Android Settings and search for Private DNS.</string>
+</resources>

@@ -40,3 +40,13 @@ or downgrade protections to make a newer extension install.
 Run the targeted tests before a release APK is approved. They are not a substitute
 for the controlled network and playback checks above. The first navigation may
 still race filter initialization; verify cold-start external links on a device.
+
+## Optional device-wide DNS setup (Android 9+)
+
+The new Settings row opens Android network settings or copies the public AdGuard
+DNS hostname. It does not enable DNS silently, claim an active filter, replace the
+existing browser VPN, or inspect other apps' traffic. DNS filtering cannot block
+same-domain ads, including many ads in the official YouTube app. Test device
+settings navigation, copy, cancellation, DNS activation/reversal, ordinary apps,
+VPN coexistence and network failures on a real device. No device test completed.
+Provider documentation: https://adguard-dns.io/en/public-dns.html

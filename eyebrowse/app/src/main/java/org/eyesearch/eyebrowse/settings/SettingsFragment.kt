@@ -403,6 +403,35 @@ class SettingsFragment : PreferenceFragmentCompat() {
         return super.onPreferenceTreeClick(preference)
     }
 
+    /** Open the user-controlled Android DNS settings, without claiming DNS is enabled. */
+    private fun setupDeviceAdBlockingPreference() {
+        val preference = findPreference<Preference>(
+            getPreferenceKey(R.string.pref_key_device_ad_blocking),
+        ) ?: return
+        preference.isVisible = Build.VERSION.SDK_INT >= Build.VERSION_CODES.P
+        preference.setOnPreferenceClickListener {
+            val context = context ?: return@setOnPreferenceClickListener false
+            AlertDialog.Builder(context)
+                .setTitle(R.string.device_ad_blocking_title)
+                .setMessage(R.string.device_ad_blocking_explanation)
+                .setPositiveButton(R.string.device_ad_blocking_open_settings) { _, _ ->
+                    try {
+                        startActivity(Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS))
+                    } catch (_: ActivityNotFoundException) {
+                        Toast.makeText(context, R.string.device_ad_blocking_settings_unavailable, Toast.LENGTH_LONG)
+                            .show()
+                    }
+                }
+                .setNeutralButton(R.string.device_ad_blocking_copy) { _, _ ->
+                    val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as? android.content.ClipboardManager
+                    clipboard?.setPrimaryClip(android.content.ClipData.newPlainText("Private DNS", "dns.adguard-dns.com"))
+                }
+                .setNegativeButton(android.R.string.cancel, null)
+                .show()
+            true
+        }
+    }
+
     /** Show the engine-confirmed state separately from the user's requested switch state. */
     private fun setupEyeblockPreference() {
         val preference = findPreference<SwitchPreference>(getPreferenceKey(R.string.pref_key_eyeblock))
@@ -921,6 +950,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
                 (requireContext().components.core.engine.profiler?.isProfilerActive() != null)
         }
         setupEyeblockPreference()
+        setupDeviceAdBlockingPreference()
         setupIndoAccountPreferences()
         setupVpnPreference()
         setupSyncPreference()
