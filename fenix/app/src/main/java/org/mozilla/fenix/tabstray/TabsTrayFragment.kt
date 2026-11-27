@@ -65,7 +65,7 @@ import org.mozilla.fenix.tabstray.ext.collectionMessage
 import org.mozilla.fenix.tabstray.ext.make
 import org.mozilla.fenix.tabstray.ext.showWithTheme
 import org.mozilla.fenix.tabstray.syncedtabs.SyncedTabsIntegration
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.theme.Theme
 import org.mozilla.fenix.theme.ThemeManager
 import org.mozilla.fenix.utils.allowUndo
@@ -238,7 +238,7 @@ class TabsTrayFragment : AppCompatDialogFragment() {
             )
 
             tabsTrayComposeBinding.root.setContent {
-                FirefoxTheme(theme = Theme.getTheme(allowPrivateTheme = false)) {
+                EyebrowseTheme(theme = Theme.getTheme(allowPrivateTheme = false)) {
                     TabsTray(
                         appStore = requireComponents.appStore,
                         browserStore = requireComponents.core.store,
@@ -312,7 +312,7 @@ class TabsTrayFragment : AppCompatDialogFragment() {
             }
 
             fabButtonComposeBinding.root.setContent {
-                FirefoxTheme(theme = Theme.getTheme(allowPrivateTheme = false)) {
+                EyebrowseTheme(theme = Theme.getTheme(allowPrivateTheme = false)) {
                     TabsTrayFab(
                         tabsTrayStore = tabsTrayStore,
                         isSignedIn = requireContext().settings().signedInFxaAccount,

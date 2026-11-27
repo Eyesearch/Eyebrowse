@@ -139,7 +139,7 @@ class BrowserFragmentTest {
         val toolbar: BrowserToolbarView = mockk(relaxed = true)
         every { browserFragment.browserToolbarView } returns toolbar
 
-        val newSelectedTab = createTab("https://firefox.com")
+        val newSelectedTab = createTab("https://eyebrowse.com")
         addAndSelectTab(newSelectedTab)
         verify(exactly = 1) { toolbar.expand() }
     }
@@ -149,7 +149,7 @@ class BrowserFragmentTest {
         browserFragment.browserInitialized = true
         browserFragment.observeTabSelection(store)
 
-        val newSelectedTab = createTab("https://firefox.com")
+        val newSelectedTab = createTab("https://eyebrowse.com")
         addAndSelectTab(newSelectedTab)
         verify(exactly = 1) { browserFragment.fullScreenChanged(false) }
     }
@@ -159,7 +159,7 @@ class BrowserFragmentTest {
         browserFragment.browserInitialized = true
         browserFragment.observeTabSelection(store)
 
-        val newSelectedTab = createTab("https://firefox.com")
+        val newSelectedTab = createTab("https://eyebrowse.com")
         addAndSelectTab(newSelectedTab)
         verify(exactly = 1) {
             browserFragment.resumeDownloadDialogState(newSelectedTab.id, store, context, any())

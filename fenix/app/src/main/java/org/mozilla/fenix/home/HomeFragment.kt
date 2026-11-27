@@ -141,7 +141,7 @@ import org.mozilla.fenix.search.toolbar.DefaultSearchSelectorController
 import org.mozilla.fenix.search.toolbar.SearchSelectorMenu
 import org.mozilla.fenix.tabstray.Page
 import org.mozilla.fenix.tabstray.TabsTrayAccessPoint
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.utils.Settings.Companion.TOP_SITES_PROVIDER_MAX_THRESHOLD
 import org.mozilla.fenix.utils.allowUndo
 import org.mozilla.fenix.wallpapers.Wallpaper
@@ -477,7 +477,7 @@ class HomeFragment : Fragment() {
                 parent = binding.homeLayout,
                 hideOnScroll = false,
                 composableContent = {
-                    FirefoxTheme {
+                    EyebrowseTheme {
                         Column {
                             if (isToolbarAtBottom) {
                                 AndroidView(factory = { _ -> binding.toolbarLayout })
@@ -772,7 +772,7 @@ class HomeFragment : Fragment() {
         binding.tabStripView.apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
-                FirefoxTheme {
+                EyebrowseTheme {
                     TabStrip(
                         onHome = true,
                         onAddTabClick = {
@@ -906,7 +906,7 @@ class HomeFragment : Fragment() {
                                     duration = Snackbar.LENGTH_SHORT,
                                     isDisplayedWithBrowserToolbar = false,
                                 )
-                                    .setText(it.context.getString(R.string.onboarding_firefox_account_sync_is_on))
+                                    .setText(it.context.getString(R.string.onboarding_eyebrowse_account_sync_is_on))
                                     .setAnchorView(binding.toolbarLayout)
                                     .show()
                             }
@@ -1014,11 +1014,11 @@ class HomeFragment : Fragment() {
                     dismissRecommendPrivateBrowsingShortcut()
                 },
                 text = {
-                    FirefoxTheme {
+                    EyebrowseTheme {
                         Text(
                             text = context.getString(R.string.private_mode_cfr_message_2),
-                            color = FirefoxTheme.colors.textOnColorPrimary,
-                            style = FirefoxTheme.typography.headline7,
+                            color = EyebrowseTheme.colors.textOnColorPrimary,
+                            style = EyebrowseTheme.typography.headline7,
                             modifier = Modifier
                                 .semantics {
                                     testTagsAsResourceId = true
@@ -1028,7 +1028,7 @@ class HomeFragment : Fragment() {
                     }
                 },
                 action = {
-                    FirefoxTheme {
+                    EyebrowseTheme {
                         TextButton(
                             onClick = {
                                 PrivateBrowsingShortcutCfr.addShortcut.record(NoExtras())
@@ -1051,7 +1051,7 @@ class HomeFragment : Fragment() {
                             Text(
                                 text = context.getString(R.string.private_mode_cfr_pos_button_text),
                                 color = PhotonColors.DarkGrey50,
-                                style = FirefoxTheme.typography.headline7,
+                                style = EyebrowseTheme.typography.headline7,
                                 textAlign = TextAlign.Center,
                             )
                         }
@@ -1073,8 +1073,8 @@ class HomeFragment : Fragment() {
                             Text(
                                 text = context.getString(R.string.cfr_neg_button_text),
                                 textAlign = TextAlign.Center,
-                                color = FirefoxTheme.colors.textOnColorPrimary,
-                                style = FirefoxTheme.typography.headline7,
+                                color = EyebrowseTheme.colors.textOnColorPrimary,
+                                style = EyebrowseTheme.typography.headline7,
                             )
                         }
                     }

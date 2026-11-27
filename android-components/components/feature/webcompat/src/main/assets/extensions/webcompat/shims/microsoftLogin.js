@@ -5,7 +5,7 @@
 const SANDBOX_ATTR = "allow-storage-access-by-user-activation";
 
 console.warn(
-  "Firefox calls the Storage Access API on behalf of the site. See https://bugzilla.mozilla.org/show_bug.cgi?id=1638383 for details."
+  "Eyebrowse calls the Storage Access API on behalf of the site. See https://bugzilla.mozilla.org/show_bug.cgi?id=1638383 for details."
 );
 
 // Watches for MS auth iframes and adds missing sandbox attribute. The attribute

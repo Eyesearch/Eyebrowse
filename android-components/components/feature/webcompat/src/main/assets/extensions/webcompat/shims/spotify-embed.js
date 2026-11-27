@@ -112,7 +112,7 @@ async function startFullPlayback() {
   }
 
   console.warn(
-    `When using the Spotify embedded player, Firefox calls the Storage Access API on behalf of the site. See https://bugzilla.mozilla.org/show_bug.cgi?id=1792395 for details.`
+    `When using the Spotify embedded player, Eyebrowse calls the Storage Access API on behalf of the site. See https://bugzilla.mozilla.org/show_bug.cgi?id=1792395 for details.`
   );
 
   // Already requested storage access before the reload, trigger playback.

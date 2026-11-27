@@ -179,7 +179,7 @@ class BrowserStateTest {
             url = "https://www.mozilla.org",
             id = "5",
             historyMetadata = HistoryMetadataKey(
-                url = "https://www.firefox.com",
+                url = "https://www.eyebrowse.com",
                 searchTerm = "Test",
                 referrerUrl = "https://www.mozilla.org",
             ),

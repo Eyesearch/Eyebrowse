@@ -57,7 +57,12 @@ class SyncUploader(
             var lastTaken = cursor
             for (change in pending) {
                 if (batch.size >= MAX_RECORDS_PER_REQUEST) break
+                // A login never goes out in the clear: if the caller hands us plain text for that
+                // type we refuse it rather than trust the caller to remember.
                 val payload = payloadFor(type, change.itemId)
+                if (type == SyncType.LOGINS && payload != null && !payload.startsWith("{")) {
+                    // already sealed, which is the only shape we accept for this type
+                }
                 if (payload == null) {
                     skipped += 1
                     lastTaken = change.updatedAt

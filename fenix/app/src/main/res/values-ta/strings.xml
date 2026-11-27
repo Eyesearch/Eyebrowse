@@ -206,7 +206,7 @@
 
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">அணுகுத்திறன்</string>
-    <!-- Preference to override the Firefox Account server -->
+    <!-- Preference to override the Eyebrowse Account server -->
     <string name="preferences_override_fxa_server">தனிப்பயன் பயர்பாக்சு கணக்குச் சேவையகம்</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">தனிப்பயன் ஒத்திசைவு சேவையகம்</string>
@@ -775,7 +775,7 @@
     <string name="deleting_browsing_data_in_progress">உலாவி வரலாற்றை அழிக்கிறது…</string>
 
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">ஒத்திசைவு இயக்கத்தில்</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">ஒத்திசைவு இயக்கத்தில்</string>
 
     <!-- text for tracking protection radio button option for standard level of blocking -->
     <string name="onboarding_tracking_protection_standard_button_2">நிலையான (இயல்புநிலை)</string>
@@ -819,7 +819,7 @@
     <string name="sign_in_with_camera">உங்கள் படக்கருவியால் புகுபதிக</string>
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">பதிலாக மின்னஞ்சல் பயன்படுத்துக</string>
-    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="sign_out_confirmation_message_2">%s உங்கள் கணக்குடன் ஒத்திசைவை நிறுத்தும், ஆனால் இச்சாதனத்திலுள்ள உங்கள் உலாவல் தரவை அழிக்காது.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
     <string name="sign_out_disconnect">இணைப்பைநீக்கு</string>
@@ -1129,13 +1129,13 @@
 
     <!-- Text displayed asking user to re-authenticate -->
     <string name="synced_tabs_reauth">மறு-அங்கீகரியுங்கள்.</string>
-    <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+    <!-- Text displayed when user has disabled tab syncing in Eyebrowse Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">கீற்று ஒத்திசைவைச் செயற்படுத்துங்கள்.</string>
     <!-- Text displayed when user has no tabs that have been synced -->
     <string name="synced_tabs_no_tabs">உங்களின் மற்ற சாதனங்களின் பயர்பாக்சில் திறந்த கீற்றுகள் ஏதுமில்லை.</string>
-    <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+    <!-- Text displayed in the synced tabs screen when a user is not signed in to Eyebrowse Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">உங்கள் மற்ற கருவிகளிலிருந்து கீற்றுகளின் பட்டியலைப் பார்க்க.</string>
-    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Eyebrowse Sync -->
     <string name="synced_tabs_sign_in_button">ஒத்திசைக்க புகுபதிக</string>
 
     <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->

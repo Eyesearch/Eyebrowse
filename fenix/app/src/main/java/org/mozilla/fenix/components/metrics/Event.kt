@@ -18,7 +18,7 @@ sealed class Event {
      */
     sealed class GrowthData(val tokenName: String) : Event() {
         /**
-         * Event recording whether Firefox has been set as the default browser.
+         * Event recording whether Eyebrowse has been set as the default browser.
          */
         object SetAsDefault : GrowthData("xgpcgt")
 
@@ -28,7 +28,7 @@ sealed class Event {
         object SerpAdClicked : GrowthData("e2x17e")
 
         /**
-         * Event recording the first time Firefox is used 3 days in a row in the first week of install.
+         * Event recording the first time Eyebrowse is used 3 days in a row in the first week of install.
          */
         object FirstWeekSeriesActivity : GrowthData("20ay7u")
 
@@ -38,12 +38,12 @@ sealed class Event {
         object UsageThreshold : GrowthData("m66prt")
 
         /**
-         * Event recording the first time Firefox has been resumed in a 24 hour period.
+         * Event recording the first time Eyebrowse has been resumed in a 24 hour period.
          */
         object FirstAppOpenForDay : GrowthData("41hl22")
 
         /**
-         * Event recording the first time a URI is loaded in Firefox in a 24 hour period.
+         * Event recording the first time a URI is loaded in Eyebrowse in a 24 hour period.
          */
         object FirstUriLoadForDay : GrowthData("ja86ek")
 

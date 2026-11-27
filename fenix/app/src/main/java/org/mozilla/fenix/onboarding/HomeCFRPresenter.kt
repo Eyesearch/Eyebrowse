@@ -24,7 +24,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.ext.settings
 import org.mozilla.fenix.home.recentsyncedtabs.view.RecentSyncedTabViewHolder
 import org.mozilla.fenix.home.recenttabs.view.RecentTabsHeaderViewHolder
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Vertical padding needed to improve the visual alignment of the popup and respect the UX design.
@@ -85,11 +85,11 @@ class HomeCFRPresenter(
                 }
             },
             text = {
-                FirefoxTheme {
+                EyebrowseTheme {
                     Text(
                         text = context.getString(R.string.sync_cfr_message),
-                        color = FirefoxTheme.colors.textOnColorPrimary,
-                        style = FirefoxTheme.typography.body2,
+                        color = EyebrowseTheme.colors.textOnColorPrimary,
+                        style = EyebrowseTheme.typography.body2,
                         modifier = Modifier
                             .semantics {
                                 testTagsAsResourceId = true
@@ -129,11 +129,11 @@ class HomeCFRPresenter(
                 }
             },
             text = {
-                FirefoxTheme {
+                EyebrowseTheme {
                     Text(
                         text = context.getString(R.string.onboarding_home_screen_jump_back_contextual_hint_2),
-                        color = FirefoxTheme.colors.textOnColorPrimary,
-                        style = FirefoxTheme.typography.body2,
+                        color = EyebrowseTheme.colors.textOnColorPrimary,
+                        style = EyebrowseTheme.typography.body2,
                         modifier = Modifier
                             .semantics {
                                 testTagsAsResourceId = true

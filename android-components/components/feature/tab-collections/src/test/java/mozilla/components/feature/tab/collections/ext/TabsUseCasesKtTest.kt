@@ -65,8 +65,8 @@ class TabsUseCasesKtTest {
 
         tab = mock<Tab>().apply {
             whenever(id).thenReturn(123)
-            whenever(title).thenReturn("Firefox")
-            whenever(url).thenReturn("https://firefox.com")
+            whenever(title).thenReturn("Eyebrowse")
+            whenever(url).thenReturn("https://eyebrowse.com")
             whenever(restore(filesDir, engine, false)).thenReturn(recoveredTab)
         }
         collection = mock<TabCollection>().apply {

@@ -50,7 +50,7 @@ import org.mozilla.fenix.compose.MenuItem
 import org.mozilla.fenix.compose.TabCounter
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.tabstray.ext.getMenuItems
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import kotlin.math.max
 
 private val ICON_SIZE = 24.dp
@@ -185,11 +185,11 @@ private fun SingleSelectBanner(
     onTabPageIndicatorClicked: (Page) -> Unit,
     onDismissClick: () -> Unit,
 ) {
-    val selectedColor = FirefoxTheme.colors.iconActive
-    val inactiveColor = FirefoxTheme.colors.iconPrimaryInactive
+    val selectedColor = EyebrowseTheme.colors.iconActive
+    val inactiveColor = EyebrowseTheme.colors.iconPrimaryInactive
     var showMenu by remember { mutableStateOf(false) }
 
-    Column(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    Column(modifier = Modifier.background(color = EyebrowseTheme.colors.layer1)) {
         Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.bottom_sheet_handle_top_margin)))
 
         BottomSheetHandle(
@@ -278,7 +278,7 @@ private fun SingleSelectBanner(
                 Icon(
                     painter = painterResource(R.drawable.ic_menu),
                     contentDescription = stringResource(id = R.string.open_tabs_menu),
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = EyebrowseTheme.colors.iconPrimary,
                 )
             }
         }
@@ -309,22 +309,22 @@ private fun MultiSelectBanner(
         modifier = Modifier
             .fillMaxWidth()
             .height(88.dp)
-            .background(color = FirefoxTheme.colors.layerAccent),
+            .background(color = EyebrowseTheme.colors.layerAccent),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         IconButton(onClick = onExitSelectModeClick) {
             Icon(
                 painter = painterResource(id = R.drawable.ic_close),
                 contentDescription = stringResource(id = R.string.tab_tray_close_multiselect_content_description),
-                tint = FirefoxTheme.colors.iconOnColor,
+                tint = EyebrowseTheme.colors.iconOnColor,
             )
         }
 
         Text(
             text = stringResource(R.string.tab_tray_multi_select_title, selectedTabCount),
             modifier = Modifier.testTag(TabsTrayTestTag.selectionCounter),
-            style = FirefoxTheme.typography.headline6,
-            color = FirefoxTheme.colors.textOnColorPrimary,
+            style = EyebrowseTheme.typography.headline6,
+            color = EyebrowseTheme.colors.textOnColorPrimary,
         )
 
         Spacer(modifier = Modifier.weight(1.0f))
@@ -339,7 +339,7 @@ private fun MultiSelectBanner(
                 contentDescription = stringResource(
                     id = R.string.tab_tray_collection_button_multiselect_content_description,
                 ),
-                tint = FirefoxTheme.colors.iconOnColor,
+                tint = EyebrowseTheme.colors.iconOnColor,
             )
         }
 
@@ -349,7 +349,7 @@ private fun MultiSelectBanner(
                 contentDescription = stringResource(
                     id = R.string.tab_tray_multiselect_share_content_description,
                 ),
-                tint = FirefoxTheme.colors.iconOnColor,
+                tint = EyebrowseTheme.colors.iconOnColor,
             )
         }
 
@@ -357,7 +357,7 @@ private fun MultiSelectBanner(
             Icon(
                 painter = painterResource(id = R.drawable.ic_menu),
                 contentDescription = stringResource(id = R.string.tab_tray_multiselect_menu_content_description),
-                tint = FirefoxTheme.colors.iconOnColor,
+                tint = EyebrowseTheme.colors.iconOnColor,
             )
 
             ContextualMenu(
@@ -438,7 +438,7 @@ private fun TabsTrayBannerPreviewRoot(
         ),
     )
 
-    FirefoxTheme {
+    EyebrowseTheme {
         Box(modifier = Modifier.size(400.dp)) {
             TabsTrayBanner(
                 tabsTrayStore = tabsTrayStore,

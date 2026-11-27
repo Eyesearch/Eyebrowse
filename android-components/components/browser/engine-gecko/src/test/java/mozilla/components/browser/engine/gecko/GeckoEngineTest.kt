@@ -937,7 +937,7 @@ class GeckoEngineTest {
     fun `install external web extension successfully`() {
         val runtime = mock<GeckoRuntime>()
         val extId = "test-webext"
-        val extUrl = "https://addons.mozilla.org/firefox/downloads/file/123/some_web_ext.xpi"
+        val extUrl = "https://addons.mozilla.org/eyebrowse/downloads/file/123/some_web_ext.xpi"
 
         val extensionController: WebExtensionController = mock()
         whenever(runtime.webExtensionController).thenReturn(extensionController)
@@ -995,7 +995,7 @@ class GeckoEngineTest {
     @Test
     fun `install external web extension failure`() {
         val runtime = mock<GeckoRuntime>()
-        val extUrl = "https://addons.mozilla.org/firefox/downloads/file/123/some_web_ext.xpi"
+        val extUrl = "https://addons.mozilla.org/eyebrowse/downloads/file/123/some_web_ext.xpi"
 
         val extensionController: WebExtensionController = mock()
         whenever(runtime.webExtensionController).thenReturn(extensionController)
@@ -1023,7 +1023,7 @@ class GeckoEngineTest {
     fun `install web extension with installation method manager`() {
         val runtime = mock<GeckoRuntime>()
         val extId = "test-webext"
-        val extUrl = "https://addons.mozilla.org/firefox/downloads/file/123/some_web_ext.xpi"
+        val extUrl = "https://addons.mozilla.org/eyebrowse/downloads/file/123/some_web_ext.xpi"
 
         val extensionController: WebExtensionController = mock()
         whenever(runtime.webExtensionController).thenReturn(extensionController)
@@ -1053,7 +1053,7 @@ class GeckoEngineTest {
     fun `install web extension with installation method file`() {
         val runtime = mock<GeckoRuntime>()
         val extId = "test-webext"
-        val extUrl = "https://addons.mozilla.org/firefox/downloads/file/123/some_web_ext.xpi"
+        val extUrl = "https://addons.mozilla.org/eyebrowse/downloads/file/123/some_web_ext.xpi"
 
         val extensionController: WebExtensionController = mock()
         whenever(runtime.webExtensionController).thenReturn(extensionController)
@@ -1083,7 +1083,7 @@ class GeckoEngineTest {
     fun `install web extension with null installation method`() {
         val runtime = mock<GeckoRuntime>()
         val extId = "test-webext"
-        val extUrl = "https://addons.mozilla.org/firefox/downloads/file/123/some_web_ext.xpi"
+        val extUrl = "https://addons.mozilla.org/eyebrowse/downloads/file/123/some_web_ext.xpi"
 
         val extensionController: WebExtensionController = mock()
         whenever(runtime.webExtensionController).thenReturn(extensionController)
@@ -1166,7 +1166,7 @@ class GeckoEngineTest {
 
         val nativeExtension = mockNativeWebExtension(
             "test-webext",
-            "https://addons.mozilla.org/firefox/downloads/file/123/some_web_ext.xpi",
+            "https://addons.mozilla.org/eyebrowse/downloads/file/123/some_web_ext.xpi",
         )
         val ext = mozilla.components.browser.engine.gecko.webextension.GeckoWebExtension(
             nativeExtension,
@@ -1231,7 +1231,7 @@ class GeckoEngineTest {
         engine.registerWebExtensionDelegate(webExtensionsDelegate)
 
         val extId = "test-webext"
-        val extUrl = "https://addons.mozilla.org/firefox/downloads/123/some_web_ext.xpi"
+        val extUrl = "https://addons.mozilla.org/eyebrowse/downloads/123/some_web_ext.xpi"
         val result = GeckoResult<GeckoWebExtension>()
         whenever(webExtensionController.install(any(), any())).thenReturn(result)
         engine.installWebExtension(extUrl)
@@ -1562,7 +1562,7 @@ class GeckoEngineTest {
     fun `web extension delegate notified of browser actions from external extensions`() {
         val runtime = mock<GeckoRuntime>()
         val extId = "test-webext"
-        val extUrl = "https://addons.mozilla.org/firefox/downloads/file/123/some_web_ext.xpi"
+        val extUrl = "https://addons.mozilla.org/eyebrowse/downloads/file/123/some_web_ext.xpi"
 
         val extensionController: WebExtensionController = mock()
         whenever(runtime.webExtensionController).thenReturn(extensionController)
@@ -1598,7 +1598,7 @@ class GeckoEngineTest {
     fun `web extension delegate notified of page actions from external extensions`() {
         val runtime = mock<GeckoRuntime>()
         val extId = "test-webext"
-        val extUrl = "https://addons.mozilla.org/firefox/downloads/file/123/some_web_ext.xpi"
+        val extUrl = "https://addons.mozilla.org/eyebrowse/downloads/file/123/some_web_ext.xpi"
 
         val extensionController: WebExtensionController = mock()
         whenever(runtime.webExtensionController).thenReturn(extensionController)
@@ -1634,7 +1634,7 @@ class GeckoEngineTest {
     fun `web extension delegate notified when external extension wants to open tab`() {
         val runtime = mock<GeckoRuntime>()
         val extId = "test-webext"
-        val extUrl = "https://addons.mozilla.org/firefox/downloads/file/123/some_web_ext.xpi"
+        val extUrl = "https://addons.mozilla.org/eyebrowse/downloads/file/123/some_web_ext.xpi"
 
         val extensionController: WebExtensionController = mock()
         whenever(runtime.webExtensionController).thenReturn(extensionController)

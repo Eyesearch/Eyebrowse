@@ -16,7 +16,7 @@ class DiskIconPreparerTest {
     fun `Preparer will add resources from cache`() {
         val resources = listOf(
             IconRequest.Resource("https://www.mozilla.org", type = IconRequest.Resource.Type.FAVICON),
-            IconRequest.Resource("https://www.firefox.com", type = IconRequest.Resource.Type.APPLE_TOUCH_ICON),
+            IconRequest.Resource("https://www.eyebrowse.com", type = IconRequest.Resource.Type.APPLE_TOUCH_ICON),
         )
 
         val cache: DiskIconPreparer.PreparerDiskCache = mock()
@@ -32,7 +32,7 @@ class DiskIconPreparerTest {
         assertEquals(
             listOf(
                 "https://www.mozilla.org",
-                "https://www.firefox.com",
+                "https://www.eyebrowse.com",
             ),
             request.resources.map { it.url },
         )
@@ -42,7 +42,7 @@ class DiskIconPreparerTest {
     fun `Preparer will not add resources if request already has resources`() {
         val resources = listOf(
             IconRequest.Resource("https://www.mozilla.org", type = IconRequest.Resource.Type.FAVICON),
-            IconRequest.Resource("https://www.firefox.com", type = IconRequest.Resource.Type.APPLE_TOUCH_ICON),
+            IconRequest.Resource("https://www.eyebrowse.com", type = IconRequest.Resource.Type.APPLE_TOUCH_ICON),
         )
 
         val cache: DiskIconPreparer.PreparerDiskCache = mock()

@@ -36,7 +36,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.Favicon
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.compose.button.RadioButton
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 private val LIST_ITEM_HEIGHT = 56.dp
 
@@ -87,7 +87,7 @@ fun TextListItem(
                 Icon(
                     painter = iconPainter,
                     contentDescription = iconDescription,
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = EyebrowseTheme.colors.iconPrimary,
                 )
             }
         }
@@ -150,7 +150,7 @@ fun FaviconListItem(
                     Icon(
                         painter = iconPainter,
                         contentDescription = iconDescription,
-                        tint = FirefoxTheme.colors.iconPrimary,
+                        tint = EyebrowseTheme.colors.iconPrimary,
                     )
                 }
             }
@@ -191,7 +191,7 @@ fun IconListItem(
                 painter = beforeIconPainter,
                 contentDescription = beforeIconDescription,
                 modifier = Modifier.padding(horizontal = 16.dp),
-                tint = FirefoxTheme.colors.iconPrimary,
+                tint = EyebrowseTheme.colors.iconPrimary,
             )
         },
         afterListAction = {
@@ -205,7 +205,7 @@ fun IconListItem(
                     Icon(
                         painter = afterIconPainter,
                         contentDescription = afterIconDescription,
-                        tint = FirefoxTheme.colors.iconPrimary,
+                        tint = EyebrowseTheme.colors.iconPrimary,
                     )
                 }
             }
@@ -306,16 +306,16 @@ private fun ListItem(
         ) {
             Text(
                 text = label,
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.subtitle1,
+                color = EyebrowseTheme.colors.textPrimary,
+                style = EyebrowseTheme.typography.subtitle1,
                 maxLines = maxLabelLines,
             )
 
             description?.let {
                 Text(
                     text = description,
-                    color = FirefoxTheme.colors.textSecondary,
-                    style = FirefoxTheme.typography.body2,
+                    color = EyebrowseTheme.colors.textSecondary,
+                    style = EyebrowseTheme.typography.body2,
                     maxLines = maxDescriptionLines,
                 )
             }
@@ -328,8 +328,8 @@ private fun ListItem(
 @Composable
 @Preview(name = "TextListItem", uiMode = Configuration.UI_MODE_NIGHT_YES)
 private fun TextListItemPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Box(Modifier.background(EyebrowseTheme.colors.layer1)) {
             TextListItem(label = "Label only")
         }
     }
@@ -338,8 +338,8 @@ private fun TextListItemPreview() {
 @Composable
 @Preview(name = "TextListItem with a description", uiMode = Configuration.UI_MODE_NIGHT_YES)
 private fun TextListItemWithDescriptionPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Box(Modifier.background(EyebrowseTheme.colors.layer1)) {
             TextListItem(
                 label = "Label + description",
                 description = "Description text",
@@ -351,8 +351,8 @@ private fun TextListItemWithDescriptionPreview() {
 @Composable
 @Preview(name = "TextListItem with a right icon", uiMode = Configuration.UI_MODE_NIGHT_YES)
 private fun TextListItemWithIconPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Box(Modifier.background(EyebrowseTheme.colors.layer1)) {
             TextListItem(
                 label = "Label + right icon",
                 iconPainter = painterResource(R.drawable.ic_menu),
@@ -366,8 +366,8 @@ private fun TextListItemWithIconPreview() {
 @Composable
 @Preview(name = "IconListItem", uiMode = Configuration.UI_MODE_NIGHT_YES)
 private fun IconListItemPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Box(Modifier.background(EyebrowseTheme.colors.layer1)) {
             IconListItem(
                 label = "Left icon list item",
                 beforeIconPainter = painterResource(R.drawable.ic_folder_icon),
@@ -383,8 +383,8 @@ private fun IconListItemPreview() {
     uiMode = Configuration.UI_MODE_NIGHT_YES,
 )
 private fun IconListItemWithRightIconPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Box(Modifier.background(EyebrowseTheme.colors.layer1)) {
             IconListItem(
                 label = "Left icon list item + right icon",
                 beforeIconPainter = painterResource(R.drawable.ic_folder_icon),
@@ -403,8 +403,8 @@ private fun IconListItemWithRightIconPreview() {
     uiMode = Configuration.UI_MODE_NIGHT_YES,
 )
 private fun FaviconListItemPreview() {
-    FirefoxTheme {
-        Column(Modifier.background(FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Column(Modifier.background(EyebrowseTheme.colors.layer1)) {
             FaviconListItem(
                 label = "Favicon + right icon + clicks",
                 description = "Description text",
@@ -431,8 +431,8 @@ private fun RadioButtonListItemPreview() {
     val radioOptions =
         listOf("Radio button first item", "Radio button second item", "Radio button third item")
     val (selectedOption, onOptionSelected) = remember { mutableStateOf(radioOptions[1]) }
-    FirefoxTheme {
-        Column(Modifier.background(FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Column(Modifier.background(EyebrowseTheme.colors.layer1)) {
             radioOptions.forEach { text ->
                 RadioButtonListItem(
                     label = text,

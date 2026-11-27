@@ -8,7 +8,7 @@ import android.content.Context
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import mozilla.components.feature.accounts.FirefoxAccountsAuthFeature
+import mozilla.components.feature.accounts.EyebrowseAccountsAuthFeature
 import mozilla.components.feature.app.links.AppLinksInterceptor
 import mozilla.components.service.fxa.manager.FxaAccountManager
 import org.mozilla.fenix.ext.application
@@ -24,7 +24,7 @@ class Services(
     private val accountManager: FxaAccountManager,
 ) {
     val accountsAuthFeature by lazyMonitored {
-        FirefoxAccountsAuthFeature(accountManager, FxaServer.REDIRECT_URL) { context, authUrl ->
+        EyebrowseAccountsAuthFeature(accountManager, FxaServer.REDIRECT_URL) { context, authUrl ->
             CoroutineScope(Dispatchers.Main).launch {
                 val intent = SupportUtils.createAuthCustomTabIntent(context, authUrl)
                 context.startActivity(intent)

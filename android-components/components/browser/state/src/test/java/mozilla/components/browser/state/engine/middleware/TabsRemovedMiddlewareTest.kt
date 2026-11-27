@@ -60,7 +60,7 @@ class TabsRemovedMiddlewareTest {
         val middleware = TabsRemovedMiddleware(scope)
 
         val tab1 = createTab("https://www.mozilla.org", id = "1", private = false)
-        val tab2 = createTab("https://www.firefox.com", id = "2", private = false)
+        val tab2 = createTab("https://www.eyebrowse.com", id = "2", private = false)
         val tab3 = createTab("https://www.getpocket.com", id = "3", private = false)
 
         val store = BrowserStore(
@@ -89,7 +89,7 @@ class TabsRemovedMiddlewareTest {
         val middleware = TabsRemovedMiddleware(scope)
 
         val tab1 = createTab("https://www.mozilla.org", id = "1", private = false)
-        val tab2 = createTab("https://www.firefox.com", id = "2", private = false)
+        val tab2 = createTab("https://www.eyebrowse.com", id = "2", private = false)
         val tab3 = createTab("https://www.getpocket.com", id = "3", private = true)
         val store = BrowserStore(
             initialState = BrowserState(tabs = listOf(tab1, tab2, tab3)),
@@ -117,7 +117,7 @@ class TabsRemovedMiddlewareTest {
         val middleware = TabsRemovedMiddleware(scope)
 
         val tab1 = createTab("https://www.mozilla.org", id = "1", private = true)
-        val tab2 = createTab("https://www.firefox.com", id = "2", private = true)
+        val tab2 = createTab("https://www.eyebrowse.com", id = "2", private = true)
         val tab3 = createTab("https://www.getpocket.com", id = "3", private = false)
         val store = BrowserStore(
             initialState = BrowserState(tabs = listOf(tab1, tab2, tab3)),
@@ -145,7 +145,7 @@ class TabsRemovedMiddlewareTest {
         val middleware = TabsRemovedMiddleware(scope)
 
         val tab1 = createTab("https://www.mozilla.org", id = "1", private = true)
-        val tab2 = createTab("https://www.firefox.com", id = "2", private = false)
+        val tab2 = createTab("https://www.eyebrowse.com", id = "2", private = false)
         val tab3 = createCustomTab("https://www.getpocket.com", id = "3")
         val store = BrowserStore(
             initialState = BrowserState(tabs = listOf(tab1, tab2), customTabs = listOf(tab3)),
@@ -192,7 +192,7 @@ class TabsRemovedMiddlewareTest {
         val middleware = TabsRemovedMiddleware(scope)
 
         val tab1 = createCustomTab("https://www.mozilla.org", id = "1")
-        val tab2 = createCustomTab("https://www.firefox.com", id = "2")
+        val tab2 = createCustomTab("https://www.eyebrowse.com", id = "2")
         val tab3 = createTab("https://www.getpocket.com", id = "3")
         val store = BrowserStore(
             initialState = BrowserState(customTabs = listOf(tab1, tab2), tabs = listOf(tab3)),

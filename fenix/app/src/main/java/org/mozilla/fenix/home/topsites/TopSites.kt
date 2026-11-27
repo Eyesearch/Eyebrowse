@@ -58,7 +58,7 @@ import org.mozilla.fenix.compose.MenuItem
 import org.mozilla.fenix.compose.PagerIndicator
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.settings.SupportUtils
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.wallpapers.WallpaperState
 import kotlin.math.ceil
 import org.mozilla.fenix.GleanMetrics.TopSites as TopSitesMetrics
@@ -187,9 +187,9 @@ data class TopSiteColors(
          */
         @Composable
         fun colors(
-            titleTextColor: Color = FirefoxTheme.colors.textPrimary,
-            sponsoredTextColor: Color = FirefoxTheme.colors.textSecondary,
-            faviconCardBackgroundColor: Color = FirefoxTheme.colors.layer2,
+            titleTextColor: Color = EyebrowseTheme.colors.textPrimary,
+            sponsoredTextColor: Color = EyebrowseTheme.colors.textSecondary,
+            faviconCardBackgroundColor: Color = EyebrowseTheme.colors.layer2,
         ) = TopSiteColors(
             titleTextColor = titleTextColor,
             sponsoredTextColor = sponsoredTextColor,
@@ -204,12 +204,12 @@ data class TopSiteColors(
         fun colors(wallpaperState: WallpaperState): TopSiteColors {
             val textColor: Long? = wallpaperState.currentWallpaper.textColor
             val (titleTextColor, sponsoredTextColor) = if (textColor == null) {
-                FirefoxTheme.colors.textPrimary to FirefoxTheme.colors.textSecondary
+                EyebrowseTheme.colors.textPrimary to EyebrowseTheme.colors.textSecondary
             } else {
                 Color(textColor) to Color(textColor)
             }
 
-            var faviconCardBackgroundColor = FirefoxTheme.colors.layer2
+            var faviconCardBackgroundColor = EyebrowseTheme.colors.layer2
 
             wallpaperState.composeRunIfWallpaperCardColorsAreAvailable { cardColorLight, cardColorDark ->
                 faviconCardBackgroundColor = if (isSystemInDarkTheme()) {
@@ -307,7 +307,7 @@ private fun TopSiteItem(
                     color = topSiteColors.titleTextColor,
                     overflow = TextOverflow.Ellipsis,
                     maxLines = 1,
-                    style = FirefoxTheme.typography.caption,
+                    style = EyebrowseTheme.typography.caption,
                 )
             }
 
@@ -491,8 +491,8 @@ private fun submitTopSitesImpressionPing(topSite: TopSite.Provided, position: In
 @Composable
 @LightDarkPreview
 private fun TopSitesPreview() {
-    FirefoxTheme {
-        Box(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Box(modifier = Modifier.background(color = EyebrowseTheme.colors.layer1)) {
             TopSites(
                 topSites = mutableListOf<TopSite>().apply {
                     for (index in 0 until 2) {

@@ -10,7 +10,7 @@ import mozilla.components.feature.fxsuggest.FxSuggestStorage
 import org.mozilla.fenix.perf.lazyMonitored
 
 /**
- * Component group for Firefox Suggest.
+ * Component group for Eyebrowse Suggest.
  *
  * @param context The Android application context.
  */

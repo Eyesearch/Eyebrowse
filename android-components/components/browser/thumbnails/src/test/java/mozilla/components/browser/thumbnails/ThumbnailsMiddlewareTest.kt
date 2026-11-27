@@ -60,7 +60,7 @@ class ThumbnailsMiddlewareTest {
             initialState = BrowserState(
                 tabs = listOf(
                     createTab("https://www.mozilla.org", id = "test-tab1"),
-                    createTab("https://www.firefox.com", id = "test-tab2"),
+                    createTab("https://www.eyebrowse.com", id = "test-tab2"),
                     createTab("https://www.wikipedia.com", id = "test-tab3"),
                     createTab("https://www.example.org", private = true, id = "test-tab4"),
                 ),
@@ -82,7 +82,7 @@ class ThumbnailsMiddlewareTest {
             initialState = BrowserState(
                 tabs = listOf(
                     createTab("https://www.mozilla.org", id = "test-tab1"),
-                    createTab("https://www.firefox.com", private = true, id = "test-tab2"),
+                    createTab("https://www.eyebrowse.com", private = true, id = "test-tab2"),
                     createTab("https://www.wikipedia.com", private = true, id = "test-tab3"),
                     createTab("https://www.example.org", private = true, id = "test-tab4"),
                 ),
@@ -104,7 +104,7 @@ class ThumbnailsMiddlewareTest {
             initialState = BrowserState(
                 tabs = listOf(
                     createTab("https://www.mozilla.org", id = "test-tab1"),
-                    createTab("https://www.firefox.com", id = "test-tab2"),
+                    createTab("https://www.eyebrowse.com", id = "test-tab2"),
                 ),
             ),
             middleware = listOf(ThumbnailsMiddleware(thumbnailStorage)),
@@ -122,7 +122,7 @@ class ThumbnailsMiddlewareTest {
             initialState = BrowserState(
                 tabs = listOf(
                     createTab("https://www.mozilla.org", id = "test-tab1"),
-                    createTab("https://www.firefox.com", id = "test-tab2"),
+                    createTab("https://www.eyebrowse.com", id = "test-tab2"),
                 ),
             ),
             middleware = listOf(ThumbnailsMiddleware(thumbnailStorage)),
@@ -140,7 +140,7 @@ class ThumbnailsMiddlewareTest {
             initialState = BrowserState(
                 tabs = listOf(
                     createTab("https://www.mozilla.org", id = "test-tab1", private = true),
-                    createTab("https://www.firefox.com", id = "test-tab2"),
+                    createTab("https://www.eyebrowse.com", id = "test-tab2"),
                 ),
             ),
             middleware = listOf(ThumbnailsMiddleware(thumbnailStorage)),
@@ -158,7 +158,7 @@ class ThumbnailsMiddlewareTest {
             initialState = BrowserState(
                 tabs = listOf(
                     createTab("https://www.mozilla.org", id = "test-tab1"),
-                    createTab("https://www.firefox.com", id = "test-tab2"),
+                    createTab("https://www.eyebrowse.com", id = "test-tab2"),
                 ),
             ),
             middleware = listOf(ThumbnailsMiddleware(thumbnailStorage)),
@@ -175,7 +175,7 @@ class ThumbnailsMiddlewareTest {
             initialState = BrowserState(
                 tabs = listOf(
                     createTab("https://www.mozilla.org", id = "test-tab1"),
-                    createTab("https://www.firefox.com", id = "test-tab2"),
+                    createTab("https://www.eyebrowse.com", id = "test-tab2"),
                 ),
             ),
             middleware = listOf(

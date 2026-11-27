@@ -14,7 +14,7 @@ import androidx.savedstate.setViewTreeSavedStateRegistryOwner
 import mozilla.components.browser.state.state.TabSessionState
 import mozilla.components.browser.tabstray.SelectableTabViewHolder
 import org.mozilla.fenix.compose.ComposeViewHolder
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.theme.Theme
 
 /**
@@ -39,7 +39,7 @@ abstract class ComposeAbstractTabViewHolder(
      */
     fun bind(tab: TabSessionState) {
         composeView.setContent {
-            FirefoxTheme(theme = Theme.getTheme(allowPrivateTheme = tab.content.private)) {
+            EyebrowseTheme(theme = Theme.getTheme(allowPrivateTheme = tab.content.private)) {
                 Content(tab)
             }
         }

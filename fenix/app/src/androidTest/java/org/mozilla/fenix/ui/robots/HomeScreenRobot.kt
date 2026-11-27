@@ -213,7 +213,7 @@ class HomeScreenRobot {
             it.onNodeWithText(
                 getStringResource(R.string.juno_onboarding_add_search_widget_positive_button),
             ).assertExists()
-            Log.i(TAG, "verifySecondOnboardingCard: Verified that the first onboarding \"Add Firefox widget\" button exists")
+            Log.i(TAG, "verifySecondOnboardingCard: Verified that the first onboarding \"Add Eyebrowse widget\" button exists")
             Log.i(TAG, "verifySecondOnboardingCard: Trying to verify that the second onboarding \"Not now\" button exists")
             it.onNodeWithTag(
                 getStringResource(R.string.juno_onboarding_add_search_widget_title) + "onboarding_card.negative_button",

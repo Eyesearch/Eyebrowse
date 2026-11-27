@@ -60,7 +60,7 @@ import org.mozilla.fenix.compose.HorizontalFadingEdgeBox
 import org.mozilla.fenix.tabstray.browser.compose.DragItemContainer
 import org.mozilla.fenix.tabstray.browser.compose.createListReorderState
 import org.mozilla.fenix.tabstray.browser.compose.detectListPressAndDrag
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.theme.Theme
 
 private val minTabStripItemWidth = 160.dp
@@ -132,7 +132,7 @@ private fun TabStripContent(
     Row(
         modifier = Modifier
             .fillMaxSize()
-            .background(FirefoxTheme.colors.layer1)
+            .background(EyebrowseTheme.colors.layer1)
             .systemGestureExclusion(),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -148,7 +148,7 @@ private fun TabStripContent(
             Icon(
                 painter = painterResource(R.drawable.mozac_ic_plus_24),
                 modifier = Modifier.size(addTabIconSize),
-                tint = FirefoxTheme.colors.iconPrimary,
+                tint = EyebrowseTheme.colors.iconPrimary,
                 contentDescription = stringResource(R.string.add_tab),
             )
         }
@@ -258,15 +258,15 @@ private fun TabItem(
 ) {
     val backgroundColor = if (state.isPrivate) {
         if (state.isSelected) {
-            FirefoxTheme.colors.layer3
+            EyebrowseTheme.colors.layer3
         } else {
-            FirefoxTheme.colors.layer2
+            EyebrowseTheme.colors.layer2
         }
     } else {
         if (state.isSelected) {
-            FirefoxTheme.colors.layer2
+            EyebrowseTheme.colors.layer2
         } else {
-            FirefoxTheme.colors.layer3
+            EyebrowseTheme.colors.layer3
         }
     }
 
@@ -312,10 +312,10 @@ private fun TabItem(
                     Text(
                         text = state.title,
                         modifier = Modifier.align(Alignment.CenterStart),
-                        color = FirefoxTheme.colors.textPrimary,
+                        color = EyebrowseTheme.colors.textPrimary,
                         softWrap = false,
                         maxLines = 1,
-                        style = FirefoxTheme.typography.subtitle2,
+                        style = EyebrowseTheme.typography.subtitle2,
                     )
                 }
             }
@@ -323,7 +323,7 @@ private fun TabItem(
             IconButton(onClick = { onCloseTabClick(state.id, state.isPrivate) }) {
                 Icon(
                     painter = painterResource(R.drawable.mozac_ic_cross_20),
-                    tint = FirefoxTheme.colors.iconPrimary,
+                    tint = EyebrowseTheme.colors.iconPrimary,
                     contentDescription = stringResource(R.string.close_tab),
                 )
             }
@@ -396,7 +396,7 @@ private class TabUIStateParameterProvider : PreviewParameterProvider<TabStripSta
 private fun TabStripPreview(
     @PreviewParameter(TabUIStateParameterProvider::class) tabStripState: TabStripState,
 ) {
-    FirefoxTheme {
+    EyebrowseTheme {
         TabStripContentPreview(tabStripState.tabs.filter { !it.isPrivate })
     }
 }
@@ -406,7 +406,7 @@ private fun TabStripPreview(
 private fun TabStripPreviewDarkMode(
     @PreviewParameter(TabUIStateParameterProvider::class) tabStripState: TabStripState,
 ) {
-    FirefoxTheme(theme = Theme.Dark) {
+    EyebrowseTheme(theme = Theme.Dark) {
         TabStripContentPreview(tabStripState.tabs.filter { !it.isPrivate })
     }
 }
@@ -416,7 +416,7 @@ private fun TabStripPreviewDarkMode(
 private fun TabStripPreviewPrivateMode(
     @PreviewParameter(TabUIStateParameterProvider::class) tabStripState: TabStripState,
 ) {
-    FirefoxTheme(theme = Theme.Private) {
+    EyebrowseTheme(theme = Theme.Private) {
         TabStripContentPreview(tabStripState.tabs.filter { it.isPrivate })
     }
 }
@@ -446,7 +446,7 @@ private fun TabStripContentPreview(tabs: List<TabStripItem>) {
 private fun TabStripPreview() {
     val browserStore = BrowserStore()
 
-    FirefoxTheme {
+    EyebrowseTheme {
         Box(
             modifier = Modifier
                 .fillMaxWidth()

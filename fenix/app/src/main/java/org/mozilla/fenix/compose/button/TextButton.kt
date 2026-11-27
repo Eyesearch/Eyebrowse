@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import java.util.Locale
 
 /**
@@ -27,7 +27,7 @@ fun TextButton(
     text: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    textColor: Color = FirefoxTheme.colors.textAccent,
+    textColor: Color = EyebrowseTheme.colors.textAccent,
 ) {
     androidx.compose.material.TextButton(
         onClick = onClick,
@@ -36,7 +36,7 @@ fun TextButton(
         Text(
             text = text.uppercase(Locale.getDefault()),
             color = textColor,
-            style = FirefoxTheme.typography.button,
+            style = EyebrowseTheme.typography.button,
             maxLines = 1,
         )
     }
@@ -45,8 +45,8 @@ fun TextButton(
 @Composable
 @LightDarkPreview
 private fun TextButtonPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Box(Modifier.background(EyebrowseTheme.colors.layer1)) {
             TextButton(
                 text = "label",
                 onClick = {},

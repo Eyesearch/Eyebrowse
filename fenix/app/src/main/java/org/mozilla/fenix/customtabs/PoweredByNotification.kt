@@ -26,7 +26,7 @@ import mozilla.components.support.base.ids.cancel
 import org.mozilla.fenix.R
 
 /**
- * Displays a "Powered by Firefox Preview" notification when a Trusted Web Activity is running.
+ * Displays a "Powered by Eyebrowse Preview" notification when a Trusted Web Activity is running.
  */
 class PoweredByNotification(
     private val applicationContext: Context,

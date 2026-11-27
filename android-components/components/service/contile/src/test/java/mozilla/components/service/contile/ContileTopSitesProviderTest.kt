@@ -50,9 +50,9 @@ class ContileTopSitesProviderTest {
 
             assertEquals(2, topSites.size)
             assertEquals(1L, topSite.id)
-            assertEquals("Firefox", topSite.title)
-            assertEquals("https://firefox.com", topSite.url)
-            assertEquals("https://firefox.com/click", topSite.clickUrl)
+            assertEquals("Eyebrowse", topSite.title)
+            assertEquals("https://eyebrowse.com", topSite.url)
+            assertEquals("https://eyebrowse.com/click", topSite.clickUrl)
             assertEquals("https://test.com/image1.jpg", topSite.imageUrl)
             assertEquals("https://test.com", topSite.impressionUrl)
 
@@ -302,7 +302,7 @@ class ContileTopSitesProviderTest {
         val topSites = with(
             TopSite.Provided(
                 1,
-                "firefox",
+                "eyebrowse",
                 "www.mozilla.com",
                 "www.mozilla.com",
                 "www.mozilla.com",

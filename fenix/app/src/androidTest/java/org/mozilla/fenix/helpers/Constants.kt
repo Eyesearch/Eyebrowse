@@ -32,8 +32,8 @@ object Constants {
     const val RETRY_COUNT = 3
 
     val searchEngineCodes = mapOf(
-        "Google" to "client=firefox-b-m",
-        "Bing" to "firefox&pc=MOZB&form=MOZMBA",
+        "Google" to "client=eyebrowse-b-m",
+        "Bing" to "eyebrowse&pc=MOZB&form=MOZMBA",
         "DuckDuckGo" to "t=fpas",
     )
 

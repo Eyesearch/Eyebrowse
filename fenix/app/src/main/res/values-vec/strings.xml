@@ -580,10 +580,10 @@
     <!-- Text for the snackbar to show the user that the deletion of browsing data is in progress -->
     <string name="deleting_browsing_data_in_progress">Scanseƚasion dati de navigasion en corso…</string>
 
-    <!-- Text for the button to manually sign into Firefox account. -->
-    <string name="onboarding_firefox_account_sign_in">Va rento a Eyebrowse</string>
+    <!-- Text for the button to manually sign into Eyebrowse account. -->
+    <string name="onboarding_eyebrowse_account_sign_in">Va rento a Eyebrowse</string>
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">Ƚa sincronixasion ƚa xe ativa</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">Ƚa sincronixasion ƚa xe ativa</string>
     <!-- Text for the tracking protection onboarding card header -->
     <string name="onboarding_tracking_protection_header">Protegete</string>
     <!-- Text for the privacy notice onboarding card description. -->

@@ -46,7 +46,7 @@ class AdsTelemetryMiddlewareTest {
             ContentAction.UpdateLoadRequestAction(
                 sessionId,
                 LoadRequestState(
-                    url = "https://mozilla.org/firefox",
+                    url = "https://mozilla.org/eyebrowse",
                     triggeredByRedirect = false,
                     triggeredByUser = false,
                 ),
@@ -69,7 +69,7 @@ class AdsTelemetryMiddlewareTest {
             ContentAction.UpdateLoadRequestAction(
                 sessionId,
                 LoadRequestState(
-                    url = "https://mozilla.org/firefox",
+                    url = "https://mozilla.org/eyebrowse",
                     triggeredByRedirect = false,
                     triggeredByUser = false,
                 ),
@@ -79,7 +79,7 @@ class AdsTelemetryMiddlewareTest {
         assertEquals(1, adsMiddleware.redirectChain.size)
         assertEquals("https://mozilla.org", adsMiddleware.redirectChain[sessionId]!!.root)
         assertEquals(1, adsMiddleware.redirectChain.size)
-        assertEquals("https://mozilla.org/firefox", adsMiddleware.redirectChain[sessionId]!!.chain[0])
+        assertEquals("https://mozilla.org/eyebrowse", adsMiddleware.redirectChain[sessionId]!!.chain[0])
     }
 
     @Test
@@ -87,19 +87,19 @@ class AdsTelemetryMiddlewareTest {
         val adsTelemetry: AdsTelemetry = mock()
         val adsMiddleware = AdsTelemetryMiddleware(adsTelemetry)
         adsMiddleware.redirectChain[sessionId] = RedirectChain("https://mozilla.org")
-        adsMiddleware.redirectChain[sessionId]!!.chain.add("https://mozilla.org/firefox")
+        adsMiddleware.redirectChain[sessionId]!!.chain.add("https://mozilla.org/eyebrowse")
         val store = BrowserStore(
             initialState = browserState,
             middleware = listOf(adsMiddleware),
         )
 
         store
-            .dispatch(ContentAction.UpdateUrlAction(sessionId, "https://mozilla.org/firefox"))
+            .dispatch(ContentAction.UpdateUrlAction(sessionId, "https://mozilla.org/eyebrowse"))
             .joinBlocking()
 
         verify(adsTelemetry).checkIfAddWasClicked(
             "https://mozilla.org",
-            listOf("https://mozilla.org/firefox"),
+            listOf("https://mozilla.org/eyebrowse"),
         )
     }
 

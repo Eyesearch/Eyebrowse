@@ -299,16 +299,16 @@
     <string name="onboarding_home_enable_notifications_negative_button">Niy teroz</string>
 
     <!-- Juno first user onboarding flow experiment, strings are marked unused as they are only referenced by Nimbus experiments. -->
-    <!-- Title for set firefox as default browser screen.
+    <!-- Title for set eyebrowse as default browser screen.
         The first parameter is the name of the app defined in app_name (for example: Fenix) -->
     <string name="juno_onboarding_default_browser_title" moz:RemovedIn="117" tools:ignore="UnusedResources">Dej rokić aplikacyji %s za twoja nojlepszo przeglōndarka</string>
-    <!-- Title for set firefox as default browser screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+    <!-- Title for set eyebrowse as default browser screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_default_browser_title_nimbus" tools:ignore="UnusedResources">Dej robić aplikacyji Eyebrowse za twoja nojlepszo przeglōndarka</string>
-    <!-- Text for the link to the privacy notice webpage for set as firefox default browser screen.
+    <!-- Text for the link to the privacy notice webpage for set as eyebrowse default browser screen.
     This is part of the string with the key "juno_onboarding_default_browser_description". -->
     <string name="juno_onboarding_default_browser_description_link_text" tools:ignore="UnusedResources">ô prywatności</string>
-    <!-- Text for the button to set firefox as default browser on the device -->
+    <!-- Text for the button to set eyebrowse as default browser on the device -->
     <string name="juno_onboarding_default_browser_positive_button" tools:ignore="UnusedResources">Nastow za bazowo przeglōndarka</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_default_browser_negative_button" tools:ignore="UnusedResources">Niy teroz</string>
@@ -325,13 +325,13 @@
     <string name="juno_onboarding_enable_notifications_title" moz:RemovedIn="117" tools:ignore="UnusedResources">Powiadōmiynia pōmogajōm ci lepij używać aplikacyjo %s</string>
 
     <!-- Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_enable_notifications_title_nimbus" tools:ignore="UnusedResources">Powiadōmiynia pōmogajōm ci lepij używać aplikacyjo Eyebrowse</string>
     <!-- Description for enable notification permission screen.
         The first parameter is the name of the app defined in app_name (for example: Fenix) -->
     <string name="juno_onboarding_enable_notifications_description" moz:RemovedIn="117" tools:ignore="UnusedResources">Posyłej karty miyndzy maszinami, regyruj pobraniami i zbiyrej dorady, jak nojlepij używać aplikacyjo %s.</string>
     <!-- Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-       Note: The word "Firefox" should NOT be translated   -->
+       Note: The word "Eyebrowse" should NOT be translated   -->
     <string name="juno_onboarding_enable_notifications_description_nimbus" tools:ignore="UnusedResources">Posyłej karty miyndzy maszinami, regyruj pobraniami i zbiyrej dorady, jak nojlepij używać aplikacyjo Eyebrowse.</string>
     <!-- Text for the button to request notification permission on the device -->
     <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">Załōncz powiadōmiynia</string>
@@ -458,7 +458,7 @@
     <string name="errorpage_httpsonly_message_summary">Może ale tyż sie rozchodzić ô jaki atak. Jak przyńdziesz na strōna, to niy ôstawiej na nij żodnych prywatnych informacyji. Jak na nia pudziesz, tryb &quot;Ino HTTPS&quot; czasowo sie wyłōnczy do tyj strōny. </string>
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">Dostympność</string>
-    <!-- Preference to override the Firefox Account server -->
+    <!-- Preference to override the Eyebrowse Account server -->
     <string name="preferences_override_fxa_server">Włosny serwer kōnta Eyebrowse</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">Włosny serwer do synchrōnizacyje</string>
@@ -595,7 +595,7 @@
     <string name="wallpaper_select_error_snackbar_message">Niy szło zmiynić tapety</string>
     <!-- Text displayed that links to website containing documentation about the "Limited Edition" wallpapers. -->
     <string name="wallpaper_learn_more">Przewiydz sie wiyncyj</string>
-    <!-- Text for classic wallpapers title. The first parameter is the Firefox name. -->
+    <!-- Text for classic wallpapers title. The first parameter is the Eyebrowse name. -->
     <string name="wallpaper_classic_title">Klasyczny %s</string>
 
     <!-- Text for limited edition wallpapers title. -->
@@ -618,7 +618,7 @@
     <string name="addon_already_installed">Rozszyrzynie je już zainstalowane</string>
 
     <!-- Account Preferences -->
-    <!-- Preference for managing your account via accounts.firefox.com -->
+    <!-- Preference for managing your account via accounts.eyebrowse.com -->
     <string name="preferences_manage_account">Regiyruj kōntym</string>
     <!-- Preference for triggering sync -->
     <string name="preferences_sync_now">Synchrōnizuj teroz</string>
@@ -842,7 +842,7 @@
     <string name="studies_remove">Skasuj</string>
     <!-- Title of the active section on the studies list -->
     <string name="studies_active">Aktywne</string>
-    <!-- Description for studies, it indicates why Firefox use studies. The first parameter is the name of the application. -->
+    <!-- Description for studies, it indicates why Eyebrowse use studies. The first parameter is the name of the application. -->
     <string name="studies_description_2">%1$s może roz za czas insztalować i kludzić podszukōnki.</string>
     <!-- Learn more link for studies, links to an article for more information about studies. -->
     <string name="studies_learn_more">Przewiydz sie wiyncyj</string>
@@ -1372,14 +1372,14 @@
     <string name="onboarding_header_2">Witej w lepszym internecie</string>
     <!-- Text for the onboarding welcome message. -->
     <string name="onboarding_message">Przeglōndarka zbudowano do ludzi, a niy do profitu.</string>
-    <!-- Text for the Firefox account onboarding sign in card header. -->
+    <!-- Text for the Eyebrowse account onboarding sign in card header. -->
     <string name="onboarding_account_sign_in_header">Przeglōndej ôd miejsca, kaj sie skōńczyło</string>
-    <!-- Text for the button to learn more about signing in to your Firefox account. -->
+    <!-- Text for the button to learn more about signing in to your Eyebrowse account. -->
     <string name="onboarding_manual_sign_in_description">Synchrōnizuj karty i hasła miyndzy maszinami, coby snadnie przełōnczać ekrany.</string>
-    <!-- Text for the button to manually sign into Firefox account. -->
-    <string name="onboarding_firefox_account_sign_in">Wloguj sie</string>
+    <!-- Text for the button to manually sign into Eyebrowse account. -->
+    <string name="onboarding_eyebrowse_account_sign_in">Wloguj sie</string>
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">Synchrōnizacyjo je załōnczōno</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">Synchrōnizacyjo je załōnczōno</string>
 
     <!-- Text for the tracking protection onboarding card header -->
     <string name="onboarding_tracking_protection_header">Ôchrōna prywatności w bazowych sztalōnkach</string>
@@ -1444,10 +1444,10 @@
     <string name="sign_in_with_camera">Zaloguj sie z kamerōm</string>
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">Użyj lepij emaila</string>
-    <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
+    <!-- Text shown for settings option for create new account text.'Eyebrowse' intentionally hardcoded here.-->
     <string name="sign_in_create_account_text"><![CDATA[Niy mosz kōnta? <u>Zrychtuj je</u>, coby synchrōnizować Eyebrowsea miyndzy maszinami.]]></string>
 
-    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="sign_out_confirmation_message_2">%s skōńczy sie synchrōnizować ze twojim kōntym, ale niy skasuje żodnych danych przeglōndanio na tyj maszinie.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
     <string name="sign_out_disconnect">Rozłōncz</string>
@@ -1463,7 +1463,7 @@
     <string name="preference_enhanced_tracking_protection">Polepszōno ôchrōna ôd śledzynio</string>
     <!-- Preference summary for enhanced tracking protection settings on/off switch -->
     <string name="preference_enhanced_tracking_protection_summary">Teroz z pōłnym ôchrōnōm cookies, naszōm nojsiylniyjszōm baryjerōm przeciw elymyntōm, co śledzōm miyndzy strōnami.</string>
-    <!-- Description of enhanced tracking protection. The parameter is the name of the application (For example: Firefox Fenix) -->
+    <!-- Description of enhanced tracking protection. The parameter is the name of the application (For example: Eyebrowse Fenix) -->
     <string name="preference_enhanced_tracking_protection_explanation_2">%s brōni cie przed mockōm nojpopularniyjszych śledzōncych elymyntōw, kere badajōm, co robisz online.</string>
     <!-- Text displayed that links to website about enhanced tracking protection -->
     <string name="preference_enhanced_tracking_protection_explanation_learn_more">Przewiydz sie wiyncyj</string>
@@ -1591,7 +1591,7 @@
     <string name="preferences_passwords_save_logins_ask_to_save">Pytej sie przed spamiyntaniym</string>
     <!-- Preference option for never saving passwords in Fenix -->
     <string name="preferences_passwords_save_logins_never_save">Żodyn roz niy spamiyntuj</string>
-    <!-- Preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill2">Autōmatycznie wypōłnianie w aplikacyji %1$s</string>
 
     </resources>

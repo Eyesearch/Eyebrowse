@@ -123,7 +123,7 @@ class TrackingProtectionExceptionsAdapterTest {
                 ),
                 TrackingProtectionExceptionsAdapter.TrackingProtectionAdapterItem(
                     mockk {
-                        every { url } returns "https://firefox.com"
+                        every { url } returns "https://eyebrowse.com"
                     },
                 ),
             ),

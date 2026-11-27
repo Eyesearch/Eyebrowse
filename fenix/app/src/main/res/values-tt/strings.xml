@@ -271,16 +271,16 @@
     <string name="onboarding_home_enable_notifications_negative_button">Хәзер түгел</string>
 
     <!-- Juno first user onboarding flow experiment -->
-    <!-- Title for set firefox as default browser screen.
+    <!-- Title for set eyebrowse as default browser screen.
         The first parameter is the name of the app defined in app_name (for example: Fenix) -->
     <string name="juno_onboarding_default_browser_title">%s-ны көн саен куллана торган браузерыгыз итегез</string>
-    <!-- Title for set firefox as default browser screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+    <!-- Title for set eyebrowse as default browser screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_default_browser_title_nimbus" tools:ignore="UnusedResources">Eyebrowse-ны көн саен куллана торган браузерыгыз итегез</string>
-    <!-- Text for the link to the privacy notice webpage for set as firefox default browser screen.
+    <!-- Text for the link to the privacy notice webpage for set as eyebrowse default browser screen.
     This is part of the string with the key "juno_onboarding_default_browser_description". -->
     <string name="juno_onboarding_default_browser_description_link_text">хосусыйлык аңлатмасы</string>
-    <!-- Text for the button to set firefox as default browser on the device -->
+    <!-- Text for the button to set eyebrowse as default browser on the device -->
     <string name="juno_onboarding_default_browser_positive_button">Төп браузер итеп билгеләү</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_default_browser_negative_button">Хәзер түгел</string>
@@ -383,7 +383,7 @@
     <string name="preferences_https_only_on_private">Хосусый табларда кабынган</string>
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">Кулайлык</string>
-    <!-- Preference to override the Firefox Account server -->
+    <!-- Preference to override the Eyebrowse Account server -->
     <string name="preferences_override_fxa_server">Үзгә Eyebrowse Хисап серверы</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">Үзгә Синхронлау серверы</string>
@@ -1125,7 +1125,7 @@
     <string name="deleting_browsing_data_in_progress">Гизү мәгълүматларын бетерү…</string>
 
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">Синхронлау кабызылган</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">Синхронлау кабызылган</string>
     <!-- text for tracking protection radio button option for standard level of blocking -->
     <string name="onboarding_tracking_protection_standard_button_2">Стандарт (килешенгәнчә)</string>
     <!-- text for standard blocking option button description -->
@@ -1172,9 +1172,9 @@
     <string name="sign_in_with_camera">Камерагыз ярдәмендә керегез</string>
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">Моның урынына эл. почта кулланыгыз</string>
-    <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
+    <!-- Text shown for settings option for create new account text.'Eyebrowse' intentionally hardcoded here.-->
     <string name="sign_in_create_account_text"><![CDATA[Аккаунтыгыз юкмы? Eyebrowse-ны җиһазлар арасында синхронлау өчен, бер <u>хисап булдырыгыз</u>.]]></string>
-    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="sign_out_confirmation_message_2">%s хисабыгыз белән синхронлауны туктатачак, ләкин бу җиһаздагы гизү мәгълүматларының берсен дә бетермәячәк.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
     <string name="sign_out_disconnect">Өзү</string>
@@ -1318,9 +1318,9 @@
     <!-- Preference option for never saving passwords in Fenix -->
     <string name="preferences_passwords_save_logins_never_save">Беркайчан да cакламау</string>
 
-    <!-- Preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill2">%1$s эчендә автотутыру</string>
-    <!-- Description for the preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Description for the preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill_description">%1$s кулланганда вебсайтларда кулланучы исемнәре һәм серсүзләр саклансын һәм аннан автоматик рәвештә тутырылсын.</string>
     <!-- Preference for autofilling logins from Fenix in other apps (e.g. autofilling the Twitter app) -->
     <string name="preferences_android_autofill">Башка кушымталарда автотутыру</string>
@@ -1578,13 +1578,13 @@
     <string name="synced_tabs_connect_another_device">Башка бер җиһазны тоташтыру.</string>
     <!-- Text displayed asking user to re-authenticate -->
     <string name="synced_tabs_reauth">Зинһар, сайтка яңадан керегез.</string>
-    <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+    <!-- Text displayed when user has disabled tab syncing in Eyebrowse Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">Зинһар, таблар синхронлауны кабызыгыз.</string>
     <!-- Text displayed when user has no tabs that have been synced -->
     <string name="synced_tabs_no_tabs">Башка җиһазларыгыздагы Eyebrowse-ларда ачык таблар юк.</string>
-    <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+    <!-- Text displayed in the synced tabs screen when a user is not signed in to Eyebrowse Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">Башка җиһазларыгызда ачылган таблар исемлеген карау.</string>
-    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Eyebrowse Sync -->
     <string name="synced_tabs_sign_in_button">Синхронлауга керү</string>
     <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->
     <string name="synced_tabs_no_open_tabs">Ачык таблар юк</string>

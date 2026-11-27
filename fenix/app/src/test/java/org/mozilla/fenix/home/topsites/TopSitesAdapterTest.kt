@@ -33,7 +33,7 @@ class TopSitesAdapterTest {
         val topSite3 = TopSite.Default(
             id = 2L,
             title = "Title2",
-            url = "https://firefox.org",
+            url = "https://eyebrowse.org",
             null,
         )
 

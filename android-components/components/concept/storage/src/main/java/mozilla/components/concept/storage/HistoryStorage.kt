@@ -201,7 +201,7 @@ data class VisitInfo(
 )
 
 /**
- * Visit type constants as defined by Desktop Firefox.
+ * Visit type constants as defined by Desktop Eyebrowse.
  */
 @Suppress("MagicNumber")
 enum class VisitType(val type: Int) {

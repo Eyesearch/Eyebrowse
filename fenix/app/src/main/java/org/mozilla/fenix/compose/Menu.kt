@@ -35,7 +35,7 @@ import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.compose.button.PrimaryButton
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Root popup action dropdown menu.
@@ -66,7 +66,7 @@ private fun Menu(
             onDismissRequest = onDismissRequest,
             offset = offset,
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer2)
+                .background(color = EyebrowseTheme.colors.layer2)
                 .then(modifier),
         ) {
             val hasCheckedItems = menuItems.any { it.isChecked }
@@ -102,7 +102,7 @@ private fun Menu(
                                 modifier = Modifier
                                     .size(24.dp),
                                 contentDescription = null,
-                                tint = FirefoxTheme.colors.iconPrimary,
+                                tint = EyebrowseTheme.colors.iconPrimary,
                             )
                         } else {
                             Spacer(
@@ -116,9 +116,9 @@ private fun Menu(
 
                     Text(
                         text = item.title,
-                        color = item.color ?: FirefoxTheme.colors.textPrimary,
+                        color = item.color ?: EyebrowseTheme.colors.textPrimary,
                         maxLines = 1,
-                        style = FirefoxTheme.typography.subtitle1,
+                        style = EyebrowseTheme.typography.subtitle1,
                         modifier = Modifier
                             .fillMaxHeight()
                             .align(Alignment.CenterVertically),
@@ -177,7 +177,7 @@ data class MenuItem(
 @Composable
 private fun ContextualMenuPreview() {
     var showMenu by remember { mutableStateOf(false) }
-    FirefoxTheme {
+    EyebrowseTheme {
         Box(modifier = Modifier.size(400.dp)) {
             PrimaryButton(text = "Show menu") {
                 showMenu = true

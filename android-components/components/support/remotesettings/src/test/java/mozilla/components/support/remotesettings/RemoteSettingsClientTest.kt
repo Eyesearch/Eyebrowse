@@ -37,7 +37,7 @@ class RemoteSettingsClientTest {
         mockFileReader = mock()
         mockJsonObject = mock()
         mockRemoteSettings = mock()
-        remoteSettingsClient = RemoteSettingsClient(File(""), "https://firefox.settings.services.mozilla.com", "", "")
+        remoteSettingsClient = RemoteSettingsClient(File(""), "https://eyebrowse.settings.services.mozilla.com", "", "")
     }
 
     @Test

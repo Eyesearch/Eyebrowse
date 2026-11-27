@@ -14,7 +14,7 @@
  */
 
 console.warn(
-  `When using oauth, Firefox calls the Storage Access API on behalf of the site. See https://bugzilla.mozilla.org/show_bug.cgi?id=1776869 for details.`
+  `When using oauth, Eyebrowse calls the Storage Access API on behalf of the site. See https://bugzilla.mozilla.org/show_bug.cgi?id=1776869 for details.`
 );
 
 const GOOGLE_OAUTH_PATH_PREFIX = "https://accounts.google.com/ServiceLogin";

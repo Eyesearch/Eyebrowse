@@ -28,7 +28,7 @@ import androidx.navigation.compose.rememberNavController
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.debugsettings.navigation.DebugDrawerDestination
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * The debug drawer UI.
@@ -52,8 +52,8 @@ fun DebugDrawer(
             title = {
                 Text(
                     text = toolbarTitle,
-                    color = FirefoxTheme.colors.textPrimary,
-                    style = FirefoxTheme.typography.headline6,
+                    color = EyebrowseTheme.colors.textPrimary,
+                    style = EyebrowseTheme.typography.headline6,
                 )
             },
             navigationIcon = if (backButtonVisible) {
@@ -61,7 +61,7 @@ fun DebugDrawer(
             } else {
                 null
             },
-            backgroundColor = FirefoxTheme.colors.layer1,
+            backgroundColor = EyebrowseTheme.colors.layer1,
             elevation = 5.dp,
         )
 
@@ -96,7 +96,7 @@ private fun topBarBackButton(onClick: () -> Unit): @Composable () -> Unit = {
         Icon(
             painter = painterResource(R.drawable.mozac_ic_back_24),
             contentDescription = stringResource(R.string.debug_drawer_back_button_content_description),
-            tint = FirefoxTheme.colors.iconPrimary,
+            tint = EyebrowseTheme.colors.iconPrimary,
         )
     }
 }
@@ -116,16 +116,16 @@ private fun DebugDrawerPreview() {
                 content = {
                     Text(
                         text = "Tool $index",
-                        color = FirefoxTheme.colors.textPrimary,
-                        style = FirefoxTheme.typography.headline6,
+                        color = EyebrowseTheme.colors.textPrimary,
+                        style = EyebrowseTheme.typography.headline6,
                     )
                 },
             )
         }
     }
 
-    FirefoxTheme {
-        Box(modifier = Modifier.background(color = FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Box(modifier = Modifier.background(color = EyebrowseTheme.colors.layer1)) {
             DebugDrawer(
                 navController = navController,
                 destinations = destinations,

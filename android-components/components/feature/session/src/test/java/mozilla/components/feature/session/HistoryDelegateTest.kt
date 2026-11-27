@@ -33,11 +33,11 @@ class HistoryDelegateTest {
         delegate.onVisited("http://www.mozilla.org", PageVisit(VisitType.LINK))
         verify(storage).recordVisit("http://www.mozilla.org", PageVisit(VisitType.LINK))
 
-        delegate.onVisited("http://www.firefox.com", PageVisit(VisitType.RELOAD))
-        verify(storage).recordVisit("http://www.firefox.com", PageVisit(VisitType.RELOAD))
+        delegate.onVisited("http://www.eyebrowse.com", PageVisit(VisitType.RELOAD))
+        verify(storage).recordVisit("http://www.eyebrowse.com", PageVisit(VisitType.RELOAD))
 
-        delegate.onVisited("http://www.firefox.com", PageVisit(VisitType.BOOKMARK))
-        verify(storage).recordVisit("http://www.firefox.com", PageVisit(VisitType.BOOKMARK))
+        delegate.onVisited("http://www.eyebrowse.com", PageVisit(VisitType.BOOKMARK))
+        verify(storage).recordVisit("http://www.eyebrowse.com", PageVisit(VisitType.BOOKMARK))
     }
 
     @Test
@@ -76,7 +76,7 @@ class HistoryDelegateTest {
         assertFalse(storage.getVisitedListCalled)
         assertFalse(storage.canAddUriCalled)
 
-        delegate.getVisited(listOf("http://www.mozilla.org", "http://www.firefox.com"))
+        delegate.getVisited(listOf("http://www.mozilla.org", "http://www.eyebrowse.com"))
         assertTrue(storage.getVisitedListCalled)
         assertFalse(storage.canAddUriCalled)
     }
@@ -111,7 +111,7 @@ class HistoryDelegateTest {
 
         override suspend fun getVisited(uris: List<String>): List<Boolean> {
             getVisitedListCalled = true
-            assertEquals(listOf("http://www.mozilla.org", "http://www.firefox.com"), uris)
+            assertEquals(listOf("http://www.mozilla.org", "http://www.eyebrowse.com"), uris)
             return emptyList()
         }
 

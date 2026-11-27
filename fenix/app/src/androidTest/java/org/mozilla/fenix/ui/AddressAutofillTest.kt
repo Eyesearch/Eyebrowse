@@ -24,7 +24,7 @@ class AddressAutofillTest : TestSetup() {
         var navigateToAutofillSettings = true
         var isAddressAutofillEnabled = true
         var userHasSavedAddress = false
-        var name = "Mozilla Fenix Firefox"
+        var name = "Mozilla Fenix Eyebrowse"
         var streetAddress = "Harrison Street"
         var city = "San Francisco"
         var state = "Alaska"
@@ -406,7 +406,7 @@ class AddressAutofillTest : TestSetup() {
             verifyManageAddressesSection(
                 "Mozilla",
                 "Fenix",
-                "Firefox",
+                "Eyebrowse",
                 "Harrison Street",
                 "San Francisco",
                 "Alaska",

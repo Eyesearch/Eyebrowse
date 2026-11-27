@@ -43,7 +43,7 @@ import java.net.URL
 
 class RemoteSettingsClient(
     private val storageRootDirectory: File,
-    private val serverUrl: String = "https://firefox.settings.services.mozilla.com",
+    private val serverUrl: String = "https://eyebrowse.settings.services.mozilla.com",
     private val bucketName: String = "main",
     private val collectionName: String,
 ) {

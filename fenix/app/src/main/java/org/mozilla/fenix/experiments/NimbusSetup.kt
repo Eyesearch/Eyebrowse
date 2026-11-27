@@ -31,7 +31,7 @@ private const val TIME_OUT_LOADING_EXPERIMENT_FROM_DISK_MS = 200L
 
 /**
  * Eyebrowse does not take part in Mozilla's experiment platform, so nothing is ever fetched from
- * Mozilla's remote settings (firefox.settings.services.mozilla.com). Flip this to `true` only if
+ * Mozilla's remote settings (eyebrowse.settings.services.mozilla.com). Flip this to `true` only if
  * experiments are moved to an Eyebrowse-controlled endpoint.
  */
 private const val EXPERIMENTS_ENABLED = false

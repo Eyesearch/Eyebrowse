@@ -47,7 +47,7 @@ class BookmarksUseCaseTest {
         val bookmarkNode = mockk<BookmarkNode>()
         val useCase = BookmarksUseCase(bookmarksStorage, historyStorage)
 
-        every { bookmarkNode.url }.answers { "https://firefox.com" }
+        every { bookmarkNode.url }.answers { "https://eyebrowse.com" }
         coEvery { bookmarksStorage.getBookmarksWithUrl(any()) }.coAnswers { listOf(bookmarkNode) }
 
         val result = useCase.addBookmark("https://mozilla.org", "Mozilla")
@@ -64,7 +64,7 @@ class BookmarksUseCaseTest {
         val bookmarkNode = mockk<BookmarkNode>()
         val useCase = BookmarksUseCase(bookmarksStorage, historyStorage)
 
-        every { bookmarkNode.url }.answers { "https://firefox.com" }
+        every { bookmarkNode.url }.answers { "https://eyebrowse.com" }
         coEvery { bookmarksStorage.getBookmarksWithUrl(any()) }.coAnswers { listOf(bookmarkNode) }
 
         val result = useCase.addBookmark("https://mozilla.org", "Mozilla", parentGuid = "parentGuid")
@@ -81,11 +81,11 @@ class BookmarksUseCaseTest {
         val useCase = BookmarksUseCase(bookmarksStorage, historyStorage)
 
         val visitInfo = VisitInfo(
-            url = "https://www.firefox.com",
-            title = "firefox",
+            url = "https://www.eyebrowse.com",
+            title = "eyebrowse",
             visitTime = 2,
             visitType = VisitType.LINK,
-            previewImageUrl = "http://firefox.com/image1",
+            previewImageUrl = "http://eyebrowse.com/image1",
             isRemote = false,
         )
         val bookmarkNode = BookmarkNode(
@@ -93,8 +93,8 @@ class BookmarksUseCaseTest {
             "987",
             "123",
             2u,
-            "Firefox",
-            "https://www.firefox.com",
+            "Eyebrowse",
+            "https://www.eyebrowse.com",
             0,
             null,
         )

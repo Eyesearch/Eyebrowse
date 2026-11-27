@@ -112,12 +112,12 @@ class DefaultTabViewHolderTest {
         val view = LayoutInflater.from(testContext).inflate(R.layout.mozac_browser_tabstray_item, null)
         val holder = DefaultTabViewHolder(view)
 
-        val session = createTab(url = "https://www.mozilla.org", title = "Mozilla Firefox", id = "a")
+        val session = createTab(url = "https://www.mozilla.org", title = "Mozilla Eyebrowse", id = "a")
         val titleView = holder.itemView.findViewById<TextView>(R.id.mozac_browser_tabstray_title)
         val urlView = view.findViewById<TextView>(R.id.mozac_browser_tabstray_url)
 
         holder.bind(session, isSelected = true, styling = mock(), delegate)
-        assertEquals("Mozilla Firefox", titleView.text)
+        assertEquals("Mozilla Eyebrowse", titleView.text)
         assertEquals("www.mozilla.org", urlView.text)
     }
 

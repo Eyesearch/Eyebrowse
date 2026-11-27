@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import mozilla.components.concept.base.images.ImageLoadRequest
 import org.mozilla.fenix.components.components
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Thumbnail belonging to a [ImageLoadRequest]. Asynchronously fetches the bitmap from storage.
@@ -46,7 +46,7 @@ fun ThumbnailImage(
     fallbackContent: @Composable () -> Unit,
 ) {
     if (inComposePreview) {
-        Box(modifier = modifier.background(color = FirefoxTheme.colors.layer3))
+        Box(modifier = modifier.background(color = EyebrowseTheme.colors.layer3))
     } else {
         var state by remember { mutableStateOf(ThumbnailImageState(null, false)) }
         val scope = rememberCoroutineScope()
@@ -106,7 +106,7 @@ private data class ThumbnailImageState(
 @Preview
 @Composable
 private fun ThumbnailImagePreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         ThumbnailImage(
             request = ImageLoadRequest("1", 1, false),
             modifier = Modifier.size(50.dp),

@@ -21,7 +21,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * A handle present on top of a bottom sheet. This is selectable when talkback is enabled.
@@ -36,7 +36,7 @@ fun BottomSheetHandle(
     onRequestDismiss: () -> Unit,
     contentDescription: String,
     modifier: Modifier = Modifier,
-    color: Color = FirefoxTheme.colors.textSecondary,
+    color: Color = EyebrowseTheme.colors.textSecondary,
 ) {
     Canvas(
         modifier = modifier
@@ -56,10 +56,10 @@ fun BottomSheetHandle(
 @Composable
 @LightDarkPreview
 private fun BottomSheetHandlePreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Column(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer1)
+                .background(color = EyebrowseTheme.colors.layer1)
                 .padding(16.dp),
         ) {
             BottomSheetHandle(

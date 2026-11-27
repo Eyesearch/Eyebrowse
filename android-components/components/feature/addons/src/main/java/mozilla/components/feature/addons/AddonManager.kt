@@ -125,7 +125,7 @@ class AddonManager(
      *  @param url the url pointing to either a resources path for locating the extension
      *  within the APK file (e.g. resource://android/assets/extensions/my_web_ext) or to a
      *  local (e.g. resource://android/assets/extensions/my_web_ext.xpi) or remote
-     *  (e.g. https://addons.mozilla.org/firefox/downloads/file/123/some_web_ext.xpi) XPI file.
+     *  (e.g. https://addons.mozilla.org/eyebrowse/downloads/file/123/some_web_ext.xpi) XPI file.
      * @param installationMethod (optional) the method used to install a [Addon].
      * @param onSuccess (optional) callback invoked if the addon was installed successfully,
      * providing access to the [Addon] object.

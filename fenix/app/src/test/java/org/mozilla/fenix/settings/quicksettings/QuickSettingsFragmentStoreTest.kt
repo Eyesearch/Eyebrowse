@@ -66,8 +66,8 @@ class QuickSettingsFragmentStoreTest {
     @Test
     fun `createStore constructs a QuickSettingsFragmentState`() {
         val tab = createTab(
-            url = "https://www.firefox.com",
-            title = "Firefox",
+            url = "https://www.eyebrowse.com",
+            title = "Eyebrowse",
         )
         val browserStore = BrowserStore(BrowserState(tabs = listOf(tab)))
 
@@ -339,7 +339,7 @@ class QuickSettingsFragmentStoreTest {
 
     @Test
     fun `createTrackingProtectionState constructs a TrackingProtectionState with the right values`() {
-        val tab = createTab("https://www.firefox.com")
+        val tab = createTab("https://www.eyebrowse.com")
         val browserStore = BrowserStore(BrowserState(tabs = listOf(tab)))
         val isTrackingProtectionEnabled = true
         val cookieBannerMode = CookieBannerUIMode.ENABLE

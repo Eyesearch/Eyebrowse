@@ -20,8 +20,8 @@ import java.io.IOException
 @RunWith(AndroidJUnit4::class)
 class SearchSuggestionClientTest {
     companion object {
-        val GOOGLE_MOCK_RESPONSE: SearchSuggestionFetcher = { "[\"firefox\",[\"firefox\",\"firefox for mac\",\"firefox quantum\",\"firefox update\",\"firefox esr\",\"firefox focus\",\"firefox addons\",\"firefox extensions\",\"firefox nightly\",\"firefox clear cache\"]]" }
-        val QWANT_MOCK_RESPONSE: SearchSuggestionFetcher = { "{\"status\":\"success\",\"data\":{\"items\":[{\"value\":\"firefox (video game)\",\"suggestType\":3},{\"value\":\"firefox addons\",\"suggestType\":12},{\"value\":\"firefox\",\"suggestType\":2},{\"value\":\"firefox quantum\",\"suggestType\":12},{\"value\":\"firefox focus\",\"suggestType\":12}],\"special\":[],\"availableQwick\":[]}}" }
+        val GOOGLE_MOCK_RESPONSE: SearchSuggestionFetcher = { "[\"eyebrowse\",[\"eyebrowse\",\"eyebrowse for mac\",\"eyebrowse quantum\",\"eyebrowse update\",\"eyebrowse esr\",\"eyebrowse focus\",\"eyebrowse addons\",\"eyebrowse extensions\",\"eyebrowse nightly\",\"eyebrowse clear cache\"]]" }
+        val QWANT_MOCK_RESPONSE: SearchSuggestionFetcher = { "{\"status\":\"success\",\"data\":{\"items\":[{\"value\":\"eyebrowse (video game)\",\"suggestType\":3},{\"value\":\"eyebrowse addons\",\"suggestType\":12},{\"value\":\"eyebrowse\",\"suggestType\":2},{\"value\":\"eyebrowse quantum\",\"suggestType\":12},{\"value\":\"eyebrowse focus\",\"suggestType\":12}],\"special\":[],\"availableQwick\":[]}}" }
         val SERVER_ERROR_RESPONSE: SearchSuggestionFetcher = { "Server error. Try again later" }
     }
 
@@ -35,9 +35,9 @@ class SearchSuggestionClientTest {
     @Test
     fun `Get a list of results based on the Google search engine`() = runTest {
         val client = SearchSuggestionClient(searchEngine, GOOGLE_MOCK_RESPONSE)
-        val expectedResults = listOf("firefox", "firefox for mac", "firefox quantum", "firefox update", "firefox esr", "firefox focus", "firefox addons", "firefox extensions", "firefox nightly", "firefox clear cache")
+        val expectedResults = listOf("eyebrowse", "eyebrowse for mac", "eyebrowse quantum", "eyebrowse update", "eyebrowse esr", "eyebrowse focus", "eyebrowse addons", "eyebrowse extensions", "eyebrowse nightly", "eyebrowse clear cache")
 
-        val results = client.getSuggestions("firefox")
+        val results = client.getSuggestions("eyebrowse")
 
         assertEquals(expectedResults, results)
     }
@@ -51,9 +51,9 @@ class SearchSuggestionClientTest {
             icon = mock(),
         )
         val client = SearchSuggestionClient(qwant, QWANT_MOCK_RESPONSE)
-        val expectedResults = listOf("firefox (video game)", "firefox addons", "firefox", "firefox quantum", "firefox focus")
+        val expectedResults = listOf("eyebrowse (video game)", "eyebrowse addons", "eyebrowse", "eyebrowse quantum", "eyebrowse focus")
 
-        val results = client.getSuggestions("firefox")
+        val results = client.getSuggestions("eyebrowse")
 
         assertEquals(expectedResults, results)
     }
@@ -62,14 +62,14 @@ class SearchSuggestionClientTest {
     fun `Check that a bad response will throw a parser exception`() = runTest {
         val client = SearchSuggestionClient(searchEngine, SERVER_ERROR_RESPONSE)
 
-        client.getSuggestions("firefox")
+        client.getSuggestions("eyebrowse")
     }
 
     @Test(expected = SearchSuggestionClient.FetchException::class)
     fun `Check that an exception in the suggestionFetcher will re-throw an IOException`() = runTest {
         val client = SearchSuggestionClient(searchEngine) { throw IOException() }
 
-        client.getSuggestions("firefox")
+        client.getSuggestions("eyebrowse")
     }
 
     @Test
@@ -81,7 +81,7 @@ class SearchSuggestionClientTest {
         )
         val client = SearchSuggestionClient(searchEngine) { "no-op" }
 
-        val results = client.getSuggestions("firefox")
+        val results = client.getSuggestions("eyebrowse")
 
         assertEquals(emptyList<String>(), results)
     }
@@ -101,9 +101,9 @@ class SearchSuggestionClientTest {
             store,
             GOOGLE_MOCK_RESPONSE,
         )
-        val expectedResults = listOf("firefox", "firefox for mac", "firefox quantum", "firefox update", "firefox esr", "firefox focus", "firefox addons", "firefox extensions", "firefox nightly", "firefox clear cache")
+        val expectedResults = listOf("eyebrowse", "eyebrowse for mac", "eyebrowse quantum", "eyebrowse update", "eyebrowse esr", "eyebrowse focus", "eyebrowse addons", "eyebrowse extensions", "eyebrowse nightly", "eyebrowse clear cache")
 
-        val results = client.getSuggestions("firefox")
+        val results = client.getSuggestions("eyebrowse")
 
         assertEquals(expectedResults, results)
     }

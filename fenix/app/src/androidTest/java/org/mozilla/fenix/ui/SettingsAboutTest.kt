@@ -36,7 +36,7 @@ class SettingsAboutTest : TestSetup() {
         }.openSettings {
             verifyAboutHeading()
             verifyRateOnGooglePlay()
-            verifyAboutFirefoxPreview()
+            verifyAboutEyebrowsePreview()
         }
     }
 
@@ -60,7 +60,7 @@ class SettingsAboutTest : TestSetup() {
 
     // TestRail link: https://testrail.stage.mozaws.net/index.php?/cases/view/246961
     @Test
-    fun verifyAboutFirefoxMenuItems() {
+    fun verifyAboutEyebrowseMenuItems() {
         activityIntentTestRule.applySettingsExceptions {
             it.isJumpBackInCFREnabled = false
             it.isTCPCFREnabled = false
@@ -68,8 +68,8 @@ class SettingsAboutTest : TestSetup() {
         homeScreen {
         }.openThreeDotMenu {
         }.openSettings {
-        }.openAboutFirefoxPreview {
-            verifyAboutFirefoxPreviewInfo()
+        }.openAboutEyebrowsePreview {
+            verifyAboutEyebrowsePreviewInfo()
         }
     }
 }

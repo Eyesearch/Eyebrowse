@@ -22,7 +22,7 @@ import org.mozilla.fenix.components.components
 import org.mozilla.fenix.compose.ComposeViewHolder
 import org.mozilla.fenix.compose.button.TertiaryButton
 import org.mozilla.fenix.home.sessioncontrol.CustomizeHomeIteractor
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.wallpapers.WallpaperState
 
 class CustomizeHomeButtonViewHolder(
@@ -45,7 +45,7 @@ class CustomizeHomeButtonViewHolder(
     override fun Content() {
         val wallpaperState = components.appStore
             .observeAsComposableState { state -> state.wallpaperState }.value ?: WallpaperState.default
-        var buttonColor: Color = FirefoxTheme.colors.actionTertiary
+        var buttonColor: Color = EyebrowseTheme.colors.actionTertiary
 
         wallpaperState.composeRunIfWallpaperCardColorsAreAvailable { cardColorLight, cardColorDark ->
             buttonColor = if (isSystemInDarkTheme()) {

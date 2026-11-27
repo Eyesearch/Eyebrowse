@@ -471,7 +471,7 @@ internal class ReleaseMetricController(
                 }
             }
         }
-        Component.SERVICE_FIREFOX_ACCOUNTS to SyncFacts.Items.SYNC_FAILED -> {
+        Component.SERVICE_ACCOUNTS to SyncFacts.Items.SYNC_FAILED -> {
             Sync.failed.record(NoExtras())
         }
 

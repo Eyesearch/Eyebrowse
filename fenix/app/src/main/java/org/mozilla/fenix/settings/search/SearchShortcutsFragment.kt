@@ -20,7 +20,7 @@ import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.getRootView
 import org.mozilla.fenix.ext.requireComponents
 import org.mozilla.fenix.ext.showToolbar
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.theme.Theme
 import org.mozilla.fenix.utils.allowUndo
 
@@ -45,7 +45,7 @@ class SearchShortcutsFragment : Fragment(R.layout.fragment_search_shortcuts) {
         )
 
         binding.root.setContent {
-            FirefoxTheme(theme = Theme.getTheme(allowPrivateTheme = false)) {
+            EyebrowseTheme(theme = Theme.getTheme(allowPrivateTheme = false)) {
                 SearchEngineShortcuts(
                     getString(R.string.preferences_category_engines_in_search_menu),
                     requireComponents.core.store,

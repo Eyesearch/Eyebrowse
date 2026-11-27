@@ -265,7 +265,7 @@
     <string name="errorpage_httpsonly_message_title">Ye mui probable que\'l sitiu web nun seya compatible col protocolu HTTPS.</string>
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">Accesibilidá</string>
-    <!-- Preference to override the Firefox Account server -->
+    <!-- Preference to override the Eyebrowse Account server -->
     <string name="preferences_override_fxa_server">Sirvidor personalizáu de Cuentes de Eyebrowse</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">Sirvidor personalizáu de sincronización</string>
@@ -1012,10 +1012,10 @@
 
     <!-- Onboarding -->
     <!-- Text for onboarding welcome message
-    The first parameter is the name of the app (e.g. Firefox Preview) -->
+    The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string moz:RemovedIn="106" name="onboarding_header" tools:ignore="UnusedResources">¡Afáyate en %s!</string>
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">La sincronización ta activada</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">La sincronización ta activada</string>
 
     <!-- text for the tracking protection onboarding card header -->
     <string moz:removedIn="106" name="onboarding_tracking_protection_header_3" tools:ignore="UnusedResources">Privacidá permanente</string>
@@ -1033,7 +1033,7 @@
     <string moz:removedIn="106" name="onboarding_privacy_notice_header" tools:ignore="UnusedResources">La to privacidá</string>
 
     <!-- text for the privacy notice onboarding card description
-    The first parameter is the name of the app (e.g. Firefox Preview) Substitute %s for long browser name. -->
+    The first parameter is the name of the app (e.g. Eyebrowse Preview) Substitute %s for long browser name. -->
     <string moz:removedIn="106" name="onboarding_privacy_notice_description2" tools:ignore="UnusedResources">Diseñemos %s pa date\'l control tocante a los que compartes
 en llinia y con nós.</string>
     <!-- Text for the button to read the privacy notice -->
@@ -1075,9 +1075,9 @@ en llinia y con nós.</string>
     <string name="sign_in_with_camera">Aniciu de sesión cola cámara</string>
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">Usar una direición de corréu</string>
-    <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
+    <!-- Text shown for settings option for create new account text.'Eyebrowse' intentionally hardcoded here.-->
     <string name="sign_in_create_account_text"><![CDATA[¿Nun tienes cuenta? <u>Crea una</u> pa sincronizar Eyebrowse ente preseos.]]></string>
-    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="sign_out_confirmation_message_2">%s va dexar de sincronizase cola to cuenta mas nun va desaniciar nengún datu d\'esti preséu.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
     <string name="sign_out_disconnect">Desconectar</string>
@@ -1240,7 +1240,7 @@ en llinia y con nós.</string>
     <!-- Preference option for never saving passwords in Fenix -->
     <string name="preferences_passwords_save_logins_never_save">Nun guardar</string>
 
-    <!-- Preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill2">Autorrellenu en %1$s</string>
     <!-- Preference for autofilling logins from Fenix in other apps (e.g. autofilling the Twitter app) -->
     <string name="preferences_android_autofill">Autorrellenu n\'otres aplicaciones</string>
@@ -1460,14 +1460,14 @@ en llinia y con nós.</string>
     <string name="synced_tabs_connect_another_device">Conecta otru preséu.</string>
     <!-- Text displayed asking user to re-authenticate -->
     <string name="synced_tabs_reauth">Volvi autenticate.</string>
-    <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+    <!-- Text displayed when user has disabled tab syncing in Eyebrowse Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">Activa la sincronización de llingüetes.</string>
     <!-- Text displayed when user has no tabs that have been synced -->
     <string name="synced_tabs_no_tabs">Nun tienes llingüetes abiertes nel Eyebrowse de los demás preseos de to.</string>
 
-    <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+    <!-- Text displayed in the synced tabs screen when a user is not signed in to Eyebrowse Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">Ve una llista de les llingüetes que tienes nos demás preseos de to.</string>
-    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Eyebrowse Sync -->
     <string name="synced_tabs_sign_in_button">Aniciar sesión pa sincronizar</string>
 
     <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->

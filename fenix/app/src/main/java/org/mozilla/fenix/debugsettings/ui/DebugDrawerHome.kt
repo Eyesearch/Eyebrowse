@@ -35,7 +35,7 @@ import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.compose.inComposePreview
 import org.mozilla.fenix.compose.list.TextListItem
 import org.mozilla.fenix.debugsettings.navigation.DebugDrawerDestination
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * The navigation route for [DebugDrawerHome].
@@ -66,7 +66,7 @@ fun DebugDrawerHome(
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = FirefoxTheme.colors.layer1),
+            .background(color = EyebrowseTheme.colors.layer1),
         state = lazyListState,
     ) {
         item(key = "home_header") {
@@ -78,14 +78,14 @@ fun DebugDrawerHome(
             ) {
                 Text(
                     text = appName,
-                    color = FirefoxTheme.colors.textPrimary,
-                    style = FirefoxTheme.typography.headline5,
+                    color = EyebrowseTheme.colors.textPrimary,
+                    style = EyebrowseTheme.typography.headline5,
                 )
 
                 Text(
                     text = appVersion,
-                    color = FirefoxTheme.colors.textSecondary,
-                    style = FirefoxTheme.typography.headline5,
+                    color = EyebrowseTheme.colors.textSecondary,
+                    style = EyebrowseTheme.typography.headline5,
                 )
             }
 
@@ -114,7 +114,7 @@ private fun DebugDrawerHomePreview() {
     val scope = rememberCoroutineScope()
     val snackbarState = remember { SnackbarHostState() }
 
-    FirefoxTheme {
+    EyebrowseTheme {
         Box {
             DebugDrawerHome(
                 destinations = List(size = 30) {

@@ -282,7 +282,7 @@ class GleanCrashReporterService(
             Crash.NativeCodeCrash.PROCESS_TYPE_BACKGROUND_CHILD -> {
                 when (crash.remoteType) {
                     // The extensions process is a content process as per:
-                    // https://firefox-source-docs.mozilla.org/dom/ipc/process_model.html#webextensions
+                    // https://eyebrowse-source-docs.mozilla.org/dom/ipc/process_model.html#webextensions
                     "extension" -> "content"
 
                     else -> "utility"

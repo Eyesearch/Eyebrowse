@@ -64,20 +64,20 @@ class LoginExceptionStorageTest {
     @Test
     fun testAddingExceptions() {
         storage.addLoginException("mozilla.org")
-        storage.addLoginException("firefox.com")
+        storage.addLoginException("eyebrowse.com")
 
         val exceptions = getAllExceptions()
 
         assertEquals(2, exceptions.size)
 
         assertEquals("mozilla.org", exceptions[0].origin)
-        assertEquals("firefox.com", exceptions[1].origin)
+        assertEquals("eyebrowse.com", exceptions[1].origin)
     }
 
     @Test
     fun testRemovingExceptions() {
         storage.addLoginException("mozilla.org")
-        storage.addLoginException("firefox.com")
+        storage.addLoginException("eyebrowse.com")
 
         getAllExceptions().let { exceptions ->
             assertEquals(2, exceptions.size)
@@ -86,14 +86,14 @@ class LoginExceptionStorageTest {
 
         getAllExceptions().let { exceptions ->
             assertEquals(1, exceptions.size)
-            assertEquals("firefox.com", exceptions[0].origin)
+            assertEquals("eyebrowse.com", exceptions[0].origin)
         }
     }
 
     @Test
     fun testGettingExceptions() = runBlocking {
         storage.addLoginException("mozilla.org")
-        storage.addLoginException("firefox.com")
+        storage.addLoginException("eyebrowse.com")
 
         val exceptions = storage.getLoginExceptions().first()
 
@@ -105,14 +105,14 @@ class LoginExceptionStorageTest {
         }
 
         with(exceptions[1]) {
-            assertEquals("firefox.com", origin)
+            assertEquals("eyebrowse.com", origin)
         }
     }
 
     @Test
     fun testGettingExceptionsByOrigin() = runBlocking {
         storage.addLoginException("mozilla.org")
-        storage.addLoginException("firefox.com")
+        storage.addLoginException("eyebrowse.com")
 
         val exception = storage.findExceptionByOrigin("mozilla.org")
 
@@ -123,7 +123,7 @@ class LoginExceptionStorageTest {
     @Test
     fun testGettingNoExceptionsByOrigin() = runBlocking {
         storage.addLoginException("mozilla.org")
-        storage.addLoginException("firefox.com")
+        storage.addLoginException("eyebrowse.com")
 
         val exception = storage.findExceptionByOrigin("testsite.org")
 

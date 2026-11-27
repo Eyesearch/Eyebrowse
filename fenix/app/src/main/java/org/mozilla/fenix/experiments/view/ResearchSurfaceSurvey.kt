@@ -38,7 +38,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.compose.button.PrimaryButton
 import org.mozilla.fenix.compose.button.SecondaryButton
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * The ratio of the content height to screen height. This was determined from the designs in figma
@@ -120,15 +120,15 @@ fun ResearchSurfaceSurvey(
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Image(
-                        painter = painterResource(R.drawable.ic_firefox),
+                        painter = painterResource(R.drawable.ic_survey_mark),
                         contentDescription = null,
                     )
                     Spacer(modifier = Modifier.height(16.dp))
                     Text(
                         text = messageText,
-                        color = FirefoxTheme.colors.textPrimary,
+                        color = EyebrowseTheme.colors.textPrimary,
                         textAlign = TextAlign.Center,
-                        style = FirefoxTheme.typography.headline6,
+                        style = EyebrowseTheme.typography.headline6,
                     )
                 }
                 Column(
@@ -153,7 +153,7 @@ fun ResearchSurfaceSurvey(
 @Composable
 @LightDarkPreview
 private fun SurveyPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         ResearchSurfaceSurvey(
             messageText = stringResource(id = R.string.nimbus_survey_message_text),
             onAcceptButtonText = stringResource(id = R.string.preferences_take_survey),

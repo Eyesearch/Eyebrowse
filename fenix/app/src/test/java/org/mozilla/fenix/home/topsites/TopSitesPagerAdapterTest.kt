@@ -37,13 +37,13 @@ class TopSitesPagerAdapterTest {
     private val topSite3 = TopSite.Default(
         id = 3L,
         title = "Title3",
-        url = "https://firefox.org",
+        url = "https://eyebrowse.org",
         null,
     )
     private val topSite4 = TopSite.Default(
         id = 4L,
         title = "Title4",
-        url = "https://firefox.org",
+        url = "https://eyebrowse.org",
         null,
     )
 
@@ -105,7 +105,7 @@ class TopSitesPagerAdapterTest {
         val removedTopSite = TopSite.Default(
             id = -1L,
             title = "REMOVED",
-            url = "https://firefox.org",
+            url = "https://eyebrowse.org",
             null,
         )
         val payload = TopSitePagerPayload(
@@ -134,7 +134,7 @@ class TopSitesPagerAdapterTest {
         val removedTopSite = TopSite.Default(
             id = -1L,
             title = "REMOVED",
-            url = "https://firefox.org",
+            url = "https://eyebrowse.org",
             null,
         )
         val payload = TopSitePagerPayload(
@@ -160,7 +160,7 @@ class TopSitesPagerAdapterTest {
         val changedTopSite = TopSite.Default(
             id = 3L,
             title = "CHANGED",
-            url = "https://firefox.org",
+            url = "https://eyebrowse.org",
             null,
         )
         val payload = TopSitePagerPayload(

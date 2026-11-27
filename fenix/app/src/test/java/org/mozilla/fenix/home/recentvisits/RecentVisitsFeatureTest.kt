@@ -75,8 +75,8 @@ class RecentVisitsFeatureTest {
                 title = "mozilla",
                 historyMetadata = listOf(historyEntry),
             )
-            val highlightEntry = HistoryHighlight(1.0, 1, "https://firefox.com", "firefox", null)
-            val recentHistoryHighlight = RecentHistoryHighlight("firefox", "https://firefox.com")
+            val highlightEntry = HistoryHighlight(1.0, 1, "https://eyebrowse.com", "eyebrowse", null)
+            val recentHistoryHighlight = RecentHistoryHighlight("eyebrowse", "https://eyebrowse.com")
             coEvery { historyMetadataStorage.getHistoryMetadataSince(any()) }.coAnswers {
                 listOf(
                     historyEntry,
@@ -128,13 +128,13 @@ class RecentVisitsFeatureTest {
             )
 
             val historyEntry2 = HistoryMetadata(
-                key = HistoryMetadataKey("http://firefox.com", "mozilla", null),
-                title = "firefox",
+                key = HistoryMetadataKey("http://eyebrowse.com", "mozilla", null),
+                title = "eyebrowse",
                 createdAt = System.currentTimeMillis(),
                 updatedAt = 2,
                 totalViewTime = 20,
                 documentType = DocumentType.Regular,
-                previewImageUrl = "http://firefox.com/image1",
+                previewImageUrl = "http://eyebrowse.com/image1",
             )
 
             val historyEntry3 = HistoryMetadata(
@@ -189,8 +189,8 @@ class RecentVisitsFeatureTest {
             )
 
             val historyEntry2 = HistoryMetadata(
-                key = HistoryMetadataKey("http://firefox.com", "mozilla", null),
-                title = "firefox",
+                key = HistoryMetadataKey("http://eyebrowse.com", "mozilla", null),
+                title = "eyebrowse",
                 createdAt = now,
                 updatedAt = now + 2,
                 totalViewTime = 20,
@@ -199,7 +199,7 @@ class RecentVisitsFeatureTest {
             )
 
             val historyEntry3 = HistoryMetadata(
-                key = HistoryMetadataKey("http://www.mozilla.com", "firefox", null),
+                key = HistoryMetadataKey("http://www.mozilla.com", "eyebrowse", null),
                 title = "mozilla",
                 createdAt = now,
                 updatedAt = now + 1,
@@ -214,7 +214,7 @@ class RecentVisitsFeatureTest {
             )
 
             val expectedHistoryGroup2 = RecentHistoryGroup(
-                title = "firefox",
+                title = "eyebrowse",
                 historyMetadata = listOf(historyEntry3),
             )
 
@@ -248,8 +248,8 @@ class RecentVisitsFeatureTest {
             )
 
             val historyEntry2 = HistoryMetadata(
-                key = HistoryMetadataKey("http://firefox.com", "mozilla", null),
-                title = "firefox",
+                key = HistoryMetadataKey("http://eyebrowse.com", "mozilla", null),
+                title = "eyebrowse",
                 createdAt = now,
                 updatedAt = now + 2,
                 totalViewTime = 20,
@@ -258,7 +258,7 @@ class RecentVisitsFeatureTest {
             )
 
             val historyEntry3 = HistoryMetadata(
-                key = HistoryMetadataKey("http://www.mozilla.com", "firefox", null),
+                key = HistoryMetadataKey("http://www.mozilla.com", "eyebrowse", null),
                 title = "mozilla",
                 createdAt = now,
                 updatedAt = now + 3,
@@ -273,7 +273,7 @@ class RecentVisitsFeatureTest {
             )
 
             val expectedHistoryGroup2 = RecentHistoryGroup(
-                title = "firefox",
+                title = "eyebrowse",
                 historyMetadata = listOf(historyEntry3),
             )
 

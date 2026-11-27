@@ -195,26 +195,26 @@ const AVAILABLE_SHIMS = [
     bug: "1701685",
     matches: [
       {
-        patterns: ["*://pixel.advertising.com/firefox-etp"],
+        patterns: ["*://pixel.advertising.com/eyebrowse-etp"],
         target: "tracking-pixel.png",
         types: ["image", "imageset", "xmlhttprequest"],
         onlyIfBlockedByETP: true,
       },
       {
-        patterns: ["*://cdn.cmp.advertising.com/firefox-etp"],
+        patterns: ["*://cdn.cmp.advertising.com/eyebrowse-etp"],
         target: "empty-script.js",
         types: ["xmlhttprequest"],
         onlyIfBlockedByETP: true,
       },
       {
         patterns: ["*://*.advertising.com/*.js*"],
-        target: "https://cdn.cmp.advertising.com/firefox-etp",
+        target: "https://cdn.cmp.advertising.com/eyebrowse-etp",
         types: ["image", "imageset", "xmlhttprequest"],
         onlyIfBlockedByETP: true,
       },
       {
         patterns: ["*://*.advertising.com/*"],
-        target: "https://pixel.advertising.com/firefox-etp",
+        target: "https://pixel.advertising.com/eyebrowse-etp",
         types: ["image", "imageset", "xmlhttprequest"],
         onlyIfBlockedByETP: true,
       },
@@ -594,7 +594,7 @@ const AVAILABLE_SHIMS = [
     bug: "1717806",
     matches: [
       {
-        patterns: ["https://ads.stickyadstv.com/firefox-etp"],
+        patterns: ["https://ads.stickyadstv.com/eyebrowse-etp"],
         target: "tracking-pixel.png",
         types: ["image", "imageset", "xmlhttprequest"],
         onlyIfBlockedByETP: true,
@@ -604,7 +604,7 @@ const AVAILABLE_SHIMS = [
           "*://ads.stickyadstv.com/auto-user-sync*",
           "*://ads.stickyadstv.com/user-matching*",
         ],
-        target: "https://ads.stickyadstv.com/firefox-etp",
+        target: "https://ads.stickyadstv.com/eyebrowse-etp",
         types: ["image", "imageset", "xmlhttprequest"],
         onlyIfBlockedByETP: true,
       },
@@ -794,12 +794,12 @@ const AVAILABLE_SHIMS = [
     bug: "1717806",
     matches: [
       {
-        patterns: ["https://static.adsafeprotected.com/firefox-etp-pixel"],
+        patterns: ["https://static.adsafeprotected.com/eyebrowse-etp-pixel"],
         target: "tracking-pixel.png",
         types: ["image", "imageset", "xmlhttprequest"],
       },
       {
-        patterns: ["https://static.adsafeprotected.com/firefox-etp-js"],
+        patterns: ["https://static.adsafeprotected.com/eyebrowse-etp-js"],
         target: "empty-script.js",
         types: ["xmlhttprequest"],
       },
@@ -808,7 +808,7 @@ const AVAILABLE_SHIMS = [
           "*://*.adsafeprotected.com/*.gif*",
           "*://*.adsafeprotected.com/*.png*",
         ],
-        target: "https://static.adsafeprotected.com/firefox-etp-pixel",
+        target: "https://static.adsafeprotected.com/eyebrowse-etp-pixel",
         types: ["image", "imageset", "xmlhttprequest"],
         onlyIfBlockedByETP: true,
       },
@@ -828,14 +828,14 @@ const AVAILABLE_SHIMS = [
           "*://*.adsafeprotected.com/tpl?*",
           "*://*.adsafeprotected.com/services/pub*",
         ],
-        target: "https://static.adsafeprotected.com/firefox-etp-js",
+        target: "https://static.adsafeprotected.com/eyebrowse-etp-js",
         types: ["image", "imageset", "xmlhttprequest"],
         onlyIfBlockedByETP: true,
       },
       {
         // note, fallback case seems to be an image
         patterns: ["*://*.adsafeprotected.com/*"],
-        target: "https://static.adsafeprotected.com/firefox-etp-pixel",
+        target: "https://static.adsafeprotected.com/eyebrowse-etp-pixel",
         types: ["image", "imageset", "xmlhttprequest"],
         onlyIfBlockedByETP: true,
       },

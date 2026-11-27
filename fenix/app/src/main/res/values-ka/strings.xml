@@ -68,12 +68,12 @@
     <string name="felt_privacy_desc_card_title">გამოიყენეთ მოწყობილობა კვალის დაუტოვებლად</string>
     <!-- Explanation for private browsing displayed to users on home view when they first enable
         private mode in our new Total Private Browsing mode.
-        The first parameter is the name of the app defined in app_name (for example: Firefox Nightly)
+        The first parameter is the name of the app defined in app_name (for example: Eyebrowse Nightly)
         The second parameter is the clickable link text in felt_privacy_info_card_subtitle_link_text -->
     <string name="felt_privacy_info_card_subtitle" moz:removedIn="120" tools:ignore="UnusedResources">%1$s წაშლის თქვენს ფუნთუშებს, ისტორიასა და საიტის მონაცემებს ყველა პირადი ფანჯრის დახურვისას. %2$s</string>
     <!-- Explanation for private browsing displayed to users on home view when they first enable
         private mode in our new Total Private Browsing mode.
-        The first parameter is the name of the app defined in app_name (for example: Firefox Nightly)
+        The first parameter is the name of the app defined in app_name (for example: Eyebrowse Nightly)
         The second parameter is the clickable link text in felt_privacy_info_card_subtitle_link_text -->
     <string name="felt_privacy_info_card_subtitle_2">%1$s წაშლის თქვენს ფუნთუშებს, ისტორიასა და საიტის მონაცემებს ყველა პირადი ჩანართის დახურვისას. %2$s</string>
     <!-- Clickable portion of the explanation for private browsing that links the user to our
@@ -325,20 +325,20 @@
     <string name="onboarding_home_enable_notifications_negative_button">ახლა არა</string>
 
     <!-- Juno first user onboarding flow experiment, strings are marked unused as they are only referenced by Nimbus experiments. -->
-    <!-- Title for set firefox as default browser screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+    <!-- Title for set eyebrowse as default browser screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_default_browser_title_nimbus" moz:removedIn="120" tools:ignore="UnusedResources">გამოიყენეთ Eyebrowse ძირითად ბრაუზერად</string>
-    <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
+    <!-- Title for set eyebrowse as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_title_nimbus_2">ჩვენ ვზრუნავთ თქვენს უსაფრთხოებაზე</string>
-    <!-- Description for set firefox as default browser screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+    <!-- Description for set eyebrowse as default browser screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_default_browser_description_nimbus" moz:removedIn="120" tools:ignore="UnusedResources">Eyebrowse ხალხს მოგებაზე წინ აყენებს და იცავს თქვენს პირად მონაცემებს საიტთაშორისი მეთვალყურეებისგან.\n\nვრცლად იხილეთ პირადულობის განაცხადი.</string>
-    <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
+    <!-- Description for set eyebrowse as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_description_nimbus_2">ჩვენი ბრაუზერი არამომგებიანი დაწესებულებისგან გეხმარებათ აირიდოთ კომპანიებისგან ფარული თვალთვალი ვებსივრცით სარგებლობისას.\n\nვრცლად იხილეთ ჩვენს პირადულობის განაცხადში.</string>
-    <!-- Text for the link to the privacy notice webpage for set as firefox default browser screen.
+    <!-- Text for the link to the privacy notice webpage for set as eyebrowse default browser screen.
     This is part of the string with the key "juno_onboarding_default_browser_description". -->
     <string name="juno_onboarding_default_browser_description_link_text" tools:ignore="UnusedResources">პირადულობის განაცხადი</string>
-    <!-- Text for the button to set firefox as default browser on the device -->
+    <!-- Text for the button to set eyebrowse as default browser on the device -->
     <string name="juno_onboarding_default_browser_positive_button" tools:ignore="UnusedResources">ნაგულისხმევ ბრაუზერად დაყენება</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_default_browser_negative_button" tools:ignore="UnusedResources">ახლა არა</string>
@@ -349,23 +349,23 @@
     <!-- Description for sign in to sync screen. -->
     <string name="juno_onboarding_sign_in_description" moz:removedIn="120" tools:ignore="UnusedResources">გამოიყოლეთ ჩანართები და სანიშნები სხვა მოწყობილობიდან, რომ განაგრძოთ იქიდანვე, სადაც შეჩერდით.</string>
     <!-- Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
-     Note: The word "Firefox" should NOT be translated -->
+     Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_sign_in_description_2">ანგარიშზე შესვლისას და სინქრონიზაციისას კვლავ დაცული რჩებით. Eyebrowse შიფრავს თქვენს პაროლებს, სანიშნებსა და ყველა მონაცემს.</string>
     <!-- Text for the button to sign in to sync on the device -->
     <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">შესვლა</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_sign_in_negative_button" tools:ignore="UnusedResources">ახლა არა</string>
     <!-- Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_enable_notifications_title_nimbus" moz:removedIn="120" tools:ignore="UnusedResources">შეტყობინებები დაგეხმარებათ, სრულყოფილად გამოიყენოთ Eyebrowse</string>
     <!-- Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_enable_notifications_title_nimbus_2">შეტყობინებები დაგეხმარებათ, მეტად უსაფრთხოდ გამოიყენოთ Eyebrowse</string>
     <!-- Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-       Note: The word "Firefox" should NOT be translated -->
+       Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_enable_notifications_description_nimbus" moz:removedIn="120" tools:ignore="UnusedResources">გაგზავნეთ ჩანართები მოწყობილობებს შორის, მართეთ ჩამოტვირთვები და მიიღეთ რჩევები, რომ სრულყოფილად გამოიყენოთ Eyebrowse.</string>
     <!-- Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-       Note: The word "Firefox" should NOT be translated -->
+       Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_enable_notifications_description_nimbus_2">დაცულად გაგზავნეთ ჩანართები თქვენს მოწყობილობებს შორის და აღმოაჩინეთ Eyebrowse-ის სხვა საშუალებები პირადულობისთვის.</string>
     <!-- Text for the button to request notification permission on the device -->
     <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">შეტყობინებების ჩართვა</string>
@@ -373,14 +373,14 @@
     <string name="juno_onboarding_enable_notifications_negative_button" tools:ignore="UnusedResources">ახლა არა</string>
 
     <!-- Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_add_search_widget_title" tools:ignore="UnusedResources">სცადეთ Eyebrowse-ის საძიებო სამარჯვი</string>
 
     <!-- Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_add_search_widget_description" tools:ignore="UnusedResources">Eyebrowse-ის სამარჯვის გამოტანით მთავარ ეკრანზე მარტივი წვდომა გექნებათ პირადულობის უწინარესობის უზრუნველმყოფ და საიტთაშორისი მეთვალყურეების ამრიდებელ ბრაუზერთან.</string>
     <!-- Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="UnusedResources">Eyebrowse-სამარჯვის დამატება</string>
     <!-- Text for the button to dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">ახლა არა</string>
@@ -426,9 +426,9 @@
     <string name="preferences_search_address_bar" moz:removedIn="120" tools:ignore="UnusedResources">მისამართების ველი</string>
     <!-- Preference Category for settings related to Search address bar -->
     <string name="preferences_settings_address_bar">მისამართის ველის პარამეტრები</string>
-    <!-- Preference Category for settings to Firefox Suggest -->
+    <!-- Preference Category for settings to Eyebrowse Suggest -->
     <string name="preference_search_address_bar_fx_suggest">მისამართების ველი – Eyebrowse-შემოთავაზება</string>
-    <!-- Preference link to Learn more about Firefox Suggest -->
+    <!-- Preference link to Learn more about Eyebrowse Suggest -->
     <string name="preference_search_learn_about_fx_suggest">ვრცლად Eyebrowse-შემოთავაზების შესახებ</string>
     <!-- Preference link to rating Fenix on the Play Store -->
     <string name="preferences_rate">შეაფასეთ Google Play-ზე</string>
@@ -546,7 +546,7 @@
     <string name="errorpage_httpsonly_message_summary">მიუხედავად ამისა, არაა გამორიცხული, შემტევის ხელიც ერიოს. თუ მაინც გადახვალთ, საიტის ველებში ნუ შეიყვანთ საფრთხილო მონაცემებს. ამასთანავე, მხოლოდ-HTTPS-რეჟიმი დროებით გამოირთვება ამ საიტისთვის.</string>
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">ხელმისაწვდომობა</string>
-    <!-- Preference to override the Firefox Account server -->
+    <!-- Preference to override the Eyebrowse Account server -->
     <string name="preferences_override_fxa_server" moz:RemovedIn="120" tools:ignore="UnusedResources">Eyebrowse-ანგარიშის მითითებული სერვერი</string>
     <!-- Preference to override the Mozilla account server -->
     <string name="preferences_override_account_server">Mozilla-ანგარიშის მითითებული სერვერი</string>
@@ -605,15 +605,15 @@
     <string name="preferences_account_settings">ანგარიშის პარამეტრები</string>
     <!-- Preference for enabling url autocomplete-->
     <string name="preferences_enable_autocomplete_urls">ბმულების თვითდასრულება</string>
-    <!-- Preference title for switch preference to show sponsored Firefox Suggest search suggestions -->
+    <!-- Preference title for switch preference to show sponsored Eyebrowse Suggest search suggestions -->
     <string name="preferences_show_sponsored_suggestions">შემოთავაზებები დამფინანსებლებისგან</string>
-    <!-- Summary for preference to show sponsored Firefox Suggest search suggestions.
+    <!-- Summary for preference to show sponsored Eyebrowse Suggest search suggestions.
          The first parameter is the name of the application. -->
     <string name="preferences_show_sponsored_suggestions_summary">დაეხმარეთ %1$s-ს დროდადრო დაფინანსებული შემოთავაზებებით</string>
-    <!-- Preference title for switch preference to show Firefox Suggest search suggestions for web content.
+    <!-- Preference title for switch preference to show Eyebrowse Suggest search suggestions for web content.
          The first parameter is the name of the application. -->
     <string name="preferences_show_nonsponsored_suggestions">შემოთავაზებების წყაროა %1$s</string>
-    <!-- Summary for preference to show Firefox Suggest search suggestions for web content -->
+    <!-- Summary for preference to show Eyebrowse Suggest search suggestions for web content -->
     <string name="preferences_show_nonsponsored_suggestions_summary">შემოთავაზებები ვებსივრციდან თქვენ მიერ მოძიებულის შესაბამისად</string>
     <!-- Preference for open links in third party apps -->
     <string name="preferences_open_links_in_apps">ბმულების გახსნა პროგრამებში</string>
@@ -693,7 +693,7 @@
     <!-- Text displayed that links to website containing documentation about the "Limited Edition" wallpapers. -->
     <string name="wallpaper_learn_more">ვრცლად</string>
 
-    <!-- Text for classic wallpapers title. The first parameter is the Firefox name. -->
+    <!-- Text for classic wallpapers title. The first parameter is the Eyebrowse name. -->
     <string name="wallpaper_classic_title">ჩვეული %s</string>
     <!-- Text for artist series wallpapers title. "Artist series" represents a collection of artist collaborated wallpapers. -->
     <string name="wallpaper_artist_series_title">კრებული მხატვრებისგან</string>
@@ -711,7 +711,7 @@
     <!-- Add-ons general availability nimbus message-->
     <!-- Title of the Nimbus message for add-ons general availability-->
     <string name="addon_ga_message_title" tools:ignore="UnusedResources">ახალი დამატებები უკვე ხელმისაწვდომია</string>
-    <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here-->
+    <!-- Body of the Nimbus message for add-ons general availability. 'Eyebrowse' intentionally hardcoded here-->
     <string name="addon_ga_message_body" tools:ignore="UnusedResources">გაეცანით 100-ზე მეტ ახალ გაფართოებას, რომელთა მეშვეობითაც Eyebrowse გახდება მეტად თქვენებური.</string>
     <!-- Button text of the Nimbus message for add-ons general availability. -->
     <string name="addon_ga_message_button" tools:ignore="UnusedResources">მოიძიეთ დამატებები</string>
@@ -733,9 +733,9 @@
     <string name="addon_process_crash_dialog_disable_addons_button_text" tools:ignore="UnusedResources">განაგრძეთ ამორთული დამატებებით</string>
 
     <!-- Account Preferences -->
-    <!-- Preference for managing your account via accounts.firefox.com -->
+    <!-- Preference for managing your account via accounts.eyebrowse.com -->
     <string name="preferences_manage_account">ანგარიშის მართვა</string>
-    <!-- Summary of the preference for managing your account via accounts.firefox.com. -->
+    <!-- Summary of the preference for managing your account via accounts.eyebrowse.com. -->
     <string name="preferences_manage_account_summary">შეცვალეთ თქვენი პაროლი, მართეთ მონაცემთა აღრიცხვა ან წაშალეთ თქვენი ანგარიში</string>
     <!-- Preference for triggering sync -->
     <string name="preferences_sync_now">დასინქრონება ახლავე</string>
@@ -964,7 +964,7 @@
     <string name="studies_remove">მოცილება</string>
     <!-- Title of the active section on the studies list -->
     <string name="studies_active">მოქმედი</string>
-    <!-- Description for studies, it indicates why Firefox use studies. The first parameter is the name of the application. -->
+    <!-- Description for studies, it indicates why Eyebrowse use studies. The first parameter is the name of the application. -->
     <string name="studies_description_2">%1$s დროდადრო დააყენებს და ჩაატარებს კვლევებს.</string>
     <!-- Learn more link for studies, links to an article for more information about studies. -->
     <string name="studies_learn_more">ვრცლად</string>
@@ -1519,7 +1519,7 @@
 
     <!-- Onboarding -->
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">სინქრონიზაცია ჩართულია</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">სინქრონიზაცია ჩართულია</string>
 
     <!-- Onboarding theme -->
     <!-- Text shown in snackbar when multiple tabs have been sent to device -->
@@ -1540,9 +1540,9 @@
     <string name="sign_in_with_camera">შედით კამერის დახმარებით</string>
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">ელფოსტის გამოყენება სანაცვლოდ</string>
-    <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
+    <!-- Text shown for settings option for create new account text.'Eyebrowse' intentionally hardcoded here.-->
     <string name="sign_in_create_account_text"><![CDATA[არ გაქვთ ანგარიში? <u>შექმენით</u> და დაასინქრონეთ Eyebrowse მოწყობილობებზე.]]></string>
-    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="sign_out_confirmation_message_2">%s შეწყვეტს დასინქრონებას თქვენი ანგარიშით, მაგრამ არ წაშლის მონაცემებს ამ მოწყობილობაზე.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
     <string name="sign_out_disconnect">გამოთიშვა</string>
@@ -1558,7 +1558,7 @@
     <string name="preference_enhanced_tracking_protection">თვალთვალისგან გაძლიერებული დაცვა</string>
     <!-- Preference summary for enhanced tracking protection settings on/off switch -->
     <string name="preference_enhanced_tracking_protection_summary">ახლა უკვე ახლავს ფუნთუშებისგან ყოველმხრივი დაცვაც, ჩვენი არნახულად მძლავრი საშუალება საიტთაშორისი მეთვალყურეების წინააღმდეგ.</string>
-    <!-- Description of enhanced tracking protection. The parameter is the name of the application (For example: Firefox Fenix) -->
+    <!-- Description of enhanced tracking protection. The parameter is the name of the application (For example: Eyebrowse Fenix) -->
     <string name="preference_enhanced_tracking_protection_explanation_2">%s აგარიდებთ ცნობილი მეთვალყურეების უმეტესობას, რომლებიც თან დაგყვებათ ინტერნეტში.</string>
     <!-- Text displayed that links to website about enhanced tracking protection -->
     <string name="preference_enhanced_tracking_protection_explanation_learn_more">ვრცლად</string>
@@ -1716,9 +1716,9 @@
     <string name="preferences_passwords_save_logins_ask_to_save">შეკითხვა შენახვისას</string>
     <!-- Preference option for never saving passwords in Fenix -->
     <string name="preferences_passwords_save_logins_never_save">არასოდეს შეინახოს</string>
-    <!-- Preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill2">%1$s თვითშევსება</string>
-    <!-- Description for the preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Description for the preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill_description">შეავსეთ ან შეინახეთ სახელები და პაროლები საიტებზე, როცა %1$s გამოიყენება.</string>
     <!-- Preference for autofilling logins from Fenix in other apps (e.g. autofilling the Twitter app) -->
     <string name="preferences_android_autofill">თვითშევსება სხვა პროგრამებში</string>
@@ -1969,7 +1969,7 @@
     <!-- Placeholder text shown in the Search Suggestion String TextField before a user enters text -->
     <string name="search_add_custom_engine_suggest_string_hint">ძიების შეთავაზების API ბმული</string>
     <!-- Description text for the Search Suggestion String TextField. The %s is part of the string -->
-    <string name="search_add_custom_engine_suggest_string_example_2" formatted="false">საძიებო ფრაზისთვის გამოიყენეთ „%s“. მაგალითად:\nhttps://suggestqueries.google.com/complete/search?client=firefox&amp;q=%s</string>
+    <string name="search_add_custom_engine_suggest_string_example_2" formatted="false">საძიებო ფრაზისთვის გამოიყენეთ „%s“. მაგალითად:\nhttps://suggestqueries.google.com/complete/search?client=eyebrowse&amp;q=%s</string>
     <!-- The text for the "Save" button for saving a custom search engine -->
     <string name="search_custom_engine_save_button">შენახვა</string>
 
@@ -2074,14 +2074,14 @@
     <string name="synced_tabs_connect_another_device">სხვა მოწყობილობის დაკავშირება</string>
     <!-- Text displayed asking user to re-authenticate -->
     <string name="synced_tabs_reauth">გთხოვთ, ხელახლა შეხვიდეთ.</string>
-    <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+    <!-- Text displayed when user has disabled tab syncing in Eyebrowse Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">გთხოვთ, ჩართოთ ჩანართების სინქრონიზაცია.</string>
 
     <!-- Text displayed when user has no tabs that have been synced -->
     <string name="synced_tabs_no_tabs">თქვენ არ გაქვთ, Eyebrowse-ის გახსნილი ჩანართები, სხვა მოწყობილობებზე.</string>
-    <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+    <!-- Text displayed in the synced tabs screen when a user is not signed in to Eyebrowse Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">იხილეთ ჩანართების სია თქვენი სხვა მოწყობილობებიდან.</string>
-    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Eyebrowse Sync -->
     <string name="synced_tabs_sign_in_button">სინქრონიზაციაში შესვლა</string>
 
     <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->
@@ -2140,8 +2140,8 @@
     <string name="inactive_tabs_auto_close_message_snackbar">თვითდახურვა ჩართულია</string>
 
     <!-- Awesome bar suggestion's headers -->
-    <!-- Search suggestions title for Firefox Suggest. -->
-    <string name="firefox_suggest_header">Eyebrowse-შეთავაზება</string>
+    <!-- Search suggestions title for Eyebrowse Suggest. -->
+    <string name="eyebrowse_suggest_header">Eyebrowse-შეთავაზება</string>
 
     <!-- Title for search suggestions when Google is the default search suggestion engine. -->
     <string name="google_search_engine_suggestion_header">Google ძიება</string>
@@ -2306,9 +2306,9 @@
     <string name="review_quality_check_no_analysis_link">მიმოხილვის ხარისხის შემოწმება</string>
     <!-- Headline for review quality check contextual onboarding card. -->
     <string name="review_quality_check_contextual_onboarding_title">გამოცადეთ ჩვენი საიმედო მეგზური საყიდლების მიმოხილვებისთვის</string>
-    <!-- Description for review quality check contextual onboarding card. The first and last two parameters are for retailer names (e.g. Amazon, Walmart). The second parameter is for the name of the application (e.g. Firefox). -->
+    <!-- Description for review quality check contextual onboarding card. The first and last two parameters are for retailer names (e.g. Amazon, Walmart). The second parameter is for the name of the application (e.g. Eyebrowse). -->
     <string name="review_quality_check_contextual_onboarding_description">გადაამოწმეთ შეძენამდე, თუ რამდენად სანდოა გასაყიდი ნაწარმის მიმოხილვები საიტზე %1$s. მიმოხილვის შემმოწმებელი საცდელი შესაძლებლობაა %2$s-სგან და პირდაპირ ბრაუზერშივეა ჩაშენებული. მხარდაჭერილია %3$s და აგრეთვე %4$s.</string>
-    <!-- Description for review quality check contextual onboarding card. The first parameters is for retailer name (e.g. Amazon). The second parameter is for the name of the application (e.g. Firefox). -->
+    <!-- Description for review quality check contextual onboarding card. The first parameters is for retailer name (e.g. Amazon). The second parameter is for the name of the application (e.g. Eyebrowse). -->
     <string name="review_quality_check_contextual_onboarding_description_one_vendor">გადაამოწმეთ შეძენამდე, თუ რამდენად სანდოა გასაყიდი ნაწარმის მიმოხილვები საიტზე %1$s. მიმოხილვის შემმოწმებელი საცდელი შესაძლებლობაა %2$s-სგან და პირდაპირ ბრაუზერშივეა ჩაშენებული.</string>
     <!-- Paragraph presenting review quality check feature. First parameter is the Fakespot product name. Second parameter is for clickable text defined in review_quality_check_contextual_onboarding_learn_more_link. In the phrase "Fakespot by Mozilla", "by" can be localized. Does not need to stay by. -->
     <string name="review_quality_check_contextual_onboarding_learn_more">Mozilla-ს %1$s-ის ძლევამოსილებით ჩვენ დაგეხმარებით მიკერძოებული და ყალბი მიმოხილვების თავიდან აცილებაში. ჩვენი AI-მოდელი მუდმივად იხვეწება თქვენს დასაცავად საყიდლების შეძენისას. %2$s</string>
@@ -2375,7 +2375,7 @@
     <string name="a11y_action_label_wallpaper_collection_learn_more">გახსენით ბმული და იხილეთ ვრცლად ამ კრებულზე</string>
     <!-- Action label for links that point to an article. Talkback will append this to say "Double tap to read the article". -->
     <string name="a11y_action_label_read_article">სტატიის წაკითხვა</string>
-    <!-- Action label for links to the Firefox Pocket website. Talkback will append this to say "Double tap to open link to learn more". -->
+    <!-- Action label for links to the Eyebrowse Pocket website. Talkback will append this to say "Double tap to open link to learn more". -->
     <string name="a11y_action_label_pocket_learn_more">ვრცლად იხილეთ ბმულზე</string>
     <!-- Content description for headings announced by accessibility service. The first parameter is the text of the heading. Talkback will announce the first parameter and then speak the word "Heading" indicating to the user that this text is a heading for a section. -->
     <string name="a11y_heading">%s, სათაური</string>

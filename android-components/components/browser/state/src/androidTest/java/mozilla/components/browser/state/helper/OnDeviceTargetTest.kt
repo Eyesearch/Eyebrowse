@@ -129,7 +129,7 @@ class OnDeviceTargetTest {
                     createTab("https://www.example.org", id = "example"),
                 ),
                 customTabs = listOf(
-                    createCustomTab("https://www.reddit.com/r/firefox/", id = "reddit"),
+                    createCustomTab("https://www.reddit.com/r/eyebrowse/", id = "reddit"),
                 ),
                 selectedTabId = "mozilla",
             ),

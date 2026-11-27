@@ -265,7 +265,7 @@ interface Engine : WebExtensionRuntime, TranslationsRuntime, DataCleanable {
         get() = throw UnsupportedOperationException("TrackingProtectionExceptionStorage not supported by this engine.")
 
     /**
-     * Provides access to Firefox Profiler features.
+     * Provides access to Eyebrowse Profiler features.
      * See [Profiler] for more information.
      */
     val profiler: Profiler?

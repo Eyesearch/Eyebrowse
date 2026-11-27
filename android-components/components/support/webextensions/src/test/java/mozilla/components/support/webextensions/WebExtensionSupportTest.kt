@@ -425,7 +425,7 @@ class WebExtensionSupportTest {
         verify(store, times(3)).dispatch(webExtensionActionCaptor.capture())
         assertEquals(ext.id, (webExtensionActionCaptor.allValues.last() as WebExtensionAction.UpdateTabBrowserAction).extensionId)
 
-        store.dispatch(ContentAction.UpdateUrlAction(sessionId = "1", url = "https://www.firefox.com")).joinBlocking()
+        store.dispatch(ContentAction.UpdateUrlAction(sessionId = "1", url = "https://www.eyebrowse.com")).joinBlocking()
         verify(ext, times(1)).registerActionHandler(eq(engineSession), actionHandlerCaptor.capture())
         verify(ext, times(1)).registerTabHandler(eq(engineSession), tabHandlerCaptor.capture())
 

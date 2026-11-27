@@ -34,7 +34,7 @@ import org.mozilla.fenix.compose.LinkTextState
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.compose.button.PrimaryButton
 import org.mozilla.fenix.shopping.ui.ext.headingResource
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Review Quality Check Info Card UI.
@@ -89,8 +89,8 @@ fun ReviewQualityCheckInfoCard(
             Column {
                 Text(
                     text = title,
-                    color = FirefoxTheme.colors.textPrimary,
-                    style = FirefoxTheme.typography.headline8,
+                    color = EyebrowseTheme.colors.textPrimary,
+                    style = EyebrowseTheme.typography.headline8,
                     modifier = Modifier.semantics {
                         heading()
                         contentDescription = titleContentDescription
@@ -102,8 +102,8 @@ fun ReviewQualityCheckInfoCard(
 
                     Text(
                         text = description,
-                        color = FirefoxTheme.colors.textPrimary,
-                        style = FirefoxTheme.typography.body2,
+                        color = EyebrowseTheme.colors.textPrimary,
+                        style = EyebrowseTheme.typography.body2,
                     )
                 }
 
@@ -113,10 +113,10 @@ fun ReviewQualityCheckInfoCard(
                     LinkText(
                         text = it.first,
                         linkTextStates = listOf(it.second),
-                        style = FirefoxTheme.typography.body2.copy(
-                            color = FirefoxTheme.colors.textPrimary,
+                        style = EyebrowseTheme.typography.body2.copy(
+                            color = EyebrowseTheme.colors.textPrimary,
                         ),
-                        linkTextColor = FirefoxTheme.colors.textPrimary,
+                        linkTextColor = EyebrowseTheme.colors.textPrimary,
                         linkTextDecoration = TextDecoration.Underline,
                     )
                 }
@@ -144,7 +144,7 @@ private fun InfoCardIcon(
     Icon(
         painter = painterResource(id = iconId),
         contentDescription = null,
-        tint = FirefoxTheme.colors.iconPrimary,
+        tint = EyebrowseTheme.colors.iconPrimary,
         modifier = modifier,
     )
 }
@@ -164,29 +164,29 @@ enum class ReviewQualityCheckInfoType {
     val cardBackgroundColor: Color
         @Composable
         get() = when (this) {
-            Warning -> FirefoxTheme.colors.layerWarning
-            Confirmation -> FirefoxTheme.colors.layerConfirmation
-            Error -> FirefoxTheme.colors.layerError
-            Info -> FirefoxTheme.colors.layerInfo
+            Warning -> EyebrowseTheme.colors.layerWarning
+            Confirmation -> EyebrowseTheme.colors.layerConfirmation
+            Error -> EyebrowseTheme.colors.layerError
+            Info -> EyebrowseTheme.colors.layerInfo
             AnalysisUpdate -> Color.Transparent
         }
 
     val buttonBackgroundColor: Color
         @Composable
         get() = when (this) {
-            Warning -> FirefoxTheme.colors.actionWarning
-            Confirmation -> FirefoxTheme.colors.actionConfirmation
-            Error -> FirefoxTheme.colors.actionError
-            Info -> FirefoxTheme.colors.actionInfo
-            AnalysisUpdate -> FirefoxTheme.colors.actionSecondary
+            Warning -> EyebrowseTheme.colors.actionWarning
+            Confirmation -> EyebrowseTheme.colors.actionConfirmation
+            Error -> EyebrowseTheme.colors.actionError
+            Info -> EyebrowseTheme.colors.actionInfo
+            AnalysisUpdate -> EyebrowseTheme.colors.actionSecondary
         }
 
     val buttonTextColor: Color
         @Composable
         get() = when {
-            this == Info && !isSystemInDarkTheme() -> FirefoxTheme.colors.textOnColorPrimary
-            this == AnalysisUpdate -> FirefoxTheme.colors.textActionSecondary
-            else -> FirefoxTheme.colors.textPrimary
+            this == Info && !isSystemInDarkTheme() -> EyebrowseTheme.colors.textOnColorPrimary
+            this == AnalysisUpdate -> EyebrowseTheme.colors.textActionSecondary
+            else -> EyebrowseTheme.colors.textPrimary
         }
 }
 
@@ -211,10 +211,10 @@ private class PreviewModelParameterProvider : PreviewParameterProvider<ReviewQua
 private fun InfoCardPreview(
     @PreviewParameter(PreviewModelParameterProvider::class) type: ReviewQualityCheckInfoType,
 ) {
-    FirefoxTheme {
+    EyebrowseTheme {
         Box(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer1)
+                .background(color = EyebrowseTheme.colors.layer1)
                 .padding(16.dp),
         ) {
             ReviewQualityCheckInfoCard(

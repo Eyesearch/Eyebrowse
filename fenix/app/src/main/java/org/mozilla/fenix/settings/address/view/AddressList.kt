@@ -20,7 +20,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.list.IconListItem
 import org.mozilla.fenix.compose.list.TextListItem
 import org.mozilla.fenix.settings.address.ext.getAddressLabel
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * A list of addresses.
@@ -59,8 +59,8 @@ fun AddressList(
 @Preview
 @Composable
 private fun AddressListPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer2)) {
+    EyebrowseTheme {
+        Box(Modifier.background(EyebrowseTheme.colors.layer2)) {
             AddressList(
                 addresses = listOf(
                     Address(

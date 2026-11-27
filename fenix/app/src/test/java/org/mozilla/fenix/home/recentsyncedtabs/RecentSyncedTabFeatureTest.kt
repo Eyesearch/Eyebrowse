@@ -287,7 +287,7 @@ class RecentSyncedTabFeatureTest {
             )
             val secondDeviceTabs = listOf(
                 createActiveTab("first", "https://mozilla.org", null),
-                createActiveTab("second", "https://www.mozilla.org/en-US/firefox", null),
+                createActiveTab("second", "https://www.mozilla.org/en-US/eyebrowse", null),
             )
             val currentTime = System.currentTimeMillis()
             // Delay used to change last used times of tabs

@@ -51,7 +51,7 @@ import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.ext.toShortUrl
 import org.mozilla.fenix.tabstray.TabsTrayTestTag
 import org.mozilla.fenix.tabstray.ext.toDisplayTitle
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * List item used to display a tab that supports clicks,
@@ -86,9 +86,9 @@ fun TabListItem(
     onLongClick: ((tab: TabSessionState) -> Unit)? = null,
 ) {
     val contentBackgroundColor = if (isSelected) {
-        FirefoxTheme.colors.layerAccentNonOpaque
+        EyebrowseTheme.colors.layerAccentNonOpaque
     } else {
-        FirefoxTheme.colors.layer1
+        EyebrowseTheme.colors.layer1
     }
 
     val dismissState = rememberDismissState(
@@ -136,7 +136,7 @@ fun TabListItem(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(FirefoxTheme.colors.layer3)
+                .background(EyebrowseTheme.colors.layer3)
                 .background(contentBackgroundColor)
                 .then(clickableModifier)
                 .padding(start = 16.dp, top = 8.dp, bottom = 8.dp)
@@ -159,16 +159,16 @@ fun TabListItem(
             ) {
                 Text(
                     text = tab.toDisplayTitle().take(MAX_URI_LENGTH),
-                    color = FirefoxTheme.colors.textPrimary,
-                    style = FirefoxTheme.typography.body1,
+                    color = EyebrowseTheme.colors.textPrimary,
+                    style = EyebrowseTheme.typography.body1,
                     overflow = TextOverflow.Ellipsis,
                     maxLines = 2,
                 )
 
                 Text(
                     text = tab.content.url.toShortUrl(),
-                    color = FirefoxTheme.colors.textSecondary,
-                    style = FirefoxTheme.typography.body2,
+                    color = EyebrowseTheme.colors.textSecondary,
+                    style = EyebrowseTheme.typography.body2,
                     overflow = TextOverflow.Ellipsis,
                     maxLines = 1,
                 )
@@ -187,7 +187,7 @@ fun TabListItem(
                             id = R.string.close_tab_title,
                             tab.content.title,
                         ),
-                        tint = FirefoxTheme.colors.iconPrimary,
+                        tint = EyebrowseTheme.colors.iconPrimary,
                     )
                 }
             } else {
@@ -229,7 +229,7 @@ private fun Thumbnail(
                 modifier = Modifier
                     .size(width = 92.dp, height = 72.dp)
                     .clip(RoundedCornerShape(4.dp))
-                    .background(FirefoxTheme.colors.layerAccentNonOpaque),
+                    .background(EyebrowseTheme.colors.layerAccentNonOpaque),
             )
 
             Card(
@@ -237,7 +237,7 @@ private fun Thumbnail(
                     .size(size = 40.dp)
                     .align(alignment = Alignment.Center),
                 shape = CircleShape,
-                backgroundColor = FirefoxTheme.colors.layerAccent,
+                backgroundColor = EyebrowseTheme.colors.layerAccent,
             ) {
                 Icon(
                     painter = painterResource(id = R.drawable.mozac_ic_checkmark_24),
@@ -264,7 +264,7 @@ private fun Thumbnail(
 @Composable
 @LightDarkPreview
 private fun TabListItemPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         TabListItem(
             tab = createTab(url = "www.mozilla.com", title = "Mozilla"),
             thumbnailSize = 108,
@@ -278,7 +278,7 @@ private fun TabListItemPreview() {
 @Composable
 @LightDarkPreview
 private fun SelectedTabListItemPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         TabListItem(
             tab = createTab(url = "www.mozilla.com", title = "Mozilla"),
             thumbnailSize = 108,

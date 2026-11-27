@@ -295,7 +295,7 @@
 
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">Pritaikymas neįgaliesiems</string>
-    <!-- Preference to override the Firefox Account server -->
+    <!-- Preference to override the Eyebrowse Account server -->
     <string name="preferences_override_fxa_server">Kitas „Eyebrowse“ paskyrų serveris</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">Kitas „Sync“ serveris</string>
@@ -1046,10 +1046,10 @@
     <!-- Text for the snackbar to show the user that the deletion of browsing data is in progress -->
     <string name="deleting_browsing_data_in_progress">Šalinami naršymo duomenys…</string>
 
-    <!-- Text for the button to learn more about signing in to your Firefox account. -->
+    <!-- Text for the button to learn more about signing in to your Eyebrowse account. -->
     <string name="onboarding_manual_sign_in_description">Turėkite savo „Eyebrowse“ adresyną, žurnalą, ir slaptažodžius šiame įrenginyje.</string>
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">„Sync“ įjungta</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">„Sync“ įjungta</string>
 
     <!-- text for tracking protection radio button option for standard level of blocking -->
     <string name="onboarding_tracking_protection_standard_button_2">Standartinė (numatytoji)</string>
@@ -1102,9 +1102,9 @@
     <string name="sign_in_with_camera">Prisijunkite su savo kamera</string>
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">Naudoti el. paštą</string>
-    <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
+    <!-- Text shown for settings option for create new account text.'Eyebrowse' intentionally hardcoded here.-->
     <string name="sign_in_create_account_text"><![CDATA[Neturite paskyros? <u>Susikurkite</u>, norėdami sinchronizuoti „Eyebrowse“ tarp įrenginių.]]></string>
-    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="sign_out_confirmation_message_2">„%s“ nebesinchronizuos duomenų su jūsų paskyra, tačiau šiame įrenginyje esančių naršymo duomenų nepašalins.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
     <string name="sign_out_disconnect">Atsijungti</string>
@@ -1267,9 +1267,9 @@
     <string name="preferences_passwords_save_logins_ask_to_save">Pasiūlyti įrašyti</string>
     <!-- Preference option for never saving passwords in Fenix -->
     <string name="preferences_passwords_save_logins_never_save">Niekada neįrašyti</string>
-    <!-- Preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill2">Automatinis užpildymas per „%1$s“</string>
-    <!-- Description for the preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Description for the preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill_description">Užpildyti ir įsiminti prisijungimus svetainėse, naudojantis „%1$s“.</string>
     <!-- Preference for autofilling logins from Fenix in other apps (e.g. autofilling the Twitter app) -->
     <string name="preferences_android_autofill">Automatinis užpildymas kitose programose</string>
@@ -1538,14 +1538,14 @@
     <string name="synced_tabs_connect_another_device">Susiekite kitą įrenginį.</string>
     <!-- Text displayed asking user to re-authenticate -->
     <string name="synced_tabs_reauth">Prisijunkite iš naujo.</string>
-    <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+    <!-- Text displayed when user has disabled tab syncing in Eyebrowse Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">Įjunkite kortelių sinchronizavimą.</string>
 
     <!-- Text displayed when user has no tabs that have been synced -->
     <string name="synced_tabs_no_tabs">Kituose savo įrenginiuose su „Eyebrowse“ neturite atvertų kortelių.</string>
-    <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+    <!-- Text displayed in the synced tabs screen when a user is not signed in to Eyebrowse Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">Peržiūrėkite kituose įrenginiuose esančias korteles.</string>
-    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Eyebrowse Sync -->
     <string name="synced_tabs_sign_in_button">Prisijungti prie „Sync“</string>
 
     <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->

@@ -34,7 +34,7 @@ import org.mozilla.fenix.compose.BetaLabel
 import org.mozilla.fenix.compose.BottomSheetHandle
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.shopping.ui.ext.headingResource
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 private val bottomSheetShape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)
 private const val BOTTOM_SHEET_HANDLE_WIDTH_PERCENT = 0.1f
@@ -54,13 +54,13 @@ fun ReviewQualityCheckScaffold(
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Surface(
-        color = FirefoxTheme.colors.layer1,
+        color = EyebrowseTheme.colors.layer1,
         shape = bottomSheetShape,
     ) {
         Column(
             modifier = modifier
                 .background(
-                    color = FirefoxTheme.colors.layer1,
+                    color = EyebrowseTheme.colors.layer1,
                     shape = bottomSheetShape,
                 )
                 .verticalScroll(rememberScrollState())
@@ -106,8 +106,8 @@ private fun Header() {
     ) {
         Text(
             text = reviewCheckerFeatureName,
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.headline6,
+            color = EyebrowseTheme.colors.textPrimary,
+            style = EyebrowseTheme.typography.headline6,
             modifier = Modifier.clearAndSetSemantics {},
         )
 
@@ -120,10 +120,10 @@ private fun Header() {
 @LightDarkPreview
 @Composable
 private fun HeaderPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Box(
             modifier = Modifier
-                .background(color = FirefoxTheme.colors.layer1)
+                .background(color = EyebrowseTheme.colors.layer1)
                 .padding(16.dp),
         ) {
             Header()

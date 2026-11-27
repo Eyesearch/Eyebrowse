@@ -31,7 +31,7 @@ import androidx.core.view.isVisible
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.databinding.QuicksettingsProtectionsPanelBinding
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.trackingprotection.CookieBannerUIMode
 import org.mozilla.fenix.trackingprotection.CookieBannerUIMode.REQUEST_UNSUPPORTED_SITE_SUBMITTED
 import org.mozilla.fenix.trackingprotection.CookieBannerUIMode.SITE_NOT_SUPPORTED
@@ -109,7 +109,7 @@ class ProtectionsView(
 
         binding.cookieBannerItem.apply {
             setContent {
-                FirefoxTheme {
+                EyebrowseTheme {
                     if (cookieBannerMode in listOf(
                             REQUEST_UNSUPPORTED_SITE_SUBMITTED,
                             SITE_NOT_SUPPORTED,
@@ -164,7 +164,7 @@ private fun CookieBannerItem(
                 painter = painterResource(it),
                 contentDescription = null,
                 modifier = Modifier.padding(horizontal = 0.dp),
-                tint = FirefoxTheme.colors.iconPrimary,
+                tint = EyebrowseTheme.colors.iconPrimary,
             )
         }
 
@@ -175,15 +175,15 @@ private fun CookieBannerItem(
         ) {
             Text(
                 text = label,
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.subtitle1,
+                color = EyebrowseTheme.colors.textPrimary,
+                style = EyebrowseTheme.typography.subtitle1,
                 maxLines = 1,
             )
             cookieBannerUIMode.description?.let {
                 Text(
                     text = stringResource(it),
-                    color = FirefoxTheme.colors.textSecondary,
-                    style = FirefoxTheme.typography.body2,
+                    color = EyebrowseTheme.colors.textSecondary,
+                    style = EyebrowseTheme.typography.body2,
                     maxLines = 1,
                 )
             }
@@ -195,7 +195,7 @@ private fun CookieBannerItem(
                     .size(24.dp),
                 painter = it,
                 contentDescription = null,
-                tint = FirefoxTheme.colors.iconPrimary,
+                tint = EyebrowseTheme.colors.iconPrimary,
             )
         }
     }
@@ -204,8 +204,8 @@ private fun CookieBannerItem(
 @Composable
 @LightDarkPreview
 private fun CookieBannerItemPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Box(Modifier.background(EyebrowseTheme.colors.layer1)) {
             CookieBannerItem(
                 label = "Cookie Banner Reduction",
                 cookieBannerUIMode = CookieBannerUIMode.ENABLE,

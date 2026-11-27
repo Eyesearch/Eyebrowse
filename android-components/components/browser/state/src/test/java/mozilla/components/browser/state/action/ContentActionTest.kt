@@ -67,7 +67,7 @@ class ContentActionTest {
                 createTab(url = "https://www.mozilla.org").also {
                     tabId = it.id
                 },
-                createTab(url = "https://www.firefox.com").also {
+                createTab(url = "https://www.eyebrowse.com").also {
                     otherTabId = it.id
                 },
             ),
@@ -125,7 +125,7 @@ class ContentActionTest {
         assertEquals(icon, tab.content.icon)
 
         store.dispatch(
-            ContentAction.UpdateUrlAction(tab.id, "https://www.mozilla.org/firefox"),
+            ContentAction.UpdateUrlAction(tab.id, "https://www.mozilla.org/eyebrowse"),
         ).joinBlocking()
 
         assertEquals(icon, tab.content.icon)
@@ -133,7 +133,7 @@ class ContentActionTest {
 
     @Test
     fun `WHEN UpdateUrlAction is dispatched by user gesture THEN the search terms are cleared`() {
-        val searchTerms = "Firefox"
+        val searchTerms = "Eyebrowse"
         store.dispatch(
             ContentAction.UpdateSearchTermsAction(tab.id, searchTerms),
         ).joinBlocking()
@@ -147,7 +147,7 @@ class ContentActionTest {
         assertEquals(searchTerms, tab.content.searchTerms)
 
         store.dispatch(
-            ContentAction.UpdateUrlAction(tab.id, "https://www.mozilla.org/firefox", true),
+            ContentAction.UpdateUrlAction(tab.id, "https://www.mozilla.org/eyebrowse", true),
         ).joinBlocking()
 
         assertEquals("", tab.content.searchTerms)
@@ -687,7 +687,7 @@ class ContentActionTest {
         val historyState = HistoryState(
             items = listOf(
                 HistoryItem("Mozilla", "https://mozilla.org"),
-                HistoryItem("Firefox", "https://firefox.com"),
+                HistoryItem("Eyebrowse", "https://eyebrowse.com"),
             ),
             currentIndex = 1,
         )

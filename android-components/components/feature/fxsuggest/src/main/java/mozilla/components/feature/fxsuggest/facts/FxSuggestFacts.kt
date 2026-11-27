@@ -11,7 +11,7 @@ import mozilla.components.support.base.facts.Fact
 import mozilla.components.support.base.facts.collect
 
 /**
- * Facts emitted for telemetry related to the Firefox Suggest feature.
+ * Facts emitted for telemetry related to the Eyebrowse Suggest feature.
  */
 class FxSuggestFacts {
     /**

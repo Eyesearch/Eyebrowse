@@ -19,7 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Displays a list of items as a staggered horizontal grid placing them on ltr rows and continuing
@@ -120,8 +120,8 @@ fun StaggeredHorizontalGrid(
 @Composable
 @Preview
 private fun StaggeredHorizontalGridPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer2)) {
+    EyebrowseTheme {
+        Box(Modifier.background(EyebrowseTheme.colors.layer2)) {
             StaggeredHorizontalGrid(
                 horizontalItemsSpacing = 8.dp,
                 arrangement = Arrangement.Center,

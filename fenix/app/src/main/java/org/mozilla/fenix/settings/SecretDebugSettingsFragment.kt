@@ -23,7 +23,7 @@ import mozilla.components.lib.state.ext.observeAsState
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.components
 import org.mozilla.fenix.ext.showToolbar
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 class SecretDebugSettingsFragment : Fragment() {
 
@@ -40,7 +40,7 @@ class SecretDebugSettingsFragment : Fragment() {
     ): View {
         return ComposeView(requireContext()).apply {
             setContent {
-                FirefoxTheme {
+                EyebrowseTheme {
                     SecretDebugSettingsScreen()
                 }
             }
@@ -66,24 +66,24 @@ private fun DebugInfo(regionState: RegionState) {
     ) {
         Text(
             text = stringResource(R.string.debug_info_region_home),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.headline6,
+            color = EyebrowseTheme.colors.textPrimary,
+            style = EyebrowseTheme.typography.headline6,
             modifier = Modifier.padding(4.dp),
         )
         Text(
             text = regionState.home,
-            color = FirefoxTheme.colors.textPrimary,
+            color = EyebrowseTheme.colors.textPrimary,
             modifier = Modifier.padding(4.dp),
         )
         Text(
             text = stringResource(R.string.debug_info_region_current),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.headline6,
+            color = EyebrowseTheme.colors.textPrimary,
+            style = EyebrowseTheme.typography.headline6,
             modifier = Modifier.padding(4.dp),
         )
         Text(
             text = regionState.current,
-            color = FirefoxTheme.colors.textPrimary,
+            color = EyebrowseTheme.colors.textPrimary,
             modifier = Modifier.padding(4.dp),
         )
     }

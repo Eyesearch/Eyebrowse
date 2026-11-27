@@ -41,7 +41,7 @@ class BrowsingErrorPagesTest : TestSetup() {
     @SmokeTest
     @Test
     fun verifyMalwareWebsiteWarningMessageTest() {
-        val malwareURl = "http://itisatrap.org/firefox/its-an-attack.html"
+        val malwareURl = "http://itisatrap.org/eyebrowse/its-an-attack.html"
 
         navigationToolbar {
         }.enterURLAndEnterToBrowser(malwareURl.toUri()) {
@@ -53,7 +53,7 @@ class BrowsingErrorPagesTest : TestSetup() {
     @SmokeTest
     @Test
     fun verifyPhishingWebsiteWarningMessageTest() {
-        val phishingURl = "http://itisatrap.org/firefox/its-a-trap.html"
+        val phishingURl = "http://itisatrap.org/eyebrowse/its-a-trap.html"
 
         navigationToolbar {
         }.enterURLAndEnterToBrowser(phishingURl.toUri()) {
@@ -65,7 +65,7 @@ class BrowsingErrorPagesTest : TestSetup() {
     @SmokeTest
     @Test
     fun verifyUnwantedSoftwareWebsiteWarningMessageTest() {
-        val unwantedURl = "http://itisatrap.org/firefox/unwanted.html"
+        val unwantedURl = "http://itisatrap.org/eyebrowse/unwanted.html"
 
         navigationToolbar {
         }.enterURLAndEnterToBrowser(unwantedURl.toUri()) {
@@ -77,7 +77,7 @@ class BrowsingErrorPagesTest : TestSetup() {
     @SmokeTest
     @Test
     fun verifyHarmfulWebsiteWarningMessageTest() {
-        val harmfulURl = "https://itisatrap.org/firefox/harmful.html"
+        val harmfulURl = "https://itisatrap.org/eyebrowse/harmful.html"
 
         navigationToolbar {
         }.enterURLAndEnterToBrowser(harmfulURl.toUri()) {

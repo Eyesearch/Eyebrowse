@@ -41,7 +41,7 @@ import org.mozilla.fenix.compose.ext.dashedBorder
 import org.mozilla.fenix.compose.list.ExpandableListHeader
 import org.mozilla.fenix.compose.list.FaviconListItem
 import org.mozilla.fenix.tabstray.TabsTrayTestTag
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import mozilla.components.browser.storage.sync.Tab as SyncTab
 
 private const val EXPANDED_BY_DEFAULT = true
@@ -137,7 +137,7 @@ fun SyncedTabsSectionHeader(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(FirefoxTheme.colors.layer1),
+            .background(EyebrowseTheme.colors.layer1),
     ) {
         ExpandableListHeader(
             headerText = headerText,
@@ -167,7 +167,7 @@ fun SyncedTabsErrorItem(
             .padding(all = 8.dp)
             .height(IntrinsicSize.Min)
             .dashedBorder(
-                color = FirefoxTheme.colors.borderPrimary,
+                color = EyebrowseTheme.colors.borderPrimary,
                 cornerRadius = 8.dp,
                 dashHeight = 2.dp,
                 dashWidth = 4.dp,
@@ -180,7 +180,7 @@ fun SyncedTabsErrorItem(
         ) {
             Text(
                 text = errorText,
-                color = FirefoxTheme.colors.textPrimary,
+                color = EyebrowseTheme.colors.textPrimary,
                 modifier = Modifier.fillMaxWidth(),
                 fontSize = 14.sp,
             )
@@ -205,7 +205,7 @@ fun SyncedTabsErrorItem(
 fun SyncedTabsNoTabsItem() {
     Text(
         text = stringResource(R.string.synced_tabs_no_open_tabs),
-        color = FirefoxTheme.colors.textSecondary,
+        color = EyebrowseTheme.colors.textSecondary,
         modifier = Modifier
             .padding(horizontal = 16.dp, vertical = 8.dp)
             .fillMaxWidth(),
@@ -217,8 +217,8 @@ fun SyncedTabsNoTabsItem() {
 @Composable
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 private fun SyncedTabsListItemsPreview() {
-    FirefoxTheme {
-        Column(Modifier.background(FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Column(Modifier.background(EyebrowseTheme.colors.layer1)) {
             SyncedTabsSectionHeader(headerText = "Google Pixel Pro Max +Ultra 5000")
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -253,8 +253,8 @@ private fun SyncedTabsListItemsPreview() {
 @Composable
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 private fun SyncedTabsErrorPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Box(Modifier.background(EyebrowseTheme.colors.layer1)) {
             SyncedTabsErrorItem(
                 errorText = stringResource(R.string.synced_tabs_no_tabs),
                 errorButton = SyncedTabsListItem.ErrorButton(
@@ -270,8 +270,8 @@ private fun SyncedTabsErrorPreview() {
 @Composable
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 private fun SyncedTabsListPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Box(Modifier.background(EyebrowseTheme.colors.layer1)) {
             SyncedTabsList(
                 syncedTabs = getFakeSyncedTabList(),
             ) {

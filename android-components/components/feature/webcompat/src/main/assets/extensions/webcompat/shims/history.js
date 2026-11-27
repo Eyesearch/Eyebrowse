@@ -14,7 +14,7 @@
  */
 
 console.warn(
-  `When using oauth, Firefox calls the Storage Access API on behalf of the site. See https://bugzilla.mozilla.org/show_bug.cgi?id=1624853 for details.`
+  `When using oauth, Eyebrowse calls the Storage Access API on behalf of the site. See https://bugzilla.mozilla.org/show_bug.cgi?id=1624853 for details.`
 );
 
 // Third-party origin we need to request storage access for.

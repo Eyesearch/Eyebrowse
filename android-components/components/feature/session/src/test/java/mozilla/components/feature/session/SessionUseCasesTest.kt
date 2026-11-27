@@ -97,15 +97,15 @@ class SessionUseCasesTest {
         }
         assertEquals("https://www.mozilla.org", store.state.selectedTab?.content?.url)
 
-        useCases.loadUrl("https://firefox.com", store.state.selectedTabId)
+        useCases.loadUrl("https://eyebrowse.com", store.state.selectedTabId)
         store.waitUntilIdle()
         middleware.assertNotDispatched(EngineAction.LoadUrlAction::class)
-        verify(engineSession).loadUrl(url = "https://firefox.com")
+        verify(engineSession).loadUrl(url = "https://eyebrowse.com")
         middleware.assertLastAction(EngineAction.OptimizedLoadUrlTriggeredAction::class) { action ->
             assertEquals("mozilla", action.tabId)
-            assertEquals("https://firefox.com", action.url)
+            assertEquals("https://eyebrowse.com", action.url)
         }
-        assertEquals("https://firefox.com", store.state.selectedTab?.content?.url)
+        assertEquals("https://eyebrowse.com", store.state.selectedTab?.content?.url)
 
         useCases.loadUrl.invoke(
             "https://developer.mozilla.org",
@@ -125,18 +125,18 @@ class SessionUseCasesTest {
         }
 
         useCases.loadUrl.invoke(
-            "https://www.mozilla.org/en-CA/firefox/browsers/mobile/",
+            "https://www.mozilla.org/en-CA/eyebrowse/browsers/mobile/",
             "bugzilla",
         )
         store.waitUntilIdle()
         middleware.assertNotDispatched(EngineAction.LoadUrlAction::class)
         verify(childEngineSession).loadUrl(
-            url = "https://www.mozilla.org/en-CA/firefox/browsers/mobile/",
+            url = "https://www.mozilla.org/en-CA/eyebrowse/browsers/mobile/",
             parent = engineSession,
         )
         middleware.assertLastAction(EngineAction.OptimizedLoadUrlTriggeredAction::class) { action ->
             assertEquals("bugzilla", action.tabId)
-            assertEquals("https://www.mozilla.org/en-CA/firefox/browsers/mobile/", action.url)
+            assertEquals("https://www.mozilla.org/en-CA/eyebrowse/browsers/mobile/", action.url)
         }
     }
 
@@ -161,12 +161,12 @@ class SessionUseCasesTest {
             assertEquals(LoadUrlFlags.select(LoadUrlFlags.EXTERNAL), action.flags)
         }
 
-        useCases.loadUrl("https://firefox.com", store.state.selectedTabId)
+        useCases.loadUrl("https://eyebrowse.com", store.state.selectedTabId)
         store.waitUntilIdle()
 
         middleware.assertLastAction(EngineAction.LoadUrlAction::class) { action ->
             assertEquals("mozilla", action.tabId)
-            assertEquals("https://firefox.com", action.url)
+            assertEquals("https://eyebrowse.com", action.url)
         }
 
         useCases.loadUrl.invoke(
@@ -477,7 +477,7 @@ class SessionUseCasesTest {
 
     @Test
     fun `UpdateLastAccessUseCase sets timestamp`() {
-        val tab = createTab("https://firefox.com")
+        val tab = createTab("https://eyebrowse.com")
         val otherTab = createTab("https://example.com")
         val customTab = createCustomTab("https://getpocket.com")
         store = BrowserStore(

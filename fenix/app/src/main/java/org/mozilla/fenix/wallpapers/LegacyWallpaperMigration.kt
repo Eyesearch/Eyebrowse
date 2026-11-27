@@ -43,7 +43,7 @@ class LegacyWallpaperMigration(
                 downloadWallpaper(
                     Wallpaper.Default.copy(
                         name = wallpaperName,
-                        collection = Wallpaper.ClassicFirefoxCollection,
+                        collection = Wallpaper.ClassicEyebrowseCollection,
                         thumbnailFileState = Wallpaper.ImageFileState.Unavailable,
                         assetsFileState = Wallpaper.ImageFileState.Unavailable,
                     ),

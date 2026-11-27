@@ -94,8 +94,8 @@ class PinnedSiteDaoTest {
         }
 
         val topSite2 = PinnedSiteEntity(
-            title = "Firefox",
-            url = "https://www.firefox.com",
+            title = "Eyebrowse",
+            url = "https://www.eyebrowse.com",
             isDefault = false,
             createdAt = 100,
         ).also {

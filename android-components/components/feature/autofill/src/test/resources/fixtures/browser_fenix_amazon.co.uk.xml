@@ -3,12 +3,12 @@
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
 <FrameLayout>
-    <LinearLayout idEntry="action_bar_root" idPackage="org.mozilla.firefox" idType="id">
-        <View idEntry="action_mode_bar_stub" idPackage="org.mozilla.firefox" idType="id"/>
-        <FrameLayout idEntry="container" idPackage="org.mozilla.firefox" idType="id">
-            <ViewGroup idEntry="browserLayout" idPackage="org.mozilla.firefox" idType="id">
-                <ViewGroup idEntry="swipeRefresh" idPackage="org.mozilla.firefox" idType="id">
-                    <FrameLayout idEntry="engineView" idPackage="org.mozilla.firefox" idType="id">
+    <LinearLayout idEntry="action_bar_root" idPackage="org.mozilla.eyebrowse" idType="id">
+        <View idEntry="action_mode_bar_stub" idPackage="org.mozilla.eyebrowse" idType="id"/>
+        <FrameLayout idEntry="container" idPackage="org.mozilla.eyebrowse" idType="id">
+            <ViewGroup idEntry="browserLayout" idPackage="org.mozilla.eyebrowse" idType="id">
+                <ViewGroup idEntry="swipeRefresh" idPackage="org.mozilla.eyebrowse" idType="id">
+                    <FrameLayout idEntry="engineView" idPackage="org.mozilla.eyebrowse" idType="id">
                         <form webDomain="www.amazon.co.uk" data-enable-mobile-account-js="true" action="https://www.amazon.co.uk/ap/register" method="post" data-fwcim-id="369de96d" novalidate="" id="ap_register_form" name="register" class="ap_ango_default fwcim-form auth-validate-form auth-clearable-form">
                             <input webDomain="www.amazon.co.uk" name="appActionToken" type="hidden"/>
                             <input webDomain="www.amazon.co.uk" name="appAction" type="hidden"/>
@@ -34,35 +34,35 @@
                         </form>
                     </FrameLayout>
                 </ViewGroup>
-                <FrameLayout idEntry="nestedScrollQuickAction" idPackage="org.mozilla.firefox" idType="id">
-                    <ViewGroup idEntry="quick_action_sheet" idPackage="org.mozilla.firefox" idType="id">
-                        <ViewGroup idEntry="quick_action_sheet" idPackage="org.mozilla.firefox" idType="id">
-                            <View idEntry="quick_action_sheet_faded_handle" idPackage="org.mozilla.firefox" idType="id"/>
-                            <LinearLayout idEntry="quick_action_buttons_layout" idPackage="org.mozilla.firefox" idType="id">
-                                <Button idEntry="quick_action_share" idPackage="org.mozilla.firefox" idType="id"/>
-                                <Button idEntry="quick_action_downloads" idPackage="org.mozilla.firefox" idType="id"/>
-                                <Button idEntry="quick_action_bookmark" idPackage="org.mozilla.firefox" idType="id"/>
-                                <Button idEntry="quick_action_appearance" idPackage="org.mozilla.firefox" idType="id"/>
-                                <Button idEntry="quick_action_open_app_link" idPackage="org.mozilla.firefox" idType="id"/>
-                                <Button idEntry="quick_action_read" idPackage="org.mozilla.firefox" idType="id"/>
+                <FrameLayout idEntry="nestedScrollQuickAction" idPackage="org.mozilla.eyebrowse" idType="id">
+                    <ViewGroup idEntry="quick_action_sheet" idPackage="org.mozilla.eyebrowse" idType="id">
+                        <ViewGroup idEntry="quick_action_sheet" idPackage="org.mozilla.eyebrowse" idType="id">
+                            <View idEntry="quick_action_sheet_faded_handle" idPackage="org.mozilla.eyebrowse" idType="id"/>
+                            <LinearLayout idEntry="quick_action_buttons_layout" idPackage="org.mozilla.eyebrowse" idType="id">
+                                <Button idEntry="quick_action_share" idPackage="org.mozilla.eyebrowse" idType="id"/>
+                                <Button idEntry="quick_action_downloads" idPackage="org.mozilla.eyebrowse" idType="id"/>
+                                <Button idEntry="quick_action_bookmark" idPackage="org.mozilla.eyebrowse" idType="id"/>
+                                <Button idEntry="quick_action_appearance" idPackage="org.mozilla.eyebrowse" idType="id"/>
+                                <Button idEntry="quick_action_open_app_link" idPackage="org.mozilla.eyebrowse" idType="id"/>
+                                <Button idEntry="quick_action_read" idPackage="org.mozilla.eyebrowse" idType="id"/>
                             </LinearLayout>
-                            <View idEntry="quick_action_overlay" idPackage="org.mozilla.firefox" idType="id"/>
+                            <View idEntry="quick_action_overlay" idPackage="org.mozilla.eyebrowse" idType="id"/>
                         </ViewGroup>
                     </ViewGroup>
                 </FrameLayout>
-                <View idEntry="stubFindInPage" idPackage="org.mozilla.firefox" idType="id"/>
-                <ViewGroup idEntry="toolbar" idPackage="org.mozilla.firefox" idType="id">
-                    <TextView idEntry="mozac_browser_toolbar_title_view" idPackage="org.mozilla.firefox" idType="id"/>
-                    <TextView idEntry="mozac_browser_toolbar_url_view" idPackage="org.mozilla.firefox" idType="id" hint="Search or enter address"/>
-                    <FrameLayout idEntry="counter_root" idPackage="org.mozilla.firefox" idType="id">
-                        <TextView idEntry="counter_text" idPackage="org.mozilla.firefox" idType="id"/>
+                <View idEntry="stubFindInPage" idPackage="org.mozilla.eyebrowse" idType="id"/>
+                <ViewGroup idEntry="toolbar" idPackage="org.mozilla.eyebrowse" idType="id">
+                    <TextView idEntry="mozac_browser_toolbar_title_view" idPackage="org.mozilla.eyebrowse" idType="id"/>
+                    <TextView idEntry="mozac_browser_toolbar_url_view" idPackage="org.mozilla.eyebrowse" idType="id" hint="Search or enter address"/>
+                    <FrameLayout idEntry="counter_root" idPackage="org.mozilla.eyebrowse" idType="id">
+                        <TextView idEntry="counter_text" idPackage="org.mozilla.eyebrowse" idType="id"/>
                     </FrameLayout>
-                    <EditText idEntry="mozac_browser_toolbar_edit_url_view" idPackage="org.mozilla.firefox" idType="id" hint="Search or enter address" inputType="11"/>
-                    <ImageView idEntry="mozac_browser_toolbar_clear_view" idPackage="org.mozilla.firefox" idType="id"/>
+                    <EditText idEntry="mozac_browser_toolbar_edit_url_view" idPackage="org.mozilla.eyebrowse" idType="id" hint="Search or enter address" inputType="11"/>
+                    <ImageView idEntry="mozac_browser_toolbar_clear_view" idPackage="org.mozilla.eyebrowse" idType="id"/>
                 </ViewGroup>
-                <ViewGroup idEntry="readerViewControlsBar" idPackage="org.mozilla.firefox" idType="id"/>
+                <ViewGroup idEntry="readerViewControlsBar" idPackage="org.mozilla.eyebrowse" idType="id"/>
             </ViewGroup>
         </FrameLayout>
-        <ViewGroup idEntry="navigationToolbar" idPackage="org.mozilla.firefox" idType="id"/>
+        <ViewGroup idEntry="navigationToolbar" idPackage="org.mozilla.eyebrowse" idType="id"/>
     </LinearLayout>
 </FrameLayout>

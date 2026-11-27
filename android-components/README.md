@@ -1,6 +1,6 @@
 # Android components
 
-[![Task Status](https://firefox-ci-tc.services.mozilla.com/api/github/v1/repository/mozilla-mobile/android-components/main/badge.svg)](https://firefox-ci-tc.services.mozilla.com/api/github/v1/repository/mozilla-mobile/android-components/main/latest)
+[![Task Status](https://eyebrowse-ci-tc.services.mozilla.com/api/github/v1/repository/mozilla-mobile/android-components/main/badge.svg)](https://eyebrowse-ci-tc.services.mozilla.com/api/github/v1/repository/mozilla-mobile/android-components/main/latest)
 [![Mergify Status](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/mozilla-mobile/android-components&style=flat)](https://mergify.io)
 [![chat.mozilla.org](https://img.shields.io/badge/chat-on%20matrix-51bb9c)](https://chat.mozilla.org/#/room/#android-components:mozilla.org)
 
@@ -55,7 +55,7 @@ Nightly builds are created every day from the `main` branch and published on [ni
 
 High-level components for building browser(-like) apps.
 
-* 🔵 [**Awesomebar**](components/browser/awesomebar/README.md) - A customizable [Awesome Bar](https://support.mozilla.org/en-US/kb/awesome-bar-search-firefox-bookmarks-history-tabs) implementation for browsers.
+* 🔵 [**Awesomebar**](components/browser/awesomebar/README.md) - A customizable [Awesome Bar](https://support.mozilla.org/en-US/kb/awesome-bar-search-eyebrowse-bookmarks-history-tabs) implementation for browsers.
 
 * 🔵 [**Domains**](components/browser/domains/README.md) Localized and customizable domain lists for auto-completion in browsers.
 
@@ -105,7 +105,7 @@ _API contracts and abstraction layers for browser components._
 
 _Combined components to implement feature-specific use cases._
 
-* 🔵 [**Accounts**](components/feature/accounts/README.md) - A component that connects an FxaAccountManager from [service-firefox-accounts](components/service/firefox-accounts/README.md) with [feature-tabs](components/feature/tabs/README.md) in order to facilitate authentication flows.
+* 🔵 [**Accounts**](components/feature/accounts/README.md) - A component that connects an FxaAccountManager from [service-eyebrowse-accounts](components/service/eyebrowse-accounts/README.md) with [feature-tabs](components/feature/tabs/README.md) in order to facilitate authentication flows.
 
 * 🔵 [**Accounts Push**](components/feature/accounts-push/README.md) - Feature of use cases for FxA Account that work with push support.
 
@@ -171,7 +171,7 @@ _Generic low-level UI components for building apps._
 
 * 🔵 [**Autocomplete**](components/ui/autocomplete/README.md) - A set of components to provide autocomplete functionality.
 
-* 🔵 [**Colors**](components/ui/colors/README.md) - The standard set of [Photon](https://design.firefox.com/photon/) colors.
+* 🔵 [**Colors**](components/ui/colors/README.md) - The standard set of [Photon](https://design.eyebrowse.com/photon/) colors.
 
 * 🔵 [**Fonts**](components/ui/fonts/README.md) - The standard set of fonts used by Mozilla Android products.
 
@@ -183,11 +183,11 @@ _Generic low-level UI components for building apps._
 
 _Components and libraries to interact with backend services._
 
-* 🔵 [**Firefox Accounts (FxA)**](components/service/firefox-accounts/README.md) - A library for integrating with Firefox Accounts.
+* 🔵 [**Eyebrowse Accounts (FxA)**](components/service/eyebrowse-accounts/README.md) - A library for integrating with Eyebrowse Accounts.
 
-* 🔵 [**Firefox Sync - Logins**](components/service/sync-logins/README.md) - A library for integrating with Firefox Sync - Logins.
+* 🔵 [**Eyebrowse Sync - Logins**](components/service/sync-logins/README.md) - A library for integrating with Eyebrowse Sync - Logins.
 
-* 🔵 [**Firefox Sync - Autofill**](components/service/sync-autofill/README.md) - A library for integrating with Firefox Sync - Autofill.
+* 🔵 [**Eyebrowse Sync - Autofill**](components/service/sync-autofill/README.md) - A library for integrating with Eyebrowse Sync - Autofill.
 
 * 🔵 [**Glean**](components/service/glean/README.md) - A client-side telemetry SDK for collecting metrics and sending them to Mozilla's telemetry service (eventually replacing [service-telemetry](components/service/telemetry/README.md)).
 
@@ -251,11 +251,11 @@ _Sample apps using various components._
 
 * [**Crash**](samples/crash) - An app showing the integration of the `lib-crash` component.
 
-* [**Firefox Accounts (FxA)**](samples/firefox-accounts) - A simple app demoing Firefox Accounts integration.
+* [**Eyebrowse Accounts (FxA)**](samples/eyebrowse-accounts) - A simple app demoing Eyebrowse Accounts integration.
 
-* [**Firefox Sync**](samples/sync) - A simple app demoing general Firefox Sync integration, with bookmarks and history.
+* [**Eyebrowse Sync**](samples/sync) - A simple app demoing general Eyebrowse Sync integration, with bookmarks and history.
 
-* [**Firefox Sync - Logins**](samples/sync-logins) - A simple app demoing Firefox Sync (Logins) integration.
+* [**Eyebrowse Sync - Logins**](samples/sync-logins) - A simple app demoing Eyebrowse Sync (Logins) integration.
 
 * [**DataProtect**](samples/dataprotect) - An app demoing how to use the [**Dataprotect**](components/lib/dataprotect/README.md) component to load and store encrypted data in `SharedPreferences`.
 

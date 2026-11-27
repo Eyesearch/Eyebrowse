@@ -53,7 +53,7 @@ class EngineSessionTest {
         session.notifyInternalObservers { onScrollChange(1234, 4321) }
         session.notifyInternalObservers { onScrollChange(2345, 5432) }
         session.notifyInternalObservers { onLocationChange("https://www.mozilla.org", false) }
-        session.notifyInternalObservers { onLocationChange("https://www.firefox.com", false) }
+        session.notifyInternalObservers { onLocationChange("https://www.eyebrowse.com", false) }
         session.notifyInternalObservers { onProgress(25) }
         session.notifyInternalObservers { onProgress(100) }
         session.notifyInternalObservers { onLoadingStateChange(true) }
@@ -86,7 +86,7 @@ class EngineSessionTest {
         session.notifyInternalObservers { onShowDynamicToolbar() }
 
         verify(observer).onLocationChange("https://www.mozilla.org", false)
-        verify(observer).onLocationChange("https://www.firefox.com", false)
+        verify(observer).onLocationChange("https://www.eyebrowse.com", false)
         verify(observer).onScrollChange(1234, 4321)
         verify(observer).onScrollChange(2345, 5432)
         verify(observer).onProgress(25)
@@ -165,7 +165,7 @@ class EngineSessionTest {
         val mediaSessionElementMetadata: MediaSession.ElementMetadata = mock()
 
         session.notifyInternalObservers { onScrollChange(2345, 5432) }
-        session.notifyInternalObservers { onLocationChange("https://www.firefox.com", false) }
+        session.notifyInternalObservers { onLocationChange("https://www.eyebrowse.com", false) }
         session.notifyInternalObservers { onProgress(100) }
         session.notifyInternalObservers { onLoadingStateChange(false) }
         session.notifyInternalObservers { onSecurityChange(false, "", "") }
@@ -191,7 +191,7 @@ class EngineSessionTest {
         session.notifyInternalObservers { onMediaFullscreenChanged(true, mediaSessionElementMetadata) }
         session.notifyInternalObservers { onCrash() }
         session.notifyInternalObservers { onLoadRequest("https://www.mozilla.org", true, true) }
-        session.notifyInternalObservers { onLaunchIntentRequest("https://www.firefox.com", null) }
+        session.notifyInternalObservers { onLaunchIntentRequest("https://www.eyebrowse.com", null) }
         session.notifyInternalObservers { onShowDynamicToolbar() }
 
         verify(observer).onScrollChange(1234, 4321)
@@ -216,7 +216,7 @@ class EngineSessionTest {
         verify(observer).onLaunchIntentRequest("https://www.mozilla.org", null)
         verify(observer).onShowDynamicToolbar()
         verify(observer, never()).onScrollChange(2345, 5432)
-        verify(observer, never()).onLocationChange("https://www.firefox.com", false)
+        verify(observer, never()).onLocationChange("https://www.eyebrowse.com", false)
         verify(observer, never()).onProgress(100)
         verify(observer, never()).onLoadingStateChange(false)
         verify(observer, never()).onSecurityChange(false, "", "")
@@ -241,7 +241,7 @@ class EngineSessionTest {
         verify(observer, never()).onMediaMuteChanged(true)
         verify(observer, never()).onMediaFullscreenChanged(true, mediaSessionElementMetadata)
         verify(observer, never()).onLoadRequest("https://www.mozilla.org", false, true)
-        verify(observer, never()).onLaunchIntentRequest("https://www.firefox.com", null)
+        verify(observer, never()).onLaunchIntentRequest("https://www.eyebrowse.com", null)
         verifyNoMoreInteractions(observer)
     }
 
@@ -288,7 +288,7 @@ class EngineSessionTest {
         val mediaSessionElementMetadata: MediaSession.ElementMetadata = mock()
 
         session.notifyInternalObservers { onScrollChange(2345, 5432) }
-        session.notifyInternalObservers { onLocationChange("https://www.firefox.com", false) }
+        session.notifyInternalObservers { onLocationChange("https://www.eyebrowse.com", false) }
         session.notifyInternalObservers { onProgress(100) }
         session.notifyInternalObservers { onLoadingStateChange(false) }
         session.notifyInternalObservers { onSecurityChange(false, "", "") }
@@ -333,7 +333,7 @@ class EngineSessionTest {
         verify(observer).onWindowRequest(windowRequest)
         verify(observer).onShowDynamicToolbar()
         verify(observer, never()).onScrollChange(2345, 5432)
-        verify(observer, never()).onLocationChange("https://www.firefox.com", false)
+        verify(observer, never()).onLocationChange("https://www.eyebrowse.com", false)
         verify(observer, never()).onProgress(100)
         verify(observer, never()).onLoadingStateChange(false)
         verify(observer, never()).onSecurityChange(false, "", "")
@@ -358,7 +358,7 @@ class EngineSessionTest {
         verify(observer, never()).onMediaMuteChanged(true)
         verify(observer, never()).onMediaFullscreenChanged(true, mediaSessionElementMetadata)
         verify(otherObserver, never()).onScrollChange(2345, 5432)
-        verify(otherObserver, never()).onLocationChange("https://www.firefox.com", false)
+        verify(otherObserver, never()).onLocationChange("https://www.eyebrowse.com", false)
         verify(otherObserver, never()).onProgress(100)
         verify(otherObserver, never()).onLoadingStateChange(false)
         verify(otherObserver, never()).onSecurityChange(false, "", "")
@@ -425,7 +425,7 @@ class EngineSessionTest {
         val mediaSessionElementMetadata: MediaSession.ElementMetadata = mock()
 
         session.notifyInternalObservers { onScrollChange(2345, 5432) }
-        session.notifyInternalObservers { onLocationChange("https://www.firefox.com", false) }
+        session.notifyInternalObservers { onLocationChange("https://www.eyebrowse.com", false) }
         session.notifyInternalObservers { onProgress(100) }
         session.notifyInternalObservers { onLoadingStateChange(false) }
         session.notifyInternalObservers { onSecurityChange(false, "", "") }
@@ -470,7 +470,7 @@ class EngineSessionTest {
         verify(observer).onWindowRequest(windowRequest)
         verify(observer).onShowDynamicToolbar()
         verify(observer, never()).onScrollChange(2345, 5432)
-        verify(observer, never()).onLocationChange("https://www.firefox.com", false)
+        verify(observer, never()).onLocationChange("https://www.eyebrowse.com", false)
         verify(observer, never()).onProgress(100)
         verify(observer, never()).onLoadingStateChange(false)
         verify(observer, never()).onSecurityChange(false, "", "")
@@ -670,7 +670,7 @@ class EngineSessionTest {
         session.notifyInternalObservers {
             onExternalResource(
                 url = "https://download.mozilla.org",
-                fileName = "firefox.apk",
+                fileName = "eyebrowse.apk",
                 contentLength = 1927392,
                 contentType = "application/vnd.android.package-archive",
                 cookie = "PHPSESSID=298zf09hf012fh2; csrftoken=u32t4o3tb3gg43; _gat=1;",
@@ -683,7 +683,7 @@ class EngineSessionTest {
 
         verify(observer).onExternalResource(
             url = "https://download.mozilla.org",
-            fileName = "firefox.apk",
+            fileName = "eyebrowse.apk",
             contentLength = 1927392,
             contentType = "application/vnd.android.package-archive",
             cookie = "PHPSESSID=298zf09hf012fh2; csrftoken=u32t4o3tb3gg43; _gat=1;",
@@ -703,14 +703,14 @@ class EngineSessionTest {
 
         session.notifyInternalObservers {
             onHistoryStateChanged(
-                listOf(HistoryItem("Firefox download", "https://download.mozilla.org")),
+                listOf(HistoryItem("Eyebrowse download", "https://download.mozilla.org")),
                 currentIndex = 0,
             )
         }
 
         verify(observer).onHistoryStateChanged(
             historyList = listOf(
-                HistoryItem("Firefox download", "https://download.mozilla.org"),
+                HistoryItem("Eyebrowse download", "https://download.mozilla.org"),
             ),
             currentIndex = 0,
         )
@@ -946,7 +946,7 @@ class EngineSessionTest {
 
         observer.onScrollChange(1234, 4321)
         observer.onLocationChange("https://www.mozilla.org", false)
-        observer.onLocationChange("https://www.firefox.com", false)
+        observer.onLocationChange("https://www.eyebrowse.com", false)
         observer.onProgress(25)
         observer.onProgress(100)
         observer.onLoadingStateChange(true)

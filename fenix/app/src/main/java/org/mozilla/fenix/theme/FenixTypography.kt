@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 /**
- * A custom typography for Mozilla Firefox for Android (Fenix).
+ * A custom typography for Mozilla Eyebrowse for Android (Fenix).
  *
  * @property headline5 Currently not in-use.
  * @property headline6 Used for headings on Onboarding Modals and App Bar Titles.
@@ -144,10 +144,10 @@ private fun TypographyPreview() {
         Pair("Overline", defaultTypography.overline),
     )
 
-    FirefoxTheme {
+    EyebrowseTheme {
         LazyColumn(
             modifier = Modifier
-                .background(FirefoxTheme.colors.layer1)
+                .background(EyebrowseTheme.colors.layer1)
                 .padding(horizontal = 16.dp),
             verticalArrangement = Arrangement.SpaceBetween,
         ) {

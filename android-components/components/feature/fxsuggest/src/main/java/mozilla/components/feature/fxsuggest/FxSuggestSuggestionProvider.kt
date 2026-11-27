@@ -13,10 +13,10 @@ import mozilla.components.feature.session.SessionUseCases
 import mozilla.components.support.ktx.kotlin.toBitmap
 import java.util.UUID
 
-private const val MAX_NUM_OF_FIREFOX_SUGGESTIONS = 1
+private const val MAX_NUM_OF_EYEBROWSE_SUGGESTIONS = 1
 
 /**
- * An [AwesomeBar.SuggestionProvider] that returns Firefox Suggest search suggestions.
+ * An [AwesomeBar.SuggestionProvider] that returns Eyebrowse Suggest search suggestions.
  *
  * @param resources Your application's [Resources] instance.
  * @param loadUrlUseCase A use case that loads a suggestion's URL when clicked.
@@ -68,7 +68,7 @@ class FxSuggestSuggestionProvider(
                 SuggestionQuery(
                     keyword = text,
                     providers = providers,
-                    limit = MAX_NUM_OF_FIREFOX_SUGGESTIONS,
+                    limit = MAX_NUM_OF_EYEBROWSE_SUGGESTIONS,
                 ),
             ).into()
         }
@@ -153,12 +153,12 @@ internal data class SuggestionDetails(
 )
 
 /**
- * Additional information about a Firefox Suggest [AwesomeBar.Suggestion] to record in telemetry when the user
+ * Additional information about a Eyebrowse Suggest [AwesomeBar.Suggestion] to record in telemetry when the user
  * interacts with the suggestion.
  */
 sealed interface FxSuggestInteractionInfo {
     /**
-     * Interaction information for a sponsored Firefox Suggest search suggestion from AMP.
+     * Interaction information for a sponsored Eyebrowse Suggest search suggestion from AMP.
      *
      * @param blockId A unique identifier for the suggestion.
      * @param advertiser The name of the advertiser providing the sponsored suggestion.
@@ -175,7 +175,7 @@ sealed interface FxSuggestInteractionInfo {
     ) : FxSuggestInteractionInfo
 
     /**
-     * Interaction information for a Firefox Suggest search suggestion from Wikipedia.
+     * Interaction information for a Eyebrowse Suggest search suggestion from Wikipedia.
      *
      * @param contextId The contextual services user identifier.
      */

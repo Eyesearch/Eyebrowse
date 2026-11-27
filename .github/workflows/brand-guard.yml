@@ -1,0 +1,88 @@
+name: Brand guard
+
+# Why this exists: once already, a revert put Mozilla's wordmark back on the home screen and
+# nobody noticed until it was on a phone. This job fails the moment our brand assets change, so
+# the mistake cannot reach a build silently. If a change is deliberate, the hashes below are
+# updated in the same commit, which makes it a decision rather than an accident.
+
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [main, develop]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  brand:
+    name: Our logo and name are still ours
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Compare the brand assets
+        run: |
+          set -euo pipefail
+          check() {
+            file="$1"; want="$2"
+            if [ ! -f "$file" ]; then
+              echo "::error::$file is missing"
+              exit 1
+            fi
+            got="$(sha256sum "$file" | cut -d' ' -f1)"
+            if [ "$got" != "$want" ]; then
+              echo "::error::$file changed. If this is deliberate, update the hash in brand-guard.yml. If not, Mozilla's artwork is back."
+              exit 1
+            fi
+            echo "ok $file"
+          }
+          # the file Mozilla's fox used to live in must stay ours, by content rather than by hash,
+          # because it is a tiny xml that points at our launcher mark
+          if ! grep -q "@mipmap/ic_launcher" fenix/app/src/main/res/drawable/ic_survey_mark.xml; then
+            echo "::error::ic_survey_mark.xml no longer points at our launcher mark"
+            exit 1
+          fi
+          echo "ok ic_survey_mark.xml"
+          check fenix/app/src/main/res/drawable/ic_wordmark_logo.webp 3f62a3a7cbaf46de1af95733e5540c8e515c979bd91118de7cd69dbb9803dd5a
+          check fenix/app/src/main/res/drawable/ic_wordmark_text_normal.webp bbb4f2c4c940765f6490d5161d6f044e9a2ed5c8a31ff178282a5b351262d1a0
+          check fenix/app/src/main/res/drawable/ic_wordmark_text_private.webp 8ed6b798d586309818c81f04b704f76b7cf45498993129630a9035ea89c42c6b
+
+      - name: No Mozilla artwork by content
+        # File names can stay, artwork cannot. This looks for the actual shapes and words rather
+        # than trusting a file to be what its name says.
+        run: |
+          set -euo pipefail
+          fail=0
+
+          # 1. the fox vector, by its path data
+          if grep -rl "M50.15,18.05" fenix/app/src android-components 2>/dev/null | grep -q .; then
+            echo "::error::Mozilla's fox vector is back in the tree"
+            grep -rl "M50.15,18.05" fenix/app/src android-components | head -5
+            fail=1
+          fi
+
+          # 2. every screen that used to draw their artwork must point at our mark
+          for f in \
+            fenix/app/src/main/res/drawable/ic_survey_mark.xml \
+            fenix/app/src/main/res/drawable/ic_pocket.xml \
+            fenix/app/src/main/res/drawable/pocket_vector.xml \
+            fenix/app/src/main/res/drawable/ic_account.xml \
+            fenix/app/src/main/res/drawable/ic_fx_accounts_avatar.xml ; do
+            if [ -f "$f" ] && ! grep -q "@mipmap/ic_launcher" "$f"; then
+              echo "::error::$f no longer points at our launcher mark"
+              fail=1
+            fi
+          done
+
+          # 3. no user-visible string may say Firefox in the default language
+          if grep -n ">Firefox<\|>Firefox \| Firefox<" fenix/app/src/main/res/values/strings.xml 2>/dev/null | grep -v "<!--" | grep -q .; then
+            echo "::error::a visible string still says Firefox"
+            grep -n ">Firefox<\|>Firefox \| Firefox<" fenix/app/src/main/res/values/strings.xml | grep -v "<!--" | head -5
+            fail=1
+          fi
+
+          if [ "$fail" -ne 0 ]; then exit 1; fi
+          echo "no Mozilla artwork, no Mozilla word on any screen"

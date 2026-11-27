@@ -24,7 +24,7 @@ import org.mozilla.fenix.compose.ComposeViewHolder
 import org.mozilla.fenix.compose.SelectableChipColors
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.compose.home.HomeSectionHeader
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.wallpapers.WallpaperState
 
 internal const val POCKET_CATEGORIES_SELECTED_AT_A_TIME_COUNT = 8
@@ -66,13 +66,13 @@ class PocketCategoriesViewHolder(
             if (isSystemInDarkTheme()) {
                 selectedBackgroundColor = cardColorDark
                 unselectedBackgroundColor = cardColorLight
-                selectedTextColor = FirefoxTheme.colors.textActionPrimary
-                unselectedTextColor = FirefoxTheme.colors.textActionSecondary
+                selectedTextColor = EyebrowseTheme.colors.textActionPrimary
+                unselectedTextColor = EyebrowseTheme.colors.textActionSecondary
             } else {
                 selectedBackgroundColor = cardColorLight
                 unselectedBackgroundColor = cardColorDark
-                selectedTextColor = FirefoxTheme.colors.textActionSecondary
-                unselectedTextColor = FirefoxTheme.colors.textActionPrimary
+                selectedTextColor = EyebrowseTheme.colors.textActionSecondary
+                unselectedTextColor = EyebrowseTheme.colors.textActionPrimary
             }
         }
 
@@ -129,7 +129,7 @@ private fun PocketTopics(
 @Composable
 @LightDarkPreview
 private fun PocketCategoriesViewHolderPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         PocketTopics(
             categories = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
                 .split(" ")

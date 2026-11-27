@@ -66,7 +66,7 @@
     <string name="felt_privacy_desc_card_title">Non lasses rastros in custu dispositivu</string>
     <!-- Explanation for private browsing displayed to users on home view when they first enable
         private mode in our new Total Private Browsing mode.
-        The first parameter is the name of the app defined in app_name (for example: Firefox Nightly)
+        The first parameter is the name of the app defined in app_name (for example: Eyebrowse Nightly)
         The second parameter is the clickable link text in felt_privacy_info_card_subtitle_link_text -->
     <string name="felt_privacy_info_card_subtitle_2">%1$s cantzellat testimòngios, cronologia e datos de is sitos cando serras totu is ventanas privadas. %2$s</string>
     <!-- Clickable portion of the explanation for private browsing that links the user to our
@@ -297,17 +297,17 @@
     <!-- Juno first user onboarding flow experiment, strings are marked unused as they are only referenced by Nimbus experiments. -->
     <!-- Description for learning more about our privacy notice. -->
     <string name="juno_onboarding_privacy_notice_text">Avisu de riservadesa de Eyebrowse</string>
-    <!-- Text for the button to set firefox as default browser on the device -->
-    <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
+    <!-- Text for the button to set eyebrowse as default browser on the device -->
+    <!-- Title for set eyebrowse as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_title_nimbus_2">Nos praghet a t’amparare</string>
-    <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
+    <!-- Description for set eyebrowse as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_description_nimbus_3">Su navigadore nostru isvilupadu chena iscopu de lucru agiudat a blocare is aziendas chi iscrocant is fainas tuas in su web.</string>
-    <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
+    <!-- Description for set eyebrowse as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_description_nimbus_2" moz:RemovedIn="124" tools:ignore="UnusedResources">Su navigadore nostru isvilupadu chena iscopu de lucru agiudat a blocare is aziendas chi iscrocant is fainas tuas in su web.\n\nÀteras informatziones in s’avisu de riservadesa nostru.</string>
-    <!-- Text for the link to the privacy notice webpage for set as firefox default browser screen.
+    <!-- Text for the link to the privacy notice webpage for set as eyebrowse default browser screen.
     This is part of the string with the key "juno_onboarding_default_browser_description". -->
     <string name="juno_onboarding_default_browser_description_link_text" moz:RemovedIn="124" tools:ignore="UnusedResources">avisu de riservadesa</string>
-    <!-- Text for the button to set firefox as default browser on the device -->
+    <!-- Text for the button to set eyebrowse as default browser on the device -->
     <string name="juno_onboarding_default_browser_positive_button" tools:ignore="UnusedResources">Cunfigura comente navigadore predefinidu</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_default_browser_negative_button" tools:ignore="UnusedResources">Immoe nono</string>
@@ -318,10 +318,10 @@
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_sign_in_negative_button" tools:ignore="UnusedResources">Immoe nono</string>
     <!-- Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_enable_notifications_title_nimbus_2">Is notìficas t’agiudant a èssere prus amparadu cun Eyebrowse</string>
     <!-- Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-       Note: The word "Firefox" should NOT be translated -->
+       Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_enable_notifications_description_nimbus_2">Imbia in manera segura ischedas intre is dispositivos tuos e iscoberi àteras optziones de riservadesa in Eyebrowse.</string>
     <!-- Text for the button to request notification permission on the device -->
     <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">Ativa is notìficas</string>
@@ -366,9 +366,9 @@
     <string name="preferences_search_engines_suggestions">Cussìgios dae àteros motores de chirca</string>
     <!-- Preference Category for settings related to Search address bar -->
     <string name="preferences_settings_address_bar">Preferèntzias de sa barra de indiritzos</string>
-    <!-- Preference Category for settings to Firefox Suggest -->
+    <!-- Preference Category for settings to Eyebrowse Suggest -->
     <string name="preference_search_address_bar_fx_suggest">Barra de indiritzos - Cussìgios de Eyebrowse</string>
-    <!-- Preference link to Learn more about Firefox Suggest -->
+    <!-- Preference link to Learn more about Eyebrowse Suggest -->
     <string name="preference_search_learn_about_fx_suggest">Àteras informatziones in pitzus de is cussìgios de Eyebrowse</string>
     <!-- Preference link to rating Fenix on the Play Store -->
     <string name="preferences_rate">Avalora in Google Play</string>
@@ -491,12 +491,12 @@
     <string name="preferences_account_settings">Cunfiguratzione de su contu</string>
     <!-- Preference for enabling url autocomplete-->
     <string name="preferences_enable_autocomplete_urls">Cumpletamentu de URL in automàticu</string>
-    <!-- Preference title for switch preference to show sponsored Firefox Suggest search suggestions -->
+    <!-- Preference title for switch preference to show sponsored Eyebrowse Suggest search suggestions -->
     <string name="preferences_show_sponsored_suggestions">Cussìgios dae is ispònsors</string>
-    <!-- Preference title for switch preference to show Firefox Suggest search suggestions for web content.
+    <!-- Preference title for switch preference to show Eyebrowse Suggest search suggestions for web content.
          The first parameter is the name of the application. -->
     <string name="preferences_show_nonsponsored_suggestions">Cussìgios dae %1$s</string>
-    <!-- Summary for preference to show Firefox Suggest search suggestions for web content -->
+    <!-- Summary for preference to show Eyebrowse Suggest search suggestions for web content -->
     <string name="preferences_show_nonsponsored_suggestions_summary">Otene cussìgios de sa rete acapiados a sa chirca tua</string>
     <!-- Preference for open links in third party apps -->
     <string name="preferences_open_links_in_apps">Aberi is ligòngios in is aplicatziones</string>
@@ -569,7 +569,7 @@
     <string name="wallpaper_select_error_snackbar_message">Impossìbile modificare s’isfundu de ischermu</string>
     <!-- Text displayed that links to website containing documentation about the "Limited Edition" wallpapers. -->
     <string name="wallpaper_learn_more">Àteras informatziones</string>
-    <!-- Text for classic wallpapers title. The first parameter is the Firefox name. -->
+    <!-- Text for classic wallpapers title. The first parameter is the Eyebrowse name. -->
     <string name="wallpaper_classic_title">%s clàssicu</string>
     <!-- Description text for the artist series wallpapers with learn more link. The first parameter is the learn more string defined in wallpaper_learn_more. "Independent voices" is the name of the wallpaper collection -->
     <string name="wallpaper_artist_series_description_with_learn_more">Sa colletzione Boghes indipendentes. %s</string>
@@ -587,7 +587,7 @@
     <!-- Add-ons general availability nimbus message-->
     <!-- Title of the Nimbus message for add-ons general availability-->
     <string name="addon_ga_message_title" tools:ignore="UnusedResources">Cumplementos noos a disponimentu</string>
-    <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here-->
+    <!-- Body of the Nimbus message for add-ons general availability. 'Eyebrowse' intentionally hardcoded here-->
     <string name="addon_ga_message_body" tools:ignore="UnusedResources">Controlla is prus de chentu estensiones noas chi ti permitint de personalizare Eyebrowse.</string>
     <!-- Button text of the Nimbus message for add-ons general availability. -->
     <string name="addon_ga_message_button" tools:ignore="UnusedResources">Esplora cumplementos</string>
@@ -601,9 +601,9 @@
     <string name="addon_process_crash_dialog_disable_addons_button_text" tools:ignore="UnusedResources">Sighi cun is cumplementos disativados</string>
 
     <!-- Account Preferences -->
-    <!-- Preference for managing your account via accounts.firefox.com -->
+    <!-- Preference for managing your account via accounts.eyebrowse.com -->
     <string name="preferences_manage_account">Gesti su contu</string>
-    <!-- Summary of the preference for managing your account via accounts.firefox.com. -->
+    <!-- Summary of the preference for managing your account via accounts.eyebrowse.com. -->
     <string name="preferences_manage_account_summary">Modìfica sa crae tua, gesti sa colletzione de datos o cantzella su contu</string>
     <!-- Preference for triggering sync -->
     <string name="preferences_sync_now">Sincroniza immoe</string>
@@ -818,7 +818,7 @@
     <string name="studies_remove">Boga</string>
     <!-- Title of the active section on the studies list -->
     <string name="studies_active">Ativos</string>
-    <!-- Description for studies, it indicates why Firefox use studies. The first parameter is the name of the application. -->
+    <!-- Description for studies, it indicates why Eyebrowse use studies. The first parameter is the name of the application. -->
     <string name="studies_description_2">%1$s podet installare e aviare istùdios ònnia tantu.</string>
     <!-- Learn more link for studies, links to an article for more information about studies. -->
     <string name="studies_learn_more">Àteras informatziones</string>
@@ -1305,7 +1305,7 @@
 
     <!-- Onboarding -->
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">Sincronizatzione ativa</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">Sincronizatzione ativa</string>
 
     <!-- Onboarding theme -->
     <!-- Text shown in snackbar when multiple tabs have been sent to device -->
@@ -1326,9 +1326,9 @@
     <string name="sign_in_with_camera">Identìfica·ti cun sa càmera</string>
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">Imprea sa posta eletrònica</string>
-    <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
+    <!-- Text shown for settings option for create new account text.'Eyebrowse' intentionally hardcoded here.-->
     <string name="sign_in_create_account_text"><![CDATA[Non tenes unu contu? <u>Crea·nde unu</u> pro sincronizare Eyebrowse intre dispositivos.]]></string>
-    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="sign_out_confirmation_message_2">%s at a firmare sa sincronizatzione de su contu tuo ma non s’ant a cantzellare is datos de navigatzione de custu dispositivu.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
     <string name="sign_out_disconnect">Disconnete</string>
@@ -1455,9 +1455,9 @@
     <string name="preferences_passwords_save_logins_ask_to_save">Pregunta·mi·ddu</string>
     <!-- Preference option for never saving passwords in Fenix -->
     <string name="preferences_passwords_save_logins_never_save">Non sarves mai</string>
-    <!-- Preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill2">Cumpletamentu automàticu in %1$s</string>
-    <!-- Description for the preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Description for the preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill_description">Cumpleta e salva nòmines de utente e craes in sitos cando impreas %1$s.</string>
     <!-- Preference for autofilling logins from Fenix in other apps (e.g. autofilling the Twitter app) -->
     <string name="preferences_android_autofill">Cumpletamentu automàticu in àteras aplicatziones</string>
@@ -1718,7 +1718,7 @@
     <!-- Placeholder text shown in the Search Suggestion String TextField before a user enters text -->
     <string name="search_add_custom_engine_suggest_string_hint">URL de s’API pro is cussìgios de chirca</string>
     <!-- Description text for the Search Suggestion String TextField. The %s is part of the string -->
-    <string name="search_add_custom_engine_suggest_string_example_2" formatted="false">Sostitui sa chirca cun “%s”. Pro esempru:\nhttps://suggestqueries.google.com/complete/search?client=firefox&amp;q=%s</string>
+    <string name="search_add_custom_engine_suggest_string_example_2" formatted="false">Sostitui sa chirca cun “%s”. Pro esempru:\nhttps://suggestqueries.google.com/complete/search?client=eyebrowse&amp;q=%s</string>
     <!-- The text for the "Save" button for saving a custom search engine -->
     <string name="search_custom_engine_save_button">Sarva</string>
 
@@ -1826,13 +1826,13 @@
     <string name="synced_tabs_connect_another_device">Connete un’àteru dispositivu.</string>
     <!-- Text displayed asking user to re-authenticate -->
     <string name="synced_tabs_reauth">Autèntica·ti torra.</string>
-    <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+    <!-- Text displayed when user has disabled tab syncing in Eyebrowse Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">Ativa sa sincronizatzione de ischedas.</string>
     <!-- Text displayed when user has no tabs that have been synced -->
     <string name="synced_tabs_no_tabs">Nissuna ischeda aberta in su Eyebrowse de is àteros dispositivos.</string>
-    <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+    <!-- Text displayed in the synced tabs screen when a user is not signed in to Eyebrowse Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">Ammustra una lista de ischedas abertas in àteros dispositivos tuos.</string>
-    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Eyebrowse Sync -->
     <string name="synced_tabs_sign_in_button">Identìfica·ti a sync</string>
     <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->
     <string name="synced_tabs_no_open_tabs">Nissuna ischeda aberta</string>
@@ -1878,8 +1878,8 @@
     <string name="inactive_tabs_auto_close_message_snackbar">Serrada automàtica ativa</string>
 
     <!-- Awesome bar suggestion's headers -->
-    <!-- Search suggestions title for Firefox Suggest. -->
-    <string name="firefox_suggest_header">Eyebrowse cussìgiat</string>
+    <!-- Search suggestions title for Eyebrowse Suggest. -->
+    <string name="eyebrowse_suggest_header">Eyebrowse cussìgiat</string>
     <!-- Title for search suggestions when Google is the default search suggestion engine. -->
     <string name="google_search_engine_suggestion_header">Chirca de Google</string>
     <!-- Title for search suggestions when the default search suggestion engine is anything other than Google. The first parameter is default search engine name. -->
@@ -2055,7 +2055,7 @@
     <!-- Action label for links that point to an article. Talkback will append this to say "Double tap to read the article". -->
     <string name="a11y_action_label_read_article">leghe s’artìculu</string>
 
-    <!-- Action label for links to the Firefox Pocket website. Talkback will append this to say "Double tap to open link to learn more". -->
+    <!-- Action label for links to the Eyebrowse Pocket website. Talkback will append this to say "Double tap to open link to learn more". -->
     <string name="a11y_action_label_pocket_learn_more">aberi su ligòngiu pro nde lèghere àteras informatziones</string>
     <!-- Title for dialog displayed when trying to access links present in a text. -->
     <string name="a11y_links_title">Ligòngios</string>
@@ -2069,7 +2069,7 @@
     <string name="translations_bottom_sheet_title">Boles tradùere custa pàgina?</string>
     <!-- Title for the translation dialog that allows a user to translate the webpage when a user uses the translation feature the first time. The first parameter is the name of the application, for example, "Fenix". -->
     <string name="translations_bottom_sheet_title_first_time">Proa is tradutziones privadas in %1$s</string>
-    <!-- Text that links to additional information about the Firefox translations feature. -->
+    <!-- Text that links to additional information about the Eyebrowse translations feature. -->
     <string name="translations_bottom_sheet_info_message_learn_more">Àteras informatziones</string>
     <!-- Label for the dropdown to select which language to translate from on the translations dialog. Usually the translate from language selected will be the same as the page language. -->
     <string name="translations_bottom_sheet_translate_from">Tradue dae</string>

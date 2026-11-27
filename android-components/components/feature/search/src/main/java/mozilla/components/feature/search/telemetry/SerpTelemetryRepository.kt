@@ -16,7 +16,7 @@ import org.json.JSONException
 import org.json.JSONObject
 import java.io.File
 
-internal const val REMOTE_PROD_ENDPOINT_URL = "https://firefox.settings.services.mozilla.com"
+internal const val REMOTE_PROD_ENDPOINT_URL = "https://eyebrowse.settings.services.mozilla.com"
 internal const val REMOTE_ENDPOINT_BUCKET_NAME = "main"
 
 /**

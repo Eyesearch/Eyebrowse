@@ -50,13 +50,13 @@ class PromptMiddlewareTest {
     @Test
     fun `Process only one popup prompt request at a time`() {
         val onDeny = spy { }
-        val popupPrompt1 = PromptRequest.Popup("https://firefox.com", onAllow = { }, onDeny = onDeny)
+        val popupPrompt1 = PromptRequest.Popup("https://eyebrowse.com", onAllow = { }, onDeny = onDeny)
         store.dispatch(ContentAction.UpdatePromptRequestAction(tabId, popupPrompt1)).joinBlocking()
         assertEquals(1, tab()!!.content.promptRequests.size)
         assertEquals(popupPrompt1, tab()!!.content.promptRequests[0])
         verify(onDeny, never()).invoke()
 
-        val popupPrompt2 = PromptRequest.Popup("https://firefox.com", onAllow = { }, onDeny = onDeny)
+        val popupPrompt2 = PromptRequest.Popup("https://eyebrowse.com", onAllow = { }, onDeny = onDeny)
         store.dispatch(ContentAction.UpdatePromptRequestAction(tabId, popupPrompt2)).joinBlocking()
         assertEquals(1, tab()!!.content.promptRequests.size)
         assertEquals(popupPrompt1, tab()!!.content.promptRequests[0])
@@ -66,7 +66,7 @@ class PromptMiddlewareTest {
     @Test
     fun `Process popup followed by other prompt request`() {
         val onDeny = spy { }
-        val popupPrompt = PromptRequest.Popup("https://firefox.com", onAllow = { }, onDeny = onDeny)
+        val popupPrompt = PromptRequest.Popup("https://eyebrowse.com", onAllow = { }, onDeny = onDeny)
         store.dispatch(ContentAction.UpdatePromptRequestAction(tabId, popupPrompt)).joinBlocking()
         assertEquals(1, tab()!!.content.promptRequests.size)
         assertEquals(popupPrompt, tab()!!.content.promptRequests[0])
@@ -87,7 +87,7 @@ class PromptMiddlewareTest {
         assertEquals(alert, tab()!!.content.promptRequests[0])
 
         val onDeny = spy { }
-        val popupPrompt = PromptRequest.Popup("https://firefox.com", onAllow = { }, onDeny = onDeny)
+        val popupPrompt = PromptRequest.Popup("https://eyebrowse.com", onAllow = { }, onDeny = onDeny)
         store.dispatch(ContentAction.UpdatePromptRequestAction(tabId, popupPrompt)).joinBlocking()
         assertEquals(2, tab()!!.content.promptRequests.size)
         assertEquals(alert, tab()!!.content.promptRequests[0])

@@ -15,7 +15,7 @@ import org.mozilla.fenix.components.components
 import org.mozilla.fenix.compose.ComposeViewHolder
 import org.mozilla.fenix.home.recentsyncedtabs.RecentSyncedTabState
 import org.mozilla.fenix.home.recentsyncedtabs.interactor.RecentSyncedTabInteractor
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.wallpapers.Wallpaper
 import org.mozilla.fenix.wallpapers.WallpaperState
 
@@ -60,14 +60,14 @@ class RecentSyncedTabViewHolder(
                 is RecentSyncedTabState.Success -> it.tabs.firstOrNull()
             }
             val buttonBackgroundColor = when {
-                syncedTab != null && isWallpaperNotDefault -> FirefoxTheme.colors.layer1
-                syncedTab != null -> FirefoxTheme.colors.actionSecondary
-                else -> FirefoxTheme.colors.layer3
+                syncedTab != null && isWallpaperNotDefault -> EyebrowseTheme.colors.layer1
+                syncedTab != null -> EyebrowseTheme.colors.actionSecondary
+                else -> EyebrowseTheme.colors.layer3
             }
             val buttonTextColor = when {
                 wallpaperState.currentWallpaper.cardColorDark != null &&
-                    isSystemInDarkTheme() -> FirefoxTheme.colors.textPrimary
-                else -> FirefoxTheme.colors.textActionSecondary
+                    isSystemInDarkTheme() -> EyebrowseTheme.colors.textPrimary
+                else -> EyebrowseTheme.colors.textActionSecondary
             }
 
             RecentSyncedTab(

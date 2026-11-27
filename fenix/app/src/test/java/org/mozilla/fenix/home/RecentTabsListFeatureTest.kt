@@ -182,7 +182,7 @@ class RecentTabsListFeatureTest {
             id = "1",
         )
         val tab2 = createTab(
-            url = "https://www.firefox.com",
+            url = "https://www.eyebrowse.com",
             id = "2",
         )
         val tabs = listOf(tab1, tab2)
@@ -282,7 +282,7 @@ class RecentTabsListFeatureTest {
             lastAccess = 1,
         )
         val privateTab = createTab(
-            url = "https://www.firefox.com",
+            url = "https://www.eyebrowse.com",
             id = "3",
             private = true,
         )
@@ -369,7 +369,7 @@ class RecentTabsListFeatureTest {
     @Test
     fun `GIVEN inProgressMediaTab already set WHEN the media tab is closed THEN remove it from recent tabs`() {
         val initialMediaTab = createTab(url = "https://mozilla.com", id = "1")
-        val selectedTab = createTab(url = "https://mozilla.com/firefox", id = "2")
+        val selectedTab = createTab(url = "https://mozilla.com/eyebrowse", id = "2")
         val browserStore = BrowserStore(
             initialState = BrowserState(listOf(initialMediaTab, selectedTab), selectedTabId = "2"),
             middleware = listOf(LastMediaAccessMiddleware()),

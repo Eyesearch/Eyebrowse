@@ -20,7 +20,7 @@ import org.mozilla.fenix.ext.settings
 
 class CustomTabToolbarMenuTest {
 
-    private lateinit var firefoxCustomTab: CustomTabSessionState
+    private lateinit var eyebrowseCustomTab: CustomTabSessionState
     private lateinit var store: BrowserStore
     private lateinit var customTabToolbarMenu: CustomTabToolbarMenu
     private lateinit var context: Context
@@ -30,7 +30,7 @@ class CustomTabToolbarMenuTest {
         context = mockk(relaxed = true)
         every { context.settings() } returns mockk(relaxed = true)
 
-        firefoxCustomTab = createCustomTab(url = "https://firefox.com", id = "123")
+        eyebrowseCustomTab = createCustomTab(url = "https://eyebrowse.com", id = "123")
 
         store = BrowserStore(
             BrowserState(
@@ -38,7 +38,7 @@ class CustomTabToolbarMenuTest {
                     createTab(url = "https://wikipedia.com", id = "1"),
                 ),
                 customTabs = listOf(
-                    firefoxCustomTab,
+                    eyebrowseCustomTab,
                     createCustomTab(url = "https://mozilla.com", id = "456"),
                 ),
             ),
@@ -48,7 +48,7 @@ class CustomTabToolbarMenuTest {
             CustomTabToolbarMenu(
                 context = context,
                 store = store,
-                sessionId = firefoxCustomTab.id,
+                sessionId = eyebrowseCustomTab.id,
                 shouldReverseItems = false,
                 isSandboxCustomTab = false,
                 onItemTapped = { },
@@ -58,7 +58,7 @@ class CustomTabToolbarMenuTest {
 
     @Test
     fun `custom tab toolbar menu uses the proper custom tab session`() {
-        assertEquals(firefoxCustomTab.id, customTabToolbarMenu.session?.id)
-        assertEquals("https://firefox.com", customTabToolbarMenu.session?.content?.url)
+        assertEquals(eyebrowseCustomTab.id, customTabToolbarMenu.session?.id)
+        assertEquals("https://eyebrowse.com", customTabToolbarMenu.session?.content?.url)
     }
 }

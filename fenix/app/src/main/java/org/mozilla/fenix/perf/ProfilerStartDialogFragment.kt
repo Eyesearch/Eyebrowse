@@ -40,7 +40,7 @@ import kotlinx.coroutines.launch
 import mozilla.components.concept.base.profiler.Profiler
 import org.mozilla.fenix.R
 import org.mozilla.fenix.ext.components
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Dialogue to start the Gecko profiler in Fenix without the use of ADB.
@@ -108,14 +108,14 @@ class ProfilerStartDialogFragment : AppCompatDialogFragment() {
         startProfiler: (Array<String>, Array<String>) -> Unit,
     ) {
         val featureAndThreadsObserver = remember {
-            mutableStateOf(requireContext().resources.getString(R.string.profiler_filter_firefox))
+            mutableStateOf(requireContext().resources.getString(R.string.profiler_filter_eyebrowse))
         }
         ProfilerDialogueCard {
             Column(modifier = Modifier.padding(8.dp)) {
                 Text(
                     text = stringResource(R.string.preferences_start_profiler),
                     fontWeight = FontWeight.ExtraBold,
-                    color = FirefoxTheme.colors.textPrimary,
+                    color = EyebrowseTheme.colors.textPrimary,
                     fontSize = 20.sp,
                     modifier = Modifier.padding(8.dp),
                 )
@@ -123,16 +123,16 @@ class ProfilerStartDialogFragment : AppCompatDialogFragment() {
                     text = stringResource(R.string.profiler_settings_title),
                     fontWeight = FontWeight.Bold,
                     fontSize = 15.sp,
-                    color = FirefoxTheme.colors.textPrimary,
+                    color = EyebrowseTheme.colors.textPrimary,
                     modifier = Modifier.padding(8.dp),
                 )
                 Spacer(modifier = Modifier.height(2.dp))
                 ProfilerLabeledRadioButton(
-                    text = stringResource(R.string.profiler_filter_firefox),
-                    subText = stringResource(R.string.profiler_filter_firefox_explain),
-                    selected = featureAndThreadsObserver.value == stringResource(R.string.profiler_filter_firefox),
+                    text = stringResource(R.string.profiler_filter_eyebrowse),
+                    subText = stringResource(R.string.profiler_filter_eyebrowse_explain),
+                    selected = featureAndThreadsObserver.value == stringResource(R.string.profiler_filter_eyebrowse),
                     onClick = {
-                        featureAndThreadsObserver.value = getString(R.string.profiler_filter_firefox)
+                        featureAndThreadsObserver.value = getString(R.string.profiler_filter_eyebrowse)
                     },
                 )
 
@@ -173,7 +173,7 @@ class ProfilerStartDialogFragment : AppCompatDialogFragment() {
                         },
                     ) {
                         Text(
-                            color = FirefoxTheme.colors.textAccent,
+                            color = EyebrowseTheme.colors.textAccent,
                             text = stringResource(R.string.profiler_start_cancel),
                         )
                     }
@@ -188,7 +188,7 @@ class ProfilerStartDialogFragment : AppCompatDialogFragment() {
                         },
                     ) {
                         Text(
-                            color = FirefoxTheme.colors.textAccent,
+                            color = EyebrowseTheme.colors.textAccent,
                             text = stringResource(R.string.preferences_start_profiler),
                         )
                     }

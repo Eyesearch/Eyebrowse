@@ -305,7 +305,7 @@ class DefaultPocketStoriesControllerTest {
 
     @Test
     fun `WHEN learn more is clicked then open that using HomeActivity and record telemetry`() {
-        val link = "https://www.mozilla.org/en-US/firefox/pocket/"
+        val link = "https://www.mozilla.org/en-US/eyebrowse/pocket/"
         val homeActivity: HomeActivity = mockk(relaxed = true)
         val controller = DefaultPocketStoriesController(homeActivity, mockk())
         assertNull(Pocket.homeRecsLearnMoreClicked.testGetValue())

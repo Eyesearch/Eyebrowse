@@ -36,7 +36,7 @@ import org.mozilla.fenix.compose.LinkText
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.compose.button.PrimaryButton
 import org.mozilla.fenix.compose.button.SecondaryButton
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * The ratio of the image height to the parent height. This was determined from the designs in figma
@@ -71,7 +71,7 @@ fun OnboardingPage(
 ) {
     BoxWithConstraints(
         modifier = Modifier
-            .background(FirefoxTheme.colors.layer1)
+            .background(EyebrowseTheme.colors.layer1)
             .padding(bottom = if (pageState.secondaryButton == null) 32.dp else 24.dp)
             .then(modifier),
     ) {
@@ -91,7 +91,7 @@ fun OnboardingPage(
                     Icon(
                         painter = painterResource(id = R.drawable.mozac_ic_cross_24),
                         contentDescription = stringResource(R.string.onboarding_home_content_description_close_button),
-                        tint = FirefoxTheme.colors.iconPrimary,
+                        tint = EyebrowseTheme.colors.iconPrimary,
                     )
                 }
             } else {
@@ -112,18 +112,18 @@ fun OnboardingPage(
 
                 Text(
                     text = pageState.title,
-                    color = FirefoxTheme.colors.textPrimary,
+                    color = EyebrowseTheme.colors.textPrimary,
                     textAlign = TextAlign.Center,
-                    style = FirefoxTheme.typography.headline5,
+                    style = EyebrowseTheme.typography.headline5,
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
 
                 Text(
                     text = pageState.description,
-                    color = FirefoxTheme.colors.textSecondary,
+                    color = EyebrowseTheme.colors.textSecondary,
                     textAlign = TextAlign.Center,
-                    style = FirefoxTheme.typography.body2,
+                    style = EyebrowseTheme.typography.body2,
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))
@@ -186,7 +186,7 @@ private fun imageHeight(boxWithConstraintsScope: BoxWithConstraintsScope): Dp {
 @LightDarkPreview
 @Composable
 private fun OnboardingPagePreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         OnboardingPage(
             pageState = OnboardingPageState(
                 imageRes = R.drawable.ic_notification_permission,

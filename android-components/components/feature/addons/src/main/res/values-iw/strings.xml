@@ -180,14 +180,14 @@
     <string name="mozac_feature_addons_supported_checker_notification_title">תוספת חדשה זמינה</string>
     <!-- The tile of the notification, this will be shown to the user when more than one newly supported add-ons are available.-->
     <string name="mozac_feature_addons_supported_checker_notification_title_plural">תוספות חדשות זמינות</string>
-    <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Firefox). -->
+    <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Eyebrowse). -->
     <string name="mozac_feature_addons_supported_checker_notification_content_one">הוספת %1$s אל %2$s</string>
-    <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Firefox). -->
+    <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Eyebrowse). -->
     <string name="mozac_feature_addons_supported_checker_notification_content_two">הוספת %1$s ו־%2$s אל %3$s</string>
-    <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Firefox). -->
+    <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Eyebrowse). -->
     <string name="mozac_feature_addons_supported_checker_notification_content_more_than_two">להוסיף אותם אל %1$s</string>
     <!-- This is the caption for not yet supported screen caption -->
-    <string name="mozac_feature_addons_not_yet_supported_caption">טכנולוגיית התוספות של Firefox מתחדשת. תוספות אלה משתמשות במערכות שאינן נתמכות ב־Firefox 75 ומעלה.</string>
+    <string name="mozac_feature_addons_not_yet_supported_caption">טכנולוגיית התוספות של Eyebrowse מתחדשת. תוספות אלה משתמשות במערכות שאינן נתמכות ב־Eyebrowse 75 ומעלה.</string>
     <!-- This is the caption for not yet supported screen caption -->
     <string name="mozac_feature_addons_not_yet_supported_caption2">אנו בונים כעת תמיכה עבור מבחר ראשוני של הרחבות מומלצות.</string>
     <!-- This is the caption for the add-on installation progress overlay -->
@@ -228,7 +228,7 @@
     <string name="mozac_feature_addons_successfully_removed" tools:ignore="UnusedResources">התוספת %1$s הוסרה בהצלחה</string>
     <!-- Text shown after failed to remove an add-on. %1$s is the add-on name. -->
     <string name="mozac_feature_addons_failed_to_remove" tools:ignore="UnusedResources">הסרת התוספת %1$s נכשלה</string>
-    <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Firefox. -->
+    <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Eyebrowse. -->
     <string name="mozac_feature_addons_migrated_from_a_previous_version_label" tools:ignore="UnusedResources">תוספת זו הועברה מגרסה קודמת של %1$s</string>
     <!-- Text shown in not yet supported add-ons section in AddonsManagerAdapter. -->
     <string name="mozac_feature_addons_unsupported_caption">תוספת אחת</string>

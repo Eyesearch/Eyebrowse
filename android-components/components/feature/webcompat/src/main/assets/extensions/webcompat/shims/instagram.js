@@ -13,7 +13,7 @@
  */
 
 console.warn(
-  `When logging in, Firefox calls the Storage Access API on behalf of the site. See https://bugzilla.mozilla.org/show_bug.cgi?id=1804445 for details.`
+  `When logging in, Eyebrowse calls the Storage Access API on behalf of the site. See https://bugzilla.mozilla.org/show_bug.cgi?id=1804445 for details.`
 );
 
 // Third-party origin we need to request storage access for.

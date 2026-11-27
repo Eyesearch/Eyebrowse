@@ -44,7 +44,7 @@ import org.mozilla.fenix.compose.list.ExpandableListHeader
 import org.mozilla.fenix.compose.list.FaviconListItem
 import org.mozilla.fenix.ext.toShortUrl
 import org.mozilla.fenix.tabstray.ext.toDisplayTitle
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 private val ROUNDED_CORNER_SHAPE = RoundedCornerShape(8.dp)
 
@@ -77,10 +77,10 @@ fun InactiveTabsList(
     Card(
         modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
         shape = ROUNDED_CORNER_SHAPE,
-        backgroundColor = FirefoxTheme.colors.layer2,
+        backgroundColor = EyebrowseTheme.colors.layer2,
         border = BorderStroke(
             width = 1.dp,
-            color = FirefoxTheme.colors.borderPrimary,
+            color = EyebrowseTheme.colors.borderPrimary,
         ),
     ) {
         Column(
@@ -142,7 +142,7 @@ private fun InactiveTabsHeader(
 ) {
     ExpandableListHeader(
         headerText = stringResource(R.string.inactive_tabs_title),
-        headerTextStyle = FirefoxTheme.typography.headline7,
+        headerTextStyle = EyebrowseTheme.typography.headline7,
         expanded = expanded,
         expandActionContentDescription = stringResource(R.string.inactive_tabs_expand_content_description),
         collapseActionContentDescription = stringResource(R.string.inactive_tabs_collapse_content_description),
@@ -155,7 +155,7 @@ private fun InactiveTabsHeader(
             Icon(
                 painter = painterResource(R.drawable.ic_delete),
                 contentDescription = stringResource(R.string.inactive_tabs_delete_all),
-                tint = FirefoxTheme.colors.iconPrimary,
+                tint = EyebrowseTheme.colors.iconPrimary,
             )
         }
     }
@@ -175,10 +175,10 @@ private fun InactiveTabsAutoClosePrompt(
     Card(
         modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
         shape = ROUNDED_CORNER_SHAPE,
-        backgroundColor = FirefoxTheme.colors.layer2,
+        backgroundColor = EyebrowseTheme.colors.layer2,
         border = BorderStroke(
             width = 1.dp,
-            color = FirefoxTheme.colors.borderPrimary,
+            color = EyebrowseTheme.colors.borderPrimary,
         ),
     ) {
         Column(
@@ -192,9 +192,9 @@ private fun InactiveTabsAutoClosePrompt(
             ) {
                 Text(
                     text = stringResource(R.string.tab_tray_inactive_auto_close_title),
-                    color = FirefoxTheme.colors.textPrimary,
+                    color = EyebrowseTheme.colors.textPrimary,
                     modifier = Modifier.weight(1f),
-                    style = FirefoxTheme.typography.headline8,
+                    style = EyebrowseTheme.typography.headline8,
                 )
 
                 IconButton(
@@ -205,7 +205,7 @@ private fun InactiveTabsAutoClosePrompt(
                         painter = painterResource(R.drawable.mozac_ic_cross_20),
                         contentDescription =
                         stringResource(R.string.tab_tray_inactive_auto_close_button_content_description),
-                        tint = FirefoxTheme.colors.iconPrimary,
+                        tint = EyebrowseTheme.colors.iconPrimary,
                     )
                 }
             }
@@ -215,7 +215,7 @@ private fun InactiveTabsAutoClosePrompt(
                     R.string.tab_tray_inactive_auto_close_body_2,
                     stringResource(R.string.app_name),
                 ),
-                color = FirefoxTheme.colors.textSecondary,
+                color = EyebrowseTheme.colors.textSecondary,
                 modifier = Modifier.fillMaxWidth(),
                 fontSize = 14.sp,
             )
@@ -232,8 +232,8 @@ private fun InactiveTabsAutoClosePrompt(
 @Preview(name = "Auto close dialog dark", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Preview(name = "Auto close dialog light", uiMode = Configuration.UI_MODE_NIGHT_NO)
 private fun InactiveTabsAutoClosePromptPreview() {
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Box(Modifier.background(EyebrowseTheme.colors.layer1)) {
             InactiveTabsAutoClosePrompt(
                 onDismissClick = {},
                 onEnableAutoCloseClick = {},
@@ -249,8 +249,8 @@ private fun InactiveTabsListPreview() {
     var expanded by remember { mutableStateOf(true) }
     var showAutoClosePrompt by remember { mutableStateOf(true) }
 
-    FirefoxTheme {
-        Box(Modifier.background(FirefoxTheme.colors.layer1)) {
+    EyebrowseTheme {
+        Box(Modifier.background(EyebrowseTheme.colors.layer1)) {
             InactiveTabsList(
                 inactiveTabs = generateFakeInactiveTabsList(),
                 expanded = expanded,

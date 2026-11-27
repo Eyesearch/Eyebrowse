@@ -63,7 +63,7 @@
     <string name="cfr_neg_button_text">पर्दैन, धन्यबाद</string>
 
     <!-- Open in App "contextual feature recommendation" (CFR) -->
-    <!-- Text for the info message. 'Firefox' intentionally hardcoded here.-->
+    <!-- Text for the info message. 'Eyebrowse' intentionally hardcoded here.-->
     <string moz:RemovedIn="99" name="open_in_app_cfr_info_message" tools:ignore="UnusedResources">तपाईंले एपहरूमा स्वचालित रूपमा लिङ्कहरू खोल्नका लागि Eyebrowse सेट गर्न सक्नुहुन्छ।</string>
     <!-- Text for the positive action button -->
     <string name="open_in_app_cfr_positive_button_text">सेटिङ्गहरुमा जानुहोस्</string>
@@ -182,11 +182,11 @@
     <string name="search_engine_suggestions_description">ठेगाना पट्टीबाट सिधै खोज्नुहोस्</string>
 
     <!-- Home onboarding -->
-    <!-- Onboarding home screen dialog title text. Firefox is intentionally hardcoded. -->
+    <!-- Onboarding home screen dialog title text. Eyebrowse is intentionally hardcoded. -->
     <string moz:removedIn="99" name="onboarding_home_screen_title_2" tools:ignore="UnusedResources">Eyebrowse मा नयाँ के छ</string>
     <!-- Onboarding home screen dialog description text. -->
     <string name="onboarding_home_screen_description_2">अब तपाईंले छोड्नुभएको ठाउँबाट सुरु गर्न झन् सजिलो भएको छ।</string>
-    <!-- Onboarding home screen dialog title text for the home section. Firefox is intentionally hardcoded. -->
+    <!-- Onboarding home screen dialog title text for the home section. Eyebrowse is intentionally hardcoded. -->
     <string moz:RemovedIn="99" name="onboarding_home_screen_section_home_title_2" tools:ignore="UnusedResources">निजीकृत Eyebrowse गृहपृष्ठ</string>
     <!-- Onboarding home screen dialog description text for the home section. -->
     <string name="onboarding_home_screen_section_home_description_2">तपाईंका खुला ट्याबहरू, बुकमार्कहरू, र ब्राउजिङ्ग इतिहासमा जानुहोस्।</string>
@@ -199,11 +199,11 @@
     <!-- Onboarding home screen dialog description text for the history section. -->
     <string name="onboarding_home_screen_section_useful_history_description_2">तपाईंको गृहपृष्ठ र ट्याबहरू बाट तपाईंको नवीनतम खोजहरू पुन: भ्रमण गर्नुहोस्।</string>
 
-    <!-- Onboarding home screen popup dialog, shown on top of the Jump back in section. Firefox is intentionally hardcoded. -->
+    <!-- Onboarding home screen popup dialog, shown on top of the Jump back in section. Eyebrowse is intentionally hardcoded. -->
     <string name="onboarding_home_screen_jump_back_contextual_hint" tools:ignore="UnusedResources">तपाईंकa व्यक्तिगत Eyebrowse गृहपृष्ठले अब तपाईंले छोडेको ठाउँबाट उठाउन सजिलो बनाउँछ। आफ्नो भर्खरका ट्याबहरू, बुकमार्कहरू, र खोज परिणामहरू फेला पार्नुहोस्।</string>
 
     <!-- Search Widget -->
-    <!-- Content description for searching with a widget. Firefox is intentionally hardcoded.-->
+    <!-- Content description for searching with a widget. Eyebrowse is intentionally hardcoded.-->
     <string moz:RemovedIn="99" name="search_widget_content_description" tools:ignore="UnusedResources">नयाँ Eyebrowse ट्याब खोल्नुहोस्</string>
     <!-- Text preview for smaller sized widgets -->
     <string name="search_widget_text_short">खोजी गर्नुहोस्</string>
@@ -250,7 +250,7 @@
     <string name="preferences_add_private_browsing_shortcut">निजी ब्राउजिङ्ग सर्टकटहरु थप्नुहोस्</string>
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">पहुँचता</string>
-    <!-- Preference to override the Firefox Account server -->
+    <!-- Preference to override the Eyebrowse Account server -->
     <string name="preferences_override_fxa_server">Eyebrowse खाता सर्भर अनुकुलन पार्नुहोस्</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">सिङ्क सर्भर अनुकुलन गर्नुहोस्</string>

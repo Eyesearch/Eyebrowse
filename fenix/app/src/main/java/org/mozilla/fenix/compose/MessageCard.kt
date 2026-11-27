@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.sp
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.compose.button.PrimaryButton
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Message Card.
@@ -82,7 +82,7 @@ fun MessageCard(
                         color = messageColors.titleTextColor,
                         overflow = TextOverflow.Ellipsis,
                         maxLines = 2,
-                        style = FirefoxTheme.typography.headline7,
+                        style = EyebrowseTheme.typography.headline7,
                     )
 
                     MessageCardIconButton(
@@ -179,12 +179,12 @@ data class MessageCardColors(
          */
         @Composable
         fun buildMessageCardColors(
-            backgroundColor: Color = FirefoxTheme.colors.layer2,
-            titleTextColor: Color = FirefoxTheme.colors.textPrimary,
-            messageTextColor: Color = FirefoxTheme.colors.textSecondary,
-            iconColor: Color = FirefoxTheme.colors.iconPrimary,
-            buttonColor: Color = FirefoxTheme.colors.actionPrimary,
-            buttonTextColor: Color = FirefoxTheme.colors.textActionPrimary,
+            backgroundColor: Color = EyebrowseTheme.colors.layer2,
+            titleTextColor: Color = EyebrowseTheme.colors.textPrimary,
+            messageTextColor: Color = EyebrowseTheme.colors.textSecondary,
+            iconColor: Color = EyebrowseTheme.colors.iconPrimary,
+            buttonColor: Color = EyebrowseTheme.colors.actionPrimary,
+            buttonTextColor: Color = EyebrowseTheme.colors.textActionPrimary,
         ): MessageCardColors =
             MessageCardColors(
                 backgroundColor = backgroundColor,
@@ -200,10 +200,10 @@ data class MessageCardColors(
 @Composable
 @LightDarkPreview
 private fun MessageCardPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Box(
             Modifier
-                .background(FirefoxTheme.colors.layer1)
+                .background(EyebrowseTheme.colors.layer1)
                 .padding(all = 16.dp),
         ) {
             MessageCard(
@@ -219,10 +219,10 @@ private fun MessageCardPreview() {
 @Composable
 @LightDarkPreview
 private fun MessageCardWithoutTitlePreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Box(
             modifier = Modifier
-                .background(FirefoxTheme.colors.layer1)
+                .background(EyebrowseTheme.colors.layer1)
                 .padding(all = 16.dp),
         ) {
             MessageCard(
@@ -237,10 +237,10 @@ private fun MessageCardWithoutTitlePreview() {
 @Composable
 @LightDarkPreview
 private fun MessageCardWithButtonLabelPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Box(
             modifier = Modifier
-                .background(FirefoxTheme.colors.layer1)
+                .background(EyebrowseTheme.colors.layer1)
                 .padding(all = 16.dp),
         ) {
             MessageCard(

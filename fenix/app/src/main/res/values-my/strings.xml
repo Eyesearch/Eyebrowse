@@ -244,7 +244,7 @@
 
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">အသုံးပြုခွင့်</string>
-    <!-- Preference to override the Firefox Account server -->
+    <!-- Preference to override the Eyebrowse Account server -->
     <string name="preferences_override_fxa_server">စိတ်ကြိုက် Eyebrowse အကောင့် ဆာဗာ</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">သုံးသူစိတ်ကြိုက် ချိန်သားကိုက် ဆာဗာ</string>
@@ -948,7 +948,7 @@
     <string name="deleting_browsing_data_in_progress">ကြည့်ရှုမှုအချက်အလက်များ ဖျက်နေသည်…</string>
 
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">ထပ်တူပြုခြင်းဖွင့်ထားသည်</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">ထပ်တူပြုခြင်းဖွင့်ထားသည်</string>
 
     <!-- text for tracking protection radio button option for standard level of blocking -->
     <string name="onboarding_tracking_protection_standard_button_2">စံ (ပုံသေ)</string>
@@ -1000,9 +1000,9 @@
     <string name="sign_in_with_camera">သင်၏ကင်မရာဖြင့်ဆိုင်းအင်လုပ်ပါ</string>
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">အီးမေးလ်အစား</string>
-    <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
+    <!-- Text shown for settings option for create new account text.'Eyebrowse' intentionally hardcoded here.-->
     <string name="sign_in_create_account_text"><![CDATA[အကောင့် မရှိဘူးလား? <u> သုံးစွဲသည့် ကိရိယာများ အကြား Eyebrowse ကို တစ်ပြေးညီတည်း ချိန်ညှိရန် </u> တစ်ခု ဖန်တီးပါ။ ]]></string>
-    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="sign_out_confirmation_message_2">%s သည် အကောင့်နှင့် အချက်အလက်များ ထပ်တူပြုခြင်းကို ရပ်တန့်ပါမည်။ သို့သော် ယခု ကိရိယာရှိ သင်၏ မည်သည့် အချက်အလက် ကိုမျှ ဖျက်ပစ်မည် မဟုတ်ပါ။</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
     <string name="sign_out_disconnect">ချိတ်ဆက်မှုဖြုတ်ပါ</string>
@@ -1166,9 +1166,9 @@
     <!-- Preference option for never saving passwords in Fenix -->
     <string name="preferences_passwords_save_logins_never_save">ဘယ်တော့မှ မသိမ်းပါနှင့်</string>
 
-    <!-- Preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill2">%1$s တွင် အလိုအလျောက် ဖြည့်ပါ</string>
-    <!-- Description for the preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Description for the preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill_description">%1$s ကို သုံးနေစဉ် ၀က်ဆိုက်များတွင် အသုံးပြုသူအမည် နှင့် စကားဝှက်များကို ဖြည့်ပြီး သိမ်းဆည်းပါ</string>
     <!-- Preference for autofilling logins from Fenix in other apps (e.g. autofilling the Twitter app) -->
     <string name="preferences_android_autofill">အခြား အက်ပ်များတွင် အလိုအလျောက် ဖြည့်ပါ </string>
@@ -1409,13 +1409,13 @@
     <string name="synced_tabs_connect_another_device">အခြား ကိရိယာ သို့ ချိတ်ဆက်မည်</string>
     <!-- Text displayed asking user to re-authenticate -->
     <string name="synced_tabs_reauth">ကျေးဇူးပြု၍ ပြန်လည် အတည်ပြုပါ။</string>
-    <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+    <!-- Text displayed when user has disabled tab syncing in Eyebrowse Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">ကျေးဇူးပြ၍ တပ်ဗ် ထပ်တူတစ်ပြေးတည်း ဖြစ်စေရန် ဖွင့်ပါ </string>
     <!-- Text displayed when user has no tabs that have been synced -->
     <string name="synced_tabs_no_tabs">သင့် အခြား စက်ပစ္စည်းများတွင် Eyebrowse ၌ ဖွင့်ထားသော တပ်ဗ်များ မရှိပါ</string>
-    <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+    <!-- Text displayed in the synced tabs screen when a user is not signed in to Eyebrowse Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">သင်၏ အခြားစက်ပစ္စည်းများမှ တပ်ဗ် များ စာရင်းကို ကြည့်ပါ။</string>
-    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Eyebrowse Sync -->
     <string name="synced_tabs_sign_in_button">ချိန်သားကိုက် ရန် ဝင်ရောက်ပါ</string>
     <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->
     <string name="synced_tabs_no_open_tabs">ဖွင့်ထားသည့် တပ်ဗ်များ မရှိပါ</string>

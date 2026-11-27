@@ -1081,11 +1081,11 @@
 
     <issue
         id="UnusedResources"
-        message="The resource `R.drawable.ic_firefox` appears to be unused"
+        message="The resource `R.drawable.ic_eyebrowse` appears to be unused"
         errorLine1="&lt;vector android:height=&quot;112.7dp&quot; android:viewportHeight=&quot;54.28&quot;"
         errorLine2="^">
         <location
-            file="src/main/res/drawable/ic_firefox.xml"
+            file="src/main/res/drawable/ic_eyebrowse.xml"
             line="1"
             column="1"/>
     </issue>

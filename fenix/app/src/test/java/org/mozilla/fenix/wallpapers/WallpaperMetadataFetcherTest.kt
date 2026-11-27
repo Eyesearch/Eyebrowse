@@ -50,7 +50,7 @@ class WallpaperMetadataFetcherTest {
                 "last-updated-date": "2022-01-01",
                 "collections": [
                     {
-                        "id": "classic-firefox",
+                        "id": "classic-eyebrowse",
                         "available-locales": null,
                         "availability-range": null,
                         "wallpapers": [
@@ -94,7 +94,7 @@ class WallpaperMetadataFetcherTest {
                 "last-updated-date": "2022-01-01",
                 "collections": [
                     {
-                        "id": "classic-firefox",
+                        "id": "classic-eyebrowse",
                         "available-locales": null,
                         "availability-range": null,
                         "wallpapers": [
@@ -128,7 +128,7 @@ class WallpaperMetadataFetcherTest {
                 "last-updated-date": "2022-01-01",
                 "collections": [
                     {
-                        "id": "classic-firefox",
+                        "id": "classic-eyebrowse",
                         "available-locales": null,
                         "availability-range": null,
                         "wallpapers": [
@@ -162,7 +162,7 @@ class WallpaperMetadataFetcherTest {
                 "last-updated-date": "2022-01-01",
                 "collections": [
                     {
-                        "id": "classic-firefox",
+                        "id": "classic-eyebrowse",
                         "available-locales": null,
                         "availability-range": null,
                         "wallpapers": [
@@ -196,7 +196,7 @@ class WallpaperMetadataFetcherTest {
                 "last-updated-date": "2022-01-01",
                 "collections": [
                     {
-                        "id": "classic-firefox",
+                        "id": "classic-eyebrowse",
                         "available-locales": ["en-US", "es-US", "en-CA", "fr-CA"],
                         "availability-range": null,
                         "wallpapers": [
@@ -245,7 +245,7 @@ class WallpaperMetadataFetcherTest {
                 "last-updated-date": "2022-01-01",
                 "collections": [
                     {
-                        "id": "classic-firefox",
+                        "id": "classic-eyebrowse",
                         "available-locales": null,
                         "availability-range": {
                             "start": "2022-06-27",
@@ -290,7 +290,7 @@ class WallpaperMetadataFetcherTest {
                 "last-updated-date": "2022-01-01",
                 "collections": [
                     {
-                        "id": "classic-firefox",
+                        "id": "classic-eyebrowse",
                         "available-locales": null,
                         "availability-range": null,
                         "learn-more-url": "https://www.mozilla.org",
@@ -326,14 +326,14 @@ class WallpaperMetadataFetcherTest {
 
     @Test
     fun `GIVEN collection with specified heading and description WHEN parsed THEN wallpapers include them`() = runTest {
-        val heading = "A classic firefox experience"
+        val heading = "A classic eyebrowse experience"
         val description = "Check out these cool foxes, they're adorable and can be your wallpaper"
         val json = """
             {
                 "last-updated-date": "2022-01-01",
                 "collections": [
                     {
-                        "id": "classic-firefox",
+                        "id": "classic-eyebrowse",
                         "heading": "$heading",
                         "description": "$description",
                         "available-locales": null,
@@ -376,7 +376,7 @@ class WallpaperMetadataFetcherTest {
                 "last-updated-date": "2022-01-01",
                 "collections": [
                     {
-                        "id": "classic-firefox",
+                        "id": "classic-eyebrowse",
                         "heading": null,
                         "description": null,
                         "available-locales": null,

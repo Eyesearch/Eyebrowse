@@ -31,44 +31,44 @@ class BrowsersTest {
 
         assertNull(browsers.defaultBrowser)
         assertNull(browsers.mozillaBrandedBrowser)
-        assertFalse(browsers.hasFirefoxBrandedBrowserInstalled)
+        assertFalse(browsers.hasEyebrowseBrandedBrowserInstalled)
         assertTrue(browsers.installedBrowsers.isEmpty())
         assertFalse(browsers.hasThirdPartyDefaultBrowser)
         assertFalse(browsers.hasMultipleThirdPartyBrowsers)
         assertFalse(browsers.isDefaultBrowser)
-        assertFalse(browsers.isFirefoxDefaultBrowser)
+        assertFalse(browsers.isEyebrowseDefaultBrowser)
     }
 
     @Test
-    fun `with firefox as default browser`() {
+    fun `with eyebrowse as default browser`() {
         pretendBrowsersAreInstalled(
-            defaultBrowser = Browsers.KnownBrowser.FIREFOX.packageName,
+            defaultBrowser = Browsers.KnownBrowser.EYEBROWSE.packageName,
         )
 
         val browsers = Browsers.all(testContext)
 
         assertNotNull(browsers.defaultBrowser)
-        assertEquals(Browsers.KnownBrowser.FIREFOX.packageName, browsers.defaultBrowser!!.packageName)
+        assertEquals(Browsers.KnownBrowser.EYEBROWSE.packageName, browsers.defaultBrowser!!.packageName)
 
         assertNotNull(browsers.mozillaBrandedBrowser)
-        assertEquals(Browsers.KnownBrowser.FIREFOX.packageName, browsers.mozillaBrandedBrowser!!.packageName)
+        assertEquals(Browsers.KnownBrowser.EYEBROWSE.packageName, browsers.mozillaBrandedBrowser!!.packageName)
 
-        assertTrue(browsers.hasFirefoxBrandedBrowserInstalled)
+        assertTrue(browsers.hasEyebrowseBrandedBrowserInstalled)
 
         assertEquals(1, browsers.installedBrowsers.size)
 
         assertFalse(browsers.hasThirdPartyDefaultBrowser)
         assertFalse(browsers.hasMultipleThirdPartyBrowsers)
         assertFalse(browsers.isDefaultBrowser)
-        assertTrue(browsers.isFirefoxDefaultBrowser)
+        assertTrue(browsers.isEyebrowseDefaultBrowser)
     }
 
     @Test
     fun `with multiple browsers installed`() {
         pretendBrowsersAreInstalled(
             browsers = listOf(
-                Browsers.KnownBrowser.FIREFOX_NIGHTLY.packageName,
-                Browsers.KnownBrowser.FIREFOX.packageName,
+                Browsers.KnownBrowser.EYEBROWSE_NIGHTLY.packageName,
+                Browsers.KnownBrowser.EYEBROWSE.packageName,
                 Browsers.KnownBrowser.CHROME.packageName,
                 Browsers.KnownBrowser.SAMSUNG_INTERNET.packageName,
                 Browsers.KnownBrowser.DUCKDUCKGO.packageName,
@@ -83,100 +83,100 @@ class BrowsersTest {
         assertEquals(Browsers.KnownBrowser.REFERENCE_BROWSER.packageName, browsers.defaultBrowser!!.packageName)
 
         assertNotNull(browsers.mozillaBrandedBrowser)
-        assertEquals(Browsers.KnownBrowser.FIREFOX.packageName, browsers.mozillaBrandedBrowser!!.packageName)
+        assertEquals(Browsers.KnownBrowser.EYEBROWSE.packageName, browsers.mozillaBrandedBrowser!!.packageName)
 
-        assertTrue(browsers.hasFirefoxBrandedBrowserInstalled)
+        assertTrue(browsers.hasEyebrowseBrandedBrowserInstalled)
 
         assertEquals(6, browsers.installedBrowsers.size)
 
         assertTrue(browsers.hasThirdPartyDefaultBrowser)
         assertTrue(browsers.hasMultipleThirdPartyBrowsers)
         assertFalse(browsers.isDefaultBrowser)
-        assertFalse(browsers.isFirefoxDefaultBrowser)
+        assertFalse(browsers.isEyebrowseDefaultBrowser)
 
         assertTrue(browsers.isInstalled(Browsers.KnownBrowser.REFERENCE_BROWSER))
-        assertTrue(browsers.isInstalled(Browsers.KnownBrowser.FIREFOX_NIGHTLY))
-        assertTrue(browsers.isInstalled(Browsers.KnownBrowser.FIREFOX))
+        assertTrue(browsers.isInstalled(Browsers.KnownBrowser.EYEBROWSE_NIGHTLY))
+        assertTrue(browsers.isInstalled(Browsers.KnownBrowser.EYEBROWSE))
         assertTrue(browsers.isInstalled(Browsers.KnownBrowser.CHROME))
         assertTrue(browsers.isInstalled(Browsers.KnownBrowser.REFERENCE_BROWSER))
         assertTrue(browsers.isInstalled(Browsers.KnownBrowser.DUCKDUCKGO))
 
         assertFalse(browsers.isInstalled(Browsers.KnownBrowser.CHROME_BETA))
-        assertFalse(browsers.isInstalled(Browsers.KnownBrowser.FIREFOX_BETA))
+        assertFalse(browsers.isInstalled(Browsers.KnownBrowser.EYEBROWSE_BETA))
         assertFalse(browsers.isInstalled(Browsers.KnownBrowser.ANDROID_STOCK_BROWSER))
         assertFalse(browsers.isInstalled(Browsers.KnownBrowser.UC_BROWSER))
 
         assertTrue(browsers.isInstalled(Browsers.KnownBrowser.REFERENCE_BROWSER.packageName))
-        assertTrue(browsers.isInstalled(Browsers.KnownBrowser.FIREFOX_NIGHTLY.packageName))
-        assertTrue(browsers.isInstalled(Browsers.KnownBrowser.FIREFOX.packageName))
+        assertTrue(browsers.isInstalled(Browsers.KnownBrowser.EYEBROWSE_NIGHTLY.packageName))
+        assertTrue(browsers.isInstalled(Browsers.KnownBrowser.EYEBROWSE.packageName))
         assertTrue(browsers.isInstalled(Browsers.KnownBrowser.CHROME.packageName))
         assertTrue(browsers.isInstalled(Browsers.KnownBrowser.REFERENCE_BROWSER.packageName))
         assertTrue(browsers.isInstalled(Browsers.KnownBrowser.DUCKDUCKGO.packageName))
 
         assertFalse(browsers.isInstalled(Browsers.KnownBrowser.CHROME_BETA.packageName))
-        assertFalse(browsers.isInstalled(Browsers.KnownBrowser.FIREFOX_BETA.packageName))
+        assertFalse(browsers.isInstalled(Browsers.KnownBrowser.EYEBROWSE_BETA.packageName))
         assertFalse(browsers.isInstalled(Browsers.KnownBrowser.ANDROID_STOCK_BROWSER.packageName))
         assertFalse(browsers.isInstalled(Browsers.KnownBrowser.UC_BROWSER.packageName))
     }
 
     @Test
-    fun `With only firefox beta installed`() {
+    fun `With only eyebrowse beta installed`() {
         pretendBrowsersAreInstalled(
-            browsers = listOf(Browsers.KnownBrowser.FIREFOX_BETA.packageName),
-            defaultBrowser = Browsers.KnownBrowser.FIREFOX_BETA.packageName,
+            browsers = listOf(Browsers.KnownBrowser.EYEBROWSE_BETA.packageName),
+            defaultBrowser = Browsers.KnownBrowser.EYEBROWSE_BETA.packageName,
         )
 
         val browsers = Browsers.all(testContext)
 
-        assertEquals(Browsers.KnownBrowser.FIREFOX_BETA.packageName, browsers.defaultBrowser!!.packageName)
-        assertEquals(Browsers.KnownBrowser.FIREFOX_BETA.packageName, browsers.mozillaBrandedBrowser!!.packageName)
-        assertTrue(browsers.hasFirefoxBrandedBrowserInstalled)
-        assertTrue(browsers.isFirefoxDefaultBrowser)
+        assertEquals(Browsers.KnownBrowser.EYEBROWSE_BETA.packageName, browsers.defaultBrowser!!.packageName)
+        assertEquals(Browsers.KnownBrowser.EYEBROWSE_BETA.packageName, browsers.mozillaBrandedBrowser!!.packageName)
+        assertTrue(browsers.hasEyebrowseBrandedBrowserInstalled)
+        assertTrue(browsers.isEyebrowseDefaultBrowser)
     }
 
     @Test
-    fun `With only firefox nightly installed`() {
+    fun `With only eyebrowse nightly installed`() {
         pretendBrowsersAreInstalled(
-            browsers = listOf(Browsers.KnownBrowser.FIREFOX_NIGHTLY.packageName),
-            defaultBrowser = Browsers.KnownBrowser.FIREFOX_NIGHTLY.packageName,
+            browsers = listOf(Browsers.KnownBrowser.EYEBROWSE_NIGHTLY.packageName),
+            defaultBrowser = Browsers.KnownBrowser.EYEBROWSE_NIGHTLY.packageName,
         )
 
         val browsers = Browsers.all(testContext)
 
-        assertEquals(Browsers.KnownBrowser.FIREFOX_NIGHTLY.packageName, browsers.defaultBrowser!!.packageName)
-        assertEquals(Browsers.KnownBrowser.FIREFOX_NIGHTLY.packageName, browsers.mozillaBrandedBrowser!!.packageName)
-        assertTrue(browsers.hasFirefoxBrandedBrowserInstalled)
-        assertTrue(browsers.isFirefoxDefaultBrowser)
+        assertEquals(Browsers.KnownBrowser.EYEBROWSE_NIGHTLY.packageName, browsers.defaultBrowser!!.packageName)
+        assertEquals(Browsers.KnownBrowser.EYEBROWSE_NIGHTLY.packageName, browsers.mozillaBrandedBrowser!!.packageName)
+        assertTrue(browsers.hasEyebrowseBrandedBrowserInstalled)
+        assertTrue(browsers.isEyebrowseDefaultBrowser)
     }
 
     @Test
-    fun `With only firefox aurora installed`() {
+    fun `With only eyebrowse aurora installed`() {
         pretendBrowsersAreInstalled(
-            browsers = listOf(Browsers.KnownBrowser.FIREFOX_AURORA.packageName),
-            defaultBrowser = Browsers.KnownBrowser.FIREFOX_AURORA.packageName,
+            browsers = listOf(Browsers.KnownBrowser.EYEBROWSE_AURORA.packageName),
+            defaultBrowser = Browsers.KnownBrowser.EYEBROWSE_AURORA.packageName,
         )
 
         val browsers = Browsers.all(testContext)
 
-        assertEquals(Browsers.KnownBrowser.FIREFOX_AURORA.packageName, browsers.defaultBrowser!!.packageName)
-        assertEquals(Browsers.KnownBrowser.FIREFOX_AURORA.packageName, browsers.mozillaBrandedBrowser!!.packageName)
-        assertTrue(browsers.hasFirefoxBrandedBrowserInstalled)
-        assertTrue(browsers.isFirefoxDefaultBrowser)
+        assertEquals(Browsers.KnownBrowser.EYEBROWSE_AURORA.packageName, browsers.defaultBrowser!!.packageName)
+        assertEquals(Browsers.KnownBrowser.EYEBROWSE_AURORA.packageName, browsers.mozillaBrandedBrowser!!.packageName)
+        assertTrue(browsers.hasEyebrowseBrandedBrowserInstalled)
+        assertTrue(browsers.isEyebrowseDefaultBrowser)
     }
 
     @Test
-    fun `With only firefox froid installed`() {
+    fun `With only eyebrowse froid installed`() {
         pretendBrowsersAreInstalled(
-            browsers = listOf(Browsers.KnownBrowser.FIREFOX_FDROID.packageName),
-            defaultBrowser = Browsers.KnownBrowser.FIREFOX_FDROID.packageName,
+            browsers = listOf(Browsers.KnownBrowser.EYEBROWSE_FDROID.packageName),
+            defaultBrowser = Browsers.KnownBrowser.EYEBROWSE_FDROID.packageName,
         )
 
         val browsers = Browsers.all(testContext)
 
-        assertEquals(Browsers.KnownBrowser.FIREFOX_FDROID.packageName, browsers.defaultBrowser!!.packageName)
-        assertEquals(Browsers.KnownBrowser.FIREFOX_FDROID.packageName, browsers.mozillaBrandedBrowser!!.packageName)
-        assertTrue(browsers.hasFirefoxBrandedBrowserInstalled)
-        assertTrue(browsers.isFirefoxDefaultBrowser)
+        assertEquals(Browsers.KnownBrowser.EYEBROWSE_FDROID.packageName, browsers.defaultBrowser!!.packageName)
+        assertEquals(Browsers.KnownBrowser.EYEBROWSE_FDROID.packageName, browsers.mozillaBrandedBrowser!!.packageName)
+        assertTrue(browsers.hasEyebrowseBrandedBrowserInstalled)
+        assertTrue(browsers.isEyebrowseDefaultBrowser)
     }
 
     @Test
@@ -189,7 +189,7 @@ class BrowsersTest {
         val browsers = Browsers.all(testContext)
 
         assertTrue(browsers.isDefaultBrowser)
-        assertFalse(browsers.isFirefoxDefaultBrowser)
+        assertFalse(browsers.isEyebrowseDefaultBrowser)
         assertFalse(browsers.hasThirdPartyDefaultBrowser)
     }
 
@@ -208,12 +208,12 @@ class BrowsersTest {
 
         assertEquals("org.example.unknown.browser", browsers.defaultBrowser!!.packageName)
         assertNull(browsers.mozillaBrandedBrowser)
-        assertFalse(browsers.hasFirefoxBrandedBrowserInstalled)
+        assertFalse(browsers.hasEyebrowseBrandedBrowserInstalled)
         assertEquals(2, browsers.installedBrowsers.size)
         assertTrue(browsers.hasThirdPartyDefaultBrowser)
         assertTrue(browsers.hasMultipleThirdPartyBrowsers)
         assertFalse(browsers.isDefaultBrowser)
-        assertFalse(browsers.isFirefoxDefaultBrowser)
+        assertFalse(browsers.isEyebrowseDefaultBrowser)
 
         val installedBrowsers = browsers.installedBrowsers.map { it.packageName }
         assertTrue(installedBrowsers.contains("org.example.unknown.browser"))
@@ -224,8 +224,8 @@ class BrowsersTest {
     fun `With default browser that is not exported`() {
         pretendBrowsersAreInstalled(
             browsers = listOf(
-                Browsers.KnownBrowser.FIREFOX_NIGHTLY.packageName,
-                Browsers.KnownBrowser.FIREFOX.packageName,
+                Browsers.KnownBrowser.EYEBROWSE_NIGHTLY.packageName,
+                Browsers.KnownBrowser.EYEBROWSE.packageName,
             ),
         )
 
@@ -237,22 +237,22 @@ class BrowsersTest {
         val browsers = Browsers.all(testContext)
 
         assertNull(browsers.defaultBrowser)
-        assertEquals(Browsers.KnownBrowser.FIREFOX.packageName, browsers.mozillaBrandedBrowser!!.packageName)
-        assertTrue(browsers.hasFirefoxBrandedBrowserInstalled)
+        assertEquals(Browsers.KnownBrowser.EYEBROWSE.packageName, browsers.mozillaBrandedBrowser!!.packageName)
+        assertTrue(browsers.hasEyebrowseBrandedBrowserInstalled)
         browsers.installedBrowsers.forEach { println(it.packageName + " : " + it.exported) }
         assertEquals(2, browsers.installedBrowsers.size)
         assertFalse(browsers.hasThirdPartyDefaultBrowser)
 
         val installedBrowsers = browsers.installedBrowsers.map { it.packageName }
-        assertTrue(installedBrowsers.contains(Browsers.KnownBrowser.FIREFOX.packageName))
-        assertTrue(installedBrowsers.contains(Browsers.KnownBrowser.FIREFOX_NIGHTLY.packageName))
+        assertTrue(installedBrowsers.contains(Browsers.KnownBrowser.EYEBROWSE.packageName))
+        assertTrue(installedBrowsers.contains(Browsers.KnownBrowser.EYEBROWSE_NIGHTLY.packageName))
     }
 
     @Test
     fun `With some browsers not exported`() {
         pretendBrowsersAreInstalled(
             browsers = listOf(
-                Browsers.KnownBrowser.FIREFOX.packageName,
+                Browsers.KnownBrowser.EYEBROWSE.packageName,
             ),
         )
 
@@ -267,8 +267,8 @@ class BrowsersTest {
         val browsers = Browsers.all(testContext)
 
         assertNull(browsers.defaultBrowser)
-        assertEquals(Browsers.KnownBrowser.FIREFOX.packageName, browsers.mozillaBrandedBrowser!!.packageName)
-        assertTrue(browsers.hasFirefoxBrandedBrowserInstalled)
+        assertEquals(Browsers.KnownBrowser.EYEBROWSE.packageName, browsers.mozillaBrandedBrowser!!.packageName)
+        assertTrue(browsers.hasEyebrowseBrandedBrowserInstalled)
         browsers.installedBrowsers.forEach { println(it.packageName + " : " + it.exported) }
         assertFalse(browsers.hasThirdPartyDefaultBrowser)
     }
@@ -279,54 +279,54 @@ class BrowsersTest {
 
         assertNull(browsers.defaultBrowser)
         assertNull(browsers.mozillaBrandedBrowser)
-        assertFalse(browsers.hasFirefoxBrandedBrowserInstalled)
+        assertFalse(browsers.hasEyebrowseBrandedBrowserInstalled)
         assertTrue(browsers.installedBrowsers.isEmpty())
         assertFalse(browsers.hasThirdPartyDefaultBrowser)
         assertFalse(browsers.hasMultipleThirdPartyBrowsers)
         assertFalse(browsers.isDefaultBrowser)
-        assertFalse(browsers.isFirefoxDefaultBrowser)
+        assertFalse(browsers.isEyebrowseDefaultBrowser)
     }
 
     @Test
-    fun `forUrl() with firefox as default browser`() {
+    fun `forUrl() with eyebrowse as default browser`() {
         pretendBrowsersAreInstalled(
-            defaultBrowser = Browsers.KnownBrowser.FIREFOX.packageName,
+            defaultBrowser = Browsers.KnownBrowser.EYEBROWSE.packageName,
         )
 
         val browsers = Browsers.forUrl(testContext, SAMPLE_BROWSER_HTTP_URL)
 
         assertNotNull(browsers.defaultBrowser)
-        assertEquals(Browsers.KnownBrowser.FIREFOX.packageName, browsers.defaultBrowser!!.packageName)
+        assertEquals(Browsers.KnownBrowser.EYEBROWSE.packageName, browsers.defaultBrowser!!.packageName)
 
         assertNotNull(browsers.mozillaBrandedBrowser)
-        assertEquals(Browsers.KnownBrowser.FIREFOX.packageName, browsers.mozillaBrandedBrowser!!.packageName)
+        assertEquals(Browsers.KnownBrowser.EYEBROWSE.packageName, browsers.mozillaBrandedBrowser!!.packageName)
 
-        assertTrue(browsers.hasFirefoxBrandedBrowserInstalled)
+        assertTrue(browsers.hasEyebrowseBrandedBrowserInstalled)
 
         assertEquals(1, browsers.installedBrowsers.size)
 
         assertFalse(browsers.hasThirdPartyDefaultBrowser)
         assertFalse(browsers.hasMultipleThirdPartyBrowsers)
         assertFalse(browsers.isDefaultBrowser)
-        assertTrue(browsers.isFirefoxDefaultBrowser)
+        assertTrue(browsers.isEyebrowseDefaultBrowser)
     }
 
     @Test
     fun `forUrl() with wrong non-uri`() {
         pretendBrowsersAreInstalled(
-            defaultBrowser = Browsers.KnownBrowser.FIREFOX.packageName,
+            defaultBrowser = Browsers.KnownBrowser.EYEBROWSE.packageName,
         )
 
         val browsers = Browsers.forUrl(testContext, "not-a-uri")
 
         assertNull(browsers.defaultBrowser)
         assertNull(browsers.mozillaBrandedBrowser)
-        assertFalse(browsers.hasFirefoxBrandedBrowserInstalled)
+        assertFalse(browsers.hasEyebrowseBrandedBrowserInstalled)
         assertTrue(browsers.installedBrowsers.isEmpty())
         assertFalse(browsers.hasThirdPartyDefaultBrowser)
         assertFalse(browsers.hasMultipleThirdPartyBrowsers)
         assertFalse(browsers.isDefaultBrowser)
-        assertFalse(browsers.isFirefoxDefaultBrowser)
+        assertFalse(browsers.isEyebrowseDefaultBrowser)
     }
 
     private fun pretendBrowsersAreInstalled(

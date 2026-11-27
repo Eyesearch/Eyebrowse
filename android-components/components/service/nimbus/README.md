@@ -196,8 +196,8 @@ For testing purposes, create a collection with an id of `nimbus-mobile-experimen
       "default": "",
       "examples": [
         "org.mozilla.fenix",
-        "org.mozilla.firefox",
-        "org.mozilla.ios.firefox"
+        "org.mozilla.eyebrowse",
+        "org.mozilla.ios.eyebrowse"
       ]
     },
     "bucketConfig": {

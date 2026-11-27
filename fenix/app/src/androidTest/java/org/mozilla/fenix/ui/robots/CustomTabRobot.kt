@@ -63,9 +63,9 @@ class CustomTabRobot {
         assertUIObjectExists(itemContainingText("POWERED BY $appName"))
 
     fun verifyOpenInBrowserButtonExists() {
-        Log.i(TAG, "verifyOpenInBrowserButtonExists: Trying to verify that the \"Open in Firefox\" button is displayed")
+        Log.i(TAG, "verifyOpenInBrowserButtonExists: Trying to verify that the \"Open in Eyebrowse\" button is displayed")
         openInBrowserButton().check(matches(isDisplayed()))
-        Log.i(TAG, "verifyOpenInBrowserButtonExists: Verified that the \"Open in Firefox\" button is displayed")
+        Log.i(TAG, "verifyOpenInBrowserButtonExists: Verified that the \"Open in Eyebrowse\" button is displayed")
     }
 
     fun verifyBackButtonExists() = assertUIObjectExists(itemWithDescription("Back"))
@@ -168,9 +168,9 @@ class CustomTabRobot {
         }
 
         fun clickOpenInBrowserButton(interact: BrowserRobot.() -> Unit): BrowserRobot.Transition {
-            Log.i(TAG, "clickOpenInBrowserButton: Trying to click the \"Open in Firefox\" button")
+            Log.i(TAG, "clickOpenInBrowserButton: Trying to click the \"Open in Eyebrowse\" button")
             openInBrowserButton().perform(click())
-            Log.i(TAG, "clickOpenInBrowserButton: Clicked the \"Open in Firefox\" button")
+            Log.i(TAG, "clickOpenInBrowserButton: Clicked the \"Open in Eyebrowse\" button")
 
             BrowserRobot().interact()
             return BrowserRobot.Transition()

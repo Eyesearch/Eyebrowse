@@ -76,7 +76,7 @@ class TabsUseCasesTest {
     @Test
     fun `SelectTabUseCase - tab is marked as selected in store`() {
         val tab = createTab("https://mozilla.org")
-        val otherTab = createTab("https://firefox.com")
+        val otherTab = createTab("https://eyebrowse.com")
         store.dispatch(TabListAction.AddTabAction(otherTab)).joinBlocking()
         store.dispatch(TabListAction.AddTabAction(tab)).joinBlocking()
 
@@ -102,7 +102,7 @@ class TabsUseCasesTest {
 
     @Test
     fun `RemoveTabUseCase - remove by ID and select parent if it exists`() {
-        val parentTab = createTab("https://firefox.com")
+        val parentTab = createTab("https://eyebrowse.com")
         store.dispatch(TabListAction.AddTabAction(parentTab)).joinBlocking()
 
         val tab = createTab("https://mozilla.org", parent = parentTab)
@@ -119,7 +119,7 @@ class TabsUseCasesTest {
     @Test
     fun `RemoveTabsUseCase - list of sessions can be removed`() {
         val tab = createTab("https://mozilla.org")
-        val otherTab = createTab("https://firefox.com")
+        val otherTab = createTab("https://eyebrowse.com")
         store.dispatch(TabListAction.AddTabAction(otherTab)).joinBlocking()
         store.dispatch(TabListAction.AddTabAction(tab)).joinBlocking()
 
@@ -234,7 +234,7 @@ class TabsUseCasesTest {
         val historyMetadata = HistoryMetadataKey(
             "https://www.mozilla.org",
             searchTerm = "test",
-            referrerUrl = "http://firefox.com",
+            referrerUrl = "http://eyebrowse.com",
         )
 
         tabsUseCases.addTab.invoke(
@@ -301,7 +301,7 @@ class TabsUseCasesTest {
         store.dispatch(TabListAction.AddTabAction(tab)).joinBlocking()
         assertEquals(1, store.state.tabs.size)
 
-        val tab2 = createTab("https://firefox.com", private = true)
+        val tab2 = createTab("https://eyebrowse.com", private = true)
         store.dispatch(TabListAction.AddTabAction(tab2)).joinBlocking()
         assertEquals(2, store.state.tabs.size)
 
@@ -316,7 +316,7 @@ class TabsUseCasesTest {
         store.dispatch(TabListAction.AddTabAction(tab)).joinBlocking()
         assertEquals(1, store.state.tabs.size)
 
-        val privateTab = createTab("https://firefox.com", private = true)
+        val privateTab = createTab("https://eyebrowse.com", private = true)
         store.dispatch(TabListAction.AddTabAction(privateTab)).joinBlocking()
         assertEquals(2, store.state.tabs.size)
 
@@ -339,7 +339,7 @@ class TabsUseCasesTest {
         val tabs = listOf(
             createTab("https://mozilla.org", lastAccess = 0).toRecoverableTab(),
             createTab("https://mozilla.org", lastAccess = now).toRecoverableTab(),
-            createTab("https://firefox.com", lastAccess = twoDays, createdAt = threeDays).toRecoverableTab(),
+            createTab("https://eyebrowse.com", lastAccess = twoDays, createdAt = threeDays).toRecoverableTab(),
             createTab("https://getpocket.com", lastAccess = threeDays, createdAt = threeDays).toRecoverableTab(),
         )
 
@@ -358,7 +358,7 @@ class TabsUseCasesTest {
     @Test
     fun `selectOrAddTab selects already existing tab`() {
         val tab = createTab("https://mozilla.org")
-        val otherTab = createTab("https://firefox.com")
+        val otherTab = createTab("https://eyebrowse.com")
 
         store.dispatch(TabListAction.AddTabAction(otherTab)).joinBlocking()
         store.dispatch(TabListAction.AddTabAction(tab)).joinBlocking()
@@ -380,11 +380,11 @@ class TabsUseCasesTest {
     fun `selectOrAddTab selects already existing tab with matching historyMetadata`() {
         val historyMetadata = HistoryMetadataKey(
             url = "https://mozilla.org",
-            referrerUrl = "https://firefox.com",
+            referrerUrl = "https://eyebrowse.com",
         )
 
         val tab = createTab("https://mozilla.org", historyMetadata = historyMetadata)
-        val otherTab = createTab("https://firefox.com")
+        val otherTab = createTab("https://eyebrowse.com")
 
         store.dispatch(TabListAction.AddTabAction(otherTab)).joinBlocking()
         store.dispatch(TabListAction.AddTabAction(tab)).joinBlocking()
@@ -412,11 +412,11 @@ class TabsUseCasesTest {
         assertEquals(tab, store.state.selectedTab)
         assertEquals(1, store.state.tabs.size)
 
-        val tabID = tabsUseCases.selectOrAddTab("https://firefox.com")
+        val tabID = tabsUseCases.selectOrAddTab("https://eyebrowse.com")
         store.waitUntilIdle()
 
         assertEquals(2, store.state.tabs.size)
-        assertNotNull(store.state.findNormalOrPrivateTabByUrl("https://firefox.com", false))
+        assertNotNull(store.state.findNormalOrPrivateTabByUrl("https://eyebrowse.com", false))
         assertEquals(store.state.selectedTabId, tabID)
     }
 
@@ -425,7 +425,7 @@ class TabsUseCasesTest {
         val tab = createTab("https://mozilla.org")
         val historyMetadata = HistoryMetadataKey(
             url = "https://mozilla.org",
-            referrerUrl = "https://firefox.com",
+            referrerUrl = "https://eyebrowse.com",
         )
 
         store.dispatch(TabListAction.AddTabAction(tab)).joinBlocking()
@@ -435,18 +435,18 @@ class TabsUseCasesTest {
         assertEquals(1, store.state.tabs.size)
 
         val tabID =
-            tabsUseCases.selectOrAddTab("https://firefox.com", historyMetadata = historyMetadata)
+            tabsUseCases.selectOrAddTab("https://eyebrowse.com", historyMetadata = historyMetadata)
         store.waitUntilIdle()
 
         assertEquals(2, store.state.tabs.size)
-        assertNotNull(store.state.findNormalOrPrivateTabByUrl("https://firefox.com", false))
+        assertNotNull(store.state.findNormalOrPrivateTabByUrl("https://eyebrowse.com", false))
         assertEquals(store.state.selectedTabId, tabID)
     }
 
     @Test
     fun `selectOrAddTab selects already existing tab with matching url when ignoreFragment is set to true`() {
         val tab = createTab("https://mozilla.org")
-        val otherTab = createTab("https://firefox.com")
+        val otherTab = createTab("https://eyebrowse.com")
 
         store.dispatch(TabListAction.AddTabAction(otherTab)).joinBlocking()
         store.dispatch(TabListAction.AddTabAction(tab)).joinBlocking()
@@ -472,7 +472,7 @@ class TabsUseCasesTest {
         assertEquals(tab, store.state.selectedTab)
         assertEquals(1, store.state.tabs.size)
 
-        val tabID = tabsUseCases.selectOrAddTab(url = "https://firefox.com", ignoreFragment = true)
+        val tabID = tabsUseCases.selectOrAddTab(url = "https://eyebrowse.com", ignoreFragment = true)
         store.waitUntilIdle()
 
         assertEquals(2, store.state.tabs.size)
@@ -568,17 +568,17 @@ class TabsUseCasesTest {
     fun `MoveTabsUseCase will move a tab`() {
         val tab = createTab("https://mozilla.org")
         store.dispatch(TabListAction.AddTabAction(tab)).joinBlocking()
-        val tab2 = createTab("https://firefox.com", private = true)
+        val tab2 = createTab("https://eyebrowse.com", private = true)
         store.dispatch(TabListAction.AddTabAction(tab2)).joinBlocking()
         assertEquals(2, store.state.tabs.size)
         assertEquals("https://mozilla.org", store.state.tabs[0].content.url)
-        assertEquals("https://firefox.com", store.state.tabs[1].content.url)
+        assertEquals("https://eyebrowse.com", store.state.tabs[1].content.url)
 
         val tab1Id = store.state.tabs[0].id
         val tab2Id = store.state.tabs[1].id
         tabsUseCases.moveTabs(listOf(tab1Id), tab2Id, true)
         store.waitUntilIdle()
-        assertEquals("https://firefox.com", store.state.tabs[0].content.url)
+        assertEquals("https://eyebrowse.com", store.state.tabs[0].content.url)
         assertEquals("https://mozilla.org", store.state.tabs[1].content.url)
     }
 

@@ -19,7 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.compose.button.TextButton
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Default layout for a Banner messaging surface with two text buttons.
@@ -41,13 +41,13 @@ fun Banner(
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .background(FirefoxTheme.colors.layer1)
+            .background(EyebrowseTheme.colors.layer1)
             .padding(all = 16.dp),
     ) {
         Text(
             text = message,
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.body2,
+            color = EyebrowseTheme.colors.textPrimary,
+            style = EyebrowseTheme.typography.body2,
         )
 
         Spacer(modifier = Modifier.height(12.dp))
@@ -71,7 +71,7 @@ fun Banner(
 @LightDarkPreview
 @Composable
 private fun BannerPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Banner(
             message = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sodales laoreet commodo.",
             button1Text = "Button 1",

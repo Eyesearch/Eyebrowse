@@ -20,7 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Radio Button.
@@ -42,9 +42,9 @@ fun RadioButton(
         modifier = modifier,
         enabled = enabled,
         colors = RadioButtonDefaults.colors(
-            selectedColor = FirefoxTheme.colors.formSelected,
-            unselectedColor = FirefoxTheme.colors.formDefault,
-            disabledColor = FirefoxTheme.colors.formDisabled,
+            selectedColor = EyebrowseTheme.colors.formSelected,
+            unselectedColor = EyebrowseTheme.colors.formDefault,
+            disabledColor = EyebrowseTheme.colors.formDisabled,
         ),
         onClick = onClick,
     )
@@ -56,9 +56,9 @@ private fun RadioButtonPreview() {
     val radioOptions = listOf("One", "Two", "Three")
     val (selectedOption, onOptionSelected) = remember { mutableStateOf(radioOptions[1]) }
 
-    FirefoxTheme {
+    EyebrowseTheme {
         Column(
-            modifier = Modifier.background(FirefoxTheme.colors.layer1),
+            modifier = Modifier.background(EyebrowseTheme.colors.layer1),
         ) {
             radioOptions.forEach { text ->
                 val selected = text == selectedOption

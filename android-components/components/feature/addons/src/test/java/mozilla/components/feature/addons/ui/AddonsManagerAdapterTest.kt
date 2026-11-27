@@ -50,7 +50,7 @@ class AddonsManagerAdapterTest {
 
     // We must pass these variables to `bindAddon()` because looking up the version name
     // requires package info that we do not have in the test context.
-    private val appName = "Firefox"
+    private val appName = "Eyebrowse"
     private val appVersion = "1.2.3"
 
     @Before

@@ -23,7 +23,7 @@ enum class FenixFxAEntryPoint(override val entryName: String) : FxAEntryPoint, P
     OnboardingManualSignIn("onboarding-manual-sign-in"),
 
     /**
-     * User used a deep link to get to firefox accounts authentication
+     * User used a deep link to get to eyebrowse accounts authentication
      */
     DeepLink("deep-link"),
 

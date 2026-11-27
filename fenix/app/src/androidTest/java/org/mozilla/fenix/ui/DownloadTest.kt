@@ -93,7 +93,7 @@ class DownloadTest : TestSetup() {
                 shouldDismissNotification = true,
                 canExpandNotification = false,
             )
-            verifySystemNotificationDoesNotExist("Firefox Fenix")
+            verifySystemNotificationDoesNotExist("Eyebrowse Fenix")
         }.closeNotificationTray {}
     }
 
@@ -107,7 +107,7 @@ class DownloadTest : TestSetup() {
         }
         mDevice.openNotification()
         notificationShade {
-            verifySystemNotificationExists("Firefox Fenix")
+            verifySystemNotificationExists("Eyebrowse Fenix")
             expandNotificationMessage()
             clickDownloadNotificationControlButton("PAUSE")
             verifySystemNotificationExists("Download paused")
@@ -233,7 +233,7 @@ class DownloadTest : TestSetup() {
         }
         browserScreen {
         }.openNotificationShade {
-            verifySystemNotificationExists("Firefox Fenix")
+            verifySystemNotificationExists("Eyebrowse Fenix")
             expandNotificationMessage()
             swipeDownloadNotification(direction = "Left", shouldDismissNotification = false)
             clickDownloadNotificationControlButton("PAUSE")
@@ -257,7 +257,7 @@ class DownloadTest : TestSetup() {
             expandNotificationMessage()
             verifySystemNotificationExists("Download failed")
             swipeDownloadNotification("Left", true)
-            verifySystemNotificationDoesNotExist("Firefox Fenix")
+            verifySystemNotificationDoesNotExist("Eyebrowse Fenix")
         }.closeNotificationTray {}
 
         downloadRobot {
@@ -282,7 +282,7 @@ class DownloadTest : TestSetup() {
             verifyCancelPrivateDownloadsPrompt("1")
             clickStayInPrivateBrowsingPromptButton()
         }.openNotificationShade {
-            verifySystemNotificationExists("Firefox Fenix")
+            verifySystemNotificationExists("Eyebrowse Fenix")
         }
     }
 
@@ -302,7 +302,7 @@ class DownloadTest : TestSetup() {
             verifyCancelPrivateDownloadsPrompt("1")
             clickCancelPrivateDownloadsPromptButton()
         }.openNotificationShade {
-            verifySystemNotificationDoesNotExist("Firefox Fenix")
+            verifySystemNotificationDoesNotExist("Eyebrowse Fenix")
         }
     }
 
@@ -319,7 +319,7 @@ class DownloadTest : TestSetup() {
         }.enterURLAndEnterToBrowser(genericURL.url) {
             clickPageObject(itemWithText("PDF form file"))
             waitForPageToLoad()
-            fillPdfForm("Firefox")
+            fillPdfForm("Eyebrowse")
         }.openThreeDotMenu {
         }.clickShareButton {
         }.clickSaveAsPDF {
@@ -348,7 +348,7 @@ class DownloadTest : TestSetup() {
         }
         browserScreen {
         }.openNotificationShade {
-            verifySystemNotificationExists("Firefox Fenix")
+            verifySystemNotificationExists("Eyebrowse Fenix")
             expandNotificationMessage()
             clickDownloadNotificationControlButton("CANCEL")
         }

@@ -39,7 +39,7 @@ dependencies {
     implementation project(':concept-engine')
     implementation project(":browser-state")
     implementation project(':feature-tabs')
-    implementation project(':service-firefox-accounts')
+    implementation project(':service-accounts')
     implementation project(':support-ktx')
     implementation project(':support-webextensions')
 

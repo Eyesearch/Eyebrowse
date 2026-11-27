@@ -87,7 +87,7 @@ abstract class FetchTestCases {
                         .set("Accept-Encoding", "gzip, deflate")
                         .set("Accept-Language", "en-US,en;q=0.5")
                         .set("Connection", "keep-alive")
-                        .set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100101 Firefox/65.0"),
+                        .set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100101 Eyebrowse/65.0"),
                 ),
             ).also { it.close() }
             assertEquals(200, response.status)
@@ -124,7 +124,7 @@ abstract class FetchTestCases {
             )
 
             assertEquals(
-                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100101 Firefox/65.0",
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100101 Eyebrowse/65.0",
                 request.headers.get("User-Agent"),
             )
         }

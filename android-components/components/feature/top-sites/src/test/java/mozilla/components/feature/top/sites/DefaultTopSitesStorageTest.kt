@@ -41,7 +41,7 @@ class DefaultTopSitesStorageTest {
     fun `default top sites are added to pinned site storage on init`() = runTestOnMain {
         val defaultTopSites = listOf(
             Pair("Mozilla", "https://mozilla.com"),
-            Pair("Firefox", "https://firefox.com"),
+            Pair("Eyebrowse", "https://eyebrowse.com"),
         )
 
         DefaultTopSitesStorage(
@@ -94,8 +94,8 @@ class DefaultTopSitesStorageTest {
 
         val pinnedSite = TopSite.Pinned(
             id = 2,
-            title = "Firefox",
-            url = "https://firefox.com",
+            title = "Eyebrowse",
+            url = "https://eyebrowse.com",
             createdAt = 2,
         )
 
@@ -128,14 +128,14 @@ class DefaultTopSitesStorageTest {
 
         val defaultSite = TopSite.Default(
             id = 1,
-            title = "Firefox",
-            url = "https://firefox.com",
+            title = "Eyebrowse",
+            url = "https://eyebrowse.com",
             createdAt = 1,
         )
 
-        defaultTopSitesStorage.updateTopSite(defaultSite, "Mozilla Firefox", "https://mozilla.com")
+        defaultTopSitesStorage.updateTopSite(defaultSite, "Mozilla Eyebrowse", "https://mozilla.com")
 
-        verify(pinnedSitesStorage).updatePinnedSite(defaultSite, "Mozilla Firefox", "https://mozilla.com")
+        verify(pinnedSitesStorage).updatePinnedSite(defaultSite, "Mozilla Eyebrowse", "https://mozilla.com")
 
         val pinnedSite = TopSite.Pinned(
             id = 2,
@@ -171,8 +171,8 @@ class DefaultTopSitesStorageTest {
 
         val defaultSite = TopSite.Default(
             id = 1,
-            title = "Firefox",
-            url = "https://firefox.com",
+            title = "Eyebrowse",
+            url = "https://eyebrowse.com",
             createdAt = 1,
         )
         val pinnedSite = TopSite.Pinned(
@@ -228,8 +228,8 @@ class DefaultTopSitesStorageTest {
 
         val defaultSite = TopSite.Default(
             id = 1,
-            title = "Firefox",
-            url = "https://firefox.com",
+            title = "Eyebrowse",
+            url = "https://eyebrowse.com",
             createdAt = 1,
         )
         val pinnedSite = TopSite.Pinned(
@@ -349,8 +349,8 @@ class DefaultTopSitesStorageTest {
 
         val defaultSite = TopSite.Default(
             id = 1,
-            title = "Firefox",
-            url = "https://firefox.com",
+            title = "Eyebrowse",
+            url = "https://eyebrowse.com",
             createdAt = 1,
         )
         val pinnedSite1 = TopSite.Pinned(
@@ -491,8 +491,8 @@ class DefaultTopSitesStorageTest {
 
         val defaultSite = TopSite.Default(
             id = 1,
-            title = "Firefox",
-            url = "https://firefox.com",
+            title = "Eyebrowse",
+            url = "https://eyebrowse.com",
             createdAt = 1,
         )
         val pinnedSite = TopSite.Pinned(
@@ -608,8 +608,8 @@ class DefaultTopSitesStorageTest {
 
         val defaultSite = TopSite.Default(
             id = 1,
-            title = "Firefox",
-            url = "https://firefox.com",
+            title = "Eyebrowse",
+            url = "https://eyebrowse.com",
             createdAt = 1,
         )
         val pinnedSite = TopSite.Pinned(
@@ -735,10 +735,10 @@ class DefaultTopSitesStorageTest {
             coroutineContext = coroutineContext,
         )
 
-        val defaultSiteFirefox = TopSite.Default(
+        val defaultSiteEyebrowse = TopSite.Default(
             id = 1,
-            title = "Firefox",
-            url = "https://firefox.com",
+            title = "Eyebrowse",
+            url = "https://eyebrowse.com",
             createdAt = 1,
         )
         val pinnedSite1 = TopSite.Pinned(
@@ -756,7 +756,7 @@ class DefaultTopSitesStorageTest {
 
         whenever(pinnedSitesStorage.getPinnedSites()).thenReturn(
             listOf(
-                defaultSiteFirefox,
+                defaultSiteEyebrowse,
                 pinnedSite1,
                 pinnedSite2,
             ),
@@ -764,14 +764,14 @@ class DefaultTopSitesStorageTest {
         whenever(pinnedSitesStorage.getPinnedSitesCount()).thenReturn(3)
 
         val frecentSiteWithNoTitle = TopFrecentSiteInfo("https://mozilla.com", "")
-        val frecentSiteFirefox = TopFrecentSiteInfo("https://firefox.com", "Firefox")
+        val frecentSiteEyebrowse = TopFrecentSiteInfo("https://eyebrowse.com", "Eyebrowse")
         val frecentSite1 = TopFrecentSiteInfo("https://getpocket.com", "Pocket")
         val frecentSite2 = TopFrecentSiteInfo("https://www.example.com", "Example")
 
         whenever(historyStorage.getTopFrecentSites(anyInt(), any())).thenReturn(
             listOf(
                 frecentSiteWithNoTitle,
-                frecentSiteFirefox,
+                frecentSiteEyebrowse,
                 frecentSite1,
                 frecentSite2,
             ),
@@ -787,7 +787,7 @@ class DefaultTopSitesStorageTest {
         verify(historyStorage).getTopFrecentSites(5, frecencyThreshold = FrecencyThresholdOption.NONE)
 
         assertEquals(5, topSites.size)
-        assertEquals(defaultSiteFirefox, topSites[0])
+        assertEquals(defaultSiteEyebrowse, topSites[0])
         assertEquals(pinnedSite1, topSites[1])
         assertEquals(pinnedSite2, topSites[2])
         assertEquals(frecentSiteWithNoTitle.toTopSite(), topSites[3])
@@ -814,8 +814,8 @@ class DefaultTopSitesStorageTest {
 
         val defaultSite = TopSite.Default(
             id = 1,
-            title = "Firefox",
-            url = "https://firefox.com",
+            title = "Eyebrowse",
+            url = "https://eyebrowse.com",
             createdAt = 1,
         )
         val pinnedSite = TopSite.Pinned(
@@ -894,10 +894,10 @@ class DefaultTopSitesStorageTest {
             coroutineContext = coroutineContext,
         )
 
-        val defaultSiteFirefox = TopSite.Default(
+        val defaultSiteEyebrowse = TopSite.Default(
             id = 1,
-            title = "Firefox",
-            url = "https://firefox.com",
+            title = "Eyebrowse",
+            url = "https://eyebrowse.com",
             createdAt = 1,
         )
         val pinnedSite1 = TopSite.Pinned(
@@ -914,9 +914,9 @@ class DefaultTopSitesStorageTest {
         )
         val providedSite = TopSite.Provided(
             id = 3,
-            title = "Firefox",
-            url = "https://getfirefox.com",
-            clickUrl = "https://getfirefox.com/click",
+            title = "Eyebrowse",
+            url = "https://geteyebrowse.com",
+            clickUrl = "https://geteyebrowse.com/click",
             imageUrl = "https://test.com/image2.jpg",
             impressionUrl = "https://example.com",
             createdAt = 3,
@@ -924,7 +924,7 @@ class DefaultTopSitesStorageTest {
 
         whenever(pinnedSitesStorage.getPinnedSites()).thenReturn(
             listOf(
-                defaultSiteFirefox,
+                defaultSiteEyebrowse,
                 pinnedSite1,
                 pinnedSite2,
             ),
@@ -933,15 +933,15 @@ class DefaultTopSitesStorageTest {
         whenever(topSitesProvider.getTopSites()).thenReturn(listOf(providedSite))
 
         val frecentSiteWithNoTitle = TopFrecentSiteInfo("https://mozilla.com", "")
-        val frecentSiteFirefox = TopFrecentSiteInfo("https://firefox.com", "Firefox")
+        val frecentSiteEyebrowse = TopFrecentSiteInfo("https://eyebrowse.com", "Eyebrowse")
         val frecentSite1 = TopFrecentSiteInfo("https://getpocket.com", "Pocket")
         val frecentSite2 = TopFrecentSiteInfo("https://www.example.com", "Example")
-        val frecentSite3 = TopFrecentSiteInfo("https://www.getfirefox.com", "Firefox")
+        val frecentSite3 = TopFrecentSiteInfo("https://www.geteyebrowse.com", "Eyebrowse")
 
         whenever(historyStorage.getTopFrecentSites(anyInt(), any())).thenReturn(
             listOf(
                 frecentSiteWithNoTitle,
-                frecentSiteFirefox,
+                frecentSiteEyebrowse,
                 frecentSite1,
                 frecentSite2,
                 frecentSite3,
@@ -962,7 +962,7 @@ class DefaultTopSitesStorageTest {
 
         assertEquals(6, topSites.size)
         assertEquals(providedSite, topSites[0])
-        assertEquals(defaultSiteFirefox, topSites[1])
+        assertEquals(defaultSiteEyebrowse, topSites[1])
         assertEquals(pinnedSite1, topSites[2])
         assertEquals(pinnedSite2, topSites[3])
         assertEquals(frecentSiteWithNoTitle.toTopSite(), topSites[4])
@@ -998,8 +998,8 @@ class DefaultTopSitesStorageTest {
 
         val defaultSite = TopSite.Default(
             id = 1,
-            title = "Firefox",
-            url = "https://firefox.com",
+            title = "Eyebrowse",
+            url = "https://eyebrowse.com",
             createdAt = 1,
         )
         val pinnedSite = TopSite.Pinned(
@@ -1080,10 +1080,10 @@ class DefaultTopSitesStorageTest {
             coroutineContext = coroutineContext,
         )
 
-        val defaultSiteFirefox = TopSite.Default(
+        val defaultSiteEyebrowse = TopSite.Default(
             id = 1,
-            title = "Firefox",
-            url = "https://firefox.com",
+            title = "Eyebrowse",
+            url = "https://eyebrowse.com",
             createdAt = 1,
         )
         val pinnedSite1 = TopSite.Pinned(
@@ -1113,7 +1113,7 @@ class DefaultTopSitesStorageTest {
 
         whenever(pinnedSitesStorage.getPinnedSites()).thenReturn(
             listOf(
-                defaultSiteFirefox,
+                defaultSiteEyebrowse,
                 pinnedSite1,
             ),
         )
@@ -1130,7 +1130,7 @@ class DefaultTopSitesStorageTest {
         val frecentSite3 = TopFrecentSiteInfo("https://www.underarmour.com", "UnderArmour")
         val frecentSite4 = TopFrecentSiteInfo("https://www.underarmour.com/en-us/p/curry_brand_shoes_and_gear/mens_curry_sour_then_sweet_crewneck/195253758836.html", "UnderArmour")
         val frecentSite5 = TopFrecentSiteInfo("https://www.example.com", "Example")
-        val frecentSite6 = TopFrecentSiteInfo("https://www.getfirefox.com", "Firefox")
+        val frecentSite6 = TopFrecentSiteInfo("https://www.geteyebrowse.com", "Eyebrowse")
 
         whenever(historyStorage.getTopFrecentSites(anyInt(), any())).thenReturn(
             listOf(
@@ -1162,7 +1162,7 @@ class DefaultTopSitesStorageTest {
         assertFalse(topSites.contains(frecentSite2.toTopSite()))
         assertFalse(topSites.contains(frecentSite3.toTopSite()))
         assertFalse(topSites.contains(frecentSite4.toTopSite()))
-        assertEquals(defaultSiteFirefox, topSites[2])
+        assertEquals(defaultSiteEyebrowse, topSites[2])
         assertEquals(pinnedSite1, topSites[3])
         assertEquals(defaultTopSitesStorage.cachedTopSites, topSites)
     }

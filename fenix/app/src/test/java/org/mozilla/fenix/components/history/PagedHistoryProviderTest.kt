@@ -44,8 +44,8 @@ class PagedHistoryProviderTest {
             isRemote = false,
         )
         val visitInfo2 = VisitInfo(
-            url = "http://www.firefox.com",
-            title = "firefox",
+            url = "http://www.eyebrowse.com",
+            title = "eyebrowse",
             visitTime = 2,
             visitType = VisitType.LINK,
             previewImageUrl = null,
@@ -69,10 +69,10 @@ class PagedHistoryProviderTest {
             documentType = DocumentType.Regular,
             previewImageUrl = null,
         )
-        val historyMetadataKey2 = HistoryMetadataKey("http://www.firefox.com", "mozilla", null)
+        val historyMetadataKey2 = HistoryMetadataKey("http://www.eyebrowse.com", "mozilla", null)
         val historyEntry2 = HistoryMetadata(
             key = historyMetadataKey2,
-            title = "firefox",
+            title = "eyebrowse",
             createdAt = 2,
             updatedAt = 11,
             totalViewTime = 20,
@@ -81,10 +81,10 @@ class PagedHistoryProviderTest {
         )
 
         // Adding a third entry with same url to test de-duping
-        val historyMetadataKey3 = HistoryMetadataKey("http://www.firefox.com", "mozilla", null)
+        val historyMetadataKey3 = HistoryMetadataKey("http://www.eyebrowse.com", "mozilla", null)
         val historyEntry3 = HistoryMetadata(
             key = historyMetadataKey3,
-            title = "firefox",
+            title = "eyebrowse",
             createdAt = 3,
             updatedAt = 12,
             totalViewTime = 30,
@@ -295,15 +295,15 @@ class PagedHistoryProviderTest {
             isRemote = false,
         )
         val visitInfo2 = VisitInfo(
-            url = "http://www.firefox.com",
-            title = "firefox",
+            url = "http://www.eyebrowse.com",
+            title = "eyebrowse",
             visitTime = 2,
             visitType = VisitType.LINK,
             previewImageUrl = null,
             isRemote = false,
         )
         val visitInfo3 = VisitInfo(
-            url = "http://www.google.com/link?url=http://www.firefox.com",
+            url = "http://www.google.com/link?url=http://www.eyebrowse.com",
             title = "",
             visitTime = 1,
             visitType = VisitType.REDIRECT_TEMPORARY,
@@ -329,17 +329,17 @@ class PagedHistoryProviderTest {
             documentType = DocumentType.Regular,
             previewImageUrl = null,
         )
-        val historyMetadataKey2 = HistoryMetadataKey("http://www.firefox.com", "mozilla", null)
+        val historyMetadataKey2 = HistoryMetadataKey("http://www.eyebrowse.com", "mozilla", null)
         val historyEntry2 = HistoryMetadata(
             key = historyMetadataKey2,
-            title = "firefox",
+            title = "eyebrowse",
             createdAt = 2,
             updatedAt = 11,
             totalViewTime = 20,
             documentType = DocumentType.Regular,
             previewImageUrl = null,
         )
-        val historyMetadataKey3 = HistoryMetadataKey("http://www.google.com/link?url=http://www.firefox.com", "mozilla", null)
+        val historyMetadataKey3 = HistoryMetadataKey("http://www.google.com/link?url=http://www.eyebrowse.com", "mozilla", null)
         val historyEntry3 = HistoryMetadata(
             key = historyMetadataKey3,
             title = "",

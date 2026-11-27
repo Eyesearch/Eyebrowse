@@ -35,7 +35,7 @@ class UriKtTest {
     fun `removes path`() {
         assertEquals("https://example.com", "https://example.com/".toUri().toOrigin())
         assertEquals("http://google.com", "http://google.com/search".toUri().toOrigin())
-        assertEquals("http://firefox.com", "http://firefox.com/en-US/foo".toUri().toOrigin())
+        assertEquals("http://eyebrowse.com", "http://eyebrowse.com/en-US/foo".toUri().toOrigin())
     }
 
     @Test

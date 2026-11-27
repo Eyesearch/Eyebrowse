@@ -374,7 +374,7 @@
     <string name="errorpage_httpsonly_message_summary">Biroq, hujumchi ishtirok etishi ham mumkin. Agar saytga kirishda davom etsangiz, hech qanday shaxsiy maʼlumotlarni kiritmasligingiz kerak. Davom etsangiz, sayt uchun &quot;faqat HTTPS rejimi&quot; vaqtinchalik oʻchirib qoʻyiladi.</string>
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">Qulaylik</string>
-    <!-- Preference to override the Firefox Account server -->
+    <!-- Preference to override the Eyebrowse Account server -->
     <string name="preferences_override_fxa_server">Boshqa Eyebrowse hisobi serveri</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">Boshqa Sync serveri</string>
@@ -488,7 +488,7 @@
     <!-- Text displayed that links to website containing documentation about the "Limited Edition" wallpapers. -->
     <string name="wallpaper_learn_more">Batafsil maʼlumot</string>
 
-    <!-- Text for classic wallpapers title. The first parameter is the Firefox name. -->
+    <!-- Text for classic wallpapers title. The first parameter is the Eyebrowse name. -->
     <string name="wallpaper_classic_title">Klassik %s</string>
     <!-- Text for limited edition wallpapers title. -->
     <string name="wallpaper_limited_edition_title">Cheklangan versiya</string>
@@ -733,7 +733,7 @@
     <string name="studies_remove">Olib tashlash</string>
     <!-- Title of the active section on the studies list -->
     <string name="studies_active">Faol</string>
-    <!-- Description for studies, it indicates why Firefox use studies. The first parameter is the name of the application. -->
+    <!-- Description for studies, it indicates why Eyebrowse use studies. The first parameter is the name of the application. -->
     <string name="studies_description_2">%1$s vaqti-vaqti bilan tadqiqotlarni oʻrnatishi va ishga tushirishi mumkin.</string>
     <!-- Learn more link for studies, links to an article for more information about studies. -->
     <string name="studies_learn_more">Batafsil maʼlumot</string>
@@ -1253,14 +1253,14 @@
     <string name="onboarding_header_2">Yaxshiroq internetga xush kelibsiz</string>
     <!-- Text for the onboarding welcome message. -->
     <string name="onboarding_message">Foyda uchun emas, insonlar uchun tuzilgan brauzer.</string>
-    <!-- Text for the Firefox account onboarding sign in card header. -->
+    <!-- Text for the Eyebrowse account onboarding sign in card header. -->
     <string name="onboarding_account_sign_in_header">Qolgan joyidan davom eting</string>
-    <!-- Text for the button to learn more about signing in to your Firefox account. -->
+    <!-- Text for the button to learn more about signing in to your Eyebrowse account. -->
     <string name="onboarding_manual_sign_in_description">Ekranlar oʻrtasida uzluksiz oʻtish uchun yorliqlar va parollarni qurilmalar oʻrtasida sinxronlang.</string>
-    <!-- Text for the button to manually sign into Firefox account. -->
-    <string name="onboarding_firefox_account_sign_in">Kirish</string>
+    <!-- Text for the button to manually sign into Eyebrowse account. -->
+    <string name="onboarding_eyebrowse_account_sign_in">Kirish</string>
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">Sinxronizatsiya yoqilgan</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">Sinxronizatsiya yoqilgan</string>
     <!-- Text for the tracking protection onboarding card header -->
     <string name="onboarding_tracking_protection_header">Standart maxfiylik himoyasi</string>
     <!-- Text for the tracking protection card description. -->
@@ -1323,9 +1323,9 @@
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">Buning oʻrniga e-pochtadan foydalaning</string>
 
-    <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
+    <!-- Text shown for settings option for create new account text.'Eyebrowse' intentionally hardcoded here.-->
     <string name="sign_in_create_account_text"><![CDATA[Hisobingiz yoʻqmi? <u>Unda yangisini yarating</u> va Eyebrowseni qurilmalararo sinxronlang.]]></string>
-    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="sign_out_confirmation_message_2">%s hisobingiz bilan sinxronlashni toʻxtatadi, ammo qurilmangizdagi brauzer tarixini oʻchirmaydi.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
     <string name="sign_out_disconnect">Aloqani uzish</string>
@@ -1495,9 +1495,9 @@
     <string name="preferences_passwords_save_logins_ask_to_save">Saqlash soʻralsin</string>
     <!-- Preference option for never saving passwords in Fenix -->
     <string name="preferences_passwords_save_logins_never_save">Hech qachon saqlanmasin</string>
-    <!-- Preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill2">%1$sda avtomatik toʻldirilsin</string>
-    <!-- Description for the preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Description for the preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill_description">%1$s dan foydalanganda saytlarda foydalanuvchi nomlari va parollarni toʻldiring va saqlang.</string>
     <!-- Preference for autofilling logins from Fenix in other apps (e.g. autofilling the Twitter app) -->
     <string name="preferences_android_autofill">Boshqa ilovalarda avtomatik toʻldirish</string>
@@ -1827,13 +1827,13 @@
     <string name="synced_tabs_connect_another_device">Boshqa qurilmani ulash</string>
     <!-- Text displayed asking user to re-authenticate -->
     <string name="synced_tabs_reauth">Qaytadan haqiqiylikni tekshiring.</string>
-    <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+    <!-- Text displayed when user has disabled tab syncing in Eyebrowse Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">Varaq sinxronizatsiyasini yoqing</string>
     <!-- Text displayed when user has no tabs that have been synced -->
     <string name="synced_tabs_no_tabs">Boshqa qurilmlaringizdagi Eyebrowseda hech qanday varaq ochiq emas.</string>
-    <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+    <!-- Text displayed in the synced tabs screen when a user is not signed in to Eyebrowse Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">Boshqa qurilmalaringizdagi varaqlar roʻyxatini koʻrish.</string>
-    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Eyebrowse Sync -->
     <string name="synced_tabs_sign_in_button">Sinxronlash uchun hisobingizga kiring</string>
 
     <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->
@@ -1891,8 +1891,8 @@
     <string name="inactive_tabs_auto_close_message_snackbar">Avtomatik  yoqish yoniq</string>
 
     <!-- Awesome bar suggestion's headers -->
-    <!-- Search suggestions title for Firefox Suggest. -->
-    <string name="firefox_suggest_header">Eyebrowse Suggest</string>
+    <!-- Search suggestions title for Eyebrowse Suggest. -->
+    <string name="eyebrowse_suggest_header">Eyebrowse Suggest</string>
 
     <!-- Default browser experiment -->
     <string name="default_browser_experiment_card_text">Saytlar, elektron pochta va xabarlar havolalarini Eyebrowseda avtomatik ravishda ochiladigan qilib sozlang.</string>

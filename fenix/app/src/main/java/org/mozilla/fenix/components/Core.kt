@@ -312,7 +312,11 @@ class Core(
 
             // Eyebrowse: EyeBlock, uBlock Origin bundled in the APK. Installed once here, then
             // switched on or off by the EyeBlock preference in Advanced settings.
-            EyeblockSupport.install(engine, context.settings().eyeblockEnabled)
+            EyeblockSupport.install(
+                engine = engine,
+                enabled = context.settings().eyeblockEnabled,
+                shieldDefault = EyeblockSupport.isShieldEnabled(context),
+            )
 
             // Eyebrowse: the SERP provider list is no longer fetched from Mozilla's remote
             // settings. The ads and cookies WebExtensions are still installed so search keeps
@@ -407,7 +411,7 @@ class Core(
     }
 
     /**
-     * The storage component to sync and persist tabs in a Firefox Sync account.
+     * The storage component to sync and persist tabs in a Eyebrowse Sync account.
      */
     val lazyRemoteTabsStorage = lazyMonitored { RemoteTabsStorage(context) }
 

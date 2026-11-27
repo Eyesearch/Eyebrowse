@@ -513,28 +513,28 @@ class ThreeDotMenuMainRobot {
             return ReaderViewRobot.Transition()
         }
 
-        fun addToFirefoxHome(interact: BrowserRobot.() -> Unit): BrowserRobot.Transition {
+        fun addToEyebrowseHome(interact: BrowserRobot.() -> Unit): BrowserRobot.Transition {
             for (i in 1..RETRY_COUNT) {
-                Log.i(TAG, "addToFirefoxHome: Started try #$i")
+                Log.i(TAG, "addToEyebrowseHome: Started try #$i")
                 try {
                     addToShortcutsButton().also {
-                        Log.i(TAG, "addToFirefoxHome: Waiting for $waitingTime ms for the \"Add to shortcuts\" button to exist")
+                        Log.i(TAG, "addToEyebrowseHome: Waiting for $waitingTime ms for the \"Add to shortcuts\" button to exist")
                         it.waitForExists(waitingTime)
-                        Log.i(TAG, "addToFirefoxHome: Waited for $waitingTime ms for the \"Add to shortcuts\" button to exist")
-                        Log.i(TAG, "addToFirefoxHome: Trying to click the \"Add to shortcuts\" button")
+                        Log.i(TAG, "addToEyebrowseHome: Waited for $waitingTime ms for the \"Add to shortcuts\" button to exist")
+                        Log.i(TAG, "addToEyebrowseHome: Trying to click the \"Add to shortcuts\" button")
                         it.click()
-                        Log.i(TAG, "addToFirefoxHome: Clicked the \"Add to shortcuts\" button")
+                        Log.i(TAG, "addToEyebrowseHome: Clicked the \"Add to shortcuts\" button")
                     }
 
                     break
                 } catch (e: UiObjectNotFoundException) {
-                    Log.i(TAG, "addToFirefoxHome: UiObjectNotFoundException caught, executing fallback methods")
+                    Log.i(TAG, "addToEyebrowseHome: UiObjectNotFoundException caught, executing fallback methods")
                     if (i == RETRY_COUNT) {
                         throw e
                     } else {
-                        Log.i(TAG, "addToFirefoxHome: Trying to click the device back button")
+                        Log.i(TAG, "addToEyebrowseHome: Trying to click the device back button")
                         mDevice.pressBack()
-                        Log.i(TAG, "addToFirefoxHome: Clicked the device back button")
+                        Log.i(TAG, "addToEyebrowseHome: Clicked the device back button")
                         navigationToolbar {
                         }.openThreeDotMenu {
                             expandMenu()

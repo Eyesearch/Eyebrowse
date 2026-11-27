@@ -57,7 +57,7 @@ class TabListActionTest {
         assertEquals(1, store.state.tabs.size)
         assertEquals(existingTab.id, store.state.selectedTabId)
 
-        val newTab = createTab("https://firefox.com")
+        val newTab = createTab("https://eyebrowse.com")
 
         store.dispatch(TabListAction.AddTabAction(newTab, select = true)).joinBlocking()
 
@@ -74,7 +74,7 @@ class TabListActionTest {
         assertEquals(0, store.state.tabs.size)
         assertNull(existingTab.id, store.state.selectedTabId)
 
-        val newTab = createTab("https://firefox.com")
+        val newTab = createTab("https://eyebrowse.com")
         store.dispatch(TabListAction.AddTabAction(newTab, select = false)).joinBlocking()
 
         assertEquals(1, store.state.tabs.size)
@@ -86,7 +86,7 @@ class TabListActionTest {
         val store = BrowserStore()
 
         val tab1 = createTab("https://www.mozilla.org")
-        val tab2 = createTab("https://www.firefox.com")
+        val tab2 = createTab("https://www.eyebrowse.com")
         val tab3 = createTab("https://wiki.mozilla.org", parent = tab1)
         val tab4 = createTab("https://github.com/mozilla-mobile/android-components", parent = tab2)
 
@@ -107,7 +107,7 @@ class TabListActionTest {
         val store = BrowserStore()
 
         val tab1 = createTab("https://www.mozilla.org")
-        val tab2 = createTab("https://www.firefox.com", source = SessionState.Source.Internal.Menu)
+        val tab2 = createTab("https://www.eyebrowse.com", source = SessionState.Source.Internal.Menu)
 
         store.dispatch(TabListAction.AddTabAction(tab1)).joinBlocking()
         store.dispatch(TabListAction.AddTabAction(tab2)).joinBlocking()
@@ -123,7 +123,7 @@ class TabListActionTest {
 
         val parent01 = createTab("https://www.mozilla.org")
         val parent02 = createTab("https://getpocket.com")
-        val tab1 = createTab("https://www.firefox.com")
+        val tab1 = createTab("https://www.eyebrowse.com")
         val tab2 = createTab("https://developer.mozilla.org/en-US/")
         val child001 = createTab("https://www.mozilla.org/en-US/internet-health/", parent = parent01)
         val child002 = createTab("https://www.mozilla.org/en-US/technology/", parent = parent01)
@@ -151,7 +151,7 @@ class TabListActionTest {
         val state = BrowserState(
             tabs = listOf(
                 createTab(id = "a", url = "https://www.mozilla.org"),
-                createTab(id = "b", url = "https://www.firefox.com"),
+                createTab(id = "b", url = "https://www.eyebrowse.com"),
             ),
         )
         val store = BrowserStore(state)
@@ -169,7 +169,7 @@ class TabListActionTest {
         val state = BrowserState(
             tabs = listOf(
                 createTab(id = "a", url = "https://www.mozilla.org"),
-                createTab(id = "b", url = "https://www.firefox.com"),
+                createTab(id = "b", url = "https://www.eyebrowse.com"),
             ),
         )
         val store = BrowserStore(state)
@@ -178,7 +178,7 @@ class TabListActionTest {
             .joinBlocking()
 
         assertEquals(1, store.state.tabs.size)
-        assertEquals("https://www.firefox.com", store.state.tabs[0].content.url)
+        assertEquals("https://www.eyebrowse.com", store.state.tabs[0].content.url)
     }
 
     @Test
@@ -189,7 +189,7 @@ class TabListActionTest {
         val state = BrowserState(
             tabs = listOf(
                 createTab(id = "a", url = "https://www.mozilla.org"),
-                createTab(id = "b", url = "https://www.firefox.com"),
+                createTab(id = "b", url = "https://www.eyebrowse.com"),
             ),
             tabPartitions = mapOf(tabPartition.id to tabPartition),
         )
@@ -197,7 +197,7 @@ class TabListActionTest {
 
         store.dispatch(TabListAction.RemoveTabAction("a")).joinBlocking()
         assertEquals(1, store.state.tabs.size)
-        assertEquals("https://www.firefox.com", store.state.tabs[0].content.url)
+        assertEquals("https://www.eyebrowse.com", store.state.tabs[0].content.url)
         assertEquals(listOf("b"), store.state.tabPartitions[tabPartition.id]?.getGroupById(tabGroup.id)?.tabIds)
     }
 
@@ -206,7 +206,7 @@ class TabListActionTest {
         val state = BrowserState(
             tabs = listOf(
                 createTab(id = "a", url = "https://www.mozilla.org"),
-                createTab(id = "b", url = "https://www.firefox.com"),
+                createTab(id = "b", url = "https://www.eyebrowse.com"),
                 createTab(id = "c", url = "https://www.getpocket.com"),
             ),
         )
@@ -227,7 +227,7 @@ class TabListActionTest {
         val state = BrowserState(
             tabs = listOf(
                 createTab(id = "a", url = "https://www.mozilla.org"),
-                createTab(id = "b", url = "https://www.firefox.com"),
+                createTab(id = "b", url = "https://www.eyebrowse.com"),
             ),
             tabPartitions = mapOf(tabPartition.id to tabPartition),
         )
@@ -243,7 +243,7 @@ class TabListActionTest {
         val state = BrowserState(
             tabs = listOf(
                 createTab(id = "a", url = "https://www.mozilla.org"),
-                createTab(id = "b", url = "https://www.firefox.com"),
+                createTab(id = "b", url = "https://www.eyebrowse.com"),
             ),
         )
         val store = BrowserStore(state)
@@ -253,7 +253,7 @@ class TabListActionTest {
 
         assertEquals(2, store.state.tabs.size)
         assertEquals("https://www.mozilla.org", store.state.tabs[0].content.url)
-        assertEquals("https://www.firefox.com", store.state.tabs[1].content.url)
+        assertEquals("https://www.eyebrowse.com", store.state.tabs[1].content.url)
     }
 
     @Test
@@ -281,8 +281,8 @@ class TabListActionTest {
                 createTab(id = "a", url = "https://www.mozilla.org"),
             ),
             customTabs = listOf(
-                createCustomTab(id = "b", url = "https://www.firefox.com"),
-                createCustomTab(id = "c", url = "https://www.firefox.com/hello", source = SessionState.Source.External.CustomTab(mock())),
+                createCustomTab(id = "b", url = "https://www.eyebrowse.com"),
+                createCustomTab(id = "c", url = "https://www.eyebrowse.com/hello", source = SessionState.Source.External.CustomTab(mock())),
             ),
             selectedTabId = "a",
         )
@@ -301,12 +301,12 @@ class TabListActionTest {
         val state = BrowserState(
             tabs = listOf(
                 createTab(id = "a", url = "https://www.mozilla.org"),
-                createTab(id = "b", url = "https://www.firefox.com"),
+                createTab(id = "b", url = "https://www.eyebrowse.com"),
                 createTab(id = "c", url = "https://www.example.org"),
                 createTab(id = "d", url = "https://getpocket.com"),
             ),
             customTabs = listOf(
-                createCustomTab(id = "a1", url = "https://www.firefox.com"),
+                createCustomTab(id = "a1", url = "https://www.eyebrowse.com"),
             ),
             selectedTabId = "c",
         )
@@ -333,13 +333,13 @@ class TabListActionTest {
         val state = BrowserState(
             tabs = listOf(
                 createTab(id = "a", url = "https://www.mozilla.org", private = true),
-                createTab(id = "b", url = "https://www.firefox.com", private = false),
+                createTab(id = "b", url = "https://www.eyebrowse.com", private = false),
                 createTab(id = "c", url = "https://www.example.org", private = false),
                 createTab(id = "d", url = "https://getpocket.com", private = true),
                 createTab(id = "e", url = "https://developer.mozilla.org/", private = true),
             ),
             customTabs = listOf(
-                createCustomTab(id = "a1", url = "https://www.firefox.com"),
+                createCustomTab(id = "a1", url = "https://www.eyebrowse.com"),
                 createCustomTab(id = "b1", url = "https://hubs.mozilla.com", source = SessionState.Source.External.CustomTab(mock())),
             ),
             selectedTabId = "d",
@@ -361,13 +361,13 @@ class TabListActionTest {
         val state = BrowserState(
             tabs = listOf(
                 createTab(id = "a", url = "https://www.mozilla.org", private = false),
-                createTab(id = "b", url = "https://www.firefox.com", private = true),
+                createTab(id = "b", url = "https://www.eyebrowse.com", private = true),
                 createTab(id = "c", url = "https://www.example.org", private = true),
                 createTab(id = "d", url = "https://getpocket.com", private = false),
                 createTab(id = "e", url = "https://developer.mozilla.org/", private = false),
             ),
             customTabs = listOf(
-                createCustomTab(id = "a1", url = "https://www.firefox.com"),
+                createCustomTab(id = "a1", url = "https://www.eyebrowse.com"),
                 createCustomTab(id = "b1", url = "https://hubs.mozilla.com", source = SessionState.Source.External.CustomTab(mock())),
             ),
             selectedTabId = "d",
@@ -444,7 +444,7 @@ class TabListActionTest {
         val store = BrowserStore()
 
         val parent = createTab("https://www.mozilla.org")
-        val tab1 = createTab("https://www.firefox.com")
+        val tab1 = createTab("https://www.eyebrowse.com")
         val tab2 = createTab("https://getpocket.com")
         val child = createTab("https://www.mozilla.org/en-US/internet-health/", parent = parent)
 
@@ -466,7 +466,7 @@ class TabListActionTest {
 
         val parent = createTab("https://www.mozilla.org")
 
-        val tab1 = createTab("https://www.firefox.com")
+        val tab1 = createTab("https://www.eyebrowse.com")
         val tab2 = createTab("https://getpocket.com")
         val child1 = createTab("https://www.mozilla.org/en-US/internet-health/", parent = parent)
         val child2 = createTab("https://www.mozilla.org/en-US/technology/", parent = parent)
@@ -481,14 +481,14 @@ class TabListActionTest {
         store.dispatch(TabListAction.RemoveTabAction(child1.id, selectParentIfExists = false)).joinBlocking()
 
         assertEquals(tab1.id, store.state.selectedTabId)
-        assertEquals("https://www.firefox.com", store.state.selectedTab?.content?.url)
+        assertEquals("https://www.eyebrowse.com", store.state.selectedTab?.content?.url)
     }
 
     @Test
     fun `RemoveTabAction - Providing selectParentIfExists when removing tab without parent has no effect`() {
         val store = BrowserStore()
 
-        val tab1 = createTab("https://www.firefox.com")
+        val tab1 = createTab("https://www.eyebrowse.com")
         val tab2 = createTab("https://getpocket.com")
         val tab3 = createTab("https://www.mozilla.org/en-US/internet-health/")
 
@@ -507,7 +507,7 @@ class TabListActionTest {
     fun `RemoveTabAction - Children are updated when parent is removed`() {
         val store = BrowserStore()
 
-        val tab0 = createTab("https://www.firefox.com")
+        val tab0 = createTab("https://www.eyebrowse.com")
         val tab1 = createTab("https://developer.mozilla.org/en-US/", parent = tab0)
         val tab2 = createTab("https://www.mozilla.org/en-US/internet-health/", parent = tab1)
         val tab3 = createTab("https://www.mozilla.org/en-US/technology/", parent = tab2)
@@ -564,7 +564,7 @@ class TabListActionTest {
                     ),
                     RecoverableTab(
                         engineSessionState = null,
-                        state = TabState(id = "b", url = "https://www.firefox.com", private = true),
+                        state = TabState(id = "b", url = "https://www.eyebrowse.com", private = true),
                     ),
                     RecoverableTab(
                         engineSessionState = null,
@@ -594,7 +594,7 @@ class TabListActionTest {
             BrowserState(
                 tabs = listOf(
                     createTab(id = "a", url = "https://www.mozilla.org", private = false),
-                    createTab(id = "b", url = "https://www.firefox.com", private = true),
+                    createTab(id = "b", url = "https://www.eyebrowse.com", private = true),
                 ),
                 selectedTabId = "a",
             ),
@@ -633,7 +633,7 @@ class TabListActionTest {
             BrowserState(
                 tabs = listOf(
                     createTab(id = "a", url = "https://www.mozilla.org", private = false),
-                    createTab(id = "b", url = "https://www.firefox.com", private = true),
+                    createTab(id = "b", url = "https://www.eyebrowse.com", private = true),
                 ),
                 selectedTabId = "a",
             ),
@@ -672,7 +672,7 @@ class TabListActionTest {
             BrowserState(
                 tabs = listOf(
                     createTab(id = "a", url = "https://www.mozilla.org", private = false),
-                    createTab(id = "b", url = "https://www.firefox.com", private = true),
+                    createTab(id = "b", url = "https://www.eyebrowse.com", private = true),
                 ),
             ),
         )
@@ -710,7 +710,7 @@ class TabListActionTest {
             BrowserState(
                 tabs = listOf(
                     createTab(id = "a", url = "https://www.mozilla.org", private = false),
-                    createTab(id = "b", url = "https://www.firefox.com", private = true),
+                    createTab(id = "b", url = "https://www.eyebrowse.com", private = true),
                 ),
             ),
         )
@@ -748,7 +748,7 @@ class TabListActionTest {
             BrowserState(
                 tabs = listOf(
                     createTab(id = "a", url = "https://www.mozilla.org", private = false),
-                    createTab(id = "b", url = "https://www.firefox.com", private = true),
+                    createTab(id = "b", url = "https://www.eyebrowse.com", private = true),
                 ),
             ),
         )
@@ -780,7 +780,7 @@ class TabListActionTest {
             BrowserState(
                 tabs = listOf(
                     createTab(id = "a", url = "https://www.mozilla.org"),
-                    createTab(id = "b", url = "https://www.firefox.com"),
+                    createTab(id = "b", url = "https://www.eyebrowse.com"),
                 ),
             ),
         )
@@ -809,7 +809,7 @@ class TabListActionTest {
             BrowserState(
                 tabs = listOf(
                     createTab(id = "a", url = "https://www.mozilla.org"),
-                    createTab(id = "b", url = "https://www.firefox.com"),
+                    createTab(id = "b", url = "https://www.eyebrowse.com"),
                 ),
             ),
         )
@@ -838,7 +838,7 @@ class TabListActionTest {
             BrowserState(
                 tabs = listOf(
                     createTab(id = "a", url = "https://www.mozilla.org"),
-                    createTab(id = "b", url = "https://www.firefox.com"),
+                    createTab(id = "b", url = "https://www.eyebrowse.com"),
                 ),
             ),
         )
@@ -867,7 +867,7 @@ class TabListActionTest {
             BrowserState(
                 tabs = listOf(
                     createTab(id = "a", url = "https://www.mozilla.org"),
-                    createTab(id = "b", url = "https://www.firefox.com"),
+                    createTab(id = "b", url = "https://www.eyebrowse.com"),
                 ),
             ),
         )
@@ -896,7 +896,7 @@ class TabListActionTest {
             BrowserState(
                 tabs = listOf(
                     createTab(id = "a", url = "https://www.mozilla.org"),
-                    createTab(id = "b", url = "https://www.firefox.com"),
+                    createTab(id = "b", url = "https://www.eyebrowse.com"),
                 ),
             ),
         )
@@ -927,7 +927,7 @@ class TabListActionTest {
             BrowserState(
                 tabs = listOf(
                     createTab(id = "a", url = "https://www.mozilla.org"),
-                    createTab(id = "b", url = "https://www.firefox.com"),
+                    createTab(id = "b", url = "https://www.eyebrowse.com"),
                 ),
             ),
         )
@@ -958,7 +958,7 @@ class TabListActionTest {
             BrowserState(
                 tabs = listOf(
                     createTab(id = "a", url = "https://www.mozilla.org"),
-                    createTab(id = "b", url = "https://www.firefox.com"),
+                    createTab(id = "b", url = "https://www.eyebrowse.com"),
                 ),
             ),
         )
@@ -988,11 +988,11 @@ class TabListActionTest {
         val state = BrowserState(
             tabs = listOf(
                 createTab(id = "a", url = "https://www.mozilla.org", private = false),
-                createTab(id = "b", url = "https://www.firefox.com", private = true),
+                createTab(id = "b", url = "https://www.eyebrowse.com", private = true),
             ),
             customTabs = listOf(
-                createCustomTab(id = "a1", url = "https://www.firefox.com"),
-                createCustomTab(id = "a2", url = "https://www.firefox.com/hello", source = SessionState.Source.External.CustomTab(mock())),
+                createCustomTab(id = "a1", url = "https://www.eyebrowse.com"),
+                createCustomTab(id = "a2", url = "https://www.eyebrowse.com/hello", source = SessionState.Source.External.CustomTab(mock())),
             ),
             selectedTabId = "a",
         )
@@ -1014,7 +1014,7 @@ class TabListActionTest {
         val state = BrowserState(
             tabs = listOf(
                 createTab(id = "a", url = "https://www.mozilla.org"),
-                createTab(id = "b", url = "https://www.firefox.com", private = true),
+                createTab(id = "b", url = "https://www.eyebrowse.com", private = true),
             ),
             tabPartitions = mapOf(tabPartition.id to tabPartition),
         )
@@ -1030,10 +1030,10 @@ class TabListActionTest {
         val state = BrowserState(
             tabs = listOf(
                 createTab(id = "a", url = "https://www.mozilla.org", private = false),
-                createTab(id = "b", url = "https://www.firefox.com", private = true),
+                createTab(id = "b", url = "https://www.eyebrowse.com", private = true),
             ),
             customTabs = listOf(
-                createCustomTab(id = "a1", url = "https://www.firefox.com"),
+                createCustomTab(id = "a1", url = "https://www.eyebrowse.com"),
             ),
             selectedTabId = "a",
         )
@@ -1054,10 +1054,10 @@ class TabListActionTest {
         val state = BrowserState(
             tabs = listOf(
                 createTab(id = "a", url = "https://www.mozilla.org", private = false),
-                createTab(id = "b", url = "https://www.firefox.com", private = true),
+                createTab(id = "b", url = "https://www.eyebrowse.com", private = true),
             ),
             customTabs = listOf(
-                createCustomTab(id = "a1", url = "https://www.firefox.com"),
+                createCustomTab(id = "a1", url = "https://www.eyebrowse.com"),
             ),
             selectedTabId = "b",
         )
@@ -1082,7 +1082,7 @@ class TabListActionTest {
         val state = BrowserState(
             tabs = listOf(
                 createTab(id = "a", url = "https://www.mozilla.org"),
-                createTab(id = "b", url = "https://www.firefox.com", private = true),
+                createTab(id = "b", url = "https://www.eyebrowse.com", private = true),
             ),
             tabPartitions = mapOf(tabPartition.id to tabPartition),
         )
@@ -1099,10 +1099,10 @@ class TabListActionTest {
         val state = BrowserState(
             tabs = listOf(
                 createTab(id = "a", url = "https://www.mozilla.org", private = false),
-                createTab(id = "b", url = "https://www.firefox.com", private = true),
+                createTab(id = "b", url = "https://www.eyebrowse.com", private = true),
             ),
             customTabs = listOf(
-                createCustomTab(id = "a1", url = "https://www.firefox.com"),
+                createCustomTab(id = "a1", url = "https://www.eyebrowse.com"),
             ),
             selectedTabId = "b",
         )
@@ -1123,10 +1123,10 @@ class TabListActionTest {
         val state = BrowserState(
             tabs = listOf(
                 createTab(id = "a", url = "https://www.mozilla.org", private = false),
-                createTab(id = "b", url = "https://www.firefox.com", private = true),
+                createTab(id = "b", url = "https://www.eyebrowse.com", private = true),
             ),
             customTabs = listOf(
-                createCustomTab(id = "a1", url = "https://www.firefox.com"),
+                createCustomTab(id = "a1", url = "https://www.eyebrowse.com"),
             ),
             selectedTabId = "a",
         )
@@ -1152,7 +1152,7 @@ class TabListActionTest {
         val state = BrowserState(
             tabs = listOf(
                 createTab(id = "a", url = "https://www.mozilla.org"),
-                createTab(id = "b", url = "https://www.firefox.com", private = true),
+                createTab(id = "b", url = "https://www.eyebrowse.com", private = true),
             ),
             tabPartitions = mapOf(tabPartition.id to tabPartition),
         )
@@ -1175,14 +1175,14 @@ class TabListActionTest {
             TabListAction.AddMultipleTabsAction(
                 tabs = listOf(
                     createTab(id = "a", url = "https://www.mozilla.org", private = false),
-                    createTab(id = "b", url = "https://www.firefox.com", private = true),
+                    createTab(id = "b", url = "https://www.eyebrowse.com", private = true),
                 ),
             ),
         ).joinBlocking()
 
         assertEquals(2, store.state.tabs.size)
         assertEquals("https://www.mozilla.org", store.state.tabs[0].content.url)
-        assertEquals("https://www.firefox.com", store.state.tabs[1].content.url)
+        assertEquals("https://www.eyebrowse.com", store.state.tabs[1].content.url)
         assertNotNull(store.state.selectedTabId)
         assertEquals("a", store.state.selectedTabId)
     }
@@ -1203,7 +1203,7 @@ class TabListActionTest {
             TabListAction.AddMultipleTabsAction(
                 tabs = listOf(
                     createTab(id = "a", url = "https://www.mozilla.org", private = false),
-                    createTab(id = "b", url = "https://www.firefox.com", private = true),
+                    createTab(id = "b", url = "https://www.eyebrowse.com", private = true),
                 ),
             ),
         ).joinBlocking()
@@ -1211,7 +1211,7 @@ class TabListActionTest {
         assertEquals(3, store.state.tabs.size)
         assertEquals("https://getpocket.com", store.state.tabs[0].content.url)
         assertEquals("https://www.mozilla.org", store.state.tabs[1].content.url)
-        assertEquals("https://www.firefox.com", store.state.tabs[2].content.url)
+        assertEquals("https://www.eyebrowse.com", store.state.tabs[2].content.url)
         assertEquals("z", store.state.selectedTabId)
     }
 
@@ -1227,7 +1227,7 @@ class TabListActionTest {
                 tabs = listOf(
                     createTab(id = "a", url = "https://www.mozilla.org", private = true),
                     createTab(id = "b", url = "https://www.example.org", private = true),
-                    createTab(id = "c", url = "https://www.firefox.com", private = false),
+                    createTab(id = "c", url = "https://www.eyebrowse.com", private = false),
                     createTab(id = "d", url = "https://getpocket.com", private = true),
                 ),
             ),
@@ -1236,7 +1236,7 @@ class TabListActionTest {
         assertEquals(4, store.state.tabs.size)
         assertEquals("https://www.mozilla.org", store.state.tabs[0].content.url)
         assertEquals("https://www.example.org", store.state.tabs[1].content.url)
-        assertEquals("https://www.firefox.com", store.state.tabs[2].content.url)
+        assertEquals("https://www.eyebrowse.com", store.state.tabs[2].content.url)
         assertEquals("https://getpocket.com", store.state.tabs[3].content.url)
         assertNotNull(store.state.selectedTabId)
         assertEquals("c", store.state.selectedTabId)
@@ -1273,7 +1273,7 @@ class TabListActionTest {
                 tabs = listOf(
                     createTab(id = "a", url = "https://www.mozilla.org", private = true),
                     createTab(id = "b", url = "https://www.example.org", private = false),
-                    createTab(id = "c", url = "https://www.firefox.com", private = false),
+                    createTab(id = "c", url = "https://www.eyebrowse.com", private = false),
                     createTab(id = "d", url = "https://getpocket.com", private = true),
                 ),
                 selectedTabId = "d",
@@ -1294,7 +1294,7 @@ class TabListActionTest {
                 tabs = listOf(
                     createTab(id = "a", url = "https://www.mozilla.org", private = true),
                     createTab(id = "b", url = "https://www.example.org", private = false),
-                    createTab(id = "c", url = "https://www.firefox.com", private = false),
+                    createTab(id = "c", url = "https://www.eyebrowse.com", private = false),
                     createTab(id = "d", url = "https://getpocket.com", private = true),
                 ),
                 selectedTabId = "b",
@@ -1315,7 +1315,7 @@ class TabListActionTest {
                 tabs = listOf(
                     createTab(id = "a", url = "https://www.mozilla.org", private = true),
                     createTab(id = "b", url = "https://www.example.org", private = false),
-                    createTab(id = "c", url = "https://www.firefox.com", private = false),
+                    createTab(id = "c", url = "https://www.eyebrowse.com", private = false),
                     createTab(id = "d", url = "https://getpocket.com", private = true),
                 ),
                 selectedTabId = "d",
@@ -1355,7 +1355,7 @@ class TabListActionTest {
                 tabs = listOf(
                     createTab(id = "a", url = "https://www.mozilla.org", private = true),
                     createTab(id = "b", url = "https://www.example.org", private = false),
-                    createTab(id = "c", url = "https://www.firefox.com", private = false),
+                    createTab(id = "c", url = "https://www.eyebrowse.com", private = false),
                     createTab(id = "d", url = "https://getpocket.com", private = true),
                 ),
                 selectedTabId = "b",
@@ -1388,7 +1388,7 @@ class TabListActionTest {
     fun `MoveTabsAction - Tabs move as expected`() {
         val tabList = listOf(
             createTab(id = "a", url = "https://www.mozilla.org"),
-            createTab(id = "b", url = "https://www.firefox.com"),
+            createTab(id = "b", url = "https://www.eyebrowse.com"),
             createTab(id = "c", url = "https://getpocket.com"),
             createTab(id = "d", url = "https://www.example.org"),
         )
@@ -1423,7 +1423,7 @@ class TabListActionTest {
         assertSameTabs(store, tabList, "c,d to d+")
 
         val movedTabList = listOf(
-            createTab(id = "b", url = "https://www.firefox.com"),
+            createTab(id = "b", url = "https://www.eyebrowse.com"),
             createTab(id = "c", url = "https://getpocket.com"),
             createTab(id = "a", url = "https://www.mozilla.org"),
             createTab(id = "d", url = "https://www.example.org"),
@@ -1445,11 +1445,11 @@ class TabListActionTest {
     fun `MoveTabsAction - Complex moves work`() {
         val tabList = listOf(
             createTab(id = "a", url = "https://www.mozilla.org"),
-            createTab(id = "b", url = "https://www.firefox.com"),
+            createTab(id = "b", url = "https://www.eyebrowse.com"),
             createTab(id = "c", url = "https://getpocket.com"),
             createTab(id = "d", url = "https://www.example.org"),
-            createTab(id = "e", url = "https://www.mozilla.org/en-US/firefox/features/"),
-            createTab(id = "f", url = "https://www.mozilla.org/en-US/firefox/products/"),
+            createTab(id = "e", url = "https://www.mozilla.org/en-US/eyebrowse/features/"),
+            createTab(id = "f", url = "https://www.mozilla.org/en-US/eyebrowse/products/"),
         )
         val store = BrowserStore(
             BrowserState(
@@ -1463,10 +1463,10 @@ class TabListActionTest {
         val movedTabList = listOf(
             createTab(id = "a", url = "https://www.mozilla.org"),
             createTab(id = "c", url = "https://getpocket.com"),
-            createTab(id = "b", url = "https://www.firefox.com"),
-            createTab(id = "e", url = "https://www.mozilla.org/en-US/firefox/features/"),
+            createTab(id = "b", url = "https://www.eyebrowse.com"),
+            createTab(id = "e", url = "https://www.mozilla.org/en-US/eyebrowse/features/"),
             createTab(id = "d", url = "https://www.example.org"),
-            createTab(id = "f", url = "https://www.mozilla.org/en-US/firefox/products/"),
+            createTab(id = "f", url = "https://www.mozilla.org/en-US/eyebrowse/products/"),
         )
         dispatchJoinMoveAction(store, listOf("b", "e"), "d", false)
         assertSameTabs(store, movedTabList, "b,e to d-")

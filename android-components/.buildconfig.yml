@@ -517,7 +517,7 @@ projects:
     - lib-dataprotect
     - lib-publicsuffixlist
     - lib-state
-    - service-firefox-accounts
+    - service-accounts
     - support-base
     - support-images
     - support-ktx
@@ -541,7 +541,7 @@ projects:
     - lib-dataprotect
     - lib-publicsuffixlist
     - lib-state
-    - service-firefox-accounts
+    - service-accounts
     - support-base
     - support-ktx
     - support-test
@@ -1258,7 +1258,7 @@ projects:
     - lib-dataprotect
     - lib-publicsuffixlist
     - lib-state
-    - service-firefox-accounts
+    - service-accounts
     - support-base
     - support-images
     - support-ktx
@@ -1742,7 +1742,7 @@ projects:
     - lib-fetch-httpurlconnection
     - lib-publicsuffixlist
     - lib-state
-    - service-firefox-accounts
+    - service-accounts
     - support-base
     - support-ktx
     - support-rusthttp
@@ -1805,7 +1805,7 @@ projects:
     - lib-fetch-httpurlconnection
     - lib-publicsuffixlist
     - lib-state
-    - service-firefox-accounts
+    - service-accounts
     - service-glean
     - service-sync-autofill
     - service-sync-logins
@@ -1828,7 +1828,7 @@ projects:
     - lib-fetch-httpurlconnection
     - lib-publicsuffixlist
     - lib-state
-    - service-firefox-accounts
+    - service-accounts
     - service-glean
     - service-sync-logins
     - support-base
@@ -1900,9 +1900,9 @@ projects:
     - support-test
     - support-utils
     - tooling-lint
-  service-firefox-accounts:
+  service-accounts:
     description: A library for integrating with Firefox Accounts.
-    path: components/service/firefox-accounts
+    path: components/service/accounts
     publish: true
     upstream_dependencies:
     - concept-base

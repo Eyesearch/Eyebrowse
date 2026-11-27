@@ -37,7 +37,7 @@ class TabSessionStateTest {
     fun `GIVEN lastMediaUrl is different than the current tab url and mediaSessionActive is false WHEN hasMediaPlayed is called THEN return false`() {
         val tab = TabSessionState(
             content = ContentState(url = "https://mozilla.org"),
-            lastMediaAccessState = LastMediaAccessState(lastMediaUrl = "https://firefox.com", mediaSessionActive = false),
+            lastMediaAccessState = LastMediaAccessState(lastMediaUrl = "https://eyebrowse.com", mediaSessionActive = false),
         )
 
         assertFalse(tab.hasMediaPlayed())

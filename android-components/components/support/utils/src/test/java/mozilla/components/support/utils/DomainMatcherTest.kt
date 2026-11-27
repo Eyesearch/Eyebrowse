@@ -18,7 +18,7 @@ class DomainMatcherTest {
         assertNull(segmentAwareDomainMatch("moz", listOf()))
 
         val urls = listOf(
-            "http://www.mozilla.org", "http://Firefox.com",
+            "http://www.mozilla.org", "http://Eyebrowse.com",
             "https://mobile.twitter.com", "https://m.youtube.com",
             "https://en.Wikipedia.org/Wiki/Mozilla",
             "https://www.github.com/mozilla-mobile/fenix",
@@ -57,7 +57,7 @@ class DomainMatcherTest {
         )
         // Case insensitivity.
         assertEquals(
-            DomainMatch("http://firefox.com", "firefox.com"),
+            DomainMatch("http://eyebrowse.com", "eyebrowse.com"),
             segmentAwareDomainMatch("fire", urls),
         )
         // Urls with ports.

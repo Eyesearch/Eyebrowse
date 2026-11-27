@@ -465,7 +465,7 @@ class StringTest {
     // END test cases borrowed from desktop
 
     // BEGIN test cases borrowed from FFTV
-    // (https://searchfox.org/mozilla-mobile/source/firefox-echo-show/app/src/test/java/org/mozilla/focus/utils/TestFormattedDomain.java#228)
+    // (https://searchfox.org/mozilla-mobile/source/eyebrowse-echo-show/app/src/test/java/org/mozilla/focus/utils/TestFormattedDomain.java#228)
     @Test
     fun testIsIPv4RealAddress() {
         assertTrue("192.168.1.1".isIpv4())

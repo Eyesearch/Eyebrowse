@@ -31,7 +31,7 @@ import org.mozilla.fenix.shopping.store.BottomSheetViewState
 import org.mozilla.fenix.shopping.store.ReviewQualityCheckAction
 import org.mozilla.fenix.shopping.store.ReviewQualityCheckStore
 import org.mozilla.fenix.shopping.ui.ReviewQualityCheckBottomSheet
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * A bottom sheet fragment displaying Review Quality Check information.
@@ -98,7 +98,7 @@ class ReviewQualityCheckFragment : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?,
     ): View = ComposeView(requireContext()).apply {
         setContent {
-            FirefoxTheme {
+            EyebrowseTheme {
                 ReviewQualityCheckBottomSheet(
                     store = store,
                     onRequestDismiss = {

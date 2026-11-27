@@ -163,11 +163,11 @@ class ContextMenuCandidateTest {
         assertEquals(1, store.state.tabs.size)
         assertEquals("1", store.state.tabs.first().contextId)
 
-        openInNewTab.action.invoke(store.state.tabs.first(), HitResult.UNKNOWN("https://firefox.com"))
+        openInNewTab.action.invoke(store.state.tabs.first(), HitResult.UNKNOWN("https://eyebrowse.com"))
         store.waitUntilIdle()
 
         assertEquals(2, store.state.tabs.size)
-        assertEquals("https://firefox.com", store.state.tabs.last().content.url)
+        assertEquals("https://eyebrowse.com", store.state.tabs.last().content.url)
         assertEquals("1", store.state.tabs.last().contextId)
     }
 
@@ -193,13 +193,13 @@ class ContextMenuCandidateTest {
         assertEquals(1, store.state.tabs.size)
         assertFalse(snackbarDelegate.hasShownSnackbar)
 
-        openInNewTab.action.invoke(store.state.tabs.first(), HitResult.UNKNOWN("https://firefox.com"))
+        openInNewTab.action.invoke(store.state.tabs.first(), HitResult.UNKNOWN("https://eyebrowse.com"))
         store.waitUntilIdle()
 
         assertEquals(2, store.state.tabs.size)
         assertTrue(snackbarDelegate.hasShownSnackbar)
         assertNotNull(snackbarDelegate.lastActionListener)
-        assertEquals("https://firefox.com", store.state.tabs.last().content.url)
+        assertEquals("https://eyebrowse.com", store.state.tabs.last().content.url)
     }
 
     @Test
@@ -229,7 +229,7 @@ class ContextMenuCandidateTest {
         assertEquals(1, store.state.tabs.size)
         assertFalse(snackbarDelegate.hasShownSnackbar)
 
-        openInNewTab.action.invoke(store.state.tabs.first(), HitResult.UNKNOWN("https://firefox.com"))
+        openInNewTab.action.invoke(store.state.tabs.first(), HitResult.UNKNOWN("https://eyebrowse.com"))
         store.waitUntilIdle()
 
         assertEquals("https://www.mozilla.org", store.state.selectedTab!!.content.url)
@@ -237,7 +237,7 @@ class ContextMenuCandidateTest {
         snackbarDelegate.lastActionListener!!.invoke(mock())
         store.waitUntilIdle()
 
-        assertEquals("https://firefox.com", store.state.selectedTab!!.content.url)
+        assertEquals("https://eyebrowse.com", store.state.selectedTab!!.content.url)
     }
 
     @Test
@@ -386,13 +386,13 @@ class ContextMenuCandidateTest {
         assertEquals(1, store.state.tabs.size)
         assertFalse(snackbarDelegate.hasShownSnackbar)
 
-        openInPrivateTab.action.invoke(store.state.tabs.first(), HitResult.UNKNOWN("https://firefox.com"))
+        openInPrivateTab.action.invoke(store.state.tabs.first(), HitResult.UNKNOWN("https://eyebrowse.com"))
         store.waitUntilIdle()
 
         assertEquals(2, store.state.tabs.size)
         assertTrue(snackbarDelegate.hasShownSnackbar)
         assertNotNull(snackbarDelegate.lastActionListener)
-        assertEquals("https://firefox.com", store.state.tabs.last().content.url)
+        assertEquals("https://eyebrowse.com", store.state.tabs.last().content.url)
     }
 
     @Test
@@ -422,7 +422,7 @@ class ContextMenuCandidateTest {
         assertEquals(1, store.state.tabs.size)
         assertFalse(snackbarDelegate.hasShownSnackbar)
 
-        openInPrivateTab.action.invoke(store.state.tabs.first(), HitResult.UNKNOWN("https://firefox.com"))
+        openInPrivateTab.action.invoke(store.state.tabs.first(), HitResult.UNKNOWN("https://eyebrowse.com"))
         store.waitUntilIdle()
 
         assertEquals("https://www.mozilla.org", store.state.selectedTab!!.content.url)
@@ -431,7 +431,7 @@ class ContextMenuCandidateTest {
         snackbarDelegate.lastActionListener!!.invoke(mock())
         store.waitUntilIdle()
 
-        assertEquals("https://firefox.com", store.state.selectedTab!!.content.url)
+        assertEquals("https://eyebrowse.com", store.state.selectedTab!!.content.url)
     }
 
     @Test
@@ -532,14 +532,14 @@ class ContextMenuCandidateTest {
 
         openImageInTab.action.invoke(
             store.state.tabs.first(),
-            HitResult.IMAGE_SRC("https://firefox.com", "https://getpocket.com"),
+            HitResult.IMAGE_SRC("https://eyebrowse.com", "https://getpocket.com"),
         )
 
         store.waitUntilIdle()
 
         assertEquals(2, store.state.tabs.size)
         assertFalse(store.state.tabs.last().content.private)
-        assertEquals("https://firefox.com", store.state.tabs.last().content.url)
+        assertEquals("https://eyebrowse.com", store.state.tabs.last().content.url)
         assertTrue(snackbarDelegate.hasShownSnackbar)
         assertNotNull(snackbarDelegate.lastActionListener)
 
@@ -550,7 +550,7 @@ class ContextMenuCandidateTest {
         snackbarDelegate.lastActionListener!!.invoke(mock())
         store.waitUntilIdle()
 
-        assertEquals("https://firefox.com", store.state.selectedTab!!.content.url)
+        assertEquals("https://eyebrowse.com", store.state.selectedTab!!.content.url)
     }
 
     @Test
@@ -606,13 +606,13 @@ class ContextMenuCandidateTest {
 
         openImageInTab.action.invoke(
             store.state.tabs.first(),
-            HitResult.IMAGE_SRC("https://firefox.com", "https://getpocket.com"),
+            HitResult.IMAGE_SRC("https://eyebrowse.com", "https://getpocket.com"),
         )
         store.waitUntilIdle()
 
         assertEquals(2, store.state.tabs.size)
         assertTrue(store.state.tabs.last().content.private)
-        assertEquals("https://firefox.com", store.state.tabs.last().content.url)
+        assertEquals("https://eyebrowse.com", store.state.tabs.last().content.url)
     }
 
     @Test
@@ -641,12 +641,12 @@ class ContextMenuCandidateTest {
 
         openImageInTab.action.invoke(
             store.state.tabs.first(),
-            HitResult.IMAGE_SRC("https://firefox.com", "https://getpocket.com"),
+            HitResult.IMAGE_SRC("https://eyebrowse.com", "https://getpocket.com"),
         )
         store.waitUntilIdle()
 
         assertEquals(2, store.state.tabs.size)
-        assertEquals("https://firefox.com", store.state.tabs.last().content.url)
+        assertEquals("https://eyebrowse.com", store.state.tabs.last().content.url)
         assertEquals("1", store.state.tabs.last().contextId)
     }
 
@@ -710,8 +710,8 @@ class ContextMenuCandidateTest {
         saveImage.action.invoke(
             store.state.tabs.first(),
             HitResult.IMAGE_SRC(
-                "https://www.mozilla.org/media/img/logos/firefox/logo-quantum.9c5e96634f92.png",
-                "https://firefox.com",
+                "https://www.mozilla.org/media/img/logos/eyebrowse/logo-quantum.9c5e96634f92.png",
+                "https://eyebrowse.com",
             ),
         )
 
@@ -719,7 +719,7 @@ class ContextMenuCandidateTest {
 
         assertNotNull(store.state.tabs.first().content.download)
         assertEquals(
-            "https://www.mozilla.org/media/img/logos/firefox/logo-quantum.9c5e96634f92.png",
+            "https://www.mozilla.org/media/img/logos/eyebrowse/logo-quantum.9c5e96634f92.png",
             store.state.tabs.first().content.download!!.url,
         )
         assertTrue(
@@ -944,14 +944,14 @@ class ContextMenuCandidateTest {
         assertFalse(
             downloadLink.showFor(
                 createTab("https://www.mozilla.org"),
-                HitResult.UNKNOWN("https://www.mozilla.org/firefox/products.html"),
+                HitResult.UNKNOWN("https://www.mozilla.org/eyebrowse/products.html"),
             ),
         )
 
         assertFalse(
             downloadLink.showFor(
                 createTab("https://www.mozilla.org"),
-                HitResult.UNKNOWN("https://www.mozilla.org/firefox/products.htm"),
+                HitResult.UNKNOWN("https://www.mozilla.org/eyebrowse/products.htm"),
             ),
         )
 
@@ -962,7 +962,7 @@ class ContextMenuCandidateTest {
         downloadLink.action.invoke(
             store.state.tabs.first(),
             HitResult.IMAGE_SRC(
-                "https://www.mozilla.org/media/img/logos/firefox/logo-quantum.9c5e96634f92.png",
+                "https://www.mozilla.org/media/img/logos/eyebrowse/logo-quantum.9c5e96634f92.png",
                 "https://www.mozilla.org/en-US/privacy-policy.pdf",
             ),
         )
@@ -1151,7 +1151,7 @@ class ContextMenuCandidateTest {
 
         shareLink.action.invoke(
             store.state.tabs.first(),
-            HitResult.IMAGE_SRC("https://firefox.com", "https://getpocket.com"),
+            HitResult.IMAGE_SRC("https://eyebrowse.com", "https://getpocket.com"),
         )
 
         verify(context).startActivity(any())
@@ -1251,11 +1251,11 @@ class ContextMenuCandidateTest {
 
         shareImage.action.invoke(
             store.state.tabs.first(),
-            HitResult.IMAGE_SRC("https://firefox.com", "https://getpocket.com"),
+            HitResult.IMAGE_SRC("https://eyebrowse.com", "https://getpocket.com"),
         )
 
         verify(shareUsecase).invoke(eq("123"), shareStateCaptor.capture())
-        assertEquals("https://firefox.com", shareStateCaptor.value.url)
+        assertEquals("https://eyebrowse.com", shareStateCaptor.value.url)
         assertEquals(store.state.tabs.first().content.private, shareStateCaptor.value.private)
     }
 
@@ -1327,11 +1327,11 @@ class ContextMenuCandidateTest {
 
         copyImage.action.invoke(
             store.state.tabs.first(),
-            HitResult.IMAGE_SRC("https://firefox.com", "https://getpocket.com"),
+            HitResult.IMAGE_SRC("https://eyebrowse.com", "https://getpocket.com"),
         )
 
         verify(copyUseCase).invoke(eq("123"), shareStateCaptor.capture())
-        assertEquals("https://firefox.com", shareStateCaptor.value.url)
+        assertEquals("https://eyebrowse.com", shareStateCaptor.value.url)
         assertEquals(store.state.tabs.first().content.private, shareStateCaptor.value.private)
     }
 
@@ -1428,7 +1428,7 @@ class ContextMenuCandidateTest {
 
         copyLink.action.invoke(
             store.state.tabs.first(),
-            HitResult.IMAGE_SRC("https://firefox.com", "https://getpocket.com"),
+            HitResult.IMAGE_SRC("https://eyebrowse.com", "https://getpocket.com"),
         )
 
         assertTrue(snackbarDelegate.hasShownSnackbar)
@@ -1555,14 +1555,14 @@ class ContextMenuCandidateTest {
 
         copyImageLocation.action.invoke(
             store.state.tabs.first(),
-            HitResult.IMAGE_SRC("https://firefox.com", "https://getpocket.com"),
+            HitResult.IMAGE_SRC("https://eyebrowse.com", "https://getpocket.com"),
         )
 
         assertTrue(snackbarDelegate.hasShownSnackbar)
 
         val clipboardManager = testContext.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         assertEquals(
-            "https://firefox.com",
+            "https://eyebrowse.com",
             clipboardManager.primaryClip!!.getItemAt(0).text,
         )
     }

@@ -15,7 +15,7 @@ import org.mozilla.fenix.R
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.showToolbar
 import org.mozilla.fenix.nimbus.view.NimbusExperiments
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Fragment use for managing Nimbus experiments.
@@ -33,7 +33,7 @@ class NimbusExperimentsFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View = ComposeView(requireContext()).apply {
         setContent {
-            FirefoxTheme {
+            EyebrowseTheme {
                 val experiments =
                     requireContext().components.nimbus.sdk.getAvailableExperiments()
 

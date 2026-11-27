@@ -41,7 +41,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import kotlin.math.roundToInt
 
 /**
@@ -123,14 +123,14 @@ private fun SwipeablePreview(directions: Set<DismissDirection>, text: String, th
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
-                        .background(FirefoxTheme.colors.layerAccent),
+                        .background(EyebrowseTheme.colors.layerAccent),
                 )
             },
         ) {
             Row(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(FirefoxTheme.colors.layer1),
+                    .background(EyebrowseTheme.colors.layer1),
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically,
             ) {
@@ -145,7 +145,7 @@ private fun SwipeablePreview(directions: Set<DismissDirection>, text: String, th
 @Composable
 @Preview
 private fun SwipeToDismissPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Column {
             SwipeablePreview(
                 directions = setOf(StartToEnd),

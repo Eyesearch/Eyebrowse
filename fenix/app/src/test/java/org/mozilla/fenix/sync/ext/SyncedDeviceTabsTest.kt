@@ -70,8 +70,8 @@ class SyncedDeviceTabsTest {
             Tab(
                 history = listOf(
                     TabEntry(
-                        title = "Firefox",
-                        url = "https://firefox.com",
+                        title = "Eyebrowse",
+                        url = "https://eyebrowse.com",
                         iconUrl = null,
                     ),
                 ),

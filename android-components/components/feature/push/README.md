@@ -135,9 +135,9 @@ Q. Why do we need to verify connections, and what happens when we do?
 - So the client needs to be able to find out that this is the case, re-create channel subscriptions on Autopush, and update any dependent services with new subscription info (e.g. update the FxA device record for `PushType.Services`, or notify the JS code with a `pushsubscriptionchanged` event for WebPush).
 - The Autopush side of this is `verify_connection` API - we're expected to call this periodically, and that library will compare channel registrations that the server knows about vs those that the client knows about.
 - If those are misaligned, we need to re-register affected (or, all?) channels, and notify related services so that they may update their own server-side records.
-- For FxA, this means that we need to have an instance of the rust FirefoxAccount object around in order to call `setDevicePushSubscriptionAsync` once we re-generate our push subscription.
+- For FxA, this means that we need to have an instance of the rust EyebrowseAccount object around in order to call `setDevicePushSubscriptionAsync` once we re-generate our push subscription.
 - For consumers such as Fenix, easiest way to access that method is via an `account manager`.
-- However, neither account object itself, nor the account manager, aren't available from within a Worker. It's possible to "re-hydrate" (instantiate rust object from the locally persisted state) a FirefoxAccount instance, but that's a separate can of worms, and needs to be carefully considered.
+- However, neither account object itself, nor the account manager, aren't available from within a Worker. It's possible to "re-hydrate" (instantiate rust object from the locally persisted state) a EyebrowseAccount instance, but that's a separate can of worms, and needs to be carefully considered.
 - Similarly for WebPush (in the future), we will need to have Gecko around in order to fire `pushsubscriptionchanged` javascript events.
 
 Q. Where do we find more details about AutoPush?

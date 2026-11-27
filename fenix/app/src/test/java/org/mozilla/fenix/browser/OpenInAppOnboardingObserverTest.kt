@@ -154,7 +154,7 @@ class OpenInAppOnboardingObserverTest {
         store.dispatch(ContentAction.UpdateUrlAction("1", "https://www.mozilla.org/en-US/")).joinBlocking()
         verify(exactly = 0) { infoBanner.dismiss() }
 
-        store.dispatch(ContentAction.UpdateUrlAction("1", "https://www.firefox.com")).joinBlocking()
+        store.dispatch(ContentAction.UpdateUrlAction("1", "https://www.eyebrowse.com")).joinBlocking()
         verify(exactly = 1) { infoBanner.dismiss() }
     }
 

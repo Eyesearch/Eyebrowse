@@ -51,7 +51,7 @@ import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.ClickableSubstringLink
 import org.mozilla.fenix.compose.ext.debouncedClickable
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.wallpapers.Wallpaper
 
 /**
@@ -81,7 +81,7 @@ fun WallpaperSettings(
             .fillMaxWidth()
             .fillMaxHeight()
             .verticalScroll(rememberScrollState())
-            .background(color = FirefoxTheme.colors.layer1)
+            .background(color = EyebrowseTheme.colors.layer1)
             .padding(
                 end = 12.dp,
                 start = 12.dp,
@@ -122,11 +122,11 @@ private fun WallpaperGroupHeading(
     // and descriptions so they could be localized.
     // In the future, we may want to either use the dynamic wallpaper properties with localized fallbacks
     // or invest in a method of localizing the remote strings themselves.
-    if (collection.name == Wallpaper.classicFirefoxCollectionName) {
+    if (collection.name == Wallpaper.classicEyebrowseCollectionName) {
         Text(
-            text = stringResource(R.string.wallpaper_classic_title, stringResource(R.string.firefox)),
-            color = FirefoxTheme.colors.textSecondary,
-            style = FirefoxTheme.typography.subtitle2,
+            text = stringResource(R.string.wallpaper_classic_title, stringResource(R.string.eyebrowse)),
+            color = EyebrowseTheme.colors.textSecondary,
+            style = EyebrowseTheme.typography.subtitle2,
         )
     } else {
         val label = stringResource(id = R.string.a11y_action_label_wallpaper_collection_learn_more)
@@ -147,8 +147,8 @@ private fun WallpaperGroupHeading(
         ) {
             Text(
                 text = stringResource(R.string.wallpaper_artist_series_title),
-                color = FirefoxTheme.colors.textSecondary,
-                style = FirefoxTheme.typography.subtitle2,
+                color = EyebrowseTheme.colors.textSecondary,
+                style = EyebrowseTheme.typography.subtitle2,
             )
 
             Spacer(modifier = Modifier.height(2.dp))
@@ -157,8 +157,8 @@ private fun WallpaperGroupHeading(
                 val text = stringResource(R.string.wallpaper_artist_series_description)
                 Text(
                     text = text,
-                    color = FirefoxTheme.colors.textSecondary,
-                    style = FirefoxTheme.typography.caption,
+                    color = EyebrowseTheme.colors.textSecondary,
+                    style = EyebrowseTheme.typography.caption,
                 )
             } else {
                 val link = stringResource(R.string.wallpaper_learn_more)
@@ -168,8 +168,8 @@ private fun WallpaperGroupHeading(
 
                 ClickableSubstringLink(
                     text = text,
-                    textColor = FirefoxTheme.colors.textSecondary,
-                    linkTextColor = FirefoxTheme.colors.textAccent,
+                    textColor = EyebrowseTheme.colors.textSecondary,
+                    linkTextColor = EyebrowseTheme.colors.textAccent,
                     linkTextDecoration = TextDecoration.Underline,
                     clickableStartIndex = linkStartIndex,
                     clickableEndIndex = linkEndIndex,
@@ -259,12 +259,12 @@ private fun WallpaperThumbnailItem(
     val thumbnailShape = RoundedCornerShape(8.dp)
     val border = if (isSelected) {
         Modifier.border(
-            BorderStroke(width = 3.dp, color = FirefoxTheme.colors.borderAccent),
+            BorderStroke(width = 3.dp, color = EyebrowseTheme.colors.borderAccent),
             thumbnailShape,
         )
     } else if (wallpaper.name == Wallpaper.defaultName) {
         Modifier.border(
-            BorderStroke(width = 1.dp, color = FirefoxTheme.colors.borderPrimary),
+            BorderStroke(width = 1.dp, color = EyebrowseTheme.colors.borderPrimary),
             thumbnailShape,
         )
     } else {
@@ -292,7 +292,7 @@ private fun WallpaperThumbnailItem(
     Surface(
         elevation = 4.dp,
         shape = thumbnailShape,
-        color = FirefoxTheme.colors.layer1,
+        color = EyebrowseTheme.colors.layer1,
         modifier = Modifier
             .fillMaxWidth()
             .aspectRatio(aspectRatio)
@@ -316,7 +316,7 @@ private fun WallpaperThumbnailItem(
                     .size(24.dp),
             ) {
                 CircularProgressIndicator(
-                    color = FirefoxTheme.colors.borderAccent,
+                    color = EyebrowseTheme.colors.borderAccent,
                 )
             }
         }
@@ -326,7 +326,7 @@ private fun WallpaperThumbnailItem(
 @Preview
 @Composable
 private fun WallpaperThumbnailsPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         WallpaperSettings(
             defaultWallpaper = Wallpaper.Default,
             loadWallpaperResource = { null },

@@ -22,7 +22,7 @@ import org.mozilla.fenix.GleanMetrics.History
 import org.mozilla.fenix.R
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.settings
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.theme.ThemeManager
 
 /**
@@ -52,7 +52,7 @@ class AwesomeBarWrapper @JvmOverloads constructor(
             AwesomeBarOrientation.TOP
         }
 
-        FirefoxTheme {
+        EyebrowseTheme {
             AwesomeBar(
                 text = text.value,
                 providers = providers.value,

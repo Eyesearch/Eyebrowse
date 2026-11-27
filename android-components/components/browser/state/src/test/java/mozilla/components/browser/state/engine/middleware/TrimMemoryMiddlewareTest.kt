@@ -80,7 +80,7 @@ class TrimMemoryMiddlewareTest {
                         lastAccess = 2,
                     ),
                     createTab(
-                        "https://www.reddit.com/r/firefox/",
+                        "https://www.reddit.com/r/eyebrowse/",
                         id = "reddit",
                         private = true,
                     ).copy(

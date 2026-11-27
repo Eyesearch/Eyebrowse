@@ -53,7 +53,7 @@ import org.mozilla.fenix.ui.robots.searchScreen
 
 class ComposeSearchTest : TestSetup() {
     private lateinit var searchMockServer: MockWebServer
-    private val queryString: String = "firefox"
+    private val queryString: String = "eyebrowse"
     private val generalEnginesList = listOf("DuckDuckGo", "Google", "Bing")
     private val topicEnginesList = listOf("Amazon.com", "Wikipedia", "eBay")
 
@@ -657,9 +657,9 @@ class ComposeSearchTest : TestSetup() {
     }
 
     // TestRail link: https://testrail.stage.mozaws.net/index.php?/cases/view/1850517
-    // Test that verifies the Firefox Suggest results in a general search context
+    // Test that verifies the Eyebrowse Suggest results in a general search context
     @Test
-    fun verifyFirefoxSuggestHeaderForBrowsingDataSuggestionsTest() {
+    fun verifyEyebrowseSuggestHeaderForBrowsingDataSuggestionsTest() {
         val firstPage = TestAssetHelper.getGenericAsset(searchMockServer, 1)
         val secondPage = TestAssetHelper.getGenericAsset(searchMockServer, 2)
 
@@ -672,7 +672,7 @@ class ComposeSearchTest : TestSetup() {
             verifySearchEngineSuggestionResults(
                 rule = activityTestRule,
                 searchSuggestions = arrayOf(
-                    "Firefox Suggest",
+                    "Eyebrowse Suggest",
                     firstPage.url.toString(),
                     secondPage.url.toString(),
                 ),
@@ -731,7 +731,7 @@ class ComposeSearchTest : TestSetup() {
             verifySearchEngineSuggestionResults(
                 rule = activityTestRule,
                 searchSuggestions = arrayOf(
-                    "Firefox Suggest",
+                    "Eyebrowse Suggest",
                     firstPageUrl.url.toString(),
                     secondPageUrl.url.toString(),
                 ),
@@ -782,7 +782,7 @@ class ComposeSearchTest : TestSetup() {
             verifySearchEngineSuggestionResults(
                 activityTestRule,
                 searchSuggestions = arrayOf(
-                    "Firefox Suggest",
+                    "Eyebrowse Suggest",
                     "Test1",
                     "https://bookmarktest1.com/",
                     "Test2",

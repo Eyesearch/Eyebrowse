@@ -57,7 +57,7 @@ class PrivateNotificationFeatureTest {
 
     @Test
     fun `service should be started if pre-existing private session is present`() = runTest(StandardTestDispatcher()) {
-        val privateSession = createTab("https://firefox.com", private = true)
+        val privateSession = createTab("https://eyebrowse.com", private = true)
         val intent = argumentCaptor<Intent>()
 
         store.dispatch(TabListAction.AddTabAction(privateSession)).join()
@@ -73,7 +73,7 @@ class PrivateNotificationFeatureTest {
 
     @Test
     fun `service should be started when private session is added`() = runTestOnMain {
-        val privateSession = createTab("https://firefox.com", private = true)
+        val privateSession = createTab("https://eyebrowse.com", private = true)
 
         feature.start()
         verify(context, never()).startService(any())
@@ -85,7 +85,7 @@ class PrivateNotificationFeatureTest {
 
     @Test
     fun `service should not be started multiple times`() = runTestOnMain {
-        val privateSession1 = createTab("https://firefox.com", private = true)
+        val privateSession1 = createTab("https://eyebrowse.com", private = true)
         val privateSession2 = createTab("https://mozilla.org", private = true)
 
         feature.start()
@@ -99,8 +99,8 @@ class PrivateNotificationFeatureTest {
 
     @Test
     fun `notification service should not be started when normal sessions are added`() = runTestOnMain {
-        val normalSession = createTab("https://firefox.com")
-        val customSession = createCustomTab("https://firefox.com")
+        val normalSession = createTab("https://eyebrowse.com")
+        val customSession = createCustomTab("https://eyebrowse.com")
 
         feature.start()
         verify(context, never()).startService(any())
@@ -115,10 +115,10 @@ class PrivateNotificationFeatureTest {
 
     @Test
     fun `notification service should not be started when custom sessions are added`() = runTestOnMain {
-        val privateCustomSession = createCustomTab("https://firefox.com").let {
+        val privateCustomSession = createCustomTab("https://eyebrowse.com").let {
             it.copy(content = it.content.copy(private = true))
         }
-        val customSession = createCustomTab("https://firefox.com")
+        val customSession = createCustomTab("https://eyebrowse.com")
 
         feature.start()
         verify(context, never()).startService(any())

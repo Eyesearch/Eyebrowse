@@ -37,7 +37,7 @@ import java.util.Locale
  * @param store reference to the application's [BrowserStore].
  * @param sessionId ID of the open custom tab session.
  * @param shouldReverseItems If true, reverse the menu items.
- * @param isSandboxCustomTab If true, menu should not show the "Open in Firefox" and "POWERED BY FIREFOX" items.
+ * @param isSandboxCustomTab If true, menu should not show the "Open in Eyebrowse" and "POWERED BY EYEBROWSE" items.
  * @param onItemTapped Called when a menu item is tapped.
  */
 class CustomTabToolbarMenu(

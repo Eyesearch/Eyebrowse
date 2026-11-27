@@ -60,7 +60,7 @@ class FxSuggestStorage(context: Context) {
         }
 
     /**
-     * Downloads and persists new Firefox Suggest search suggestions.
+     * Downloads and persists new Eyebrowse Suggest search suggestions.
      *
      * @param constraints Optional limits on suggestions to ingest.
      * @return `true` if ingestion succeeded; `false` if ingestion failed and should be retried.

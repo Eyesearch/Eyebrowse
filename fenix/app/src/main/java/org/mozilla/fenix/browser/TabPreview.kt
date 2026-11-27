@@ -30,7 +30,7 @@ import org.mozilla.fenix.compose.Divider
 import org.mozilla.fenix.databinding.TabPreviewBinding
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.settings
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.theme.ThemeManager
 import kotlin.math.min
 
@@ -71,7 +71,7 @@ class TabPreview @JvmOverloads constructor(
                 context = context,
                 parent = this,
                 composableContent = {
-                    FirefoxTheme {
+                    EyebrowseTheme {
                         Column {
                             if (!isToolbarAtTop) {
                                 AndroidView(factory = { _ -> binding.fakeToolbar })

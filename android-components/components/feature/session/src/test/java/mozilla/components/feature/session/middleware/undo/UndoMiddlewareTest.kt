@@ -69,7 +69,7 @@ class UndoMiddlewareTest {
                 tabs = listOf(
                     createTab("https://www.mozilla.org", id = "mozilla"),
                     createTab("https://getpocket.com", id = "pocket"),
-                    createTab("https://firefox.com", id = "firefox"),
+                    createTab("https://eyebrowse.com", id = "eyebrowse"),
                 ),
                 selectedTabId = "mozilla",
             ),
@@ -83,7 +83,7 @@ class UndoMiddlewareTest {
         ).joinBlocking()
 
         assertEquals(1, store.state.tabs.size)
-        assertEquals("https://firefox.com", store.state.selectedTab!!.content.url)
+        assertEquals("https://eyebrowse.com", store.state.selectedTab!!.content.url)
 
         restoreRecoverableTabs(dispatcher, store)
 
@@ -101,7 +101,7 @@ class UndoMiddlewareTest {
                 tabs = listOf(
                     createTab("https://www.mozilla.org", id = "mozilla"),
                     createTab("https://getpocket.com", id = "pocket"),
-                    createTab("https://reddit.com/r/firefox", id = "reddit", private = true),
+                    createTab("https://reddit.com/r/eyebrowse", id = "reddit", private = true),
                 ),
                 selectedTabId = "pocket",
             ),
@@ -133,7 +133,7 @@ class UndoMiddlewareTest {
                 tabs = listOf(
                     createTab("https://www.mozilla.org", id = "mozilla"),
                     createTab("https://getpocket.com", id = "pocket"),
-                    createTab("https://reddit.com/r/firefox", id = "reddit", private = true),
+                    createTab("https://reddit.com/r/eyebrowse", id = "reddit", private = true),
                 ),
                 selectedTabId = "pocket",
             ),
@@ -165,7 +165,7 @@ class UndoMiddlewareTest {
                 tabs = listOf(
                     createTab("https://www.mozilla.org", id = "mozilla"),
                     createTab("https://getpocket.com", id = "pocket"),
-                    createTab("https://reddit.com/r/firefox", id = "reddit", private = true),
+                    createTab("https://reddit.com/r/eyebrowse", id = "reddit", private = true),
                 ),
                 selectedTabId = "pocket",
             ),
@@ -198,7 +198,7 @@ class UndoMiddlewareTest {
                 tabs = listOf(
                     createTab("https://www.mozilla.org", id = "mozilla"),
                     createTab("https://getpocket.com", id = "pocket"),
-                    createTab("https://reddit.com/r/firefox", id = "reddit", private = true),
+                    createTab("https://reddit.com/r/eyebrowse", id = "reddit", private = true),
                 ),
                 selectedTabId = "pocket",
             ),
@@ -214,7 +214,7 @@ class UndoMiddlewareTest {
 
         assertNull(store.state.undoHistory.selectedTabId)
         assertEquals(1, store.state.undoHistory.tabs.size)
-        assertEquals("https://reddit.com/r/firefox", store.state.undoHistory.tabs[0].state.url)
+        assertEquals("https://reddit.com/r/eyebrowse", store.state.undoHistory.tabs[0].state.url)
         assertEquals(2, store.state.tabs.size)
 
         store.dispatch(
@@ -247,7 +247,7 @@ class UndoMiddlewareTest {
                 tabs = listOf(
                     createTab("https://www.mozilla.org", id = "mozilla"),
                     createTab("https://getpocket.com", id = "pocket"),
-                    createTab("https://reddit.com/r/firefox", id = "reddit", private = true),
+                    createTab("https://reddit.com/r/eyebrowse", id = "reddit", private = true),
                 ),
                 selectedTabId = "pocket",
             ),
@@ -260,7 +260,7 @@ class UndoMiddlewareTest {
         ).joinBlocking()
 
         assertEquals(1, store.state.tabs.size)
-        assertEquals("https://reddit.com/r/firefox", store.state.tabs[0].content.url)
+        assertEquals("https://reddit.com/r/eyebrowse", store.state.tabs[0].content.url)
         assertEquals("pocket", store.state.undoHistory.selectedTabId)
         assertEquals(2, store.state.undoHistory.tabs.size)
         assertEquals("https://www.mozilla.org", store.state.undoHistory.tabs[0].state.url)
@@ -272,12 +272,12 @@ class UndoMiddlewareTest {
         assertNull(store.state.undoHistory.selectedTabId)
         assertTrue(store.state.undoHistory.tabs.isEmpty())
         assertEquals(1, store.state.tabs.size)
-        assertEquals("https://reddit.com/r/firefox", store.state.tabs[0].content.url)
+        assertEquals("https://reddit.com/r/eyebrowse", store.state.tabs[0].content.url)
 
         restoreRecoverableTabs(dispatcher, store)
 
         assertEquals(1, store.state.tabs.size)
-        assertEquals("https://reddit.com/r/firefox", store.state.tabs[0].content.url)
+        assertEquals("https://reddit.com/r/eyebrowse", store.state.tabs[0].content.url)
     }
 }
 

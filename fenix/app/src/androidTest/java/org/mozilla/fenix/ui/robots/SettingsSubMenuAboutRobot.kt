@@ -48,7 +48,7 @@ import java.util.Date
  * Implementation of Robot Pattern for the settings search sub menu.
  */
 class SettingsSubMenuAboutRobot {
-    fun verifyAboutFirefoxPreviewInfo() {
+    fun verifyAboutEyebrowsePreviewInfo() {
         verifyVersionNumber()
         verifyProductCompany()
         verifyCurrentTimestamp()
@@ -104,18 +104,18 @@ class SettingsSubMenuAboutRobot {
         Log.i(TAG, "verifyAboutToolbar: Verified that the \"About $appName\" toolbar title is visible")
     }
 
-    fun verifyWhatIsNewInFirefoxLink() {
-        Log.i(TAG, "verifyWhatIsNewInFirefoxLink: Trying to perform ${LISTS_MAXSWIPES}x a scroll action to the end of the about list")
+    fun verifyWhatIsNewInEyebrowseLink() {
+        Log.i(TAG, "verifyWhatIsNewInEyebrowseLink: Trying to perform ${LISTS_MAXSWIPES}x a scroll action to the end of the about list")
         aboutMenuList.scrollToEnd(LISTS_MAXSWIPES)
-        Log.i(TAG, "verifyWhatIsNewInFirefoxLink: Performed ${LISTS_MAXSWIPES}x a scroll action to the end of the about list")
+        Log.i(TAG, "verifyWhatIsNewInEyebrowseLink: Performed ${LISTS_MAXSWIPES}x a scroll action to the end of the about list")
 
-        val firefox = TestHelper.appContext.getString(R.string.firefox)
-        Log.i(TAG, "verifyWhatIsNewInFirefoxLink: Trying to verify that the \"What’s new in $firefox\" link is visible")
-        onView(withText("What’s new in $firefox")).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)))
-        Log.i(TAG, "verifyWhatIsNewInFirefoxLink: Verified that the \"What’s new in $firefox\" link is visible")
-        Log.i(TAG, "verifyWhatIsNewInFirefoxLink: Trying to click the \"What’s new in $firefox\" link")
-        onView(withText("What’s new in $firefox")).perform(click())
-        Log.i(TAG, "verifyWhatIsNewInFirefoxLink: Clicked the \"What’s new in $firefox\" link")
+        val eyebrowse = TestHelper.appContext.getString(R.string.eyebrowse)
+        Log.i(TAG, "verifyWhatIsNewInEyebrowseLink: Trying to verify that the \"What’s new in $eyebrowse\" link is visible")
+        onView(withText("What’s new in $eyebrowse")).check(matches(withEffectiveVisibility(ViewMatchers.Visibility.VISIBLE)))
+        Log.i(TAG, "verifyWhatIsNewInEyebrowseLink: Verified that the \"What’s new in $eyebrowse\" link is visible")
+        Log.i(TAG, "verifyWhatIsNewInEyebrowseLink: Trying to click the \"What’s new in $eyebrowse\" link")
+        onView(withText("What’s new in $eyebrowse")).perform(click())
+        Log.i(TAG, "verifyWhatIsNewInEyebrowseLink: Clicked the \"What’s new in $eyebrowse\" link")
     }
     fun verifySupport() {
         Log.i(TAG, "verifySupport: Trying to perform ${LISTS_MAXSWIPES}x a scroll action to the end of the about list")
@@ -139,7 +139,7 @@ class SettingsSubMenuAboutRobot {
         navigationToolbar {
         }.openThreeDotMenu {
         }.openSettings {
-        }.openAboutFirefoxPreview {}
+        }.openAboutEyebrowsePreview {}
         Log.i(TAG, "verifyCrashesLink: Trying to perform ${LISTS_MAXSWIPES}x a scroll action to the end of the about list")
         aboutMenuList.scrollToEnd(LISTS_MAXSWIPES)
         Log.i(TAG, "verifyCrashesLink: Performed ${LISTS_MAXSWIPES}x a scroll action to the end of the about list")
@@ -171,7 +171,7 @@ class SettingsSubMenuAboutRobot {
         Log.i(TAG, "verifyPrivacyNoticeLink: Clicked the \"Privacy notice\" link")
 
         TestHelper.verifyUrl(
-            "/privacy/firefox",
+            "/privacy/eyebrowse",
             "org.mozilla.fenix.debug:id/mozac_browser_toolbar_url_view",
             R.id.mozac_browser_toolbar_url_view,
         )
@@ -233,7 +233,7 @@ class SettingsSubMenuAboutRobot {
 
     fun verifyTheLinksList() {
         verifyAboutToolbar()
-        verifyWhatIsNewInFirefoxLink()
+        verifyWhatIsNewInEyebrowseLink()
         navigateBackToAboutPage()
         verifySupport()
         verifyCrashesLink()
@@ -263,7 +263,7 @@ private fun navigateBackToAboutPage() {
     navigationToolbar {
     }.openThreeDotMenu {
     }.openSettings {
-    }.openAboutFirefoxPreview {
+    }.openAboutEyebrowsePreview {
     }
 }
 

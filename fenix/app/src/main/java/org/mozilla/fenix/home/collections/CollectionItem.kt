@@ -35,7 +35,7 @@ import org.mozilla.fenix.compose.annotation.LightDarkPreview
 import org.mozilla.fenix.compose.list.FaviconListItem
 import org.mozilla.fenix.compose.tabstray.DismissedTabBackground
 import org.mozilla.fenix.ext.toShortUrl
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import java.io.File
 
 /**
@@ -98,7 +98,7 @@ fun CollectionItem(
             modifier = clippingModifier
                 .fillMaxWidth(),
             shape = if (isLastInCollection) BOTTOM_TAB_SHAPE else MIDDLE_TAB_SHAPE,
-            backgroundColor = FirefoxTheme.colors.layer2,
+            backgroundColor = EyebrowseTheme.colors.layer2,
             elevation = 5.dp,
         ) {
             FaviconListItem(
@@ -134,7 +134,7 @@ private fun Modifier.clipTop() = this.then(
 @Composable
 @LightDarkPreview
 private fun TabInCollectionPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Column {
             CollectionItem(
                 tab = tabPreview,

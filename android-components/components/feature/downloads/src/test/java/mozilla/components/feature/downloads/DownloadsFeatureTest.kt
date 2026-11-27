@@ -1200,7 +1200,7 @@ class DownloadsFeatureTest {
 
         grantPermissions()
 
-        val tab = createTab("https://www.firefox.com")
+        val tab = createTab("https://www.eyebrowse.com")
         store.dispatch(TabListAction.AddTabAction(tab, select = true)).joinBlocking()
 
         verify(feature).dismissAllDownloadDialogs()

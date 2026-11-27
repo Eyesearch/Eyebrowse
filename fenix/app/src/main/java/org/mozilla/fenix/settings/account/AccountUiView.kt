@@ -31,9 +31,9 @@ class AccountUiView(
 
     private val preferenceSignIn =
         fragment.requirePreference<Preference>(R.string.pref_key_sign_in)
-    private val preferenceFirefoxAccount =
+    private val preferenceEyebrowseAccount =
         fragment.requirePreference<AccountPreference>(R.string.pref_key_account)
-    private val preferenceFirefoxAccountAuthError =
+    private val preferenceEyebrowseAccountAuthError =
         fragment.requirePreference<AccountAuthErrorPreference>(R.string.pref_key_account_auth_error)
     private val accountPreferenceCategory =
         fragment.requirePreference<PreferenceCategory>(R.string.pref_key_account_category)
@@ -58,37 +58,37 @@ class AccountUiView(
             if (avatarUrl != null) {
                 avatarJob = scope.launch {
                     val roundedAvatarDrawable = toRoundedDrawable(avatarUrl, context)
-                    preferenceFirefoxAccount.icon = roundedAvatarDrawable ?: genericAvatar(context)
+                    preferenceEyebrowseAccount.icon = roundedAvatarDrawable ?: genericAvatar(context)
                 }
             } else {
                 avatarJob = null
-                preferenceFirefoxAccount.icon = genericAvatar(context)
+                preferenceEyebrowseAccount.icon = genericAvatar(context)
             }
 
             preferenceSignIn.onPreferenceClickListener = null
-            preferenceFirefoxAccountAuthError.isVisible = false
-            preferenceFirefoxAccount.isVisible = true
+            preferenceEyebrowseAccountAuthError.isVisible = false
+            preferenceEyebrowseAccount.isVisible = true
             accountPreferenceCategory.isVisible = true
 
-            preferenceFirefoxAccount.displayName = profile?.displayName
-            preferenceFirefoxAccount.email = profile?.email
+            preferenceEyebrowseAccount.displayName = profile?.displayName
+            preferenceEyebrowseAccount.email = profile?.email
 
             // Signed-in, need to re-authenticate.
         } else if (account != null && accountManager.accountNeedsReauth()) {
-            preferenceFirefoxAccount.isVisible = false
-            preferenceFirefoxAccountAuthError.isVisible = true
+            preferenceEyebrowseAccount.isVisible = false
+            preferenceEyebrowseAccountAuthError.isVisible = true
             accountPreferenceCategory.isVisible = true
 
             preferenceSignIn.isVisible = false
             preferenceSignIn.onPreferenceClickListener = null
 
-            preferenceFirefoxAccountAuthError.email = profile?.email
+            preferenceEyebrowseAccountAuthError.email = profile?.email
 
             // Signed-out.
         } else {
             preferenceSignIn.isVisible = true
-            preferenceFirefoxAccount.isVisible = false
-            preferenceFirefoxAccountAuthError.isVisible = false
+            preferenceEyebrowseAccount.isVisible = false
+            preferenceEyebrowseAccountAuthError.isVisible = false
             accountPreferenceCategory.isVisible = false
         }
     }

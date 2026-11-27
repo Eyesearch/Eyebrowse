@@ -132,11 +132,11 @@
     <string name="mozac_feature_addons_supported_checker_notification_title">پێوەکراوی نوێ بەردەستە</string>
     <!-- The tile of the notification, this will be shown to the user when more than one newly supported add-ons are available.-->
     <string name="mozac_feature_addons_supported_checker_notification_title_plural">پێوەکراوی نوێ بەردەستن</string>
-    <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Firefox). -->
+    <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Eyebrowse). -->
     <string name="mozac_feature_addons_supported_checker_notification_content_one">زیادکردنی %1$s بۆ %2$s</string>
-    <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Firefox). -->
+    <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Eyebrowse). -->
     <string name="mozac_feature_addons_supported_checker_notification_content_two">زیادکردنی %1$s و %2$s بۆ %3$s</string>
-    <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Firefox). -->
+    <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Eyebrowse). -->
     <string name="mozac_feature_addons_supported_checker_notification_content_more_than_two">زیادییان بکە بۆ %1$s</string>
     <!-- This is the caption for the add-on installation progress overlay -->
     <string name="mozac_add_on_install_progress_caption">داگرتن و دڵنیابوونەوە لە پێوەکراو…</string>
@@ -164,7 +164,7 @@
     <string name="mozac_feature_addons_successfully_removed" tools:ignore="UnusedResources">%1$s سڕایەوە بە سەرکەوتووی</string>
     <!-- Text shown after failed to remove an add-on. %1$s is the add-on name. -->
     <string name="mozac_feature_addons_failed_to_remove" tools:ignore="UnusedResources">نەتوانرا %1$s بسڕێتەوە</string>
-    <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Firefox. -->
+    <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Eyebrowse. -->
     <string name="mozac_feature_addons_migrated_from_a_previous_version_label" tools:ignore="UnusedResources">ئەم پێوەکراوە هێنراوە لە وەشانی پێشووی %1$s</string>
     <!-- Text shown in not yet supported add-ons section in AddonsManagerAdapter. -->
     <string name="mozac_feature_addons_unsupported_caption">١ پێوەکراو</string>

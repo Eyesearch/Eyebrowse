@@ -299,20 +299,20 @@
     <string name="onboarding_home_enable_notifications_negative_button">هم‌اکنون نه</string>
 
     <!-- Juno first user onboarding flow experiment, strings are marked unused as they are only referenced by Nimbus experiments. -->
-    <!-- Title for set firefox as default browser screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+    <!-- Title for set eyebrowse as default browser screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_default_browser_title_nimbus" moz:removedIn="120" tools:ignore="UnusedResources">‏Eyebrowse را مروگر پیش‌فرض‌تان کنید</string>
-    <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
+    <!-- Title for set eyebrowse as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_title_nimbus_2">ما عاشق حفظ امنیت شما هستیم</string>
-    <!-- Description for set firefox as default browser screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+    <!-- Description for set eyebrowse as default browser screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_default_browser_description_nimbus" moz:removedIn="120" tools:ignore="UnusedResources">‏‏Eyebrowse مردم را به سود خود ترجیح می‌دهد و با مسدود کردن ردیاب‌های میان‌پایگاهی، از حریم خصوصی شما دفاع می‌کند.\n\nدر نکات حفظ حریم خصوصی ما بیش‌تر بیاموزید.</string>
-    <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
+    <!-- Description for set eyebrowse as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_description_nimbus_2">مرورگر غیرانتفاعی ما به شما کمک می‌کند تا شرکت‌ها مخفیانه شما را در وب دنبال نکنند.\n\nدر خصوص اعلامیه حریم خصوصی ما بیشتر بیاموزید.</string>
-    <!-- Text for the link to the privacy notice webpage for set as firefox default browser screen.
+    <!-- Text for the link to the privacy notice webpage for set as eyebrowse default browser screen.
     This is part of the string with the key "juno_onboarding_default_browser_description". -->
     <string name="juno_onboarding_default_browser_description_link_text" tools:ignore="UnusedResources">نکات حریم خصوصی</string>
-    <!-- Text for the button to set firefox as default browser on the device -->
+    <!-- Text for the button to set eyebrowse as default browser on the device -->
     <string name="juno_onboarding_default_browser_positive_button" tools:ignore="UnusedResources">تنظیم به عنوان مرورگر پیش‌فرض</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_default_browser_negative_button" tools:ignore="UnusedResources">اکنون نه</string>
@@ -323,7 +323,7 @@
     <!-- Description for sign in to sync screen. -->
     <string name="juno_onboarding_sign_in_description" moz:removedIn="120" tools:ignore="UnusedResources">زبانه‌ها و گذرواژه‌ها را از افزاره‌های دیگرتان بگیرید تا از جایی که رها کرده‌اید، ادامه دهید.</string>
     <!-- Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
-     Note: The word "Firefox" should NOT be translated -->
+     Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_sign_in_description_2">وقتی وارد سیستم شده‌اید و همگام‌سازی شده‌اید، ایمن‌تر هستید. فایرفاکس رمزهای عبور، نشانک ها و موارد دیگر شما را رمزگذاری می کند.</string>
     <!-- Text for the button to sign in to sync on the device -->
     <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">ورود</string>
@@ -331,16 +331,16 @@
     <string name="juno_onboarding_sign_in_negative_button" tools:ignore="UnusedResources">اکنون نه</string>
 
     <!-- Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_enable_notifications_title_nimbus" moz:removedIn="120" tools:ignore="UnusedResources">آگاهی‌ها کمک می‌کنند تا با Eyebrowse کار‌های بیش‌تری بکنید</string>
     <!-- Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_enable_notifications_title_nimbus_2">آگاهی‌ها کمک می‌کنند تا با Eyebrowse امن‌ تر بکنید</string>
     <!-- Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-       Note: The word "Firefox" should NOT be translated -->
+       Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_enable_notifications_description_nimbus" moz:removedIn="120" tools:ignore="UnusedResources">ارسال زبانه‌ها میان افزاره‌ها، مدیریت بارگیری‌ها، و دریافت نکاتی راجع به بهره‌گیری هر چه بیش‌تر از Eyebrowse.</string>
     <!-- Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-       Note: The word "Firefox" should NOT be translated -->
+       Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_enable_notifications_description_nimbus_2">به طور ایمن برگه ها را بین دستگاه های خود ارسال کنید و سایر ویژگی های حریم خصوصی را در Eyebrowse کشف کنید.</string>
     <!-- Text for the button to request notification permission on the device -->
     <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">روشن کردن آگاهی‌ها</string>
@@ -348,7 +348,7 @@
     <string name="juno_onboarding_enable_notifications_negative_button" tools:ignore="UnusedResources">اکنون نه</string>
 
     <!-- Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_add_search_widget_title" tools:ignore="UnusedResources">ویجت جستجوی Eyebrowse را امتحان کنید</string>
 
     <!-- Search Widget -->
@@ -481,7 +481,7 @@
     <string name="errorpage_httpsonly_message_summary">با این حال، همچنین ممکن است که یک ردیاب، درگیر باشد. اگر به وبگاه ادامه می‌دهید، نباید هیچ اطلاعات حساسی را وارد کنید. اگر ادامه دهید، حالت فقط-HTTPS به طور موقت برای پایگاه خاموش می‌شود.</string>
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">دسترسی‌پذیری</string>
-    <!-- Preference to override the Firefox Account server -->
+    <!-- Preference to override the Eyebrowse Account server -->
     <string name="preferences_override_fxa_server" moz:RemovedIn="120" tools:ignore="UnusedResources">کارساز سفارشی حساب فایرفاکس</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">کارساز همگام‌سازی سفارشی</string>
@@ -611,7 +611,7 @@
     <string name="wallpaper_select_error_snackbar_message">نتوانست کاغذدیواری را تغییر دهد</string>
     <!-- Text displayed that links to website containing documentation about the "Limited Edition" wallpapers. -->
     <string name="wallpaper_learn_more">بیشتر بدانید</string>
-    <!-- Text for classic wallpapers title. The first parameter is the Firefox name. -->
+    <!-- Text for classic wallpapers title. The first parameter is the Eyebrowse name. -->
     <string name="wallpaper_classic_title">‏%s سنتی</string>
     <!-- Text for artist series wallpapers title. "Artist series" represents a collection of artist collaborated wallpapers. -->
     <string name="wallpaper_artist_series_title">سریال هنرمند</string>
@@ -629,7 +629,7 @@
     <!-- Add-ons general availability nimbus message-->
     <!-- Title of the Nimbus message for add-ons general availability-->
     <string name="addon_ga_message_title" tools:ignore="UnusedResources">افزونه‌های جدید موجود است</string>
-    <!-- Body of the Nimbus message for add-ons general availability. 'Firefox' intentionally hardcoded here-->
+    <!-- Body of the Nimbus message for add-ons general availability. 'Eyebrowse' intentionally hardcoded here-->
     <string name="addon_ga_message_body" tools:ignore="UnusedResources">بیش از 100 افزونه جدید را بررسی کنید که به شما امکان می دهد Eyebrowse را متعلق به خود کنید.</string>
 
     <!-- Button text of the Nimbus message for add-ons general availability. -->
@@ -642,7 +642,7 @@
     <string name="addon_already_installed" moz:removedIn="120" tools:ignore="UnusedResources">افزونه قبلاً نصب شده است</string>
 
     <!-- Account Preferences -->
-    <!-- Preference for managing your account via accounts.firefox.com -->
+    <!-- Preference for managing your account via accounts.eyebrowse.com -->
     <string name="preferences_manage_account">مدیریت حساب</string>
     <!-- Preference for triggering sync -->
     <string name="preferences_sync_now">هم اکنون همگام سازی کن</string>
@@ -867,7 +867,7 @@
     <!-- Title of the active section on the studies list -->
     <string name="studies_active">فعال</string>
 
-    <!-- Description for studies, it indicates why Firefox use studies. The first parameter is the name of the application. -->
+    <!-- Description for studies, it indicates why Eyebrowse use studies. The first parameter is the name of the application. -->
     <string name="studies_description_2">%1$s ممکن است گاهی تحقیقاتی را نصب و اجرا کند.</string>
     <!-- Learn more link for studies, links to an article for more information about studies. -->
     <string name="studies_learn_more">بیشتر بدانید</string>
@@ -1418,7 +1418,7 @@
 
     <!-- Onboarding -->
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">همگام سازی روشن است</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">همگام سازی روشن است</string>
 
     <!-- Onboarding theme -->
     <!-- Text shown in snackbar when multiple tabs have been sent to device -->
@@ -1439,9 +1439,9 @@
     <string name="sign_in_with_camera">با دوربین خود وارد سیستم شوید</string>
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">به جای آن از رایانامه استفاده کنید</string>
-    <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
+    <!-- Text shown for settings option for create new account text.'Eyebrowse' intentionally hardcoded here.-->
     <string name="sign_in_create_account_text"><![CDATA[حسابی ندارید؟ برای هم‌گام‌سازی بین دستگاه‌های خود <u>یکی ایجاد کنید</u>.]]></string>
-    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="sign_out_confirmation_message_2">%s همگام سازی با حساب شما را متوقف خواهد کرد، ولی هیچ کدوم از داده‌های شما بر روی این مرورگر حذف نخواهد شد.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
     <string name="sign_out_disconnect">قطع ارتباط</string>
@@ -1457,7 +1457,7 @@
     <string name="preference_enhanced_tracking_protection">محافظت پیشرفته در برابر ردیابی</string>
     <!-- Preference summary for enhanced tracking protection settings on/off switch -->
     <string name="preference_enhanced_tracking_protection_summary">هم‌اکنون دارای محافظت کامل در برابر کلوچک است؛ قدرتمندترین سد ما بر ضدّ ردیاب‌های میان‌پایگاهی.</string>
-    <!-- Description of enhanced tracking protection. The parameter is the name of the application (For example: Firefox Fenix) -->
+    <!-- Description of enhanced tracking protection. The parameter is the name of the application (For example: Eyebrowse Fenix) -->
     <string name="preference_enhanced_tracking_protection_explanation_2">‏%s شما را از بسیاری از ردیاب‌های رایج که فعالیت‌های برخط‌تان را پی می‌گیرند، محافظت می‌کند.</string>
     <!-- Text displayed that links to website about enhanced tracking protection -->
     <string name="preference_enhanced_tracking_protection_explanation_learn_more">بیشتر بدانید</string>
@@ -1614,9 +1614,9 @@
     <!-- Preference option for never saving passwords in Fenix -->
     <string name="preferences_passwords_save_logins_never_save">هرگز ذخیره نکن</string>
 
-    <!-- Preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill2">پرکننده خودکار در %1$s</string>
-    <!-- Description for the preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Description for the preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill_description">هنگام استفاده از %1$s ، نام کاربری و گذرواژه ها را در وب سایت ها پر و ذخیره کنید.</string>
     <!-- Preference for autofilling logins from Fenix in other apps (e.g. autofilling the Twitter app) -->
     <string name="preferences_android_autofill">تکمیل خودکار در برنامه های دیگر</string>
@@ -1967,13 +1967,13 @@
     <string name="synced_tabs_connect_another_device">اتصال به افزاره‌ای دیگر.</string>
     <!-- Text displayed asking user to re-authenticate -->
     <string name="synced_tabs_reauth">لطفا مجددا تایید کنید.</string>
-    <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+    <!-- Text displayed when user has disabled tab syncing in Eyebrowse Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">لطفاً همگام‌سازی زبانه را به کار بیندازید.</string>
     <!-- Text displayed when user has no tabs that have been synced -->
     <string name="synced_tabs_no_tabs">شما هیچ زبانهٔ باز دیگری در Eyebrowse روی افزاره‌های دیگرتان ندارید.</string>
-    <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+    <!-- Text displayed in the synced tabs screen when a user is not signed in to Eyebrowse Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">نمایش فهرستی از زبانه‌ها از افزاره‌های دیگر شما.</string>
-    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Eyebrowse Sync -->
     <string name="synced_tabs_sign_in_button">برای همگام‌سازی وارد شوید</string>
 
     <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->
@@ -2032,8 +2032,8 @@
     <string name="inactive_tabs_auto_close_message_snackbar">بستن خودکار، فعّال شد</string>
 
     <!-- Awesome bar suggestion's headers -->
-    <!-- Search suggestions title for Firefox Suggest. -->
-    <string name="firefox_suggest_header">پیشنهادهای Eyebrowse</string>
+    <!-- Search suggestions title for Eyebrowse Suggest. -->
+    <string name="eyebrowse_suggest_header">پیشنهادهای Eyebrowse</string>
 
     <!-- Title for search suggestions when Google is the default search suggestion engine. -->
     <string name="google_search_engine_suggestion_header">جست‌وجوی گوگل</string>
@@ -2086,6 +2086,6 @@
     <string name="a11y_action_label_wallpaper_collection_learn_more">برای آموختن بیش‌تر دربارهٔ این مجموعه، پیوند را باز کنید</string>
     <!-- Action label for links that point to an article. Talkback will append this to say "Double tap to read the article". -->
     <string name="a11y_action_label_read_article">خواندن مقاله</string>
-    <!-- Action label for links to the Firefox Pocket website. Talkback will append this to say "Double tap to open link to learn more". -->
+    <!-- Action label for links to the Eyebrowse Pocket website. Talkback will append this to say "Double tap to open link to learn more". -->
     <string name="a11y_action_label_pocket_learn_more">برای آموختن بیش‌تر، پیوند را باز کنید</string>
 </resources>

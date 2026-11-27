@@ -527,7 +527,7 @@ class ToolbarPresenterTest {
 
     @Test
     fun `GIVEN search terms should be shown in display mode WHEN rendering a state with search terms set THEN toolbar url is set to the search terms`() {
-        val searchTerm = "mozilla firefox"
+        val searchTerm = "mozilla eyebrowse"
         val toolbar: Toolbar = mock()
         val store = spy(
             BrowserStore(

@@ -41,26 +41,26 @@ object SupportUtils {
         HELP("faq-android"),
         PRIVATE_BROWSING_MYTHS("common-myths-about-private-browsing"),
         YOUR_RIGHTS("your-rights"),
-        TRACKING_PROTECTION("tracking-protection-firefox-android"),
+        TRACKING_PROTECTION("tracking-protection-eyebrowse-android"),
         TOTAL_COOKIE_PROTECTION("enhanced-tracking-protection-android"),
-        OPT_OUT_STUDIES("how-opt-out-studies-firefox-android"),
+        OPT_OUT_STUDIES("how-opt-out-studies-eyebrowse-android"),
         SEND_TABS("send-tab-preview"),
-        SET_AS_DEFAULT_BROWSER("make-firefox-default-browser-android"),
-        SEARCH_SUGGESTION("how-search-firefox-preview"),
+        SET_AS_DEFAULT_BROWSER("make-eyebrowse-default-browser-android"),
+        SEARCH_SUGGESTION("how-search-eyebrowse-preview"),
         CUSTOM_SEARCH_ENGINES("custom-search-engines"),
-        SYNC_SETUP("how-set-firefox-sync-firefox-android"),
+        SYNC_SETUP("how-set-eyebrowse-sync-eyebrowse-android"),
         QR_CAMERA_ACCESS("qr-camera-access"),
         SMARTBLOCK("smartblock-enhanced-tracking-protection"),
         SPONSOR_PRIVACY("sponsor-privacy"),
-        HTTPS_ONLY_MODE("https-only-mode-firefox-android"),
+        HTTPS_ONLY_MODE("https-only-mode-eyebrowse-android"),
         UNSIGNED_ADDONS("unsigned-addons"),
         REVIEW_QUALITY_CHECK("review_checker_mobile"),
-        FX_SUGGEST("search-suggestions-firefox"),
+        FX_SUGGEST("search-suggestions-eyebrowse"),
         TRANSLATIONS("android-translation"),
     }
 
     enum class MozillaPage(internal val path: String) {
-        PRIVATE_NOTICE("privacy/firefox/"),
+        PRIVATE_NOTICE("privacy/eyebrowse/"),
         MANIFESTO("about/manifesto/"),
     }
 
@@ -86,7 +86,7 @@ object SupportUtils {
     fun getGenericSumoURLForTopic(topic: SumoTopic, locale: Locale = Locale.getDefault()): String =
         EYEBROWSE_HOME_URL
 
-    fun getFirefoxAccountSumoUrl(): String = EYEBROWSE_HOME_URL
+    fun getEyebrowseAccountSumoUrl(): String = EYEBROWSE_HOME_URL
 
     @Suppress("UNUSED_PARAMETER")
     fun getMozillaPageUrl(page: MozillaPage, locale: Locale = Locale.getDefault()): String {
@@ -109,7 +109,7 @@ object SupportUtils {
         createCustomTabIntent(context, url).setClassName(context, AuthIntentReceiverActivity::class.java.name)
 
     /**
-     * Custom tab that cannot open the content in Firefox directly.
+     * Custom tab that cannot open the content in Eyebrowse directly.
      * This ensures the content is contained to this custom tab only.
      */
     fun createSandboxCustomTabIntent(context: Context, url: String): Intent =

@@ -54,7 +54,7 @@ class InContentTelemetryTest {
         ),
         SearchProviderModel(
             schema = 1671479978127,
-            taggedCodes = listOf("firefox-b-m", "fpas", "lm"),
+            taggedCodes = listOf("eyebrowse-b-m", "fpas", "lm"),
             telemetryId = "example",
             organicCodes = listOf("foo"),
             codeParamName = "pc",
@@ -65,7 +65,7 @@ class InContentTelemetryTest {
         ),
         SearchProviderModel(
             schema = 1671479978127,
-            taggedCodes = listOf("firefox-b-m", "fpas", "lm"),
+            taggedCodes = listOf("eyebrowse-b-m", "fpas", "lm"),
             telemetryId = "duckduckgo",
             organicCodes = emptyList(),
             codeParamName = "t",
@@ -76,7 +76,7 @@ class InContentTelemetryTest {
         ),
         SearchProviderModel(
             schema = 1671479978127,
-            taggedCodes = listOf("firefox-b-m", "fpas", "def"),
+            taggedCodes = listOf("eyebrowse-b-m", "fpas", "def"),
             telemetryId = "google",
             organicCodes = emptyList(),
             codeParamName = "client",
@@ -171,7 +171,7 @@ class InContentTelemetryTest {
 
     @Test
     fun `GIVEN a Google search WHEN trackPartnerUrlTypeMetric is called THEN emit an appropriate IN_CONTENT_SEARCH fact`() {
-        val url = "https://www.google.com/search?q=aaa&client=firefox-b-m"
+        val url = "https://www.google.com/search?q=aaa&client=eyebrowse-b-m"
         telemetry.providerList = createMockProviderList()
 
         val facts = mutableListOf<Fact>()
@@ -188,7 +188,7 @@ class InContentTelemetryTest {
         assertEquals(Component.FEATURE_SEARCH, facts[0].component)
         assertEquals(Action.INTERACTION, facts[0].action)
         assertEquals(InContentTelemetry.IN_CONTENT_SEARCH, facts[0].item)
-        assertEquals("google.in-content.sap.firefox-b-m", facts[0].value)
+        assertEquals("google.in-content.sap.eyebrowse-b-m", facts[0].value)
     }
 
     @Test
@@ -237,7 +237,7 @@ class InContentTelemetryTest {
 
     @Test
     fun `GIVEN a Google sap-follow-on WHEN trackPartnerUrlTypeMetric is called THEN emit an appropriate IN_CONTENT_SEARCH fact`() {
-        val url = "https://www.google.com/search?q=aaa&client=firefox-b-m&oq=random"
+        val url = "https://www.google.com/search?q=aaa&client=eyebrowse-b-m&oq=random"
         telemetry.providerList = createMockProviderList()
         val facts = mutableListOf<Fact>()
         Facts.registerProcessor(
@@ -254,12 +254,12 @@ class InContentTelemetryTest {
         assertEquals(Component.FEATURE_SEARCH, facts[0].component)
         assertEquals(Action.INTERACTION, facts[0].action)
         assertEquals(InContentTelemetry.IN_CONTENT_SEARCH, facts[0].item)
-        assertEquals("google.in-content.sap-follow-on.firefox-b-m", facts[0].value)
+        assertEquals("google.in-content.sap-follow-on.eyebrowse-b-m", facts[0].value)
     }
 
     @Test
     fun `GIVEN an invalid Google sap-follow-on WHEN trackPartnerUrlTypeMetric is called THEN emit an appropriate IN_CONTENT_SEARCH fact`() {
-        val url = "https://www.google.com/search?q=aaa&client=firefox-b-mTesting&oq=random"
+        val url = "https://www.google.com/search?q=aaa&client=eyebrowse-b-mTesting&oq=random"
         telemetry.providerList = createMockProviderList()
         val facts = mutableListOf<Fact>()
         Facts.registerProcessor(
@@ -281,7 +281,7 @@ class InContentTelemetryTest {
 
     @Test
     fun `GIVEN a Google sap-follow-on from topSite WHEN trackPartnerUrlTypeMetric is called THEN emit an appropriate IN_CONTENT_SEARCH fact`() {
-        val url = "https://www.google.com/search?q=aaa&client=firefox-b-m&channel=ts&oq=random"
+        val url = "https://www.google.com/search?q=aaa&client=eyebrowse-b-m&channel=ts&oq=random"
         telemetry.providerList = createMockProviderList()
         val facts = mutableListOf<Fact>()
         Facts.registerProcessor(
@@ -298,12 +298,12 @@ class InContentTelemetryTest {
         assertEquals(Component.FEATURE_SEARCH, facts[0].component)
         assertEquals(Action.INTERACTION, facts[0].action)
         assertEquals(InContentTelemetry.IN_CONTENT_SEARCH, facts[0].item)
-        assertEquals("google.in-content.sap-follow-on.firefox-b-m.ts", facts[0].value)
+        assertEquals("google.in-content.sap-follow-on.eyebrowse-b-m.ts", facts[0].value)
     }
 
     @Test
     fun `GIVEN an invalid Google channel from topSite WHEN trackPartnerUrlTypeMetric is called THEN emit an appropriate IN_CONTENT_SEARCH fact`() {
-        val url = "https://www.google.com/search?q=aaa&client=firefox-b-m&channel=tsTest&oq=random"
+        val url = "https://www.google.com/search?q=aaa&client=eyebrowse-b-m&channel=tsTest&oq=random"
         telemetry.providerList = createMockProviderList()
         val facts = mutableListOf<Fact>()
         Facts.registerProcessor(
@@ -320,7 +320,7 @@ class InContentTelemetryTest {
         assertEquals(Component.FEATURE_SEARCH, facts[0].component)
         assertEquals(Action.INTERACTION, facts[0].action)
         assertEquals(InContentTelemetry.IN_CONTENT_SEARCH, facts[0].item)
-        assertEquals("google.in-content.sap-follow-on.firefox-b-m", facts[0].value)
+        assertEquals("google.in-content.sap-follow-on.eyebrowse-b-m", facts[0].value)
     }
 
     @Test

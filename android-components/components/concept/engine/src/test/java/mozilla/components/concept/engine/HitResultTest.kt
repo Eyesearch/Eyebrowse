@@ -18,8 +18,8 @@ class HitResultTest {
         result = HitResult.IMAGE("https://mozilla.org/i.png")
         assertEquals(result.src, "https://mozilla.org/i.png")
 
-        result = HitResult.IMAGE_SRC("https://mozilla.org/i.png", "https://firefox.com")
+        result = HitResult.IMAGE_SRC("https://mozilla.org/i.png", "https://eyebrowse.com")
         assertEquals(result.src, "https://mozilla.org/i.png")
-        assertEquals(result.uri, "https://firefox.com")
+        assertEquals(result.uri, "https://eyebrowse.com")
     }
 }

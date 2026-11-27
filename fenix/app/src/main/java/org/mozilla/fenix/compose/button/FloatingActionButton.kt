@@ -28,7 +28,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Floating action button.
@@ -56,8 +56,8 @@ fun FloatingActionButton(
     FloatingActionButton(
         onClick = onClick,
         modifier = modifier,
-        backgroundColor = FirefoxTheme.colors.actionPrimary,
-        contentColor = FirefoxTheme.colors.textActionPrimary,
+        backgroundColor = EyebrowseTheme.colors.actionPrimary,
+        contentColor = EyebrowseTheme.colors.textActionPrimary,
         elevation = elevation,
     ) {
         Row(
@@ -70,7 +70,7 @@ fun FloatingActionButton(
             Icon(
                 painter = icon,
                 contentDescription = contentDescription,
-                tint = FirefoxTheme.colors.iconOnColor,
+                tint = EyebrowseTheme.colors.iconOnColor,
             )
 
             if (!label.isNullOrBlank()) {
@@ -78,7 +78,7 @@ fun FloatingActionButton(
 
                 Text(
                     text = label,
-                    style = FirefoxTheme.typography.button,
+                    style = EyebrowseTheme.typography.button,
                     maxLines = 1,
                 )
             }
@@ -91,7 +91,7 @@ fun FloatingActionButton(
 private fun FloatingActionButtonPreview() {
     var label by remember { mutableStateOf<String?>("LABEL") }
 
-    FirefoxTheme {
+    EyebrowseTheme {
         Box(Modifier.wrapContentSize()) {
             FloatingActionButton(
                 label = label,

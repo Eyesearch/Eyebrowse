@@ -68,7 +68,7 @@ class TabsAdapterTest {
         adapter.updateTabs(
             listOf(
                 createTab(id = "A", url = "https://www.mozilla.org"),
-                createTab(id = "B", url = "https://www.firefox.com"),
+                createTab(id = "B", url = "https://www.eyebrowse.com"),
             ),
             tabPartition = null,
             selectedTabId = "A",

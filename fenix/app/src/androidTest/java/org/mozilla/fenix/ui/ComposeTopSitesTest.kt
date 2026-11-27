@@ -26,7 +26,7 @@ import org.mozilla.fenix.ui.robots.navigationToolbar
 /**
  * Tests Top Sites functionality
  *
- * - Verifies 'Add to Firefox Home' UI functionality
+ * - Verifies 'Add to Eyebrowse Home' UI functionality
  * - Verifies 'Top Sites' context menu UI functionality
  * - Verifies 'Top Site' usage UI functionality
  * - Verifies existence of default top sites available on the home-screen
@@ -56,7 +56,7 @@ class ComposeTopSitesTest : TestSetup() {
         }.openThreeDotMenu {
             expandMenu()
             verifyAddToShortcutsButton(true)
-        }.addToFirefoxHome {
+        }.addToEyebrowseHome {
             verifySnackBarText(getStringResource(R.string.snackbar_added_to_shortcuts))
         }.goToHomescreenWithComposeTopSites(composeTestRule) {
             verifyExistingTopSitesList()
@@ -78,7 +78,7 @@ class ComposeTopSitesTest : TestSetup() {
         }.openThreeDotMenu {
             expandMenu()
             verifyAddToShortcutsButton(true)
-        }.addToFirefoxHome {
+        }.addToEyebrowseHome {
             verifySnackBarText(getStringResource(R.string.snackbar_added_to_shortcuts))
         }.goToHomescreenWithComposeTopSites(composeTestRule) {
             verifyExistingTopSitesList()
@@ -110,7 +110,7 @@ class ComposeTopSitesTest : TestSetup() {
         }.openThreeDotMenu {
             expandMenu()
             verifyAddToShortcutsButton(true)
-        }.addToFirefoxHome {
+        }.addToEyebrowseHome {
             verifySnackBarText(getStringResource(R.string.snackbar_added_to_shortcuts))
         }.goToHomescreenWithComposeTopSites(composeTestRule) {
             verifyExistingTopSitesList()
@@ -137,7 +137,7 @@ class ComposeTopSitesTest : TestSetup() {
         }.openThreeDotMenu {
             expandMenu()
             verifyAddToShortcutsButton(true)
-        }.addToFirefoxHome {
+        }.addToEyebrowseHome {
             verifySnackBarText(getStringResource(R.string.snackbar_added_to_shortcuts))
         }.goToHomescreenWithComposeTopSites(composeTestRule) {
             verifyExistingTopSitesList()
@@ -164,7 +164,7 @@ class ComposeTopSitesTest : TestSetup() {
         }.openThreeDotMenu {
             expandMenu()
             verifyAddToShortcutsButton(true)
-        }.addToFirefoxHome {
+        }.addToEyebrowseHome {
             verifySnackBarText(getStringResource(R.string.snackbar_added_to_shortcuts))
         }.goToHomescreenWithComposeTopSites(composeTestRule) {
             verifyExistingTopSitesList()
@@ -195,7 +195,7 @@ class ComposeTopSitesTest : TestSetup() {
         }.openThreeDotMenu {
             expandMenu()
             verifyAddToShortcutsButton(true)
-        }.addToFirefoxHome {
+        }.addToEyebrowseHome {
             verifySnackBarText(getStringResource(R.string.snackbar_added_to_shortcuts))
         }.goToHomescreenWithComposeTopSites(composeTestRule) {
             verifyExistingTopSitesList()

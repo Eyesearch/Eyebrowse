@@ -41,8 +41,8 @@ import org.mockito.Mockito.verify
 @RunWith(AndroidJUnit4::class)
 class SearchTermSuggestionsProviderTest {
     private val historyEntry = HistoryMetadata(
-        key = HistoryMetadataKey("http://www.mozilla.com/search?q=firefox", "fire", null),
-        title = "Firefox",
+        key = HistoryMetadataKey("http://www.mozilla.com/search?q=eyebrowse", "fire", null),
+        title = "Eyebrowse",
         createdAt = System.currentTimeMillis(),
         updatedAt = System.currentTimeMillis(),
         totalViewTime = 10,
@@ -54,7 +54,7 @@ class SearchTermSuggestionsProviderTest {
 
     @Before
     fun setup() = runTest {
-        doReturn("http://www.mozilla.com/search?q=firefox".toUri()).`when`(searchEngine).resultsUrl
+        doReturn("http://www.mozilla.com/search?q=eyebrowse".toUri()).`when`(searchEngine).resultsUrl
         doReturn(listOf(historyEntry)).`when`(storage).getHistoryMetadataSince(Long.MIN_VALUE)
     }
 
@@ -229,7 +229,7 @@ class SearchTermSuggestionsProviderTest {
                 createdAt = 2,
             ),
             historyEntry.copy(
-                key = historyEntry.key.copy(searchTerm = "firefox"),
+                key = historyEntry.key.copy(searchTerm = "eyebrowse"),
                 createdAt = 3,
             ),
         )

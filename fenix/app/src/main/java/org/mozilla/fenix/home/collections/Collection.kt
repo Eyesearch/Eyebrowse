@@ -42,7 +42,7 @@ import org.mozilla.fenix.compose.ContextualMenu
 import org.mozilla.fenix.compose.MenuItem
 import org.mozilla.fenix.compose.list.ExpandableListHeader
 import org.mozilla.fenix.ext.getIconColor
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.theme.Theme
 
 /**
@@ -90,7 +90,7 @@ fun Collection(
             )
             .height(48.dp),
         shape = if (isExpanded) expandedCollectionShape else collapsedCollectionShape,
-        backgroundColor = FirefoxTheme.colors.layer2,
+        backgroundColor = EyebrowseTheme.colors.layer2,
         elevation = 5.dp,
     ) {
         Row(
@@ -113,7 +113,7 @@ fun Collection(
 
             ExpandableListHeader(
                 headerText = collection.title,
-                headerTextStyle = FirefoxTheme.typography.headline7,
+                headerTextStyle = EyebrowseTheme.typography.headline7,
                 expanded = isExpanded,
             ) {
                 if (isExpanded) {
@@ -124,7 +124,7 @@ fun Collection(
                             Icon(
                                 painter = painterResource(drawable.ic_share),
                                 contentDescription = stringResource(string.share_button_content_description),
-                                tint = FirefoxTheme.colors.iconPrimary,
+                                tint = EyebrowseTheme.colors.iconPrimary,
                             )
                         }
 
@@ -138,7 +138,7 @@ fun Collection(
                                 contentDescription = stringResource(
                                     string.collection_menu_button_content_description,
                                 ),
-                                tint = FirefoxTheme.colors.iconPrimary,
+                                tint = EyebrowseTheme.colors.iconPrimary,
                             )
 
                             ContextualMenu(
@@ -157,7 +157,7 @@ fun Collection(
 @Composable
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 private fun CollectionDarkPreview() {
-    FirefoxTheme(Theme.Dark) {
+    EyebrowseTheme(Theme.Dark) {
         Collection(
             collection = collectionPreview,
             expanded = false,
@@ -171,7 +171,7 @@ private fun CollectionDarkPreview() {
 @Composable
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
 private fun CollectionDarkExpandedPreview() {
-    FirefoxTheme(Theme.Dark) {
+    EyebrowseTheme(Theme.Dark) {
         Collection(
             collection = collectionPreview,
             expanded = true,
@@ -185,7 +185,7 @@ private fun CollectionDarkExpandedPreview() {
 @Composable
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_NO)
 private fun CollectionLightPreview() {
-    FirefoxTheme(Theme.Light) {
+    EyebrowseTheme(Theme.Light) {
         Collection(
             collection = collectionPreview,
             expanded = false,
@@ -199,7 +199,7 @@ private fun CollectionLightPreview() {
 @Composable
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_NO)
 private fun CollectionLightExpandedPreview() {
-    FirefoxTheme(Theme.Light) {
+    EyebrowseTheme(Theme.Light) {
         Collection(
             collection = collectionPreview,
             expanded = true,

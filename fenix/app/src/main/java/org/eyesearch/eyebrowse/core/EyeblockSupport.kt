@@ -31,6 +31,9 @@ object EyeblockSupport {
      * browser. It is separate from the blocker on purpose: the blocker stops ads and trackers,
      * this stops the engine talking to the people who built it.
      */
+    private const val PREFS = "eyebrowse_shield"
+    private const val KEY_SHIELD = "shield_enabled"
+
     private const val SHIELD_ID = "eyeshield@eyesearch.org"
     private const val SHIELD_URL = "resource://android/assets/extensions/eyeshield/"
 
@@ -38,8 +41,8 @@ object EyeblockSupport {
      * Installs the bundled blocker once, at startup, and leaves it enabled or disabled to match
      * the user's switch.
      */
-    fun install(engine: Engine, enabled: Boolean) {
-        installShield(engine)
+    fun install(engine: Engine, enabled: Boolean, shieldDefault: Boolean = true) {
+        installShield(engine, shieldEnabled = shieldDefault)
         engine.installBuiltInWebExtension(
             id = EXTENSION_ID,
             url = EXTENSION_URL,
@@ -79,16 +82,44 @@ object EyeblockSupport {
             },
         )
     }
+    /** Whether EyeShield should run. Stored in the app's own preferences, default on. */
+    fun isShieldEnabled(context: android.content.Context): Boolean =
+        context.getSharedPreferences(PREFS, android.content.Context.MODE_PRIVATE)
+            .getBoolean(KEY_SHIELD, true)
+
+    fun setShieldEnabled(context: android.content.Context, enabled: Boolean) {
+        context.getSharedPreferences(PREFS, android.content.Context.MODE_PRIVATE)
+            .edit().putBoolean(KEY_SHIELD, enabled).apply()
+    }
+
+    /** Turns the running extension on or off without a restart. */
+    fun setShieldRunning(engine: Engine, enabled: Boolean) {
+        engine.listInstalledWebExtensions(
+            onSuccess = { extensions ->
+                val extension = extensions.firstOrNull { it.id == SHIELD_ID } ?: return@listInstalledWebExtensions
+                if (enabled) {
+                    engine.enableWebExtension(extension, onSuccess = { }, onError = { })
+                } else {
+                    engine.disableWebExtension(extension, onSuccess = { }, onError = { })
+                }
+            },
+            onError = { error -> Log.w(TAG, "could not list extensions: ${error.message}") },
+        )
+    }
+
     /**
      * EyeShield is installed whatever the blocker switch says. Turning EyeBlock off is a choice
      * about ads; it is not a choice about whether our browser is allowed to phone Mozilla.
      */
-    private fun installShield(engine: Engine) {
+    private fun installShield(engine: Engine, shieldEnabled: Boolean) {
         engine.installBuiltInWebExtension(
             id = SHIELD_ID,
             url = SHIELD_URL,
             onSuccess = { extension ->
                 engine.setAllowedInPrivateBrowsing(extension, allowed = true)
+                if (!shieldEnabled) {
+                    engine.disableWebExtension(extension, onSuccess = { }, onError = { })
+                }
             },
             onError = { error ->
                 Log.w(TAG, "EyeShield could not be installed: ${error.message}")

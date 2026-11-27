@@ -303,23 +303,23 @@
     <string name="onboarding_home_enable_notifications_negative_button">Sī ga\'hue akuan\' nïn</string>
 
     <!-- Juno first user onboarding flow experiment, strings are marked unused as they are only referenced by Nimbus experiments. -->
-    <!-- Title for set firefox as default browser screen.
+    <!-- Title for set eyebrowse as default browser screen.
         The first parameter is the name of the app defined in app_name (for example: Fenix) -->
     <string name="juno_onboarding_default_browser_title" moz:RemovedIn="117" tools:ignore="UnusedResources">Nā’nïnj %s da’ gāhuin man riña aché nana’hui’ yītïnjt</string>
-    <!-- Title for set firefox as default browser screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+    <!-- Title for set eyebrowse as default browser screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_default_browser_title_nimbus" tools:ignore="UnusedResources">Nā’nïnj Eyebrowse da’ gāhuin man riña aché nana’hui’ yītïnjt</string>
-    <!-- Description for set firefox as default browser screen.
-        The first parameter is the Firefox brand name.
+    <!-- Description for set eyebrowse as default browser screen.
+        The first parameter is the Eyebrowse brand name.
         The second parameter is the string with key "juno_onboarding_default_browser_description_link_text". -->
     <string name="juno_onboarding_default_browser_description" moz:RemovedIn="117" tools:ignore="UnusedResources">Ñā’ān doj huin guìi riña %1$s ngà da’ san’ānj an yī’ì dan naran riña nej sa gā’hue nāga’nāj sò’.\n \nGīni’hiāj doj nùhuin si huā rayi’ij riña %2$s.</string>
-    <!-- Description for set firefox as default browser screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+    <!-- Description for set eyebrowse as default browser screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_default_browser_description_nimbus" tools:ignore="UnusedResources">Ñā\’ān doj huin guìi riña Eyebrowse ngà da\’ san’ānj an yī\’ì dan naran riña nej sa gā\’hue nāga\’nāj sò’.\n \nGīni\’hiāj doj nùhuin si huā rayi\’ij riña nej nuguan\' huā hiuj nan.</string>
-    <!-- Text for the link to the privacy notice webpage for set as firefox default browser screen.
+    <!-- Text for the link to the privacy notice webpage for set as eyebrowse default browser screen.
     This is part of the string with the key "juno_onboarding_default_browser_description". -->
     <string name="juno_onboarding_default_browser_description_link_text" tools:ignore="UnusedResources">nuguan\' huì hūa rayi\'ij</string>
-    <!-- Text for the button to set firefox as default browser on the device -->
+    <!-- Text for the button to set eyebrowse as default browser on the device -->
     <string name="juno_onboarding_default_browser_positive_button" tools:ignore="UnusedResources">Dūnâj gāhuin man riña sa nānà\'uì\' yītïnjt</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_default_browser_negative_button" tools:ignore="UnusedResources">Sī ga\'hue akuan\' nïn</string>
@@ -335,13 +335,13 @@
         The first parameter is the name of the app defined in app_name (for example: Fenix) -->
     <string name="juno_onboarding_enable_notifications_title" moz:RemovedIn="117" tools:ignore="UnusedResources">Gā’hue rūgûñu’ūnj nej nuguan’ rugui’ nan da’ nūtà’t doj sa gī’hiát riña %s</string>
     <!-- Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_enable_notifications_title_nimbus" tools:ignore="UnusedResources">Gā’hue rūgûñu’ūnj nej nuguan’ rugui’ nan da’ nūtà’t doj sa gī’hiát riña Eyebrowse</string>
     <!-- Description for enable notification permission screen.
         The first parameter is the name of the app defined in app_name (for example: Fenix) -->
     <string name="juno_onboarding_enable_notifications_description" moz:RemovedIn="117" tools:ignore="UnusedResources">Gā’hue gārasun nadunât nej rakïj ñanj riña nej si āgâ’t, nātsít nej sa nadunïnjt nī nārì’t hiūj nan nej nuguan’ rūgûñu’ūnj sò’ da’ gāche un hue’êt doj riña %s.</string>
     <!-- Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-       Note: The word "Firefox" should NOT be translated   -->
+       Note: The word "Eyebrowse" should NOT be translated   -->
     <string name="juno_onboarding_enable_notifications_description_nimbus" tools:ignore="UnusedResources">Gā’hue gārasun nadunât nej rakïj ñanj riña nej si āgâ’t, nātsít nej sa nadunïnjt nī nārì’t hiūj nan nej nuguan’ rūgûñu’ūnj sò’ da’ gāche un hue’êt doj riña Eyebrowse.</string>
     <!-- Text for the button to request notification permission on the device -->
     <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">Nāchrūn nej nuguan’ atāj na’ānj an</string>
@@ -485,7 +485,7 @@
     <string name="errorpage_httpsonly_message_summary">Si gūruhuaj nī, huā ‘ngō sa yī’ìi gatûj riña aga’ nan. Sisī huā nï̀n’ gīnunt riña sitiô nan nī, sī gachrûnt à’ngō nuguan’ gā’hue gārasun nej si da’ gī’hiaj yī’ì nej si sò’. Sisī huā nï̀n’ gīnunt hiūj nan don nī, gī’hiaj desaktivando akuan’ HTTPS.</string>
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">Dàj gā gātū\'</string>
-    <!-- Preference to override the Firefox Account server -->
+    <!-- Preference to override the Eyebrowse Account server -->
     <string name="preferences_override_fxa_server">Servidor nagi\'iaj man\'ânt riña kuentâ Eyebrowse</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">Servidor nagi\'iaj man\'ânt riña Sync</string>
@@ -618,7 +618,7 @@
     <!-- Text displayed that links to website containing documentation about the "Limited Edition" wallpapers. -->
     <string name="wallpaper_learn_more">Gāhuin chrūn doj</string>
 
-    <!-- Text for classic wallpapers title. The first parameter is the Firefox name. -->
+    <!-- Text for classic wallpapers title. The first parameter is the Eyebrowse name. -->
     <string name="wallpaper_classic_title">Klâsiko %s</string>
     <!-- Text for limited edition wallpapers title. -->
     <string name="wallpaper_limited_edition_title" moz:RemovedIn="118" tools:ignore="UnusedResources">Sa ahui Nāsinùnj</string>
@@ -659,7 +659,7 @@
     <string name="addon_process_crash_dialog_disable_addons_button_text" tools:ignore="UnusedResources">Gūij ne’ ñāan nùnj si yichin’ riñan nej sa nutâ’t</string>
 
     <!-- Account Preferences -->
-    <!-- Preference for managing your account via accounts.firefox.com -->
+    <!-- Preference for managing your account via accounts.eyebrowse.com -->
     <string name="preferences_manage_account">Si Kuendâ administrador</string>
     <!-- Preference for triggering sync -->
     <string name="preferences_sync_now">Nāgi\'iaj nūguàn\'àn hìaj</string>
@@ -894,7 +894,7 @@
     <string name="studies_remove">Nādure\'</string>
     <!-- Title of the active section on the studies list -->
     <string name="studies_active">Ngà \'hiaj sunj</string>
-    <!-- Description for studies, it indicates why Firefox use studies. The first parameter is the name of the application. -->
+    <!-- Description for studies, it indicates why Eyebrowse use studies. The first parameter is the name of the application. -->
     <string name="studies_description_2">%1$s gā’hue gà’nïn nī gāyi’ìj gi’hia estudio.</string>
     <!-- Learn more link for studies, links to an article for more information about studies. -->
     <string name="studies_learn_more">Gāhuin chrūn doj</string>
@@ -1463,14 +1463,14 @@
     <string name="onboarding_header_2" moz:RemovedIn="118" tools:ignore="UnusedResources">Guruhuât gunumânt riña internêt ‘hiaj sun hue’ê doj nan</string>
     <!-- Text for the onboarding welcome message. -->
     <string name="onboarding_message" moz:RemovedIn="118" tools:ignore="UnusedResources">Guendâ guìi gurugui’ sa nana’hui’ nan, sê guendâ gīrij san’ānj an huin man.</string>
-    <!-- Text for the Firefox account onboarding sign in card header. -->
+    <!-- Text for the Eyebrowse account onboarding sign in card header. -->
     <string name="onboarding_account_sign_in_header" moz:RemovedIn="118" tools:ignore="UnusedResources">Nakāj danè’ gudunâjt</string>
-    <!-- Text for the button to learn more about signing in to your Firefox account. -->
+    <!-- Text for the button to learn more about signing in to your Eyebrowse account. -->
     <string name="onboarding_manual_sign_in_description" moz:RemovedIn="118" tools:ignore="UnusedResources">Nāgi’hiaj nūguan’àn nej rakïj ñanj nī nej da’nga’ huì huā riña nej si āgâ’t da’ gā’hue nādunāt pāntâya.</string>
-    <!-- Text for the button to manually sign into Firefox account. -->
-    <string name="onboarding_firefox_account_sign_in" moz:RemovedIn="118" tools:ignore="UnusedResources">Gāyi\'ì sēsiûn</string>
+    <!-- Text for the button to manually sign into Eyebrowse account. -->
+    <string name="onboarding_eyebrowse_account_sign_in" moz:RemovedIn="118" tools:ignore="UnusedResources">Gāyi\'ì sēsiûn</string>
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">Ngà nanûn Sync</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">Ngà nanûn Sync</string>
     <!-- Text for the tracking protection onboarding card header -->
     <string name="onboarding_tracking_protection_header" moz:RemovedIn="118" tools:ignore="UnusedResources">Sa ‘na’ niñā da’ dūgumîn sò’ da’ gāchē nun huìt</string>
     <!-- Text for the tracking protection card description. The first parameter is the name of the application.-->
@@ -1536,9 +1536,9 @@
     <string name="sign_in_with_camera">Gāyì\'ì sēsiûn ngà si kamarât</string>
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">Gārāsun si kōrreôt si lūgaj</string>
-    <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
+    <!-- Text shown for settings option for create new account text.'Eyebrowse' intentionally hardcoded here.-->
     <string name="sign_in_create_account_text"><![CDATA[Nitāj kuênta hua ‘hiá ra’ <u>gīrī ‘ngòj a</u> da’ nāgi’hiaj nūguan’ànt man ngà a’ngô nej si āgâ’t.]]></string>
-    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="sign_out_confirmation_message_2">Dūnâj %s si nāgi\'iaj nūguàn\'anj si kuentât, sanī si dure\'ej nej datô râj sunt ngà aché nunt riña aga\' nan.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
     <string name="sign_out_disconnect">Gāhuī riña internet</string>
@@ -1555,7 +1555,7 @@
     <string name="preference_enhanced_tracking_protection">Sa huā hue\'ê doj guendâ nārán riña sa naga\'nāj a</string>
     <!-- Preference summary for enhanced tracking protection settings on/off switch -->
     <string name="preference_enhanced_tracking_protection_summary">Ngà Total Cookie Protection hìaj, ‘ngō sa rugûñu’ūnj hīa sò’ da’ nārán man riña nej sa naga’nāj ahui riña nej sitio.</string>
-    <!-- Description of enhanced tracking protection. The parameter is the name of the application (For example: Firefox Fenix) -->
+    <!-- Description of enhanced tracking protection. The parameter is the name of the application (For example: Eyebrowse Fenix) -->
     <string name="preference_enhanced_tracking_protection_explanation_2">%s naran rayi\'ît riña nej sa naga\'nāj sa \'iát nga aché nunt.</string>
     <!-- Text displayed that links to website about enhanced tracking protection -->
     <string name="preference_enhanced_tracking_protection_explanation_learn_more">Gāhuin chrūn doj</string>
@@ -1719,9 +1719,9 @@
     <!-- Preference option for never saving passwords in Fenix -->
     <string name="preferences_passwords_save_logins_never_save">Nitāj āmān nā\'nïnj sà\'t</string>
 
-    <!-- Preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill2">Dūsìj mān’an %1$s</string>
-    <!-- Description for the preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Description for the preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill_description">Nāchra nāhuij man nī nā’nï̀nj sà’ si yūgui sa arâj suun ngà nej da’nga’ huìi riña nej sitio ngà aràj sunt %1$s.</string>
     <!-- Preference for autofilling logins from Fenix in other apps (e.g. autofilling the Twitter app) -->
     <string name="preferences_android_autofill">Nāchra mān’an man riña a’ngô nej aplikasiûn</string>
@@ -1975,9 +1975,9 @@
     <!-- Placeholder text shown in the Search Suggestion String TextField before a user enters text -->
     <string name="search_add_custom_engine_suggest_string_hint">Si URL API atāj nùhuin sa gā’hue nāna’huì’t</string>
     <!-- Description text for the Search Suggestion String TextField. The %s is part of the string -->
-    <string name="search_add_custom_engine_suggest_string_example" formatted="false" moz:RemovedIn="118" tools:ignore="UnusedResources">Nādunā sa nana\’huî\’t ngà “%s”. Dàj rû\':\nhttp://suggestqueries.google.com/complete/search?client=firefox&amp;q=%s</string>
+    <string name="search_add_custom_engine_suggest_string_example" formatted="false" moz:RemovedIn="118" tools:ignore="UnusedResources">Nādunā sa nana\’huî\’t ngà “%s”. Dàj rû\':\nhttp://suggestqueries.google.com/complete/search?client=eyebrowse&amp;q=%s</string>
     <!-- Description text for the Search Suggestion String TextField. The %s is part of the string -->
-    <string name="search_add_custom_engine_suggest_string_example_2" formatted="false">Nādunā sa gachrûnt dan ngà “%s”. Dàj rû\':\nhttps://suggestqueries.google.com/complete/search?client=firefox&amp;q=%s</string>
+    <string name="search_add_custom_engine_suggest_string_example_2" formatted="false">Nādunā sa gachrûnt dan ngà “%s”. Dàj rû\':\nhttps://suggestqueries.google.com/complete/search?client=eyebrowse&amp;q=%s</string>
     <!-- The text for the "Save" button for saving a custom search engine -->
     <string name="search_custom_engine_save_button">Nā\'nïnj sà\'</string>
 
@@ -2084,13 +2084,13 @@
     <string name="synced_tabs_connect_another_device">Gātū ngà a\'ngô aga\'a.</string>
     <!-- Text displayed asking user to re-authenticate -->
     <string name="synced_tabs_reauth">Gi\'iaj sunūj u, nādigân ñû si huê hīat huin.</string>
-    <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+    <!-- Text displayed when user has disabled tab syncing in Eyebrowse Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">Gi\'iaj sunūj u, nāchrūn sa nāgi\'iaj nūguàn\'ànt nej rakïj ñanj.</string>
     <!-- Text displayed when user has no tabs that have been synced -->
     <string name="synced_tabs_no_tabs">Nitāj à\'ngō rakïj ñanj huā nî\'nïnj riña Eyebrowse riña a\'ngô nej si āgâ\'t.</string>
-    <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+    <!-- Text displayed in the synced tabs screen when a user is not signed in to Eyebrowse Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">Gīni\'iāj \'ngō dukuán rakïj ñanj nīkāj a\'ngô nej si āgâ\'t.</string>
-    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Eyebrowse Sync -->
     <string name="synced_tabs_sign_in_button">Gāyi\'ì sēsiûn riña sync</string>
 
     <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->
@@ -2150,8 +2150,8 @@
     <string name="inactive_tabs_auto_close_message_snackbar">Ngà huā sa nārán mān’an man</string>
 
     <!-- Awesome bar suggestion's headers -->
-    <!-- Search suggestions title for Firefox Suggest. -->
-    <string name="firefox_suggest_header">Si nūguan’ Eyebrowse</string>
+    <!-- Search suggestions title for Eyebrowse Suggest. -->
+    <string name="eyebrowse_suggest_header">Si nūguan’ Eyebrowse</string>
     <!-- Title for search suggestions when Google is the default search suggestion engine. -->
     <string name="google_search_engine_suggestion_header">Si’hiaj Google sa nana’hui’i</string>
     <!-- Title for search suggestions when the default search suggestion engine is anything other than Google. The first parameter is default search engine name. -->
@@ -2203,6 +2203,6 @@
     <string name="a11y_action_label_wallpaper_collection_learn_more">nā’nïn riña enlâse da’ gīni’înt doj dàj hua rayi’î yi’nïn’ nan</string>
     <!-- Action label for links that point to an article. Talkback will append this to say "Double tap to read the article". -->
     <string name="a11y_action_label_read_article">gāhiā riña ñanj dan</string>
-    <!-- Action label for links to the Firefox Pocket website. Talkback will append this to say "Double tap to open link to learn more". -->
+    <!-- Action label for links to the Eyebrowse Pocket website. Talkback will append this to say "Double tap to open link to learn more". -->
     <string name="a11y_action_label_pocket_learn_more">nā’nïn riña enlâse da’ gīni’înt doj</string>
 </resources>

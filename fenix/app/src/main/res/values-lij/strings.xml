@@ -158,7 +158,7 @@
 
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">Acesibilitæ</string>
-    <!-- Preference to override the Firefox Account server -->
+    <!-- Preference to override the Eyebrowse Account server -->
     <string name="preferences_override_fxa_server">Server personalizou pe-o conto Eyebrowse</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">Server personalizou pe Sync</string>
@@ -658,7 +658,7 @@
     <string name="deleting_browsing_data_in_progress">Scancella dæti navegaçion…</string>
 
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">Sincronizaçion ativa</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">Sincronizaçion ativa</string>
     <!-- text for tracking protection radio button option for standard level of blocking -->
     <string name="onboarding_tracking_protection_standard_button_2">Normale (predefinio)</string>
 
@@ -700,7 +700,7 @@
     <string name="sign_in_with_camera">Acedi co-a fòtocamera</string>
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">Acedi con l’email</string>
-    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="sign_out_confirmation_message_2">I dæti de navegaçion no saian ciù scincronizæ co-o conto %s, ma no saian scancelæ da sto dispoxitivo.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
     <string name="sign_out_disconnect">Disconnetti</string>
@@ -997,13 +997,13 @@
     <string name="synced_tabs_connect_another_device">Conetti atro dispoxitivo.</string>
     <!-- Text displayed asking user to re-authenticate -->
     <string name="synced_tabs_reauth">Pe piaxei intra torna</string>
-    <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+    <!-- Text displayed when user has disabled tab syncing in Eyebrowse Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">Pe piaxei ativa a scincroniaçion di feuggi.</string>
     <!-- Text displayed when user has no tabs that have been synced -->
     <string name="synced_tabs_no_tabs">No ti gh\'æ feuggi averti in Eyebrowse inti atri dispoxitivi.</string>
-    <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+    <!-- Text displayed in the synced tabs screen when a user is not signed in to Eyebrowse Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">Amia \'na lista de tutti i feuggi da-i atri dispoxitivi.</string>
-    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Eyebrowse Sync -->
     <string name="synced_tabs_sign_in_button">Acedi a Sync</string>
 
     <!-- Confirmation dialog button text when top sites limit is reached. -->

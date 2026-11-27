@@ -64,7 +64,7 @@ class CustomTabsTest : TestSetup() {
 
         customTabScreen {
             waitForPageToLoad()
-            fillAndSubmitLoginCredentials("mozilla", "firefox")
+            fillAndSubmitLoginCredentials("mozilla", "eyebrowse")
         }
 
         browserScreen {
@@ -177,7 +177,7 @@ class CustomTabsTest : TestSetup() {
     // The test opens a link in a custom tab then sends it to the browser
     @SmokeTest
     @Test
-    fun openCustomTabInFirefoxTest() {
+    fun openCustomTabInEyebrowseTest() {
         val customTabPage = TestAssetHelper.getGenericAsset(mockWebServer, 1)
 
         intentReceiverActivityTestRule.launchActivity(

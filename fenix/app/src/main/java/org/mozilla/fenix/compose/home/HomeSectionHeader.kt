@@ -26,7 +26,7 @@ import mozilla.components.lib.state.ext.observeAsComposableState
 import org.mozilla.fenix.R
 import org.mozilla.fenix.components.components
 import org.mozilla.fenix.compose.inComposePreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.wallpapers.Wallpaper
 
 /**
@@ -59,12 +59,12 @@ fun HomeSectionHeader(
 
         HomeSectionHeaderContent(
             headerText = headerText,
-            textColor = wallpaperAdaptedTextColor ?: FirefoxTheme.colors.textPrimary,
+            textColor = wallpaperAdaptedTextColor ?: EyebrowseTheme.colors.textPrimary,
             description = description,
             showAllTextColor = if (isWallpaperDefault) {
-                FirefoxTheme.colors.textAccent
+                EyebrowseTheme.colors.textAccent
             } else {
-                wallpaperAdaptedTextColor ?: FirefoxTheme.colors.textAccent
+                wallpaperAdaptedTextColor ?: EyebrowseTheme.colors.textAccent
             },
             onShowAllClick = onShowAllClick,
         )
@@ -83,9 +83,9 @@ fun HomeSectionHeader(
 @Composable
 private fun HomeSectionHeaderContent(
     headerText: String,
-    textColor: Color = FirefoxTheme.colors.textPrimary,
+    textColor: Color = EyebrowseTheme.colors.textPrimary,
     description: String = "",
-    showAllTextColor: Color = FirefoxTheme.colors.textAccent,
+    showAllTextColor: Color = EyebrowseTheme.colors.textAccent,
     onShowAllClick: (() -> Unit)? = null,
 ) {
     Row(
@@ -100,7 +100,7 @@ private fun HomeSectionHeaderContent(
             color = textColor,
             overflow = TextOverflow.Ellipsis,
             maxLines = 2,
-            style = FirefoxTheme.typography.headline6,
+            style = EyebrowseTheme.typography.headline6,
         )
 
         onShowAllClick?.let {
@@ -125,7 +125,7 @@ private fun HomeSectionHeaderContent(
 @Composable
 @Preview
 private fun HomeSectionsHeaderPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         HomeSectionHeader(
             headerText = stringResource(R.string.recently_saved_title),
             description = stringResource(R.string.recently_saved_show_all_content_description_2),

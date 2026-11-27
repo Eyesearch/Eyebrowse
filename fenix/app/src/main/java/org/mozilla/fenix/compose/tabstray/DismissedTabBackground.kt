@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import mozilla.components.feature.tab.collections.Tab
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * The background of a [Tab] that is being swiped left or right.
@@ -43,7 +43,7 @@ fun DismissedTabBackground(
 ) {
     Card(
         modifier = Modifier.fillMaxSize(),
-        backgroundColor = FirefoxTheme.colors.layer3,
+        backgroundColor = EyebrowseTheme.colors.layer3,
         shape = shape,
         elevation = 0.dp,
     ) {
@@ -60,7 +60,7 @@ fun DismissedTabBackground(
                     .alpha(
                         if (dismissDirection == DismissDirection.StartToEnd || dismissDirection == null) 1f else 0f,
                     ),
-                tint = FirefoxTheme.colors.iconWarning,
+                tint = EyebrowseTheme.colors.iconWarning,
             )
 
             Icon(
@@ -72,7 +72,7 @@ fun DismissedTabBackground(
                     .alpha(
                         if (dismissDirection == DismissDirection.EndToStart || dismissDirection == null) 1f else 0f,
                     ),
-                tint = FirefoxTheme.colors.iconWarning,
+                tint = EyebrowseTheme.colors.iconWarning,
             )
         }
     }
@@ -81,7 +81,7 @@ fun DismissedTabBackground(
 @Composable
 @LightDarkPreview
 private fun DismissedTabBackgroundPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Column {
             Box(modifier = Modifier.height(56.dp)) {
                 DismissedTabBackground(

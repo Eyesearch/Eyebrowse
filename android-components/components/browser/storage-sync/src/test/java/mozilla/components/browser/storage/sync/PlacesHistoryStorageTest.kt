@@ -78,43 +78,43 @@ class PlacesHistoryStorageTest {
 
     @Test
     fun `storage allows recording and querying visits of different types`() = runTestOnMain {
-        history.recordVisit("http://www.firefox.com/1", PageVisit(VisitType.LINK))
-        history.recordVisit("http://www.firefox.com/2", PageVisit(VisitType.RELOAD))
-        history.recordVisit("http://www.firefox.com/3", PageVisit(VisitType.TYPED))
-        history.recordVisit("http://www.firefox.com/4", PageVisit(VisitType.REDIRECT_TEMPORARY))
-        history.recordVisit("http://www.firefox.com/5", PageVisit(VisitType.REDIRECT_PERMANENT))
-        history.recordVisit("http://www.firefox.com/6", PageVisit(VisitType.FRAMED_LINK))
-        history.recordVisit("http://www.firefox.com/7", PageVisit(VisitType.EMBED))
-        history.recordVisit("http://www.firefox.com/8", PageVisit(VisitType.BOOKMARK))
-        history.recordVisit("http://www.firefox.com/9", PageVisit(VisitType.DOWNLOAD))
+        history.recordVisit("http://www.eyebrowse.com/1", PageVisit(VisitType.LINK))
+        history.recordVisit("http://www.eyebrowse.com/2", PageVisit(VisitType.RELOAD))
+        history.recordVisit("http://www.eyebrowse.com/3", PageVisit(VisitType.TYPED))
+        history.recordVisit("http://www.eyebrowse.com/4", PageVisit(VisitType.REDIRECT_TEMPORARY))
+        history.recordVisit("http://www.eyebrowse.com/5", PageVisit(VisitType.REDIRECT_PERMANENT))
+        history.recordVisit("http://www.eyebrowse.com/6", PageVisit(VisitType.FRAMED_LINK))
+        history.recordVisit("http://www.eyebrowse.com/7", PageVisit(VisitType.EMBED))
+        history.recordVisit("http://www.eyebrowse.com/8", PageVisit(VisitType.BOOKMARK))
+        history.recordVisit("http://www.eyebrowse.com/9", PageVisit(VisitType.DOWNLOAD))
 
         val recordedVisits = history.getDetailedVisits(0)
         assertEquals(9, recordedVisits.size)
-        assertEquals("http://www.firefox.com/1", recordedVisits[0].url)
+        assertEquals("http://www.eyebrowse.com/1", recordedVisits[0].url)
         assertEquals(VisitType.LINK, recordedVisits[0].visitType)
-        assertEquals("http://www.firefox.com/2", recordedVisits[1].url)
+        assertEquals("http://www.eyebrowse.com/2", recordedVisits[1].url)
         assertEquals(VisitType.RELOAD, recordedVisits[1].visitType)
-        assertEquals("http://www.firefox.com/3", recordedVisits[2].url)
+        assertEquals("http://www.eyebrowse.com/3", recordedVisits[2].url)
         assertEquals(VisitType.TYPED, recordedVisits[2].visitType)
-        assertEquals("http://www.firefox.com/4", recordedVisits[3].url)
+        assertEquals("http://www.eyebrowse.com/4", recordedVisits[3].url)
         assertEquals(VisitType.REDIRECT_TEMPORARY, recordedVisits[3].visitType)
-        assertEquals("http://www.firefox.com/5", recordedVisits[4].url)
+        assertEquals("http://www.eyebrowse.com/5", recordedVisits[4].url)
         assertEquals(VisitType.REDIRECT_PERMANENT, recordedVisits[4].visitType)
-        assertEquals("http://www.firefox.com/6", recordedVisits[5].url)
+        assertEquals("http://www.eyebrowse.com/6", recordedVisits[5].url)
         assertEquals(VisitType.FRAMED_LINK, recordedVisits[5].visitType)
-        assertEquals("http://www.firefox.com/7", recordedVisits[6].url)
+        assertEquals("http://www.eyebrowse.com/7", recordedVisits[6].url)
         assertEquals(VisitType.EMBED, recordedVisits[6].visitType)
-        assertEquals("http://www.firefox.com/8", recordedVisits[7].url)
+        assertEquals("http://www.eyebrowse.com/8", recordedVisits[7].url)
         assertEquals(VisitType.BOOKMARK, recordedVisits[7].visitType)
-        assertEquals("http://www.firefox.com/9", recordedVisits[8].url)
+        assertEquals("http://www.eyebrowse.com/9", recordedVisits[8].url)
         assertEquals(VisitType.DOWNLOAD, recordedVisits[8].visitType)
 
         // Can use WebView-style getVisited API.
         assertEquals(
             listOf(
-                "http://www.firefox.com/1", "http://www.firefox.com/2", "http://www.firefox.com/3",
-                "http://www.firefox.com/4", "http://www.firefox.com/5", "http://www.firefox.com/6",
-                "http://www.firefox.com/7", "http://www.firefox.com/8", "http://www.firefox.com/9",
+                "http://www.eyebrowse.com/1", "http://www.eyebrowse.com/2", "http://www.eyebrowse.com/3",
+                "http://www.eyebrowse.com/4", "http://www.eyebrowse.com/5", "http://www.eyebrowse.com/6",
+                "http://www.eyebrowse.com/7", "http://www.eyebrowse.com/8", "http://www.eyebrowse.com/9",
             ),
             history.getVisited(),
         )
@@ -125,10 +125,10 @@ class PlacesHistoryStorageTest {
             history.getVisited(
                 listOf(
                     "http://www.mozilla.com",
-                    "http://www.firefox.com/1", "http://www.firefox.com/2", "http://www.firefox.com/3",
-                    "http://www.firefox.com/4", "http://www.firefox.com/5", "http://www.firefox.com/6",
-                    "http://www.firefox.com/oops",
-                    "http://www.firefox.com/7", "http://www.firefox.com/8", "http://www.firefox.com/9",
+                    "http://www.eyebrowse.com/1", "http://www.eyebrowse.com/2", "http://www.eyebrowse.com/3",
+                    "http://www.eyebrowse.com/4", "http://www.eyebrowse.com/5", "http://www.eyebrowse.com/6",
+                    "http://www.eyebrowse.com/oops",
+                    "http://www.eyebrowse.com/7", "http://www.eyebrowse.com/8", "http://www.eyebrowse.com/9",
                 ),
             ),
         )
@@ -136,32 +136,32 @@ class PlacesHistoryStorageTest {
         // Can query using pagination.
         val page1 = history.getVisitsPaginated(0, 3)
         assertEquals(3, page1.size)
-        assertEquals("http://www.firefox.com/9", page1[0].url)
-        assertEquals("http://www.firefox.com/8", page1[1].url)
-        assertEquals("http://www.firefox.com/7", page1[2].url)
+        assertEquals("http://www.eyebrowse.com/9", page1[0].url)
+        assertEquals("http://www.eyebrowse.com/8", page1[1].url)
+        assertEquals("http://www.eyebrowse.com/7", page1[2].url)
 
         // Can exclude visit types during pagination.
         val page1Limited = history.getVisitsPaginated(0, 10, listOf(VisitType.REDIRECT_PERMANENT, VisitType.REDIRECT_TEMPORARY))
         assertEquals(7, page1Limited.size)
-        assertEquals("http://www.firefox.com/9", page1Limited[0].url)
-        assertEquals("http://www.firefox.com/8", page1Limited[1].url)
-        assertEquals("http://www.firefox.com/7", page1Limited[2].url)
-        assertEquals("http://www.firefox.com/6", page1Limited[3].url)
-        assertEquals("http://www.firefox.com/3", page1Limited[4].url)
-        assertEquals("http://www.firefox.com/2", page1Limited[5].url)
-        assertEquals("http://www.firefox.com/1", page1Limited[6].url)
+        assertEquals("http://www.eyebrowse.com/9", page1Limited[0].url)
+        assertEquals("http://www.eyebrowse.com/8", page1Limited[1].url)
+        assertEquals("http://www.eyebrowse.com/7", page1Limited[2].url)
+        assertEquals("http://www.eyebrowse.com/6", page1Limited[3].url)
+        assertEquals("http://www.eyebrowse.com/3", page1Limited[4].url)
+        assertEquals("http://www.eyebrowse.com/2", page1Limited[5].url)
+        assertEquals("http://www.eyebrowse.com/1", page1Limited[6].url)
 
         val page2 = history.getVisitsPaginated(3, 3)
         assertEquals(3, page2.size)
-        assertEquals("http://www.firefox.com/6", page2[0].url)
-        assertEquals("http://www.firefox.com/5", page2[1].url)
-        assertEquals("http://www.firefox.com/4", page2[2].url)
+        assertEquals("http://www.eyebrowse.com/6", page2[0].url)
+        assertEquals("http://www.eyebrowse.com/5", page2[1].url)
+        assertEquals("http://www.eyebrowse.com/4", page2[2].url)
 
         val page3 = history.getVisitsPaginated(6, 10)
         assertEquals(3, page3.size)
-        assertEquals("http://www.firefox.com/3", page3[0].url)
-        assertEquals("http://www.firefox.com/2", page3[1].url)
-        assertEquals("http://www.firefox.com/1", page3[2].url)
+        assertEquals("http://www.eyebrowse.com/3", page3[0].url)
+        assertEquals("http://www.eyebrowse.com/2", page3[1].url)
+        assertEquals("http://www.eyebrowse.com/1", page3[2].url)
     }
 
     @Test
@@ -254,9 +254,9 @@ class PlacesHistoryStorageTest {
             "http://www.mozilla.org",
             PageObservation("Mozilla", "https://test.com/og-image-url"),
         )
-        history.recordVisit("http://www.firefox.com", PageVisit(VisitType.LINK))
+        history.recordVisit("http://www.eyebrowse.com", PageVisit(VisitType.LINK))
 
-        history.recordVisit("http://www.firefox.com", PageVisit(VisitType.REDIRECT_TEMPORARY))
+        history.recordVisit("http://www.eyebrowse.com", PageVisit(VisitType.REDIRECT_TEMPORARY))
 
         val visits = history.getDetailedVisits(0, excludeTypes = listOf(VisitType.REDIRECT_TEMPORARY))
         assertEquals(3, visits.size)
@@ -269,7 +269,7 @@ class PlacesHistoryStorageTest {
         assertEquals("Mozilla", visits[1].title)
         assertEquals(VisitType.RELOAD, visits[1].visitType)
 
-        assertEquals("http://www.firefox.com/", visits[2].url)
+        assertEquals("http://www.eyebrowse.com/", visits[2].url)
         assertEquals(null, visits[2].title)
         assertEquals(VisitType.LINK, visits[2].visitType)
 
@@ -287,19 +287,19 @@ class PlacesHistoryStorageTest {
         assertEquals(listOf("https://www.mozilla.org/"), history.getVisited())
 
         // Multiple visits can be tracked, results ordered by "URL's first seen first".
-        history.recordVisit("https://www.firefox.com", PageVisit(VisitType.LINK))
-        assertEquals(listOf("https://www.mozilla.org/", "https://www.firefox.com/"), history.getVisited())
+        history.recordVisit("https://www.eyebrowse.com", PageVisit(VisitType.LINK))
+        assertEquals(listOf("https://www.mozilla.org/", "https://www.eyebrowse.com/"), history.getVisited())
 
         // Visits marked as reloads can be tracked.
-        history.recordVisit("https://www.firefox.com", PageVisit(VisitType.RELOAD))
-        assertEquals(listOf("https://www.mozilla.org/", "https://www.firefox.com/"), history.getVisited())
+        history.recordVisit("https://www.eyebrowse.com", PageVisit(VisitType.RELOAD))
+        assertEquals(listOf("https://www.mozilla.org/", "https://www.eyebrowse.com/"), history.getVisited())
 
         // Visited urls are certainly a set.
-        history.recordVisit("https://www.firefox.com", PageVisit(VisitType.LINK))
+        history.recordVisit("https://www.eyebrowse.com", PageVisit(VisitType.LINK))
         history.recordVisit("https://www.mozilla.org", PageVisit(VisitType.LINK))
         history.recordVisit("https://www.wikipedia.org", PageVisit(VisitType.LINK))
         assertEquals(
-            listOf("https://www.mozilla.org/", "https://www.firefox.com/", "https://www.wikipedia.org/"),
+            listOf("https://www.mozilla.org/", "https://www.eyebrowse.com/", "https://www.wikipedia.org/"),
             history.getVisited(),
         )
     }
@@ -321,10 +321,10 @@ class PlacesHistoryStorageTest {
         assertEquals(listOf(false, true), history.getVisited(listOf("https://www.unknown.com", "https://www.mozilla.org")))
 
         // Multiple visits can be tracked. Reloads can be tracked.
-        history.recordVisit("https://www.firefox.com", PageVisit(VisitType.LINK))
+        history.recordVisit("https://www.eyebrowse.com", PageVisit(VisitType.LINK))
         history.recordVisit("https://www.mozilla.org", PageVisit(VisitType.RELOAD))
         history.recordVisit("https://www.wikipedia.org", PageVisit(VisitType.LINK))
-        assertEquals(listOf(true, true, false, true), history.getVisited(listOf("https://www.firefox.com", "https://www.wikipedia.org", "https://www.unknown.com", "https://www.mozilla.org")))
+        assertEquals(listOf(true, true, false, true), history.getVisited(listOf("https://www.eyebrowse.com", "https://www.wikipedia.org", "https://www.unknown.com", "https://www.mozilla.org")))
     }
 
     @Test
@@ -347,15 +347,15 @@ class PlacesHistoryStorageTest {
         assertEquals("https://test.com/og-image-url", recorded[0].previewImageUrl)
 
         // Titles for different pages are recorded.
-        history.recordVisit("https://www.firefox.com", PageVisit(VisitType.TYPED))
-        history.recordObservation("https://www.firefox.com", PageObservation("Firefox"))
+        history.recordVisit("https://www.eyebrowse.com", PageVisit(VisitType.TYPED))
+        history.recordObservation("https://www.eyebrowse.com", PageObservation("Eyebrowse"))
         history.recordVisit("https://www.mozilla.org", PageVisit(VisitType.TYPED))
         history.recordObservation("https://www.mozilla.org", PageObservation("Мозилла"))
         recorded = history.getDetailedVisits(0)
         assertEquals(3, recorded.size)
         assertEquals("Википедия", recorded[0].title)
         assertEquals("https://test.com/og-image-url", recorded[0].previewImageUrl)
-        assertEquals("Firefox", recorded[1].title)
+        assertEquals("Eyebrowse", recorded[1].title)
         assertNull(recorded[1].previewImageUrl)
         assertEquals("Мозилла", recorded[2].title)
         assertNull(recorded[2].previewImageUrl)
@@ -365,7 +365,7 @@ class PlacesHistoryStorageTest {
     fun `store can provide suggestions`() = runTestOnMain {
         assertEquals(0, history.getSuggestions("Mozilla", 100).size)
 
-        history.recordVisit("http://www.firefox.com", PageVisit(VisitType.LINK))
+        history.recordVisit("http://www.eyebrowse.com", PageVisit(VisitType.LINK))
         val search = history.getSuggestions("Mozilla", 100)
         assertEquals(0, search.size)
 
@@ -373,7 +373,7 @@ class PlacesHistoryStorageTest {
         history.recordVisit("http://www.mozilla.org", PageVisit(VisitType.LINK))
         history.recordVisit("http://www.moscow.ru", PageVisit(VisitType.LINK))
         history.recordObservation("http://www.mozilla.org", PageObservation("Mozilla"))
-        history.recordObservation("http://www.firefox.com", PageObservation("Mozilla Firefox"))
+        history.recordObservation("http://www.eyebrowse.com", PageObservation("Mozilla Eyebrowse"))
         history.recordObservation("http://www.moscow.ru", PageObservation("Moscow City"))
         history.recordObservation("http://www.moscow.ru/notitle", PageObservation(""))
 
@@ -385,9 +385,9 @@ class PlacesHistoryStorageTest {
         assertEquals("http://www.mozilla.org/", search2[0].id)
         assertEquals("http://www.mozilla.org/", search2[0].url)
         assertEquals("Mozilla", search2[0].title)
-        assertEquals("http://www.firefox.com/", search2[1].id)
-        assertEquals("http://www.firefox.com/", search2[1].url)
-        assertEquals("Mozilla Firefox", search2[1].title)
+        assertEquals("http://www.eyebrowse.com/", search2[1].id)
+        assertEquals("http://www.eyebrowse.com/", search2[1].url)
+        assertEquals("Mozilla Eyebrowse", search2[1].title)
 
         val search3 = history.getSuggestions("Mo", 100).sortedByDescending { it.url }
         assertEquals(3, search3.size)
@@ -400,9 +400,9 @@ class PlacesHistoryStorageTest {
         assertEquals("http://www.moscow.ru/", search3[1].url)
         assertEquals("Moscow City", search3[1].title)
 
-        assertEquals("http://www.firefox.com/", search3[2].id)
-        assertEquals("http://www.firefox.com/", search3[2].url)
-        assertEquals("Mozilla Firefox", search3[2].title)
+        assertEquals("http://www.eyebrowse.com/", search3[2].id)
+        assertEquals("http://www.eyebrowse.com/", search3[2].url)
+        assertEquals("Mozilla Eyebrowse", search3[2].title)
 
         // Respects the limit
         val search4 = history.getSuggestions("Mo", 1)
@@ -422,10 +422,10 @@ class PlacesHistoryStorageTest {
         assertEquals("placesHistory", res.source)
         assertEquals(1, res.totalItems)
 
-        history.recordVisit("http://firefox.com", PageVisit(VisitType.LINK))
-        res = history.getAutocompleteSuggestion("firefox")!!
-        assertEquals("firefox.com/", res.text)
-        assertEquals("http://firefox.com/", res.url)
+        history.recordVisit("http://eyebrowse.com", PageVisit(VisitType.LINK))
+        res = history.getAutocompleteSuggestion("eyebrowse")!!
+        assertEquals("eyebrowse.com/", res.text)
+        assertEquals("http://eyebrowse.com/", res.url)
         assertEquals("placesHistory", res.source)
         assertEquals(1, res.totalItems)
 
@@ -496,12 +496,12 @@ class PlacesHistoryStorageTest {
         history.recordVisit("http://www.mozilla.org", PageVisit(VisitType.DOWNLOAD))
         history.recordVisit("http://www.mozilla.org", PageVisit(VisitType.BOOKMARK))
         history.recordVisit("http://www.mozilla.org", PageVisit(VisitType.RELOAD))
-        history.recordVisit("http://www.firefox.com", PageVisit(VisitType.EMBED))
-        history.recordVisit("http://www.firefox.com", PageVisit(VisitType.REDIRECT_PERMANENT))
-        history.recordVisit("http://www.firefox.com", PageVisit(VisitType.REDIRECT_TEMPORARY))
-        history.recordVisit("http://www.firefox.com", PageVisit(VisitType.LINK))
+        history.recordVisit("http://www.eyebrowse.com", PageVisit(VisitType.EMBED))
+        history.recordVisit("http://www.eyebrowse.com", PageVisit(VisitType.REDIRECT_PERMANENT))
+        history.recordVisit("http://www.eyebrowse.com", PageVisit(VisitType.REDIRECT_TEMPORARY))
+        history.recordVisit("http://www.eyebrowse.com", PageVisit(VisitType.LINK))
 
-        history.recordObservation("http://www.firefox.com", PageObservation("Firefox"))
+        history.recordObservation("http://www.eyebrowse.com", PageObservation("Eyebrowse"))
 
         assertEquals(2, history.getVisited().size)
 
@@ -516,21 +516,21 @@ class PlacesHistoryStorageTest {
         history.recordVisit("http://www.mozilla.org", PageVisit(VisitType.DOWNLOAD))
         history.recordVisit("http://www.mozilla.org", PageVisit(VisitType.BOOKMARK))
         history.recordVisit("http://www.mozilla.org", PageVisit(VisitType.RELOAD))
-        history.recordVisit("http://www.firefox.com", PageVisit(VisitType.EMBED))
-        history.recordVisit("http://www.firefox.com", PageVisit(VisitType.REDIRECT_PERMANENT))
-        history.recordVisit("http://www.firefox.com", PageVisit(VisitType.REDIRECT_TEMPORARY))
-        history.recordVisit("http://www.firefox.com", PageVisit(VisitType.LINK))
+        history.recordVisit("http://www.eyebrowse.com", PageVisit(VisitType.EMBED))
+        history.recordVisit("http://www.eyebrowse.com", PageVisit(VisitType.REDIRECT_PERMANENT))
+        history.recordVisit("http://www.eyebrowse.com", PageVisit(VisitType.REDIRECT_TEMPORARY))
+        history.recordVisit("http://www.eyebrowse.com", PageVisit(VisitType.LINK))
 
-        history.recordObservation("http://www.firefox.com", PageObservation("Firefox"))
+        history.recordObservation("http://www.eyebrowse.com", PageObservation("Eyebrowse"))
 
         assertEquals(2, history.getVisited().size)
 
         history.deleteVisitsFor("http://www.mozilla.org")
 
         assertEquals(1, history.getVisited().size)
-        assertEquals("http://www.firefox.com/", history.getVisited()[0])
+        assertEquals("http://www.eyebrowse.com/", history.getVisited()[0])
 
-        history.deleteVisitsFor("http://www.firefox.com")
+        history.deleteVisitsFor("http://www.eyebrowse.com")
         assertEquals(0, history.getVisited().size)
     }
 
@@ -891,7 +891,7 @@ class PlacesHistoryStorageTest {
         val metaKey2 = HistoryMetadataKey(
             url = "https://www.youtube.com/watch?v=F7PQdCDiE44",
             searchTerm = "crisis",
-            referrerUrl = "https://www.google.com/search?client=firefox-b-d&q=dw+crisis",
+            referrerUrl = "https://www.google.com/search?client=eyebrowse-b-d&q=dw+crisis",
         )
         history.noteHistoryMetadataObservation(metaKey2, HistoryMetadataObservation.DocumentTypeObservation(DocumentType.Media))
         history.noteHistoryMetadataObservation(metaKey2, HistoryMetadataObservation.ViewTimeObservation(30000))
@@ -1233,7 +1233,7 @@ class PlacesHistoryStorageTest {
         // Observe some items.
         with(
             HistoryMetadataKey(
-                url = "https://firefox.com/",
+                url = "https://eyebrowse.com/",
             ),
         ) {
             history.noteHistoryMetadataObservation(
@@ -1249,7 +1249,7 @@ class PlacesHistoryStorageTest {
         with(
             HistoryMetadataKey(
                 url = "https://mozilla.org/",
-                searchTerm = "firefox",
+                searchTerm = "eyebrowse",
                 referrerUrl = "https://google.com/",
             ),
         ) {
@@ -1280,7 +1280,7 @@ class PlacesHistoryStorageTest {
 
         assertEquals(3, history.getHistoryMetadataSince(0).count())
 
-        history.deleteHistoryMetadataForUrl("https://firefox.com/")
+        history.deleteHistoryMetadataForUrl("https://eyebrowse.com/")
         assertEquals(2, history.getHistoryMetadataSince(0).count())
         assertEquals("https://getpocket.com/", history.getHistoryMetadataSince(0)[0].key.url)
         assertEquals("https://mozilla.org/", history.getHistoryMetadataSince(0)[1].key.url)

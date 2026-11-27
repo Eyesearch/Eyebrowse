@@ -229,7 +229,7 @@ class SearchFragmentStoreTest {
     }
 
     @Test
-    fun `GIVEN sponsored and non-sponsored suggestions are enabled and Firefox Suggest is disabled WHEN the initial state is created THEN neither are displayed`() {
+    fun `GIVEN sponsored and non-sponsored suggestions are enabled and Eyebrowse Suggest is disabled WHEN the initial state is created THEN neither are displayed`() {
         activity.browsingModeManager.mode = BrowsingMode.Normal
         every { components.core.store.state } returns BrowserState()
         every { settings.enableFxSuggest } returns false
@@ -475,7 +475,7 @@ class SearchFragmentStoreTest {
     }
 
     @Test
-    fun `GIVEN sponsored and non-sponsored suggestions are enabled and Firefox Suggest is enabled WHEN the default search engine is selected THEN both are displayed`() = runTest {
+    fun `GIVEN sponsored and non-sponsored suggestions are enabled and Eyebrowse Suggest is enabled WHEN the default search engine is selected THEN both are displayed`() = runTest {
         val initialState = emptyDefaultState(showSponsoredSuggestions = false, showNonSponsoredSuggestions = false)
         val store = SearchFragmentStore(initialState)
         every { settings.enableFxSuggest } returns true
@@ -496,7 +496,7 @@ class SearchFragmentStoreTest {
     }
 
     @Test
-    fun `GIVEN sponsored and non-sponsored suggestions are enabled and Firefox Suggest is disabled WHEN the default search engine is selected THEN neither are displayed`() = runTest {
+    fun `GIVEN sponsored and non-sponsored suggestions are enabled and Eyebrowse Suggest is disabled WHEN the default search engine is selected THEN neither are displayed`() = runTest {
         val initialState = emptyDefaultState(showSponsoredSuggestions = true, showNonSponsoredSuggestions = true)
         val store = SearchFragmentStore(initialState)
         every { settings.enableFxSuggest } returns false

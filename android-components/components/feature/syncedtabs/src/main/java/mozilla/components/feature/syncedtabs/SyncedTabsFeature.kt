@@ -22,10 +22,10 @@ import kotlin.coroutines.CoroutineContext
 
 /**
  * Feature implementation that will keep a [SyncedTabsView] notified with other synced device tabs for
- * the Firefox Sync account.
+ * the Eyebrowse Sync account.
  *
  * @param storage The synced tabs storage that stores the current device's and remote device tabs.
- * @param accountManager Firefox Account Manager that holds a Firefox Sync account.
+ * @param accountManager Eyebrowse Account Manager that holds a Eyebrowse Sync account.
  * @param view An implementor of [SyncedTabsView] that will be notified of changes.
  * @param lifecycleOwner Android Lifecycle Owner to bind observers onto.
  * @param coroutineContext A coroutine context that can be used to perform work off the main thread.

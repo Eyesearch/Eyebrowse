@@ -133,14 +133,14 @@
     <string name="mozac_feature_addons_supported_checker_notification_title">नवीन ॲड-ऑन उपलब्ध</string>
     <!-- The tile of the notification, this will be shown to the user when more than one newly supported add-ons are available.-->
     <string name="mozac_feature_addons_supported_checker_notification_title_plural">नवीन ॲड-ऑन उपलब्ध</string>
-    <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Firefox). -->
+    <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Eyebrowse). -->
     <string name="mozac_feature_addons_supported_checker_notification_content_one">%1$s ला %2$s मध्ये जोडा</string>
-    <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Firefox). -->
+    <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Eyebrowse). -->
     <string name="mozac_feature_addons_supported_checker_notification_content_two">%1$s व %2$s ला %3$s मध्ये जोडा</string>
-    <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Firefox). -->
+    <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Eyebrowse). -->
     <string name="mozac_feature_addons_supported_checker_notification_content_more_than_two">त्यांना %1$s मध्ये जोडा</string>
     <!-- This is the caption for not yet supported screen caption -->
-    <string name="mozac_feature_addons_not_yet_supported_caption">Firefox अ‍ॅड-ऑन तंत्रज्ञान आधुनिक होत आहे. हे अ‍ॅड-ऑन फ्रेमवर्क वापरतात जे Firefox 75 आणि त्यानंतरच्या आवृत्तींसोबत सुसंगत नाहीत.</string>
+    <string name="mozac_feature_addons_not_yet_supported_caption">Eyebrowse अ‍ॅड-ऑन तंत्रज्ञान आधुनिक होत आहे. हे अ‍ॅड-ऑन फ्रेमवर्क वापरतात जे Eyebrowse 75 आणि त्यानंतरच्या आवृत्तींसोबत सुसंगत नाहीत.</string>
     <!-- This is the caption for not yet supported screen caption -->
     <string name="mozac_feature_addons_not_yet_supported_caption2">आम्ही सध्या शिफारस केलेल्या विस्तारांच्या प्रारंभिक निवडीसाठी समर्थन तयार करत आहोत.</string>
     <!-- This is the caption for the add-on installation progress overlay -->
@@ -167,7 +167,7 @@
     <string name="mozac_feature_addons_successfully_removed" tools:ignore="UnusedResources">%1$s यशस्वीरित्या काढले</string>
     <!-- Text shown after failed to remove an add-on. %1$s is the add-on name. -->
     <string name="mozac_feature_addons_failed_to_remove" tools:ignore="UnusedResources">%1$s काढण्यात अयशस्वी</string>
-    <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Firefox. -->
+    <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Eyebrowse. -->
     <string name="mozac_feature_addons_migrated_from_a_previous_version_label" tools:ignore="UnusedResources">हे अ‍ॅड-ऑन %1$s च्या मागील आवृत्तीमधून स्थलांतरित केले आहे</string>
     <!-- Text shown in not yet supported add-ons section in AddonsManagerAdapter. -->
     <string name="mozac_feature_addons_unsupported_caption">1 अ‍ॅड-ऑन</string>

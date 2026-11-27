@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.LinkText
 import org.mozilla.fenix.compose.LinkTextState
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Total Private Browsing Mode homepage informational card.
@@ -43,15 +43,15 @@ fun FeltPrivacyModeInfoCard(
             .clip(shape = RoundedCornerShape(8.dp))
             .fillMaxWidth()
             .wrapContentHeight()
-            .background(FirefoxTheme.colors.layer2),
+            .background(EyebrowseTheme.colors.layer2),
     ) {
         Column(
             modifier = Modifier.padding(16.dp),
         ) {
             Text(
                 text = stringResource(id = R.string.felt_privacy_desc_card_title),
-                style = FirefoxTheme.typography.headline7,
-                color = FirefoxTheme.colors.textPrimary,
+                style = EyebrowseTheme.typography.headline7,
+                color = EyebrowseTheme.colors.textPrimary,
             )
 
             Spacer(modifier = Modifier.height(8.dp))
@@ -69,10 +69,10 @@ fun FeltPrivacyModeInfoCard(
                         onClick = { onLearnMoreClick() },
                     ),
                 ),
-                style = FirefoxTheme.typography.body2.copy(
-                    color = FirefoxTheme.colors.textPrimary,
+                style = EyebrowseTheme.typography.body2.copy(
+                    color = EyebrowseTheme.colors.textPrimary,
                 ),
-                linkTextColor = FirefoxTheme.colors.textPrimary,
+                linkTextColor = EyebrowseTheme.colors.textPrimary,
                 linkTextDecoration = TextDecoration.Underline,
             )
         }
@@ -82,9 +82,9 @@ fun FeltPrivacyModeInfoCard(
 @Composable
 @Preview
 private fun FeltPrivacyModeDescriptionPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Column(
-            modifier = Modifier.background(FirefoxTheme.colors.layer1)
+            modifier = Modifier.background(EyebrowseTheme.colors.layer1)
                 .fillMaxSize(),
         ) {
             FeltPrivacyModeInfoCard(

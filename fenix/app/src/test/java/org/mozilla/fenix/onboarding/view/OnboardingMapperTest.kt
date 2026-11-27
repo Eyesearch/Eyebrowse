@@ -31,14 +31,14 @@ class OnboardingMapperTest {
         )
         val actual = mapToOnboardingPageState(
             onboardingPageUiData = onboardingPageUiData,
-            onMakeFirefoxDefaultClick = unitLambda,
-            onMakeFirefoxDefaultSkipClick = unitLambda,
+            onMakeEyebrowseDefaultClick = unitLambda,
+            onMakeEyebrowseDefaultSkipClick = unitLambda,
             onSignInButtonClick = {},
             onSignInSkipClick = {},
             onNotificationPermissionButtonClick = {},
             onNotificationPermissionSkipClick = {},
-            onAddFirefoxWidgetClick = {},
-            onAddFirefoxWidgetSkipClick = {},
+            onAddEyebrowseWidgetClick = {},
+            onAddEyebrowseWidgetSkipClick = {},
         )
 
         assertEquals(expected, actual)
@@ -65,14 +65,14 @@ class OnboardingMapperTest {
         )
         val actual = mapToOnboardingPageState(
             onboardingPageUiData = onboardingPageUiData,
-            onMakeFirefoxDefaultClick = {},
-            onMakeFirefoxDefaultSkipClick = {},
+            onMakeEyebrowseDefaultClick = {},
+            onMakeEyebrowseDefaultSkipClick = {},
             onSignInButtonClick = unitLambda,
             onSignInSkipClick = unitLambda,
             onNotificationPermissionButtonClick = {},
             onNotificationPermissionSkipClick = {},
-            onAddFirefoxWidgetClick = {},
-            onAddFirefoxWidgetSkipClick = {},
+            onAddEyebrowseWidgetClick = {},
+            onAddEyebrowseWidgetSkipClick = {},
         )
 
         assertEquals(expected, actual)
@@ -99,14 +99,14 @@ class OnboardingMapperTest {
         )
         val actual = mapToOnboardingPageState(
             onboardingPageUiData = onboardingPageUiData,
-            onMakeFirefoxDefaultClick = {},
-            onMakeFirefoxDefaultSkipClick = {},
+            onMakeEyebrowseDefaultClick = {},
+            onMakeEyebrowseDefaultSkipClick = {},
             onSignInButtonClick = {},
             onSignInSkipClick = {},
             onNotificationPermissionButtonClick = unitLambda,
             onNotificationPermissionSkipClick = unitLambda,
-            onAddFirefoxWidgetClick = {},
-            onAddFirefoxWidgetSkipClick = {},
+            onAddEyebrowseWidgetClick = {},
+            onAddEyebrowseWidgetSkipClick = {},
         )
 
         assertEquals(expected, actual)
@@ -133,14 +133,14 @@ class OnboardingMapperTest {
         )
         val actual = mapToOnboardingPageState(
             onboardingPageUiData = onboardingPageUiData,
-            onMakeFirefoxDefaultClick = {},
-            onMakeFirefoxDefaultSkipClick = {},
+            onMakeEyebrowseDefaultClick = {},
+            onMakeEyebrowseDefaultSkipClick = {},
             onSignInButtonClick = {},
             onSignInSkipClick = {},
             onNotificationPermissionButtonClick = {},
             onNotificationPermissionSkipClick = {},
-            onAddFirefoxWidgetClick = unitLambda,
-            onAddFirefoxWidgetSkipClick = unitLambda,
+            onAddEyebrowseWidgetClick = unitLambda,
+            onAddEyebrowseWidgetSkipClick = unitLambda,
         )
 
         assertEquals(expected, actual)

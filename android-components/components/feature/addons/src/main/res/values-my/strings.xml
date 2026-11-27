@@ -146,14 +146,14 @@
     <string name="mozac_feature_addons_supported_checker_notification_title">ရနိုင်သည့်အက်အွန်အသစ်</string>
     <!-- The tile of the notification, this will be shown to the user when more than one newly supported add-ons are available.-->
     <string name="mozac_feature_addons_supported_checker_notification_title_plural">ရနိုင်သည့်အက်အွန်အသစ်များ</string>
-    <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Firefox). -->
+    <!-- The content of the notification, this will be shown to the user when one newly supported add-on is available. %1$s is the add-on name and %2$s is the app name (in most cases Eyebrowse). -->
     <string name="mozac_feature_addons_supported_checker_notification_content_one">%2$s သို့ %1$s ကိုပေါင်းထည့်ပါ။</string>
-    <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Firefox). -->
+    <!-- The content of the notification, this will be shown to the user when two newly supported add-ons are available. %1$s is the first add-on name. %2$s is the second add-on name. %3$s is the app name (in most cases Eyebrowse). -->
     <string name="mozac_feature_addons_supported_checker_notification_content_two">%3$s သို့ %2$s နှင့် %1$s ကို ပေါင်းထည့်ပါ။</string>
-    <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Firefox). -->
+    <!-- The content of the notification, this will be shown to the user when more than two newly supported add-ons are available. %1$s is the app name (in most cases Eyebrowse). -->
     <string name="mozac_feature_addons_supported_checker_notification_content_more_than_two">%1$s သို့ သူတို့ကိုပေါင်းထည့်ပါ။</string>
     <!-- This is the caption for not yet supported screen caption -->
-    <string name="mozac_feature_addons_not_yet_supported_caption">Firefox အတ်အွန်နည်းပညာသည် ခေတ်မှီနေပါပြီ။ ယခု သုံးနေသည် အတ်အွန်များသည် Firefox 75 နှင့် အထက်တွင် သုံးဆွဲလို့မရနိုင်ပါ။</string>
+    <string name="mozac_feature_addons_not_yet_supported_caption">Eyebrowse အတ်အွန်နည်းပညာသည် ခေတ်မှီနေပါပြီ။ ယခု သုံးနေသည် အတ်အွန်များသည် Eyebrowse 75 နှင့် အထက်တွင် သုံးဆွဲလို့မရနိုင်ပါ။</string>
     <!-- This is the caption for not yet supported screen caption -->
     <string name="mozac_feature_addons_not_yet_supported_caption2">စတင်သုံး ထပ်ပေါ်းဆော့ဝဲထည့်သွင်းခြင်းအား ထောက်ပံ့ပေးနိုင်ရန် လုပ်ဆောင်လျက်ရှိပါသည်</string>
     <!-- This is the caption for the add-on installation progress overlay -->
@@ -182,7 +182,7 @@
     <string name="mozac_feature_addons_successfully_removed" tools:ignore="UnusedResources">%1$s အားဖယ်ရှားပြီး</string>
     <!-- Text shown after failed to remove an add-on. %1$s is the add-on name. -->
     <string name="mozac_feature_addons_failed_to_remove" tools:ignore="UnusedResources">%1$s ဖယ်ရှားရန်မအောင်မြင်ပါ</string>
-    <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Firefox. -->
+    <!-- Label shown to indicate that the add-on was migrated from a previous version of the app. %1$s is the app name most of the case it will be Eyebrowse. -->
     <string name="mozac_feature_addons_migrated_from_a_previous_version_label" tools:ignore="UnusedResources">ဤအပိုဆောင်းထည့်သွင်းမှုကို %1$s ၏ယခင်ဗားရှင်းမှပြောင်းရွှေ့ခဲ့သည်</string>
     <!-- Text shown in not yet supported add-ons section in AddonsManagerAdapter. -->
     <string name="mozac_feature_addons_unsupported_caption">1 အက်အွန်</string>

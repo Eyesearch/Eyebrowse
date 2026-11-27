@@ -26,7 +26,7 @@ import org.mozilla.fenix.components.FenixSnackbar
 import org.mozilla.fenix.ext.requireComponents
 import org.mozilla.fenix.ext.settings
 import org.mozilla.fenix.ext.showToolbar
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import org.mozilla.fenix.wallpapers.Wallpaper
 
 class WallpaperSettingsFragment : Fragment() {
@@ -46,7 +46,7 @@ class WallpaperSettingsFragment : Fragment() {
         Wallpapers.wallpaperSettingsOpened.record(NoExtras())
         val wallpaperSettings = ComposeView(requireContext()).apply {
             setContent {
-                FirefoxTheme {
+                EyebrowseTheme {
                     val wallpapers = appStore.observeAsComposableState { state ->
                         state.wallpaperState.availableWallpapers
                     }.value ?: listOf()

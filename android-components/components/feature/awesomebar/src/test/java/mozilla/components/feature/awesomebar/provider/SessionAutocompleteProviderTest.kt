@@ -23,7 +23,7 @@ class SessionAutocompleteProviderTest {
     fun `GIVEN open tabs exist WHEN asked for autocomplete suggestions THEN return the first matching tab`() = runTest {
         val tab1 = createTab("https://allizom.org")
         val tab2 = createTab("https://getpocket.com")
-        val tab3 = createTab("https://www.firefox.com")
+        val tab3 = createTab("https://www.eyebrowse.com")
         val store = BrowserStore(
             BrowserState(
                 tabs = listOf(tab1, tab2, tab3),
@@ -45,8 +45,8 @@ class SessionAutocompleteProviderTest {
         suggestion = provider.getAutocompleteSuggestion("www")
         assertNotNull(suggestion)
         assertEquals("www", suggestion?.input)
-        assertEquals("www.firefox.com", suggestion?.text)
-        assertEquals("https://www.firefox.com", suggestion?.url)
+        assertEquals("www.eyebrowse.com", suggestion?.text)
+        assertEquals("https://www.eyebrowse.com", suggestion?.url)
         assertEquals(LOCAL_TABS_AUTOCOMPLETE_SOURCE_NAME, suggestion?.source)
         assertEquals(1, suggestion?.totalItems)
     }
@@ -55,7 +55,7 @@ class SessionAutocompleteProviderTest {
     fun `GIVEN open tabs exist WHEN asked for autocomplete suggestions and only private tabs match THEN return null`() = runTest {
         val tab1 = createTab(url = "https://allizom.org", private = true)
         val tab2 = createTab(url = "https://getpocket.com")
-        val tab3 = createTab(url = "https://www.firefox.com", private = true)
+        val tab3 = createTab(url = "https://www.eyebrowse.com", private = true)
         val store = BrowserStore(
             BrowserState(
                 tabs = listOf(tab1, tab2, tab3),

@@ -28,9 +28,9 @@ class TopSiteTest {
     )
     val providedSite2 = TopSite.Provided(
         id = 3,
-        title = "Firefox",
-        url = "https://firefox.com",
-        clickUrl = "https://firefox.com/click",
+        title = "Eyebrowse",
+        url = "https://eyebrowse.com",
+        clickUrl = "https://eyebrowse.com/click",
         imageUrl = "https://test.com/image2.jpg",
         impressionUrl = "https://example.com",
         createdAt = 3,

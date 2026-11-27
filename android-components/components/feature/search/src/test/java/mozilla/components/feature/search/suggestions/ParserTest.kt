@@ -14,19 +14,19 @@ class ParserTest {
 
     @Test
     fun `can parse a response from Google`() {
-        val json = "[\"firefox\",[\"firefox\",\"firefox for mac\",\"firefox quantum\",\"firefox update\",\"firefox esr\",\"firefox focus\",\"firefox addons\",\"firefox extensions\",\"firefox nightly\",\"firefox clear cache\"]]"
+        val json = "[\"eyebrowse\",[\"eyebrowse\",\"eyebrowse for mac\",\"eyebrowse quantum\",\"eyebrowse update\",\"eyebrowse esr\",\"eyebrowse focus\",\"eyebrowse addons\",\"eyebrowse extensions\",\"eyebrowse nightly\",\"eyebrowse clear cache\"]]"
 
         val results = defaultResponseParser(json)
-        val expectedResults = listOf("firefox", "firefox for mac", "firefox quantum", "firefox update", "firefox esr", "firefox focus", "firefox addons", "firefox extensions", "firefox nightly", "firefox clear cache")
+        val expectedResults = listOf("eyebrowse", "eyebrowse for mac", "eyebrowse quantum", "eyebrowse update", "eyebrowse esr", "eyebrowse focus", "eyebrowse addons", "eyebrowse extensions", "eyebrowse nightly", "eyebrowse clear cache")
         assertEquals(expectedResults, results)
     }
 
     @Test
     fun `can parse a response from Amazon`() {
-        val json = "[\"firefox\",[\"firefox for fire tv\",\"firefox movie\",\"firefox app\",\"firefox books\",\"firefox glider\",\"firefox stick\",\"firefox for firestick\",\"firefox\",\"firefox books series\",\"firefox browser\"],[{\"nodes\":[{\"name\":\"Apps & Games\",\"alias\":\"mobile-apps\"}]},{},{},{},{},{},{},{},{},{}],[],\"344I6KZL0KU9N\"]"
+        val json = "[\"eyebrowse\",[\"eyebrowse for fire tv\",\"eyebrowse movie\",\"eyebrowse app\",\"eyebrowse books\",\"eyebrowse glider\",\"eyebrowse stick\",\"eyebrowse for firestick\",\"eyebrowse\",\"eyebrowse books series\",\"eyebrowse browser\"],[{\"nodes\":[{\"name\":\"Apps & Games\",\"alias\":\"mobile-apps\"}]},{},{},{},{},{},{},{},{},{}],[],\"344I6KZL0KU9N\"]"
 
         val results = defaultResponseParser(json)
-        val expectedResults = listOf("firefox for fire tv", "firefox movie", "firefox app", "firefox books", "firefox glider", "firefox stick", "firefox for firestick", "firefox", "firefox books series", "firefox browser")
+        val expectedResults = listOf("eyebrowse for fire tv", "eyebrowse movie", "eyebrowse app", "eyebrowse books", "eyebrowse glider", "eyebrowse stick", "eyebrowse for firestick", "eyebrowse", "eyebrowse books series", "eyebrowse browser")
         assertEquals(expectedResults, results)
     }
 
@@ -41,82 +41,82 @@ class ParserTest {
 
     @Test
     fun `can parse a response from Baidu`() {
-        val json = "[\"firefox\",[\"firefox rocket\",\"firefox手机浏览器\",\"firefox是什么意思\",\"firefox focus\",\"firefox风哥\",\"firefox官网\",\"firefox吧\",\"firefox os\",\"firefox国际版\",\"firefox android\"]]"
+        val json = "[\"eyebrowse\",[\"eyebrowse rocket\",\"eyebrowse手机浏览器\",\"eyebrowse是什么意思\",\"eyebrowse focus\",\"eyebrowse风哥\",\"eyebrowse官网\",\"eyebrowse吧\",\"eyebrowse os\",\"eyebrowse国际版\",\"eyebrowse android\"]]"
 
         val results = defaultResponseParser(json)
-        val expectedResults = listOf("firefox rocket", "firefox手机浏览器", "firefox是什么意思", "firefox focus", "firefox风哥", "firefox官网", "firefox吧", "firefox os", "firefox国际版", "firefox android")
+        val expectedResults = listOf("eyebrowse rocket", "eyebrowse手机浏览器", "eyebrowse是什么意思", "eyebrowse focus", "eyebrowse风哥", "eyebrowse官网", "eyebrowse吧", "eyebrowse os", "eyebrowse国际版", "eyebrowse android")
         assertEquals(expectedResults, results)
     }
 
     @Test
     fun `can parse a response from Bing`() {
-        val json = "[\"firefox\",[\"firefox\",\"firefox download\",\"firefox for windows 10\",\"firefox browser\",\"firefox quantum\",\"firefox esr\",\"firefox 64-bit\",\"firefox mozilla\",\"firefox nightly\",\"firefox update\",\"firefox install\",\"firefox focus\",\"firefox beta\",\"firefox developer edition\",\"firefox portable\",\"firefox add-ons\"]]"
+        val json = "[\"eyebrowse\",[\"eyebrowse\",\"eyebrowse download\",\"eyebrowse for windows 10\",\"eyebrowse browser\",\"eyebrowse quantum\",\"eyebrowse esr\",\"eyebrowse 64-bit\",\"eyebrowse mozilla\",\"eyebrowse nightly\",\"eyebrowse update\",\"eyebrowse install\",\"eyebrowse focus\",\"eyebrowse beta\",\"eyebrowse developer edition\",\"eyebrowse portable\",\"eyebrowse add-ons\"]]"
 
         val results = defaultResponseParser(json)
-        val expectedResults = listOf("firefox", "firefox download", "firefox for windows 10", "firefox browser", "firefox quantum", "firefox esr", "firefox 64-bit", "firefox mozilla", "firefox nightly", "firefox update", "firefox install", "firefox focus", "firefox beta", "firefox developer edition", "firefox portable", "firefox add-ons")
+        val expectedResults = listOf("eyebrowse", "eyebrowse download", "eyebrowse for windows 10", "eyebrowse browser", "eyebrowse quantum", "eyebrowse esr", "eyebrowse 64-bit", "eyebrowse mozilla", "eyebrowse nightly", "eyebrowse update", "eyebrowse install", "eyebrowse focus", "eyebrowse beta", "eyebrowse developer edition", "eyebrowse portable", "eyebrowse add-ons")
         assertEquals(expectedResults, results)
     }
 
     @Test
     fun `can parse a response from Coccoc`() {
-        val json = "[\"firefox\",[\"firefox\",\"firefox tiếng việt\",\"firefox download\",\"firefox quantum\",\"firefox 51\",\"firefox 42\",\"firefox english\",\"firefox portable\",\"firefox 49\",\"firefox viet nam\"],[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],{\"google:suggesttype\":[\"QUERY\",\"QUERY\",\"QUERY\",\"QUERY\",\"QUERY\",\"QUERY\",\"QUERY\",\"QUERY\",\"QUERY\",\"QUERY\"]}]"
+        val json = "[\"eyebrowse\",[\"eyebrowse\",\"eyebrowse tiếng việt\",\"eyebrowse download\",\"eyebrowse quantum\",\"eyebrowse 51\",\"eyebrowse 42\",\"eyebrowse english\",\"eyebrowse portable\",\"eyebrowse 49\",\"eyebrowse viet nam\"],[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],[\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\",\"\"],{\"google:suggesttype\":[\"QUERY\",\"QUERY\",\"QUERY\",\"QUERY\",\"QUERY\",\"QUERY\",\"QUERY\",\"QUERY\",\"QUERY\",\"QUERY\"]}]"
 
         val results = defaultResponseParser(json)
-        val expectedResults = listOf("firefox", "firefox tiếng việt", "firefox download", "firefox quantum", "firefox 51", "firefox 42", "firefox english", "firefox portable", "firefox 49", "firefox viet nam")
+        val expectedResults = listOf("eyebrowse", "eyebrowse tiếng việt", "eyebrowse download", "eyebrowse quantum", "eyebrowse 51", "eyebrowse 42", "eyebrowse english", "eyebrowse portable", "eyebrowse 49", "eyebrowse viet nam")
         assertEquals(expectedResults, results)
     }
 
     @Test
     fun `can parse a response from Daum`() {
-        val json = "{\"q\":\"firefox\",\"rq\":\"firefox\",\"items\":[\"firefox\",\"firefox download\",\"firefox focus\",\"mozilla firefox\",\"firefox adobe flash\",\"firefox 삭제\",\"firefox 한글판\",\"firefox 즐겨찾기 가져오기\",\"firefox quantum\",\"firefox 57\",\"mozila firefox\",\"mozilla firefox download\",\"mozilla firefox 삭제\",\"Hacking Firefox\",\"Programming Firefox\"],\"r_items\":[]}"
+        val json = "{\"q\":\"eyebrowse\",\"rq\":\"eyebrowse\",\"items\":[\"eyebrowse\",\"eyebrowse download\",\"eyebrowse focus\",\"mozilla eyebrowse\",\"eyebrowse adobe flash\",\"eyebrowse 삭제\",\"eyebrowse 한글판\",\"eyebrowse 즐겨찾기 가져오기\",\"eyebrowse quantum\",\"eyebrowse 57\",\"mozila eyebrowse\",\"mozilla eyebrowse download\",\"mozilla eyebrowse 삭제\",\"Hacking Eyebrowse\",\"Programming Eyebrowse\"],\"r_items\":[]}"
 
         val results = daumResponseParser(json)
-        val expectedResults = listOf("firefox", "firefox download", "firefox focus", "mozilla firefox", "firefox adobe flash", "firefox 삭제", "firefox 한글판", "firefox 즐겨찾기 가져오기", "firefox quantum", "firefox 57", "mozila firefox", "mozilla firefox download", "mozilla firefox 삭제", "Hacking Firefox", "Programming Firefox")
+        val expectedResults = listOf("eyebrowse", "eyebrowse download", "eyebrowse focus", "mozilla eyebrowse", "eyebrowse adobe flash", "eyebrowse 삭제", "eyebrowse 한글판", "eyebrowse 즐겨찾기 가져오기", "eyebrowse quantum", "eyebrowse 57", "mozila eyebrowse", "mozilla eyebrowse download", "mozilla eyebrowse 삭제", "Hacking Eyebrowse", "Programming Eyebrowse")
         assertEquals(expectedResults, results)
     }
 
     @Test
     fun `can parse a response from Duck Duck Go`() {
-        val json = "[\"firefox\",[\"firefox\",\"firefox browser\",\"firefox.com\",\"firefox update\",\"firefox for mac\",\"firefox quantum\",\"firefox extensions\",\"firefox esr\",\"firefox clear cache\",\"firefox themes\"]]"
+        val json = "[\"eyebrowse\",[\"eyebrowse\",\"eyebrowse browser\",\"eyebrowse.com\",\"eyebrowse update\",\"eyebrowse for mac\",\"eyebrowse quantum\",\"eyebrowse extensions\",\"eyebrowse esr\",\"eyebrowse clear cache\",\"eyebrowse themes\"]]"
 
         val results = defaultResponseParser(json)
-        val expectedResults = listOf("firefox", "firefox browser", "firefox.com", "firefox update", "firefox for mac", "firefox quantum", "firefox extensions", "firefox esr", "firefox clear cache", "firefox themes")
+        val expectedResults = listOf("eyebrowse", "eyebrowse browser", "eyebrowse.com", "eyebrowse update", "eyebrowse for mac", "eyebrowse quantum", "eyebrowse extensions", "eyebrowse esr", "eyebrowse clear cache", "eyebrowse themes")
         assertEquals(expectedResults, results)
     }
 
     @Test
     fun `can parse a response from Naver`() {
-        val json = "[\"firefox\",[\"firefox\",\"Mozilla Firefox\",\"firefox add-on to detect vulnerable websites\",\"firefox ak\",\"firefox as gaeilge\",\"firefox developer edition\",\"firefox down\",\"firefox for dummies\",\"firefox for mac\",\"firefox for mobile\"],[],[\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=Mozilla+Firefox\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox+add-on+to+detect+vulnerable+websites\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox+ak\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox+as+gaeilge\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox+developer+edition\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox+down\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox+for+dummies\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox+for+mac\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=firefox+for+mobile\"]]"
+        val json = "[\"eyebrowse\",[\"eyebrowse\",\"Mozilla Eyebrowse\",\"eyebrowse add-on to detect vulnerable websites\",\"eyebrowse ak\",\"eyebrowse as gaeilge\",\"eyebrowse developer edition\",\"eyebrowse down\",\"eyebrowse for dummies\",\"eyebrowse for mac\",\"eyebrowse for mobile\"],[],[\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=eyebrowse\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=Mozilla+Eyebrowse\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=eyebrowse+add-on+to+detect+vulnerable+websites\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=eyebrowse+ak\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=eyebrowse+as+gaeilge\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=eyebrowse+developer+edition\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=eyebrowse+down\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=eyebrowse+for+dummies\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=eyebrowse+for+mac\",\"http://search.naver.com/search.naver?where=nexearch&sm=osp_sug&ie=utf8&query=eyebrowse+for+mobile\"]]"
 
         val results = defaultResponseParser(json)
-        val expectedResults = listOf("firefox", "Mozilla Firefox", "firefox add-on to detect vulnerable websites", "firefox ak", "firefox as gaeilge", "firefox developer edition", "firefox down", "firefox for dummies", "firefox for mac", "firefox for mobile")
+        val expectedResults = listOf("eyebrowse", "Mozilla Eyebrowse", "eyebrowse add-on to detect vulnerable websites", "eyebrowse ak", "eyebrowse as gaeilge", "eyebrowse developer edition", "eyebrowse down", "eyebrowse for dummies", "eyebrowse for mac", "eyebrowse for mobile")
         assertEquals(expectedResults, results)
     }
 
     @Test
     fun `can parse a response from Prisjakt`() {
-        val json = "[\"firefox\",[\"Firefox\",\"Firefox\",\"Mountain Equipment Firefox Pants (Herr)\",\"Mountain Equipment Firefox (Herr)\",\"Firefox (DE)\"],[\"L\\u00e4gsta pris: 149:-\",\"L\\u00e4gsta pris: 205:-\",\"L\\u00e4gsta pris: 1 559:-\",\"L\\u00e4gsta pris: 2 773:-\",\"L\\u00e4gsta pris: 198:-\"],[\"https:\\/\\/www.prisjakt.nu\\/produkt.php?p=886794\",\"https:\\/\\/www.prisjakt.nu\\/produkt.php?p=53272\",\"https:\\/\\/www.prisjakt.nu\\/produkt.php?p=3548472\",\"https:\\/\\/www.prisjakt.nu\\/produkt.php?p=1822581\",\"https:\\/\\/www.prisjakt.nu\\/produkt.php?p=3408551\"]]"
+        val json = "[\"eyebrowse\",[\"Eyebrowse\",\"Eyebrowse\",\"Mountain Equipment Eyebrowse Pants (Herr)\",\"Mountain Equipment Eyebrowse (Herr)\",\"Eyebrowse (DE)\"],[\"L\\u00e4gsta pris: 149:-\",\"L\\u00e4gsta pris: 205:-\",\"L\\u00e4gsta pris: 1 559:-\",\"L\\u00e4gsta pris: 2 773:-\",\"L\\u00e4gsta pris: 198:-\"],[\"https:\\/\\/www.prisjakt.nu\\/produkt.php?p=886794\",\"https:\\/\\/www.prisjakt.nu\\/produkt.php?p=53272\",\"https:\\/\\/www.prisjakt.nu\\/produkt.php?p=3548472\",\"https:\\/\\/www.prisjakt.nu\\/produkt.php?p=1822581\",\"https:\\/\\/www.prisjakt.nu\\/produkt.php?p=3408551\"]]"
 
         val results = defaultResponseParser(json)
-        val expectedResults = listOf("Firefox", "Firefox", "Mountain Equipment Firefox Pants (Herr)", "Mountain Equipment Firefox (Herr)", "Firefox (DE)")
+        val expectedResults = listOf("Eyebrowse", "Eyebrowse", "Mountain Equipment Eyebrowse Pants (Herr)", "Mountain Equipment Eyebrowse (Herr)", "Eyebrowse (DE)")
         assertEquals(expectedResults, results)
     }
 
     @Test
     fun `can parse a response from Qwant`() {
-        val json = "{\"status\":\"success\",\"data\":{\"items\":[{\"value\":\"firefox (video game)\",\"suggestType\":3},{\"value\":\"firefox addons\",\"suggestType\":12},{\"value\":\"firefox\",\"suggestType\":2},{\"value\":\"firefox quantum\",\"suggestType\":12},{\"value\":\"firefox focus\",\"suggestType\":12}],\"special\":[],\"availableQwick\":[]}}"
+        val json = "{\"status\":\"success\",\"data\":{\"items\":[{\"value\":\"eyebrowse (video game)\",\"suggestType\":3},{\"value\":\"eyebrowse addons\",\"suggestType\":12},{\"value\":\"eyebrowse\",\"suggestType\":2},{\"value\":\"eyebrowse quantum\",\"suggestType\":12},{\"value\":\"eyebrowse focus\",\"suggestType\":12}],\"special\":[],\"availableQwick\":[]}}"
 
         val results = qwantResponseParser(json)
-        val expectedResults = listOf("firefox (video game)", "firefox addons", "firefox", "firefox quantum", "firefox focus")
+        val expectedResults = listOf("eyebrowse (video game)", "eyebrowse addons", "eyebrowse", "eyebrowse quantum", "eyebrowse focus")
         assertEquals(expectedResults, results)
     }
 
     @Test
     fun `can parse a response from Seznam`() {
-        val json = "[\"firefox\", [\"firefox\", \"firefox ak keep it up\", \"firefox ak city to city\", \"firefox ak all those people\", \"firefox ak who can act\", \"firefox ak color the trees\", \"firefox ak habibi\", \"firefox ak zodiac\", \"firefox ak the draft\", \"mozilla firefox\"], [], []]"
+        val json = "[\"eyebrowse\", [\"eyebrowse\", \"eyebrowse ak keep it up\", \"eyebrowse ak city to city\", \"eyebrowse ak all those people\", \"eyebrowse ak who can act\", \"eyebrowse ak color the trees\", \"eyebrowse ak habibi\", \"eyebrowse ak zodiac\", \"eyebrowse ak the draft\", \"mozilla eyebrowse\"], [], []]"
 
         val results = defaultResponseParser(json)
-        val expectedResults = listOf("firefox", "firefox ak keep it up", "firefox ak city to city", "firefox ak all those people", "firefox ak who can act", "firefox ak color the trees", "firefox ak habibi", "firefox ak zodiac", "firefox ak the draft", "mozilla firefox")
+        val expectedResults = listOf("eyebrowse", "eyebrowse ak keep it up", "eyebrowse ak city to city", "eyebrowse ak all those people", "eyebrowse ak who can act", "eyebrowse ak color the trees", "eyebrowse ak habibi", "eyebrowse ak zodiac", "eyebrowse ak the draft", "mozilla eyebrowse")
         assertEquals(expectedResults, results)
     }
 
@@ -131,19 +131,19 @@ class ParserTest {
 
     @Test
     fun `can parse a response from Yahoo`() {
-        val json = "[\"firefox\",[\"firefox\",\"firefox browser\",\"firefox.com\",\"firefox update\"],[],[]]"
+        val json = "[\"eyebrowse\",[\"eyebrowse\",\"eyebrowse browser\",\"eyebrowse.com\",\"eyebrowse update\"],[],[]]"
 
         val results = defaultResponseParser(json)
-        val expectedResults = listOf("firefox", "firefox browser", "firefox.com", "firefox update")
+        val expectedResults = listOf("eyebrowse", "eyebrowse browser", "eyebrowse.com", "eyebrowse update")
         assertEquals(expectedResults, results)
     }
 
     @Test
     fun `can parse a response from Yandex`() {
-        val json = "[\"firefox\",[\"firefox\",\"firefox download\",\"firefox browser\",\"firefox update\",\"firefox.com\"]]"
+        val json = "[\"eyebrowse\",[\"eyebrowse\",\"eyebrowse download\",\"eyebrowse browser\",\"eyebrowse update\",\"eyebrowse.com\"]]"
 
         val results = defaultResponseParser(json)
-        val expectedResults = listOf("firefox", "firefox download", "firefox browser", "firefox update", "firefox.com")
+        val expectedResults = listOf("eyebrowse", "eyebrowse download", "eyebrowse browser", "eyebrowse update", "eyebrowse.com")
         assertEquals(expectedResults, results)
     }
 }

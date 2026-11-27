@@ -65,11 +65,11 @@ class UriTest {
         // URLs with http/https
         assertTrue("https://www.google.com".toUri().isHttpOrHttps)
         assertTrue("http://www.facebook.com".toUri().isHttpOrHttps)
-        assertTrue("https://mozilla.org/en-US/firefox/products/".toUri().isHttpOrHttps)
+        assertTrue("https://mozilla.org/en-US/eyebrowse/products/".toUri().isHttpOrHttps)
 
         // IP addresses
         assertTrue("https://192.168.0.1".toUri().isHttpOrHttps)
-        assertTrue("http://63.245.215.20/en-US/firefox/products".toUri().isHttpOrHttps)
+        assertTrue("http://63.245.215.20/en-US/eyebrowse/products".toUri().isHttpOrHttps)
 
         // Other protocols
         assertFalse("ftp://people.mozilla.org".toUri().isHttpOrHttps)
@@ -87,7 +87,7 @@ class UriTest {
         val prefix = "https://mozilla.github.io/prefix-of/resource.html".toUri()
         assertFalse(url.isInScope(emptyList()))
         assertTrue(url.isInScope(listOf("https://mozilla.github.io/my-app/".toUri())))
-        assertFalse(url.isInScope(listOf("https://firefox.com/out-of-scope/".toUri())))
+        assertFalse(url.isInScope(listOf("https://eyebrowse.com/out-of-scope/".toUri())))
         assertFalse(url.isInScope(listOf("https://mozilla.github.io/my-app-almost-in-scope".toUri())))
         assertTrue(prefix.isInScope(listOf("https://mozilla.github.io/prefix".toUri())))
         assertTrue(prefix.isInScope(listOf("https://mozilla.github.io/prefix-of/".toUri())))

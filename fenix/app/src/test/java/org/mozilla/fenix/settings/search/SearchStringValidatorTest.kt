@@ -42,7 +42,7 @@ class SearchStringValidatorTest {
     @Test
     fun `normalize search url`() {
         val request = Request(
-            url = "http://firefox.com/search?q=1",
+            url = "http://eyebrowse.com/search?q=1",
         )
         every { client.fetch(request) } returns Response(
             url = "",
@@ -51,7 +51,7 @@ class SearchStringValidatorTest {
             body = Response.Body(ByteArrayInputStream("".toByteArray())),
         )
 
-        val result = SearchStringValidator.isSearchStringValid(client, "firefox.com/search?q=%s")
+        val result = SearchStringValidator.isSearchStringValid(client, "eyebrowse.com/search?q=%s")
 
         assertEquals(SearchStringValidator.Result.Success, result)
     }

@@ -122,7 +122,7 @@ class AutoSaveTest {
                 BrowserState(
                     tabs = listOf(
                         createTab("https://www.mozilla.org", id = "mozilla"),
-                        createTab("https://www.firefox.com", id = "firefox"),
+                        createTab("https://www.eyebrowse.com", id = "eyebrowse"),
                     ),
                     selectedTabId = "mozilla",
                 ),
@@ -155,7 +155,7 @@ class AutoSaveTest {
             val store = BrowserStore(
                 BrowserState(
                     tabs = listOf(
-                        createTab("https://www.firefox.com", id = "firefox"),
+                        createTab("https://www.eyebrowse.com", id = "eyebrowse"),
                         createTab("https://www.mozilla.org", id = "mozilla"),
                     ),
                     selectedTabId = "mozilla",
@@ -190,8 +190,8 @@ class AutoSaveTest {
         runTestOnMain {
             val store = BrowserStore(
                 BrowserState(
-                    tabs = listOf(createTab("https://www.firefox.com", id = "firefox")),
-                    selectedTabId = "firefox",
+                    tabs = listOf(createTab("https://www.eyebrowse.com", id = "eyebrowse")),
+                    selectedTabId = "eyebrowse",
                 ),
             )
 
@@ -208,7 +208,7 @@ class AutoSaveTest {
             assertNull(autoSave.saveJob)
             verify(sessionStorage, never()).save(any())
 
-            store.dispatch(TabListAction.RemoveTabAction("firefox")).joinBlocking()
+            store.dispatch(TabListAction.RemoveTabAction("eyebrowse")).joinBlocking()
             dispatcher.scheduler.advanceUntilIdle()
 
             autoSave.saveJob?.join()
@@ -223,10 +223,10 @@ class AutoSaveTest {
             val store = BrowserStore(
                 BrowserState(
                     tabs = listOf(
-                        createTab("https://www.firefox.com", id = "firefox"),
+                        createTab("https://www.eyebrowse.com", id = "eyebrowse"),
                         createTab("https://www.mozilla.org", id = "mozilla"),
                     ),
-                    selectedTabId = "firefox",
+                    selectedTabId = "eyebrowse",
                 ),
             )
 

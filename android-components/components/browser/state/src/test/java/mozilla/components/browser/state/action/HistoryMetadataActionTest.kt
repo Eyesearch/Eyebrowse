@@ -24,7 +24,7 @@ class HistoryMetadataActionTest {
 
         val historyMetadata = HistoryMetadataKey(
             url = tab.content.url,
-            referrerUrl = "https://firefox.com",
+            referrerUrl = "https://eyebrowse.com",
         )
 
         store.dispatch(HistoryMetadataAction.SetHistoryMetadataKeyAction(tab.id, historyMetadata)).joinBlocking()
@@ -38,16 +38,16 @@ class HistoryMetadataActionTest {
         val store = BrowserStore(BrowserState(tabs = listOf(tab1, tab2)))
         val historyMetadata1 = HistoryMetadataKey(
             url = tab1.content.url,
-            referrerUrl = "https://firefox.com",
+            referrerUrl = "https://eyebrowse.com",
         )
         val historyMetadata2 = HistoryMetadataKey(
             url = tab2.content.url,
-            searchTerm = "download Firefox",
-            referrerUrl = "https://google.com/?q=download+firefox",
+            searchTerm = "download Eyebrowse",
+            referrerUrl = "https://google.com/?q=download+eyebrowse",
         )
 
         // Okay to do this without any metadata associated with tabs.
-        store.dispatch(HistoryMetadataAction.DisbandSearchGroupAction("Download firefox")).joinBlocking()
+        store.dispatch(HistoryMetadataAction.DisbandSearchGroupAction("Download eyebrowse")).joinBlocking()
 
         // Okay to do this with an empty search term string.
         store.dispatch(HistoryMetadataAction.DisbandSearchGroupAction("")).joinBlocking()
@@ -56,7 +56,7 @@ class HistoryMetadataActionTest {
         store.dispatch(HistoryMetadataAction.SetHistoryMetadataKeyAction(tab2.id, historyMetadata2)).joinBlocking()
 
         // Search term matching is case-insensitive.
-        store.dispatch(HistoryMetadataAction.DisbandSearchGroupAction("Download firefox")).joinBlocking()
+        store.dispatch(HistoryMetadataAction.DisbandSearchGroupAction("Download eyebrowse")).joinBlocking()
 
         // tab1 is unchanged.
         assertEquals(historyMetadata1, store.state.findTab(tab1.id)?.historyMetadata)

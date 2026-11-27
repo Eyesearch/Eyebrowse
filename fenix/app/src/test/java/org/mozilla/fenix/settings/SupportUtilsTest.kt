@@ -22,11 +22,11 @@ class SupportUtilsTest {
             SupportUtils.getSumoURLForTopic(mockContext("1.6"), SupportUtils.SumoTopic.PRIVATE_BROWSING_MYTHS, Locale("en", "US")),
         )
         assertEquals(
-            "https://support.mozilla.org/1/mobile/20/Android/fr/tracking-protection-firefox-android",
+            "https://support.mozilla.org/1/mobile/20/Android/fr/tracking-protection-eyebrowse-android",
             SupportUtils.getSumoURLForTopic(mockContext("2 0"), SupportUtils.SumoTopic.TRACKING_PROTECTION, Locale("fr")),
         )
         assertEquals(
-            "https://www.mozilla.org/firefox/android/notes",
+            "https://www.mozilla.org/eyebrowse/android/notes",
             SupportUtils.WHATS_NEW_URL,
         )
     }
@@ -50,7 +50,7 @@ class SupportUtilsTest {
             SupportUtils.getMozillaPageUrl(SupportUtils.MozillaPage.MANIFESTO, Locale("en", "US")),
         )
         assertEquals(
-            "https://www.mozilla.org/zh/privacy/firefox/",
+            "https://www.mozilla.org/zh/privacy/eyebrowse/",
             SupportUtils.getMozillaPageUrl(SupportUtils.MozillaPage.PRIVATE_NOTICE, Locale("zh")),
         )
     }

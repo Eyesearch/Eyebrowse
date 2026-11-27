@@ -63,7 +63,7 @@ class CustomTabWindowFeatureTest {
             ),
         )
 
-        whenever(activity.packageName).thenReturn("org.mozilla.firefox")
+        whenever(activity.packageName).thenReturn("org.mozilla.eyebrowse")
     }
 
     @Test
@@ -73,7 +73,7 @@ class CustomTabWindowFeatureTest {
 
         feature.start()
         whenever(windowRequest.type).thenReturn(WindowRequest.Type.OPEN)
-        whenever(windowRequest.url).thenReturn("https://www.firefox.com")
+        whenever(windowRequest.url).thenReturn("https://www.eyebrowse.com")
         store.dispatch(ContentAction.UpdateWindowRequestAction(sessionId, windowRequest)).joinBlocking()
 
         verify(activity).startActivity(any(), any())
@@ -88,10 +88,10 @@ class CustomTabWindowFeatureTest {
 
         feature.start()
         whenever(windowRequest.type).thenReturn(WindowRequest.Type.OPEN)
-        whenever(windowRequest.url).thenReturn("blob:https://www.firefox.com")
+        whenever(windowRequest.url).thenReturn("blob:https://www.eyebrowse.com")
         whenever(activity.startActivity(any(), any())).thenThrow(exception)
         store.dispatch(ContentAction.UpdateWindowRequestAction(sessionId, windowRequest)).joinBlocking()
-        verify(engineSession).loadUrl("blob:https://www.firefox.com")
+        verify(engineSession).loadUrl("blob:https://www.eyebrowse.com")
     }
 
     @Test
@@ -101,7 +101,7 @@ class CustomTabWindowFeatureTest {
         val intent = feature.configToIntent(config)
 
         val newConfig = createCustomTabConfigFromIntent(intent.intent, null)
-        assertEquals("org.mozilla.firefox", intent.intent.`package`)
+        assertEquals("org.mozilla.eyebrowse", intent.intent.`package`)
         assertEquals(config, newConfig)
     }
 
@@ -122,7 +122,7 @@ class CustomTabWindowFeatureTest {
         val intent = feature.configToIntent(config)
 
         val newConfig = createCustomTabConfigFromIntent(intent.intent, null)
-        assertEquals("org.mozilla.firefox", intent.intent.`package`)
+        assertEquals("org.mozilla.eyebrowse", intent.intent.`package`)
         assertEquals(config, newConfig)
     }
 
@@ -144,7 +144,7 @@ class CustomTabWindowFeatureTest {
         val intent = feature.configToIntent(config)
 
         val newConfig = createCustomTabConfigFromIntent(intent.intent, null)
-        assertEquals("org.mozilla.firefox", intent.intent.`package`)
+        assertEquals("org.mozilla.eyebrowse", intent.intent.`package`)
         assertEquals(config, newConfig)
     }
 
@@ -156,7 +156,7 @@ class CustomTabWindowFeatureTest {
 
         val windowRequest: WindowRequest = mock()
         whenever(windowRequest.type).thenReturn(WindowRequest.Type.OPEN)
-        whenever(windowRequest.url).thenReturn("https://www.firefox.com")
+        whenever(windowRequest.url).thenReturn("https://www.eyebrowse.com")
         store.dispatch(ContentAction.UpdateWindowRequestAction(sessionId, windowRequest)).joinBlocking()
         verify(activity, never()).startActivity(any(), any())
         verify(store, never()).dispatch(ContentAction.ConsumeWindowRequestAction(sessionId))

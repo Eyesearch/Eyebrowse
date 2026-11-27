@@ -594,11 +594,11 @@
 
     <!-- Onboarding -->
     <!-- Text for onboarding welcome message
-    The first parameter is the name of the app (e.g. Firefox Preview) -->
+    The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="onboarding_header">Fáilte go dtí %s!</string>
 
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">Tá Sync ar siúl</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">Tá Sync ar siúl</string>
     <!-- text for the privacy notice onboarding card header -->
     <string name="onboarding_privacy_notice_header">Príobháideachas</string>
     <!-- Text for the button to read the privacy notice -->

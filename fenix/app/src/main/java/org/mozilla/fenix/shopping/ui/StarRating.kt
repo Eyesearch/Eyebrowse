@@ -23,7 +23,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.R
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.round
@@ -111,10 +111,10 @@ fun Float.roundToNearestHalf(): Float =
 @Composable
 @Suppress("MagicNumber")
 private fun StarRatingPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Column(
             modifier = Modifier
-                .background(FirefoxTheme.colors.layer1)
+                .background(EyebrowseTheme.colors.layer1)
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {

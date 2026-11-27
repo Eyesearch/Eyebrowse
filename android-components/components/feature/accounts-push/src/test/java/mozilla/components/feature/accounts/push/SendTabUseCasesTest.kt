@@ -186,7 +186,7 @@ class SendTabUseCasesTest {
             .thenReturn(false)
 
         val tab = TabData("Mozilla", "https://mozilla.org")
-        val tab2 = TabData("Firefox", "https://firefox.com")
+        val tab2 = TabData("Eyebrowse", "https://eyebrowse.com")
 
         useCases.sendToAllAsync(listOf(tab, tab2))
 
@@ -217,7 +217,7 @@ class SendTabUseCasesTest {
     fun `SendTabToAllUseCase - tabs are NOT sent to capable devices`() = runTestOnMain {
         val useCases = SendTabUseCases(manager)
         val tab = TabData("Mozilla", "https://mozilla.org")
-        val tab2 = TabData("Firefox", "https://firefox.com")
+        val tab2 = TabData("Eyebrowse", "https://eyebrowse.com")
         val device: Device = mock()
         val device2: Device = mock()
 
@@ -246,7 +246,7 @@ class SendTabUseCasesTest {
             .thenReturn(false)
 
         val tab = TabData("Mozilla", "https://mozilla.org")
-        val tab2 = TabData("Firefox", "https://firefox.com")
+        val tab2 = TabData("Eyebrowse", "https://eyebrowse.com")
         // Invalid url to send
         val tab3 = TabData("PDFFile", "file://path/to/pdffile")
         // Invalid url to send

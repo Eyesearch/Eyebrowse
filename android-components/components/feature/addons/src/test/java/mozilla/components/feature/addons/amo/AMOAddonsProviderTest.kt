@@ -107,11 +107,11 @@ class AMOAddonsProviderTest {
             addon.iconUrl,
         )
         assertEquals(
-            "https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/",
+            "https://addons.mozilla.org/en-US/eyebrowse/addon/ublock-origin/",
             addon.homepageUrl,
         )
         assertEquals(
-            "https://addons.mozilla.org/firefox/downloads/file/3719054/ublock_origin-1.33.2-an+fx.xpi",
+            "https://addons.mozilla.org/eyebrowse/downloads/file/3719054/ublock_origin-1.33.2-an+fx.xpi",
             addon.downloadUrl,
         )
         assertEquals(
@@ -135,7 +135,7 @@ class AMOAddonsProviderTest {
         // Author
         assertEquals("Raymond Hill", addon.author?.name)
         assertEquals(
-            "https://addons.mozilla.org/en-US/firefox/user/11423598/",
+            "https://addons.mozilla.org/en-US/eyebrowse/user/11423598/",
             addon.author?.url,
         )
 
@@ -627,11 +627,11 @@ class AMOAddonsProviderTest {
             addon.iconUrl,
         )
         assertEquals(
-            "https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/",
+            "https://addons.mozilla.org/en-US/eyebrowse/addon/ublock-origin/",
             addon.homepageUrl,
         )
         assertEquals(
-            "https://addons.mozilla.org/firefox/downloads/file/4141256/ublock_origin-1.51.0.xpi",
+            "https://addons.mozilla.org/eyebrowse/downloads/file/4141256/ublock_origin-1.51.0.xpi",
             addon.downloadUrl,
         )
         assertEquals(
@@ -652,18 +652,18 @@ class AMOAddonsProviderTest {
         // Author
         assertEquals("Raymond Hill", addon.author?.name)
         assertEquals(
-            "https://addons.mozilla.org/en-US/firefox/user/11423598/",
+            "https://addons.mozilla.org/en-US/eyebrowse/user/11423598/",
             addon.author?.url,
         )
         // Ratings
         assertEquals(4.7825F, addon.rating!!.average, 0.7825F)
         assertEquals(4101, addon.rating!!.reviews)
         assertEquals(
-            "https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/reviews/",
+            "https://addons.mozilla.org/en-US/eyebrowse/addon/ublock-origin/reviews/",
             addon.ratingUrl,
         )
         assertEquals(
-            "https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/",
+            "https://addons.mozilla.org/en-US/eyebrowse/addon/ublock-origin/",
             addon.detailUrl,
         )
     }

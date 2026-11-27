@@ -121,7 +121,7 @@ class BaseSearchTelemetryTest {
 
     @Test
     fun `GIVEN a search provider does not exist for the url WHEN getProviderForUrl is called THEN return null`() {
-        val url = "https://www.mozilla.com/search?q=firefox"
+        val url = "https://www.mozilla.com/search?q=eyebrowse"
         baseTelemetry.providerList = createMockProviderList()
 
         assertEquals(null, baseTelemetry.getProviderForUrl(url))

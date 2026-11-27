@@ -39,15 +39,15 @@ class HistoryDataSourceTest {
         listOf(1, 2, 3) to listOf(
             TestHistory.Metadata("http://www.mozilla.com"),
             TestHistory.Regular("http://www.mozilla.com/2"),
-            TestHistory.Group("firefox", items = listOf()),
+            TestHistory.Group("eyebrowse", items = listOf()),
         ),
         listOf(1, 2, 3) to listOf(
             TestHistory.Metadata("http://www.mozilla.com"),
             TestHistory.Regular("http://www.mozilla.com/2"),
             TestHistory.Group(
-                "firefox",
+                "eyebrowse",
                 items = listOf(
-                    "http://www.firefox.com",
+                    "http://www.eyebrowse.com",
                 ),
             ),
         ),
@@ -55,25 +55,25 @@ class HistoryDataSourceTest {
             TestHistory.Metadata("http://www.mozilla.com"),
             TestHistory.Regular("http://www.mozilla.com/2"),
             TestHistory.Group(
-                "firefox",
+                "eyebrowse",
                 items = listOf(
-                    "http://www.firefox.com",
-                    "http://www.firefox.com/2",
-                    "http://www.firefox.com/3",
-                    "http://www.firefox.com/4",
-                    "http://www.firefox.com/5",
+                    "http://www.eyebrowse.com",
+                    "http://www.eyebrowse.com/2",
+                    "http://www.eyebrowse.com/3",
+                    "http://www.eyebrowse.com/4",
+                    "http://www.eyebrowse.com/5",
                 ),
             ),
         ),
         listOf(5, 6, 7) to listOf(
             TestHistory.Group(
-                "firefox",
+                "eyebrowse",
                 items = listOf(
-                    "http://www.firefox.com",
-                    "http://www.firefox.com/2",
-                    "http://www.firefox.com/3",
-                    "http://www.firefox.com/4",
-                    "http://www.firefox.com/5",
+                    "http://www.eyebrowse.com",
+                    "http://www.eyebrowse.com/2",
+                    "http://www.eyebrowse.com/3",
+                    "http://www.eyebrowse.com/4",
+                    "http://www.eyebrowse.com/5",
                 ),
             ),
             TestHistory.Metadata("http://www.mozilla.com"),
@@ -82,13 +82,13 @@ class HistoryDataSourceTest {
         listOf(1, 6, 7) to listOf(
             TestHistory.Metadata("http://www.mozilla.com"),
             TestHistory.Group(
-                "firefox",
+                "eyebrowse",
                 items = listOf(
-                    "http://www.firefox.com",
-                    "http://www.firefox.com/2",
-                    "http://www.firefox.com/3",
-                    "http://www.firefox.com/4",
-                    "http://www.firefox.com/5",
+                    "http://www.eyebrowse.com",
+                    "http://www.eyebrowse.com/2",
+                    "http://www.eyebrowse.com/3",
+                    "http://www.eyebrowse.com/4",
+                    "http://www.eyebrowse.com/5",
                 ),
             ),
             TestHistory.Regular("http://www.mozilla.com/2"),
@@ -96,13 +96,13 @@ class HistoryDataSourceTest {
         listOf(1, 6, 8, 9) to listOf(
             TestHistory.Metadata("http://www.mozilla.com"),
             TestHistory.Group(
-                "firefox",
+                "eyebrowse",
                 items = listOf(
-                    "http://www.firefox.com",
-                    "http://www.firefox.com/2",
-                    "http://www.firefox.com/3",
-                    "http://www.firefox.com/4",
-                    "http://www.firefox.com/5",
+                    "http://www.eyebrowse.com",
+                    "http://www.eyebrowse.com/2",
+                    "http://www.eyebrowse.com/3",
+                    "http://www.eyebrowse.com/4",
+                    "http://www.eyebrowse.com/5",
                 ),
             ),
             TestHistory.Group(

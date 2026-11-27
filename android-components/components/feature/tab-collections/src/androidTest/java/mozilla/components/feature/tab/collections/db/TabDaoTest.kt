@@ -50,7 +50,7 @@ class TabDaoTest {
 
         val tab2 = TabEntity(
             title = "Tab Two",
-            url = "https://www.firefox.com",
+            url = "https://www.eyebrowse.com",
             stateFile = UUID.randomUUID().toString(),
             tabCollectionId = collection.id!!,
             createdAt = 100,
@@ -87,7 +87,7 @@ class TabDaoTest {
 
         val tab2 = TabEntity(
             title = "Tab Two",
-            url = "https://www.firefox.com",
+            url = "https://www.eyebrowse.com",
             stateFile = UUID.randomUUID().toString(),
             tabCollectionId = collection.id!!,
             createdAt = 100,

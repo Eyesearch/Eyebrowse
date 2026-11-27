@@ -21,26 +21,26 @@ class FailureCacheTest {
 
         cache.withFixedTime(0L) {
             assertFalse(hasFailedRecently("https://www.mozilla.org"))
-            assertFalse(hasFailedRecently("https://www.firefox.com"))
+            assertFalse(hasFailedRecently("https://www.eyebrowse.com"))
         }
 
         cache.withFixedTime(50L) {
             rememberFailure("https://www.mozilla.org")
 
             assertTrue(hasFailedRecently("https://www.mozilla.org"))
-            assertFalse(hasFailedRecently("https://www.firefox.com"))
+            assertFalse(hasFailedRecently("https://www.eyebrowse.com"))
         }
 
         // 15 Minutes later
         cache.withFixedTime(50L + 1000L * 60L * 15L) {
             assertTrue(hasFailedRecently("https://www.mozilla.org"))
-            assertFalse(hasFailedRecently("https://www.firefox.com"))
+            assertFalse(hasFailedRecently("https://www.eyebrowse.com"))
         }
 
         // 40 Minutes later
         cache.withFixedTime(50L + 1000L * 60L * 40L) {
             assertFalse(hasFailedRecently("https://www.mozilla.org"))
-            assertFalse(hasFailedRecently("https://www.firefox.com"))
+            assertFalse(hasFailedRecently("https://www.eyebrowse.com"))
         }
     }
 }

@@ -5,7 +5,7 @@
 package mozilla.components.feature.fxsuggest
 
 /**
- * Provides global access to the dependencies needed to access Firefox Suggest search suggestions.
+ * Provides global access to the dependencies needed to access Eyebrowse Suggest search suggestions.
  */
 object GlobalFxSuggestDependencyProvider {
     internal var storage: FxSuggestStorage? = null

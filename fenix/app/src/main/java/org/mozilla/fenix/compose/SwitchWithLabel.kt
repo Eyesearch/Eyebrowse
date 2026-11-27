@@ -26,7 +26,7 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 import androidx.compose.material.Switch as MaterialSwitch
 
 private const val DISABLED_ALPHA = 0.5f
@@ -69,18 +69,18 @@ fun SwitchWithLabel(
             Text(
                 text = label,
                 color = if (enabled) {
-                    FirefoxTheme.colors.textPrimary
+                    EyebrowseTheme.colors.textPrimary
                 } else {
-                    FirefoxTheme.colors.textDisabled
+                    EyebrowseTheme.colors.textDisabled
                 },
-                style = FirefoxTheme.typography.subtitle1,
+                style = EyebrowseTheme.typography.subtitle1,
             )
 
             description?.let {
                 Text(
                     text = description,
-                    color = FirefoxTheme.colors.textSecondary,
-                    style = FirefoxTheme.typography.body2,
+                    color = EyebrowseTheme.colors.textSecondary,
+                    style = EyebrowseTheme.typography.body2,
                 )
             }
         }
@@ -116,18 +116,18 @@ private fun Switch(
         modifier = modifier,
         enabled = enabled,
         colors = SwitchDefaults.colors(
-            uncheckedThumbColor = FirefoxTheme.colors.formOff,
-            uncheckedTrackColor = FirefoxTheme.colors.formSurface,
-            checkedThumbColor = FirefoxTheme.colors.formOn,
-            checkedTrackColor = FirefoxTheme.colors.formSurface,
-            disabledUncheckedThumbColor = FirefoxTheme.colors.formOff
+            uncheckedThumbColor = EyebrowseTheme.colors.formOff,
+            uncheckedTrackColor = EyebrowseTheme.colors.formSurface,
+            checkedThumbColor = EyebrowseTheme.colors.formOn,
+            checkedTrackColor = EyebrowseTheme.colors.formSurface,
+            disabledUncheckedThumbColor = EyebrowseTheme.colors.formOff
                 .copy(alpha = DISABLED_ALPHA)
-                .compositeOver(FirefoxTheme.colors.formSurface),
-            disabledUncheckedTrackColor = FirefoxTheme.colors.formSurface.copy(alpha = DISABLED_ALPHA),
-            disabledCheckedThumbColor = FirefoxTheme.colors.formOn
+                .compositeOver(EyebrowseTheme.colors.formSurface),
+            disabledUncheckedTrackColor = EyebrowseTheme.colors.formSurface.copy(alpha = DISABLED_ALPHA),
+            disabledCheckedThumbColor = EyebrowseTheme.colors.formOn
                 .copy(alpha = DISABLED_ALPHA)
-                .compositeOver(FirefoxTheme.colors.formSurface),
-            disabledCheckedTrackColor = FirefoxTheme.colors.formSurface.copy(alpha = DISABLED_ALPHA),
+                .compositeOver(EyebrowseTheme.colors.formSurface),
+            disabledCheckedTrackColor = EyebrowseTheme.colors.formSurface.copy(alpha = DISABLED_ALPHA),
         ),
     )
 }
@@ -135,17 +135,17 @@ private fun Switch(
 @LightDarkPreview
 @Composable
 private fun SwitchWithLabelPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Column(
             modifier = Modifier
-                .background(FirefoxTheme.colors.layer1)
+                .background(EyebrowseTheme.colors.layer1)
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             Text(
                 text = "Enabled",
-                style = FirefoxTheme.typography.headline7,
-                color = FirefoxTheme.colors.textPrimary,
+                style = EyebrowseTheme.typography.headline7,
+                color = EyebrowseTheme.colors.textPrimary,
             )
 
             Spacer(Modifier.height(8.dp))
@@ -160,8 +160,8 @@ private fun SwitchWithLabelPreview() {
 
             Text(
                 text = "Disabled",
-                style = FirefoxTheme.typography.headline7,
-                color = FirefoxTheme.colors.textPrimary,
+                style = EyebrowseTheme.typography.headline7,
+                color = EyebrowseTheme.colors.textPrimary,
             )
 
             Spacer(Modifier.height(8.dp))
@@ -184,8 +184,8 @@ private fun SwitchWithLabelPreview() {
 
             Text(
                 text = "Nested",
-                style = FirefoxTheme.typography.headline7,
-                color = FirefoxTheme.colors.textPrimary,
+                style = EyebrowseTheme.typography.headline7,
+                color = EyebrowseTheme.colors.textPrimary,
             )
 
             Spacer(Modifier.height(8.dp))

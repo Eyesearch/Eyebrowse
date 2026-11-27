@@ -31,7 +31,7 @@ class BrowserStoreExceptionTest {
         unwrapStoreExceptionAndRethrow {
             val store = BrowserStore()
             val parent = createTab("https://www.mozilla.org")
-            val child = createTab("https://www.firefox.com", parent = parent)
+            val child = createTab("https://www.eyebrowse.com", parent = parent)
 
             store.dispatch(TabListAction.AddTabAction(child)).joinBlocking()
         }
@@ -91,7 +91,7 @@ class BrowserStoreExceptionTest {
 
             val tab2 = createTab(
                 id = "b",
-                url = "https://www.firefox.com",
+                url = "https://www.eyebrowse.com",
                 private = true,
                 parent = tab1,
             )
@@ -153,7 +153,7 @@ class BrowserStoreExceptionTest {
                 ),
             )
 
-            val tab = createTab(id = "tab1", url = "https://firefox.com")
+            val tab = createTab(id = "tab1", url = "https://eyebrowse.com")
             store.dispatch(TabGroupAction.AddTabAction(tabPartition.id, tabGroup.id, tab.id)).joinBlocking()
         }
     }
@@ -163,7 +163,7 @@ class BrowserStoreExceptionTest {
         unwrapStoreExceptionAndRethrow {
             val tabGroup = TabGroup("test1", tabIds = emptyList())
             val tabPartition = TabPartition("testFeaturePartition", tabGroups = listOf(tabGroup))
-            val tab1 = createTab(id = "tab1", url = "https://firefox.com")
+            val tab1 = createTab(id = "tab1", url = "https://eyebrowse.com")
             val tab2 = createTab(id = "tab2", url = "https://mozilla.org")
 
             val store = BrowserStore(

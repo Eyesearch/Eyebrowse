@@ -37,7 +37,7 @@ internal class BookmarkAdapterTest {
             listOf(
                 testBookmarkItem("someFolder", "http://mozilla.org"),
                 testSeparator("123"),
-                testBookmarkItem("123", "https://www.mozilla.org/en-US/firefox/"),
+                testBookmarkItem("123", "https://www.mozilla.org/en-US/eyebrowse/"),
             ),
         )
         bookmarkAdapter.updateData(tree, BookmarkFragmentState.Mode.Normal())
@@ -55,7 +55,7 @@ internal class BookmarkAdapterTest {
         val sep1 = testSeparator("123")
         val sep2 = testSeparator("123")
         val item1 = testBookmarkItem("123", "http://mozilla.org")
-        val item2 = testBookmarkItem("123", "https://www.mozilla.org/en-US/firefox/")
+        val item2 = testBookmarkItem("123", "https://www.mozilla.org/en-US/eyebrowse/")
         val folder = testFolder("123", "root", title = "Mobile", children = listOf(item1, sep1, item2, sep2))
         bookmarkAdapter.updateData(folder, BookmarkFragmentState.Mode.Normal())
         verifyOrder {
@@ -71,9 +71,9 @@ internal class BookmarkAdapterTest {
     fun `update adapter from tree of bookmark nodes, folders are moved to the top`() {
         val sep1 = testSeparator("123")
         val item1 = testBookmarkItem("123", "http://mozilla.org")
-        val item2 = testBookmarkItem("123", "https://www.mozilla.org/en-US/firefox/")
-        val item3 = testBookmarkItem("123", "https://www.mozilla.org/en-US/firefox/2")
-        val item4 = testBookmarkItem("125", "https://www.mozilla.org/en-US/firefox/3")
+        val item2 = testBookmarkItem("123", "https://www.mozilla.org/en-US/eyebrowse/")
+        val item3 = testBookmarkItem("123", "https://www.mozilla.org/en-US/eyebrowse/2")
+        val item4 = testBookmarkItem("125", "https://www.mozilla.org/en-US/eyebrowse/3")
         val folder2 = testFolder("124", "123", title = "Mobile 2", children = emptyList())
         val folder3 = testFolder("125", "123", title = "Mobile 3", children = listOf(item4))
         val folder4 = testFolder("126", "123", title = "Mobile 3", children = emptyList())
@@ -104,7 +104,7 @@ internal class BookmarkAdapterTest {
     @Test
     fun `get item view type for different types of nodes`() {
         val sep1 = testSeparator("123")
-        val item1 = testBookmarkItem("123", "https://www.mozilla.org/en-US/firefox/")
+        val item1 = testBookmarkItem("123", "https://www.mozilla.org/en-US/eyebrowse/")
         val folder1 = testFolder("124", "123", title = "Mobile 2", children = emptyList())
         bookmarkAdapter.updateData(
             testFolder("123", "root", listOf(sep1, item1, folder1)),

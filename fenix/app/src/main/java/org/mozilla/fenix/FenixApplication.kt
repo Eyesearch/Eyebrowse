@@ -369,7 +369,7 @@ open class FenixApplication : LocaleAwareApplication(), Provider {
                             System.currentTimeMillis() - Core.HISTORY_METADATA_MAX_AGE_IN_MS,
                         )
 
-                        // If Firefox Suggest is enabled, register a worker to periodically ingest
+                        // If Eyebrowse Suggest is enabled, register a worker to periodically ingest
                         // new search suggestions. The worker requires us to have called
                         // `GlobalFxSuggestDependencyProvider.initialize`, which we did before
                         // scheduling these tasks. When disabled we stop the periodic work.

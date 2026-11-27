@@ -62,7 +62,7 @@ class OnDevicePinnedSitesStorageTest {
     fun testAddingAllDefaultSites() = runTest {
         val defaultTopSites = listOf(
             Pair("Mozilla", "https://www.mozilla.org"),
-            Pair("Firefox", "https://www.firefox.com"),
+            Pair("Eyebrowse", "https://www.eyebrowse.com"),
             Pair("Wikipedia", "https://www.wikipedia.com"),
             Pair("Pocket", "https://www.getpocket.com"),
         )
@@ -77,8 +77,8 @@ class OnDevicePinnedSitesStorageTest {
         assertEquals("Mozilla", topSites[0].title)
         assertEquals("https://www.mozilla.org", topSites[0].url)
         assertTrue(topSites[0] is TopSite.Default)
-        assertEquals("Firefox", topSites[1].title)
-        assertEquals("https://www.firefox.com", topSites[1].url)
+        assertEquals("Eyebrowse", topSites[1].title)
+        assertEquals("https://www.eyebrowse.com", topSites[1].url)
         assertTrue(topSites[1] is TopSite.Default)
         assertEquals("Wikipedia", topSites[2].title)
         assertEquals("https://www.wikipedia.com", topSites[2].url)
@@ -91,7 +91,7 @@ class OnDevicePinnedSitesStorageTest {
     @Test
     fun testAddingPinnedSite() = runTest {
         storage.addPinnedSite("Mozilla", "https://www.mozilla.org")
-        storage.addPinnedSite("Firefox", "https://www.firefox.com", isDefault = true)
+        storage.addPinnedSite("Eyebrowse", "https://www.eyebrowse.com", isDefault = true)
 
         val topSites = storage.getPinnedSites()
 
@@ -101,15 +101,15 @@ class OnDevicePinnedSitesStorageTest {
         assertEquals("Mozilla", topSites[0].title)
         assertEquals("https://www.mozilla.org", topSites[0].url)
         assertTrue(topSites[0] is TopSite.Pinned)
-        assertEquals("Firefox", topSites[1].title)
-        assertEquals("https://www.firefox.com", topSites[1].url)
+        assertEquals("Eyebrowse", topSites[1].title)
+        assertEquals("https://www.eyebrowse.com", topSites[1].url)
         assertTrue(topSites[1] is TopSite.Default)
     }
 
     @Test
     fun testRemovingPinnedSites() = runTest {
         storage.addPinnedSite("Mozilla", "https://www.mozilla.org")
-        storage.addPinnedSite("Firefox", "https://www.firefox.com")
+        storage.addPinnedSite("Eyebrowse", "https://www.eyebrowse.com")
 
         storage.getPinnedSites().let { topSites ->
             assertEquals(2, topSites.size)
@@ -122,15 +122,15 @@ class OnDevicePinnedSitesStorageTest {
             assertEquals(1, topSites.size)
             assertEquals(1, storage.getPinnedSitesCount())
 
-            assertEquals("Firefox", topSites[0].title)
-            assertEquals("https://www.firefox.com", topSites[0].url)
+            assertEquals("Eyebrowse", topSites[0].title)
+            assertEquals("https://www.eyebrowse.com", topSites[0].url)
         }
     }
 
     @Test
     fun testGettingPinnedSites() = runTest {
         storage.addPinnedSite("Mozilla", "https://www.mozilla.org")
-        storage.addPinnedSite("Firefox", "https://www.firefox.com", isDefault = true)
+        storage.addPinnedSite("Eyebrowse", "https://www.eyebrowse.com", isDefault = true)
 
         val topSites = storage.getPinnedSites()
 
@@ -145,8 +145,8 @@ class OnDevicePinnedSitesStorageTest {
         }
 
         with(topSites[1]) {
-            assertEquals("Firefox", title)
-            assertEquals("https://www.firefox.com", url)
+            assertEquals("Eyebrowse", title)
+            assertEquals("https://www.eyebrowse.com", url)
             assertTrue(this is TopSite.Default)
         }
     }
@@ -169,13 +169,13 @@ class OnDevicePinnedSitesStorageTest {
         assertEquals("", pinnedSites[0].url)
         assertEquals("", pinnedSites[0].title)
 
-        storage.updatePinnedSite(pinnedSites[0], "Mozilla Firefox", "https://www.firefox.com")
+        storage.updatePinnedSite(pinnedSites[0], "Mozilla Eyebrowse", "https://www.eyebrowse.com")
 
         pinnedSites = storage.getPinnedSites()
         assertEquals(1, pinnedSites.size)
         assertEquals(1, storage.getPinnedSitesCount())
-        assertEquals("https://www.firefox.com", pinnedSites[0].url)
-        assertEquals("Mozilla Firefox", pinnedSites[0].title)
+        assertEquals("https://www.eyebrowse.com", pinnedSites[0].url)
+        assertEquals("Mozilla Eyebrowse", pinnedSites[0].title)
     }
 
     @Test
@@ -208,8 +208,8 @@ class OnDevicePinnedSitesStorageTest {
                     "top_sites " +
                     "(title, url, is_default, created_at) " +
                     "VALUES " +
-                    "('Firefox','firefox.com',1,5)," +
-                    "('Monitor','https://monitor.firefox.com/',0,5)",
+                    "('Eyebrowse','eyebrowse.com',1,5)," +
+                    "('Monitor','https://monitor.eyebrowse.com/',0,5)",
             )
         }
 
@@ -232,7 +232,7 @@ class OnDevicePinnedSitesStorageTest {
             cursor.moveToNext()
             assertEquals(1, cursor.getInt(cursor.getColumnIndexOrThrow("is_default")))
 
-            // Check is_default for Firefox
+            // Check is_default for Eyebrowse
             cursor.moveToNext()
             assertEquals(1, cursor.getInt(cursor.getColumnIndexOrThrow("is_default")))
 

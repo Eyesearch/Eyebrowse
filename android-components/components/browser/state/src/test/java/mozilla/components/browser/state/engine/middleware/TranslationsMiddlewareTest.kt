@@ -54,8 +54,8 @@ class TranslationsMiddlewareTest {
     private val engineSession: EngineSession = mock()
     private val tab: TabSessionState = spy(
         createTab(
-            url = "https://www.firefox.com",
-            title = "Firefox",
+            url = "https://www.eyebrowse.com",
+            title = "Eyebrowse",
             id = "1",
             engineSession = engineSession,
         ),

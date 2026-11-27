@@ -48,7 +48,7 @@ class LastAccessMiddlewareTest {
             initialState = BrowserState(
                 listOf(
                     createTab("https://mozilla.org", id = "123"),
-                    createTab("https://firefox.com", id = "456"),
+                    createTab("https://eyebrowse.com", id = "456"),
                 ),
                 selectedTabId = "123",
             ),
@@ -78,7 +78,7 @@ class LastAccessMiddlewareTest {
 
         assertEquals(0L, store.state.selectedTab?.lastAccess)
 
-        val newTab = createTab("https://firefox.com", id = "456")
+        val newTab = createTab("https://eyebrowse.com", id = "456")
         store.dispatch(TabListAction.AddTabAction(newTab, select = true)).joinBlocking()
 
         assertEquals("456", store.state.selectedTabId)
@@ -99,7 +99,7 @@ class LastAccessMiddlewareTest {
 
         assertEquals(0L, store.state.selectedTab?.lastAccess)
 
-        val newTab = createTab("https://firefox.com", id = "456")
+        val newTab = createTab("https://eyebrowse.com", id = "456")
         store.dispatch(TabListAction.AddTabAction(newTab, select = false)).joinBlocking()
 
         assertEquals("123", store.state.selectedTabId)
@@ -109,7 +109,7 @@ class LastAccessMiddlewareTest {
 
     @Test
     fun `UpdateLastAction is dispatched when URL of selected tab changes`() {
-        val tab = createTab("https://firefox.com", id = "123")
+        val tab = createTab("https://eyebrowse.com", id = "123")
         val store = BrowserStore(
             initialState = BrowserState(
                 listOf(tab),
@@ -125,7 +125,7 @@ class LastAccessMiddlewareTest {
 
     @Test
     fun `UpdateLastAction is not dispatched when URL of non-selected tab changes`() {
-        val tab = createTab("https://firefox.com", id = "123")
+        val tab = createTab("https://eyebrowse.com", id = "123")
         val store = BrowserStore(
             initialState = BrowserState(
                 listOf(tab),
@@ -148,7 +148,7 @@ class LastAccessMiddlewareTest {
             initialState = BrowserState(
                 listOf(
                     createTab("https://mozilla.org", id = "123"),
-                    createTab("https://firefox.com", id = "456"),
+                    createTab("https://eyebrowse.com", id = "456"),
                 ),
                 selectedTabId = "123",
             ),
@@ -172,7 +172,7 @@ class LastAccessMiddlewareTest {
             initialState = BrowserState(
                 listOf(
                     createTab("https://mozilla.org", id = "123"),
-                    createTab("https://firefox.com", id = "456"),
+                    createTab("https://eyebrowse.com", id = "456"),
                 ),
                 selectedTabId = "123",
             ),
@@ -195,7 +195,7 @@ class LastAccessMiddlewareTest {
             initialState = BrowserState(
                 listOf(
                     createTab("https://mozilla.org", id = "123"),
-                    createTab("https://firefox.com", id = "456"),
+                    createTab("https://eyebrowse.com", id = "456"),
                     createTab("https://getpocket.com", id = "789"),
                 ),
                 selectedTabId = "123",
@@ -221,7 +221,7 @@ class LastAccessMiddlewareTest {
             initialState = BrowserState(
                 listOf(
                     createTab("https://mozilla.org", id = "123"),
-                    createTab("https://firefox.com", id = "456"),
+                    createTab("https://eyebrowse.com", id = "456"),
                     createTab("https://getpocket.com", id = "789"),
                 ),
                 selectedTabId = "123",
@@ -245,7 +245,7 @@ class LastAccessMiddlewareTest {
             initialState = BrowserState(
                 listOf(
                     createTab("https://mozilla.org", id = "123"),
-                    createTab("https://firefox.com", id = "456", private = true),
+                    createTab("https://eyebrowse.com", id = "456", private = true),
                     createTab("https://getpocket.com", id = "789", private = true),
                 ),
                 selectedTabId = "123",
@@ -275,7 +275,7 @@ class LastAccessMiddlewareTest {
         val recoverableTabs = listOf(
             RecoverableTab(
                 engineSessionState = null,
-                state = TabState(url = "https://firefox.com", id = "1", lastAccess = lastAccess),
+                state = TabState(url = "https://eyebrowse.com", id = "1", lastAccess = lastAccess),
             ),
             RecoverableTab(
                 engineSessionState = null,

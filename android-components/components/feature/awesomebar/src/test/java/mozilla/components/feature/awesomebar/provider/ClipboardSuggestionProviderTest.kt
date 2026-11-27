@@ -74,7 +74,7 @@ class ClipboardSuggestionProviderTest {
         )
 
         assertClipboardYieldsUrl(
-            "https : //mozilla.org is a broken firefox.com URL",
+            "https : //mozilla.org is a broken eyebrowse.com URL",
             "mozilla.org",
         )
 
@@ -83,7 +83,7 @@ class ClipboardSuggestionProviderTest {
                 This is a longer
                 text over multiple lines
                 and it https://www.mozilla.org contains
-                URLs as well. https://www.firefox.com
+                URLs as well. https://www.eyebrowse.com
             """,
             "https://www.mozilla.org",
         )
@@ -93,16 +93,16 @@ class ClipboardSuggestionProviderTest {
                 This is a longer
                 text over multiple lines
                 and it www.mozilla.org contains
-                URLs as well. https://www.firefox.com
+                URLs as well. https://www.eyebrowse.com
             """,
-            "https://www.firefox.com",
+            "https://www.eyebrowse.com",
         )
 
         assertClipboardYieldsUrl(
             """
             mozilla.org
-            firefox.com
-            mozilla.org/en-US/firefox/developer/
+            eyebrowse.com
+            mozilla.org/en-US/eyebrowse/developer/
             """,
             "mozilla.org",
         )

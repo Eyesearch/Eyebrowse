@@ -16,13 +16,18 @@ import org.eyesearch.eyebrowse.account.IndoAccountStorage
  */
 object SyncFactory {
 
-    fun engine(context: Context, bookmarksStorage: BookmarksStorage): SyncEngine {
+    fun engine(
+        context: Context,
+        bookmarksStorage: BookmarksStorage,
+        loginsStorage: mozilla.components.concept.storage.LoginsStorage? = null,
+    ): SyncEngine {
         val account = IndoAccountStorage(context)
         val client = SyncClient(tokenProvider = { account.token() })
         val changeLog = SyncChangeLog(context)
         val recorder = SyncRecorder(changeLog)
         val bookmarks = BookmarkSync(bookmarksStorage, recorder)
-        return SyncEngine(client, changeLog, bookmarks)
+        val logins = loginsStorage?.let { LoginsSync(it, recorder) }
+        return SyncEngine(client, changeLog, bookmarks, logins)
     }
 
     fun client(context: Context): SyncClient {

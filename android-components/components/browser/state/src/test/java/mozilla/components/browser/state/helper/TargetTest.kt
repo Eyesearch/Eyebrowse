@@ -25,7 +25,7 @@ class TargetTest {
                     createTab("https://theverge.com", id = "theverge", private = true),
                 ),
                 customTabs = listOf(
-                    createCustomTab("https://www.reddit.com/r/firefox/", id = "reddit"),
+                    createCustomTab("https://www.reddit.com/r/eyebrowse/", id = "reddit"),
                 ),
                 selectedTabId = "mozilla",
             ),
@@ -55,7 +55,7 @@ class TargetTest {
         )
 
         assertEquals(
-            "https://www.reddit.com/r/firefox/",
+            "https://www.reddit.com/r/eyebrowse/",
             Target.CustomTab("reddit").lookupIn(store)?.content?.url,
         )
 
@@ -94,7 +94,7 @@ class TargetTest {
                 createTab("https://theverge.com", id = "theverge", private = true),
             ),
             customTabs = listOf(
-                createCustomTab("https://www.reddit.com/r/firefox/", id = "reddit"),
+                createCustomTab("https://www.reddit.com/r/eyebrowse/", id = "reddit"),
             ),
             selectedTabId = "mozilla",
         )
@@ -123,7 +123,7 @@ class TargetTest {
         )
 
         assertEquals(
-            "https://www.reddit.com/r/firefox/",
+            "https://www.reddit.com/r/eyebrowse/",
             Target.CustomTab("reddit").lookupIn(state)?.content?.url,
         )
 

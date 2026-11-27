@@ -74,8 +74,8 @@ class BookmarkControllerTest {
         "987",
         "123",
         2u,
-        "Firefox",
-        "https://www.mozilla.org/en-US/firefox/",
+        "Eyebrowse",
+        "https://www.mozilla.org/en-US/eyebrowse/",
         0,
         null,
     )

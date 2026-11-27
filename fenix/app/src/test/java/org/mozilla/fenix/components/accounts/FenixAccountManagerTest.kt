@@ -48,7 +48,7 @@ class FenixAccountManagerTest {
     fun `GIVEN an account exists but needs to be re-authenticated WHEN accountProfileEmail is called THEN it returns null`() {
         every { accountManagerComponent.authenticatedAccount() } returns account
         every { accountManagerComponent.accountProfile() } returns profile
-        every { accountManagerComponent.accountProfile()?.email } returns "firefoxIsFun@test.com"
+        every { accountManagerComponent.accountProfile()?.email } returns "eyebrowseIsFun@test.com"
         every { accountManagerComponent.accountNeedsReauth() } returns true
         every { context.components.backgroundServices.accountManager } returns accountManagerComponent
         fenixFxaManager = FenixAccountManager(context)
@@ -62,7 +62,7 @@ class FenixAccountManagerTest {
     fun `GIVEN an account exists and doesn't need to be re-authenticated WHEN accountProfileEmail is called THEN it returns the associated email address`() {
         every { accountManagerComponent.authenticatedAccount() } returns account
         every { accountManagerComponent.accountProfile() } returns profile
-        val accountEmail = "firefoxIsFun@test.com"
+        val accountEmail = "eyebrowseIsFun@test.com"
         every { accountManagerComponent.accountProfile()?.email } returns accountEmail
         every { accountManagerComponent.accountNeedsReauth() } returns false
         every { context.components.backgroundServices.accountManager } returns accountManagerComponent

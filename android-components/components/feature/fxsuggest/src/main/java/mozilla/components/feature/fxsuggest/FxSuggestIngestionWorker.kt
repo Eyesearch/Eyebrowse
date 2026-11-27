@@ -10,7 +10,7 @@ import androidx.work.WorkerParameters
 import mozilla.components.support.base.log.logger.Logger
 
 /**
- * A [CoroutineWorker] that downloads and persists new Firefox Suggest search suggestions.
+ * A [CoroutineWorker] that downloads and persists new Eyebrowse Suggest search suggestions.
  *
  * @param context The Android application context.
  * @param params Parameters for this worker's internal state.

@@ -11,7 +11,7 @@ import android.net.Uri
  *
  * Example:
  * ```
- * val url = https://mozilla.org/firefox
+ * val url = https://mozilla.org/eyebrowse
  * val redactedUrl = url.redactPartialUri(3, "redacted...")
  *
  * assertEquals("https://mozilla.org/redacted...fox", redactedUrl)

@@ -1103,7 +1103,7 @@ class AwesomeBarViewTest {
     }
 
     @Test
-    fun `GIVEN sponsored suggestions are enabled WHEN configuring providers THEN add the Firefox Suggest suggestion provider`() {
+    fun `GIVEN sponsored suggestions are enabled WHEN configuring providers THEN add the Eyebrowse Suggest suggestion provider`() {
         val settings: Settings = mockk(relaxed = true)
         every { activity.settings() } returns settings
         val awesomeBarView = AwesomeBarView(
@@ -1124,7 +1124,7 @@ class AwesomeBarViewTest {
     }
 
     @Test
-    fun `GIVEN non-sponsored suggestions are enabled WHEN configuring providers THEN add the Firefox Suggest suggestion provider`() {
+    fun `GIVEN non-sponsored suggestions are enabled WHEN configuring providers THEN add the Eyebrowse Suggest suggestion provider`() {
         val settings: Settings = mockk(relaxed = true)
         every { activity.settings() } returns settings
         val awesomeBarView = AwesomeBarView(
@@ -1145,7 +1145,7 @@ class AwesomeBarViewTest {
     }
 
     @Test
-    fun `GIVEN sponsored and non-sponsored suggestions are enabled WHEN configuring providers THEN add the Firefox Suggest suggestion provider`() {
+    fun `GIVEN sponsored and non-sponsored suggestions are enabled WHEN configuring providers THEN add the Eyebrowse Suggest suggestion provider`() {
         val settings: Settings = mockk(relaxed = true)
         every { activity.settings() } returns settings
         val awesomeBarView = AwesomeBarView(
@@ -1166,7 +1166,7 @@ class AwesomeBarViewTest {
     }
 
     @Test
-    fun `GIVEN sponsored and non-sponsored suggestions are disabled WHEN configuring providers THEN don't add the Firefox Suggest suggestion provider`() {
+    fun `GIVEN sponsored and non-sponsored suggestions are disabled WHEN configuring providers THEN don't add the Eyebrowse Suggest suggestion provider`() {
         val settings: Settings = mockk(relaxed = true)
         every { activity.settings() } returns settings
         val awesomeBarView = AwesomeBarView(

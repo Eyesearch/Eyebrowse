@@ -190,7 +190,7 @@ class BundledSearchEnginesStorageTest {
         assertEquals("Google", google.name)
         assertEquals(SearchEngine.Type.BUNDLED, google.type)
         assertNotNull(google.icon)
-        assertEquals("https://www.google.com/complete/search?client=firefox&q={searchTerms}", google.suggestUrl)
+        assertEquals("https://www.google.com/complete/search?client=eyebrowse&q={searchTerms}", google.suggestUrl)
         assertTrue(google.resultUrls.isNotEmpty())
     }
 }

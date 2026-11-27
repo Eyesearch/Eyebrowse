@@ -50,7 +50,7 @@
 
     <!-- Explanation for private browsing displayed to users on home view when they first enable
         private mode in our new Total Private Browsing mode.
-        The first parameter is the name of the app defined in app_name (for example: Firefox Nightly)
+        The first parameter is the name of the app defined in app_name (for example: Eyebrowse Nightly)
         The second parameter is the clickable link text in felt_privacy_info_card_subtitle_link_text -->
     <string name="felt_privacy_info_card_subtitle_2">%1$s îți șterge cookie-urile, istoricul și datele site-urilor când închizi toate ferestrele private. %2$s</string>
     <!-- Clickable portion of the explanation for private browsing that links the user to our
@@ -203,29 +203,29 @@
     <!-- Content description (not visible, for screen readers etc.): Search engine icon. The first parameter is the search engine name (for example: DuckDuckGo). -->
     <string name="search_engine_icon_content_description" tools:ignore="UnusedResources">Motor de căutare %s</string>
 
-    <!-- Title for set firefox as default browser screen used by Nimbus experiments. -->
+    <!-- Title for set eyebrowse as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_title_nimbus_2">Ne place să te protejăm</string>
-    <!-- Description for set firefox as default browser screen used by Nimbus experiments. -->
+    <!-- Description for set eyebrowse as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_description_nimbus_2" moz:RemovedIn="124" tools:ignore="UnusedResources">Browserul nostru, susținut de o organizație non-profit, ajută la oprirea companiilor să te urmărească în secret pe web.\n\nAflă mai multe în notificarea noastră privind confidențialitatea.</string>
     <!-- Title for sign in to sync screen. -->
     <string name="juno_onboarding_sign_in_title_2">Păstrează-ți datele criptate când treci de pe un dispozitiv pe altul</string>
     <!-- Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
-     Note: The word "Firefox" should NOT be translated -->
+     Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_sign_in_description_2">Când ești autentificat și sincronizat, ești mai în siguranță. Eyebrowse criptează parolele, marcajele și multe altele.</string>
     <!-- Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_enable_notifications_title_nimbus_2">Notificările te ajută să fii mai în siguranță cu Eyebrowse</string>
     <!-- Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-       Note: The word "Firefox" should NOT be translated -->
+       Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_enable_notifications_description_nimbus_2">Trimite-ți securizat file între dispozitive și descoperă alte funcții de confidențialitate în Eyebrowse.</string>
     <!-- Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_add_search_widget_title" tools:ignore="UnusedResources">Încearcă widgetul de căutare Eyebrowse</string>
     <!-- Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_add_search_widget_description" tools:ignore="UnusedResources">Cu Eyebrowse pe ecranul de start vei avea acces facil la primul browser orientat pe confidențailitate care blochează elementele de urmărire inter-site-uri.</string>
     <!-- Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="UnusedResources">Adaugă widgetul Eyebrowse</string>
     <!-- Text for the button to dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">Nu acum</string>
@@ -875,7 +875,7 @@
 
     <!-- Onboarding -->
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">Sync este activat</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">Sync este activat</string>
 
     <!-- Onboarding theme -->
     <!-- Text shown in snackbar when multiple tabs have been sent to device -->
@@ -896,7 +896,7 @@
     <string name="sign_in_with_camera">Autentificare cu camera</string>
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">Folosește e-mailul în schimb</string>
-    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="sign_out_confirmation_message_2">%s va înceta să se mai sincronizeze cu contul tău, dar nu va șterge nimic din datele de navigare de pe acest dispozitiv.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
     <string name="sign_out_disconnect">Deconectează-te</string>
@@ -1200,13 +1200,13 @@
     <string name="synced_tabs_connect_another_device">Conectează alt dispozitiv.</string>
     <!-- Text displayed asking user to re-authenticate -->
     <string name="synced_tabs_reauth">Te rugăm să te autentifici din nou.</string>
-    <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+    <!-- Text displayed when user has disabled tab syncing in Eyebrowse Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">Te rugăm să activezi sincronizarea filelor.</string>
     <!-- Text displayed when user has no tabs that have been synced -->
     <string name="synced_tabs_no_tabs">Nu ai nicio filă deschisă în Eyebrowse pe celelalte dispozitive.</string>
-    <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+    <!-- Text displayed in the synced tabs screen when a user is not signed in to Eyebrowse Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">Afișează o listă de file de pe celelalte dispozitive.</string>
-    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Eyebrowse Sync -->
     <string name="synced_tabs_sign_in_button">Intră în contul Sync</string>
 
     <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->

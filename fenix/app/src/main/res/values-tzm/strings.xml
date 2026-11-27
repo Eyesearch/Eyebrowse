@@ -82,7 +82,7 @@
     <string name="search_engine_suggestions_title">Rzu %s</string>
 
     <!-- Search Widget -->
-    <!-- Content description for searching with a widget. Firefox is intentionally hardcoded.-->
+    <!-- Content description for searching with a widget. Eyebrowse is intentionally hardcoded.-->
     <string name="search_widget_content_description">Rẓem Aseksel amaynu n Eyebrowse</string>
     <!-- Text preview for smaller sized widgets -->
     <string name="search_widget_text_short">Rzu</string>
@@ -390,7 +390,7 @@
 
     <!-- Onboarding -->
     <!-- Text for onboarding welcome message
-    The first parameter is the name of the app (e.g. Firefox Preview) -->
+    The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="onboarding_header">Ansuf ɣer %s!</string>
     <!-- text for the private browsing onbording card button, that launches settings -->
     <string name="onboarding_private_browsing_button">Rẓem tisɣal</string>

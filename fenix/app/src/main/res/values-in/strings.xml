@@ -319,10 +319,10 @@
     <!-- Text for the button to not request notification permission on the device and dismiss the dialog -->
     <string name="onboarding_home_enable_notifications_negative_button" moz:removedIn="124" tools:ignore="UnusedResources">Jangan sekarang</string>
 
-    <!-- Text for the link to the privacy notice webpage for set as firefox default browser screen.
+    <!-- Text for the link to the privacy notice webpage for set as eyebrowse default browser screen.
     This is part of the string with the key "juno_onboarding_default_browser_description". -->
     <string name="juno_onboarding_default_browser_description_link_text" moz:RemovedIn="124" tools:ignore="UnusedResources">kebijakan privasi</string>
-    <!-- Text for the button to set firefox as default browser on the device -->
+    <!-- Text for the button to set eyebrowse as default browser on the device -->
     <string name="juno_onboarding_default_browser_positive_button" tools:ignore="UnusedResources">Setel sebagai peramban baku</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_default_browser_negative_button" tools:ignore="UnusedResources">Jangan sekarang</string>
@@ -489,12 +489,12 @@
 
     <!-- Preference for enabling url autocomplete-->
     <string name="preferences_enable_autocomplete_urls">URL lengkapi-otomatis</string>
-    <!-- Preference title for switch preference to show sponsored Firefox Suggest search suggestions -->
+    <!-- Preference title for switch preference to show sponsored Eyebrowse Suggest search suggestions -->
     <string name="preferences_show_sponsored_suggestions">Saran dari sponsor</string>
-    <!-- Preference title for switch preference to show Firefox Suggest search suggestions for web content.
+    <!-- Preference title for switch preference to show Eyebrowse Suggest search suggestions for web content.
          The first parameter is the name of the application. -->
     <string name="preferences_show_nonsponsored_suggestions">Saran dari %1$s</string>
-    <!-- Summary for preference to show Firefox Suggest search suggestions for web content -->
+    <!-- Summary for preference to show Eyebrowse Suggest search suggestions for web content -->
     <string name="preferences_show_nonsponsored_suggestions_summary">Dapatkan rekomendasi dari web yang terkait dengan pencarian Anda</string>
     <!-- Preference for open links in third party apps -->
     <string name="preferences_open_links_in_apps">Buka tautan di aplikasi</string>
@@ -576,7 +576,7 @@
     <!-- Text displayed that links to website containing documentation about the "Limited Edition" wallpapers. -->
     <string name="wallpaper_learn_more">Pelajari lebih lanjut</string>
 
-    <!-- Text for classic wallpapers title. The first parameter is the Firefox name. -->
+    <!-- Text for classic wallpapers title. The first parameter is the Eyebrowse name. -->
     <string name="wallpaper_classic_title">%s Klasik</string>
     <!-- Text for artist series wallpapers title. "Artist series" represents a collection of artist collaborated wallpapers. -->
     <string name="wallpaper_artist_series_title">Karya seniman</string>
@@ -606,9 +606,9 @@
     <string name="addon_process_crash_dialog_disable_addons_button_text" tools:ignore="UnusedResources">Lanjutkan dengan pengaya yang dinonaktifkan</string>
 
     <!-- Account Preferences -->
-    <!-- Preference for managing your account via accounts.firefox.com -->
+    <!-- Preference for managing your account via accounts.eyebrowse.com -->
     <string name="preferences_manage_account">Kelola akun</string>
-    <!-- Summary of the preference for managing your account via accounts.firefox.com. -->
+    <!-- Summary of the preference for managing your account via accounts.eyebrowse.com. -->
     <string name="preferences_manage_account_summary">Ubah sandi Anda, kelola pengumpulan data, atau hapus akun Anda</string>
     <!-- Preference for triggering sync -->
     <string name="preferences_sync_now">Sinkronkan sekarang</string>
@@ -836,7 +836,7 @@
     <string name="studies_remove">Hapus</string>
     <!-- Title of the active section on the studies list -->
     <string name="studies_active">Aktif</string>
-    <!-- Description for studies, it indicates why Firefox use studies. The first parameter is the name of the application. -->
+    <!-- Description for studies, it indicates why Eyebrowse use studies. The first parameter is the name of the application. -->
     <string name="studies_description_2">%1$s dapat memasang dan menjalankan kajian dari waktu ke waktu.</string>
     <!-- Learn more link for studies, links to an article for more information about studies. -->
     <string name="studies_learn_more">Pelajari lebih lanjut</string>
@@ -1399,7 +1399,7 @@
 
     <!-- Onboarding -->
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">Sinkronisasi aktif</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">Sinkronisasi aktif</string>
 
     <!-- Onboarding theme -->
     <!-- Text shown in snackbar when multiple tabs have been sent to device -->
@@ -1420,9 +1420,9 @@
     <string name="sign_in_with_camera">Masuk dengan kamera Anda</string>
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">Gunakan surel saja</string>
-    <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
+    <!-- Text shown for settings option for create new account text.'Eyebrowse' intentionally hardcoded here.-->
     <string name="sign_in_create_account_text"><![CDATA[Tidak ada akun? <u>Buat satu</u> untuk menyinkronkan Eyebrowse antar perangkat.]]></string>
-    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="sign_out_confirmation_message_2">%s akan berhenti menyinkronkan dengan akun Anda, tetapi tidak akan menghapus data penjelajahan Anda di peranti ini.</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
     <string name="sign_out_disconnect">Putuskan</string>
@@ -1439,7 +1439,7 @@
     <string name="preference_enhanced_tracking_protection">Perlindungan Pelacakan Dipertingkat</string>
     <!-- Preference summary for enhanced tracking protection settings on/off switch -->
     <string name="preference_enhanced_tracking_protection_summary">Kini menampilkan Perlindungan Kuki Total, penghalang kami yang paling kuat terhadap pelacak lintas situs.</string>
-    <!-- Description of enhanced tracking protection. The parameter is the name of the application (For example: Firefox Fenix) -->
+    <!-- Description of enhanced tracking protection. The parameter is the name of the application (For example: Eyebrowse Fenix) -->
     <string name="preference_enhanced_tracking_protection_explanation_2">%s melindungi Anda dari banyak pelacak umum yang mengikuti apa yang Anda lakukan daring.</string>
     <!-- Text displayed that links to website about enhanced tracking protection -->
     <string name="preference_enhanced_tracking_protection_explanation_learn_more">Pelajari lebih lanjut</string>
@@ -1595,9 +1595,9 @@
     <string name="preferences_passwords_save_logins_ask_to_save">Minta untuk menyimpan</string>
     <!-- Preference option for never saving passwords in Fenix -->
     <string name="preferences_passwords_save_logins_never_save">Jangan pernah simpan</string>
-    <!-- Preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill2">Isi-otomatis di %1$s</string>
-    <!-- Description for the preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Description for the preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill_description">Isi dan simpan nama pengguna dan sandi pada situs web ketika menggunakan %1$s.</string>
     <!-- Preference for autofilling logins from Fenix in other apps (e.g. autofilling the Twitter app) -->
     <string name="preferences_android_autofill">Isi-otomatis di aplikasi lainnya</string>
@@ -1932,14 +1932,14 @@
     <string name="synced_tabs_connect_another_device">Hubungkan perangkat lain</string>
     <!-- Text displayed asking user to re-authenticate -->
     <string name="synced_tabs_reauth">Harap autentikasi ulang.</string>
-    <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+    <!-- Text displayed when user has disabled tab syncing in Eyebrowse Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">Harap aktifkan sinkronisasi tab.</string>
 
     <!-- Text displayed when user has no tabs that have been synced -->
     <string name="synced_tabs_no_tabs">Anda tidak memiliki tab terbuka di Eyebrowse pada perangkat Anda lainnya.</string>
-    <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+    <!-- Text displayed in the synced tabs screen when a user is not signed in to Eyebrowse Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">Lihat daftar tab dari perangkat Anda lainnya.</string>
-    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Eyebrowse Sync -->
     <string name="synced_tabs_sign_in_button">Masuk untuk sinkronisasi</string>
 
     <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->
@@ -1999,8 +1999,8 @@
     <string name="inactive_tabs_auto_close_message_snackbar">Tutup-otomatis diaktifkan</string>
 
     <!-- Awesome bar suggestion's headers -->
-    <!-- Search suggestions title for Firefox Suggest. -->
-    <string name="firefox_suggest_header">Saran Eyebrowse</string>
+    <!-- Search suggestions title for Eyebrowse Suggest. -->
+    <string name="eyebrowse_suggest_header">Saran Eyebrowse</string>
 
     <!-- Title for search suggestions when Google is the default search suggestion engine. -->
     <string name="google_search_engine_suggestion_header">Pencarian Google</string>
@@ -2053,7 +2053,7 @@
     <string name="a11y_action_label_wallpaper_collection_learn_more">buka tautan untuk mempelajari lebih lanjut tentang koleksi ini</string>
     <!-- Action label for links that point to an article. Talkback will append this to say "Double tap to read the article". -->
     <string name="a11y_action_label_read_article">baca artikel</string>
-    <!-- Action label for links to the Firefox Pocket website. Talkback will append this to say "Double tap to open link to learn more". -->
+    <!-- Action label for links to the Eyebrowse Pocket website. Talkback will append this to say "Double tap to open link to learn more". -->
     <string name="a11y_action_label_pocket_learn_more">buka tautan untuk mempelajari lebih lanjut</string>
 
     <!-- Translations feature-->

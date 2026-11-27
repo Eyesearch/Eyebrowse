@@ -24,7 +24,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.mozilla.fenix.compose.annotation.LightDarkPreview
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 /**
  * Default layout for a clickable chip.
@@ -42,8 +42,8 @@ private fun Chip(
     text: String,
     modifier: Modifier = Modifier,
     isSquare: Boolean = false,
-    backgroundColor: Color = FirefoxTheme.colors.actionPrimary,
-    textColor: Color = FirefoxTheme.colors.textActionPrimary,
+    backgroundColor: Color = EyebrowseTheme.colors.actionPrimary,
+    textColor: Color = EyebrowseTheme.colors.textActionPrimary,
     onClick: () -> Unit,
 ) {
     androidx.compose.material.Chip(
@@ -57,7 +57,7 @@ private fun Chip(
         Text(
             text = text,
             color = textColor,
-            style = FirefoxTheme.typography.body2,
+            style = EyebrowseTheme.typography.body2,
         )
     }
 }
@@ -87,7 +87,7 @@ fun SelectableChip(
     ) {
         Text(
             text = text,
-            style = FirefoxTheme.typography.body2,
+            style = EyebrowseTheme.typography.body2,
         )
     }
 }
@@ -113,10 +113,10 @@ data class SelectableChipColors(
          */
         @Composable
         fun buildColors(
-            selectedBackgroundColor: Color = FirefoxTheme.colors.actionPrimary,
-            unselectedBackgroundColor: Color = FirefoxTheme.colors.actionTertiary,
-            selectedTextColor: Color = FirefoxTheme.colors.textActionPrimary,
-            unselectedTextColor: Color = FirefoxTheme.colors.textActionTertiary,
+            selectedBackgroundColor: Color = EyebrowseTheme.colors.actionPrimary,
+            unselectedBackgroundColor: Color = EyebrowseTheme.colors.actionTertiary,
+            selectedTextColor: Color = EyebrowseTheme.colors.textActionPrimary,
+            unselectedTextColor: Color = EyebrowseTheme.colors.textActionTertiary,
         ) = SelectableChipColors(
             selectedBackgroundColor = selectedBackgroundColor,
             unselectedBackgroundColor = unselectedBackgroundColor,
@@ -140,10 +140,10 @@ private fun SelectableChipColors.toMaterialChipColors() = filterChipColors(
 @Composable
 @LightDarkPreview
 private fun ChipPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Column(
             modifier = Modifier
-                .background(FirefoxTheme.colors.layer1),
+                .background(EyebrowseTheme.colors.layer1),
             verticalArrangement = Arrangement.SpaceEvenly,
         ) {
             Chip(
@@ -164,11 +164,11 @@ private fun ChipPreview() {
 @Preview(name = "Selectable Chip", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Preview(name = "Selectable Chip", uiMode = Configuration.UI_MODE_NIGHT_NO)
 private fun SelectableChipPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(FirefoxTheme.colors.layer1),
+                .background(EyebrowseTheme.colors.layer1),
             horizontalArrangement = Arrangement.SpaceEvenly,
         ) {
             SelectableChip(text = "ChirpOne", isSelected = false) {}
@@ -181,11 +181,11 @@ private fun SelectableChipPreview() {
 @Preview(name = "Custom Colors", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Preview(name = "Custom Colors", uiMode = Configuration.UI_MODE_NIGHT_NO)
 private fun SelectableChipWithCustomColorsPreview() {
-    FirefoxTheme {
+    EyebrowseTheme {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .background(FirefoxTheme.colors.layer1),
+                .background(EyebrowseTheme.colors.layer1),
             horizontalArrangement = Arrangement.SpaceEvenly,
         ) {
             SelectableChip(

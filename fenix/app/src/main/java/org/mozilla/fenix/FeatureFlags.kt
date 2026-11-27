@@ -64,7 +64,7 @@ object FeatureFlags {
     const val unifiedSearchSettings = true
 
     /**
-     * Allows users to enable Firefox Suggest.
+     * Allows users to enable Eyebrowse Suggest.
      */
     const val fxSuggest = true
 

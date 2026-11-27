@@ -7,7 +7,7 @@ package mozilla.components.feature.syncedtabs.storage
 import mozilla.components.browser.storage.sync.SyncedDeviceTabs
 
 /**
- * Provides tabs from remote Firefox Sync devices.
+ * Provides tabs from remote Eyebrowse Sync devices.
  */
 interface SyncedTabsProvider {
 

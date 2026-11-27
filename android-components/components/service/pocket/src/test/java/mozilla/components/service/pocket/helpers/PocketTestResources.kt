@@ -90,7 +90,7 @@ internal object PocketTestResources {
         ApiSpoc(
             id = 177986195,
             title = "This Leading Cash Back Card Is a Slam Dunk if You Want a One-Card Wallet",
-            url = "https://www.fool.com/the-ascent/credit-cards/landing/discover-it-cash-back-review-v2-csr/?utm_site=theascent&utm_campaign=ta-cc-co-pocket-discb-04012022-5-na-firefox&utm_medium=cpc&utm_source=pocket",
+            url = "https://www.fool.com/the-ascent/credit-cards/landing/discover-it-cash-back-review-v2-csr/?utm_site=theascent&utm_campaign=ta-cc-co-pocket-discb-04012022-5-na-eyebrowse&utm_medium=cpc&utm_source=pocket",
             imageSrc = "https://img-getpocket.cdn.mozilla.net/direct?url=https%3A//s.zkcdn.net/Advertisers/359f56a5423c4926ab3aa148e448d839.webp&resize=w618-h310",
             sponsor = "The Ascent",
             shim = ApiSpocShim(

@@ -303,10 +303,10 @@
     <!-- Text for the button to not request notification permission on the device and dismiss the dialog -->
     <string name="onboarding_home_enable_notifications_negative_button">ہݨ کائناں</string>
 
-    <!-- Text for the link to the privacy notice webpage for set as firefox default browser screen.
+    <!-- Text for the link to the privacy notice webpage for set as eyebrowse default browser screen.
     This is part of the string with the key "juno_onboarding_default_browser_description". -->
     <string name="juno_onboarding_default_browser_description_link_text" tools:ignore="UnusedResources">رازداری نوٹس</string>
-    <!-- Text for the button to set firefox as default browser on the device -->
+    <!-- Text for the button to set eyebrowse as default browser on the device -->
     <string name="juno_onboarding_default_browser_positive_button" tools:ignore="UnusedResources">پہلوں مقرر براؤز تے طور تے سیٹ کرو</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_default_browser_negative_button" tools:ignore="UnusedResources">ہݨ کائناں</string>
@@ -320,7 +320,7 @@
     <string name="juno_onboarding_enable_notifications_negative_button" tools:ignore="UnusedResources">ہݨ کائناں</string>
 
     <!-- Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
-        Note: The word "Firefox" should NOT be translated -->
+        Note: The word "Eyebrowse" should NOT be translated -->
     <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="UnusedResources">Eyebrowse ویجٹ شامل کرو</string>
     <!-- Text for the button to dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">ہݨ کائناں</string>
@@ -578,7 +578,7 @@
     <!-- Text displayed that links to website containing documentation about the "Limited Edition" wallpapers. -->
     <string name="wallpaper_learn_more">ٻیا سِکھو</string>
 
-    <!-- Text for classic wallpapers title. The first parameter is the Firefox name. -->
+    <!-- Text for classic wallpapers title. The first parameter is the Eyebrowse name. -->
     <string name="wallpaper_classic_title">کلاسیکل %s</string>
 
     <!-- Wallpaper onboarding dialog header text. -->
@@ -589,7 +589,7 @@
     <string name="wallpapers_onboarding_dialog_explore_more_button_text">ٻئے وال پیپر پھلورو</string>
 
     <!-- Account Preferences -->
-    <!-- Preference for managing your account via accounts.firefox.com -->
+    <!-- Preference for managing your account via accounts.eyebrowse.com -->
     <string name="preferences_manage_account">کھاتہ منیج کرو</string>
     <!-- Preference for triggering sync -->
     <string name="preferences_sync_now">ہݨ ہم وقت کرو</string>
@@ -824,7 +824,7 @@
     <string name="studies_remove">ہٹاؤ</string>
     <!-- Title of the active section on the studies list -->
     <string name="studies_active">فعال</string>
-    <!-- Description for studies, it indicates why Firefox use studies. The first parameter is the name of the application. -->
+    <!-- Description for studies, it indicates why Eyebrowse use studies. The first parameter is the name of the application. -->
     <string name="studies_description_2">%1$s وقتاً فوقتاً مطالعہ انسٹال کرسڳدے تے چلا سڳدے۔</string>
     <!-- Learn more link for studies, links to an article for more information about studies. -->
     <string name="studies_learn_more">ٻیا سِکھو</string>
@@ -1383,7 +1383,7 @@
 
     <!-- Onboarding -->
     <!-- text to display in the snackbar once account is signed-in -->
-    <string name="onboarding_firefox_account_sync_is_on">ہم وقت کرݨ چالو ہے</string>
+    <string name="onboarding_eyebrowse_account_sync_is_on">ہم وقت کرݨ چالو ہے</string>
 
     <!-- Onboarding theme -->
     <!-- Text shown in snackbar when multiple tabs have been sent to device -->
@@ -1404,9 +1404,9 @@
     <string name="sign_in_with_camera">آپݨے کیمرے نال سائن ان تھیوو</string>
     <!-- Text shown for settings option for sign with email -->
     <string name="sign_in_with_email">ایندی بجائے ای میل ورتو</string>
-    <!-- Text shown for settings option for create new account text.'Firefox' intentionally hardcoded here.-->
+    <!-- Text shown for settings option for create new account text.'Eyebrowse' intentionally hardcoded here.-->
     <string name="sign_in_create_account_text"><![CDATA[کھاتہ کائنی؟ ڈیوائساں دے درمیان فائرفوکس ہم وقت کرݨ کیتے<u>ہک کھاتہ بݨاؤ</u>۔]]></string>
-    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Firefox Preview) -->
+    <!-- Text shown in confirmation dialog to sign out of account. The first parameter is the name of the app (e.g. Eyebrowse Preview) -->
     <string name="sign_out_confirmation_message_2">%s تہاݙے کھاتے نال ہم وقت تھیوݨ رک ویسی، پر ایں ڈیوائس تے تہاݙے براؤز تھئے ڈیٹا وچوں کجھ نہ مٹیسی۔</string>
     <!-- Option to continue signing out of account shown in confirmation dialog to sign out of account -->
     <string name="sign_out_disconnect">کنکشن توڑو</string>
@@ -1423,7 +1423,7 @@
     <string name="preference_enhanced_tracking_protection">بہتر ٹریکنگ حفاظت</string>
     <!-- Preference summary for enhanced tracking protection settings on/off switch -->
     <string name="preference_enhanced_tracking_protection_summary">ہݨ پوری کوکی حفاظت دی خاصیت، کراس سائٹ ٹریکراں دے خلاف ساݙی سب کنوں تکڑی رکاوٹ۔</string>
-    <!-- Description of enhanced tracking protection. The parameter is the name of the application (For example: Firefox Fenix) -->
+    <!-- Description of enhanced tracking protection. The parameter is the name of the application (For example: Eyebrowse Fenix) -->
     <string name="preference_enhanced_tracking_protection_explanation_2">%s تہاکوں ٻہوں سارے ݙاڈھے عام ٹریکراں کنوں بچیندے، جہڑے  تہاݙے آن لائن کم کوں فالو کریندن۔</string>
     <!-- Text displayed that links to website about enhanced tracking protection -->
     <string name="preference_enhanced_tracking_protection_explanation_learn_more">ٻیا سِکھو</string>
@@ -1580,9 +1580,9 @@
     <string name="preferences_passwords_save_logins_ask_to_save">محفوظ کرݨ کیتے پُچھو</string>
     <!-- Preference option for never saving passwords in Fenix -->
     <string name="preferences_passwords_save_logins_never_save">کݙاہیں وی محفوظ نہ کرو</string>
-    <!-- Preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill2">%1$s وچ خود بخود بھرو</string>
-    <!-- Description for the preference for autofilling saved logins in Firefox (in web content), %1$s will be replaced with the app name -->
+    <!-- Description for the preference for autofilling saved logins in Eyebrowse (in web content), %1$s will be replaced with the app name -->
     <string name="preferences_passwords_autofill_description">%1$s ورتݨ دے دوران ویب سائٹاں وچ ورتݨ  ناں تے پاس ورڈ بھرو تے محفوظ کرو۔</string>
     <!-- Preference for autofilling logins from Fenix in other apps (e.g. autofilling the Twitter app) -->
     <string name="preferences_android_autofill">ٻیاں ایپاں وچ آٹوفل کرو</string>
@@ -1918,14 +1918,14 @@
     <!-- Text displayed asking user to re-authenticate -->
     <string name="synced_tabs_reauth">سوہݨا، ولدا تصدیق کرو۔</string>
 
-    <!-- Text displayed when user has disabled tab syncing in Firefox Sync Account -->
+    <!-- Text displayed when user has disabled tab syncing in Eyebrowse Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">سوہݨا، ٹیب ہم وقت کرݨ فعال کرو۔</string>
     <!-- Text displayed when user has no tabs that have been synced -->
     <string name="synced_tabs_no_tabs">تہاݙیاں ٻیاں ڈیوائساں تے فائرفوکس وچ کوئی ٹیب کائنی کھلے ہوئے۔</string>
-    <!-- Text displayed in the synced tabs screen when a user is not signed in to Firefox Sync describing Synced Tabs -->
+    <!-- Text displayed in the synced tabs screen when a user is not signed in to Eyebrowse Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">آپݨیاں ساریاں ڈیوائساں کنوں ٹیباں دی تندیر ݙیکھو۔</string>
 
-    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Firefox Sync -->
+    <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Eyebrowse Sync -->
     <string name="synced_tabs_sign_in_button">ہم وقت کرݨ کیتے سائن ان تھیوو</string>
     <!-- The text displayed when a synced device has no tabs to show in the list of Synced Tabs. -->
     <string name="synced_tabs_no_open_tabs">کوئی کھلے ٹیب  کائنی</string>
@@ -1981,8 +1981,8 @@
     <string name="inactive_tabs_auto_close_message_snackbar">آپݨے آپ  بند تھیوݨ فعال تھی ڳیا</string>
 
     <!-- Awesome bar suggestion's headers -->
-    <!-- Search suggestions title for Firefox Suggest. -->
-    <string name="firefox_suggest_header">فائرفوکس تجویز</string>
+    <!-- Search suggestions title for Eyebrowse Suggest. -->
+    <string name="eyebrowse_suggest_header">فائرفوکس تجویز</string>
 
     <!-- Title for search suggestions when Google is the default search suggestion engine. -->
     <string name="google_search_engine_suggestion_header">گوگل ڳول</string>
@@ -2082,12 +2082,12 @@
     <string name="a11y_action_label_wallpaper_collection_learn_more">ایں مجموعے بارے ٻیا سکھݨ کیتے لنک کھولو</string>
     <!-- Action label for links that point to an article. Talkback will append this to say "Double tap to read the article". -->
     <string name="a11y_action_label_read_article">مضمون پڑھو</string>
-    <!-- Action label for links to the Firefox Pocket website. Talkback will append this to say "Double tap to open link to learn more". -->
+    <!-- Action label for links to the Eyebrowse Pocket website. Talkback will append this to say "Double tap to open link to learn more". -->
     <string name="a11y_action_label_pocket_learn_more">ٻیا سکھݨ کیتے لنک کھولو</string>
 
     <!-- Translations feature-->
 
-    <!-- Text that links to additional information about the Firefox translations feature. -->
+    <!-- Text that links to additional information about the Eyebrowse translations feature. -->
     <string name="translations_bottom_sheet_info_message_learn_more">ٻیا سِکھو</string>
     <!-- Label for the dropdown to select which language to translate from on the translations dialog. Usually the translate from language selected will be the same as the page language. -->
     <string name="translations_bottom_sheet_translate_from">کنوں ترجمہ کرو</string>

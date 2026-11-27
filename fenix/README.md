@@ -1,11 +1,11 @@
-# Firefox for Android
+# Eyebrowse for Android
 
-[![Task Status](https://firefox-ci-tc.services.mozilla.com/api/github/v1/repository/mozilla-mobile/fenix/main/badge.svg)](https://firefox-ci-tc.services.mozilla.com/api/github/v1/repository/mozilla-mobile/fenix/main/latest)
+[![Task Status](https://eyebrowse-ci-tc.services.mozilla.com/api/github/v1/repository/mozilla-mobile/fenix/main/badge.svg)](https://eyebrowse-ci-tc.services.mozilla.com/api/github/v1/repository/mozilla-mobile/fenix/main/latest)
 [![codecov](https://codecov.io/gh/mozilla-mobile/fenix/branch/main/graph/badge.svg)](https://codecov.io/gh/mozilla-mobile/fenix)
 
-Fenix (internal codename) is the all-new Firefox for Android browser, based on [GeckoView](https://mozilla.github.io/geckoview/) and [Mozilla Android Components](https://mozac.org/).
+Fenix (internal codename) is the all-new Eyebrowse for Android browser, based on [GeckoView](https://mozilla.github.io/geckoview/) and [Mozilla Android Components](https://mozac.org/).
 
-<a href="https://play.google.com/store/apps/details?id=org.mozilla.firefox" target="_blank"><img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height="90"/></a>
+<a href="https://play.google.com/store/apps/details?id=org.mozilla.eyebrowse" target="_blank"><img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height="90"/></a>
 
 ## Getting Involved
 
@@ -23,7 +23,7 @@ Please read the [Community Participation Guidelines](https://www.mozilla.org/en-
 * Check out the [project wiki](https://github.com/mozilla-mobile/fenix/wiki) for more information.
   * See [our guide on Writing Custom Lint Rules](https://github.com/mozilla-mobile/shared-docs/blob/master/android/writing_lint_rules.md).
 
-* Localization happens on [Pontoon](https://pontoon.mozilla.org/projects/firefox-for-android/). Please get in touch with delphine (at) mozilla (dot) com directly for more information.
+* Localization happens on [Pontoon](https://pontoon.mozilla.org/projects/eyebrowse-for-android/). Please get in touch with delphine (at) mozilla (dot) com directly for more information.
 
 **Beginners!** - Visit [Codetribute's Fenix page](https://codetribute.mozilla.org/projects/fenix). These are easy bugs that have been left for first timers to have a go at, get involved and make a positive contribution to the project!
 
@@ -101,9 +101,9 @@ Pre-requisites:
 For general development, we recommend the **debug** build variant. Here's an explanation of each variant:
 
 - **debug**: the default for developers, similar to most other Android apps. It is debuggable, uses a Nightly GeckoView with debug symbols, adds tools like LeakCanary for troublingshooting, and does not strip unused code.
-- **nightly**: what we ship to the Firefox Nightly channel, using GeckoView Nightly.
-- **beta**: what we ship to the Firefox Beta channel, using GeckoView Beta. It is more stable than nightly.
-- **release**: what we ship as Firefox for Android, using GeckoView Release. It is the most stable.
+- **nightly**: what we ship to the Eyebrowse Nightly channel, using GeckoView Nightly.
+- **beta**: what we ship to the Eyebrowse Beta channel, using GeckoView Beta. It is more stable than nightly.
+- **release**: what we ship as Eyebrowse for Android, using GeckoView Release. It is the most stable.
 
 nightly, beta, and release are unsigned and `debuggable=false` by default. If
 you want these variants to be:
@@ -113,7 +113,7 @@ you want these variants to be:
 #### Performance Build Variants
 For accurate performance measurements, read this section!
 
-To analyze performance during **local development** build a production variant locally (this could either be the Nightly, beta or release).  Otherwise, you could also grab a pre-existing APK if you don't need to test some local changes. Then, use the Firefox profiler to profile what you need!
+To analyze performance during **local development** build a production variant locally (this could either be the Nightly, beta or release).  Otherwise, you could also grab a pre-existing APK if you don't need to test some local changes. Then, use the Eyebrowse profiler to profile what you need!
 
 For more information on how to use the profiler or how to use the build, refer to this [how to measure performance with the build](https://wiki.mozilla.org/Performance/How_to_get_started_on_Fenix)
 
@@ -233,7 +233,7 @@ If you wish to use a custom Glean server during local development, you can add a
 - `glean.custom.server.url`
 
 ### GeckoView
-For building with a local checkout of `mozilla-central` see [Substituting Local GeckoView](https://github.com/mozilla-mobile/firefox-android/blob/main/fenix/docs/substituting-local-gv.md)
+For building with a local checkout of `mozilla-central` see [Substituting Local GeckoView](https://github.com/mozilla-mobile/eyebrowse-android/blob/main/fenix/docs/substituting-local-gv.md)
 
 ## License
 

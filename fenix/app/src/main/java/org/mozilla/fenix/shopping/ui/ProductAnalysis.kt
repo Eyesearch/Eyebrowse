@@ -62,7 +62,7 @@ import org.mozilla.fenix.shopping.store.ReviewQualityCheckState.OptedIn.ProductR
 import org.mozilla.fenix.shopping.store.ReviewQualityCheckState.OptedIn.ProductReviewState.AnalysisPresent.HighlightsInfo
 import org.mozilla.fenix.shopping.store.ReviewQualityCheckState.RecommendedProductState
 import org.mozilla.fenix.shopping.ui.ext.headingResource
-import org.mozilla.fenix.theme.FirefoxTheme
+import org.mozilla.fenix.theme.EyebrowseTheme
 
 private val combinedParentHorizontalPadding = 32.dp
 private val productRecommendationImageSize = 60.dp
@@ -217,8 +217,8 @@ private fun ReanalysisInProgress(reanalyzing: AnalysisStatus.Reanalyzing) {
                 id = R.string.review_quality_check_analysis_in_progress_warning_title_2,
                 reanalyzing.progress.formattedProgress,
             ),
-            style = FirefoxTheme.typography.subtitle1,
-            color = FirefoxTheme.colors.textPrimary,
+            style = EyebrowseTheme.typography.subtitle1,
+            color = EyebrowseTheme.colors.textPrimary,
             modifier = Modifier.fillMaxWidth(),
         )
     }
@@ -232,8 +232,8 @@ private fun ReviewGradeCard(
     ReviewQualityCheckCard(modifier = modifier.semantics(mergeDescendants = true) { heading() }) {
         Text(
             text = stringResource(R.string.review_quality_check_grade_title),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.headline8,
+            color = EyebrowseTheme.colors.textPrimary,
+            style = EyebrowseTheme.typography.headline8,
         )
 
         Spacer(modifier = Modifier.height(8.dp))
@@ -255,8 +255,8 @@ private fun AdjustedProductRatingCard(
         ) {
             Text(
                 text = stringResource(R.string.review_quality_check_adjusted_rating_title),
-                color = FirefoxTheme.colors.textPrimary,
-                style = FirefoxTheme.typography.headline8,
+                color = EyebrowseTheme.colors.textPrimary,
+                style = EyebrowseTheme.typography.headline8,
                 modifier = Modifier.padding(
                     end = 16.dp,
                     bottom = 8.dp,
@@ -271,8 +271,8 @@ private fun AdjustedProductRatingCard(
 
         Text(
             text = stringResource(R.string.review_quality_check_adjusted_rating_description_2),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.caption,
+            color = EyebrowseTheme.colors.textPrimary,
+            style = EyebrowseTheme.typography.caption,
         )
     }
 }
@@ -298,8 +298,8 @@ private fun HighlightsCard(
 
         Text(
             text = stringResource(R.string.review_quality_check_highlights_title),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.headline8,
+            color = EyebrowseTheme.colors.textPrimary,
+            style = EyebrowseTheme.typography.headline8,
             modifier = Modifier.semantics {
                 heading()
                 contentDescription = titleContentDescription
@@ -379,8 +379,8 @@ private fun HighlightsCard(
                             .background(
                                 brush = Brush.verticalGradient(
                                     colors = listOf(
-                                        FirefoxTheme.colors.layer2.copy(alpha = 0f),
-                                        FirefoxTheme.colors.layer2,
+                                        EyebrowseTheme.colors.layer2.copy(alpha = 0f),
+                                        EyebrowseTheme.colors.layer2,
                                     ),
                                 ),
                             ),
@@ -421,8 +421,8 @@ private fun HighlightText(
 
         Text(
             text = stringResource(id = R.string.surrounded_with_quotes, text),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.body2,
+            color = EyebrowseTheme.colors.textPrimary,
+            style = EyebrowseTheme.typography.body2,
         )
     }
 }
@@ -440,7 +440,7 @@ private fun HighlightTitle(
 
         Icon(
             painter = painterResource(id = highlight.iconResourceId),
-            tint = FirefoxTheme.colors.iconPrimary,
+            tint = EyebrowseTheme.colors.iconPrimary,
             contentDescription = null,
         )
 
@@ -448,8 +448,8 @@ private fun HighlightTitle(
 
         Text(
             text = stringResource(id = highlight.titleResourceId),
-            color = FirefoxTheme.colors.textPrimary,
-            style = FirefoxTheme.typography.headline8,
+            color = EyebrowseTheme.colors.textPrimary,
+            style = EyebrowseTheme.typography.headline8,
         )
     }
 }
@@ -534,8 +534,8 @@ private fun ProductRecommendation(
             ) {
                 Text(
                     text = stringResource(R.string.review_quality_check_ad_title),
-                    color = FirefoxTheme.colors.textPrimary,
-                    style = FirefoxTheme.typography.headline8,
+                    color = EyebrowseTheme.colors.textPrimary,
+                    style = EyebrowseTheme.typography.headline8,
                 )
 
                 Spacer(modifier = Modifier.height(8.dp))
@@ -558,9 +558,9 @@ private fun ProductRecommendation(
                     Text(
                         text = product.name,
                         modifier = Modifier.weight(1.0f),
-                        color = FirefoxTheme.colors.textAccent,
+                        color = EyebrowseTheme.colors.textAccent,
                         textDecoration = TextDecoration.Underline,
-                        style = FirefoxTheme.typography.body2,
+                        style = EyebrowseTheme.typography.body2,
                     )
 
                     ReviewGradeCompact(grade = product.reviewGrade)
@@ -572,8 +572,8 @@ private fun ProductRecommendation(
                 ) {
                     Text(
                         text = product.formattedPrice,
-                        color = FirefoxTheme.colors.textPrimary,
-                        style = FirefoxTheme.typography.headline8,
+                        color = EyebrowseTheme.colors.textPrimary,
+                        style = EyebrowseTheme.typography.headline8,
                     )
 
                     StarRating(value = product.adjustedRating)
@@ -586,8 +586,8 @@ private fun ProductRecommendation(
                 id = R.string.review_quality_check_ad_caption,
                 stringResource(id = R.string.shopping_product_name),
             ),
-            color = FirefoxTheme.colors.textSecondary,
-            style = FirefoxTheme.typography.body2,
+            color = EyebrowseTheme.colors.textSecondary,
+            style = EyebrowseTheme.typography.body2,
         )
     }
 }
@@ -598,7 +598,7 @@ private fun ImagePlaceholder() {
         modifier = Modifier
             .size(productRecommendationImageSize)
             .background(
-                color = FirefoxTheme.colors.layer3,
+                color = EyebrowseTheme.colors.layer3,
                 shape = RoundedCornerShape(8.dp),
             ),
     ) {
@@ -723,7 +723,7 @@ private class ProductAnalysisPreviewModelParameterProvider :
 private fun ProductAnalysisPreview(
     @PreviewParameter(ProductAnalysisPreviewModelParameterProvider::class) model: ProductAnalysisPreviewModel,
 ) {
-    FirefoxTheme {
+    EyebrowseTheme {
         ReviewQualityCheckScaffold(
             onRequestDismiss = {},
         ) {
