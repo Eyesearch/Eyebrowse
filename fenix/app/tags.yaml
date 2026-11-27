@@ -174,7 +174,7 @@ Sharing:
 Shopping:
   description: Corresponds to the review quality check feature.
 Shortcuts:
-  description: Top Sites/Topsites on the Firefox home page. Corresponds to the [Feature:Shortcuts](https://github.com/mozilla-mobile/fenix/issues?q=label%3AFeature%3AShortcuts)
+  description: Top Sites/Topsites on the Eyebrowse home page. Corresponds to the [Feature:Shortcuts](https://github.com/mozilla-mobile/fenix/issues?q=label%3AFeature%3AShortcuts)
     label on GitHub.
 SitePermissions:
   description: Corresponds to the [Feature:SitePermissions](https://github.com/mozilla-mobile/fenix/issues?q=label%3AFeature%3ASitePermissions)

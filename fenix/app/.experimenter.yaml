@@ -16,13 +16,13 @@ extensions-process:
       type: boolean
       description: "If true, the extensions process is enabled."
 fx-suggest:
-  description: A feature that provides Firefox Suggest search suggestions.
+  description: Configuration for the inherited search-suggestion provider.
   hasExposure: true
   exposureDescription: ""
   variables:
     enabled:
       type: boolean
-      description: "Whether the feature is enabled. When Firefox Suggest is enabled, Firefox will download and store new search suggestions in the background, and show additional Search settings to control which suggestions appear in the awesomebar. When Firefox Suggest is disabled, Firefox will not download new suggestions, and hide the additional Search settings.\n"
+      description: "Controls the inherited search-suggestion provider and associated settings.\n"
 glean:
   description: A feature that provides server-side configurations for Glean metrics (aka Server Knobs).
   hasExposure: true

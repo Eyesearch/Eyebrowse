@@ -1,44 +1,38 @@
 # Eyebrowse
 
-Eyebrowse is a privacy-focused mobile browser for Android, built by Eyesearch. It is a
-rebranded, trimmed fork of Eyebrowse for Android, with the Mozilla services removed: no
-telemetry, no Mozilla account servers, no sponsored content, no Mozilla help links.
+Eyebrowse is an Android browser developed by Eyesearch. It is an independent fork of Mozilla's open-source mobile browser, using GeckoView and Mozilla Android Components. The product name, logo and account experience are Eyebrowse.
 
-## What is in here
+## Repository structure
 
-| Path | What it is |
+| Path | Purpose |
 | --- | --- |
-| `fenix/` | The Android app (UI, settings, screens). This is the product. |
-| `android-components/` | The browser component library the app is built on. |
-| `focus-android/` | The upstream lightweight browser variant, kept for the shared components. |
-| `version.txt` | The upstream version this tree is based on. |
+| `fenix/` | Eyebrowse Android application; the upstream internal module name is retained for build compatibility. |
+| `android-components/` | Shared browser components, including upstream libraries. |
+| `docs/` | Eyebrowse technical notes and validation checklists. |
+| `version.txt` | Upstream version of the source tree. |
 
-## Build
+## Development
 
-The debug APK is built by CI on every push to `main` and every pull request, in the
-`Assemble Eyebrowse debug APK` workflow. The artifact is downloadable from the run page.
+Use JDK 17 and Android SDK 34. The ordinary build resolves GeckoView and other dependencies from their existing repositories.
 
-To build locally you need JDK 17, the Android SDK, and network access to
-`maven.mozilla.org`, which is where the GeckoView and application-services binaries come
-from:
-
-```
+```sh
 cd fenix
 ./gradlew assembleFenixDebug
 ```
 
-## What was changed from upstream
+The APK workflow is `Build APKs`; it runs on manual dispatch or an `apk-*` tag. The compile-check workflow runs on pushes to develop and relevant pull requests. Do not create APK tags just to change documentation or branding.
 
-- Rebranded to Eyebrowse: app name, icon, sign-in artwork, all user-visible strings.
-- Telemetry upload and Mozilla experiment fetches are off.
-- DuckDuckGo is the only search engine, bundled locally, no remote settings fetch.
-- Account and sync servers point at our own backend, not Mozilla's.
-- Help, legal and in-product links point at `eyebrowse.in`.
-- Removed: add-ons, translations, report-site-issue, studies, Mozilla Online China
-  monetisation links.
+The application ID is `org.eyesearch.eyebrowse` for release, with channel-specific suffixes for other builds.
 
-## Licence
+## Features and validation
 
-MPL 2.0, see `LICENSE`. Files modified by Eyesearch keep their MPL headers, and the
-source of those modifications is this repository. Mozilla trademarks and the Eyebrowse name
-are not used.
+- Eyebrowse branding and shared splash/launcher resources.
+- Indo Account integration, EyeBlock and EyeShield.
+- WireGuard support using authorized third-party profiles; VPN Gate directory and opt-in experimental OpenVPN development.
+- Runtime behavior, privacy claims and VPN connectivity require device validation. See the technical notes in `docs/`.
+
+## Source attribution and license
+
+The upstream browser is Mozilla Firefox for Android (internal codename Fenix). Eyebrowse is not an official Mozilla product. Genuine upstream names, license notices, source attribution, dependency coordinates, external URLs, extension identifiers and compatibility test fixtures must not be mechanically rebranded.
+
+See `LICENSE` (MPL 2.0) and the applicable licenses of bundled third-party components. An experimental OpenVPN backend is not part of ordinary APK builds.

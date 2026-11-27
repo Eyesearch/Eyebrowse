@@ -157,7 +157,7 @@ android {
             def deepLinkSchemeValue = "fenix-beta"
             buildConfigField "String", "DEEP_LINK_SCHEME", "\"$deepLinkSchemeValue\""
             manifestPlaceholders.putAll([
-                    // This release type is meant to replace Firefox (Beta channel) and therefore needs to inherit
+                    // Retain the existing Eyebrowse beta channel identity across app updates. Upstream rationale:
                     // its sharedUserId for all eternity. See:
                     // https://searchfox.org/mozilla-esr68/search?q=moz_android_shared_id&case=false&regexp=false&path=
                     // Shipping an app update without sharedUserId can have
@@ -176,7 +176,7 @@ android {
             def deepLinkSchemeValue = "fenix"
             buildConfigField "String", "DEEP_LINK_SCHEME", "\"$deepLinkSchemeValue\""
             manifestPlaceholders.putAll([
-                    // This release type is meant to replace Firefox (Release channel) and therefore needs to inherit
+                    // Retain the existing Eyebrowse release channel identity across app updates. Upstream rationale:
                     // its sharedUserId for all eternity. See:
                     // https://searchfox.org/mozilla-esr68/search?q=moz_android_shared_id&case=false&regexp=false&path=
                     // Shipping an app update without sharedUserId can have

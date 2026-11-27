@@ -97,10 +97,10 @@ def remove(filename):
 def convert_channel_to_id(product, channel):
     if product == PROD_FENIX:
         mapping = {
-            "release": "org.mozilla.firefox",
-            "beta": "org.mozilla.firefox_beta",
-            "nightly": "org.mozilla.fenix",
-            "debug": "org.mozilla.fenix.debug",
+            "release": "org.eyesearch.eyebrowse",
+            "beta": "org.eyesearch.eyebrowse.beta",
+            "nightly": "org.eyesearch.eyebrowse.nightly",
+            "debug": "org.eyesearch.eyebrowse.debug",
         }
         return mapping[channel]
     elif product == PROD_GVE:

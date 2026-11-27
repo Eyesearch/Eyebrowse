@@ -7,8 +7,8 @@ const BLOCKED_HOSTS = [
   "mozilla.org",
   "mozilla.com",
   "mozilla.net",
-  "eyebrowse.com",
-  "eyebrowse.net",
+  "firefox.com",
+  "firefox.net",
   "getpocket.com",
   "mozaws.net",
   "mozilla.cloud",
@@ -16,14 +16,14 @@ const BLOCKED_HOSTS = [
 
 // Anything the engine reaches for on its own behalf.
 const BLOCKED_EXACT = [
-  "accounts.eyebrowse.com",
+  "accounts.firefox.com",
   "addons.mozilla.org",
   "services.addons.mozilla.org",
   "addons.cdn.mozilla.net",
   "push.services.mozilla.com",
   "pushendpoint.mozilla.org",
   "location.services.mozilla.com",
-  "eyebrowse.settings.services.mozilla.com",
+  "firefox.settings.services.mozilla.com",
   "incoming.telemetry.mozilla.org",
   "probeinfo.telemetry.mozilla.org",
   "spocs.getpocket.com",

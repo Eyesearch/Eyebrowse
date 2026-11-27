@@ -20,7 +20,7 @@ import:
     channel: release
     features:
       messaging:
-        # This message displays on the homescreen, asking the user to set Firefox as the default.
+        # This message displays on the homescreen, asking the user to set Eyebrowse as the default.
         # It is triggered after a minimum of 4 launches of the app.
         - value:
             messages:
@@ -39,7 +39,7 @@ import:
             triggers:
               USER_ESTABLISHED_INSTALL: "number_of_app_launches >=4"
 
-        # This message displays as a 'push' notification, asking the user to set Firefox as the default.
+        # This message displays as a 'push' notification, asking the user to set Eyebrowse as the default.
         # It is triggered three days after install.
         - value:
             messages:

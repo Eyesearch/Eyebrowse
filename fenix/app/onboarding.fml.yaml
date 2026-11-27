@@ -122,9 +122,9 @@ enums:
     description: An enum to describe a type of card.
     variants:
       default-browser:
-        description: Allows user to set Firefox as the default browser.
+        description: Allows user to set Eyebrowse as the default browser.
       sync-sign-in:
-        description: Allows user to sync with a Firefox account.
+        description: Describes the inherited account-sync onboarding card.
       notification-permission:
         description: Allows user to enable notification permission.
       add-search-widget:
