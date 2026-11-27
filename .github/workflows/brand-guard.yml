@@ -46,6 +46,10 @@ jobs:
             exit 1
           fi
           echo "ok ic_survey_mark.xml"
+          # Use the supplied transparent infinity mark for splash; preserve private launcher artwork.
+          check fenix/app/src/main/res/drawable-nodpi/ic_splash_logo.png 203fbbb21c37de09c62241a0a1ebea7645a3abe20931482369f3ef4eeee3bd91
+          check fenix/app/src/main/res/mipmap-xxhdpi/ic_launcher_private.png edec1500795ec6d7e0a5a298d82712134bfa9fcdeee0fc00f48b57c6e476f55f
+          check fenix/app/src/main/res/mipmap-xxhdpi/ic_launcher_private_round.png 9abf345a316baabc09292556ab78449f0058b19b3dc0ae6c1e507b32ca5d7189
           check fenix/app/src/main/res/drawable/ic_wordmark_logo.webp 3f62a3a7cbaf46de1af95733e5540c8e515c979bd91118de7cd69dbb9803dd5a
           check fenix/app/src/main/res/drawable/ic_wordmark_text_normal.webp bbb4f2c4c940765f6490d5161d6f044e9a2ed5c8a31ff178282a5b351262d1a0
           check fenix/app/src/main/res/drawable/ic_wordmark_text_private.webp 8ed6b798d586309818c81f04b704f76b7cf45498993129630a9035ea89c42c6b
