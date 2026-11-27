@@ -86,3 +86,20 @@ jobs:
 
           if [ "$fail" -ne 0 ]; then exit 1; fi
           echo "no Mozilla artwork, no Mozilla word on any screen"
+
+      - name: Check localized browser branding
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          # Check translated spellings missed by an English-only brand scan.
+          old_brand = re.compile(r"ಫೈರ್[\u200c\u200d]?ಫಾಕ್ಸ್|फ़ायरफ़ॉक्स|फायरफॉक्स|फ़ायरफॉक्स|फायरफ़ॉक्स|ഫയർഫോക്[\u200c\u200d]?സ്|ෆයර්ෆොක්ස්|فایرفاکس|فایەرفۆکس")
+          failed = False
+          for path in sorted(Path("fenix/app/src/main/res").glob("values*/strings.xml")):
+              for number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+                  if old_brand.search(line):
+                      print(f"::error file={path},line={number}::Legacy localized browser name")
+                      failed = True
+          raise SystemExit(1 if failed else 0)
+          PY

@@ -224,7 +224,7 @@
 
     <!-- Home onboarding -->
     <!-- Onboarding home screen dialog title text. Eyebrowse is intentionally hardcoded. -->
-    <string moz:removedIn="99" name="onboarding_home_screen_title_2" tools:ignore="UnusedResources">फ़ायरफ़ॉक्स में नया क्या है</string>
+    <string moz:removedIn="99" name="onboarding_home_screen_title_2" tools:ignore="UnusedResources">Eyebrowse में नया क्या है</string>
     <!-- Onboarding home screen dialog description text for the tab tray section. -->
     <string name="onboarding_home_screen_section_cleaner_tab_tray_title_2">साफ, व्यवस्थित टैब</string>
     <!-- Onboarding home screen dialog description text for the history section. -->

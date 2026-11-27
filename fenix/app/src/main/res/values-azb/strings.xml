@@ -356,7 +356,7 @@
 
     <!-- Juno first user onboarding flow experiment, strings are marked unused as they are only referenced by Nimbus experiments. -->
     <!-- Description for learning more about our privacy notice. -->
-    <string name="juno_onboarding_privacy_notice_text">فایرفاکس گیزللیک بیلدیریمی</string>
+    <string name="juno_onboarding_privacy_notice_text">Eyebrowse گیزللیک بیلدیریمی</string>
     <!-- Text for the button to set eyebrowse as default browser on the device -->
     <!-- Title for set eyebrowse as default browser screen used by Nimbus experiments. -->
     <string name="juno_onboarding_default_browser_title_nimbus_2">سیزی قوروماغی سئویریک</string>
@@ -375,30 +375,30 @@
     <string name="juno_onboarding_sign_in_title_2">جهازلار آراسیندا گئچیش ائلین زامان رمزلنمیش قالین.</string>
     <!-- Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
      Note: The word "Eyebrowse" should NOT be translated -->
-    <string name="juno_onboarding_sign_in_description_2">گیریش و دؤنگل ائتدیگینیز زامان داها گوونلی اولورسوز. فایرفاکس رمزلری، بوکمارکلاری و آیری شئی‌لری رمزلشدیریر.</string>
+    <string name="juno_onboarding_sign_in_description_2">گیریش و دؤنگل ائتدیگینیز زامان داها گوونلی اولورسوز. Eyebrowse رمزلری، بوکمارکلاری و آیری شئی‌لری رمزلشدیریر.</string>
     <!-- Text for the button to sign in to sync on the device -->
     <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">گیریش</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_sign_in_negative_button" tools:ignore="UnusedResources">ایندی یوخ</string>
     <!-- Title for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Eyebrowse" should NOT be translated -->
-    <string name="juno_onboarding_enable_notifications_title_nimbus_2">بیلدیریش‌لر فایرفاکس ایله داها امن قالماغینیزا کومک ائدیر.</string>
+    <string name="juno_onboarding_enable_notifications_title_nimbus_2">بیلدیریش‌لر Eyebrowse ایله داها امن قالماغینیزا کومک ائدیر.</string>
     <!-- Description for enable notification permission screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
        Note: The word "Eyebrowse" should NOT be translated -->
-    <string name="juno_onboarding_enable_notifications_description_nimbus_2">تاغلاری جهازلاریز آراسیندا گوونلی شکلده گؤندرین و فایرفاکسین آیری اؤزللیکلرینی کشف ائله‌یین.</string>
+    <string name="juno_onboarding_enable_notifications_description_nimbus_2">تاغلاری جهازلاریز آراسیندا گوونلی شکلده گؤندرین و Eyebrowseین آیری اؤزللیکلرینی کشف ائله‌یین.</string>
     <!-- Text for the button to request notification permission on the device -->
     <string name="juno_onboarding_enable_notifications_positive_button" tools:ignore="UnusedResources">بیلدیریش‌لری آچ</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_enable_notifications_negative_button" tools:ignore="UnusedResources">ایندی یوخ</string>
     <!-- Title for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Eyebrowse" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_title" tools:ignore="UnusedResources">فایرفاکس آختاریش ویجتینی ایمتیحان ائله‌یین</string>
+    <string name="juno_onboarding_add_search_widget_title" tools:ignore="UnusedResources">Eyebrowse آختاریش ویجتینی ایمتیحان ائله‌یین</string>
     <!-- Description for add search widget screen used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Eyebrowse" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_description" tools:ignore="UnusedResources">فایرفاکسی آنا اکرانیزا آرتیرساز گیزلیلیگه اؤنجه‌لیک وئرن مورورچونوزا آسانلیق‌لا الینیز چاتار.</string>
+    <string name="juno_onboarding_add_search_widget_description" tools:ignore="UnusedResources">Eyebrowseی آنا اکرانیزا آرتیرساز گیزلیلیگه اؤنجه‌لیک وئرن مورورچونوزا آسانلیق‌لا الینیز چاتار.</string>
     <!-- Text for the button to add search widget on the device used by Nimbus experiments. Nimbus experiments do not support string placeholders.
         Note: The word "Eyebrowse" should NOT be translated -->
-    <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="UnusedResources">فایرفاکس ویجتینی آرتیر</string>
+    <string name="juno_onboarding_add_search_widget_positive_button" tools:ignore="UnusedResources">Eyebrowse ویجتینی آرتیر</string>
     <!-- Text for the button to dismiss the screen and move on with the flow -->
     <string name="juno_onboarding_add_search_widget_negative_button" tools:ignore="UnusedResources">ایندی یوخ</string>
 
@@ -441,9 +441,9 @@
     <!-- Preference Category for settings related to Search address bar -->
     <string name="preferences_settings_address_bar">آدرس چوبوغو ترجیح‌لری</string>
     <!-- Preference Category for settings to Eyebrowse Suggest -->
-    <string name="preference_search_address_bar_fx_suggest">آدرس چوبوغو -فایرفاکس تکلیفی</string>
+    <string name="preference_search_address_bar_fx_suggest">آدرس چوبوغو -Eyebrowse تکلیفی</string>
     <!-- Preference link to Learn more about Eyebrowse Suggest -->
-    <string name="preference_search_learn_about_fx_suggest">فایرفاکس تکلیفی حاقیندا آرتیق بیلگی آلین</string>
+    <string name="preference_search_learn_about_fx_suggest">Eyebrowse تکلیفی حاقیندا آرتیق بیلگی آلین</string>
     <!-- Preference link to rating Fenix on the Play Store -->
     <string name="preferences_rate">قوقل پلی‌ده امتیاز وئر</string>
     <!-- Preference linking to about page for Fenix
@@ -702,7 +702,7 @@
     <!-- Title of the Nimbus message for add-ons general availability-->
     <string name="addon_ga_message_title" tools:ignore="UnusedResources">ایندی یئنی تاخیْلان‌لار وار</string>
     <!-- Body of the Nimbus message for add-ons general availability. 'Eyebrowse' intentionally hardcoded here-->
-    <string name="addon_ga_message_body" tools:ignore="UnusedResources">فایرفاکسیْ اؤزوُنوز ائتمک ایمکانیْ وئرن 100 دن چوْخ یئنی اوُزانتیا باخیْن.</string>
+    <string name="addon_ga_message_body" tools:ignore="UnusedResources">Eyebrowseیْ اؤزوُنوز ائتمک ایمکانیْ وئرن 100 دن چوْخ یئنی اوُزانتیا باخیْن.</string>
     <!-- Button text of the Nimbus message for add-ons general availability. -->
     <string name="addon_ga_message_button" tools:ignore="UnusedResources">تاخیلان‌لاریْ آراشدیْر</string>
 
@@ -773,7 +773,7 @@
     <!-- Name of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
     <string name="fxa_received_tab_channel_name">آلیْنان تاغ‌لار</string>
     <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-    <string name="fxa_received_tab_channel_description">آیریْ فایرفاکس جهازلاریندان آلینان تاغلارا اوچون بیلدیریش‌لر</string>
+    <string name="fxa_received_tab_channel_description">آیریْ Eyebrowse جهازلاریندان آلینان تاغلارا اوچون بیلدیریش‌لر</string>
     <!--  The body for these is the URL of the tab received  -->
     <string name="fxa_tab_received_notification_name">تاغ آلیندیْ</string>
 
@@ -1349,7 +1349,7 @@
     <string name="sync_connect_device">باشقا جهازا باغلا</string>
 
     <!-- The dialog text shown when additional devices are not available -->
-    <string name="sync_connect_device_dialog">بیر تاغ گؤندرمک اوچون آزی بیر باشقا جهازدا فایرفاکسا داخیل اوْلون.</string>
+    <string name="sync_connect_device_dialog">بیر تاغ گؤندرمک اوچون آزی بیر باشقا جهازدا Eyebrowseا داخیل اوْلون.</string>
     <!-- Confirmation dialog button -->
     <string name="sync_confirmation_button">آنلادیم</string>
 

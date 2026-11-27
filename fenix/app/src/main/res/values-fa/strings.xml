@@ -324,7 +324,7 @@
     <string name="juno_onboarding_sign_in_description" moz:removedIn="120" tools:ignore="UnusedResources">زبانه‌ها و گذرواژه‌ها را از افزاره‌های دیگرتان بگیرید تا از جایی که رها کرده‌اید، ادامه دهید.</string>
     <!-- Description for sign in to sync screen. Nimbus experiments do not support string placeholders.
      Note: The word "Eyebrowse" should NOT be translated -->
-    <string name="juno_onboarding_sign_in_description_2">وقتی وارد سیستم شده‌اید و همگام‌سازی شده‌اید، ایمن‌تر هستید. فایرفاکس رمزهای عبور، نشانک ها و موارد دیگر شما را رمزگذاری می کند.</string>
+    <string name="juno_onboarding_sign_in_description_2">وقتی وارد سیستم شده‌اید و همگام‌سازی شده‌اید، ایمن‌تر هستید. Eyebrowse رمزهای عبور، نشانک ها و موارد دیگر شما را رمزگذاری می کند.</string>
     <!-- Text for the button to sign in to sync on the device -->
     <string name="juno_onboarding_sign_in_positive_button" tools:ignore="UnusedResources">ورود</string>
     <!-- Text for the button dismiss the screen and move on with the flow -->
@@ -482,11 +482,11 @@
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">دسترسی‌پذیری</string>
     <!-- Preference to override the Eyebrowse Account server -->
-    <string name="preferences_override_fxa_server" moz:RemovedIn="120" tools:ignore="UnusedResources">کارساز سفارشی حساب فایرفاکس</string>
+    <string name="preferences_override_fxa_server" moz:RemovedIn="120" tools:ignore="UnusedResources">کارساز سفارشی حساب Eyebrowse</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">کارساز همگام‌سازی سفارشی</string>
     <!-- Toast shown after updating the FxA/Sync server override preferences -->
-    <string name="toast_override_fxa_sync_server_done" moz:RemovedIn="120" tools:ignore="UnusedResources">کارساز حساب/همگام‌سازی فایرفاکس اصلاح شده است. ترک برنامه موجب اعمال تغییرات خواهد شد…</string>
+    <string name="toast_override_fxa_sync_server_done" moz:RemovedIn="120" tools:ignore="UnusedResources">کارساز حساب/همگام‌سازی Eyebrowse اصلاح شده است. ترک برنامه موجب اعمال تغییرات خواهد شد…</string>
     <!-- Preference category for account information -->
     <string name="preferences_category_account">حساب کاربری</string>
     <!-- Preference for changing where the toolbar is positioned -->
@@ -502,7 +502,7 @@
     <!-- Preference description for banner about signing in -->
     <string name="preferences_sign_in_description_2">برای همگام‌سازی زبانه‌ها، نشانک‌ها، گذرواژه‌ها و… وارد شوید.</string>
     <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-    <string name="preferences_account_default_name" moz:RemovedIn="120" tools:ignore="UnusedResources">حساب فایرفاکس</string>
+    <string name="preferences_account_default_name" moz:RemovedIn="120" tools:ignore="UnusedResources">حساب Eyebrowse</string>
     <!-- Preference text for account title when there was an error syncing FxA -->
     <string name="preferences_account_sync_error">برای از سرگیری همگام سازی دوباره وصل شوید</string>
     <!-- Preference for language -->

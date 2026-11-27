@@ -206,11 +206,11 @@
     <!-- Preference for accessibility -->
     <string name="preferences_accessibility">ನಿಲುಕಣೆ</string>
     <!-- Preference to override the Eyebrowse Account server -->
-    <string name="preferences_override_fxa_server">ಕಸ್ಟಮ್ ಫೈರ್‌ಫಾಕ್ಸ್ ಖಾತೆ ಸರ್ವರ್</string>
+    <string name="preferences_override_fxa_server">ಕಸ್ಟಮ್ Eyebrowse ಖಾತೆ ಸರ್ವರ್</string>
     <!-- Preference to override the Sync token server -->
     <string name="preferences_override_sync_tokenserver">ಕಸ್ಟಮ್ ಸಿಂಕ್ ಸರ್ವರ್</string>
     <!-- Toast shown after updating the FxA/Sync server override preferences -->
-    <string name="toast_override_fxa_sync_server_done">ಫೈರ್‌ಫಾಕ್ಸ್ ಖಾತೆ/ಸಿಂಕ್ ಸರ್ವರ್ ಅನ್ನು ಮಾರ್ಪಡಿಸಲಾಗಿದೆ. ಬದಲಾವಣೆಗಳನ್ನು ಅನ್ವಯಿಸಲು ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ತ್ಯಜಿಸಲಾಗುತ್ತಿದೆ…</string>
+    <string name="toast_override_fxa_sync_server_done">Eyebrowse ಖಾತೆ/ಸಿಂಕ್ ಸರ್ವರ್ ಅನ್ನು ಮಾರ್ಪಡಿಸಲಾಗಿದೆ. ಬದಲಾವಣೆಗಳನ್ನು ಅನ್ವಯಿಸಲು ಅಪ್ಲಿಕೇಶನ್ ಅನ್ನು ತ್ಯಜಿಸಲಾಗುತ್ತಿದೆ…</string>
     <!-- Preference category for account information -->
     <string name="preferences_category_account">ಖಾತೆ</string>
     <!-- Preference shown on banner to sign into account -->
@@ -222,9 +222,9 @@
     <!-- Preference for settings related to visual options -->
     <string name="preferences_customize">ಅಗತ್ಯಾನುಗುಣಗೊಳಿಸು</string>
     <!-- Preference description for banner about signing in -->
-    <string name="preferences_sign_in_description">ನಿಮ್ಮ ಫೈರ್‌ಫಾಕ್ಸ್ ಖಾತೆಯೊಂದಿಗೆ ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು, ಇತಿಹಾಸ ಮತ್ತು ಹೆಚ್ಚಿನದನ್ನು ಸಿಂಕ್ ಮಾಡಿ</string>
+    <string name="preferences_sign_in_description">ನಿಮ್ಮ Eyebrowse ಖಾತೆಯೊಂದಿಗೆ ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು, ಇತಿಹಾಸ ಮತ್ತು ಹೆಚ್ಚಿನದನ್ನು ಸಿಂಕ್ ಮಾಡಿ</string>
     <!-- Preference shown instead of account display name while account profile information isn't available yet. -->
-    <string name="preferences_account_default_name">ಫೈರ್ಫಾಕ್ಸ್ ಖಾತೆ</string>
+    <string name="preferences_account_default_name">Eyebrowse ಖಾತೆ</string>
     <!-- Preference text for account title when there was an error syncing FxA -->
     <string name="preferences_account_sync_error">ಸಿಂಕ್ ಮಾಡುವುದನ್ನು ಪುನರಾರಂಭಿಸಲು ಮರುಸಂಪರ್ಕಿಸಿ</string>
     <!-- Preference for language -->
@@ -297,7 +297,7 @@
     <!-- Name of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
     <string name="fxa_received_tab_channel_name">ಟ್ಯಾಬ್‌ಗಳನ್ನು ಸ್ವೀಕರಿಸಲಾಗಿದೆ</string>
     <!-- Description of the "receive tabs" notification channel. Displayed in the "App notifications" system settings for the app -->
-    <string name="fxa_received_tab_channel_description">ಇತರ ಫೈರ್‌ಫಾಕ್ಸ್ ಸಾಧನಗಳಿಂದ ಸ್ವೀಕರಿಸಿದ ಟ್ಯಾಬ್‌ಗಳಿಗಾಗಿ ಅಧಿಸೂಚನೆಗಳು.</string>
+    <string name="fxa_received_tab_channel_description">ಇತರ Eyebrowse ಸಾಧನಗಳಿಂದ ಸ್ವೀಕರಿಸಿದ ಟ್ಯಾಬ್‌ಗಳಿಗಾಗಿ ಅಧಿಸೂಚನೆಗಳು.</string>
     <!--  The body for these is the URL of the tab received  -->
     <string name="fxa_tab_received_notification_name">ಪಡೆಯಲಾದ ಟ್ಯಾಬ್</string>
     <!-- When multiple tabs have been received -->
@@ -348,7 +348,7 @@
     <!-- Header of the Turn on Sync preference view -->
     <string name="preferences_sync">ಸಿಂಕ್ ಆನ್ ಮಾಡಿ</string>
     <!-- Preference for pairing -->
-    <string name="preferences_sync_pair">ಡೆಸ್ಕ್‌ಟಾಪ್ ಫೈರ್‌ಫಾಕ್ಸ್‌ನಲ್ಲಿ ಜೋಡಿಸುವ ಕೋಡ್ ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ</string>
+    <string name="preferences_sync_pair">ಡೆಸ್ಕ್‌ಟಾಪ್ Eyebrowse‌ನಲ್ಲಿ ಜೋಡಿಸುವ ಕೋಡ್ ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ</string>
     <!-- Preference for account login -->
     <string name="preferences_sync_sign_in">ಸೈನ್ ಇನ್</string>
     <!-- Preference for reconnecting to FxA sync -->
@@ -730,7 +730,7 @@
     <!-- An option to connect additional devices -->
     <string name="sync_connect_device">ಮತ್ತೊಂದು ಸಾಧನವನ್ನು ಸಂಪರ್ಕವನ್ನು ಸಾಧಿಸು</string>
     <!-- The dialog text shown when additional devices are not available -->
-    <string name="sync_connect_device_dialog">ಟ್ಯಾಬ್ ಕಳುಹಿಸಲು, ಕನಿಷ್ಠ ಒಂದು ಸಾಧನದಲ್ಲಿ ಫೈರ್‌ಫಾಕ್ಸ್‌ಗೆ ಸೈನ್ ಇನ್ ಮಾಡಿ.</string>
+    <string name="sync_connect_device_dialog">ಟ್ಯಾಬ್ ಕಳುಹಿಸಲು, ಕನಿಷ್ಠ ಒಂದು ಸಾಧನದಲ್ಲಿ Eyebrowse‌ಗೆ ಸೈನ್ ಇನ್ ಮಾಡಿ.</string>
     <!-- Confirmation dialog button -->
     <string name="sync_confirmation_button">ಅರ್ಥವಾಯಿತು</string>
     <!-- Share error message -->
@@ -870,26 +870,26 @@
 
     <!-- Tips -->
     <!-- text for eyebrowse preview moving tip header "Eyebrowse Preview" and "Eyebrowse Nightly" are intentionally hardcoded -->
-    <string name="tip_eyebrowse_preview_moved_header">ಫೈರ್ಫಾಕ್ಸ್ ಪೂರ್ವವೀಕ್ಷಣೆ ಈಗ ಫೈರ್ಫಾಕ್ಸ್ ನೈಟ್ಲಿ ಆಗಿದೆ</string>
+    <string name="tip_eyebrowse_preview_moved_header">Eyebrowse ಪೂರ್ವವೀಕ್ಷಣೆ ಈಗ Eyebrowse ನೈಟ್ಲಿ ಆಗಿದೆ</string>
     <!-- text for eyebrowse preview moving tip description -->
-    <string name="tip_eyebrowse_preview_moved_description">ಫೈರ್ಫಾಕ್ಸ್ ನೈಟ್ಲಿ ಪ್ರತಿ ರಾತ್ರಿಯೂ ನವೀಕರಿಸಲ್ಪಡುತ್ತದೆ ಮತ್ತು ಪ್ರಾಯೋಗಿಕ ಹೊಸ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಹೊಂದಿದೆ.
+    <string name="tip_eyebrowse_preview_moved_description">Eyebrowse ನೈಟ್ಲಿ ಪ್ರತಿ ರಾತ್ರಿಯೂ ನವೀಕರಿಸಲ್ಪಡುತ್ತದೆ ಮತ್ತು ಪ್ರಾಯೋಗಿಕ ಹೊಸ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಹೊಂದಿದೆ.
         ಆದಾಗ್ಯೂ, ಇದು ಕಡಿಮೆ ಸ್ಥಿರವಾಗಿರಬಹುದು. ಹೆಚ್ಚು ಸ್ಥಿರ ಅನುಭವಕ್ಕಾಗಿ ನಮ್ಮ ಬೀಟಾ ಬ್ರೌಸರ್ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ.</string>
     <!-- text for eyebrowse preview moving tip button. "Eyebrowse for Android Beta" is intentionally hardcoded -->
-    <string name="tip_eyebrowse_preview_moved_button_2">ಆಂಡ್ರಾಯ್ಡ್ ಬೀಟಾಕ್ಕಾಗಿ ಫೈರ್‌ಫಾಕ್ಸ್ ಪಡೆಯಿರಿ</string>
+    <string name="tip_eyebrowse_preview_moved_button_2">ಆಂಡ್ರಾಯ್ಡ್ ಬೀಟಾಕ್ಕಾಗಿ Eyebrowse ಪಡೆಯಿರಿ</string>
 
     <!-- text for eyebrowse preview moving tip header. "Eyebrowse Nightly" is intentionally hardcoded -->
-    <string name="tip_eyebrowse_preview_moved_header_preview_installed">ಫೈರ್ಫಾಕ್ಸ್ ನೈಟ್ಲಿ ಸರಿಸಲಾಗಿದೆ</string>
+    <string name="tip_eyebrowse_preview_moved_header_preview_installed">Eyebrowse ನೈಟ್ಲಿ ಸರಿಸಲಾಗಿದೆ</string>
     <!-- text for eyebrowse preview moving tip description -->
     <string name="tip_eyebrowse_preview_moved_description_preview_installed">ಈ ಅಪ್ಲಿಕೇಶನ್ ಇನ್ನು ಮುಂದೆ ಭದ್ರತಾ ನವೀಕರಣಗಳನ್ನು ಸ್ವೀಕರಿಸುವುದಿಲ್ಲ. ಈ ಅಪ್ಲಿಕೇಶನ್ ಬಳಸುವುದನ್ನು ನಿಲ್ಲಿಸಿ ಮತ್ತು ಹೊಸ ನೈಟ್‌ಲಿಗೆ ಬದಲಾಯಿಸಿ.
-        \n\nನಿಮ್ಮ ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು, ಲಾಗಿನ್‌ಗಳು ಮತ್ತು ಇತಿಹಾಸವನ್ನು ಮತ್ತೊಂದು ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ವರ್ಗಾಯಿಸಲು, ಫೈರ್‌ಫಾಕ್ಸ್ ಖಾತೆಯನ್ನು ರಚಿಸಿ.</string>
+        \n\nನಿಮ್ಮ ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು, ಲಾಗಿನ್‌ಗಳು ಮತ್ತು ಇತಿಹಾಸವನ್ನು ಮತ್ತೊಂದು ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ವರ್ಗಾಯಿಸಲು, Eyebrowse ಖಾತೆಯನ್ನು ರಚಿಸಿ.</string>
     <!-- text for eyebrowse preview moving tip button  -->
     <string name="tip_eyebrowse_preview_moved_button_preview_installed">ಹೊಸ ನೈಟ್ಲಿಗೆ ಬದಲಿಸಿ</string>
 
     <!-- text for eyebrowse preview moving tip header. "Eyebrowse Nightly" is intentionally hardcoded -->
-    <string name="tip_eyebrowse_preview_moved_header_preview_not_installed">ಫೈರ್ಫಾಕ್ಸ್ ನೈಟ್ಲಿ ಸರಿಸಲಾಗಿದೆ</string>
+    <string name="tip_eyebrowse_preview_moved_header_preview_not_installed">Eyebrowse ನೈಟ್ಲಿ ಸರಿಸಲಾಗಿದೆ</string>
     <!-- text for eyebrowse preview moving tip description -->
     <string name="tip_eyebrowse_preview_moved_description_preview_not_installed">ಈ ಅಪ್ಲಿಕೇಶನ್ ಇನ್ನು ಮುಂದೆ ಭದ್ರತಾ ನವೀಕರಣಗಳನ್ನು ಸ್ವೀಕರಿಸುವುದಿಲ್ಲ. ಹೊಸ ನೈಟ್ಲಿ ಪಡೆಯಿರಿ ಮತ್ತು ಈ ಅಪ್ಲಿಕೇಶನ್ ಬಳಸುವುದನ್ನು ನಿಲ್ಲಿಸಿ.
-        \n\n ನಿಮ್ಮ ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು, ಲಾಗಿನ್‌ಗಳು ಮತ್ತು ಇತಿಹಾಸವನ್ನು ಮತ್ತೊಂದು ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ವರ್ಗಾಯಿಸಲು, ಫೈರ್‌ಫಾಕ್ಸ್ ಖಾತೆಯನ್ನು ರಚಿಸಿ.</string>
+        \n\n ನಿಮ್ಮ ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು, ಲಾಗಿನ್‌ಗಳು ಮತ್ತು ಇತಿಹಾಸವನ್ನು ಮತ್ತೊಂದು ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ವರ್ಗಾಯಿಸಲು, Eyebrowse ಖಾತೆಯನ್ನು ರಚಿಸಿ.</string>
     <!-- text for eyebrowse preview moving tip button  -->
     <string name="tip_eyebrowse_preview_moved_button_preview_not_installed">ಹೊಸ ನೈಟ್ಲಿ ಪಡೆಯಿರಿ</string>
 
@@ -965,7 +965,7 @@
     <!-- Title of QR Pairing Fragment -->
     <string name="sync_scan_code">ಕೋಡ್ ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ</string>
     <!-- Instructions on how to access pairing -->
-    <string name="sign_in_instructions"><![CDATA[ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿ ಫೈರ್‌ಫಾಕ್ಸ್ ತೆರೆಯಿರಿ ಮತ್ತು <b>https://eyebrowse.in/pair</b> ಗೆ ಹೋಗಿ]]></string>
+    <string name="sign_in_instructions"><![CDATA[ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿ Eyebrowse ತೆರೆಯಿರಿ ಮತ್ತು <b>https://eyebrowse.in/pair</b> ಗೆ ಹೋಗಿ]]></string>
     <!-- Text shown for sign in pairing when ready -->
     <string name="sign_in_ready_for_scan">ಸ್ಕ್ಯಾನ್ ಮಾಡಲು ಸಿದ್ಧವಾಗಿದೆ</string>
     <!-- Text shown for settings option for sign with pairing -->
@@ -1357,7 +1357,7 @@
     <!-- Text displayed when user has disabled tab syncing in Eyebrowse Sync Account -->
     <string name="synced_tabs_enable_tab_syncing">ದಯವಿಟ್ಟು ಟ್ಯಾಬ್ ಸಿಂಕ್ ಸಕ್ರಿಯಗೊಳಿಸಿ.</string>
     <!-- Text displayed when user has no tabs that have been synced -->
-    <string name="synced_tabs_no_tabs">ನಿಮ್ಮ ಇತರ ಸಾಧನಗಳಲ್ಲಿನ ಫೈರ್‌ಫಾಕ್ಸ್‌ನಲ್ಲಿ ಯಾವುದೇ ಟ್ಯಾಬ್‌ಗಳು ತೆರೆದಿಲ್ಲ.</string>
+    <string name="synced_tabs_no_tabs">ನಿಮ್ಮ ಇತರ ಸಾಧನಗಳಲ್ಲಿನ Eyebrowse‌ನಲ್ಲಿ ಯಾವುದೇ ಟ್ಯಾಬ್‌ಗಳು ತೆರೆದಿಲ್ಲ.</string>
     <!-- Text displayed in the synced tabs screen when a user is not signed in to Eyebrowse Sync describing Synced Tabs -->
     <string name="synced_tabs_sign_in_message">ನಿಮ್ಮ ಇತರೆ ಸಾಧನಗಳಲ್ಲಿನ ಟ್ಯಾಬ್‌ಗಳ ಪಟ್ಟಿಯನ್ನು ನೋಡಿ.</string>
     <!-- Text displayed on a button in the synced tabs screen to link users to sign in when a user is not signed in to Eyebrowse Sync -->
