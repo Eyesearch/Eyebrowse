@@ -8,7 +8,6 @@ import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
 import android.util.Log
 import android.app.Activity
-import android.app.NotificationManager
 import android.content.Context
 import androidx.activity.result.contract.ActivityResultContracts
 import android.content.DialogInterface
@@ -60,7 +59,6 @@ import org.eyesearch.eyebrowse.account.IndoAccountEntry
 import org.eyesearch.eyebrowse.account.IndoAccountError
 import org.eyesearch.eyebrowse.account.IndoIdentity
 import org.eyesearch.eyebrowse.account.IndoAccountStorage
-import org.eyesearch.eyebrowse.vpn.EyebrowseVpnService
 import org.eyesearch.eyebrowse.vpn.VpnController
 import org.eyesearch.eyebrowse.sync.SyncClient
 import org.eyesearch.eyebrowse.sync.SyncFactory
@@ -93,6 +91,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
     // This flag is set to `false` at the end of `onResume`.
     private var creatingFragment = true
     private var eyeblockStatusJob: Job? = null
+    private var vpnStatusJob: Job? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -501,41 +500,46 @@ class SettingsFragment : PreferenceFragmentCompat() {
         }
     }
 
-    /**
-     * VPN, step one: the switch, the consent Android insists on, and the service. The tunnel has no
-     * exit yet, and the summary says so rather than pretending.
-     */
+    /** The switch reflects the actual tunnel, never a saved preference. */
     private fun setupVpnPreference() {
         val preference = findPreference<SwitchPreference>(getPreferenceKey(R.string.pref_key_vpn))
             ?: return
         val context = context ?: return
-
-        preference.summary = getString(R.string.preferences_vpn_off)
+        preference.isPersistent = false
+        vpnStatusJob?.cancel()
+        vpnStatusJob = viewLifecycleOwner.lifecycleScope.launch {
+            VpnController.status.collect { status ->
+                preference.isChecked = status == VpnController.Status.WAITING ||
+                    status == VpnController.Status.HANDSHAKE
+                preference.isEnabled = status != VpnController.Status.CONNECTING &&
+                    status != VpnController.Status.DISCONNECTING
+                preference.setSummary(
+                    when (status) {
+                        VpnController.Status.OFF -> R.string.preferences_vpn_off
+                        VpnController.Status.CONNECTING -> R.string.preferences_vpn_connecting
+                        VpnController.Status.WAITING -> R.string.preferences_vpn_waiting
+                        VpnController.Status.HANDSHAKE -> R.string.preferences_vpn_handshake
+                        VpnController.Status.DISCONNECTING -> R.string.preferences_vpn_disconnecting
+                        VpnController.Status.ERROR -> R.string.preferences_vpn_error
+                        VpnController.Status.INVALID_PROFILE -> R.string.preferences_vpn_invalid
+                    },
+                )
+            }
+        }
         preference.setOnPreferenceChangeListener { _, newValue ->
             if (newValue == true) {
-                val consent = VpnController.consentIntent(context)
-                if (consent != null) {
-                    vpnConsentLauncher.launch(consent)
-                    // The switch flips when the consent comes back, not now.
-                    return@setOnPreferenceChangeListener false
-                }
-                startVpn(context)
+                AlertDialog.Builder(context)
+                    .setTitle(R.string.preferences_vpn)
+                    .setMessage(R.string.preferences_vpn_import_explanation)
+                    .setPositiveButton(R.string.preferences_vpn_import) { _, _ ->
+                        vpnProfileLauncher.launch(arrayOf("*/*"))
+                    }
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show()
             } else {
-                VpnController.stop(context)
-                preference.summary = getString(R.string.preferences_vpn_off)
+                VpnController.stop()
             }
-            true
-        }
-    }
-
-    private fun startVpn(context: Context) {
-        context.getSystemService(NotificationManager::class.java)?.let { manager ->
-            EyebrowseVpnService.ensureChannel(manager)
-        }
-        VpnController.start(context)
-        findPreference<SwitchPreference>(getPreferenceKey(R.string.pref_key_vpn))?.let {
-            it.isChecked = true
-            it.summary = getString(R.string.preferences_vpn_preparing)
+            false
         }
     }
 
@@ -657,18 +661,31 @@ class SettingsFragment : PreferenceFragmentCompat() {
         )
     }
 
-    /** Android's consent dialog, which is the only thing that can grant a tunnel. */
+    private val vpnProfileLauncher = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+        val context = context ?: return@registerForActivityResult
+        if (uri == null) return@registerForActivityResult
+        VpnController.importProfile(context, uri) { accepted ->
+            if (accepted && isAdded) {
+                val consent = VpnController.consentIntent(requireContext())
+                if (consent == null) {
+                    VpnController.start(requireContext())
+                } else {
+                    vpnConsentLauncher.launch(consent)
+                }
+            } else if (accepted) {
+                VpnController.cancelProfile()
+            }
+        }
+    }
+
     private val vpnConsentLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult(),
     ) { result ->
-        val context = context ?: return@registerForActivityResult
-        if (result.resultCode == Activity.RESULT_OK) {
-            startVpn(context)
+        val context = context
+        if (result.resultCode == Activity.RESULT_OK && context != null) {
+            VpnController.start(context)
         } else {
-            findPreference<SwitchPreference>(getPreferenceKey(R.string.pref_key_vpn))?.let {
-                it.isChecked = false
-                it.summary = getString(R.string.preferences_vpn_off)
-            }
+            VpnController.cancelProfile()
         }
     }
 

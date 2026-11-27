@@ -384,18 +384,13 @@
             </intent-filter>
         </service>
 
-        <!-- Eyebrowse: the VPN. It runs as a foreground service, which Android requires. -->
+        <!-- Real VPN service is provided by the WireGuard tunnel AAR. Disable unsupported
+             automatic always-on mode until profiles can be securely restored. -->
         <service
-            android:name="org.eyesearch.eyebrowse.vpn.EyebrowseVpnService"
+            android:name="com.wireguard.android.backend.GoBackend$VpnService"
             android:exported="false"
-            android:permission="android.permission.BIND_VPN_SERVICE"
-            android:foregroundServiceType="specialUse">
-            <intent-filter>
-                <action android:name="android.net.VpnService" />
-            </intent-filter>
-            <property
-                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
-                android:value="Browser VPN tunnel" />
+            android:permission="android.permission.BIND_VPN_SERVICE">
+            <meta-data android:name="android.net.VpnService.SUPPORTS_ALWAYS_ON" android:value="false" />
         </service>
 
         <!-- Eyebrowse: Indo Account inside the app, so the handoff finishes without a tap. -->

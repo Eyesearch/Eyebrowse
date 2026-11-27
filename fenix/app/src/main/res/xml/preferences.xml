@@ -37,6 +37,7 @@
     <androidx.preference.SwitchPreference
         android:key="@string/pref_key_vpn"
         android:title="@string/preferences_vpn"
+        android:persistent="false"
         android:summary="@string/preferences_vpn_off"
         app:iconSpaceReserved="false" />
 

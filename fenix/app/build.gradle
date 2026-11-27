@@ -30,6 +30,9 @@ if (file("google-services.json").exists()) {
 apply from: 'benchmark.gradle'
 
 android {
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+    }
     project.maybeConfigForJetpackBenchmark(it)
     if (project.hasProperty("testBuildType")) {
         // Allowing to configure the test build type via command line flag (./gradlew -PtestBuildType=beta ..)
@@ -516,6 +519,9 @@ tasks.withType(KotlinCompile).configureEach {
 }
 
 dependencies {
+    // WireGuard tunnel library: SDK 34 compatible upstream release.
+    implementation 'com.wireguard.android:tunnel:1.0.20230706'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
     // Eyebrowse: Firebase Remote Config for remote kill-switches and affiliate links.
     implementation platform('com.google.firebase:firebase-bom:33.7.0')
     implementation 'com.google.firebase:firebase-config-ktx'
