@@ -50,8 +50,21 @@ object EyeblockSupport {
                 // Blocking is just as relevant in private browsing, and a blocker that stops
                 // working there is the first thing people notice.
                 engine.setAllowedInPrivateBrowsing(extension, allowed = true)
-                if (!enabled) {
-                    engine.disableWebExtension(extension, onSuccess = { }, onError = { })
+                // An extension that installs is not always an extension that runs: this engine can
+                // land it disabled, which looks exactly like a blocker that does nothing. Say which
+                // state we want, out loud, every time.
+                if (enabled) {
+                    engine.enableWebExtension(
+                        extension,
+                        onSuccess = { Log.i(TAG, "EyeBlock enabled: ${extension.id}") },
+                        onError = { error -> Log.w(TAG, "EyeBlock could not be enabled: ${error.message}") },
+                    )
+                } else {
+                    engine.disableWebExtension(
+                        extension,
+                        onSuccess = { Log.i(TAG, "EyeBlock disabled: ${extension.id}") },
+                        onError = { error -> Log.w(TAG, "EyeBlock could not be disabled: ${error.message}") },
+                    )
                 }
             },
             onError = { error ->
