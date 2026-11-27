@@ -53,7 +53,7 @@ interface FxAEntryPoint {
 }
 
 /**
- * Facilitates testing consumers of FirefoxAccount.
+ * Facilitates testing consumers of EyebrowseAccount.
  */
 interface OAuthAccount : AutoCloseable {
 
@@ -114,7 +114,7 @@ interface OAuthAccount : AutoCloseable {
      * Authenticates the current account using the [code] and [state] parameters obtained via the
      * OAuth flow initiated by [beginOAuthFlow].
      *
-     * Modifies the FirefoxAccount state.
+     * Modifies the EyebrowseAccount state.
      * @param code OAuth code string
      * @param state state token string
      * @return Deferred boolean representing success or failure
@@ -199,7 +199,7 @@ interface OAuthAccount : AutoCloseable {
     /**
      * Serializes the current account's authentication state as a JSON string, for persistence in
      * the Android KeyStore/shared preferences. The authentication state can be restored using
-     * [FirefoxAccount.fromJSONString].
+     * [EyebrowseAccount.fromJSONString].
      *
      * @return String containing the authentication details in JSON format
      */

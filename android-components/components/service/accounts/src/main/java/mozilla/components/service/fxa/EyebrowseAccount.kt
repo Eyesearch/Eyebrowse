@@ -22,16 +22,16 @@ import mozilla.components.support.base.log.logger.Logger
 typealias PersistCallback = mozilla.appservices.fxaclient.FxaClient.PersistCallback
 
 /**
- * FirefoxAccount represents the authentication state of a client.
+ * EyebrowseAccount represents the authentication state of a client.
  */
-class FirefoxAccount internal constructor(
+class EyebrowseAccount internal constructor(
     private val inner: FxaClient,
     crashReporter: CrashReporting? = null,
 ) : OAuthAccount {
     private val job = SupervisorJob()
     private val scope = CoroutineScope(Dispatchers.IO) + job
 
-    private val logger = Logger("FirefoxAccount")
+    private val logger = Logger("EyebrowseAccount")
 
     /**
      * Why this exists: in the `init` block below you'll notice that we register a persistence callback
@@ -72,7 +72,7 @@ class FirefoxAccount internal constructor(
     }
 
     /**
-     * Construct a FirefoxAccount from a [Config], a clientId, and a redirectUri.
+     * Construct a EyebrowseAccount from a [Config], a clientId, and a redirectUri.
      *
      * @param crashReporter A crash reporter instance.
      *
@@ -233,26 +233,26 @@ class FirefoxAccount internal constructor(
     companion object {
         /**
          * Restores the account's authentication state from a JSON string produced by
-         * [FirefoxAccount.toJSONString].
+         * [EyebrowseAccount.toJSONString].
          *
          * @param crashReporter object used for logging caught exceptions
          *
-         * @param persistCallback This callback will be called every time the [FirefoxAccount]
+         * @param persistCallback This callback will be called every time the [EyebrowseAccount]
          * internal state has mutated.
-         * The FirefoxAccount instance can be later restored using the
-         * [FirefoxAccount.fromJSONString]` class method.
+         * The EyebrowseAccount instance can be later restored using the
+         * [EyebrowseAccount.fromJSONString]` class method.
          * It is the responsibility of the consumer to ensure the persisted data
          * is saved in a secure location, as it can contain Sync Keys and
          * OAuth tokens.
          *
-         * @return [FirefoxAccount] representing the authentication state
+         * @return [EyebrowseAccount] representing the authentication state
          */
         fun fromJSONString(
             json: String,
             crashReporter: CrashReporting?,
             persistCallback: PersistCallback? = null,
-        ): FirefoxAccount {
-            return FirefoxAccount(FxaClient.fromJSONString(json, persistCallback), crashReporter)
+        ): EyebrowseAccount {
+            return EyebrowseAccount(FxaClient.fromJSONString(json, persistCallback), crashReporter)
         }
     }
 }

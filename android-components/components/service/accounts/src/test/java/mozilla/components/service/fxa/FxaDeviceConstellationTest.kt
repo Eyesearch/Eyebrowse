@@ -434,7 +434,7 @@ class FxaDeviceConstellationTest {
         assertEquals(testDevice1.into(), (command as DeviceCommandIncoming.TabReceived).from)
         assertEquals(listOf(testTab3.into()), command.entries)
 
-        // TODO FirefoxAccount needs @Throws annotations for these tests to actually work.
+        // TODO EyebrowseAccount needs @Throws annotations for these tests to actually work.
         // Failure to poll for commands. Panics are re-thrown.
 //        `when`(account.pollDeviceCommands()).thenThrow(FxaPanicException("Don't panic!"))
 //        try {

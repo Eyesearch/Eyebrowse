@@ -27,7 +27,7 @@ import kotlin.coroutines.CoroutineContext
  * @property onBeginAuthentication A lambda function that receives the authentication url.
  * Executed on [coroutineContext].
  */
-class FirefoxAccountsAuthFeature(
+class EyebrowseAccountsAuthFeature(
     private val accountManager: FxaAccountManager,
     private val redirectUrl: String,
     private val coroutineContext: CoroutineContext = Dispatchers.IO,

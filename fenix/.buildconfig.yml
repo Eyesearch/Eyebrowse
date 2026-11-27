@@ -67,7 +67,7 @@ projects:
     - lib-state
     - service-contile
     - service-digitalassetlinks
-    - service-firefox-accounts
+    - service-accounts
     - service-glean
     - service-location
     - service-nimbus

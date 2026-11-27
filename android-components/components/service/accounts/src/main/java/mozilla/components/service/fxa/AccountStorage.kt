@@ -89,7 +89,7 @@ open class StorageWrapper(
      * Exists strictly for testing purposes, allowing tests to specify their own implementation of [OAuthAccount].
      */
     @VisibleForTesting
-    open fun obtainAccount(): OAuthAccount = FirefoxAccount(serverConfig, crashReporter)
+    open fun obtainAccount(): OAuthAccount = EyebrowseAccount(serverConfig, crashReporter)
 }
 
 /**
@@ -153,7 +153,7 @@ internal class SharedPrefAccountStorage(
     }
 
     /**
-     * @throws FxaException if JSON failed to parse into a [FirefoxAccount].
+     * @throws FxaException if JSON failed to parse into a [EyebrowseAccount].
      */
     @Throws(FxaException::class)
     override fun read(): OAuthAccount? {
@@ -161,7 +161,7 @@ internal class SharedPrefAccountStorage(
             ?: return null
 
         // May throw a generic FxaException if it fails to process saved JSON.
-        val account = FirefoxAccount.fromJSONString(savedJSON, crashReporter)
+        val account = EyebrowseAccount.fromJSONString(savedJSON, crashReporter)
         val state = account.getAuthState()
         if (state != FxaRustAuthState.CONNECTED && crashReporter != null) {
             crashReporter.submitCaughtException(
@@ -241,7 +241,7 @@ internal class SecureAbove22AccountStorage(
     }
 
     /**
-     * @throws FxaException if JSON failed to parse into a [FirefoxAccount].
+     * @throws FxaException if JSON failed to parse into a [EyebrowseAccount].
      */
     @Throws(FxaException::class)
     override fun read(): OAuthAccount? {
@@ -252,7 +252,7 @@ internal class SecureAbove22AccountStorage(
                 // Clear prefs to make sure we only submit this exception once.
                 prefs.edit().clear().apply()
             }
-        }?.let { FirefoxAccount.fromJSONString(it, crashReporter) }
+        }?.let { EyebrowseAccount.fromJSONString(it, crashReporter) }
     }
 
     override fun write(accountState: String) {

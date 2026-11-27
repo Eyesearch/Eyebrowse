@@ -72,7 +72,7 @@ class TestableFxaAccountManager(
 }
 
 @RunWith(AndroidJUnit4::class)
-class FirefoxAccountsAuthFeatureTest {
+class EyebrowseAccountsAuthFeatureTest {
     val mockEntryPoint: FxAEntryPoint = mock<FxAEntryPoint>().apply {
         whenever(entryName).thenReturn("home-menu")
     }
@@ -87,7 +87,7 @@ class FirefoxAccountsAuthFeatureTest {
             this.coroutineContext,
         )
         val authUrl = CompletableDeferred<String>()
-        val feature = FirefoxAccountsAuthFeature(
+        val feature = EyebrowseAccountsAuthFeature(
             manager,
             "somePath",
             this.coroutineContext,
@@ -106,7 +106,7 @@ class FirefoxAccountsAuthFeatureTest {
             this.coroutineContext,
         )
         val authUrl = CompletableDeferred<String>()
-        val feature = FirefoxAccountsAuthFeature(
+        val feature = EyebrowseAccountsAuthFeature(
             manager,
             "somePath",
             this.coroutineContext,
@@ -126,7 +126,7 @@ class FirefoxAccountsAuthFeatureTest {
         )
         val authUrl = CompletableDeferred<String>()
 
-        val feature = FirefoxAccountsAuthFeature(
+        val feature = EyebrowseAccountsAuthFeature(
             manager,
             "somePath",
             this.coroutineContext,
@@ -147,7 +147,7 @@ class FirefoxAccountsAuthFeatureTest {
         )
         val authUrl = CompletableDeferred<String>()
 
-        val feature = FirefoxAccountsAuthFeature(
+        val feature = EyebrowseAccountsAuthFeature(
             manager,
             "somePath",
             this.coroutineContext,
@@ -164,7 +164,7 @@ class FirefoxAccountsAuthFeatureTest {
     fun `auth interceptor`() = runTest {
         val manager = mock<FxaAccountManager>()
         val redirectUrl = "https://accounts.firefox.com/oauth/success/123"
-        val feature = FirefoxAccountsAuthFeature(
+        val feature = EyebrowseAccountsAuthFeature(
             manager,
             redirectUrl,
             mock(),
