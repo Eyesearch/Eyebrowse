@@ -905,46 +905,6 @@ def getSupportedLocales() {
     return foundLocalesString
 }
 
-// Eyebrowse: the ad list ships inside the APK. uBlock on its own downloads its lists on first run,
-// and until that download finishes it blocks nothing, which is why the switch looked dead. This
-// task turns a public filter list into a plain domain list the shield reads offline.
-def adListFile = file("$projectDir/src/main/assets/extensions/eyeshield/ads.txt")
-tasks.register("prepareAdList") {
-    description = 'Fetches the ad domain list that ships inside the APK.'
-    outputs.file(adListFile)
-    doLast {
-        if (adListFile.exists() && adListFile.length() > 100000) {
-            return
-        }
-        def urls = [
-            'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts',
-        ]
-        def domains = new LinkedHashSet<String>()
-        urls.each { source ->
-            try {
-                def text = new URL(source).getText('UTF-8')
-                text.eachLine { line ->
-                    def trimmed = line.trim()
-                    if (trimmed.startsWith('#') || trimmed.isEmpty()) {
-                        return
-                    }
-                    def parts = trimmed.split(/\s+/)
-                    def host = parts.length > 1 ? parts[1] : parts[0]
-                    if (host && host.contains('.') && !host.contains('localhost')) {
-                        domains << host.toLowerCase()
-                    }
-                }
-            } catch (Exception e) {
-                logger.lifecycle("ad list source skipped: ${e.message}")
-            }
-        }
-        adListFile.parentFile.mkdirs()
-        adListFile.text = "# Generated at build time. One domain per line.\n" + domains.join("\n")
-        logger.lifecycle("ad list written: ${domains.size()} domains")
-    }
-}
-tasks.matching { it.name == 'preBuild' }.configureEach { dependsOn tasks.named('prepareAdList') }
-
 // Enable expiration by major version.
 ext.gleanExpireByVersion = Config.majorVersion()
 
