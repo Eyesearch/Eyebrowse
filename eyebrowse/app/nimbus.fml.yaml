@@ -2,7 +2,7 @@
 about:
   description: Nimbus Feature Manifest for Eyebrowse Android
   kotlin:
-    package: org.mozilla.fenix
+    package: org.eyesearch.eyebrowse
     class: .nimbus.FxNimbus
 channels:
   - release
@@ -12,7 +12,7 @@ channels:
 includes:
   - onboarding.fml.yaml
   - pbm.fml.yaml
-  - messaging-fenix.fml.yaml
+  - messaging-eyebrowse.fml.yaml
 import:
   - path: ../../android-components/components/browser/engine-gecko/geckoview.fml.yaml
     channel: release

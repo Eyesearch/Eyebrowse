@@ -1,0 +1,90 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+@file:Suppress("MagicNumber")
+
+package org.eyesearch.eyebrowse.home.pocket
+
+import android.view.View
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.LifecycleOwner
+import androidx.recyclerview.widget.RecyclerView
+import mozilla.components.lib.state.ext.observeAsComposableState
+import org.eyesearch.eyebrowse.R
+import org.eyesearch.eyebrowse.components.components
+import org.eyesearch.eyebrowse.compose.ComposeViewHolder
+import org.eyesearch.eyebrowse.compose.annotation.LightDarkPreview
+import org.eyesearch.eyebrowse.theme.EyebrowseTheme
+
+/**
+ * [RecyclerView.ViewHolder] for displaying the Pocket feature header.
+ *
+ * @param composeView [ComposeView] which will be populated with Jetpack Compose UI content.
+ * @param viewLifecycleOwner [LifecycleOwner] to which this Composable will be tied to.
+ * @param interactor [PocketStoriesInteractor] callback for user interaction.
+ */
+class PocketRecommendationsHeaderViewHolder(
+    composeView: ComposeView,
+    viewLifecycleOwner: LifecycleOwner,
+    private val interactor: PocketStoriesInteractor,
+) : ComposeViewHolder(composeView, viewLifecycleOwner) {
+
+    @Composable
+    override fun Content() {
+        val horizontalPadding =
+            composeView.resources.getDimensionPixelSize(R.dimen.home_item_horizontal_margin)
+        composeView.setPadding(horizontalPadding, 0, horizontalPadding, 0)
+
+        val wallpaperState = components.appStore
+            .observeAsComposableState { state -> state.wallpaperState }.value
+
+        var textColor = EyebrowseTheme.colors.textPrimary
+        var linkTextColor = EyebrowseTheme.colors.textAccent
+
+        wallpaperState?.currentWallpaper?.let { currentWallpaper ->
+            currentWallpaper.textColor?.let {
+                val wallpaperAdaptedTextColor = Color(it)
+                textColor = wallpaperAdaptedTextColor
+                linkTextColor = wallpaperAdaptedTextColor
+            }
+        }
+
+        Column {
+            Spacer(Modifier.height(24.dp))
+
+            PoweredByPocketHeader(
+                onLearnMoreClicked = interactor::onLearnMoreClicked,
+                modifier = Modifier.fillMaxWidth(),
+                textColor = textColor,
+                linkTextColor = linkTextColor,
+            )
+        }
+    }
+
+    companion object {
+        val LAYOUT_ID = View.generateViewId()
+    }
+}
+
+@Composable
+@LightDarkPreview
+private fun PocketRecommendationsFooterViewHolderPreview() {
+    EyebrowseTheme {
+        Box(modifier = Modifier.background(color = EyebrowseTheme.colors.layer1)) {
+            PoweredByPocketHeader(
+                onLearnMoreClicked = {},
+            )
+        }
+    }
+}

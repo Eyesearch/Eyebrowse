@@ -7,7 +7,7 @@ package org.eyesearch.eyebrowse.vpn
 import android.content.Context
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import org.mozilla.fenix.BuildConfig
+import org.eyesearch.eyebrowse.BuildConfig
 
 /** Production builds have no native OpenVPN backend. */
 internal object OpenVpnExperiment {

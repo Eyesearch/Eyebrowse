@@ -15,7 +15,7 @@
         app:layout_constraintBottom_toTopOf="@id/trackingProtectionSwitch"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <org.mozilla.fenix.trackingprotection.SwitchWithDescription
+    <org.eyesearch.eyebrowse.trackingprotection.SwitchWithDescription
         android:id="@+id/trackingProtectionSwitch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

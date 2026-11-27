@@ -18,15 +18,15 @@ import android.widget.RemoteViews
 import androidx.annotation.Dimension
 import androidx.annotation.Dimension.Companion.DP
 import androidx.annotation.VisibleForTesting
-import org.mozilla.fenix.GleanMetrics.Metrics
-import org.mozilla.fenix.HomeActivity
-import org.mozilla.fenix.IntentReceiverActivity
-import org.mozilla.fenix.R
-import org.mozilla.fenix.ext.settings
-import org.mozilla.fenix.home.intent.StartSearchIntentProcessor
-import org.mozilla.fenix.utils.IntentUtils
-import org.mozilla.fenix.widget.VoiceSearchActivity
-import org.mozilla.fenix.widget.VoiceSearchActivity.Companion.SPEECH_PROCESSING
+import org.eyesearch.eyebrowse.GleanMetrics.Metrics
+import org.eyesearch.eyebrowse.HomeActivity
+import org.eyesearch.eyebrowse.IntentReceiverActivity
+import org.eyesearch.eyebrowse.R
+import org.eyesearch.eyebrowse.ext.settings
+import org.eyesearch.eyebrowse.home.intent.StartSearchIntentProcessor
+import org.eyesearch.eyebrowse.utils.IntentUtils
+import org.eyesearch.eyebrowse.widget.VoiceSearchActivity
+import org.eyesearch.eyebrowse.widget.VoiceSearchActivity.Companion.SPEECH_PROCESSING
 
 class SearchWidgetProvider : AppWidgetProvider() {
     // Implementation note:

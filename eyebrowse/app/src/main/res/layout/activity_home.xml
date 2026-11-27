@@ -13,7 +13,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <org.mozilla.fenix.perf.HomeActivityRootLinearLayout
+    <org.eyesearch.eyebrowse.perf.HomeActivityRootLinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -36,7 +36,7 @@
             app:defaultNavHost="true"
             app:navGraph="@navigation/nav_graph" />
 
-    </org.mozilla.fenix.perf.HomeActivityRootLinearLayout>
+    </org.eyesearch.eyebrowse.perf.HomeActivityRootLinearLayout>
 
     <androidx.compose.ui.platform.ComposeView
         android:id="@+id/debugOverlay"

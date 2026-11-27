@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.TextView
 import mozilla.components.browser.menu.BrowserMenu
 import mozilla.components.browser.menu.BrowserMenuItem
-import org.mozilla.fenix.R
+import org.eyesearch.eyebrowse.R
 
 /**
  * A browser menu row that says how many requests were blocked on the page that is open.

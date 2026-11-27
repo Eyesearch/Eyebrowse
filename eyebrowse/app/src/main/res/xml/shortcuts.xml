@@ -11,9 +11,9 @@
         android:shortcutShortLabel="@string/home_screen_shortcut_open_password_screen"
         android:shortcutLongLabel="@string/home_screen_shortcut_open_password_screen">
         <intent
-            android:action="org.mozilla.fenix.OPEN_PASSWORD_MANAGER"
+            android:action="org.eyesearch.eyebrowse.OPEN_PASSWORD_MANAGER"
             android:targetPackage="org.mozilla.fenix"
-            android:targetClass="org.mozilla.fenix.IntentReceiverActivity" />
+            android:targetClass="org.eyesearch.eyebrowse.IntentReceiverActivity" />
     </shortcut>
     <shortcut
         android:shortcutId="open_new_tab"
@@ -22,9 +22,9 @@
         android:shortcutShortLabel="@string/home_screen_shortcut_open_new_tab_2"
         android:shortcutLongLabel="@string/home_screen_shortcut_open_new_tab_2">
         <intent
-            android:action="org.mozilla.fenix.OPEN_TAB"
+            android:action="org.eyesearch.eyebrowse.OPEN_TAB"
             android:targetPackage="org.mozilla.fenix"
-            android:targetClass="org.mozilla.fenix.IntentReceiverActivity" />
+            android:targetClass="org.eyesearch.eyebrowse.IntentReceiverActivity" />
     </shortcut>
     <shortcut
         android:shortcutId="open_new_private_tab"
@@ -33,8 +33,8 @@
         android:shortcutShortLabel="@string/home_screen_shortcut_open_new_private_tab_2"
         android:shortcutLongLabel="@string/home_screen_shortcut_open_new_private_tab_2">
         <intent
-            android:action="org.mozilla.fenix.OPEN_PRIVATE_TAB"
+            android:action="org.eyesearch.eyebrowse.OPEN_PRIVATE_TAB"
             android:targetPackage="org.mozilla.fenix"
-            android:targetClass="org.mozilla.fenix.IntentReceiverActivity" />
+            android:targetClass="org.eyesearch.eyebrowse.IntentReceiverActivity" />
     </shortcut>
 </shortcuts>

@@ -310,7 +310,7 @@ android {
         kotlinCompilerExtensionVersion = Versions.compose_compiler
     }
 
-    namespace 'org.mozilla.fenix'
+    namespace 'org.eyesearch.eyebrowse'
 }
 
 android.applicationVariants.configureEach { variant ->

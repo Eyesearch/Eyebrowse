@@ -1,0 +1,118 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+package org.eyesearch.eyebrowse.settings
+
+import android.content.Context
+import android.content.Intent
+import androidx.browser.customtabs.CustomTabColorSchemeParams
+import androidx.browser.customtabs.CustomTabsIntent
+import androidx.core.net.toUri
+import mozilla.components.support.ktx.android.content.appVersionName
+import mozilla.components.support.ktx.android.content.getColorFromAttr
+import org.eyesearch.eyebrowse.BuildConfig
+import org.eyesearch.eyebrowse.IntentReceiverActivity
+import org.eyesearch.eyebrowse.R
+import org.eyesearch.eyebrowse.customtabs.EXTRA_IS_SANDBOX_CUSTOM_TAB
+import org.eyesearch.eyebrowse.settings.account.AuthIntentReceiverActivity
+import java.io.UnsupportedEncodingException
+import java.net.URLEncoder
+import java.util.Locale
+
+object SupportUtils {
+    const val RATE_APP_URL = "market://details?id=" + BuildConfig.APPLICATION_ID
+    const val POCKET_TRENDING_URL = "https://getpocket.com/fenix-top-articles"
+    const val WIKIPEDIA_URL = "https://www.wikipedia.org/"
+    const val FENIX_PLAY_STORE_URL = "https://play.google.com/store/apps/details"
+    const val GOOGLE_URL = "https://www.google.com/"
+    const val BAIDU_URL = "https://m.baidu.com/"
+    const val GOOGLE_US_URL = "https://www.google.com/webhp"
+    const val GOOGLE_XX_URL = "https://www.google.com/webhp"
+    /**
+     * Eyebrowse: the one page we actually publish. Every in-app help, privacy and what's new link
+     * goes here, because the old support and marketing domains were Mozilla's and ours do not
+     * exist yet.
+     */
+    const val EYEBROWSE_HOME_URL = "https://eyesearch.github.io/Eyebrowse/"
+    const val WHATS_NEW_URL = EYEBROWSE_HOME_URL
+
+    enum class SumoTopic(internal val topicStr: String) {
+        HELP("faq-android"),
+        PRIVATE_BROWSING_MYTHS("common-myths-about-private-browsing"),
+        YOUR_RIGHTS("your-rights"),
+        TRACKING_PROTECTION("tracking-protection-eyebrowse-android"),
+        TOTAL_COOKIE_PROTECTION("enhanced-tracking-protection-android"),
+        OPT_OUT_STUDIES("how-opt-out-studies-eyebrowse-android"),
+        SEND_TABS("send-tab-preview"),
+        SET_AS_DEFAULT_BROWSER("make-eyebrowse-default-browser-android"),
+        SEARCH_SUGGESTION("how-search-eyebrowse-preview"),
+        CUSTOM_SEARCH_ENGINES("custom-search-engines"),
+        SYNC_SETUP("how-set-eyebrowse-sync-eyebrowse-android"),
+        QR_CAMERA_ACCESS("qr-camera-access"),
+        SMARTBLOCK("smartblock-enhanced-tracking-protection"),
+        SPONSOR_PRIVACY("sponsor-privacy"),
+        HTTPS_ONLY_MODE("https-only-mode-eyebrowse-android"),
+        UNSIGNED_ADDONS("unsigned-addons"),
+        REVIEW_QUALITY_CHECK("review_checker_mobile"),
+        FX_SUGGEST("search-suggestions-eyebrowse"),
+        TRANSLATIONS("android-translation"),
+    }
+
+    enum class MozillaPage(internal val path: String) {
+        PRIVATE_NOTICE("privacy/eyebrowse/"),
+        MANIFESTO("about/manifesto/"),
+    }
+
+    /**
+     * Gets a support page URL for the corresponding topic.
+     */
+    @Suppress("UNUSED_PARAMETER")
+    fun getSumoURLForTopic(
+        context: Context,
+        topic: SumoTopic,
+        locale: Locale = Locale.getDefault(),
+    ): String {
+        // Eyebrowse: there is no support site yet, so a help link lands on our own page rather
+        // than a domain that does not answer. The topic is kept for the day there is one.
+        return EYEBROWSE_HOME_URL
+    }
+
+    /**
+     * Gets a support page URL for the corresponding topic.
+     * Used when the app version and os are not part of the URL.
+     */
+    @Suppress("UNUSED_PARAMETER")
+    fun getGenericSumoURLForTopic(topic: SumoTopic, locale: Locale = Locale.getDefault()): String =
+        EYEBROWSE_HOME_URL
+
+    fun getEyebrowseAccountSumoUrl(): String = EYEBROWSE_HOME_URL
+
+    @Suppress("UNUSED_PARAMETER")
+    fun getMozillaPageUrl(page: MozillaPage, locale: Locale = Locale.getDefault()): String {
+        // Eyebrowse: privacy notice and manifesto were Mozilla's pages. Ours is the landing page.
+        return EYEBROWSE_HOME_URL
+    }
+
+    fun createCustomTabIntent(context: Context, url: String): Intent = CustomTabsIntent.Builder()
+        .setInstantAppsEnabled(false)
+        .setDefaultColorSchemeParams(
+            CustomTabColorSchemeParams.Builder().setToolbarColor(context.getColorFromAttr(R.attr.layer1)).build(),
+        )
+        .build()
+        .intent
+        .setData(url.toUri())
+        .setClassName(context, IntentReceiverActivity::class.java.name)
+        .setPackage(context.packageName)
+
+    fun createAuthCustomTabIntent(context: Context, url: String): Intent =
+        createCustomTabIntent(context, url).setClassName(context, AuthIntentReceiverActivity::class.java.name)
+
+    /**
+     * Custom tab that cannot open the content in Eyebrowse directly.
+     * This ensures the content is contained to this custom tab only.
+     */
+    fun createSandboxCustomTabIntent(context: Context, url: String): Intent =
+        createCustomTabIntent(context, url).putExtra(EXTRA_IS_SANDBOX_CUSTOM_TAB, true)
+
+}

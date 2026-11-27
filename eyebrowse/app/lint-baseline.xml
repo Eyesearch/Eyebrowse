@@ -260,7 +260,7 @@
         errorLine1="                    .inflate(R.layout.delete_history_time_range_dialog, null)"
         errorLine2="                                                                        ~~~~">
         <location
-            file="src/main/java/org/mozilla/fenix/library/history/HistoryFragment.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/library/history/HistoryFragment.kt"
             line="379"
             column="73"/>
     </issue>
@@ -268,10 +268,10 @@
     <issue
         id="MissingLicense"
         message="The file must start with a comment containing the license"
-        errorLine1="package org.mozilla.fenix.ext"
+        errorLine1="package org.eyesearch.eyebrowse.ext"
         errorLine2="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="src/main/java/org/mozilla/fenix/ext/Bitmap.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/ext/Bitmap.kt"
             line="1"
             column="1"/>
     </issue>
@@ -315,7 +315,7 @@
         errorLine1="                recentTabs = state.recentTabs.filterOutTab(action.recentTab)"
         errorLine2="                                              ~~~~~~~~~~~~">
         <location
-            file="src/main/java/org/mozilla/fenix/components/appstate/AppStoreReducer.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/components/appstate/AppStoreReducer.kt"
             line="74"
             column="47"/>
     </issue>
@@ -326,7 +326,7 @@
         errorLine1="                isInPrimaryState = { getCurrentTab()?.content?.canGoBack ?: false },"
         errorLine2="                                     ~~~~~~~~~~~~~">
         <location
-            file="src/main/java/org/mozilla/fenix/browser/BrowserFragment.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/browser/BrowserFragment.kt"
             line="97"
             column="38"/>
     </issue>
@@ -337,7 +337,7 @@
         errorLine1="                isInPrimaryState = { getCurrentTab()?.content?.canGoForward ?: false },"
         errorLine2="                                     ~~~~~~~~~~~~~">
         <location
-            file="src/main/java/org/mozilla/fenix/browser/BrowserFragment.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/browser/BrowserFragment.kt"
             line="119"
             column="38"/>
     </issue>
@@ -348,7 +348,7 @@
         errorLine1="                    getCurrentTab()?.content?.loading == false"
         errorLine2="                    ~~~~~~~~~~~~~">
         <location
-            file="src/main/java/org/mozilla/fenix/browser/BrowserFragment.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/browser/BrowserFragment.kt"
             line="142"
             column="21"/>
     </issue>
@@ -359,7 +359,7 @@
         errorLine1="                    if (getCurrentTab()?.content?.loading == true) {"
         errorLine2="                        ~~~~~~~~~~~~~">
         <location
-            file="src/main/java/org/mozilla/fenix/browser/BrowserFragment.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/browser/BrowserFragment.kt"
             line="156"
             column="25"/>
     </issue>
@@ -370,7 +370,7 @@
         errorLine1="                selected = getCurrentTab()?.let {"
         errorLine2="                           ~~~~~~~~~~~~~">
         <location
-            file="src/main/java/org/mozilla/fenix/browser/BrowserFragment.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/browser/BrowserFragment.kt"
             line="184"
             column="28"/>
     </issue>
@@ -381,7 +381,7 @@
         errorLine1="        getCurrentTab()?.let { tab ->"
         errorLine2="        ~~~~~~~~~~~~~">
         <location
-            file="src/main/java/org/mozilla/fenix/browser/BrowserFragment.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/browser/BrowserFragment.kt"
             line="274"
             column="9"/>
     </issue>
@@ -392,7 +392,7 @@
         errorLine1="            } + searchSelectorMenu.menuItems()"
         errorLine2="                                   ~~~~~~~~~">
         <location
-            file="src/main/java/org/mozilla/fenix/search/SearchDialogFragment.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/search/SearchDialogFragment.kt"
             line="725"
             column="36"/>
     </issue>
@@ -403,7 +403,7 @@
         errorLine1="        tabsAction.updateCount(tabCount)"
         errorLine2="                   ~~~~~~~~~~~">
         <location
-            file="src/main/java/org/mozilla/fenix/components/toolbar/ToolbarIntegration.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/components/toolbar/ToolbarIntegration.kt"
             line="148"
             column="20"/>
     </issue>
@@ -414,7 +414,7 @@
         errorLine1="fun EagerFlingBehavior("
         errorLine2="    ~~~~~~~~~~~~~~~~~~">
         <location
-            file="src/main/java/org/mozilla/fenix/compose/LazyListEagerFlingBehavior.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/compose/LazyListEagerFlingBehavior.kt"
             line="21"
             column="5"/>
     </issue>
@@ -425,7 +425,7 @@
         errorLine1="    modifier: Modifier = Modifier,"
         errorLine2="    ~~~~~~~~">
         <location
-            file="src/main/java/org/mozilla/fenix/compose/ThumbnailCard.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/compose/ThumbnailCard.kt"
             line="59"
             column="5"/>
     </issue>
@@ -436,7 +436,7 @@
         errorLine1="                    display.setUrlBackground(getDrawable(R.drawable.search_url_background))"
         errorLine2="                                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="src/main/java/org/mozilla/fenix/components/toolbar/BrowserToolbarView.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/components/toolbar/BrowserToolbarView.kt"
             line="89"
             column="46"/>
     </issue>
@@ -546,7 +546,7 @@
         errorLine1="        notifyDataSetChanged()"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="src/main/java/org/mozilla/fenix/library/downloads/DownloadAdapter.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/library/downloads/DownloadAdapter.kt"
             line="43"
             column="9"/>
     </issue>
@@ -557,7 +557,7 @@
         errorLine1="        notifyDataSetChanged()"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="src/main/java/org/mozilla/fenix/collections/SaveCollectionListAdapter.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/collections/SaveCollectionListAdapter.kt"
             line="49"
             column="9"/>
     </issue>
@@ -568,7 +568,7 @@
         errorLine1="            tabsTrayBinding.tabsTray.adapter?.notifyDataSetChanged()"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="src/main/java/org/mozilla/fenix/tabstray/TabsTrayFragment.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/tabstray/TabsTrayFragment.kt"
             line="421"
             column="13"/>
     </issue>
@@ -576,7 +576,7 @@
     <issue
         id="MozMultipleConstraintLayoutsAndCustomViews"
         message="Custom views extending `ConstraintLayout` are less efficient because they cannot share other `ConstraintLayout` defined in file."
-        errorLine1="    &lt;org.mozilla.fenix.library.LibrarySiteItemView"
+        errorLine1="    &lt;org.eyesearch.eyebrowse.library.LibrarySiteItemView"
         errorLine2="     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout/component_recently_closed.xml"
@@ -609,7 +609,7 @@
     <issue
         id="MozMultipleConstraintLayoutsAndCustomViews"
         message="Custom views extending `ConstraintLayout` are less efficient because they cannot share other `ConstraintLayout` defined in file."
-        errorLine1="            &lt;org.mozilla.fenix.settings.deletebrowsingdata.DeleteBrowsingDataItem"
+        errorLine1="            &lt;org.eyesearch.eyebrowse.settings.deletebrowsingdata.DeleteBrowsingDataItem"
         errorLine2="             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout/fragment_delete_browsing_data.xml"
@@ -620,7 +620,7 @@
     <issue
         id="MozMultipleConstraintLayoutsAndCustomViews"
         message="Custom views extending `ConstraintLayout` are less efficient because they cannot share other `ConstraintLayout` defined in file."
-        errorLine1="            &lt;org.mozilla.fenix.settings.deletebrowsingdata.DeleteBrowsingDataItem"
+        errorLine1="            &lt;org.eyesearch.eyebrowse.settings.deletebrowsingdata.DeleteBrowsingDataItem"
         errorLine2="             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout/fragment_delete_browsing_data.xml"
@@ -631,7 +631,7 @@
     <issue
         id="MozMultipleConstraintLayoutsAndCustomViews"
         message="Custom views extending `ConstraintLayout` are less efficient because they cannot share other `ConstraintLayout` defined in file."
-        errorLine1="            &lt;org.mozilla.fenix.settings.deletebrowsingdata.DeleteBrowsingDataItem"
+        errorLine1="            &lt;org.eyesearch.eyebrowse.settings.deletebrowsingdata.DeleteBrowsingDataItem"
         errorLine2="             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout/fragment_delete_browsing_data.xml"
@@ -642,7 +642,7 @@
     <issue
         id="MozMultipleConstraintLayoutsAndCustomViews"
         message="Custom views extending `ConstraintLayout` are less efficient because they cannot share other `ConstraintLayout` defined in file."
-        errorLine1="            &lt;org.mozilla.fenix.settings.deletebrowsingdata.DeleteBrowsingDataItem"
+        errorLine1="            &lt;org.eyesearch.eyebrowse.settings.deletebrowsingdata.DeleteBrowsingDataItem"
         errorLine2="             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout/fragment_delete_browsing_data.xml"
@@ -653,7 +653,7 @@
     <issue
         id="MozMultipleConstraintLayoutsAndCustomViews"
         message="Custom views extending `ConstraintLayout` are less efficient because they cannot share other `ConstraintLayout` defined in file."
-        errorLine1="            &lt;org.mozilla.fenix.settings.deletebrowsingdata.DeleteBrowsingDataItem"
+        errorLine1="            &lt;org.eyesearch.eyebrowse.settings.deletebrowsingdata.DeleteBrowsingDataItem"
         errorLine2="             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout/fragment_delete_browsing_data.xml"
@@ -664,7 +664,7 @@
     <issue
         id="MozMultipleConstraintLayoutsAndCustomViews"
         message="Custom views extending `ConstraintLayout` are less efficient because they cannot share other `ConstraintLayout` defined in file."
-        errorLine1="            &lt;org.mozilla.fenix.settings.deletebrowsingdata.DeleteBrowsingDataItem"
+        errorLine1="            &lt;org.eyesearch.eyebrowse.settings.deletebrowsingdata.DeleteBrowsingDataItem"
         errorLine2="             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout/fragment_delete_browsing_data.xml"
@@ -675,7 +675,7 @@
     <issue
         id="MozMultipleConstraintLayoutsAndCustomViews"
         message="Custom views extending `ConstraintLayout` are less efficient because they cannot share other `ConstraintLayout` defined in file."
-        errorLine1="        &lt;org.mozilla.fenix.trackingprotection.TrackingProtectionCategoryItem"
+        errorLine1="        &lt;org.eyesearch.eyebrowse.trackingprotection.TrackingProtectionCategoryItem"
         errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout/fragment_tracking_protection_blocking.xml"
@@ -686,7 +686,7 @@
     <issue
         id="MozMultipleConstraintLayoutsAndCustomViews"
         message="Custom views extending `ConstraintLayout` are less efficient because they cannot share other `ConstraintLayout` defined in file."
-        errorLine1="        &lt;org.mozilla.fenix.trackingprotection.TrackingProtectionCategoryItem"
+        errorLine1="        &lt;org.eyesearch.eyebrowse.trackingprotection.TrackingProtectionCategoryItem"
         errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout/fragment_tracking_protection_blocking.xml"
@@ -697,7 +697,7 @@
     <issue
         id="MozMultipleConstraintLayoutsAndCustomViews"
         message="Custom views extending `ConstraintLayout` are less efficient because they cannot share other `ConstraintLayout` defined in file."
-        errorLine1="        &lt;org.mozilla.fenix.trackingprotection.TrackingProtectionCategoryItem"
+        errorLine1="        &lt;org.eyesearch.eyebrowse.trackingprotection.TrackingProtectionCategoryItem"
         errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout/fragment_tracking_protection_blocking.xml"
@@ -708,7 +708,7 @@
     <issue
         id="MozMultipleConstraintLayoutsAndCustomViews"
         message="Custom views extending `ConstraintLayout` are less efficient because they cannot share other `ConstraintLayout` defined in file."
-        errorLine1="        &lt;org.mozilla.fenix.trackingprotection.TrackingProtectionCategoryItem"
+        errorLine1="        &lt;org.eyesearch.eyebrowse.trackingprotection.TrackingProtectionCategoryItem"
         errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout/fragment_tracking_protection_blocking.xml"
@@ -719,7 +719,7 @@
     <issue
         id="MozMultipleConstraintLayoutsAndCustomViews"
         message="Custom views extending `ConstraintLayout` are less efficient because they cannot share other `ConstraintLayout` defined in file."
-        errorLine1="        &lt;org.mozilla.fenix.trackingprotection.TrackingProtectionCategoryItem"
+        errorLine1="        &lt;org.eyesearch.eyebrowse.trackingprotection.TrackingProtectionCategoryItem"
         errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout/fragment_tracking_protection_blocking.xml"
@@ -730,7 +730,7 @@
     <issue
         id="MozMultipleConstraintLayoutsAndCustomViews"
         message="Custom views extending `ConstraintLayout` are less efficient because they cannot share other `ConstraintLayout` defined in file."
-        errorLine1="    &lt;org.mozilla.fenix.trackingprotection.SwitchWithDescription"
+        errorLine1="    &lt;org.eyesearch.eyebrowse.trackingprotection.SwitchWithDescription"
         errorLine2="     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/layout/quicksettings_tracking_protection.xml"
@@ -1197,21 +1197,21 @@
 
     <issue
         id="IconDensities"
-        message="Missing the following drawables in `drawable-mdpi`: amethyst.png, cerulean.png, fenix_search_widget.png, sunrise.jpg">
+        message="Missing the following drawables in `drawable-mdpi`: amethyst.png, cerulean.png, eyebrowse_search_widget.png, sunrise.jpg">
         <location
             file="src/main/res/drawable-mdpi"/>
     </issue>
 
     <issue
         id="IconDensities"
-        message="Missing the following drawables in `drawable-xhdpi`: cerulean.png, fenix_search_widget.png, sunrise.jpg">
+        message="Missing the following drawables in `drawable-xhdpi`: cerulean.png, eyebrowse_search_widget.png, sunrise.jpg">
         <location
             file="src/main/res/drawable-xhdpi"/>
     </issue>
 
     <issue
         id="IconDensities"
-        message="Missing the following drawables in `drawable-xxhdpi`: cerulean.png, fenix_search_widget.png, sunrise.jpg">
+        message="Missing the following drawables in `drawable-xxhdpi`: cerulean.png, eyebrowse_search_widget.png, sunrise.jpg">
         <location
             file="src/main/res/drawable-xxhdpi"/>
     </issue>
@@ -1244,7 +1244,7 @@
         errorLine1="        binding.awesomeBar.setOnTouchListener { _, _ ->"
         errorLine2="        ^">
         <location
-            file="src/main/java/org/mozilla/fenix/search/SearchDialogFragment.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/search/SearchDialogFragment.kt"
             line="244"
             column="9"/>
     </issue>
@@ -1255,7 +1255,7 @@
         errorLine1="        binding.awesomeBar.setOnTouchListener { _, _ ->"
         errorLine2="                                              ^">
         <location
-            file="src/main/java/org/mozilla/fenix/search/SearchDialogFragment.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/search/SearchDialogFragment.kt"
             line="244"
             column="47"/>
     </issue>
@@ -1266,7 +1266,7 @@
         errorLine1="                dialog?.window?.decorView?.setOnTouchListener { _, event ->"
         errorLine2="                                                              ^">
         <location
-            file="src/main/java/org/mozilla/fenix/search/SearchDialogFragment.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/search/SearchDialogFragment.kt"
             line="259"
             column="63"/>
     </issue>
@@ -1277,7 +1277,7 @@
         errorLine1="                binding.searchWrapper.setOnTouchListener { _, _ ->"
         errorLine2="                ^">
         <location
-            file="src/main/java/org/mozilla/fenix/search/SearchDialogFragment.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/search/SearchDialogFragment.kt"
             line="306"
             column="17"/>
     </issue>
@@ -1288,7 +1288,7 @@
         errorLine1="                binding.searchWrapper.setOnTouchListener { _, _ ->"
         errorLine2="                                                         ^">
         <location
-            file="src/main/java/org/mozilla/fenix/search/SearchDialogFragment.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/search/SearchDialogFragment.kt"
             line="306"
             column="58"/>
     </issue>
@@ -1299,7 +1299,7 @@
         errorLine1="                binding.searchWrapper.setOnTouchListener { _, _ ->"
         errorLine2="                ^">
         <location
-            file="src/main/java/org/mozilla/fenix/search/SearchDialogFragment.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/search/SearchDialogFragment.kt"
             line="312"
             column="17"/>
     </issue>
@@ -1310,7 +1310,7 @@
         errorLine1="                binding.searchWrapper.setOnTouchListener { _, _ ->"
         errorLine2="                                                         ^">
         <location
-            file="src/main/java/org/mozilla/fenix/search/SearchDialogFragment.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/search/SearchDialogFragment.kt"
             line="312"
             column="58"/>
     </issue>
@@ -1321,7 +1321,7 @@
         errorLine1="    override fun onTouchEvent(event: MotionEvent?): Boolean {"
         errorLine2="                 ~~~~~~~~~~~~">
         <location
-            file="src/main/java/org/mozilla/fenix/browser/SwipeGestureLayout.kt"
+            file="src/main/java/org/eyesearch/eyebrowse/browser/SwipeGestureLayout.kt"
             line="120"
             column="18"/>
     </issue>

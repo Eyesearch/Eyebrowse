@@ -116,7 +116,7 @@
             app:iconSpaceReserved="false"
             android:title="@string/preferences_language" />
 
-        <org.mozilla.fenix.settings.DefaultBrowserPreference
+        <org.eyesearch.eyebrowse.settings.DefaultBrowserPreference
             android:key="@string/pref_key_make_default_browser"
             app:iconSpaceReserved="false"
             android:title="@string/preferences_set_as_default_browser" />
@@ -136,7 +136,7 @@
             app:iconSpaceReserved="false"
             android:title="@string/preferences_https_only_title" />
 
-        <org.mozilla.fenix.settings.cookiebannerhandling.CustomCBHSwitchPreference
+        <org.eyesearch.eyebrowse.settings.cookiebannerhandling.CustomCBHSwitchPreference
             android:key="@string/pref_key_cookie_banner_private_mode"
             app:iconSpaceReserved="false"
             app:isPreferenceVisible="false"

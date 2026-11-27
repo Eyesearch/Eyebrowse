@@ -14,7 +14,7 @@ the JSON output file in firefox (or another browser of your choice if you pass t
 ff_browser = "firefox"
 target_directory = "{cwd}/app/build/".format(cwd=os.getcwd())
 output_path = "/storage/emulated/0/benchmark/"
-output_file = "org.mozilla.fenix-benchmarkData.json"
+output_file = "org.eyesearch.eyebrowse-benchmarkData.json"
 file_url = "file:///"
 
 
@@ -22,7 +22,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description=DESCRIPTION)
     parser.add_argument(
         "class_to_test",
-        help="Path to the class to test. Format it as 'org.mozilla.fenix.[path_to_benchmark_test",
+        help="Path to the class to test. Format it as 'org.eyesearch.eyebrowse.[path_to_benchmark_test",
     )
     parser.add_argument(
         "--open_file_in_browser",

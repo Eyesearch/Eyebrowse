@@ -9,8 +9,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
-import org.mozilla.fenix.R
-import org.mozilla.fenix.ext.components
+import org.eyesearch.eyebrowse.R
+import org.eyesearch.eyebrowse.ext.components
 
 /**
  * The door the account comes back through: indobrowse://auth?code=...&state=...

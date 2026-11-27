@@ -14,7 +14,7 @@
 # When adding new messages to this file, please add the experiment (and/or rollout) URLs used to
 # validate them.
 #
-# Triggers, actions and styles are configured in messaging-fenix.fml.yaml.
+# Triggers, actions and styles are configured in messaging-eyebrowse.fml.yaml.
 import:
   - path: ../../android-components/components/service/nimbus/messaging.fml.yaml
     channel: release

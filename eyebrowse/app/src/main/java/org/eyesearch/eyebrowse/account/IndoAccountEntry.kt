@@ -7,8 +7,8 @@ package org.eyesearch.eyebrowse.account
 import android.content.Context
 import android.os.Build
 import android.webkit.WebView
-import org.mozilla.fenix.BrowserDirection
-import org.mozilla.fenix.HomeActivity
+import org.eyesearch.eyebrowse.BrowserDirection
+import org.eyesearch.eyebrowse.HomeActivity
 import java.net.URLEncoder
 
 /**

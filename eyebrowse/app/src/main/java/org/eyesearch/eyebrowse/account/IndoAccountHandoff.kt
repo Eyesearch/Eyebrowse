@@ -7,7 +7,7 @@ package org.eyesearch.eyebrowse.account
 import android.content.Context
 import android.os.Build
 import mozilla.components.concept.fetch.Client
-import org.mozilla.fenix.R
+import org.eyesearch.eyebrowse.R
 
 /**
  * The half of the handoff that both doors share: the in-app WebView and the deep link fallback.

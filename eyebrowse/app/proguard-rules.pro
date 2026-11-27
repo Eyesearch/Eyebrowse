@@ -67,7 +67,7 @@
 # ViewModels
 ####################################################################################################
 
--keep class org.mozilla.fenix.**ViewModel { *; }
+-keep class org.eyesearch.eyebrowse.**ViewModel { *; }
 
 ####################################################################################################
 # Adjust
@@ -101,7 +101,7 @@
 }
 
 # Keep code generated from Glean Metrics
--keep class org.mozilla.fenix.GleanMetrics.** {  *; }
+-keep class org.eyesearch.eyebrowse.GleanMetrics.** {  *; }
 
 # Keep motionlayout internal methods
 # https://github.com/mozilla-mobile/fenix/issues/2094

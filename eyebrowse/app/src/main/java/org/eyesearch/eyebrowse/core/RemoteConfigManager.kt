@@ -11,7 +11,7 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
 import com.google.firebase.remoteconfig.remoteConfig
-import org.mozilla.fenix.BuildConfig
+import org.eyesearch.eyebrowse.BuildConfig
 
 /**
  * Eyebrowse remote configuration.

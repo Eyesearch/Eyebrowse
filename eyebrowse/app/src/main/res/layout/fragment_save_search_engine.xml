@@ -8,7 +8,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.mozilla.fenix.settings.search.SaveSearchEngineFragment"
+    tools:context="org.eyesearch.eyebrowse.settings.search.SaveSearchEngineFragment"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
         android:id="@+id/search_engine_wrapper"
@@ -89,7 +89,7 @@
                 android:labelFor="@id/edit_search_string"
                 android:textColor="@android:color/tertiary_text_dark" />
 
-            <org.mozilla.fenix.utils.LinkTextView
+            <org.eyesearch.eyebrowse.utils.LinkTextView
                 android:id="@+id/custom_search_engines_learn_more"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -141,7 +141,7 @@
                 android:labelFor="@id/edit_search_string"
                 android:textColor="@android:color/tertiary_text_dark"/>
 
-            <org.mozilla.fenix.utils.LinkTextView
+            <org.eyesearch.eyebrowse.utils.LinkTextView
                 android:id="@+id/custom_search_suggestions_learn_more"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

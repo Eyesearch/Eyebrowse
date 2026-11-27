@@ -8,7 +8,7 @@
     android:importantForAccessibility="no"
     android:orientation="vertical">
 
-    <org.mozilla.fenix.library.LibrarySiteItemView
+    <org.eyesearch.eyebrowse.library.LibrarySiteItemView
         android:id="@+id/history_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

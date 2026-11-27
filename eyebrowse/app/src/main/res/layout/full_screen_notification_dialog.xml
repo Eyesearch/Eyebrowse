@@ -10,7 +10,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    android:background="@drawable/fenix_snackbar_background"
+    android:background="@drawable/eyebrowse_snackbar_background"
     android:elevation="4dp"
     android:minHeight="48dp"
     android:orientation="horizontal"

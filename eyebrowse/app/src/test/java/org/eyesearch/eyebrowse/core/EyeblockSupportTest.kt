@@ -13,9 +13,9 @@ import mozilla.components.concept.engine.webextension.WebExtension
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mozilla.fenix.helpers.FenixRobolectricTestRunner
+import org.eyesearch.eyebrowse.helpers.EyebrowseRobolectricTestRunner
 
-@RunWith(FenixRobolectricTestRunner::class)
+@RunWith(EyebrowseRobolectricTestRunner::class)
 class EyeblockSupportTest {
     private val engine = mockk<Engine>(relaxed = true)
     private val extension = mockk<WebExtension>(relaxed = true)

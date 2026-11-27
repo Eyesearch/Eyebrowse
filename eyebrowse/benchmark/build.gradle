@@ -10,7 +10,7 @@ plugins {
 }
 
 android {
-    namespace 'org.mozilla.fenix.benchmark'
+    namespace 'org.eyesearch.eyebrowse.benchmark'
     compileSdk config.compileSdkVersion
 
     defaultConfig {

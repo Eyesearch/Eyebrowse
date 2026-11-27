@@ -156,7 +156,7 @@
         app:destination="@id/tabsSettingsFragment" />
     <dialog
         android:id="@+id/tabsTrayFragment"
-        android:name="org.mozilla.fenix.tabstray.TabsTrayFragment">
+        android:name="org.eyesearch.eyebrowse.tabstray.TabsTrayFragment">
         <argument
             android:name="enterMultiselect"
             android:defaultValue="false"
@@ -164,21 +164,21 @@
         <argument
             android:name="page"
             android:defaultValue="NormalTabs"
-            app:argType="org.mozilla.fenix.tabstray.Page" />
+            app:argType="org.eyesearch.eyebrowse.tabstray.Page" />
         <argument
             android:name="accessPoint"
             android:defaultValue="None"
-            app:argType="org.mozilla.fenix.tabstray.TabsTrayAccessPoint" />
+            app:argType="org.eyesearch.eyebrowse.tabstray.TabsTrayAccessPoint" />
     </dialog>
 
     <fragment
         android:id="@+id/startupFragment"
-        android:name="org.mozilla.fenix.StartupFragment">
+        android:name="org.eyesearch.eyebrowse.StartupFragment">
     </fragment>
 
     <fragment
         android:id="@+id/onboardingFragment"
-        android:name="org.mozilla.fenix.onboarding.OnboardingFragment">
+        android:name="org.eyesearch.eyebrowse.onboarding.OnboardingFragment">
         <action
             android:id="@+id/action_home"
             app:destination="@id/homeFragment"
@@ -188,7 +188,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="org.mozilla.fenix.home.HomeFragment"
+        android:name="org.eyesearch.eyebrowse.home.HomeFragment"
         tools:layout="@layout/fragment_home">
         <argument
             android:name="focusOnAddressBar"
@@ -202,11 +202,11 @@
 
     <dialog
         android:id="@+id/homeOnboardingDialogFragment"
-        android:name="org.mozilla.fenix.onboarding.HomeOnboardingDialogFragment" />
+        android:name="org.eyesearch.eyebrowse.onboarding.HomeOnboardingDialogFragment" />
 
     <dialog
         android:id="@+id/researchSurfaceDialogFragment"
-        android:name="org.mozilla.fenix.experiments.ResearchSurfaceDialogFragment" >
+        android:name="org.eyesearch.eyebrowse.experiments.ResearchSurfaceDialogFragment" >
         <argument
             android:name="KEY_MESSAGE_TEXT"
             app:nullable="true"
@@ -223,11 +223,11 @@
 
     <dialog
         android:id="@+id/wallpaperOnboardingDialogFragment"
-        android:name="org.mozilla.fenix.onboarding.WallpaperOnboardingDialogFragment" />
+        android:name="org.eyesearch.eyebrowse.onboarding.WallpaperOnboardingDialogFragment" />
 
     <dialog
         android:id="@+id/searchDialogFragment"
-        android:name="org.mozilla.fenix.search.SearchDialogFragment"
+        android:name="org.eyesearch.eyebrowse.search.SearchDialogFragment"
         tools:layout="@layout/fragment_search_dialog">
         <argument
             android:name="session_id"
@@ -241,7 +241,7 @@
         <argument
             android:name="search_access_point"
             android:defaultValue="NONE"
-            app:argType="org.mozilla.fenix.components.metrics.MetricsUtils$Source" />
+            app:argType="org.eyesearch.eyebrowse.components.metrics.MetricsUtils$Source" />
         <argument
             android:name="search_engine"
             android:defaultValue="@null"
@@ -251,21 +251,21 @@
 
     <fragment
         android:id="@+id/recentlyClosedFragment"
-        android:name="org.mozilla.fenix.library.recentlyclosed.RecentlyClosedFragment"
+        android:name="org.eyesearch.eyebrowse.library.recentlyclosed.RecentlyClosedFragment"
         android:label="@string/library_recently_closed_tabs" />
 
     <fragment
         android:id="@+id/SitePermissionsManagePhoneFeature"
-        android:name="org.mozilla.fenix.settings.sitepermissions.SitePermissionsManagePhoneFeatureFragment"
+        android:name="org.eyesearch.eyebrowse.settings.sitepermissions.SitePermissionsManagePhoneFeatureFragment"
         tools:layout="@layout/fragment_manage_site_permissions_feature_phone">
         <argument
             android:name="phoneFeature"
-            app:argType="org.mozilla.fenix.settings.PhoneFeature" />
+            app:argType="org.eyesearch.eyebrowse.settings.PhoneFeature" />
     </fragment>
 
     <fragment
         android:id="@+id/browserFragment"
-        android:name="org.mozilla.fenix.browser.BrowserFragment"
+        android:name="org.eyesearch.eyebrowse.browser.BrowserFragment"
         app:exitAnim="@anim/fade_out"
         tools:layout="@layout/fragment_browser">
         <argument
@@ -292,7 +292,7 @@
 
     <fragment
         android:id="@+id/externalAppBrowserFragment"
-        android:name="org.mozilla.fenix.customtabs.ExternalAppBrowserFragment"
+        android:name="org.eyesearch.eyebrowse.customtabs.ExternalAppBrowserFragment"
         tools:layout="@layout/fragment_browser">
         <argument
             android:name="activeSessionId"
@@ -309,31 +309,31 @@
 
     <fragment
         android:id="@+id/historyFragment"
-        android:name="org.mozilla.fenix.library.history.HistoryFragment"
+        android:name="org.eyesearch.eyebrowse.library.history.HistoryFragment"
         android:label="@string/library_history"
         tools:layout="@layout/fragment_history">
     </fragment>
 
     <fragment
         android:id="@+id/historyMetadataGroupFragment"
-        android:name="org.mozilla.fenix.library.historymetadata.HistoryMetadataGroupFragment">
+        android:name="org.eyesearch.eyebrowse.library.historymetadata.HistoryMetadataGroupFragment">
         <argument
             android:name="title"
             app:argType="string" />
         <argument
             android:name="historyMetadataItems"
-            app:argType="org.mozilla.fenix.library.history.History[]" />
+            app:argType="org.eyesearch.eyebrowse.library.history.History[]" />
     </fragment>
 
     <fragment
         android:id="@+id/downloadsFragment"
-        android:name="org.mozilla.fenix.library.downloads.DownloadFragment"
+        android:name="org.eyesearch.eyebrowse.library.downloads.DownloadFragment"
         android:label="Downloads"
         tools:layout="@layout/fragment_downloads" />
 
     <fragment
         android:id="@+id/bookmarkFragment"
-        android:name="org.mozilla.fenix.library.bookmarks.BookmarkFragment"
+        android:name="org.eyesearch.eyebrowse.library.bookmarks.BookmarkFragment"
         tools:layout="@layout/fragment_bookmark">
         <argument
             android:name="currentRoot"
@@ -351,7 +351,7 @@
 
     <fragment
         android:id="@+id/bookmarkEditFragment"
-        android:name="org.mozilla.fenix.library.bookmarks.edit.EditBookmarkFragment"
+        android:name="org.eyesearch.eyebrowse.library.bookmarks.edit.EditBookmarkFragment"
         tools:layout="@layout/fragment_edit_bookmark">
         <argument
             android:name="guidToEdit"
@@ -368,7 +368,7 @@
 
     <fragment
         android:id="@+id/bookmarkSelectFolderFragment"
-        android:name="org.mozilla.fenix.library.bookmarks.selectfolder.SelectBookmarkFolderFragment"
+        android:name="org.eyesearch.eyebrowse.library.bookmarks.selectfolder.SelectBookmarkFolderFragment"
         android:label="@string/bookmark_select_folder_fragment_label"
         tools:layout="@layout/fragment_select_bookmark_folder">
         <action
@@ -390,7 +390,7 @@
 
     <fragment
         android:id="@+id/bookmarkAddFolderFragment"
-        android:name="org.mozilla.fenix.library.bookmarks.addfolder.AddBookmarkFolderFragment"
+        android:name="org.eyesearch.eyebrowse.library.bookmarks.addfolder.AddBookmarkFolderFragment"
         android:label="@string/bookmark_add_folder_fragment_label"
         tools:layout="@layout/fragment_edit_bookmark">
         <action
@@ -400,11 +400,11 @@
 
     <dialog
         android:id="@+id/reviewQualityCheckFragment"
-        android:name="org.mozilla.fenix.shopping.ReviewQualityCheckFragment"/>
+        android:name="org.eyesearch.eyebrowse.shopping.ReviewQualityCheckFragment"/>
 
     <fragment
         android:id="@+id/savedLoginsAuthFragment"
-        android:name="org.mozilla.fenix.settings.logins.fragment.SavedLoginsAuthFragment"
+        android:name="org.eyesearch.eyebrowse.settings.logins.fragment.SavedLoginsAuthFragment"
         android:label="@string/preferences_passwords_logins_and_passwords_2">
         <action
             android:id="@+id/action_savedLoginsAuthFragment_to_loginsListFragment"
@@ -438,7 +438,7 @@
 
     <fragment
         android:id="@+id/loginExceptionsFragment"
-        android:name="org.mozilla.fenix.exceptions.login.LoginExceptionsFragment"
+        android:name="org.eyesearch.eyebrowse.exceptions.login.LoginExceptionsFragment"
         android:label="@string/preferences_passwords_exceptions"
         tools:layout="@layout/fragment_exceptions" />
 
@@ -450,7 +450,7 @@
 
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="org.mozilla.fenix.settings.SettingsFragment"
+        android:name="org.eyesearch.eyebrowse.settings.SettingsFragment"
         android:label="@string/settings_title">
         <argument
             android:name="preference_to_scroll_to"
@@ -643,19 +643,19 @@
     </fragment>
     <dialog
         android:id="@+id/profilerStartDialogFragment"
-        android:name="org.mozilla.fenix.perf.ProfilerStartDialogFragment">
+        android:name="org.eyesearch.eyebrowse.perf.ProfilerStartDialogFragment">
     </dialog>
     <dialog
         android:id="@+id/profilerStopDialogFragment"
-        android:name="org.mozilla.fenix.perf.ProfilerStopDialogFragment">
+        android:name="org.eyesearch.eyebrowse.perf.ProfilerStopDialogFragment">
     </dialog>
     <fragment
         android:id="@+id/tabsSettingsFragment"
-        android:name="org.mozilla.fenix.settings.TabsSettingsFragment"
+        android:name="org.eyesearch.eyebrowse.settings.TabsSettingsFragment"
         android:label="@string/preferences_tabs" />
     <fragment
         android:id="@+id/homeSettingsFragment"
-        android:name="org.mozilla.fenix.settings.HomeSettingsFragment"
+        android:name="org.eyesearch.eyebrowse.settings.HomeSettingsFragment"
         android:label="@string/preferences_home_2">
         <action
             android:id="@+id/action_homeSettingsFragment_to_wallpaperSettingsFragment"
@@ -667,16 +667,16 @@
     </fragment>
     <fragment
         android:id="@+id/wallpaperSettingsFragment"
-        android:name="org.mozilla.fenix.settings.wallpaper.WallpaperSettingsFragment"
+        android:name="org.eyesearch.eyebrowse.settings.wallpaper.WallpaperSettingsFragment"
         android:label="@string/customize_wallpapers"/>
     <fragment
         android:id="@+id/dataChoicesFragment"
-        android:name="org.mozilla.fenix.settings.DataChoicesFragment"
+        android:name="org.eyesearch.eyebrowse.settings.DataChoicesFragment"
         android:label="@string/preferences_data_choices">
     </fragment>
     <fragment
         android:id="@+id/sitePermissionsFragment"
-        android:name="org.mozilla.fenix.settings.sitepermissions.SitePermissionsFragment"
+        android:name="org.eyesearch.eyebrowse.settings.sitepermissions.SitePermissionsFragment"
         android:label="@string/preferences_site_permissions">
         <action
             android:id="@+id/action_site_permissions_to_manage_phone_features"
@@ -698,11 +698,11 @@
 
     <fragment
         android:id="@+id/accessibilityFragment"
-        android:name="org.mozilla.fenix.settings.AccessibilityFragment"
+        android:name="org.eyesearch.eyebrowse.settings.AccessibilityFragment"
         android:label="@string/preferences_accessibility" />
     <fragment
         android:id="@+id/accountSettingsFragment"
-        android:name="org.mozilla.fenix.settings.account.AccountSettingsFragment"
+        android:name="org.eyesearch.eyebrowse.settings.account.AccountSettingsFragment"
         android:label="@string/preferences_account_settings">
         <action
             android:id="@+id/action_accountSettingsFragment_to_signOutFragment"
@@ -711,7 +711,7 @@
 
     <fragment
         android:id="@+id/turnOnSyncFragment"
-        android:name="org.mozilla.fenix.settings.account.TurnOnSyncFragment"
+        android:name="org.eyesearch.eyebrowse.settings.account.TurnOnSyncFragment"
         android:label="@string/preferences_sync_2"
         tools:layout="@layout/fragment_turn_on_sync">
         <argument
@@ -723,22 +723,22 @@
             app:destination="@id/pairFragment" />
         <argument
             android:name="entrypoint"
-            app:argType="org.mozilla.fenix.components.accounts.FenixFxAEntryPoint" />
+            app:argType="org.eyesearch.eyebrowse.components.accounts.EyebrowseFxAEntryPoint" />
     </fragment>
 
     <fragment
         android:id="@+id/pairFragment"
-        android:name="org.mozilla.fenix.settings.PairFragment"
+        android:name="org.eyesearch.eyebrowse.settings.PairFragment"
         android:label="@string/preferences_sync_2"
         tools:layout="@layout/fragment_pair" >
         <argument
             android:name="entrypoint"
-            app:argType="org.mozilla.fenix.components.accounts.FenixFxAEntryPoint" />
+            app:argType="org.eyesearch.eyebrowse.components.accounts.EyebrowseFxAEntryPoint" />
     </fragment>
 
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="org.mozilla.fenix.settings.about.AboutFragment"
+        android:name="org.eyesearch.eyebrowse.settings.about.AboutFragment"
         tools:layout="@layout/fragment_about">
         <action
             android:id="@+id/action_aboutFragment_to_aboutLibrariesFragment"
@@ -750,7 +750,7 @@
     </fragment>
     <fragment
         android:id="@+id/secretSettingsPreference"
-        android:name="org.mozilla.fenix.settings.SecretSettingsFragment"
+        android:name="org.eyesearch.eyebrowse.settings.SecretSettingsFragment"
         android:label="@string/preferences_debug_settings">
         <action
             android:id="@+id/action_secretSettingsFragment_to_sponsoredStoriesSettings"
@@ -762,31 +762,31 @@
     </fragment>
     <fragment
         android:id="@+id/secretInfoSettingsFragment"
-        android:name="org.mozilla.fenix.settings.SecretDebugSettingsFragment"
+        android:name="org.eyesearch.eyebrowse.settings.SecretDebugSettingsFragment"
         android:label="@string/preferences_debug_info" />
     <fragment
         android:id="@+id/aboutLibrariesFragment"
-        android:name="org.mozilla.fenix.settings.about.AboutLibrariesFragment"
+        android:name="org.eyesearch.eyebrowse.settings.about.AboutLibrariesFragment"
         tools:layout="@layout/fragment_about_libraries" />
     <fragment
         android:id="@+id/customizationFragment"
-        android:name="org.mozilla.fenix.settings.CustomizationFragment"
+        android:name="org.eyesearch.eyebrowse.settings.CustomizationFragment"
         android:label="@string/preferences_customize" />
     <fragment
         android:id="@+id/privateBrowsingFragment"
-        android:name="org.mozilla.fenix.settings.PrivateBrowsingFragment"
+        android:name="org.eyesearch.eyebrowse.settings.PrivateBrowsingFragment"
         android:label="@string/preferences_private_browsing_options" />
     <fragment
         android:id="@+id/httpsOnlyFragment"
-        android:name="org.mozilla.fenix.settings.HttpsOnlyFragment"
+        android:name="org.eyesearch.eyebrowse.settings.HttpsOnlyFragment"
         android:label="@string/preferences_https_only_title" />
     <fragment
         android:id="@+id/sponsoredStoriesSettings"
-        android:name="org.mozilla.fenix.settings.SponsoredStoriesSettingsFragment"
+        android:name="org.eyesearch.eyebrowse.settings.SponsoredStoriesSettingsFragment"
         android:label="@string/preferences_debug_settings_custom_sponsored_stories_parameters" />
     <fragment
         android:id="@+id/trackingProtectionFragment"
-        android:name="org.mozilla.fenix.settings.TrackingProtectionFragment">
+        android:name="org.eyesearch.eyebrowse.settings.TrackingProtectionFragment">
         <action
             android:id="@+id/action_trackingProtectionFragment_to_exceptionsFragment"
             app:destination="@id/trackingProtectionExceptionsFragment"
@@ -804,24 +804,24 @@
     </fragment>
     <fragment
         android:id="@+id/openLinksInAppsFragment"
-        android:name="org.mozilla.fenix.settings.OpenLinksInAppsFragment" />
+        android:name="org.eyesearch.eyebrowse.settings.OpenLinksInAppsFragment" />
     <fragment
         android:id="@+id/deleteBrowsingDataFragment"
-        android:name="org.mozilla.fenix.settings.deletebrowsingdata.DeleteBrowsingDataFragment"
+        android:name="org.eyesearch.eyebrowse.settings.deletebrowsingdata.DeleteBrowsingDataFragment"
         android:label="@string/preferences_delete_browsing_data"
         tools:layout="@layout/fragment_delete_browsing_data" />
     <fragment
         android:id="@+id/trackingProtectionExceptionsFragment"
-        android:name="org.mozilla.fenix.exceptions.trackingprotection.TrackingProtectionExceptionsFragment"
+        android:name="org.eyesearch.eyebrowse.exceptions.trackingprotection.TrackingProtectionExceptionsFragment"
         android:label="@string/preference_exceptions"
         tools:layout="@layout/fragment_exceptions" />
     <fragment
         android:id="@+id/syncDebugFragment"
-        android:name="org.mozilla.fenix.settings.SyncDebugFragment"
+        android:name="org.eyesearch.eyebrowse.settings.SyncDebugFragment"
         android:label="@string/preferences_sync_debug" />
     <dialog
         android:id="@+id/collectionCreationFragment"
-        android:name="org.mozilla.fenix.collections.CollectionCreationFragment"
+        android:name="org.eyesearch.eyebrowse.collections.CollectionCreationFragment"
         tools:layout="@layout/fragment_create_collection">
         <argument
             android:name="tabIds"
@@ -840,22 +840,22 @@
             app:argType="long" />
         <argument
             android:name="saveCollectionStep"
-            app:argType="org.mozilla.fenix.collections.SaveCollectionStep"
+            app:argType="org.eyesearch.eyebrowse.collections.SaveCollectionStep"
             app:nullable="false" />
     </dialog>
 
     <dialog
         android:id="@+id/createShortcutFragment"
-        android:name="org.mozilla.fenix.shortcut.CreateShortcutFragment"
+        android:name="org.eyesearch.eyebrowse.shortcut.CreateShortcutFragment"
         tools:layout="@layout/fragment_create_shortcut" />
     <dialog
         android:id="@+id/pwaOnboardingDialogFragment"
-        android:name="org.mozilla.fenix.shortcut.PwaOnboardingDialogFragment"
+        android:name="org.eyesearch.eyebrowse.shortcut.PwaOnboardingDialogFragment"
         tools:layout="@layout/fragment_pwa_onboarding" />
 
     <dialog
         android:id="@+id/shareFragment"
-        android:name="org.mozilla.fenix.share.ShareFragment"
+        android:name="org.eyesearch.eyebrowse.share.ShareFragment"
         tools:layout="@layout/fragment_share">
         <argument
             android:name="data"
@@ -880,7 +880,7 @@
     </dialog>
     <dialog
         android:id="@+id/quickSettingsSheetDialogFragment"
-        android:name="org.mozilla.fenix.settings.quicksettings.QuickSettingsSheetDialogFragment"
+        android:name="org.eyesearch.eyebrowse.settings.quicksettings.QuickSettingsSheetDialogFragment"
         tools:layout="@layout/fragment_quick_settings_dialog_sheet">
         <argument
             android:name="sessionId"
@@ -914,25 +914,25 @@
             app:argType="boolean" />
         <argument
             android:name="cookieBannerUIMode"
-            app:argType="org.mozilla.fenix.trackingprotection.CookieBannerUIMode" />
+            app:argType="org.eyesearch.eyebrowse.trackingprotection.CookieBannerUIMode" />
     </dialog>
     <fragment
         android:id="@+id/accountProblemFragment"
-        android:name="org.mozilla.fenix.settings.account.AccountProblemFragment">
+        android:name="org.eyesearch.eyebrowse.settings.account.AccountProblemFragment">
         <action
             android:id="@+id/action_accountProblemFragment_to_signOutFragment"
             app:destination="@id/signOutFragment" />
         <argument
             android:name="entrypoint"
-            app:argType="org.mozilla.fenix.components.accounts.FenixFxAEntryPoint" />
+            app:argType="org.eyesearch.eyebrowse.components.accounts.EyebrowseFxAEntryPoint" />
     </fragment>
     <dialog
         android:id="@+id/signOutFragment"
-        android:name="org.mozilla.fenix.settings.account.SignOutFragment"
+        android:name="org.eyesearch.eyebrowse.settings.account.SignOutFragment"
         tools:layout="@layout/fragment_sign_out" />
     <dialog
         android:id="@+id/trackingProtectionPanelDialogFragment"
-        android:name="org.mozilla.fenix.trackingprotection.TrackingProtectionPanelDialogFragment"
+        android:name="org.eyesearch.eyebrowse.trackingprotection.TrackingProtectionPanelDialogFragment"
         tools:layout="@layout/fragment_tracking_protection">
         <argument
             android:name="sessionId"
@@ -945,7 +945,7 @@
             app:argType="boolean" />
         <argument
             android:name="cookieBannerUIMode"
-            app:argType="org.mozilla.fenix.trackingprotection.CookieBannerUIMode" />
+            app:argType="org.eyesearch.eyebrowse.trackingprotection.CookieBannerUIMode" />
         <argument
             android:name="gravity"
             android:defaultValue="80"
@@ -957,7 +957,7 @@
     </dialog>
     <dialog
         android:id="@+id/connectionPanelDialogFragment"
-        android:name="org.mozilla.fenix.settings.quicksettings.ConnectionPanelDialogFragment"
+        android:name="org.eyesearch.eyebrowse.settings.quicksettings.ConnectionPanelDialogFragment"
         tools:layout="@layout/quicksettings_website_info">
         <argument
             android:name="sessionId"
@@ -987,7 +987,7 @@
 
     <dialog
         android:id="@+id/cookieBannerPanelDialogFragment"
-        android:name="org.mozilla.fenix.settings.quicksettings.protections.cookiebanners.CookieBannerPanelDialogFragment"
+        android:name="org.eyesearch.eyebrowse.settings.quicksettings.protections.cookiebanners.CookieBannerPanelDialogFragment"
         tools:layout="@layout/quicksettings_website_info">
         <argument
             android:name="sessionId"
@@ -1000,7 +1000,7 @@
             app:argType="boolean" />
         <argument
             android:name="cookieBannerUIMode"
-            app:argType="org.mozilla.fenix.trackingprotection.CookieBannerUIMode" />
+            app:argType="org.eyesearch.eyebrowse.trackingprotection.CookieBannerUIMode" />
         <argument
             android:name="gravity"
             android:defaultValue="80"
@@ -1013,31 +1013,31 @@
     </dialog>
     <fragment
         android:id="@+id/trackingProtectionBlockingFragment"
-        android:name="org.mozilla.fenix.trackingprotection.TrackingProtectionBlockingFragment"
+        android:name="org.eyesearch.eyebrowse.trackingprotection.TrackingProtectionBlockingFragment"
         tools:layout="@layout/fragment_tracking_protection_blocking">
         <argument
             android:name="protectionMode"
-            app:argType="org.mozilla.fenix.trackingprotection.TrackingProtectionMode" />
+            app:argType="org.eyesearch.eyebrowse.trackingprotection.TrackingProtectionMode" />
     </fragment>
     <fragment
         android:id="@+id/deleteBrowsingDataOnQuitFragment"
-        android:name="org.mozilla.fenix.settings.deletebrowsingdata.DeleteBrowsingDataOnQuitFragment" />
+        android:name="org.eyesearch.eyebrowse.settings.deletebrowsingdata.DeleteBrowsingDataOnQuitFragment" />
 
     <fragment
         android:id="@+id/addNewDeviceFragment"
-        android:name="org.mozilla.fenix.share.AddNewDeviceFragment"
+        android:name="org.eyesearch.eyebrowse.share.AddNewDeviceFragment"
         tools:layout="@layout/fragment_add_new_device" />
     <fragment
         android:id="@+id/localeSettingsFragment"
-        android:name="org.mozilla.fenix.settings.advanced.LocaleSettingsFragment"
+        android:name="org.eyesearch.eyebrowse.settings.advanced.LocaleSettingsFragment"
         tools:layout="@layout/fragment_locale_settings" />
     <fragment
         android:id="@+id/saveLoginSettingFragment"
-        android:name="org.mozilla.fenix.settings.logins.fragment.SavedLoginsSettingFragment"
+        android:name="org.eyesearch.eyebrowse.settings.logins.fragment.SavedLoginsSettingFragment"
         android:label="SaveLoginSettingFragment" />
     <dialog
         android:id="@+id/tabHistoryDialogFragment"
-        android:name="org.mozilla.fenix.tabhistory.TabHistoryDialogFragment"
+        android:name="org.eyesearch.eyebrowse.tabhistory.TabHistoryDialogFragment"
         tools:layout="@layout/fragment_tab_history_dialog">
         <argument
             android:name="activeSessionId"
@@ -1051,7 +1051,7 @@
 
         <fragment
             android:id="@+id/sitePermissionsExceptionsFragment"
-            android:name="org.mozilla.fenix.settings.sitepermissions.SitePermissionsExceptionsFragment"
+            android:name="org.eyesearch.eyebrowse.settings.sitepermissions.SitePermissionsExceptionsFragment"
             android:label="@string/preference_exceptions"
             tools:layout="@layout/fragment_site_permissions_exceptions">
             <action
@@ -1062,11 +1062,11 @@
 
         <fragment
             android:id="@+id/sitePermissionsManageExceptionsPhoneFeatureFragment"
-            android:name="org.mozilla.fenix.settings.sitepermissions.SitePermissionsManageExceptionsPhoneFeatureFragment"
+            android:name="org.eyesearch.eyebrowse.settings.sitepermissions.SitePermissionsManageExceptionsPhoneFeatureFragment"
             tools:layout="@layout/fragment_manage_site_permissions_feature_phone">
             <argument
                 android:name="phoneFeature"
-                app:argType="org.mozilla.fenix.settings.PhoneFeature" />
+                app:argType="org.eyesearch.eyebrowse.settings.PhoneFeature" />
             <argument
                 android:name="sitePermissions"
                 app:argType="mozilla.components.concept.engine.permission.SitePermissions" />
@@ -1074,7 +1074,7 @@
 
         <fragment
             android:id="@+id/sitePermissionsDetailsExceptionsFragment"
-            android:name="org.mozilla.fenix.settings.sitepermissions.SitePermissionsDetailsExceptionsFragment">
+            android:name="org.eyesearch.eyebrowse.settings.sitepermissions.SitePermissionsDetailsExceptionsFragment">
             <action
                 android:id="@+id/action_site_permissions_to_exceptions_to_manage_phone_feature"
                 app:destination="@id/sitePermissionsManageExceptionsPhoneFeatureFragment"
@@ -1091,7 +1091,7 @@
         app:startDestination="@id/searchEngineFragment">
         <fragment
             android:id="@+id/searchEngineFragment"
-            android:name="org.mozilla.fenix.settings.search.SearchEngineFragment"
+            android:name="org.eyesearch.eyebrowse.settings.search.SearchEngineFragment"
             android:label="@string/preferences_search">
             <action
                 android:id="@+id/action_searchEngineFragment_to_defaultEngineFragment"
@@ -1102,14 +1102,14 @@
         </fragment>
         <fragment
             android:id="@+id/defaultEngineFragment"
-            android:name="org.mozilla.fenix.settings.search.DefaultSearchEngineFragment">
+            android:name="org.eyesearch.eyebrowse.settings.search.DefaultSearchEngineFragment">
             <action
                 android:id="@+id/action_defaultEngineFragment_to_saveSearchEngineFragment"
                 app:destination="@+id/saveSearchEngineFragment" />
         </fragment>
         <fragment
             android:id="@+id/searchShortcutsFragment"
-            android:name="org.mozilla.fenix.settings.search.SearchShortcutsFragment"
+            android:name="org.eyesearch.eyebrowse.settings.search.SearchShortcutsFragment"
             tools:layout="@layout/fragment_search_shortcuts">
             <action
                 android:id="@+id/action_searchShortcutsFragment_to_saveSearchEngineFragment"
@@ -1117,7 +1117,7 @@
         </fragment>
         <fragment
             android:id="@+id/saveSearchEngineFragment"
-            android:name="org.mozilla.fenix.settings.search.SaveSearchEngineFragment">
+            android:name="org.eyesearch.eyebrowse.settings.search.SaveSearchEngineFragment">
             <argument
                 android:name="searchEngineIdentifier"
                 app:argType="string"
@@ -1130,7 +1130,7 @@
         app:startDestination="@id/nimbusExperimentsFragment">
         <fragment
             android:id="@+id/nimbusExperimentsFragment"
-            android:name="org.mozilla.fenix.nimbus.NimbusExperimentsFragment"
+            android:name="org.eyesearch.eyebrowse.nimbus.NimbusExperimentsFragment"
             android:label="@string/preferences_nimbus_experiments"
             tools:layout="@layout/mozac_service_nimbus_experiments">
             <action
@@ -1139,7 +1139,7 @@
         </fragment>
         <fragment
             android:id="@+id/nimbusBranchesFragment"
-            android:name="org.mozilla.fenix.nimbus.NimbusBranchesFragment"
+            android:name="org.eyesearch.eyebrowse.nimbus.NimbusBranchesFragment"
             tools:layout="@layout/mozac_service_nimbus_experiment_details">
             <argument
                 android:name="experimentId"
@@ -1163,7 +1163,7 @@
         app:startDestination="@id/autofillSettingFragment">
         <fragment
             android:id="@+id/autofillSettingFragment"
-            android:name="org.mozilla.fenix.settings.autofill.AutofillSettingFragment"
+            android:name="org.eyesearch.eyebrowse.settings.autofill.AutofillSettingFragment"
             android:label="@string/preferences_credit_cards_2">
             <action
                 android:id="@+id/action_autofillSettingFragment_to_creditCardEditorFragment"
@@ -1196,7 +1196,7 @@
         </fragment>
         <fragment
             android:id="@+id/creditCardEditorFragment"
-            android:name="org.mozilla.fenix.settings.creditcards.CreditCardEditorFragment"
+            android:name="org.eyesearch.eyebrowse.settings.creditcards.CreditCardEditorFragment"
             android:label="@string/credit_cards_add_card">
             <argument
                 android:name="creditCard"
@@ -1206,7 +1206,7 @@
         </fragment>
         <fragment
             android:id="@+id/creditCardsManagementFragment"
-            android:name="org.mozilla.fenix.settings.creditcards.CreditCardsManagementFragment"
+            android:name="org.eyesearch.eyebrowse.settings.creditcards.CreditCardsManagementFragment"
             android:label="@string/credit_cards_saved_cards">
             <action
                 android:id="@+id/action_creditCardsManagementFragment_to_creditCardEditorFragment"
@@ -1218,7 +1218,7 @@
         </fragment>
         <fragment
             android:id="@+id/addressEditorFragment"
-            android:name="org.mozilla.fenix.settings.address.AddressEditorFragment"
+            android:name="org.eyesearch.eyebrowse.settings.address.AddressEditorFragment"
             android:label="@string/addresses_add_address">
             <argument
                 android:name="address"
@@ -1228,7 +1228,7 @@
         </fragment>
         <fragment
             android:id="@+id/addressManagementFragment"
-            android:name="org.mozilla.fenix.settings.address.AddressManagementFragment"
+            android:name="org.eyesearch.eyebrowse.settings.address.AddressManagementFragment"
             android:label="@string/addresses_manage_addresses">
             <action
                 android:id="@+id/action_addressManagementFragment_to_addressEditorFragment"
@@ -1244,7 +1244,7 @@
         app:startDestination="@id/savedLoginsFragment">
         <fragment
             android:id="@+id/savedLoginsFragment"
-            android:name="org.mozilla.fenix.settings.logins.fragment.SavedLoginsFragment"
+            android:name="org.eyesearch.eyebrowse.settings.logins.fragment.SavedLoginsFragment"
             tools:layout="@layout/fragment_saved_logins">
             <action
                 android:id="@+id/action_savedLoginsFragment_to_loginDetailFragment"
@@ -1262,7 +1262,7 @@
         </fragment>
         <fragment
             android:id="@+id/addLoginFragment"
-            android:name="org.mozilla.fenix.settings.logins.fragment.AddLoginFragment"
+            android:name="org.eyesearch.eyebrowse.settings.logins.fragment.AddLoginFragment"
             android:label="@string/add_login_2"
             tools:layout="@layout/fragment_add_login">
             <action
@@ -1273,7 +1273,7 @@
         </fragment>
         <fragment
             android:id="@+id/loginDetailFragment"
-            android:name="org.mozilla.fenix.settings.logins.fragment.LoginDetailFragment"
+            android:name="org.eyesearch.eyebrowse.settings.logins.fragment.LoginDetailFragment"
             tools:layout="@layout/fragment_login_detail">
             <argument
                 android:name="savedLoginId"
@@ -1287,12 +1287,12 @@
         </fragment>
         <fragment
             android:id="@+id/editLoginFragment"
-            android:name="org.mozilla.fenix.settings.logins.fragment.EditLoginFragment"
+            android:name="org.eyesearch.eyebrowse.settings.logins.fragment.EditLoginFragment"
             android:label="@string/edit_2"
             tools:layout="@layout/fragment_edit_login">
             <argument
                 android:name="savedLoginItem"
-                app:argType="org.mozilla.fenix.settings.logins.SavedLogin"
+                app:argType="org.eyesearch.eyebrowse.settings.logins.SavedLogin"
                 app:nullable="false" />
             <action
                 android:id="@+id/action_editLoginFragment_to_loginDetailFragment"

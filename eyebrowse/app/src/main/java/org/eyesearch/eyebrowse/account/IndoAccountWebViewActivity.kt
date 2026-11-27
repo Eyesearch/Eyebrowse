@@ -18,8 +18,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
-import org.mozilla.fenix.R
-import org.mozilla.fenix.ext.components
+import org.eyesearch.eyebrowse.R
+import org.eyesearch.eyebrowse.ext.components
 
 /**
  * Indo Account inside the app, so the sign-in finishes without the user tapping anything.
