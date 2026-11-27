@@ -60,6 +60,7 @@ import org.eyesearch.eyebrowse.account.IndoAccountError
 import org.eyesearch.eyebrowse.account.IndoIdentity
 import org.eyesearch.eyebrowse.account.IndoAccountStorage
 import org.eyesearch.eyebrowse.vpn.VpnController
+import org.eyesearch.eyebrowse.vpn.VpnNavigationGuard
 import org.eyesearch.eyebrowse.sync.SyncClient
 import org.eyesearch.eyebrowse.sync.SyncFactory
 import org.eyesearch.eyebrowse.sync.SyncType
@@ -506,6 +507,12 @@ class SettingsFragment : PreferenceFragmentCompat() {
             ?: return
         val context = context ?: return
         val manage = findPreference<Preference>(getPreferenceKey(R.string.pref_key_vpn_profiles))
+        val guard = findPreference<SwitchPreference>(getPreferenceKey(R.string.pref_key_vpn_navigation_guard))
+        guard?.isPersistent = false
+        guard?.isChecked = VpnNavigationGuard.isEnabled(context)
+        guard?.setOnPreferenceChangeListener { _, value ->
+            VpnNavigationGuard.setEnabled(context, value == true)
+        }
         preference.isPersistent = false
         vpnStatusJob?.cancel()
         vpnStatusJob = viewLifecycleOwner.lifecycleScope.launch {

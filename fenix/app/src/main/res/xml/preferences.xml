@@ -41,6 +41,13 @@
         android:summary="@string/preferences_vpn_off"
         app:iconSpaceReserved="false" />
 
+    <androidx.preference.SwitchPreference
+        android:key="@string/pref_key_vpn_navigation_guard"
+        android:title="@string/preferences_vpn_navigation_guard"
+        android:summary="@string/preferences_vpn_navigation_guard_summary"
+        android:persistent="false"
+        app:iconSpaceReserved="false" />
+
     <androidx.preference.Preference
         android:key="@string/pref_key_vpn_profiles"
         android:title="@string/preferences_vpn_profiles"

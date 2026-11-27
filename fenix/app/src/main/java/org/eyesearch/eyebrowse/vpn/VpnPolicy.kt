@@ -8,6 +8,10 @@ internal object VpnPolicy {
     fun acceptRoutes(ipv4Default: Boolean, ipv6Default: Boolean, usesIpv6: Boolean): Boolean =
         ipv4Default && (ipv6Default || !usesIpv6)
 
+    fun blockNavigation(enabled: Boolean, scheme: String?, handshake: Boolean, vpnNetwork: Boolean): Boolean =
+        enabled && (scheme.equals("http", ignoreCase = true) || scheme.equals("https", ignoreCase = true)) &&
+            (!handshake || !vpnNetwork)
+
     fun recentHandshake(time: Long, now: Long, window: Long): Boolean =
         time > 0 && time <= now && now - time <= window
 }

@@ -13,6 +13,7 @@ import mozilla.components.browser.errorpages.ErrorType
 import mozilla.components.concept.engine.EngineSession
 import mozilla.components.concept.engine.request.RequestInterceptor
 import org.mozilla.fenix.GleanMetrics.ErrorPage
+import org.eyesearch.eyebrowse.vpn.VpnNavigationGuard
 import org.mozilla.fenix.ext.components
 import org.mozilla.fenix.ext.isOnline
 import java.lang.ref.WeakReference
@@ -39,6 +40,17 @@ class AppRequestInterceptor(
         isDirectNavigation: Boolean,
         isSubframeRequest: Boolean,
     ): RequestInterceptor.InterceptionResponse? {
+        // This only gates Gecko navigation callbacks, not every network packet.
+        if (VpnNavigationGuard.shouldBlock(context, uri)) {
+            return if (isSubframeRequest) {
+                RequestInterceptor.InterceptionResponse.Deny
+            } else {
+                RequestInterceptor.InterceptionResponse.Content(
+                    android.text.TextUtils.htmlEncode(context.getString(R.string.vpn_navigation_blocked)),
+                )
+            }
+        }
+
         val services = context.components.services
 
         return services.urlRequestInterceptor.onLoadRequest(

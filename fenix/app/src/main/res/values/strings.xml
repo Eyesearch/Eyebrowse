@@ -610,6 +610,9 @@
     <string name="preferences_vpn_import">Import profile</string>
     <string name="preferences_vpn_import_explanation">Import a configuration obtained from an authorized third-party provider. Up to five profiles are saved on this device using Android Keystore encryption on Android 6 and later. Older Android versions keep them in memory only. The provider can observe connection metadata and unencrypted traffic. Only Eyebrowse uses this tunnel; traffic may use the normal connection during connection failure or server switching. No kill switch or Eyebrowse-operated servers.</string>
     <string name="preferences_vpn_profiles">Free VPN providers and profiles</string>
+    <string name="preferences_vpn_navigation_guard">VPN navigation guard</string>
+    <string name="preferences_vpn_navigation_guard_summary">Pause new web pages until VPN is connected. Does not block existing streams, downloads or all network traffic. Turn off to enroll with a provider.</string>
+    <string name="vpn_navigation_blocked">VPN navigation paused. Connect the VPN in Eyebrowse Settings, or turn off VPN navigation guard to browse without it.</string>
     <string name="preferences_vpn_profiles_summary">Get a free profile, add backups, or remove saved keys</string>
     <string name="preferences_vpn_proton">Proton VPN — free account required</string>
     <string name="preferences_vpn_vpnbook">VPNBook — free, configuration expires after 7 days</string>

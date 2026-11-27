@@ -56,3 +56,28 @@ Android system lockdown changes device-wide connectivity and is not a browser-on
 kill switch. Do not advertise leak prevention during tunnel replacement. A failed
 stop leaves a distinct STOP_FAILED state with a retry action. Run VpnPolicyTest
 and all device checks before release.
+
+## Navigation guard — first safety stage
+The optional VPN navigation guard persists across process restarts and blocks
+new HTTP(S) Gecko navigation callbacks unless both a recent WireGuard handshake
+and Android's active VPN transport are observed. It is off by default, and must
+be turned off temporarily for provider enrollment when no tunnel exists. API
+21/22 cannot reliably verify the active network with this implementation, so
+the enabled guard blocks web navigation there. It does not protect subresources
+that bypass navigation callbacks, existing media, native clients, WebRTC or all
+packets. It is not a full kill switch. Test both the app-initiated and page-initiated
+navigation paths, redirects, error pages, restarts and false positives on a device.
+
+## Zero-setup provider evaluation
+Proton's official instructions require a user account and a downloaded profile:
+https://protonvpn.com/support/wireguard-configurations
+VPNBook requires generation of a unique per-device configuration with seven-day expiry:
+https://www.vpnbook.com/freevpn/wireguard-vpn
+VPN Gate volunteer relays are a possible no-account option, but use OpenVPN and
+have a published connection logging policy: https://www.vpngate.net/en/about_abuse.aspx
+An OpenVPN backend would require an audited Android-compatible library, native ABI
+and license review, explicit provider consent/privacy disclosure, safe profile parsing
+and real connection testing. Do not expose an automatic server selector until a
+working protocol backend exists. No company-hosted servers will be introduced.
+Android always-on lockdown can impact excluded apps and cannot be silently enabled
+as a browser-only kill switch: https://developer.android.com/develop/connectivity/vpn

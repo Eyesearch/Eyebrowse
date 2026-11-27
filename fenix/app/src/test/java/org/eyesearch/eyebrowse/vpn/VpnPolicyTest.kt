@@ -22,6 +22,17 @@ class VpnPolicyTest {
     }
 
     @Test
+    fun `navigation guard blocks web loads without both signals`() {
+        assertTrue(VpnPolicy.blockNavigation(true, "https", false, false))
+        assertTrue(VpnPolicy.blockNavigation(true, "HTTP", true, false))
+        assertTrue(VpnPolicy.blockNavigation(true, "https", false, true))
+        assertFalse(VpnPolicy.blockNavigation(true, "https", true, true))
+        assertFalse(VpnPolicy.blockNavigation(false, "https", false, false))
+        assertFalse(VpnPolicy.blockNavigation(true, "about", false, false))
+        assertFalse(VpnPolicy.blockNavigation(true, null, false, false))
+    }
+
+    @Test
     fun `only recent real handshakes count`() {
         assertFalse(VpnPolicy.recentHandshake(0, 200000, 180000))
         assertFalse(VpnPolicy.recentHandshake(20001, 20000, 180000))
