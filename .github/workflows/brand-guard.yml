@@ -41,11 +41,11 @@ jobs:
           }
           # the file Mozilla's fox used to live in must stay ours, by content rather than by hash,
           # because it is a tiny xml that points at our launcher mark
-          if ! grep -q "@mipmap/ic_launcher" fenix/app/src/main/res/drawable/ic_firefox.xml; then
-            echo "::error::ic_firefox.xml no longer points at our launcher mark"
+          if ! grep -q "@mipmap/ic_launcher" fenix/app/src/main/res/drawable/ic_survey_mark.xml; then
+            echo "::error::ic_survey_mark.xml no longer points at our launcher mark"
             exit 1
           fi
-          echo "ok ic_firefox.xml"
+          echo "ok ic_survey_mark.xml"
           check fenix/app/src/main/res/drawable/ic_wordmark_logo.webp 71e013d4b1ccf3c9c912732517f2a010bd1839c8d16d7109b245323cd4f72c8b
           check fenix/app/src/main/res/drawable/ic_wordmark_text_normal.webp bbb4f2c4c940765f6490d5161d6f044e9a2ed5c8a31ff178282a5b351262d1a0
           check fenix/app/src/main/res/drawable/ic_wordmark_text_private.webp 8ed6b798d586309818c81f04b704f76b7cf45498993129630a9035ea89c42c6b
@@ -66,7 +66,7 @@ jobs:
 
           # 2. every screen that used to draw their artwork must point at our mark
           for f in \
-            fenix/app/src/main/res/drawable/ic_firefox.xml \
+            fenix/app/src/main/res/drawable/ic_survey_mark.xml \
             fenix/app/src/main/res/drawable/ic_pocket.xml \
             fenix/app/src/main/res/drawable/pocket_vector.xml \
             fenix/app/src/main/res/drawable/ic_account.xml \
