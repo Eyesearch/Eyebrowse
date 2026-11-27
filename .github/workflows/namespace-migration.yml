@@ -1,0 +1,210 @@
+name: Namespace migration and compile
+on:
+  push:
+    branches: [branding/eyebrowse-namespace-migration]
+    paths: ['.github/workflows/namespace-migration.yml', 'eyebrowse/tools/migrate_namespace.py']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: namespace-migration
+  cancel-in-progress: false
+
+jobs:
+  compile:
+    name: Compile the app
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: eyebrowse
+    env:
+      GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Plan and apply source migration
+        working-directory: .
+        run: |
+          set -euo pipefail
+          python3 -m py_compile eyebrowse/tools/migrate_namespace.py
+          python3 eyebrowse/tools/migrate_namespace.py
+          python3 eyebrowse/tools/migrate_namespace.py --apply
+          git add -A
+          git diff --cached --check
+          git diff --cached --stat
+          git diff --cached --binary > /tmp/eyebrowse-namespace.patch
+          git diff --cached --name-status > /tmp/eyebrowse-namespace-files.txt
+
+      - name: Preserve candidate patch for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: Eyebrowse-namespace-migration
+          path: |
+            /tmp/eyebrowse-namespace.patch
+            /tmp/eyebrowse-namespace-files.txt
+
+      - name: Publish candidate only to isolated migration branch
+        if: github.ref == 'refs/heads/branding/eyebrowse-namespace-migration'
+        working-directory: .
+        run: |
+          set -euo pipefail
+          if git diff --cached --quiet; then
+            echo "Already migrated"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Migrate first-party source namespace and legacy class/resource filenames"
+          git push origin HEAD:refs/heads/branding/eyebrowse-namespace-migration
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up the Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools'
+
+      - name: Install the Android SDK packages this project needs
+        run: |
+          sdkmanager --install "platforms;android-34" "build-tools;34.0.0"
+          yes | sdkmanager --licenses > /dev/null
+
+      - name: Set up Gradle with caching
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Provide google-services.json
+        working-directory: .
+        run: |
+          set -euo pipefail
+          target="eyebrowse/app/google-services.json"
+          if [ -n "${GOOGLE_SERVICES_JSON:-}" ]; then
+            printf '%s' "$GOOGLE_SERVICES_JSON" > "$target"
+            echo "Wrote google-services.json from the GOOGLE_SERVICES_JSON secret."
+          else
+            cat > "$target" <<'JSON'
+          {
+            "project_info": {
+              "project_number": "000000000000",
+              "project_id": "eyebrowse-ci-placeholder",
+              "storage_bucket": "eyebrowse-ci-placeholder.appspot.com"
+            },
+            "client": [
+              {
+                "client_info": {
+                  "mobilesdk_app_id": "1:000000000000:android:0000000000000000000000",
+                  "android_client_info": {
+                    "package_name": "org.eyesearch.eyebrowse"
+                  }
+                },
+                "oauth_client": [],
+                "api_key": [
+                  {
+                    "current_key": "AIzaSyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ],
+                "services": {
+                  "appinvite_service": {
+                    "other_platform_oauth_client": []
+                  }
+                }
+              },
+              {
+                "client_info": {
+                  "mobilesdk_app_id": "1:000000000000:android:0000000000000000000001",
+                  "android_client_info": {
+                    "package_name": "org.eyesearch.eyebrowse.debug"
+                  }
+                },
+                "oauth_client": [],
+                "api_key": [
+                  {
+                    "current_key": "AIzaSyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                  }
+                ],
+                "services": {
+                  "appinvite_service": {
+                    "other_platform_oauth_client": []
+                  }
+                }
+              }
+            ],
+            "configuration_version": "1"
+          }
+          JSON
+            echo "No GOOGLE_SERVICES_JSON secret found; wrote a placeholder file."
+          fi
+
+      - name: Provide the Nimbus FML tooling
+        working-directory: .
+        run: |
+          set -euo pipefail
+          # The Nimbus Gradle plugin downloads a nimbus-fml binary for the pinned
+          # application-services version. That version is a nightly, whose CI
+          # artifacts have since expired, so the download fails on a fork.
+          # Seed the binary from a published release of the same cycle instead:
+          # the plugin skips its own download when the file already exists.
+          version="$(sed -n 's/^val VERSION = "\(.*\)"/\1/p' \
+            android-components/plugins/dependencies/src/main/java/ApplicationServices.kt)"
+          echo "application-services version: $version"
+          target="eyebrowse/build/bin/nimbus/$version"
+          mkdir -p "$target"
+          if [ -x "$target/nimbus-fml" ]; then
+            echo "nimbus-fml already present"
+            exit 0
+          fi
+
+          tmp="$(mktemp -d)"
+          found=""
+          for candidate in "$version" "125.0"; do
+            url="https://archive.mozilla.org/pub/app-services/releases/$candidate/nimbus-fml.zip"
+            echo "Trying $url"
+            if curl -fsSL --retry 3 -o "$tmp/nimbus-fml.zip" "$url"; then
+              found="$candidate"
+              break
+            fi
+          done
+          if [ -z "$found" ]; then
+            echo "::error::Could not download a nimbus-fml binary"
+            exit 1
+          fi
+
+          unzip -o -q "$tmp/nimbus-fml.zip" -d "$tmp/extracted"
+          echo "Archive contents:"
+          find "$tmp/extracted" -type f -exec ls -l {} \; | head -n 40
+
+          # Pick the real ELF executable: the archive may contain wrapper
+          # scripts or notes alongside the per-platform binaries.
+          elf_files="$(find "$tmp/extracted" -type f -exec sh -c '
+            if [ "$(head -c 4 "$1" | od -An -tx1 | tr -d " \n")" = "7f454c46" ]; then
+              echo "$1"
+            fi' _ {} \; | sort)"
+          # The runners are x86_64, so prefer that build: the archive also
+          # carries an aarch64 binary, which cannot run here.
+          binary="$(printf '%s\n' "$elf_files" | grep 'x86_64-unknown-linux' | head -n 1 || true)"
+          if [ -z "$binary" ]; then
+            binary="$(printf '%s\n' "$elf_files" | grep 'unknown-linux' | head -n 1 || true)"
+          fi
+          if [ -z "$binary" ]; then
+            binary="$(printf '%s\n' "$elf_files" | head -n 1 || true)"
+          fi
+          if [ -z "$binary" ]; then
+            echo "::error::The nimbus-fml archive has no linux executable"
+            exit 1
+          fi
+          cp "$binary" "$target/nimbus-fml"
+          chmod +x "$target/nimbus-fml"
+          echo "Seeded nimbus-fml from application-services $found ($binary)"
+
+      - name: Compile the debug variant
+        run: |
+          chmod +x ./gradlew
+          ./gradlew :app:compileEyebrowseDebugKotlin -Pabis=arm64-v8a --stacktrace
