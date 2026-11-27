@@ -8,12 +8,12 @@ pluginManagement {
     includeBuild("../android-components/plugins/config")
     includeBuild("../android-components/plugins/github")
     includeBuild("./plugins/apksize")
-    includeBuild("./plugins/fenixdependencies")
+    includeBuild("./plugins/eyebrowsedependencies")
 }
 
 plugins {
     id 'ApkSizePlugin'
-    id 'FenixDependenciesPlugin'
+    id 'EyebrowseDependenciesPlugin'
     id "mozac.ConfigPlugin"
     id 'mozac.DependenciesPlugin'
     id 'mozac.GitHubPlugin'

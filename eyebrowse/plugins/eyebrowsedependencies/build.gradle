@@ -19,8 +19,8 @@ repositories {
 }
 
 gradlePlugin {
-    plugins.register("FenixDependenciesPlugin") {
-        id = "FenixDependenciesPlugin"
-        implementationClass = "FenixDependenciesPlugin"
+    plugins.register("EyebrowseDependenciesPlugin") {
+        id = "EyebrowseDependenciesPlugin"
+        implementationClass = "EyebrowseDependenciesPlugin"
     }
 }

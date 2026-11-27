@@ -566,7 +566,7 @@ dependencies {
     implementation ComponentsDependencies.androidx_appcompat
     implementation ComponentsDependencies.androidx_constraintlayout
     implementation ComponentsDependencies.androidx_coordinatorlayout
-    implementation FenixDependencies.google_accompanist_drawablepainter
+    implementation EyebrowseDependencies.google_accompanist_drawablepainter
 
     implementation ComponentsDependencies.thirdparty_sentry
 
@@ -663,14 +663,14 @@ dependencies {
     debugImplementation ComponentsDependencies.androidx_compose_ui_tooling
 
     implementation ComponentsDependencies.androidx_activity_compose
-    implementation FenixDependencies.androidx_activity_ktx
+    implementation EyebrowseDependencies.androidx_activity_ktx
     implementation ComponentsDependencies.androidx_annotation
     implementation ComponentsDependencies.androidx_compose_ui
     implementation ComponentsDependencies.androidx_compose_ui_tooling_preview
     implementation ComponentsDependencies.androidx_compose_animation
     implementation ComponentsDependencies.androidx_compose_foundation
     implementation ComponentsDependencies.androidx_compose_material
-    implementation FenixDependencies.androidx_legacy
+    implementation EyebrowseDependencies.androidx_legacy
     implementation ComponentsDependencies.androidx_biometric
     implementation ComponentsDependencies.androidx_paging
     implementation ComponentsDependencies.androidx_preferences
@@ -689,29 +689,29 @@ dependencies {
 
     implementation ComponentsDependencies.androidx_core
     implementation ComponentsDependencies.androidx_core_ktx
-    implementation FenixDependencies.androidx_core_splashscreen
-    implementation FenixDependencies.androidx_transition
+    implementation EyebrowseDependencies.androidx_core_splashscreen
+    implementation EyebrowseDependencies.androidx_transition
     implementation ComponentsDependencies.androidx_work_runtime
-    implementation FenixDependencies.androidx_datastore
+    implementation EyebrowseDependencies.androidx_datastore
     implementation ComponentsDependencies.androidx_data_store_preferences
-    implementation FenixDependencies.protobuf_javalite
+    implementation EyebrowseDependencies.protobuf_javalite
     implementation ComponentsDependencies.google_material
 
-    implementation FenixDependencies.adjust
-    implementation FenixDependencies.installreferrer // Required by Adjust
+    implementation EyebrowseDependencies.adjust
+    implementation EyebrowseDependencies.installreferrer // Required by Adjust
 
-    implementation FenixDependencies.google_ads_id // Required for the Google Advertising ID
+    implementation EyebrowseDependencies.google_ads_id // Required for the Google Advertising ID
 
     // Required for in-app reviews
-    implementation FenixDependencies.google_play_review
-    implementation FenixDependencies.google_play_review_ktx
+    implementation EyebrowseDependencies.google_play_review
+    implementation EyebrowseDependencies.google_play_review_ktx
 
-    implementation FenixDependencies.androidx_profileinstaller
+    implementation EyebrowseDependencies.androidx_profileinstaller
 
     androidTestImplementation ComponentsDependencies.androidx_test_uiautomator
-    androidTestImplementation FenixDependencies.fastlane
+    androidTestImplementation EyebrowseDependencies.fastlane
     // This Falcon version is added to maven central now required for Screengrab
-    androidTestImplementation FenixDependencies.falcon
+    androidTestImplementation EyebrowseDependencies.falcon
 
     androidTestImplementation ComponentsDependencies.androidx_compose_ui_test
 
@@ -719,7 +719,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
 
-    androidTestImplementation(FenixDependencies.espresso_contrib) {
+    androidTestImplementation(EyebrowseDependencies.espresso_contrib) {
         exclude module: 'appcompat-v7'
         exclude module: 'support-v4'
         exclude module: 'support-annotations'
@@ -730,19 +730,19 @@ dependencies {
     }
 
     androidTestImplementation ComponentsDependencies.androidx_test_core
-    androidTestImplementation FenixDependencies.espresso_idling_resources
-    androidTestImplementation FenixDependencies.espresso_intents
+    androidTestImplementation EyebrowseDependencies.espresso_idling_resources
+    androidTestImplementation EyebrowseDependencies.espresso_intents
 
     androidTestImplementation ComponentsDependencies.androidx_test_runner
     androidTestImplementation ComponentsDependencies.androidx_test_rules
-    androidTestUtil FenixDependencies.orchestrator
+    androidTestUtil EyebrowseDependencies.orchestrator
     androidTestImplementation ComponentsDependencies.androidx_espresso_core, {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
 
     androidTestImplementation ComponentsDependencies.androidx_test_junit
     androidTestImplementation ComponentsDependencies.androidx_work_testing
-    androidTestImplementation FenixDependencies.androidx_benchmark_junit4
+    androidTestImplementation EyebrowseDependencies.androidx_benchmark_junit4
     androidTestImplementation ComponentsDependencies.testing_mockwebserver
     testImplementation project(':support-test')
     testImplementation project(':support-test-libstate')
@@ -755,8 +755,8 @@ dependencies {
     testImplementation ComponentsDependencies.testing_maven_ant_tasks
     implementation project(':support-rusthttp')
 
-    androidTestImplementation FenixDependencies.mockk_android
-    testImplementation FenixDependencies.mockk
+    androidTestImplementation EyebrowseDependencies.mockk_android
+    testImplementation EyebrowseDependencies.mockk
 
     // For the initial release of Glean 19, we require consumer applications to
     // depend on a separate library for unit tests. This will be removed in future releases.
@@ -768,7 +768,7 @@ dependencies {
 
 protobuf {
     protoc {
-        artifact = FenixDependencies.protobuf_compiler
+        artifact = EyebrowseDependencies.protobuf_compiler
     }
 
     // Generates the java Protobuf-lite code for the Protobufs in this project. See

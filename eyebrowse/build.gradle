@@ -77,9 +77,9 @@ buildscript {
     dependencies {
         classpath ComponentsDependencies.tools_androidgradle
         classpath ComponentsDependencies.tools_kotlingradle
-        classpath FenixDependencies.tools_benchmarkgradle
+        classpath EyebrowseDependencies.tools_benchmarkgradle
         classpath ComponentsDependencies.androidx_safeargs
-        classpath FenixDependencies.osslicenses_plugin
+        classpath EyebrowseDependencies.osslicenses_plugin
         classpath "org.mozilla.telemetry:glean-gradle-plugin:${Versions.mozilla_glean}"
         classpath "${ApplicationServicesConfig.groupId}:tooling-nimbus-gradle:${ApplicationServicesConfig.version}"
 
@@ -92,11 +92,11 @@ buildscript {
     }
 
     // Variables in plugins {} aren't directly supported. Hack around it by setting an
-    // intermediate variable which can pull from FenixDependenciesPlugin.kt and be used later.
+    // intermediate variable which can pull from EyebrowseDependenciesPlugin.kt and be used later.
     ext {
         detekt_plugin = Versions.detekt
         ksp_plugin = Versions.ksp_plugin
-        protobuf_plugin = FenixVersions.protobuf_plugin
+        protobuf_plugin = EyebrowseVersions.protobuf_plugin
         python_envs_plugin = Versions.python_envs_plugin
     }
 }
