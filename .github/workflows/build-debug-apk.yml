@@ -5,6 +5,12 @@ name: Build APKs
 # was catching anyway.
 on:
   workflow_dispatch:
+    inputs:
+      apk:
+        description: APK variant to build (one only)
+        type: choice
+        options: [debug, release]
+        default: debug
   # Dispatch is refused for the app token, so a tag is how we ask for a build by hand: push a tag
   # named apk-* and this runs. Nothing else triggers it.
   push:
@@ -20,6 +26,7 @@ permissions:
 
 jobs:
   build-debug-apk:
+    if: github.event_name == 'push' || inputs.apk == 'debug'
     name: Assemble Eyebrowse debug APK
     runs-on: ubuntu-latest
     timeout-minutes: 120
@@ -200,6 +207,7 @@ jobs:
           retention-days: 14
 
   build-release-apk:
+    if: github.event_name == 'workflow_dispatch' && inputs.apk == 'release'
     # Eyebrowse: back on, because the debug build has a different package name and installs as a
     # SECOND app, so testing it never replaced the app on the phone. This one keeps the real package
     # and installs over it, signed with the same key.

@@ -1,8 +1,14 @@
-name: Verify and build Eyebrowse APKs
+name: Verify Eyebrowse (APK on request)
 on:
   push:
     branches: [branding/eyebrowse-namespace-migration]
   workflow_dispatch:
+    inputs:
+      apk:
+        description: APK variant to build (one only)
+        type: choice
+        options: [debug, release]
+        default: debug
 
 permissions:
   contents: read
@@ -190,7 +196,7 @@ jobs:
 
   build-debug-apk:
     needs: brand
-    name: Assemble Eyebrowse debug APK
+    name: Compile and test Eyebrowse
     runs-on: ubuntu-latest
     timeout-minutes: 120
     defaults:
@@ -371,6 +377,7 @@ jobs:
           retention-days: 14
 
       - name: Assemble the debug APK
+        if: github.event_name == 'workflow_dispatch' && inputs.apk == 'debug'
         run: |
           chmod +x ./gradlew
           # Only the arm64-v8a split is built: modern 64-bit devices are the
@@ -378,6 +385,7 @@ jobs:
           ./gradlew :app:assembleEyebrowseDebug -Pabis=arm64-v8a --stacktrace
 
       - name: Verify debug APK package and signature
+        if: github.event_name == 'workflow_dispatch' && inputs.apk == 'debug'
         run: |
           set -euo pipefail
           for apk in app/build/outputs/apk/eyebrowse/debug/*arm64*.apk; do
@@ -387,6 +395,7 @@ jobs:
           done
 
       - name: Upload the debug APK
+        if: github.event_name == 'workflow_dispatch' && inputs.apk == 'debug'
         uses: actions/upload-artifact@v4
         with:
           name: Eyebrowse-Debug-APK
@@ -396,6 +405,7 @@ jobs:
 
   build-release-apk:
     needs: build-debug-apk
+    if: github.event_name == 'workflow_dispatch' && inputs.apk == 'release'
     # Eyebrowse: back on, because the debug build has a different package name and installs as a
     # SECOND app, so testing it never replaced the app on the phone. This one keeps the real package
     # and installs over it, signed with the same key.

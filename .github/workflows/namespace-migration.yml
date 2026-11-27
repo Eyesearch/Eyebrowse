@@ -1,7 +1,6 @@
 name: Namespace migration and compile
 on:
-  push:
-    branches: [branding/eyebrowse-namespace-migration]
+  # Migration is complete; use the normal verification workflow for every push.
   workflow_dispatch:
 permissions:
   contents: write
