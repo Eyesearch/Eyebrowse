@@ -72,7 +72,7 @@ fastlane/
 .nimbus
 .wallpaper_url
 .pocket_consumer_key
-fenix/app/src/**/res/values/fenix_firebase_push_credentials.xml
+eyebrowse/app/src/**/res/values/fenix_firebase_push_credentials.xml
 
 # Python Byte-compiled / optimized / DLL files
 __pycache__/
@@ -106,4 +106,4 @@ DerivedData
 android-components/components/feature/qr/src/main/assets/tessdata/
 
 # EyeBlock extension, fetched at build time by :app:prepareEyeblock
-fenix/app/src/main/assets/extensions/
+eyebrowse/app/src/main/assets/extensions/

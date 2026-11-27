@@ -21,13 +21,15 @@ plugins {
 
 apply from: file('../shared-settings.gradle')
 
+rootProject.name = 'Eyebrowse'
+
 include ':app'
 include ':mozilla-detekt-rules'
 include ':mozilla-lint-rules'
 include ':benchmark'
 
 gradle.projectsLoaded { ->
-    // Disables A-C tests and lint when building Fenix.
+    // Disables A-C tests and lint when building Eyebrowse.
     gradle.allprojects { project ->
         if (project.projectDir.absolutePath.contains("/android-components/")) {
             project.tasks.withType(Test).configureEach {
@@ -87,7 +89,7 @@ if (file('local.properties').canRead()) {
     localProperties.load(file('local.properties').newDataInputStream())
     log('Loaded local.properties')
 } else {
-    log('Missing local.properties; see https://github.com/mozilla-mobile/fenix/blob/main/README.md#local-properties-helpers for instructions.')
+    log('Missing local.properties; see https://github.com/Eyesearch/Eyebrowse/blob/main/eyebrowse/README.md for instructions.')
 }
 
 if (localProperties != null) {

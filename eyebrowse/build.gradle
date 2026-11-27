@@ -274,15 +274,15 @@ tasks.register("listRepositories") {
 }
 
 tasks.register("githubTestDetails", GithubDetailsTask) {
-    text = "### [Unit Test Results Fenix]({reportsUrl}/test/testFenixDebugUnitTest/index.html)"
+    text = "### [Unit Test Results Eyebrowse]({reportsUrl}/test/testFenixDebugUnitTest/index.html)"
 }
 
 tasks.register("githubLintDetektDetails", GithubDetailsTask) {
-    text = "### [Detekt Results Fenix]({reportsUrl}/detekt.html)"
+    text = "### [Detekt Results Eyebrowse]({reportsUrl}/detekt.html)"
 }
 
 tasks.register("githubLintAndroidDetails", GithubDetailsTask) {
-    text = "### [Android Lint Results Fenix]({reportsUrl}/lint-results-debug.html)"
+    text = "### [Android Lint Results Eyebrowse]({reportsUrl}/lint-results-debug.html)"
 }
 
 // Task to copy generated baseline profile to the app module nightly variant.

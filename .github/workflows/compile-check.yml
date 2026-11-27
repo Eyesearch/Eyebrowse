@@ -25,7 +25,7 @@ jobs:
     timeout-minutes: 60
     defaults:
       run:
-        working-directory: fenix
+        working-directory: eyebrowse
     env:
       GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
 
@@ -58,7 +58,7 @@ jobs:
         working-directory: .
         run: |
           set -euo pipefail
-          target="fenix/app/google-services.json"
+          target="eyebrowse/app/google-services.json"
           if [ -n "${GOOGLE_SERVICES_JSON:-}" ]; then
             printf '%s' "$GOOGLE_SERVICES_JSON" > "$target"
             echo "Wrote google-services.json from the GOOGLE_SERVICES_JSON secret."
@@ -128,7 +128,7 @@ jobs:
           version="$(sed -n 's/^val VERSION = "\(.*\)"/\1/p' \
             android-components/plugins/dependencies/src/main/java/ApplicationServices.kt)"
           echo "application-services version: $version"
-          target="fenix/build/bin/nimbus/$version"
+          target="eyebrowse/build/bin/nimbus/$version"
           mkdir -p "$target"
           if [ -x "$target/nimbus-fml" ]; then
             echo "nimbus-fml already present"

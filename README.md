@@ -6,7 +6,7 @@ Eyebrowse is an Android browser developed by Eyesearch. It is an independent for
 
 | Path | Purpose |
 | --- | --- |
-| `fenix/` | Eyebrowse Android application; the upstream internal module name is retained for build compatibility. |
+| `eyebrowse/` | Eyebrowse Android application. |
 | `android-components/` | Shared browser components, including upstream libraries. |
 | `docs/` | Eyebrowse technical notes and validation checklists. |
 | `version.txt` | Upstream version of the source tree. |
@@ -16,7 +16,7 @@ Eyebrowse is an Android browser developed by Eyesearch. It is an independent for
 Use JDK 17 and Android SDK 34. The ordinary build resolves GeckoView and other dependencies from their existing repositories.
 
 ```sh
-cd fenix
+cd eyebrowse
 ./gradlew assembleFenixDebug
 ```
 

@@ -1,6 +1,6 @@
 # Eyebrowse Android app
 
-This module contains the Eyebrowse Android application. The internal `fenix` module and namespace are retained to avoid breaking generated code, resources, build tasks and upstream updates.
+This module contains the Eyebrowse Android application. The application project lives in `eyebrowse/`. The inherited Gradle flavor `fenix` and Kotlin namespace remain for compatibility with generated code and upstream libraries.
 
 - [Eyebrowse repository](https://github.com/Eyesearch/Eyebrowse)
 - [Eyebrowse issues](https://github.com/Eyesearch/Eyebrowse/issues)
@@ -10,11 +10,11 @@ The following build and development notes are adapted from the upstream Mozilla 
 
 ## Build instructions
 
-Install JDK 17, Android SDK 34 and the Android build tools. Clone this repository, then open the `fenix/` project in Android Studio or run:
+Install JDK 17, Android SDK 34 and the Android build tools. Clone this repository, then open the `eyebrowse/` project in Android Studio or run:
 
 ```sh
 git clone https://github.com/Eyesearch/Eyebrowse.git
-cd Eyebrowse/fenix
+cd Eyebrowse/eyebrowse
 ./gradlew assembleFenixDebug
 ```
 
@@ -65,10 +65,10 @@ In order to build successfully, you need to check out a commit in the dependency
 - Run the `<android-components>/tools/list_compatible_dependency_versions.py` script to output a compatible commit
 - Check out the latest commit from main in this repository and the dependency repository. However, this may fail if there were breaking changes added recently to the dependency.
 
-If you're trying to build fenix with a local ac AND a local GV, you'll have to use another method: see [this doc](https://github.com/mozilla-mobile/fenix/blob/main/docs/substituting-local-ac-and-gv.md).
+If you're trying to build Eyebrowse with a local ac AND a local GV, you'll have to use another method: see [this doc](https://github.com/mozilla-mobile/fenix/blob/main/docs/substituting-local-ac-and-gv.md).
 
 ### Using Nimbus servers during local development
-If you're working with the Nimbus experiments platform, by default for local development Fenix configures Nimbus to not use a server.
+If you're working with the Nimbus experiments platform, by default for local development Eyebrowse configures Nimbus to not use a server.
 
 If you wish to use a Nimbus server during local development, you can add a `https://` or `file://` endpoint to the `local.properties` file.
 
