@@ -540,6 +540,7 @@ class MediaSessionServiceDelegateTest {
         delegate.startForeground(mock())
 
         verify(crashReporter).submitCaughtException(exception)
+        assertFalse(delegate.isForegroundService)
     }
 
     @Test(expected = ForegroundServiceStartNotAllowedException::class)

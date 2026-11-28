@@ -1034,6 +1034,29 @@ tasks.register("prepareEyeblock") {
                 }
             }
         }
+        // The extension can install successfully even when its offline filters are missing.
+        def registryFile = new File(eyeblockDirectory, 'assets/assets.json')
+        if (!registryFile.isFile() || !registryFile.length()) {
+            throw new GradleException("EyeBlock filter registry missing")
+        }
+        def registry = new groovy.json.JsonSlurper().parse(registryFile)
+        ['ublock-filters', 'ublock-badware', 'ublock-privacy', 'ublock-unbreak',
+         'ublock-quick-fixes', 'easylist', 'easyprivacy', 'urlhaus-1', 'plowe-0'].each { key ->
+            def entry = registry[key]
+            def sources = entry?.contentURL
+            def candidates = sources instanceof List ? sources : [sources]
+            if (entry?.content != 'filters' || !candidates.any { source ->
+                source instanceof String && source.startsWith('assets/') &&
+                    new File(eyeblockDirectory, source).isFile() &&
+                    new File(eyeblockDirectory, source).length() > 0
+            }) {
+                throw new GradleException("EyeBlock bundled filter missing: " + key)
+            }
+        }
+        def optionsPage = manifest.options_ui?.page
+        if (!optionsPage || !new File(eyeblockDirectory, optionsPage).isFile()) {
+            throw new GradleException("EyeBlock filter dashboard missing")
+        }
         logger.lifecycle("Prepared EyeBlock ${eyeblockVersion} as a built-in extension directory")
     }
 }

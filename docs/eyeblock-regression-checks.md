@@ -77,3 +77,19 @@ New unit tests exercise retry and changed switch behavior. Test fresh startup,
 restored tabs, dashboard navigation, extension process failure and YouTube
 playback on a physical device. An enabled extension is still not proof of
 ready filter lists or actual filtering; a cold-start race remains possible.
+
+## Offline filter integrity and media recovery
+
+The build now checks that each default upstream filter registry entry has a
+nonempty packaged local fallback, including EasyList, EasyPrivacy and Quick
+fixes, and that the actual options page is present. This catches incomplete
+bundles before APK assembly. The previously supplied debug APK was inspected
+and contains these assets; missing files were not established as its failure.
+
+Media service foreground state is set only after Android accepts startForeground.
+If Android rejects the transition, the next playing-state update can attempt
+promotion again; no forced playback or website visibility spoofing is added.
+The existing component regression test asserts that rejection leaves the flag
+false. Eyebrowse's app build disables Android Components unit test tasks, so
+run that component test separately before declaring it verified. Screen-lock,
+background playback, PiP and actual YouTube filtering still require device tests.

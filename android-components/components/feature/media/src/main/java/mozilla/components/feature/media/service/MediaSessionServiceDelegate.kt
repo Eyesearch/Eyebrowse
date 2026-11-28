@@ -199,6 +199,7 @@ internal class MediaSessionServiceDelegate(
             val notification = notificationHelper.create(sessionState, mediaSession)
             try {
                 service.startForeground(notificationId, notification)
+                isForegroundService = true
             } catch (e: Exception) {
                 if (
                     Build.VERSION.SDK_INT >= Build.VERSION_CODES.S &&
@@ -210,13 +211,12 @@ internal class MediaSessionServiceDelegate(
                     // this case is fixed and be able to determine if there are other cases where we
                     // might be trying to start foreground services from the background.
                     // https://bugzilla.mozilla.org/show_bug.cgi?id=1802620
+                    isForegroundService = false
                     crashReporter?.submitCaughtException(e)
                 } else {
                     throw e
                 }
             }
-
-            isForegroundService = true
         }
     }
 
