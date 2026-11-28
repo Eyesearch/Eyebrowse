@@ -34,6 +34,7 @@ import mozilla.components.lib.state.ext.flowScoped
 import mozilla.components.support.ktx.android.content.getColorFromAttr
 import mozilla.components.support.ktx.kotlinx.coroutines.flow.ifAnyChanged
 import org.eyesearch.eyebrowse.core.EyeblockMenuRow
+import org.eyesearch.eyebrowse.core.countTrackingBlocks
 import org.eyesearch.eyebrowse.Config
 import org.eyesearch.eyebrowse.R
 import org.eyesearch.eyebrowse.components.accounts.EyebrowseAccountManager
@@ -382,21 +383,21 @@ open class DefaultToolbarMenu(
     }
 
     /**
-     * How many requests were blocked on the page that is open. The count comes from the engine, so
-     * the row fills itself in when the menu is shown.
+     * Gecko tracking-protection log entries with blocks, not the uBlock Origin request count.
      */
     private val eyeblockCountItem = EyeblockMenuRow(
         loadingLabel = context.getString(R.string.eyeblock_menu_count_loading),
         countLabel = { count -> context.getString(R.string.eyeblock_menu_count, count) },
+        unavailableLabel = context.getString(R.string.eyeblock_menu_count_unavailable),
         loadCount = { onResult ->
             val tabId = store.state.selectedTabId
             if (tabId == null) {
-                onResult(0)
+                onResult(null)
             } else {
                 context.components.useCases.trackingProtectionUseCases.fetchTrackingLogs(
                     tabId,
-                    onSuccess = { logs -> onResult(logs.size) },
-                    onError = { onResult(0) },
+                    onSuccess = { logs -> onResult(countTrackingBlocks(logs)) },
+                    onError = { onResult(null) },
                 )
             }
         },

@@ -448,8 +448,13 @@ class SettingsFragment : PreferenceFragmentCompat() {
                         if (extension?.isEnabled() == true && url != null &&
                             Uri.parse(url).scheme == "moz-extension" && host != null
                         ) {
-                            context.components.useCases.tabsUseCases.addTab(url = url, private = false)
-                            host.openToBrowser(BrowserDirection.FromSettings)
+                            val isPrivate = host.browsingModeManager.mode.isPrivate
+                            if (!isPrivate || extension.isAllowedInPrivateBrowsing()) {
+                                context.components.useCases.tabsUseCases.addTab(url = url, private = isPrivate)
+                                host.openToBrowser(BrowserDirection.FromSettings)
+                            } else {
+                                Toast.makeText(context, R.string.eyeblock_filters_unavailable, Toast.LENGTH_LONG).show()
+                            }
                         } else {
                             Toast.makeText(context, R.string.eyeblock_filters_unavailable, Toast.LENGTH_LONG).show()
                         }

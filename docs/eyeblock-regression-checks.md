@@ -103,3 +103,11 @@ test covers enabling EyeBlock while a disable callback is pending, ensuring
 private access is reconciled before the final enabled state is reported. On a
 device verify that restore does not lose external links or hang when Gecko
 fails, and that actual filter initialization and playback still work.
+
+## Menu and private dashboard accuracy
+
+The browser menu labels its count as Gecko tracking-protection log entries with
+blocks, not uBlock requests. Loaded-only entries are excluded; errors show
+unavailable. The site exception affects Gecko tracking protection only. The
+filter dashboard opens in the current browsing mode if permitted, rather than
+silently creating a normal tab from private mode. Device testing is required.

@@ -576,9 +576,10 @@
     <!-- Browser menu row while the blocked count is still loading -->
     <string name="eyeblock_menu_count_loading">Checking this page…</string>
     <!-- Browser menu row: how many requests were blocked on the open page -->
-    <string name="eyeblock_menu_count">%1$d blocked on this page</string>
+    <string name="eyeblock_menu_count">Tracking protection: %1$d entries with blocks</string>
+    <string name="eyeblock_menu_count_unavailable">Tracking protection: count unavailable</string>
     <!-- Browser menu row that turns the browser's own protection off for the open site -->
-    <string name="eyeblock_turn_off_site">Turn off protection for this site</string>
+    <string name="eyeblock_turn_off_site">Turn off tracking protection for this site</string>
     <!-- Advanced settings switch: Eyebrowse's own ad blocker -->
     <!-- Indo Account: identity only, the web panel keeps the settings -->
     <string name="preferences_indo_account">Continue with Indo Account</string>

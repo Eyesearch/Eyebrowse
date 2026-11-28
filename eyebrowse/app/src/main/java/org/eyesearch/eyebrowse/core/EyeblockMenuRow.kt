@@ -8,24 +8,27 @@ import android.view.View
 import android.widget.TextView
 import mozilla.components.browser.menu.BrowserMenu
 import mozilla.components.browser.menu.BrowserMenuItem
+import mozilla.components.concept.engine.content.blocking.TrackerLog
 import org.eyesearch.eyebrowse.R
 
 /**
- * A browser menu row that says how many requests were blocked on the page that is open.
+ * A browser menu row that displays Gecko tracker log entries with blocking events.
  *
  * The count comes from the engine and takes a moment, so the row shows a neutral label first and
  * fills in the number when it arrives.
  *
  * @param loadingLabel shown until the engine answers.
- * @param countLabel formats the number, for example "12 blocked on this page".
- * @param loadCount asks for the number and reports it back.
+ * @param countLabel formats the number of tracker log entries with blocks.
+ * @param unavailableLabel is shown when tracking logs could not be read.
+ * @param loadCount reports the number or null if unavailable.
  * @param onTapped invoked when the row is tapped.
  * @param visibleProvider decides whether the row is shown at all.
  */
 class EyeblockMenuRow(
     private val loadingLabel: String,
     private val countLabel: (Int) -> String,
-    private val loadCount: (onResult: (Int) -> Unit) -> Unit,
+    private val unavailableLabel: String,
+    private val loadCount: (onResult: (Int?) -> Unit) -> Unit,
     private val onTapped: () -> Unit = {},
     visibleProvider: () -> Boolean = { true },
 ) : BrowserMenuItem {
@@ -40,7 +43,7 @@ class EyeblockMenuRow(
 
         loadCount { count ->
             // The engine answers from its own thread; the text can only change on the main one.
-            view.post { title.text = countLabel(count) }
+            view.post { title.text = count?.let(countLabel) ?: unavailableLabel }
         }
 
         view.setOnClickListener {
@@ -48,4 +51,9 @@ class EyeblockMenuRow(
             onTapped()
         }
     }
+}
+
+/** Count log entries with a blocking event, not loaded-only trackers or uBlock requests. */
+internal fun countTrackingBlocks(logs: List<TrackerLog>): Int = logs.count {
+    it.blockedCategories.isNotEmpty() || it.cookiesHasBeenBlocked
 }
