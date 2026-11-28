@@ -295,6 +295,9 @@ class SearchDialogControllerTest {
             },
         ).handleEditingCancelled()
 
+        // The BrowserStore dispatch is asynchronous; wait before inspecting captured actions.
+        browserStore.waitUntilIdle()
+
         assertTrue(clearToolbarFocusInvoked)
         assertTrue(dismissAndGoBack)
 
