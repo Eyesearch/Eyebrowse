@@ -460,6 +460,11 @@ open class HomeActivity : LocaleAwareAppCompatActivity(), NavHostActivity {
     override fun onResume() {
         super.onResume()
 
+        org.eyesearch.eyebrowse.core.EyeblockSupport.retryIfNeeded(
+            components.core.engine,
+            settings().eyeblockEnabled,
+        )
+
         // Diagnostic breadcrumb for "Display already aquired" crash:
         // https://github.com/mozilla-mobile/android-components/issues/7960
         breadcrumb(

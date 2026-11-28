@@ -175,6 +175,7 @@
         android:layout="@layout/preference_category_no_icon_style">
         <androidx.preference.SwitchPreference
             android:key="@string/pref_key_eyeblock"
+            android:defaultValue="true"
             android:title="@string/preferences_eyeblock"
             android:summary="@string/preferences_eyeblock_summary"
             app:iconSpaceReserved="false" />

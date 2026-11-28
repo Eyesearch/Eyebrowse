@@ -56,6 +56,45 @@ class EyeblockSupportTest {
     }
 
     @Test
+    fun `a changed switch choice is retried after pending installation fails`() {
+        val failed = slot<(Throwable) -> Unit>()
+        every { extension.isEnabled() } returns false
+        every { engine.installBuiltInWebExtension(EyeblockSupport.EXTENSION_ID, url, any(), capture(failed)) } returns mockk(relaxed = true)
+
+        EyeblockSupport.setEnabled(engine, true)
+        EyeblockSupport.setEnabled(engine, false)
+        every { engine.installBuiltInWebExtension(EyeblockSupport.EXTENSION_ID, url, any(), any()) } answers {
+            arg<(WebExtension) -> Unit>(2)(extension)
+            mockk(relaxed = true)
+        }
+        failed.captured(IllegalStateException("install failed"))
+
+        assertEquals(EyeblockSupport.Status.DISABLED, EyeblockSupport.status.value)
+        verify(exactly = 0) { engine.setAllowedInPrivateBrowsing(any(), any(), any(), any()) }
+    }
+
+    @Test
+    fun `foreground retry recovers an installation failure without opening settings`() {
+        every { engine.installBuiltInWebExtension(EyeblockSupport.EXTENSION_ID, url, any(), any()) } answers {
+            arg<(Throwable) -> Unit>(3)(IllegalStateException("install failed"))
+            mockk(relaxed = true)
+        }
+        EyeblockSupport.setEnabled(engine, true)
+        assertEquals(EyeblockSupport.Status.ERROR, EyeblockSupport.status.value)
+
+        every { extension.isEnabled() } returns true
+        every { extension.isAllowedInPrivateBrowsing() } returns true
+        every { engine.installBuiltInWebExtension(EyeblockSupport.EXTENSION_ID, url, any(), any()) } answers {
+            arg<(WebExtension) -> Unit>(2)(extension)
+            mockk(relaxed = true)
+        }
+        EyeblockSupport.retryIfNeeded(engine, true)
+        assertEquals(EyeblockSupport.Status.ENABLED, EyeblockSupport.status.value)
+        EyeblockSupport.retryIfNeeded(engine, true)
+        verify(exactly = 2) { engine.installBuiltInWebExtension(EyeblockSupport.EXTENSION_ID, url, any(), any()) }
+    }
+
+    @Test
     fun `private permission failure is not reported as fully enabled`() {
         every { extension.isEnabled() } returns true
         every { extension.isAllowedInPrivateBrowsing() } returns false

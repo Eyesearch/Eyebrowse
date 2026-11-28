@@ -87,6 +87,7 @@ import mozilla.components.service.sync.autofill.AutofillCreditCardsAddressesStor
 import mozilla.components.service.sync.logins.SyncableLoginsStorage
 import mozilla.components.support.base.worker.Frequency
 import mozilla.components.support.locale.LocaleManager
+import mozilla.components.support.webextensions.WebExtensionSupport
 import org.eyesearch.eyebrowse.AppRequestInterceptor
 import org.eyesearch.eyebrowse.BuildConfig
 import org.eyesearch.eyebrowse.Config
@@ -307,6 +308,13 @@ class Core(
                 trimMemoryAutomatically = false,
             ),
         ).apply {
+            // Register the standard tab/action/event bridge before built-in extensions are installed.
+            WebExtensionSupport.initialize(
+                runtime = engine,
+                store = this,
+                onUpdatePermissionRequest = { _, _, _, respond -> respond(false) },
+            )
+
             // Install the "icons" WebExtension to automatically load icons for every visited website.
             icons.install(engine, this)
 

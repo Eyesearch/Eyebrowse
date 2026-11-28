@@ -63,3 +63,17 @@ This change exposes maintenance controls; it does not establish that any
 particular YouTube ad is blocked. GeckoView 125 remains a compatibility and
 security upgrade dependency. Do not inject ad-skipping scripts, replace the
 player, or disable engine security as a substitute for verified filtering.
+
+## Failure recovery audit
+
+The standard Android Components WebExtensionSupport bridge is now initialized
+before built-in extension installation, to register per-session tab and action
+handlers and receive lifecycle events. Additional extension update permissions
+are denied rather than silently granted. EyeBlock retries known install or
+private-permission errors on foreground return, honors a changed switch after
+an install error, and avoids granting private access while switched off. The
+settings XML default matches the app preference (enabled on fresh installs).
+New unit tests exercise retry and changed switch behavior. Test fresh startup,
+restored tabs, dashboard navigation, extension process failure and YouTube
+playback on a physical device. An enabled extension is still not proof of
+ready filter lists or actual filtering; a cold-start race remains possible.

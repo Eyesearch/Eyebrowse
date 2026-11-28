@@ -69,13 +69,14 @@ object EyeblockSupport {
         desiredEnabled = enabled
         if (operationInProgress) return
         operationInProgress = true
+        val requestedAtInstall = enabled
         mutableStatus.value = Status.CHECKING
         engine.installBuiltInWebExtension(
             id = EXTENSION_ID,
             url = EXTENSION_URL,
             onSuccess = { extension ->
                 Log.i(TAG, "EyeBlock installed: ${extension.id}")
-                if (extension.isAllowedInPrivateBrowsing()) {
+                if (!desiredEnabled || extension.isAllowedInPrivateBrowsing()) {
                     applyDesiredState(engine, extension)
                 } else {
                     engine.setAllowedInPrivateBrowsing(
@@ -93,8 +94,18 @@ object EyeblockSupport {
                 operationInProgress = false
                 mutableStatus.value = Status.ERROR
                 Log.e(TAG, "EyeBlock install failed; tracking protection remains available", error)
+                if (desiredEnabled != requestedAtInstall) setEnabled(engine, desiredEnabled)
             },
         )
+    }
+
+    /** Retry a failed reconciliation on foreground return, never in a tight loop. */
+    fun retryIfNeeded(engine: Engine, enabled: Boolean) {
+        if (mutableStatus.value == Status.ERROR ||
+            (enabled && mutableStatus.value == Status.PRIVATE_UNAVAILABLE)
+        ) {
+            setEnabled(engine, enabled)
+        }
     }
 
     private fun applyDesiredState(engine: Engine, extension: WebExtension) {
