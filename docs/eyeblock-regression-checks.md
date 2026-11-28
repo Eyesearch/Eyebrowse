@@ -126,3 +126,8 @@ on subsequent opt-in; replacement failure is visible. A failed download can be r
 explicitly. Test offline failure, real download, signature and permission callback, upgrade
 from a built-in copy, app restart, filter dashboard, and actual normal/private ad filtering.
 Engine enablement is not evidence that YouTube ads are blocked or lists have finished updating.
+
+
+## Engine migration — verification only (2026-11-28)
+
+The previous GeckoView 125 engine predates the Mozilla add-on signing root certificate renewal. Mozilla documents expiry on 2025-03-14 (https://support.mozilla.org/en-US/kb/root-certificate-expiration). This is a candidate explanation, not a confirmed device diagnosis. Upgrade target: stable `geckoview-omni:161.0.20261118180411` (published 2026-11-24; https://mvnrepository.com/artifact/org.mozilla.geckoview/geckoview-omni/161.0.20261118180411). Do not disable extension signature checks. This is a major engine migration, not a drop-in compatibility guarantee. Resolve all dependency, Android SDK/AGP/Kotlin and engine adapter incompatibilities against the actual compiler output; review transitive dependencies/security advisories. Do not suppress tests or relax signing. Preserve application ID, opt-in, pinned XPI and error details. The `fix/eyeblock-signed-install` branch runs compile and app unit tests only; debug and release APK assembly are explicitly disabled even for dispatch until separately approved. No merging or APK release before green verification. A separate later approved device build must test actual signed XPI installation, offline error/retry, fresh install and upgrade, disabled state, normal/private filtering, VPN and playback. CI alone does not establish device end-to-end success.
