@@ -19,122 +19,119 @@ import org.eyesearch.eyebrowse.helpers.EyebrowseRobolectricTestRunner
 class EyeblockSupportTest {
     private val engine = mockk<Engine>(relaxed = true)
     private val extension = mockk<WebExtension>(relaxed = true)
-    private val url = "resource://android/assets/extensions/ublock_origin/"
+    private val url = EyeblockSupport.EXTENSION_URL
+
+    private fun installed(vararg extensions: WebExtension) {
+        every { engine.listInstalledWebExtensions(any(), any()) } answers {
+            arg<(List<WebExtension>) -> Unit>(0)(extensions.toList())
+        }
+    }
+
+    private fun stubDownload() {
+        every { extension.id } returns EyeblockSupport.EXTENSION_ID
+        every { engine.installWebExtension(url, any(), any(), any()) } answers {
+            arg<(WebExtension) -> Unit>(2)(extension)
+            mockk(relaxed = true)
+        }
+    }
 
     @Test
-    fun `installation failure can be retried successfully`() {
-        every { engine.installBuiltInWebExtension(EyeblockSupport.EXTENSION_ID, url, any(), any()) } answers {
-            arg<(Throwable) -> Unit>(3)(IllegalStateException("install failed"))
+    fun `fresh disabled state never downloads`() {
+        installed()
+        EyeblockSupport.setEnabled(engine, false)
+        assertEquals(EyeblockSupport.Status.DISABLED, EyeblockSupport.status.value)
+        verify(exactly = 0) { engine.installWebExtension(any(), any(), any(), any()) }
+    }
+
+    @Test
+    fun `installation failure stays off and explicit retry works`() {
+        installed()
+        every { engine.installWebExtension(url, any(), any(), any()) } answers {
+            arg<(Throwable) -> Unit>(3)(IllegalStateException("download failed"))
             mockk(relaxed = true)
         }
         EyeblockSupport.setEnabled(engine, true)
         assertEquals(EyeblockSupport.Status.ERROR, EyeblockSupport.status.value)
+        assertEquals(false, EyeblockSupport.status.value.active)
+        EyeblockSupport.retryIfNeeded(engine, true)
+        verify(exactly = 1) { engine.installWebExtension(url, any(), any(), any()) }
 
         every { extension.isEnabled() } returns true
         every { extension.isAllowedInPrivateBrowsing() } returns true
-        every { engine.installBuiltInWebExtension(EyeblockSupport.EXTENSION_ID, url, any(), any()) } answers {
-            arg<(WebExtension) -> Unit>(2)(extension)
-            mockk(relaxed = true)
-        }
+        stubDownload()
         EyeblockSupport.setEnabled(engine, true)
         assertEquals(EyeblockSupport.Status.ENABLED, EyeblockSupport.status.value)
     }
 
     @Test
-    fun `latest switch state wins while installation is pending`() {
-        val installed = slot<(WebExtension) -> Unit>()
-        every { engine.installBuiltInWebExtension(EyeblockSupport.EXTENSION_ID, url, capture(installed), any()) } returns mockk(relaxed = true)
+    fun `switch stays off during download and latest choice wins`() {
+        installed()
+        val completed = slot<(WebExtension) -> Unit>()
+        every { extension.id } returns EyeblockSupport.EXTENSION_ID
+        every { engine.installWebExtension(url, any(), capture(completed), any()) } returns mockk(relaxed = true)
         every { extension.isEnabled() } returns false
-        every { extension.isAllowedInPrivateBrowsing() } returns true
-
         EyeblockSupport.setEnabled(engine, true)
+        assertEquals(EyeblockSupport.Status.DOWNLOADING, EyeblockSupport.status.value)
+        assertEquals(false, EyeblockSupport.status.value.active)
         EyeblockSupport.setEnabled(engine, false)
-        installed.captured(extension)
-
+        completed.captured(extension)
         assertEquals(EyeblockSupport.Status.DISABLED, EyeblockSupport.status.value)
         verify(exactly = 0) { engine.enableWebExtension(any(), any(), any(), any()) }
     }
 
     @Test
-    fun `a changed switch choice is retried after pending installation fails`() {
-        val failed = slot<(Throwable) -> Unit>()
-        every { extension.isEnabled() } returns false
-        every { engine.installBuiltInWebExtension(EyeblockSupport.EXTENSION_ID, url, any(), capture(failed)) } returns mockk(relaxed = true)
-
-        EyeblockSupport.setEnabled(engine, true)
-        EyeblockSupport.setEnabled(engine, false)
-        every { engine.installBuiltInWebExtension(EyeblockSupport.EXTENSION_ID, url, any(), any()) } answers {
-            arg<(WebExtension) -> Unit>(2)(extension)
-            mockk(relaxed = true)
-        }
-        failed.captured(IllegalStateException("install failed"))
-
-        assertEquals(EyeblockSupport.Status.DISABLED, EyeblockSupport.status.value)
-        verify(exactly = 0) { engine.setAllowedInPrivateBrowsing(any(), any(), any(), any()) }
-    }
-
-    @Test
-    fun `foreground retry recovers an installation failure without opening settings`() {
-        every { engine.installBuiltInWebExtension(EyeblockSupport.EXTENSION_ID, url, any(), any()) } answers {
-            arg<(Throwable) -> Unit>(3)(IllegalStateException("install failed"))
-            mockk(relaxed = true)
-        }
-        EyeblockSupport.setEnabled(engine, true)
-        assertEquals(EyeblockSupport.Status.ERROR, EyeblockSupport.status.value)
-
+    fun `existing regular extension is reused without download`() {
+        every { extension.id } returns EyeblockSupport.EXTENSION_ID
         every { extension.isEnabled() } returns true
         every { extension.isAllowedInPrivateBrowsing() } returns true
-        every { engine.installBuiltInWebExtension(EyeblockSupport.EXTENSION_ID, url, any(), any()) } answers {
-            arg<(WebExtension) -> Unit>(2)(extension)
-            mockk(relaxed = true)
-        }
-        EyeblockSupport.retryIfNeeded(engine, true)
-        assertEquals(EyeblockSupport.Status.ENABLED, EyeblockSupport.status.value)
-        EyeblockSupport.retryIfNeeded(engine, true)
-        verify(exactly = 2) { engine.installBuiltInWebExtension(EyeblockSupport.EXTENSION_ID, url, any(), any()) }
-    }
-
-    @Test
-    fun `enabling during pending disable reconciles private permission`() {
-        val disabled = slot<(WebExtension) -> Unit>()
-        every { extension.isEnabled() } returns true
-        every { extension.isAllowedInPrivateBrowsing() } returns false
-        every { engine.installBuiltInWebExtension(EyeblockSupport.EXTENSION_ID, url, any(), any()) } answers {
-            arg<(WebExtension) -> Unit>(2)(extension)
-            mockk(relaxed = true)
-        }
-        every { engine.disableWebExtension(extension, any(), capture(disabled), any()) } answers { }
-        every { engine.setAllowedInPrivateBrowsing(extension, true, any(), any()) } answers {
-            every { extension.isAllowedInPrivateBrowsing() } returns true
-            arg<(WebExtension) -> Unit>(2)(extension)
-        }
-        every { engine.enableWebExtension(extension, any(), any(), any()) } answers {
-            every { extension.isEnabled() } returns true
-            arg<(WebExtension) -> Unit>(2)(extension)
-        }
-
-        EyeblockSupport.setEnabled(engine, false)
+        installed(extension)
         EyeblockSupport.setEnabled(engine, true)
-        every { extension.isEnabled() } returns false
-        disabled.captured(extension)
-
         assertEquals(EyeblockSupport.Status.ENABLED, EyeblockSupport.status.value)
-        verify(exactly = 1) { engine.setAllowedInPrivateBrowsing(extension, true, any(), any()) }
+        verify(exactly = 0) { engine.installWebExtension(any(), any(), any(), any()) }
     }
 
     @Test
     fun `private permission failure is not reported as fully enabled`() {
+        installed()
+        stubDownload()
         every { extension.isEnabled() } returns true
         every { extension.isAllowedInPrivateBrowsing() } returns false
-        every { engine.installBuiltInWebExtension(EyeblockSupport.EXTENSION_ID, url, any(), any()) } answers {
-            arg<(WebExtension) -> Unit>(2)(extension)
-            mockk(relaxed = true)
-        }
         every { engine.setAllowedInPrivateBrowsing(extension, true, any(), any()) } answers {
             arg<(Throwable) -> Unit>(3)(IllegalStateException("private permission failed"))
         }
-
         EyeblockSupport.setEnabled(engine, true)
         assertEquals(EyeblockSupport.Status.PRIVATE_UNAVAILABLE, EyeblockSupport.status.value)
+    }
+
+    @Test
+    fun `legacy built in is disabled without downloading on upgrade`() {
+        every { extension.id } returns EyeblockSupport.EXTENSION_ID
+        every { extension.isBuiltIn() } returns true
+        every { extension.isEnabled() } returns true
+        installed(extension)
+        every { engine.disableWebExtension(extension, any(), any(), any()) } answers {
+            every { extension.isEnabled() } returns false
+            arg<(WebExtension) -> Unit>(2)(extension)
+        }
+        EyeblockSupport.setEnabled(engine, false)
+        assertEquals(EyeblockSupport.Status.DISABLED, EyeblockSupport.status.value)
+        verify(exactly = 0) { engine.installWebExtension(any(), any(), any(), any()) }
+    }
+
+    @Test
+    fun `permission callback only approves the opted in pinned version`() {
+        installed()
+        val failed = slot<(Throwable) -> Unit>()
+        every { engine.installWebExtension(url, any(), any(), capture(failed)) } returns mockk(relaxed = true)
+        every { extension.id } returns EyeblockSupport.EXTENSION_ID
+        every { extension.getMetadata() } returns mockk {
+            every { version } returns EyeblockSupport.EXTENSION_VERSION
+        }
+        EyeblockSupport.setEnabled(engine, true)
+        var approved = false
+        assertEquals(true, EyeblockSupport.handleInstallPermission(extension) { approved = it })
+        assertEquals(true, approved)
+        assertEquals(EyeblockSupport.Status.INSTALLING, EyeblockSupport.status.value)
+        failed.captured(IllegalStateException("test cleanup"))
     }
 }

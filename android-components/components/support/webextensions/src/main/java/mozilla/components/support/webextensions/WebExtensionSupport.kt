@@ -162,6 +162,8 @@ object WebExtensionSupport {
      * @param onUpdatePermissionRequest (optional) Invoked when a web extension has changed its
      * permissions while trying to update to a new version. This requires user interaction as
      * the updated extension will not be installed, until the user grants the new permissions.
+     * @param handleInstallPermissionRequest (optional) handles an explicitly user-approved managed install.
+     * Return true only when the permission callback has been handled.
      * @param onExtensionsLoaded (optional) callback invoked when the extensions are loaded by the
      * engine. Note that the UI (browser/page actions etc.) may not be initialized at this point.
      * System add-ons (built-in extensions) will not be passed along.
@@ -174,6 +176,7 @@ object WebExtensionSupport {
         onCloseTabOverride: ((WebExtension?, String) -> Unit)? = null,
         onSelectTabOverride: ((WebExtension?, String) -> Unit)? = null,
         onUpdatePermissionRequest: onUpdatePermissionRequest? = { _, _, _, _ -> },
+        handleInstallPermissionRequest: ((WebExtension, (Boolean) -> Unit) -> Boolean)? = null,
         onExtensionsLoaded: ((List<WebExtension>) -> Unit)? = null,
     ) {
         this.onUpdatePermissionRequest = onUpdatePermissionRequest
@@ -292,6 +295,7 @@ object WebExtensionSupport {
                     extension: WebExtension,
                     onPermissionsGranted: ((Boolean) -> Unit),
                 ) {
+                    if (handleInstallPermissionRequest?.invoke(extension, onPermissionsGranted) == true) return
                     store.dispatch(
                         WebExtensionAction.UpdatePromptRequestWebExtensionAction(
                             WebExtensionPromptRequest.AfterInstallation.Permissions.Required(

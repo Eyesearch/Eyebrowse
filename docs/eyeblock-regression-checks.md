@@ -111,3 +111,18 @@ blocks, not uBlock requests. Loaded-only entries are excluded; errors show
 unavailable. The site exception affects Gecko tracking protection only. The
 filter dashboard opens in the current browsing mode if permitted, rather than
 silently creating a normal tab from private mode. Device testing is required.
+
+## On-demand EyeBlock (supersedes the old bundled/default-on design above)
+
+The switch and filter dashboard now appear immediately after VPN settings. A new preference
+key defaults to OFF, including migration from the prior default-on version. The APK no
+longer packages uBlock Origin; the build still validates the pinned signed release archive
+and its filter contents. On explicit opt-in, Gecko downloads the pinned HTTPS XPI and
+validates its signature before install. The managed permission callback approves only the
+pending uBlock ID and pinned version. The switch stays off during download, install and
+enable, and displays actual phase text (no fabricated progress percentages). The extension
+can be reused on later toggles. Old built-in copies are disabled on upgrade and replaced
+on subsequent opt-in; replacement failure is visible. A failed download can be retried
+explicitly. Test offline failure, real download, signature and permission callback, upgrade
+from a built-in copy, app restart, filter dashboard, and actual normal/private ad filtering.
+Engine enablement is not evidence that YouTube ads are blocked or lists have finished updating.

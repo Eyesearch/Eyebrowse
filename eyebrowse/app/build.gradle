@@ -944,15 +944,15 @@ def getSupportedLocales() {
 // Enable expiration by major version.
 ext.gleanExpireByVersion = Config.majorVersion()
 
-// EyeBlock: GeckoView built-in extensions are installed from a resource directory.
-// Verify the upstream archive, then unpack it into generated APK assets.
+// EyeBlock: verify the pinned upstream signed XPI and filter assets at build time.
+// The signed package is downloaded on-device after user opt-in.
 def eyeblockVersion = '1.77.4'
 def eyeblockHash = '5ffd52b863d5a02a639423e90252f7a7f8866c5599e360970f4d1f69dfc4b74a'
 def eyeblockAssets = file("$buildDir/generated/eyeblockAssets")
 def eyeblockDirectory = new File(eyeblockAssets, 'extensions/ublock_origin')
 def eyeblockArchive = file("$buildDir/eyeblock/ublock_origin-${eyeblockVersion}.xpi")
 
-android.sourceSets.main.assets.srcDir(eyeblockAssets)
+// Validate the pinned upstream archive at build time, but do not bundle it in the APK.
 
 tasks.register("prepareEyeblock") {
     description = 'Verify and unpack uBlock Origin into the built-in extension asset directory.'
@@ -1057,7 +1057,7 @@ tasks.register("prepareEyeblock") {
         if (!optionsPage || !new File(eyeblockDirectory, optionsPage).isFile()) {
             throw new GradleException("EyeBlock filter dashboard missing")
         }
-        logger.lifecycle("Prepared EyeBlock ${eyeblockVersion} as a built-in extension directory")
+        logger.lifecycle("Validated EyeBlock ${eyeblockVersion} for on-demand installation")
     }
 }
 

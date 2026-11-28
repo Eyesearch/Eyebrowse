@@ -313,13 +313,13 @@ class Core(
                 runtime = engine,
                 store = this,
                 onUpdatePermissionRequest = { _, _, _, respond -> respond(false) },
+                handleInstallPermissionRequest = EyeblockSupport::handleInstallPermission,
             )
 
             // Install the "icons" WebExtension to automatically load icons for every visited website.
             icons.install(engine, this)
 
-            // Eyebrowse: EyeBlock, uBlock Origin bundled in the APK. Installed once here, then
-            // switched on or off by the EyeBlock preference in Advanced settings.
+            // EyeBlock is downloaded only after explicit opt-in; reconcile existing installs on startup.
             EyeblockSupport.install(
                 engine = engine,
                 enabled = context.settings().eyeblockEnabled,

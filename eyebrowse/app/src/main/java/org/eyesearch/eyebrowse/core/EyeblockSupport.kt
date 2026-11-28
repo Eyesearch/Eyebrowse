@@ -12,23 +12,15 @@ import kotlinx.coroutines.withTimeoutOrNull
 import mozilla.components.concept.engine.Engine
 import mozilla.components.concept.engine.webextension.WebExtension
 
-/**
- * EyeBlock: uBlock Origin, shipped inside the app as a built-in extension.
- *
- * Blocking ads cannot be done by stopping a download, because most ads are fetched by the page
- * itself. A content blocker works from inside the page: it cancels the page's own ad requests
- * before they leave, hides the ad boxes, and handles the players that stitch ads into a stream.
- * That is why this is an extension and not a list of addresses.
- *
- * The extension is bundled in the APK, so it works offline from the first launch and needs no
- * store, no account and no network. The EyeBlock switch in Settings decides whether it is enabled.
- */
+/** EyeBlock installs the official signed uBlock Origin release only after user opt-in. */
 object EyeblockSupport {
 
     /** The id uBlock Origin declares in its own manifest; the engine keys the install on it. */
     const val EXTENSION_ID = "uBlock0@raymondhill.net"
 
-    private const val EXTENSION_URL = "resource://android/assets/extensions/ublock_origin/"
+    internal const val EXTENSION_VERSION = "1.77.4"
+    internal const val EXTENSION_URL =
+        "https://github.com/gorhill/uBlock/releases/download/1.77.4/uBlock0_1.77.4.firefox.signed.xpi"
     private const val TAG = "EyeblockSupport"
     private const val RESTORE_WAIT_MS = 3000L
 
@@ -45,10 +37,19 @@ object EyeblockSupport {
 
     // Engine extension callbacks and Settings changes are dispatched on the main thread.
     // Serialize operations so a quick toggle cannot overwrite a newer preference.
-    private var desiredEnabled = true
+    private var desiredEnabled = false
+    private var installPending = false
     private var operationInProgress = false
 
-    enum class Status { CHECKING, ENABLED, PRIVATE_UNAVAILABLE, DISABLED, ERROR }
+    enum class Status {
+        CHECKING, DOWNLOADING, INSTALLING, ENABLING, DISABLING,
+        ENABLED, PRIVATE_UNAVAILABLE, DISABLED, ERROR;
+
+        val busy: Boolean
+            get() = this in setOf(CHECKING, DOWNLOADING, INSTALLING, ENABLING, DISABLING)
+        val active: Boolean
+            get() = this == ENABLED || this == PRIVATE_UNAVAILABLE
+    }
 
     private val mutableStatus = MutableStateFlow(Status.CHECKING)
     val status = mutableStatus.asStateFlow()
@@ -67,42 +68,104 @@ object EyeblockSupport {
         setEnabled(engine, enabled)
     }
 
-    /** Reconcile the actual extension state, installing it if it is missing. */
+    /** Only query existing extensions when off. Never download in response to an off request. */
     fun setEnabled(engine: Engine, enabled: Boolean) {
         desiredEnabled = enabled
         if (operationInProgress) return
         operationInProgress = true
-        val requestedAtInstall = enabled
         mutableStatus.value = Status.CHECKING
-        engine.installBuiltInWebExtension(
-            id = EXTENSION_ID,
+        engine.listInstalledWebExtensions(
+            onSuccess = { extensions ->
+                val extension = extensions.firstOrNull { it.id == EXTENSION_ID }
+                when {
+                    extension == null && !desiredEnabled -> {
+                        operationInProgress = false
+                        mutableStatus.value = Status.DISABLED
+                    }
+                    extension == null -> downloadAndInstall(engine)
+                    desiredEnabled && extension.isBuiltIn() -> {
+                        // Old APKs shipped a built-in copy. Replace it only after explicit opt-in.
+                        mutableStatus.value = Status.INSTALLING
+                        engine.uninstallWebExtension(
+                            extension,
+                            onSuccess = {
+                                if (desiredEnabled) {
+                                    downloadAndInstall(engine)
+                                } else {
+                                    operationInProgress = false
+                                    mutableStatus.value = Status.DISABLED
+                                }
+                            },
+                            onError = { _, error -> fail(error) },
+                        )
+                    }
+                    else -> applyDesiredState(engine, extension)
+                }
+            },
+            onError = { error -> fail(error) },
+        )
+    }
+
+    private fun downloadAndInstall(engine: Engine) {
+        installPending = true
+        mutableStatus.value = Status.DOWNLOADING
+        // Gecko downloads the complete XPI, verifies its signature, requests permission,
+        // and only then returns the installed extension. No artificial percent is shown.
+        engine.installWebExtension(
             url = EXTENSION_URL,
             onSuccess = { extension ->
-                Log.i(TAG, "EyeBlock installed: ${extension.id}")
-                applyDesiredState(engine, extension)
+                installPending = false
+                if (extension.id != EXTENSION_ID) {
+                    engine.uninstallWebExtension(
+                        extension,
+                        onSuccess = { fail(IllegalStateException("Unexpected extension identity")) },
+                        onError = { _, error -> fail(error) },
+                    )
+                } else {
+                    applyDesiredState(engine, extension)
+                }
             },
             onError = { error ->
-                operationInProgress = false
-                mutableStatus.value = Status.ERROR
-                Log.e(TAG, "EyeBlock install failed; tracking protection remains available", error)
-                if (desiredEnabled != requestedAtInstall) setEnabled(engine, desiredEnabled)
+                installPending = false
+                if (!desiredEnabled) {
+                    operationInProgress = false
+                    mutableStatus.value = Status.DISABLED
+                } else {
+                    fail(error)
+                }
             },
         )
     }
 
-    /** Retry a failed reconciliation on foreground return, never in a tight loop. */
+    /** The Settings switch is the opt-in for the pinned signed XPI, never other add-ons. */
+    fun handleInstallPermission(extension: WebExtension, respond: (Boolean) -> Unit): Boolean {
+        if (!installPending || extension.id != EXTENSION_ID) return false
+        val approved = desiredEnabled && extension.getMetadata()?.version == EXTENSION_VERSION
+        if (approved) mutableStatus.value = Status.INSTALLING
+        respond(approved)
+        return true
+    }
+
+    private fun fail(error: Throwable) {
+        installPending = false
+        operationInProgress = false
+        mutableStatus.value = Status.ERROR
+        Log.e(TAG, "EyeBlock operation failed", error)
+    }
+
+    /** Retry disabled-state reconciliation, but never repeat a failed download on foreground return. */
     fun retryIfNeeded(engine: Engine, enabled: Boolean) {
-        if (mutableStatus.value == Status.ERROR ||
+        if ((!enabled && mutableStatus.value == Status.ERROR) ||
             (enabled && mutableStatus.value == Status.PRIVATE_UNAVAILABLE)
         ) {
             setEnabled(engine, enabled)
         }
     }
 
-    /** Reduce the restored-tab startup race without indefinitely delaying session restore. */
+    /** Reduce restored-tab startup races without waiting indefinitely. */
     suspend fun awaitInitialState() {
         withTimeoutOrNull(RESTORE_WAIT_MS) {
-            status.first { it != Status.CHECKING }
+            status.first { !it.busy }
         }
     }
 
@@ -112,6 +175,7 @@ object EyeblockSupport {
         privatePermissionAttempted: Boolean = false,
     ) {
         val target = desiredEnabled
+        mutableStatus.value = if (target) Status.ENABLING else Status.DISABLING
         if (target && !privatePermissionAttempted && !extension.isAllowedInPrivateBrowsing()) {
             engine.setAllowedInPrivateBrowsing(
                 extension,

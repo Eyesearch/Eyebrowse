@@ -478,13 +478,25 @@ class SettingsFragment : PreferenceFragmentCompat() {
         val settings = context.settings()
         val engine = context.components.core.engine
 
-        preference.isChecked = settings.eyeblockEnabled
+        val filters = findPreference<Preference>(getPreferenceKey(R.string.pref_key_eyeblock_filters))
+        preference.isPersistent = false
+        preference.isChecked = EyeblockSupport.status.value.active
+        preference.isEnabled = !EyeblockSupport.status.value.busy
+        filters?.isEnabled = EyeblockSupport.status.value.active
         eyeblockStatusJob?.cancel()
         eyeblockStatusJob = viewLifecycleOwner.lifecycleScope.launch {
             EyeblockSupport.status.collect { status ->
+                // Display the engine-confirmed state, not the requested switch position.
+                preference.isChecked = status.active
+                preference.isEnabled = !status.busy
+                filters?.isEnabled = status.active
                 preference.setSummary(
                     when (status) {
                         EyeblockSupport.Status.CHECKING -> R.string.eyeblock_status_checking
+                        EyeblockSupport.Status.DOWNLOADING -> R.string.eyeblock_status_downloading
+                        EyeblockSupport.Status.INSTALLING -> R.string.eyeblock_status_installing
+                        EyeblockSupport.Status.ENABLING -> R.string.eyeblock_status_enabling
+                        EyeblockSupport.Status.DISABLING -> R.string.eyeblock_status_disabling
                         EyeblockSupport.Status.ENABLED -> R.string.eyeblock_status_enabled
                         EyeblockSupport.Status.PRIVATE_UNAVAILABLE -> R.string.eyeblock_status_private_unavailable
                         EyeblockSupport.Status.DISABLED -> R.string.eyeblock_status_disabled
@@ -494,18 +506,12 @@ class SettingsFragment : PreferenceFragmentCompat() {
             }
         }
 
-        // Retry both failed enable and failed disable operations, including private permission.
-        val blockerStatus = EyeblockSupport.status.value
-        if (blockerStatus == EyeblockSupport.Status.ERROR ||
-            (settings.eyeblockEnabled && blockerStatus == EyeblockSupport.Status.PRIVATE_UNAVAILABLE)
-        ) {
-            EyeblockSupport.setEnabled(engine, settings.eyeblockEnabled)
-        }
         preference.setOnPreferenceChangeListener { _, newValue ->
             val enabled = newValue == true
             settings.eyeblockEnabled = enabled
             EyeblockSupport.setEnabled(engine, enabled)
-            true
+            // The observer checks the switch only after the engine confirms success.
+            false
         }
     }
 
