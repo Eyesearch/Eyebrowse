@@ -93,3 +93,13 @@ The existing component regression test asserts that rejection leaves the flag
 false. Eyebrowse's app build disables Android Components unit test tasks, so
 run that component test separately before declaring it verified. Screen-lock,
 background playback, PiP and actual YouTube filtering still require device tests.
+
+## Restored-tab startup and permission race
+
+Restoring saved tabs now waits up to three seconds for EyeBlock extension
+reconciliation if enabled. Failure or timeout allows normal restore; this is
+not a filter-ready signal and does not gate direct external navigation. A new
+test covers enabling EyeBlock while a disable callback is pending, ensuring
+private access is reconciled before the final enabled state is reported. On a
+device verify that restore does not lose external links or hang when Gecko
+fails, and that actual filter initialization and playback still work.

@@ -310,6 +310,9 @@ open class EyebrowseApplication : LocaleAwareApplication(), Provider {
         val store = components.core.store
         val sessionStorage = components.core.sessionStorage
 
+        if (settings().eyeblockEnabled) {
+            org.eyesearch.eyebrowse.core.EyeblockSupport.awaitInitialState()
+        }
         components.useCases.tabsUseCases.restore(sessionStorage, settings().getTabTimeout())
 
         // Now that we have restored our previous state (if there's one) let's setup auto saving the state while

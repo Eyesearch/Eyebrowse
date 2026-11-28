@@ -95,6 +95,34 @@ class EyeblockSupportTest {
     }
 
     @Test
+    fun `enabling during pending disable reconciles private permission`() {
+        val disabled = slot<(WebExtension) -> Unit>()
+        every { extension.isEnabled() } returns true
+        every { extension.isAllowedInPrivateBrowsing() } returns false
+        every { engine.installBuiltInWebExtension(EyeblockSupport.EXTENSION_ID, url, any(), any()) } answers {
+            arg<(WebExtension) -> Unit>(2)(extension)
+            mockk(relaxed = true)
+        }
+        every { engine.disableWebExtension(extension, any(), capture(disabled), any()) } answers { }
+        every { engine.setAllowedInPrivateBrowsing(extension, true, any(), any()) } answers {
+            every { extension.isAllowedInPrivateBrowsing() } returns true
+            arg<(WebExtension) -> Unit>(2)(extension)
+        }
+        every { engine.enableWebExtension(extension, any(), any(), any()) } answers {
+            every { extension.isEnabled() } returns true
+            arg<(WebExtension) -> Unit>(2)(extension)
+        }
+
+        EyeblockSupport.setEnabled(engine, false)
+        EyeblockSupport.setEnabled(engine, true)
+        every { extension.isEnabled() } returns false
+        disabled.captured(extension)
+
+        assertEquals(EyeblockSupport.Status.ENABLED, EyeblockSupport.status.value)
+        verify(exactly = 1) { engine.setAllowedInPrivateBrowsing(extension, true, any(), any()) }
+    }
+
+    @Test
     fun `private permission failure is not reported as fully enabled`() {
         every { extension.isEnabled() } returns true
         every { extension.isAllowedInPrivateBrowsing() } returns false

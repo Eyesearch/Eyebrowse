@@ -7,6 +7,8 @@ package org.eyesearch.eyebrowse.core
 import android.util.Log
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.withTimeoutOrNull
 import mozilla.components.concept.engine.Engine
 import mozilla.components.concept.engine.webextension.WebExtension
 
@@ -28,6 +30,7 @@ object EyeblockSupport {
 
     private const val EXTENSION_URL = "resource://android/assets/extensions/ublock_origin/"
     private const val TAG = "EyeblockSupport"
+    private const val RESTORE_WAIT_MS = 3000L
 
     /**
      * EyeShield, the small extension of ours that cancels every request to Mozilla inside the
@@ -76,19 +79,7 @@ object EyeblockSupport {
             url = EXTENSION_URL,
             onSuccess = { extension ->
                 Log.i(TAG, "EyeBlock installed: ${extension.id}")
-                if (!desiredEnabled || extension.isAllowedInPrivateBrowsing()) {
-                    applyDesiredState(engine, extension)
-                } else {
-                    engine.setAllowedInPrivateBrowsing(
-                        extension,
-                        allowed = true,
-                        onSuccess = { updated -> applyDesiredState(engine, updated) },
-                        onError = { error ->
-                            Log.w(TAG, "EyeBlock private permission failed", error)
-                            applyDesiredState(engine, extension)
-                        },
-                    )
-                }
+                applyDesiredState(engine, extension)
             },
             onError = { error ->
                 operationInProgress = false
@@ -108,8 +99,31 @@ object EyeblockSupport {
         }
     }
 
-    private fun applyDesiredState(engine: Engine, extension: WebExtension) {
+    /** Reduce the restored-tab startup race without indefinitely delaying session restore. */
+    suspend fun awaitInitialState() {
+        withTimeoutOrNull(RESTORE_WAIT_MS) {
+            status.first { it != Status.CHECKING }
+        }
+    }
+
+    private fun applyDesiredState(
+        engine: Engine,
+        extension: WebExtension,
+        privatePermissionAttempted: Boolean = false,
+    ) {
         val target = desiredEnabled
+        if (target && !privatePermissionAttempted && !extension.isAllowedInPrivateBrowsing()) {
+            engine.setAllowedInPrivateBrowsing(
+                extension,
+                allowed = true,
+                onSuccess = { updated -> applyDesiredState(engine, updated, true) },
+                onError = { error ->
+                    Log.w(TAG, "EyeBlock private permission failed", error)
+                    applyDesiredState(engine, extension, true)
+                },
+            )
+            return
+        }
         if (extension.isEnabled() == target) {
             operationInProgress = false
             reportState(extension, target)
@@ -120,7 +134,7 @@ object EyeblockSupport {
         val success: (WebExtension) -> Unit = { updated ->
             Log.i(TAG, "EyeBlock enabled=${updated.isEnabled()}; private=${updated.isAllowedInPrivateBrowsing()}")
             if (desiredEnabled != target) {
-                applyDesiredState(engine, updated)
+                applyDesiredState(engine, updated, privatePermissionAttempted)
             } else {
                 operationInProgress = false
                 reportState(updated, target)
