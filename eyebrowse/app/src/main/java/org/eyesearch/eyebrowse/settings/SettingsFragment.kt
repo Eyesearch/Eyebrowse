@@ -490,6 +490,13 @@ class SettingsFragment : PreferenceFragmentCompat() {
                 preference.isChecked = status.active
                 preference.isEnabled = !status.busy
                 filters?.isEnabled = status.active
+                if (status == EyeblockSupport.Status.ERROR) {
+                    preference.summary = listOfNotNull(
+                        getString(R.string.eyeblock_status_error),
+                        EyeblockSupport.failureDetail,
+                    ).joinToString(" · ")
+                    return@collect
+                }
                 preference.setSummary(
                     when (status) {
                         EyeblockSupport.Status.CHECKING -> R.string.eyeblock_status_checking

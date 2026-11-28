@@ -1,7 +1,7 @@
 name: Verify Eyebrowse (APK on request)
 on:
   push:
-    branches: [branding/eyebrowse-namespace-migration]
+    branches: [branding/eyebrowse-namespace-migration, fix/eyeblock-signed-install]
   workflow_dispatch:
     inputs:
       apk:
@@ -377,7 +377,7 @@ jobs:
           retention-days: 14
 
       - name: Assemble the debug APK
-        if: github.event_name == 'workflow_dispatch' && inputs.apk == 'debug'
+        if: (github.event_name == 'workflow_dispatch' && inputs.apk == 'debug') || (github.event_name == 'push' && github.ref == 'refs/heads/fix/eyeblock-signed-install')
         run: |
           chmod +x ./gradlew
           # Only the arm64-v8a split is built: modern 64-bit devices are the
@@ -385,7 +385,7 @@ jobs:
           ./gradlew :app:assembleEyebrowseDebug -Pabis=arm64-v8a --stacktrace
 
       - name: Verify debug APK package and signature
-        if: github.event_name == 'workflow_dispatch' && inputs.apk == 'debug'
+        if: (github.event_name == 'workflow_dispatch' && inputs.apk == 'debug') || (github.event_name == 'push' && github.ref == 'refs/heads/fix/eyeblock-signed-install')
         run: |
           set -euo pipefail
           for apk in app/build/outputs/apk/eyebrowse/debug/*arm64*.apk; do
@@ -395,7 +395,7 @@ jobs:
           done
 
       - name: Upload the debug APK
-        if: github.event_name == 'workflow_dispatch' && inputs.apk == 'debug'
+        if: (github.event_name == 'workflow_dispatch' && inputs.apk == 'debug') || (github.event_name == 'push' && github.ref == 'refs/heads/fix/eyeblock-signed-install')
         uses: actions/upload-artifact@v4
         with:
           name: Eyebrowse-Debug-APK

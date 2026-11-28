@@ -53,6 +53,7 @@ class EyeblockSupportTest {
         EyeblockSupport.setEnabled(engine, true)
         assertEquals(EyeblockSupport.Status.ERROR, EyeblockSupport.status.value)
         assertEquals(false, EyeblockSupport.status.value.active)
+        assertEquals("DOWNLOADING: Engine error: IllegalStateException", EyeblockSupport.failureDetail)
         EyeblockSupport.retryIfNeeded(engine, true)
         verify(exactly = 1) { engine.installWebExtension(url, any(), any(), any()) }
 
@@ -61,6 +62,7 @@ class EyeblockSupportTest {
         stubDownload()
         EyeblockSupport.setEnabled(engine, true)
         assertEquals(EyeblockSupport.Status.ENABLED, EyeblockSupport.status.value)
+        assertEquals(null, EyeblockSupport.failureDetail)
     }
 
     @Test

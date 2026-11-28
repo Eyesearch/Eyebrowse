@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withTimeoutOrNull
 import mozilla.components.concept.engine.Engine
 import mozilla.components.concept.engine.webextension.WebExtension
+import mozilla.components.concept.engine.webextension.WebExtensionInstallException
 
 /** EyeBlock installs the official signed uBlock Origin release only after user opt-in. */
 object EyeblockSupport {
@@ -54,7 +55,22 @@ object EyeblockSupport {
     private val mutableStatus = MutableStateFlow(Status.CHECKING)
     val status = mutableStatus.asStateFlow()
 
+    // A safe, user-visible failure reason; no URLs, credentials or raw exception messages.
+    internal var failureDetail: String? = null
+        private set
+
+    internal fun describeFailure(error: Throwable): String = when (error) {
+        is WebExtensionInstallException.NotSigned -> "Extension signature rejected"
+        is WebExtensionInstallException.NetworkFailure -> "Download failed; check connection"
+        is WebExtensionInstallException.CorruptFile -> "Extension package rejected"
+        is WebExtensionInstallException.Incompatible -> "Extension incompatible with browser engine"
+        is WebExtensionInstallException.Blocklisted -> "Extension blocked by engine"
+        is WebExtensionInstallException.UserCancelled -> "Installation permission rejected"
+        else -> "Engine error: ${error.javaClass.simpleName}"
+    }
+
     private fun reportState(extension: WebExtension, target: Boolean) {
+        if (extension.isEnabled() != target) failureDetail = "Engine did not confirm requested state"
         mutableStatus.value = when {
             extension.isEnabled() != target -> Status.ERROR
             !target -> Status.DISABLED
@@ -73,6 +89,7 @@ object EyeblockSupport {
         desiredEnabled = enabled
         if (operationInProgress) return
         operationInProgress = true
+        failureDetail = null
         mutableStatus.value = Status.CHECKING
         engine.listInstalledWebExtensions(
             onSuccess = { extensions ->
@@ -149,8 +166,9 @@ object EyeblockSupport {
     private fun fail(error: Throwable) {
         installPending = false
         operationInProgress = false
+        failureDetail = "${mutableStatus.value.name}: ${describeFailure(error)}"
         mutableStatus.value = Status.ERROR
-        Log.e(TAG, "EyeBlock operation failed", error)
+        Log.e(TAG, "EyeBlock operation failed: $failureDetail", error)
     }
 
     /** Retry disabled-state reconciliation, but never repeat a failed download on foreground return. */
@@ -208,8 +226,7 @@ object EyeblockSupport {
             }
         }
         val failure: (Throwable) -> Unit = { error ->
-            operationInProgress = false
-            mutableStatus.value = Status.ERROR
+            fail(error)
             Log.e(TAG, "EyeBlock state change failed", error)
             if (desiredEnabled != target) setEnabled(engine, desiredEnabled)
         }
